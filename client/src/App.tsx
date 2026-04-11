@@ -1,3 +1,9 @@
+/*
+ * GALLANTRYAI — App Router
+ * Design: The Living Document
+ * The site is a scaffold. Each route is a level. Each lens is a door.
+ */
+
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -5,31 +11,52 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-
+import ChildLens from "./pages/lenses/ChildLens";
+import GuardianTeacherLens from "./pages/lenses/GuardianTeacherLens";
+import PromptEngineerLens from "./pages/lenses/PromptEngineerLens";
+import LinguistLens from "./pages/lenses/LinguistLens";
+import MathematicianLens from "./pages/lenses/MathematicianLens";
+import CognitiveScienceLens from "./pages/lenses/CognitiveScienceLens";
+import PsychologyLens from "./pages/lenses/PsychologyLens";
+import ResearcherLens from "./pages/lenses/ResearcherLens";
+import Promptolinguistics from "./pages/Promptolinguistics";
+import LivingLexicon from "./pages/LivingLexicon";
+import Gallery from "./pages/Gallery";
+import Articles from "./pages/Articles";
+import SafetyPage from "./pages/SafetyPage";
+import Backstage from "./pages/Backstage";
 
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
+      <Route path="/" component={Home} />
+      {/* The 8 Audience Lenses */}
+      <Route path="/for/child" component={ChildLens} />
+      <Route path="/for/guardian-teacher" component={GuardianTeacherLens} />
+      <Route path="/for/prompt-engineer" component={PromptEngineerLens} />
+      <Route path="/for/linguist" component={LinguistLens} />
+      <Route path="/for/mathematician" component={MathematicianLens} />
+      <Route path="/for/cognitive-science" component={CognitiveScienceLens} />
+      <Route path="/for/psychology" component={PsychologyLens} />
+      <Route path="/for/researcher" component={ResearcherLens} />
+      {/* Feature Sections */}
+      <Route path="/promptolinguistics" component={Promptolinguistics} />
+      <Route path="/lexicon" component={LivingLexicon} />
+      <Route path="/gallery" component={Gallery} />
+      <Route path="/articles" component={Articles} />
+      <Route path="/if-you-need-to-stop" component={SafetyPage} />
+      {/* Builder Backstage */}
+      <Route path="/backstage" component={Backstage} />
+      <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />
