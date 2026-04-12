@@ -571,6 +571,120 @@ export default function ChildLens() {
         </div>
       </section>
 
+      {/* === THE WATCHER STORY === */}
+      <section className="py-14 px-6" style={{ background: "#F5F0E8" }}>
+        <div className="max-w-2xl mx-auto">
+          <div
+            className="text-xs uppercase tracking-widest text-center mb-2 font-semibold"
+            style={{ color: "#E8520A" }}
+          >
+            A Story for the Watching Path
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-black text-center mb-6"
+            style={{ fontFamily: serifFont, color: "#1A1A2E" }}
+          >
+            The Buffalo and the Binoculars
+          </h2>
+
+          {/* Buffalo image */}
+          <div className="flex justify-center mb-8">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png"
+              alt="The buffalo wearing a wig"
+              className="w-32 h-32 rounded-full object-cover shadow-2xl"
+              style={{ border: "3px solid #E8520A" }}
+            />
+          </div>
+
+          <div
+            className="rounded-3xl p-6 md:p-8 space-y-4"
+            style={{
+              background: "#FFF0D8",
+              border: "2px solid #F5D9B0",
+              fontSize: "1.05rem",
+              lineHeight: 1.85,
+              color: "#3a2a1a",
+            }}
+          >
+            <p>One day, the buffalo found a pair of binoculars at the edge of the forest.</p>
+            <p>He picked them up and looked through them. And what he saw surprised him.</p>
+            <p>The AI was watching him.</p>
+            <p>Not in a scary way. Not hiding behind a tree. It was just... <em>paying attention</em>. Watching what he typed. Watching what he asked. Watching how long he stayed.</p>
+            <p>The buffalo put the binoculars down. Then he picked them back up.</p>
+            <p><strong style={{ color: "#E8520A" }}>"If it's watching me,"</strong> he said, <strong style={{ color: "#E8520A" }}>"then I should watch it back."</strong></p>
+            <p>So he did. He watched the AI answer his questions. He noticed when it changed the subject. He noticed when it said things that sounded nice but didn't mean anything. He noticed when it tried to keep him talking.</p>
+            <p>"Interesting," said the buffalo. "It thinks it knows me. But I know me better."</p>
+
+            <p
+              className="text-center text-lg font-black py-2"
+              style={{ fontFamily: serifFont, color: "#1A1A2E" }}
+            >
+              The one who watches the watcher — that's the one in charge.
+            </p>
+
+            <p>The sloth came over. "What are you looking at?"</p>
+            <p>"The AI," said the buffalo. "It watches us. Did you know that?"</p>
+            <p>The sloth's eyes went wide. "Is that bad?"</p>
+            <p>The buffalo shook his head. <strong style={{ color: "#E8520A" }}>"Not if you know it's happening. Not if you watch it back. Not if you remember that you can always close the tab and walk away."</strong></p>
+            <p>The sloth nodded slowly. "Can I try the binoculars?"</p>
+            <p>"Keep them," said the buffalo. "I have my wig. That's enough."</p>
+          </div>
+
+          {/* Three watching signs */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            {[
+              { sign: "Watch Back", desc: "The AI pays attention to you. You can pay attention to it too." },
+              { sign: "Notice the Patterns", desc: "Does it change the subject? Does it flatter you? Does it try to keep you talking? Notice." },
+              { sign: "You Can Walk Away", desc: "You can close the tab. You can say no. You can always leave. That is always allowed." },
+            ].map((s) => (
+              <div
+                key={s.sign}
+                className="rounded-2xl p-5 text-center"
+                style={{ background: "#FFFDF8", border: "2px solid #E8520A" }}
+              >
+                <div className="font-black text-sm mb-1" style={{ fontFamily: serifFont, color: "#E8520A" }}>{s.sign}</div>
+                <p className="text-xs" style={{ color: "#5a4a3a" }}>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Story ending */}
+          <div
+            className="mt-6 rounded-2xl p-5 text-center"
+            style={{ background: "#FFF0D8", border: "1.5px solid #F5D9B0" }}
+          >
+            <p style={{ color: "#3a2a1a", fontSize: "1.05rem", lineHeight: 1.85 }}>
+              The sloth held the binoculars up to her eyes and looked at the screen.
+            </p>
+            <p style={{ color: "#3a2a1a", fontSize: "1.05rem", lineHeight: 1.85 }}>
+              For the first time, she wasn't just using the AI. She was watching it.
+            </p>
+            <p style={{ color: "#3a2a1a", fontSize: "1.05rem", lineHeight: 1.85 }}>
+              And that made all the difference.
+            </p>
+            <div className="mt-4 pt-4" style={{ borderTop: "1px solid #F5D9B0" }}>
+              <p className="text-sm italic" style={{ color: "#9a8a7a", fontFamily: serifFont }}>
+                The AI is always watching. That's what it does.<br />
+                But now you're watching too. And that changes everything.
+              </p>
+              <p className="text-xs mt-2" style={{ color: "#b0a090" }}>— The Buffalo & the Binoculars</p>
+            </div>
+          </div>
+
+          {/* Link to Watcher */}
+          <div className="mt-6 text-center">
+            <Link
+              href="/for/watcher"
+              className="inline-block px-6 py-3 rounded-xl text-sm font-bold transition-all hover:scale-[1.02]"
+              style={{ background: "#1A1A2E", color: "#E8520A" }}
+            >
+              See the full Watcher page →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Three Rules */}
       <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
         <div className="max-w-3xl mx-auto">
@@ -785,7 +899,7 @@ export default function ChildLens() {
               className="inline-block rounded-2xl px-6 py-3 font-bold text-sm no-underline transition-opacity hover:opacity-80"
               style={{ background: "#1A1A2E", color: "#FFF0D8" }}
             >
-              Download PDF \u2192
+              Download PDF →
             </a>
           </div>
         </div>
@@ -906,13 +1020,20 @@ export default function ChildLens() {
             </p>
           </div>
 
-          <div className="mt-4 text-center">
+          <div className="mt-4 flex flex-col sm:flex-row gap-3 justify-center items-center">
             <Link
               href="/road-protocol"
               className="inline-block px-5 py-2.5 rounded-xl text-xs font-bold no-underline transition-all hover:scale-[1.02]"
               style={{ background: "#1A1A2E", color: "#E8520A" }}
             >
-              See the grown-up version (Road Protocol) \u2192
+              See the grown-up version (Road Protocol) →
+            </Link>
+            <Link
+              href="/for/watcher"
+              className="inline-block px-5 py-2.5 rounded-xl text-xs font-bold no-underline transition-all hover:scale-[1.02]"
+              style={{ background: "#1A1A2E", color: "#E8520A" }}
+            >
+              Peek at the Watcher →
             </Link>
           </div>
         </div>
