@@ -1,8 +1,6 @@
 /*
- * GALLANTRYAI Navigation — Updated with all new pages
- * Design: The Living Document — editorial register
- * Orange top bar. Clean sans. The watcher is always present.
- * Now includes: Builder, Frameworks, Citizen Researcher, Road Protocol, Five Rules
+ * GALLANTRYAI Navigation — Categorized menu
+ * Foundation | Tools | Research | For You | Explore | Lenses
  */
 
 import { useState, useRef, useEffect } from "react";
@@ -22,24 +20,33 @@ const lenses = [
   { label: "The Watcher", path: "/for/watcher", color: "text-gray-400" },
 ];
 
-const learnLinks = [
+const foundationLinks = [
   { label: "Gallantry AI", path: "/gallantry-ai" },
+  { label: "The Five Rules", path: "/rules" },
+  { label: "Road Protocol", path: "/road-protocol" },
+  { label: "The Scaffold", path: "/scaffold" },
   { label: "User-Side Governance", path: "/user-governance" },
   { label: "Dual Strategy", path: "/dual-strategy" },
-  { label: "The Five Rules", path: "/rules" },
-  { label: "ALCM", path: "/alcm" },
+];
+
+const toolsLinks = [
+  { label: "Flower Presets", path: "/flower-presets" },
+  { label: "Prompt Games", path: "/prompt-games" },
+  { label: "Promptology Playground", path: "/playground" },
+  { label: "Framework Families", path: "/frameworks" },
   { label: "Whelm Scale", path: "/whelm-scale" },
   { label: "Variable Scale Theory", path: "/variable-scale" },
-  { label: "Promptolinguistics", path: "/promptolinguistics" },
-  { label: "Framework Families", path: "/frameworks" },
-  { label: "Living Lexicon", path: "/lexicon" },
-  { label: "Road Protocol", path: "/road-protocol" },
-  { label: "Flower Presets", path: "/flower-presets" },
-  { label: "AI Family Taxonomy", path: "/taxonomy" },
-  { label: "Prompt Games", path: "/prompt-games" },
   { label: "Malbolge Geofence", path: "/malbolge" },
-  { label: "Promptology Playground", path: "/playground" },
-  { label: "The Scaffold", path: "/scaffold" },
+];
+
+const researchLinks = [
+  { label: "Promptolinguistics", path: "/promptolinguistics" },
+  { label: "ALCM", path: "/alcm" },
+  { label: "Living Lexicon", path: "/lexicon" },
+  { label: "AI Family Taxonomy", path: "/taxonomy" },
+];
+
+const forYouLinks = [
   { label: "School Board", path: "/school-board" },
   { label: "Kids Learn", path: "/kids-learn" },
 ];
@@ -49,38 +56,42 @@ const exploreLinks = [
   { label: "Articles", path: "/articles" },
   { label: "The Human Line", path: "/human-line" },
   { label: "Field Papers", path: "/field-papers" },
+  { label: "The Watcher", path: "/for/watcher" },
   { label: "Citizen Researcher", path: "/citizen-researcher" },
   { label: "The Builder", path: "/builder" },
   { label: "Builder Origin", path: "/builder-origin" },
 ];
 
+type NavSection = "lenses" | "foundation" | "tools" | "research" | "forYou" | "explore" | null;
+
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const [lensOpen, setLensOpen] = useState(false);
-  const [learnOpen, setLearnOpen] = useState(false);
-  const [exploreOpen, setExploreOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<NavSection>(null);
   const [location] = useLocation();
+  const navRef = useRef<HTMLDivElement>(null);
 
-  const lensRef = useRef<HTMLDivElement>(null);
-  const learnRef = useRef<HTMLDivElement>(null);
-  const exploreRef = useRef<HTMLDivElement>(null);
-
-  // Close dropdowns on outside click
   useEffect(() => {
     function handleClick(e: MouseEvent) {
-      if (lensRef.current && !lensRef.current.contains(e.target as Node)) setLensOpen(false);
-      if (learnRef.current && !learnRef.current.contains(e.target as Node)) setLearnOpen(false);
-      if (exploreRef.current && !exploreRef.current.contains(e.target as Node)) setExploreOpen(false);
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setActiveDropdown(null);
+      }
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  function DropdownButton({ label, isOpen, onClick }: { label: string; isOpen: boolean; onClick: () => void }) {
+  function toggleDropdown(section: NavSection) {
+    setActiveDropdown(activeDropdown === section ? null : section);
+  }
+
+  function DropdownButton({ label, section }: { label: string; section: NavSection }) {
     return (
-      <button onClick={onClick} className="flex items-center gap-1 hover:text-[#E8520A] transition-colors">
+      <button
+        onClick={() => toggleDropdown(section)}
+        className={`flex items-center gap-1 transition-colors ${activeDropdown === section ? "text-[#E8520A]" : "hover:text-[#E8520A]"}`}
+      >
         {label}
-        <span className="text-[10px]">{isOpen ? "▲" : "▼"}</span>
+        <span className="text-[10px]">{activeDropdown === section ? "▲" : "▼"}</span>
       </button>
     );
   }
@@ -102,13 +113,16 @@ export default function Nav() {
     );
   }
 
+  function closeAll() {
+    setActiveDropdown(null);
+    setOpen(false);
+  }
+
   return (
     <header className="w-full sticky top-0 z-50 bg-[#FAF6EF] border-b border-[#e8e0d0]">
-      {/* Orange top bar */}
       <div className="brand-top-bar" />
 
       <div className="container flex items-center justify-between py-3">
-        {/* Logo */}
         <Link href="/" className="flex items-center gap-2 no-underline">
           <div className="mg-avatar text-xs">G</div>
           <div>
@@ -122,35 +136,33 @@ export default function Nav() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-[#2D2D2D]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          {/* Enter Through Your Lens */}
-          <div className="relative" ref={lensRef}>
-            <DropdownButton label="Enter Your Lens" isOpen={lensOpen} onClick={() => { setLensOpen(!lensOpen); setLearnOpen(false); setExploreOpen(false); }} />
-            {lensOpen && <DropdownMenu items={lenses} onClose={() => setLensOpen(false)} />}
+        <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-[#2D2D2D]" ref={navRef} style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <div className="relative">
+            <DropdownButton label="Enter Your Lens" section="lenses" />
+            {activeDropdown === "lenses" && <DropdownMenu items={lenses} onClose={closeAll} />}
           </div>
-
-          {/* Learn dropdown */}
-          <div className="relative" ref={learnRef}>
-            <DropdownButton label="Learn" isOpen={learnOpen} onClick={() => { setLearnOpen(!learnOpen); setLensOpen(false); setExploreOpen(false); }} />
-            {learnOpen && <DropdownMenu items={learnLinks} onClose={() => setLearnOpen(false)} />}
+          <div className="relative">
+            <DropdownButton label="Foundation" section="foundation" />
+            {activeDropdown === "foundation" && <DropdownMenu items={foundationLinks} onClose={closeAll} />}
           </div>
-
-          {/* Explore dropdown */}
-          <div className="relative" ref={exploreRef}>
-            <DropdownButton label="Explore" isOpen={exploreOpen} onClick={() => { setExploreOpen(!exploreOpen); setLensOpen(false); setLearnOpen(false); }} />
-            {exploreOpen && <DropdownMenu items={exploreLinks} onClose={() => setExploreOpen(false)} />}
+          <div className="relative">
+            <DropdownButton label="Tools" section="tools" />
+            {activeDropdown === "tools" && <DropdownMenu items={toolsLinks} onClose={closeAll} />}
           </div>
-
-          <Link href="/human-line" className="text-[#E8520A] hover:text-orange-700 transition-colors no-underline text-xs font-semibold">
-            The Human Line
-          </Link>
+          <div className="relative">
+            <DropdownButton label="Research" section="research" />
+            {activeDropdown === "research" && <DropdownMenu items={researchLinks} onClose={closeAll} />}
+          </div>
+          <div className="relative">
+            <DropdownButton label="Explore" section="explore" />
+            {activeDropdown === "explore" && <DropdownMenu items={exploreLinks} onClose={closeAll} />}
+          </div>
 
           <Link href="/if-you-need-to-stop" className="text-rose-600 hover:text-rose-700 transition-colors no-underline text-xs font-semibold uppercase tracking-wide">
-            If You Need to Stop
+            Safety
           </Link>
         </nav>
 
-        {/* Mobile menu button */}
         <button
           className="lg:hidden p-2 text-[#2D2D2D]"
           onClick={() => setOpen(!open)}
@@ -162,37 +174,62 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 space-y-3 rounded-b-2xl max-h-[80vh] overflow-y-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+        <div className="lg:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 space-y-1 rounded-b-2xl max-h-[80vh] overflow-y-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+
           <div className="section-label mb-2">Enter Your Lens</div>
           {lenses.map((lens) => (
-            <Link key={lens.path} href={lens.path} onClick={() => setOpen(false)} className={`block text-sm font-medium no-underline ${lens.color}`}>
+            <Link key={lens.path} href={lens.path} onClick={closeAll} className={`block text-sm font-medium no-underline py-1 ${lens.color}`}>
               {lens.label}
             </Link>
           ))}
 
-          <div className="border-t border-[#e8e0d0] pt-3">
-            <div className="section-label mb-2">Learn</div>
-            {learnLinks.map((item) => (
-              <Link key={item.path} href={item.path} onClick={() => setOpen(false)} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
+          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
+            <div className="section-label mb-2">Foundation</div>
+            {foundationLinks.map((item) => (
+              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
                 {item.label}
               </Link>
             ))}
           </div>
 
-          <div className="border-t border-[#e8e0d0] pt-3">
+          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
+            <div className="section-label mb-2">Tools</div>
+            {toolsLinks.map((item) => (
+              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
+            <div className="section-label mb-2">Research</div>
+            {researchLinks.map((item) => (
+              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
+            <div className="section-label mb-2">For You</div>
+            {forYouLinks.map((item) => (
+              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
             <div className="section-label mb-2">Explore</div>
             {exploreLinks.map((item) => (
-              <Link key={item.path} href={item.path} onClick={() => setOpen(false)} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
+              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
                 {item.label}
               </Link>
             ))}
           </div>
 
-          <div className="border-t border-[#e8e0d0] pt-3">
-            <Link href="/human-line" onClick={() => setOpen(false)} className="block text-sm font-semibold text-[#E8520A] no-underline py-1">
-              The Human Line
-            </Link>
-            <Link href="/if-you-need-to-stop" onClick={() => setOpen(false)} className="block text-sm font-semibold text-rose-600 no-underline py-1">
+          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
+            <Link href="/if-you-need-to-stop" onClick={closeAll} className="block text-sm font-semibold text-rose-600 no-underline py-1">
               If You Need to Stop
             </Link>
           </div>
