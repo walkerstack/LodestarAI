@@ -4,11 +4,11 @@
  * The site is a scaffold. Each route is a level. Each lens is a door.
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -51,6 +51,14 @@ import WatcherLens from "./pages/lenses/WatcherLens";
 import SchoolBoard from "./pages/SchoolBoard";
 import Scaffold from "./pages/Scaffold";
 import KidsLearn from "./pages/KidsLearn";
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  return null;
+}
 
 function Router() {
   return (
@@ -125,6 +133,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           {showIntro && <IntroCrawl onComplete={handleIntroComplete} />}
+          <ScrollToTop />
           <Router />
         </TooltipProvider>
       </ThemeProvider>
