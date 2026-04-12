@@ -26,6 +26,7 @@ const learnLinks = [
   { label: "Living Lexicon", path: "/lexicon" },
   { label: "The Five Rules", path: "/rules" },
   { label: "Road Protocol", path: "/road-protocol" },
+  { label: "Flower Presets", path: "/flower-presets" },
 ];
 
 const exploreLinks = [

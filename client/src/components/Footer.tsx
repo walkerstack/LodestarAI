@@ -42,6 +42,7 @@ export default function Footer() {
               <Link href="/lexicon" className="block hover:text-[#E8520A] no-underline transition-colors">Living Lexicon</Link>
               <Link href="/rules" className="block hover:text-[#E8520A] no-underline transition-colors">The Five Rules</Link>
               <Link href="/road-protocol" className="block hover:text-[#E8520A] no-underline transition-colors">Road Protocol</Link>
+              <Link href="/flower-presets" className="block hover:text-[#E8520A] no-underline transition-colors">Flower Presets</Link>
             </div>
 
             {/* Explore */}

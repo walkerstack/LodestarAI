@@ -34,6 +34,7 @@ import Frameworks from "./pages/Frameworks";
 import CitizenResearcher from "./pages/CitizenResearcher";
 import RoadProtocol from "./pages/RoadProtocol";
 import FiveRules from "./pages/FiveRules";
+import FlowerPresets from "./pages/FlowerPresets";
 
 function Router() {
   return (
@@ -64,6 +65,7 @@ function Router() {
       <Route path="/citizen-researcher" component={CitizenResearcher} />
       <Route path="/road-protocol" component={RoadProtocol} />
       <Route path="/rules" component={FiveRules} />
+      <Route path="/flower-presets" component={FlowerPresets} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

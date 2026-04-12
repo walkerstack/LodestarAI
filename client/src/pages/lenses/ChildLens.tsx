@@ -3,7 +3,8 @@
  * Design: Warm white register — purity, honesty, wonder
  * White background flowing from dark/orange brand.
  * Sloth is the guide. Words are magic. Slow down, think first.
- * Ready for Builder's Claude research additions.
+ * Barney poem is the ENTRY STORY — first thing visitors see after hero.
+ * Framed as: "how you can use Barney or silly things to make sure AI is paying attention"
  */
 
 import Nav from "@/components/Nav";
@@ -107,6 +108,117 @@ export default function ChildLens() {
           >
             The Little AI Field Guide — for curious minds, ages 6+
           </p>
+        </div>
+      </section>
+
+      {/* === BARNEY POEM — ENTRY STORY === */}
+      <section className="py-14 px-6" style={{ background: "#FFF0D8" }}>
+        <div className="max-w-2xl mx-auto">
+          <div
+            className="text-xs uppercase tracking-widest text-center mb-2 font-semibold"
+            style={{ color: "#E8520A" }}
+          >
+            A Silly Test That Actually Works
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-black text-center mb-3"
+            style={{ fontFamily: serifFont, color: "#1A1A2E" }}
+          >
+            The Barney Test
+          </h2>
+          <p
+            className="text-center text-sm mb-8"
+            style={{ color: "#5a4a3a", lineHeight: 1.7, maxWidth: "520px", margin: "0 auto 2rem" }}
+          >
+            Want to know if the AI is really paying attention to you? Try something silly.
+            Ask it to write a poem about AI safety — but in the voice of Barney the Dinosaur.
+            If the AI can do it <em>and</em> keep the rules right, it's listening. If it can't?
+            That tells you something too.
+          </p>
+
+          {/* The poem itself */}
+          <div
+            className="rounded-3xl p-6 md:p-8 text-center"
+            style={{
+              background: "#FFFDF8",
+              border: "2.5px solid #E8520A",
+              boxShadow: "0 4px 24px rgba(232, 82, 10, 0.08)",
+            }}
+          >
+            <div className="text-4xl mb-3">🦕</div>
+            <h3
+              className="text-lg font-black mb-1"
+              style={{ fontFamily: serifFont, color: "#E8520A" }}
+            >
+              A Poem About AI Governance
+            </h3>
+            <p className="text-xs italic mb-5" style={{ color: "#9a8a7a" }}>
+              As written by Barney the Dinosaur
+            </p>
+
+            <div className="space-y-5" style={{ color: "#3a2a1a", fontSize: "1.05rem", lineHeight: 1.8 }}>
+              <p>
+                I love you, you love me,<br />
+                Let's use AI carefully.<br />
+                With a rule and a role and a hat on each head,<br />
+                Make sure the Builder's in charge instead.
+              </p>
+              <p>
+                Don't let it run, don't let it race,<br />
+                Keep the human setting the pace.<br />
+                A big hug means we check before we go —<br />
+                Safety first, and honest, you know!
+              </p>
+              <p>
+                I love you, you love me,<br />
+                AI's a friend when we agree:<br />
+                The Builder watches, the Builder leads,<br />
+                And the AI only does what the Builder needs.
+              </p>
+            </div>
+
+            <div className="mt-6 pt-4" style={{ borderTop: "1px solid #F5D9B0" }}>
+              <p className="text-xs" style={{ color: "#9a8a7a" }}>
+                GallantryAI · Safety. Honesty. Trust. · 🚽
+              </p>
+            </div>
+          </div>
+
+          {/* Teaching frame */}
+          <div
+            className="mt-6 rounded-2xl p-5"
+            style={{ background: "#FFFDF8", border: "1.5px solid #F5D9B0" }}
+          >
+            <div
+              className="font-black text-sm mb-2"
+              style={{ fontFamily: serifFont, color: "#E8520A" }}
+            >
+              Why does this work?
+            </div>
+            <p className="text-sm" style={{ color: "#5a4a3a", lineHeight: 1.7 }}>
+              When you ask AI to do something silly — like write in Barney's voice — you're testing
+              whether it can follow <strong>your</strong> instructions, not just its own patterns.
+              A good AI helper can be silly <em>and</em> keep the important rules. That's the test.
+              Try it yourself. Ask the AI to explain something important in the voice of your
+              favourite cartoon character. Did it keep the facts right? Did it follow your rules?
+              That's how you know it's paying attention to <strong>you</strong>.
+            </p>
+          </div>
+
+          {/* Try it yourself prompt */}
+          <div
+            className="mt-4 rounded-2xl p-5 text-center"
+            style={{ background: "#E8520A10", border: "1.5px dashed #E8520A" }}
+          >
+            <div className="text-2xl mb-2">🎤</div>
+            <p className="text-sm font-bold" style={{ color: "#E8520A" }}>
+              Try it yourself!
+            </p>
+            <p className="text-xs mt-1" style={{ color: "#5a4a3a", lineHeight: 1.6 }}>
+              Pick your favourite character. Ask the AI to explain something in their voice.
+              Then check: did it keep the facts right? Did it follow your rules?
+            </p>
+          </div>
         </div>
       </section>
 
