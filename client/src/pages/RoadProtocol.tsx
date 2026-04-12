@@ -259,11 +259,14 @@ export default function RoadProtocol() {
               boxShadow: "0 8px 40px rgba(0,0,0,0.5)",
             }}
           >
-            {/* Story illustration */}
-            <LightboxImage
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/buffalo-story-forest-HJHBf38foWeu5tCaqBHBLX.webp"
-              alt="The Buffalo walks the Wisdom Path through the Forest of Data — signs read Ask First, Stay Honest, Stay in Charge"
-              className="w-full"
+            {/* Story illustration — video */}
+            <video
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/AQM8wS_XwUNuRM9ZP3pJ7IEbnpU4JUC0eE4ZX7__CK9ApLo29meEEiarsCAv9ZTBeKWms3KUhlaiAjUGZl09sWZw7kXTOHftGMj5d2hFyuNI9cHtiKqOOzBbINa0imBF_9d420233.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-2xl"
             />
 
             <div className="px-6 md:px-10 py-8 md:py-10">

@@ -314,9 +314,12 @@ export default function ChildLens() {
 
           {/* Story illustration */}
           <div className="rounded-3xl overflow-hidden shadow-2xl mb-8" style={{ border: "3px solid #F5D9B0" }}>
-            <LightboxImage
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/buffalo-story-forest-HJHBf38foWeu5tCaqBHBLX.webp"
-              alt="The Buffalo walks the Wisdom Path through the Forest of Data"
+            <video
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/AQM8wS_XwUNuRM9ZP3pJ7IEbnpU4JUC0eE4ZX7__CK9ApLo29meEEiarsCAv9ZTBeKWms3KUhlaiAjUGZl09sWZw7kXTOHftGMj5d2hFyuNI9cHtiKqOOzBbINa0imBF_9d420233.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full"
             />
           </div>
