@@ -119,7 +119,7 @@ export default function HumanLine() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm no-underline transition-colors"
                 style={{ background: '#1a1610', color: '#c8b89a', border: '1px solid #2a2018', fontFamily: "'DM Sans', sans-serif" }}
               >
-                Go Home
+                Guide me
               </Link>
             </div>
           </div>

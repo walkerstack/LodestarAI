@@ -29,7 +29,7 @@ const levels = [
     what: "The Road Protocol is an operational layer. Before AI enters a classroom, someone sets the rules — what it can do, what it can't, and who decides. Think of it as adjusting the mirrors before you drive. Your administrators can use this to create session-level governance that teachers can follow and students can understand.",
     links: [
       { label: "Road Protocol", path: "/road-protocol" },
-      { label: "The Five Rules", path: "/five-rules" },
+      { label: "The Five Rules", path: "/rules" },
       { label: "Variable Scale", path: "/variable-scale" },
     ],
   },

@@ -173,7 +173,7 @@ export default function SafetyPage() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm no-underline transition-colors"
                 style={{ background: '#1a1a2e', color: '#c8c0b0', border: '1px solid #2a2a3e', fontFamily: "'DM Sans', sans-serif" }}
               >
-                Go Home
+                Guide me
               </a>
             </div>
           </div>

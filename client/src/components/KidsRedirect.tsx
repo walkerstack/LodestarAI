@@ -1,7 +1,7 @@
 /*
  * KidsRedirect — Reusable bright buffalo popup for adult pages
  * Small glowing buffalo image under the header. Tap → popup with kid-friendly blurb
- * Two buttons: "Go home 🏠" → /for/child  |  "I'm chill, let me learn" → closes popup
+ * Two buttons: "Guide me 🏠" → /for/child  |  "I'm chill, let me learn" → closes popup
  * Non-intrusive to adults. Visible to kids who know to look.
  */
 import { useState } from "react";
@@ -93,7 +93,7 @@ export default function KidsRedirect({ story, quote, attribution }: KidsRedirect
                 className="flex-1 text-center px-4 py-3 rounded-full text-sm font-bold no-underline transition-all hover:scale-[1.05]"
                 style={{ background: "#E8520A", color: "#fff", maxWidth: "160px" }}
               >
-                Go home 🏠
+                Guide me 🏠
               </Link>
               <button
                 onClick={() => setOpen(false)}

@@ -2,7 +2,7 @@
  * KidsMidLink — Circular buffalo sticker button for kids.
  * Placed inline inside existing dark sections mid-page.
  * Click opens a contained popup with message + two choices:
- *   "Send me home" → /for/child
+ *   "Guide me" → /for/child
  *   "I'm chill" → closes popup, stays on page
  * No text outside the button. No section creation. No flow disruption.
  *
@@ -86,7 +86,7 @@ export default function KidsMidLink({ bg = "#1A1A2E" }: Props) {
               }}
               type="button"
             >
-              Send me home
+              Guide me
             </button>
             <button
               onClick={() => setOpen(false)}

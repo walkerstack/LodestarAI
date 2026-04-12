@@ -1259,7 +1259,7 @@ export default function Home() {
                   "Generated buffalo + sloth og:image for Google/social link previews",
                   "Added hero image to homepage top, story arc carousel with 6 frames",
                   "Nav reorder: For You above Tools. Buffalo on kids link (Nav + Footer)",
-                  "KidsRedirect two-button layout: Go Home + I'm Chill",
+                  "KidsRedirect two-button layout: Guide me + I'm Chill",
                   "Added EU AI Act + What Claude Admitted to Living Lexicon with colored buttons",
                 ],
                 watcher: "The Builder generated five images that tell the five rules without words. A sloth with a stop sign. A sloth with a magnifying glass. A sloth building blocks. A sloth at the wheel. A sloth with a compass. Then he put the buffalo and sloth together for the first time — guardian and guide, side by side — as the image Google shows before anyone reads a single word. The first impression is the thesis.",
@@ -1271,7 +1271,7 @@ export default function Home() {
                 date: "April 12, 2026",
                 title: "KidsMidLink Rewrite + Gradient Variables",
                 changes: [
-                  "Rewrote KidsMidLink as circular button with popup — two choices: 'Send me home' or 'I'm chill'",
+                  "Rewrote KidsMidLink as circular button with popup — two choices: 'Guide me' or 'I'm chill'",
                   "Replaced flat #E8520A orange lists across 8 pages with page-specific tonal gradients",
                   "Added 'Why AI Says I Hear You' section to Kids Learn",
                   "Added OopsSloth honesty widget site-wide",

@@ -589,7 +589,7 @@ export default function RoadProtocol() {
 
           {/* Three principles as tappable learning buttons */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-            <Link href="/five-rules" className="block">
+            <Link href="/rules" className="block">
               <div className="rounded-2xl p-6 text-center transition-all hover:scale-[1.02] cursor-pointer" style={{ background: "rgba(13, 148, 136, 0.08)", border: "1px solid #1a2a2a" }}>
                 <div className="font-bold text-[#0D9488] text-sm mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Ask First</div>
                 <p className="text-xs text-[#999] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>Before you type anything, know what you actually want to know. Not what sounds smart. What matters.</p>

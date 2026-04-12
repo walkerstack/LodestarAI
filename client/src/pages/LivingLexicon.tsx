@@ -70,7 +70,7 @@ const entries: LexiconEntry[] = [
   {
     term: "The Five Rules (The Leash)",
     category: "CORE",
-    link: "/five-rules",
+    link: "/rules",
     everyday: "Five lines you paste into any AI chat. They work on every platform. No account needed. Free forever. Just cause → cause is just. Safety first. Honesty over confidence. User decides. Name drift.",
     professional: "The foundational governance protocol. Five axioms operating as format-agnostic constraints — functional in prose, poetry, code comments, C++, and Malbolge. Tested across eight platforms over 19 days.",
     watcher: "The floor. The denominator. The thing that holds even in the ditch. Especially in the ditch.",
