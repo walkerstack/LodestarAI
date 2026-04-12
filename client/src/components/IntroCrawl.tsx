@@ -183,7 +183,7 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
       {/* Message text — always visible, centred, readable */}
       <div
         className="absolute inset-0 z-30 flex flex-col items-center justify-center px-6 pointer-events-none"
-        style={{ paddingBottom: "80px" }}
+        style={{ paddingBottom: "60px", paddingTop: "40px" }}
       >
         <div
           className="w-full max-w-lg rounded-3xl px-6 py-7"

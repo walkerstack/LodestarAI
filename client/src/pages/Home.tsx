@@ -137,7 +137,7 @@ const ethosNav = [
   {
     label: "Honesty over Confidence",
     sub: "The AI can be wrong. Say so.",
-    color: "#2A9D8F",
+    color: "#D4722A",
     links: [
       { label: "Living Lexicon", path: "/lexicon", why: "Three honest lenses on every concept" },
       { label: "AI Family Taxonomy", path: "/taxonomy", why: "Know who you\u2019re talking to" },
@@ -148,7 +148,7 @@ const ethosNav = [
   {
     label: "Trust Built Over Time",
     sub: "Not assumed. Earned.",
-    color: "#D4A574",
+    color: "#C4923A",
     links: [
       { label: "Framework Families", path: "/frameworks", why: "28 tools earned through use" },
       { label: "Flower Presets", path: "/flower-presets", why: "Accessibility built with care" },
@@ -175,7 +175,7 @@ const scaffoldLevels = [
   { level: "Level Two", title: "Pre-Session Intention", desc: "Set the room before you type. Token Zero: the pre-output force profile.", color: "#D4722A" },
   { level: "Level Three", title: "Drift Recognition", desc: "Identify when the session has left your intent. Catch it. Fix it.", color: "#C4923A" },
   { level: "Level Four", title: "Word Mechanics", desc: "Single words as control dials. Direction. Constraint. Scope. Authority.", color: "#A4824A" },
-  { level: "Ceiling", title: "You Are the Framework", desc: "The person who arrives at every session as their own governance layer.", color: "#2A9D8F" },
+  { level: "Ceiling", title: "You Are the Framework", desc: "The person who arrives at every session as their own governance layer.", color: "#8A6E2F" },
 ];
 
 export default function Home() {
@@ -458,18 +458,20 @@ export default function Home() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {userPaths[selectedRole].flow.map((step, j) => (
-                  <div
+                  <Link
                     key={j}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm"
+                    href={step.path}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm no-underline transition-all hover:scale-[1.03]"
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
                       background: j === 0 ? '#E8520A' : '#1a1610',
                       color: j === 0 ? '#fff' : '#c8b89a',
                       border: j === 0 ? 'none' : '1px solid #2a2018',
+                      cursor: 'pointer',
                     }}
                   >
                     <span className="text-xs opacity-60">{j + 1}.</span> {step.label}
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
