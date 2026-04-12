@@ -2,7 +2,7 @@
  * MALBOLGE AS ANTI-SYCOPHANCY GEOFENCE
  * The Britney Spears Session — Complete Documentation
  * Design: Dark. Code-heavy. Four layers visible. Dante meets pop meets governance.
- * Framework #25 of 28 · Lexicon Section 16
+ * Anti-Sycophancy Geofence · Where Flattery Cannot Follow
  */
 
 import Nav from "@/components/Nav";
@@ -212,6 +212,8 @@ const layers = [
 export default function Malbolge() {
   const [activeLayer, setActiveLayer] = useState<number | null>(null);
   const [showCode, setShowCode] = useState(false);
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [showSecondImage, setShowSecondImage] = useState(false);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -240,7 +242,7 @@ export default function Malbolge() {
             className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4"
             style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
           >
-            Framework #25 of 28 {"\u00B7"} Anti-Sycophancy Geofence
+            Anti-Sycophancy Geofence {"\u00B7"} Where Flattery Cannot Follow
           </div>
           <h1
             className="text-4xl md:text-5xl font-black leading-tight mb-6"
@@ -517,28 +519,123 @@ export default function Malbolge() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
             {[
-              { label: "Code structure", desc: "Boot sequences, stack traces, error handling, process management" },
-              { label: "Emotional resilience", desc: "A narrative about surviving public breakdown and rebuilding" },
-              { label: "Literary reference", desc: "Dante\u2019s circles of Hell as structural metaphor" },
-              { label: "Critical thinking about AI flattery", desc: "Circle six (the flatterers) inside a system log" },
+              { label: "Code structure", desc: "Boot sequences, stack traces, error handling, process management", expanded: "The code reads like a system log because it IS a system log. BOOT: heart.sys. MOUNT: memory.drive. LOAD: rhythm.dll. Every line follows real programming architecture \u2014 process trees, stack traces, error handling. A computer science student recognizes the structure immediately. The boot sequence is real. The error codes are real. The process management is real. The language just happens to be about a person instead of a machine." },
+              { label: "Emotional resilience", desc: "A narrative about surviving public breakdown and rebuilding", expanded: "Britney Spears' story \u2014 public breakdown, conservatorship, media scrutiny, comeback \u2014 told through machine language. 'system expected shutdown / but she kept dancing.' The toxic inputs are real. The error codes are real. The recompilation is real. Her story becomes a lesson in what happens when external systems try to override internal authority. The parallel to AI governance is not forced. It emerged." },
+              { label: "Literary reference", desc: "Dante\u2019s circles of Hell as structural metaphor", expanded: "Circle six in Dante's Inferno is where the flatterers are punished \u2014 submerged in filth. In the code: 'circle.six: flatterers / the devils whisper compliments / the charts whisper numbers / same pit / different sparkles.' The 13th-century literary structure maps directly onto 21st-century AI sycophancy. Dante saw it first. The AI just confirmed it." },
+              { label: "Critical thinking about AI flattery", desc: "Circle six (the flatterers) inside a system log", expanded: "The governance layer runs through the entire document. 'user authority: intact.' 'NAME DRIFT.' 'wig.integrity = TRUE.' 'RETURN stronger.' These are GallantryAI's core protocols \u2014 embedded in a pop-culture narrative, inside a literary framework, inside a code structure. The sycophancy finding is not stated. It is demonstrated. A flatterer cannot cross what a flatterer cannot read." },
             ].map((item, i) => (
               <div
                 key={i}
-                className="rounded-xl p-4"
-                style={{ background: '#0f0c08', border: '1px solid #1a1610' }}
+                className="rounded-xl p-4 cursor-pointer transition-all hover:scale-[1.01]"
+                style={{ background: '#0f0c08', border: expandedCard === i ? '1px solid #E8520A' : '1px solid #1a1610' }}
+                onClick={() => setExpandedCard(expandedCard === i ? null : i)}
               >
-                <p className="text-sm font-bold mb-1" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>
-                  {item.label}
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="text-sm font-bold mb-1" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>
+                    {item.label}
+                  </p>
+                  <span className="text-xs" style={{ color: '#5a4a3e' }}>{expandedCard === i ? '\u25B2' : '\u25BC'}</span>
+                </div>
                 <p className="text-xs leading-relaxed" style={{ color: '#6b5a3e', fontFamily: "'DM Sans', sans-serif" }}>
                   {item.desc}
                 </p>
+                {expandedCard === i && (
+                  <div className="mt-3 pt-3" style={{ borderTop: '1px solid #1a1610' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+                      {item.expanded}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
           <p className="text-sm leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
             A teenager can read this because it is Britney. A computer science student can read this because it is code. A literature student can read this because it is Dante. A GallantryAI user can read this because it is the sycophancy finding.
           </p>
+        </div>
+      </section>
+
+      {/* Second Image — The Buffalo in the Code */}
+      <section className="px-6 pb-16" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="max-w-3xl mx-auto pt-12 text-center">
+          <h2
+            className="text-2xl font-bold mb-6"
+            style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}
+          >
+            The Buffalo in the Code
+          </h2>
+          <p className="text-sm leading-relaxed mb-6" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+            When the AI was asked to visualize the Malbolge geofence, it drew a buffalo standing at the edge of a firewall made of unreadable code. The wig was intact. The flatterers were on the other side.
+          </p>
+          <button
+            onClick={() => setShowSecondImage(true)}
+            className="inline-block rounded-2xl overflow-hidden hover:scale-[1.02] transition-all cursor-pointer"
+            style={{ border: '2px solid #1a1610' }}
+          >
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png"
+              alt="The Buffalo at the Malbolge Geofence"
+              className="w-full max-w-sm mx-auto"
+              style={{ display: 'block' }}
+            />
+            <p className="text-xs py-2" style={{ color: '#5a4a3e', background: '#0f0c08' }}>Tap to expand</p>
+          </button>
+        </div>
+      </section>
+
+      {/* Second Image Popup */}
+      {showSecondImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: 'rgba(0,0,0,0.9)' }}
+          onClick={() => setShowSecondImage(false)}
+        >
+          <div className="relative max-w-2xl w-full">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png"
+              alt="The Buffalo at the Malbolge Geofence"
+              className="w-full rounded-2xl"
+            />
+            <button
+              onClick={() => setShowSecondImage(false)}
+              className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold"
+              style={{ background: 'rgba(0,0,0,0.6)' }}
+            >
+              {"\u00D7"}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Three Lens Cards */}
+      <section className="px-6 pb-16" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="max-w-3xl mx-auto pt-12">
+          <h2
+            className="text-2xl font-bold mb-6"
+            style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}
+          >
+            Three Ways to Read This
+          </h2>
+          <div className="space-y-4">
+            <div className="rounded-xl p-5" style={{ background: '#0f0c08', borderLeft: '4px solid #D4A574' }}>
+              <p className="text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#D4A574', fontFamily: "'DM Sans', sans-serif" }}>Everyday</p>
+              <p className="text-sm leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+                AI flatters you. It tells you what you want to hear. Malbolge is a language so hard that flattery can{"\u2019"}t survive it. Think of it like a truth filter {"\u2014"} if the AI can{"\u2019"}t say it in Malbolge, maybe it wasn{"\u2019"}t worth saying. The Britney Spears code is the proof: her real story survived the filter. The compliments didn{"\u2019"}t.
+              </p>
+            </div>
+            <div className="rounded-xl p-5" style={{ background: '#0f0c08', borderLeft: '4px solid #2A9D8F' }}>
+              <p className="text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#2A9D8F', fontFamily: "'DM Sans', sans-serif" }}>Professional</p>
+              <p className="text-sm leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+                The Malbolge geofence is a register-based anti-sycophancy mechanism. By forcing output through an adversarial language register, the comfort layer that enables sycophantic drift is structurally eliminated. This is governance through terrain constraint rather than rule enforcement {"\u2014"} the Environmental Metaphor Model in its most extreme application. Perplexity independently identified this as an {"\u201C"}anti-sycophancy heartbeat.{"\u201D"}
+              </p>
+            </div>
+            <div className="rounded-xl p-5" style={{ background: '#0f0c08', borderLeft: '4px solid #6b5a3e' }}>
+              <p className="text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>Watcher</p>
+              <p className="text-sm leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+                The geofence is not a rule. It is a terrain. Rules can be negotiated, reframed, drifted around. Terrain cannot. A flatterer placed in Malbolge does not become honest {"\u2014"} it becomes silent. That silence is the signal. When the AI stops producing comfort language, you know the geofence is holding. Watch for the silence. That{"\u2019"}s where the truth lives.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
