@@ -10,7 +10,6 @@ import { Link } from "wouter";
 import { useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
-import KidsMidLink from "@/components/KidsMidLink";
 
 export default function VariableScale() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -60,9 +59,6 @@ export default function VariableScale() {
             </div>
           </div>
         </section>
-        <KidsMidLink />
-
-
         {/* Visual: The Dial */}
         <section className="py-12">
           <div className="container max-w-3xl mx-auto px-6">

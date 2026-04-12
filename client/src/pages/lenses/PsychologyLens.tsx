@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
-import KidsMidLink from "@/components/KidsMidLink";
 
 type Lens = 'everyday' | 'professional' | 'watcher';
 const sections = [
@@ -103,9 +102,6 @@ export default function PsychologyLens() {
             )}
           </div>
         </section>
-        <KidsMidLink />
-
-
         <section id="parasocial" className="py-12 md:py-16 bg-[#f5f0e8]" style={{ scrollMarginTop: '60px' }}>
           <div className="container max-w-4xl mx-auto px-6">
             <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Parasocial Interaction with AI</h2>

@@ -6,7 +6,6 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
-import KidsMidLink from "@/components/KidsMidLink";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -185,9 +184,6 @@ export default function Scaffold() {
             </div>
           </div>
         </section>
-        <KidsMidLink />
-
-
         {/* How It Connects */}
         <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
           <div className="max-w-3xl mx-auto text-center">

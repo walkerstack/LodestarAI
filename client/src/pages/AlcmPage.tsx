@@ -11,7 +11,6 @@ import { Link } from "wouter";
 import { useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
-import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 const ALCM_IMG = `${CDN}/1000005693_e894b781.jpg`;
@@ -50,9 +49,6 @@ export default function AlcmPage() {
             </p>
           </div>
         </section>
-        <KidsMidLink />
-
-
         {/* What It Is */}
         <section className="py-12">
           <div className="container max-w-3xl mx-auto px-6">

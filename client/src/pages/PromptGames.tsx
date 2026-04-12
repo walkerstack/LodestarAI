@@ -14,7 +14,6 @@ import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
-import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -383,9 +382,6 @@ export default function PromptGames() {
             </div>
           </div>
         </section>
-        <KidsMidLink />
-
-
         {/* Filter */}
         <section className="container max-w-5xl mx-auto px-6 pt-10">
           <div className="flex gap-2 flex-wrap mb-8">

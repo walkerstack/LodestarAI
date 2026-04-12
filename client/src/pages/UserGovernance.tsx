@@ -10,7 +10,6 @@ import LearningFlow from "@/components/LearningFlow";
 import Nav from "@/components/Nav";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
-import KidsMidLink from "@/components/KidsMidLink";
 
 const IMG = {
   fieldGuide: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000005836_2f9cacc6.jpg",
@@ -72,9 +71,6 @@ export default function UserGovernance() {
             ))}
           </div>
         </section>
-        <KidsMidLink />
-
-
         {/* Token Zero — Field Guide */}
         <section>
           <h2 className="text-2xl font-bold text-[#1A1A2E] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>

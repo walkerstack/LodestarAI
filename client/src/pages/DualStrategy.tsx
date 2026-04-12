@@ -9,7 +9,6 @@ import LearningFlow from "@/components/LearningFlow";
 import Nav from "@/components/Nav";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
-import KidsMidLink from "@/components/KidsMidLink";
 
 const IMG = {
   humanCentered: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000005846_af0e2453.jpg",
@@ -73,9 +72,6 @@ export default function DualStrategy() {
             </div>
           </div>
         </section>
-        <KidsMidLink />
-
-
         {/* The Two Doors */}
         <section>
           <h2 className="text-2xl font-bold text-[#1A1A2E] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>

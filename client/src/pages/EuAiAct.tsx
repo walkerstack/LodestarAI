@@ -14,7 +14,6 @@ import KidsRedirect from "@/components/KidsRedirect";
 import LearningFlow from "@/components/LearningFlow";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import { flowMap } from "@/lib/learningFlowMap";
-import KidsMidLink from "@/components/KidsMidLink";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -186,9 +185,6 @@ export default function EuAiAct() {
             ))}
           </div>
         </section>
-        <KidsMidLink />
-
-
         {/* What Is It */}
         <section className="py-14 px-6" style={{ background: "#FAF6EF" }}>
           <div className="max-w-3xl mx-auto">

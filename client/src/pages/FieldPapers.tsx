@@ -6,7 +6,6 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -294,9 +293,6 @@ export default function FieldPapers() {
           ))}
         </div>
       </section>
-        <KidsMidLink />
-
-
       {/* Footer note */}
       <section className="py-10 px-6 text-center" style={{ borderTop: "1px solid #2a2018" }}>
         <div className="max-w-lg mx-auto">

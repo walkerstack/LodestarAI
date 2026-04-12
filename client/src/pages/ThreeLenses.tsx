@@ -12,7 +12,6 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
-import KidsMidLink from "@/components/KidsMidLink";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -197,9 +196,6 @@ export default function ThreeLenses() {
             </div>
           </div>
         </section>
-        <KidsMidLink />
-
-
         {/* Three Lens Cards */}
         <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
           <div className="max-w-5xl mx-auto">
