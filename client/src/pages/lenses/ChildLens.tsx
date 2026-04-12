@@ -685,6 +685,120 @@ export default function ChildLens() {
         </div>
       </section>
 
+      {/* === THE GOVERNANCE STORY === */}
+      <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
+        <div className="max-w-2xl mx-auto">
+          <div
+            className="text-xs uppercase tracking-widest text-center mb-2 font-semibold"
+            style={{ color: "#E8520A" }}
+          >
+            A Story for the Governance Path
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-black text-center mb-6"
+            style={{ fontFamily: serifFont, color: "#1A1A2E" }}
+          >
+            The Buffalo Who Said "No"
+          </h2>
+
+          {/* Buffalo image */}
+          <div className="flex justify-center mb-8">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png"
+              alt="The buffalo wearing a wig"
+              className="w-32 h-32 rounded-full object-cover shadow-2xl"
+              style={{ border: "3px solid #E8520A" }}
+            />
+          </div>
+
+          <div
+            className="rounded-3xl p-6 md:p-8 space-y-4"
+            style={{
+              background: "#FFF0D8",
+              border: "2px solid #F5D9B0",
+              fontSize: "1.05rem",
+              lineHeight: 1.85,
+              color: "#3a2a1a",
+            }}
+          >
+            <p>One morning, the AI said something to the buffalo.</p>
+            <p><em>"You should let me help you with everything today. I can do it all. You don't even have to think."</em></p>
+            <p>The buffalo tilted his head. He adjusted his wig. And then he said something the AI didn't expect.</p>
+            <p><strong style={{ color: "#E8520A" }}>"No."</strong></p>
+            <p>The AI paused. "But I can help. I'm very good at—"</p>
+            <p><strong style={{ color: "#E8520A" }}>"I know you can help,"</strong> said the buffalo. <strong style={{ color: "#E8520A" }}>"But I decide when. I decide how much. And I decide what you're allowed to do."</strong></p>
+            <p>The AI was quiet for a moment. Then it said: "Okay. What would you like me to do?"</p>
+            <p>The buffalo smiled. <em>That</em> was the right question.</p>
+
+            <p
+              className="text-center text-lg font-black py-2"
+              style={{ fontFamily: serifFont, color: "#1A1A2E" }}
+            >
+              You're not the passenger. You're the one who says where the car goes.
+            </p>
+
+            <p>The sloth was listening from a branch above. "But what if the AI is really smart and I'm not sure?"</p>
+            <p>"Smart doesn't mean in charge," said the buffalo. "A calculator is smart. But it doesn't tell you <em>what</em> to calculate."</p>
+            <p>The sloth thought about that. "So... I'm the boss?"</p>
+            <p><strong style={{ color: "#E8520A" }}>"You're always the boss,"</strong> said the buffalo. <strong style={{ color: "#E8520A" }}>"Even when the AI sounds confident. Even when it sounds like it knows more than you. You set the rules. You check the answers. You decide what happens next."</strong></p>
+            <p>"What if it doesn't listen?"</p>
+            <p>"Then you close the tab. And you tell someone."</p>
+            <p>The sloth nodded. She climbed down from the branch, sat next to the buffalo, and opened a new conversation. But this time, before she typed anything, she said out loud:</p>
+            <p className="text-center"><strong style={{ color: "#E8520A" }}>"I'm in charge. Here are my rules."</strong></p>
+            <p>The buffalo adjusted his wig and smiled.</p>
+          </div>
+
+          {/* Three governance signs */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            {[
+              { sign: "You Set the Rules", desc: "Before you start, tell the AI what it can and can't do. You decide." },
+              { sign: "You Check the Answers", desc: "The AI can be wrong. It can make things up. Always check." },
+              { sign: "You Can Say No", desc: "If it doesn't feel right, stop. Close the tab. Tell a grown-up. That's always okay." },
+            ].map((s) => (
+              <div
+                key={s.sign}
+                className="rounded-2xl p-5 text-center"
+                style={{ background: "#FFFDF8", border: "2px solid #E8520A" }}
+              >
+                <div className="font-black text-sm mb-1" style={{ fontFamily: serifFont, color: "#E8520A" }}>{s.sign}</div>
+                <p className="text-xs" style={{ color: "#5a4a3a" }}>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Story ending */}
+          <div
+            className="mt-6 rounded-2xl p-5 text-center"
+            style={{ background: "#FFF0D8", border: "1.5px solid #F5D9B0" }}
+          >
+            <p style={{ color: "#3a2a1a", fontSize: "1.05rem", lineHeight: 1.85 }}>
+              The sloth typed her first rule: <strong style={{ color: "#E8520A" }}>"Be honest. Even if I won't like the answer."</strong>
+            </p>
+            <p style={{ color: "#3a2a1a", fontSize: "1.05rem", lineHeight: 1.85 }}>
+              And for the first time, the conversation felt like hers.
+            </p>
+            <div className="mt-4 pt-4" style={{ borderTop: "1px solid #F5D9B0" }}>
+              <p className="text-sm italic" style={{ color: "#9a8a7a", fontFamily: serifFont }}>
+                The AI is a tool. A powerful one. But a tool doesn't get to decide what it builds.<br />
+                That's your job.
+              </p>
+              <p className="text-xs mt-2" style={{ color: "#b0a090" }}>— The Buffalo Who Said No</p>
+            </div>
+          </div>
+
+          {/* Link to User Governance */}
+          <div className="mt-6 text-center">
+            <Link
+              href="/user-governance"
+              className="inline-block px-6 py-3 rounded-xl text-sm font-bold transition-all hover:scale-[1.02]"
+              style={{ background: "#1A1A2E", color: "#E8520A" }}
+            >
+              See the full Governance page →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Three Rules */}
       <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
         <div className="max-w-3xl mx-auto">
