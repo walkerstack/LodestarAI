@@ -878,6 +878,20 @@ export default function ChildLens() {
           <p className="text-center text-xs mt-6 italic" style={{ color: "#9a8a7a" }}>
             Tap any image to see it bigger. The sloth tells the story.
           </p>
+          <div className="mt-8 text-center">
+            <Link
+              href="/for/child/rules"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-black text-base no-underline transition-all hover:scale-[1.03]"
+              style={{
+                background: "#E8520A",
+                color: "#fff",
+                fontFamily: "'Nunito', sans-serif",
+                boxShadow: "0 0 20px rgba(232,82,10,0.3)",
+              }}
+            >
+              Read All Five Rules with the Sloth \u2192
+            </Link>
+          </div>
         </div>
       </section>
 

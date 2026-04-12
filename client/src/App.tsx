@@ -62,6 +62,7 @@ import ResearchHub from "./pages/ResearchHub";
 import CounterArguments from "./pages/CounterArguments";
 import ScreenshotSharing from "./pages/ScreenshotSharing";
 import FieldReportReview from "./pages/FieldReportReview";
+import ChildFiveRules from "./pages/ChildFiveRules";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -78,6 +79,7 @@ function Router() {
       {/* The 9 Audience Lenses */}
       <Route path="/for/everyday" component={EverydayLens} />
       <Route path="/for/child" component={ChildLens} />
+      <Route path="/for/child/rules" component={ChildFiveRules} />
       <Route path="/for/guardian-teacher" component={GuardianTeacherLens} />
       <Route path="/for/prompt-engineer" component={PromptEngineerLens} />
       <Route path="/for/linguist" component={LinguistLens} />

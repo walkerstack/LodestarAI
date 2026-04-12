@@ -578,18 +578,55 @@ export default function Home() {
                   Parent Approved
                 </span>
               </div>
-              <Link
-                href="/for/child"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm no-underline transition-all hover:scale-105"
-                style={{
-                  background: '#E8520A',
-                  color: '#fff',
-                  fontFamily: "'Nunito', sans-serif",
-                  boxShadow: '0 0 20px rgba(232,82,10,0.4)',
-                }}
-              >
-                Enter the Children{"\u2019"}s Section {"\u2192"}
-              </Link>
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                <Link
+                  href="/for/child"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm no-underline transition-all hover:scale-105"
+                  style={{
+                    background: '#E8520A',
+                    color: '#fff',
+                    fontFamily: "'Nunito', sans-serif",
+                    boxShadow: '0 0 20px rgba(232,82,10,0.4)',
+                  }}
+                >
+                  Enter the Children{"\u2019"}s Section {"\u2192"}
+                </Link>
+                <Link
+                  href="/for/child/rules"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm no-underline transition-all hover:scale-105"
+                  style={{
+                    background: '#7C3AED',
+                    color: '#fff',
+                    fontFamily: "'Nunito', sans-serif",
+                    boxShadow: '0 0 15px rgba(124,58,237,0.3)',
+                  }}
+                >
+                  The Five Rules (Kids) {"\u2192"}
+                </Link>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-3 justify-center md:justify-start">
+                <Link
+                  href="/if-you-need-to-stop"
+                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
+                  style={{ background: '#DC2626', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
+                >
+                  If You Need to Stop
+                </Link>
+                <Link
+                  href="/human-line"
+                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
+                  style={{ background: '#D97706', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
+                >
+                  The Human Line
+                </Link>
+                <Link
+                  href="/kids-learn"
+                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
+                  style={{ background: '#059669', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
+                >
+                  Kids Learn
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -5,6 +5,9 @@
 - [x] Generate dedicated image for story arc frame 6 (Together — buffalo + sloth) and swap into carousel
 - [x] Generate new og:image for link previews (dark editorial, buffalo with wig + sloth in corners)
 - [x] Fix React border shorthand/longhand conflict in Home.tsx scaffold section (6 console errors)
-- [ ] Fix Human Line and Safety page links causing full page reload instead of client-side navigation
+- [x] Fix Human Line and Safety page links causing full page reload instead of client-side navigation (was actually /five-rules 404, not reload)
 - [x] Change all kids 'take me home' / 'send me home' / 'go home' buttons to 'Guide me'
 - [x] Fix Five Rules link under Protocols/Foundation nav — 3 pages had wrong path /five-rules instead of /rules (LivingLexicon, RoadProtocol, SchoolBoard)
+- [x] Build child-specific Five Rules page at /for/child/rules (sloth-guided, kid language, light theme)
+- [x] Wire route in App.tsx and link from Child Lens and other kids pages
+- [x] Add colored text treatment to all children's links on homepage (Safety, Human Line, Kids Learn buttons)
