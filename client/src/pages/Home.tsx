@@ -879,12 +879,19 @@ export default function Home() {
                   id={`scaffold-${i}`}
                   className="w-full text-left pl-4 py-4 pr-4 rounded-r-xl transition-all hover:scale-[1.01]"
                   style={{
-                    borderLeft: `4px solid ${s.color}`,
                     background: expandedScaffold === i ? '#1a1610' : '#0f0c08',
-                    border: expandedScaffold === i ? `2px solid ${s.color}` : undefined,
+                    borderTopWidth: expandedScaffold === i ? '2px' : '0px',
+                    borderTopStyle: 'solid',
+                    borderTopColor: expandedScaffold === i ? s.color : 'transparent',
+                    borderRightWidth: expandedScaffold === i ? '2px' : '0px',
+                    borderRightStyle: 'solid',
+                    borderRightColor: expandedScaffold === i ? s.color : 'transparent',
+                    borderBottomWidth: expandedScaffold === i ? '2px' : '0px',
+                    borderBottomStyle: 'solid',
+                    borderBottomColor: expandedScaffold === i ? s.color : 'transparent',
                     borderLeftWidth: '4px',
-                    borderLeftColor: s.color,
                     borderLeftStyle: 'solid',
+                    borderLeftColor: s.color,
                     scrollMarginTop: '80px',
                   }}
                 >

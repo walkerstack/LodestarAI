@@ -4,3 +4,4 @@
 - [x] Restart dev server after upgrade
 - [x] Generate dedicated image for story arc frame 6 (Together — buffalo + sloth) and swap into carousel
 - [x] Generate new og:image for link previews (dark editorial, buffalo with wig + sloth in corners)
+- [x] Fix React border shorthand/longhand conflict in Home.tsx scaffold section (6 console errors)
