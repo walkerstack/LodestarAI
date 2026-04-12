@@ -237,7 +237,7 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
 
           {/* Closing */}
           <div
-            className="text-center mt-4"
+            className="text-center mt-1"
             style={{
               fontFamily: baseFont,
               color: "#f0e0c8",
@@ -257,19 +257,32 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
       {/* ── Bottom buttons ── */}
       <div className="absolute bottom-0 left-0 right-0 z-40 px-5 pb-5 flex flex-col items-center gap-3">
 
-        {/* Human Connection — discreet expandable */}
-        <div className="w-full max-w-sm">
+        {/* Human Connection — discreet translucent sloth */}
+        <div className="w-full max-w-sm flex flex-col items-center">
           <button
             onClick={() => setHumanOpen(!humanOpen)}
-            className="w-full text-center text-[11px] uppercase tracking-[0.15em] py-2 rounded-xl transition-all"
-            style={{
-              color: "#a09080",
-              fontFamily: baseFont,
-              background: humanOpen ? "rgba(10,8,4,0.75)" : "transparent",
-              border: humanOpen ? "1px solid #2a2018" : "1px solid transparent",
-            }}
+            className="flex flex-col items-center gap-1 transition-all"
+            style={{ background: "transparent", border: "none" }}
           >
-            {humanOpen ? "Close" : "If you need help right now"}
+            <img
+              src={SLOTH_URL}
+              alt="Need help?"
+              style={{
+                width: "44px",
+                height: "44px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                opacity: humanOpen ? 0.9 : 0.35,
+                transition: "opacity 0.3s ease",
+                filter: "grayscale(0.2)",
+              }}
+            />
+            <span
+              className="text-[10px] uppercase tracking-[0.12em]"
+              style={{ color: humanOpen ? "#E8520A" : "#706050", fontFamily: baseFont, transition: "color 0.3s ease" }}
+            >
+              {humanOpen ? "close" : "if you need help"}
+            </span>
           </button>
 
           {/* Expanded: two gentle options */}
