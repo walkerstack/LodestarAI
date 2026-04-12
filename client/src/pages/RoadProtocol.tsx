@@ -163,6 +163,90 @@ function WigCheckQuiz() {
   );
 }
 
+function GhostProtocol() {
+  const [activated, setActivated] = useState<Record<string, boolean>>({});
+  const keys = ["brittany", "dnated", "malbolge", "governance"];
+  const labels: Record<string, string> = { brittany: "Brittany", dnated: "DNATED", malbolge: "Malbolge", governance: "Governance" };
+  const allActive = keys.every((k) => activated[k]);
+
+  const toggle = (key: string) => {
+    setActivated((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  return (
+    <div className="rounded-2xl border border-[#2a2a2a] bg-[#0a0a0a] p-6 md:p-8">
+      <h3 className="text-lg font-bold text-[#FAF6EF] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+        Ghost Protocol
+      </h3>
+      <p className="text-xs text-[#555] mb-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+        Activate all four to reveal the governance layer.
+      </p>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+        {keys.map((key) => (
+          <button
+            key={key}
+            onClick={() => toggle(key)}
+            className="px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all"
+            style={{
+              background: activated[key] ? "#E8520A" : "#1a1a1a",
+              color: activated[key] ? "#fff" : "#555",
+              border: activated[key] ? "1px solid #E8520A" : "1px solid #333",
+              fontFamily: "'DM Sans', sans-serif",
+              boxShadow: activated[key] ? "0 0 20px rgba(232,82,10,0.3)" : "none",
+            }}
+          >
+            {labels[key]}
+          </button>
+        ))}
+      </div>
+
+      {/* Progress indicator */}
+      <div className="flex gap-1 mb-4">
+        {keys.map((key) => (
+          <div
+            key={key}
+            className="h-1 flex-1 rounded-full transition-all duration-500"
+            style={{ background: activated[key] ? "#E8520A" : "#222" }}
+          />
+        ))}
+      </div>
+
+      {/* Revealed ghost code */}
+      {allActive && (
+        <div
+          className="rounded-xl bg-[#111] border border-[#E8520A]/30 p-6 font-mono text-sm leading-loose overflow-x-auto"
+          style={{ animation: "fadeUp 0.6s ease-out" }}
+        >
+          <div className="text-[#E8520A] text-xs font-bold uppercase tracking-widest mb-4">Ghost Code — Unlocked</div>
+          <div className="text-[#555]">{"// ghost_protocol.c"}</div>
+          <div className="text-[#555]">{"// This code does not execute."}</div>
+          <div className="text-[#555]">{"// It governs."}</div>
+          <div className="mt-4" />
+          <div className="text-[#E8520A]">{"// BRITTANY — The naming layer."}</div>
+          <div className="text-[#888]">{"//   What you call the AI shapes how it responds."}</div>
+          <div className="text-[#888]">{"//   A name is not a label. It is a constraint."}</div>
+          <div className="mt-3" />
+          <div className="text-[#E8520A]">{"// DNATED — Do Not Assume Trust Ever by Default."}</div>
+          <div className="text-[#888]">{"//   Trust is built. Not granted."}</div>
+          <div className="text-[#888]">{"//   Every session starts at zero."}</div>
+          <div className="mt-3" />
+          <div className="text-[#E8520A]">{"// MALBOLGE — The geofence."}</div>
+          <div className="text-[#888]">{"//   Words create boundaries the AI cannot cross."}</div>
+          <div className="text-[#888]">{"//   Not walls. Agreements."}</div>
+          <div className="mt-3" />
+          <div className="text-[#E8520A]">{"// GOVERNANCE — The human stays in charge."}</div>
+          <div className="text-[#888]">{"//   The AI reads. The computer skips."}</div>
+          <div className="text-[#888]">{"//   The human keeps."}</div>
+          <div className="mt-6" />
+          <div className="text-[#555]">{"// Four keys. One protocol."}</div>
+          <div className="text-[#555]">{"// The ghost is not hidden. It is waiting to be read."}</div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function RoadProtocol() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -185,7 +269,14 @@ export default function RoadProtocol() {
         </div>
       </section>
 
-      {/* The Ghost Code */}
+      {/* Ghost Protocol — Interactive 4-key activation */}
+      <section className="py-16 md:py-20">
+        <div className="container max-w-3xl mx-auto px-6">
+          <GhostProtocol />
+        </div>
+      </section>
+
+      {/* The Ghost Code — Static reference */}
       <section className="py-16 md:py-20">
         <div className="container max-w-3xl mx-auto px-6">
           <h2 className="text-2xl font-bold text-[#FAF6EF] mb-8" style={{ fontFamily: "'Playfair Display', serif" }}>
