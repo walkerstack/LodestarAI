@@ -889,7 +889,19 @@ export default function ChildLens() {
                 boxShadow: "0 0 20px rgba(232,82,10,0.3)",
               }}
             >
-              Read All Five Rules with the Sloth \u2192
+                Read All Five Rules with the Sloth →
+            </Link>
+            <Link
+              href="/for/child/patterns"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-black text-base no-underline transition-all hover:scale-[1.03] ml-0 md:ml-3 mt-3 md:mt-0"
+              style={{
+                background: "#7C3AED",
+                color: "#fff",
+                fontFamily: "'Nunito', sans-serif",
+                boxShadow: "0 0 20px rgba(124,58,237,0.3)",
+              }}
+            >
+              What Are Patterns? →
             </Link>
           </div>
         </div>

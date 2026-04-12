@@ -13,3 +13,4 @@
 - [x] Add colored text treatment to all children's links on homepage (Safety, Human Line, Kids Learn buttons)
 - [x] Foundation section: different font (Nunito), rounded-3xl cards
 - [x] Kids and School Board links get color treatment on homepage (purple, teal, green)
+- [x] Build kids page 'What Are Patterns?' — sloth-guided, warm white theme, wired into children's learning flow
