@@ -29,6 +29,7 @@ const learnLinks = [
   { label: "Flower Presets", path: "/flower-presets" },
   { label: "AI Family Taxonomy", path: "/taxonomy" },
   { label: "Prompt Games", path: "/prompt-games" },
+  { label: "Malbolge Geofence", path: "/malbolge" },
 ];
 
 const exploreLinks = [
