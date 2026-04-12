@@ -13,6 +13,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import IntroCrawl from "./components/IntroCrawl";
+import OopsSloth from "./components/OopsSloth";
 import ChildLens from "./pages/lenses/ChildLens";
 import GuardianTeacherLens from "./pages/lenses/GuardianTeacherLens";
 import PromptEngineerLens from "./pages/lenses/PromptEngineerLens";
@@ -142,6 +143,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
+          <OopsSloth />
           {showIntro && <IntroCrawl onComplete={handleIntroComplete} />}
           <ScrollToTop />
           <Router />
