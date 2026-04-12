@@ -7,6 +7,7 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 
 const cases = [
@@ -230,10 +231,10 @@ export default function HumanLine() {
       <section className="container py-12 border-t" style={{ borderColor: "#2a2018" }}>
         <div className="max-w-2xl flex flex-col md:flex-row gap-8 items-start">
           <div className="md:w-48 flex-shrink-0">
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/hospital-monitor-vitals_278899c6.jpg"
-              alt="Hospital monitor — the human behind the work"
-              className="rounded-xl w-full opacity-80"
+<LightboxImage
+               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/hospital-monitor-vitals_278899c6.jpg"
+               alt="Hospital monitor — the human behind the work"
+               className="rounded-xl w-full opacity-80"
             />
             <p className="text-[10px] mt-2 text-center" style={{ color: "#6b5a3e", fontFamily: "'DM Sans', sans-serif" }}>Real. Not stock.</p>
           </div>

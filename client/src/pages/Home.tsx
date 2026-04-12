@@ -9,6 +9,7 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LightboxImage } from "@/components/Lightbox";
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
 
@@ -186,6 +187,21 @@ export default function Home() {
     <div className="min-h-screen flex flex-col" style={{ background: '#080604' }}>
       <Nav />
 
+      {/* ── THE WATCHER ── */}
+      <section className="w-full py-6 px-6" style={{ borderBottom: '1px solid #1a1610' }}>
+        <div className="max-w-3xl mx-auto text-center">
+          <p
+            className="text-sm md:text-base leading-relaxed italic"
+            style={{ color: '#c8b89a', fontFamily: "'Playfair Display', serif" }}
+          >
+            {"\u201C"}The watcher is not a tool. It is not a feature. It is the part of you that notices what you are doing while you are doing it.{"\u201D"}
+          </p>
+          <p className="text-xs mt-2" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
+            {"\u2014"} GallantryAI Scaffold Paper, 2026
+          </p>
+        </div>
+      </section>
+
       {/* ── HERO ── */}
       <section className="w-full pt-16 pb-12 px-6">
         <div className="max-w-3xl mx-auto">
@@ -290,11 +306,11 @@ export default function Home() {
                   boxShadow: '0 0 30px rgba(135,206,235,0.5), 0 0 60px rgba(135,206,235,0.2)',
                 }}
               >
-                <img
-                  src={SLOTH_URL}
-                  alt="GallantryAI Sloth"
-                  className="w-full h-full object-cover"
-                />
+                <LightboxImage
+                   src={SLOTH_URL}
+                   alt="GallantryAI Sloth"
+                   className="w-full h-full object-cover"
+                 />
               </div>
             </div>
 
@@ -635,11 +651,11 @@ export default function Home() {
                   className="overflow-hidden rounded-2xl"
                   style={{ border: '1px solid #1a1610', background: '#0f0c08' }}
                 >
-                  <img
-                    src={item.img}
-                    alt={item.label}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <LightboxImage
+                     src={item.img}
+                     alt={item.label}
+                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                   />
                   <div className="p-3">
                     <span
                       className="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mr-2"

@@ -7,6 +7,7 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect } from "react";
 
@@ -35,11 +36,10 @@ function Callout({ children }: { children: React.ReactNode }) {
 function SectionImage({ src, alt, caption, side = "right" }: { src: string; alt: string; caption?: string; side?: "left" | "right" }) {
   return (
     <figure className={`my-12 md:my-16 ${side === "right" ? "md:float-right md:ml-8" : "md:float-left md:mr-8"} md:w-[45%] w-full`}>
-      <img
+      <LightboxImage
         src={src}
         alt={alt}
         className="w-full rounded-lg shadow-2xl"
-        loading="lazy"
       />
       {caption && (
         <figcaption className="mt-3 text-xs text-[#888] italic text-center" style={{ fontFamily: "'DM Sans', sans-serif" }}>
@@ -325,11 +325,10 @@ export default function Builder() {
 
         {/* Hospital monitor — small, real */}
         <div className="my-8 flex items-start gap-6">
-          <img
-            src={IMG.hospital}
-            alt="Hospital vitals monitor"
-            className="w-28 md:w-36 rounded-lg shadow-lg opacity-80"
-            loading="lazy"
+          <LightboxImage
+             src={IMG.hospital}
+             alt="Hospital vitals monitor"
+             className="w-28 md:w-36 rounded-lg shadow-lg opacity-80"
           />
           <div className="text-sm text-[#888] italic leading-relaxed" style={{ fontFamily: "'Playfair Display', serif" }}>
             v3.0 was finished from a hospital bed.<br />
@@ -353,11 +352,10 @@ export default function Builder() {
 
         {/* Final Line */}
         <div className="text-center my-20">
-          <img
-            src={IMG.family}
-            alt="GallantryAI — Family"
-            className="w-full max-w-lg mx-auto rounded-xl shadow-2xl mb-10"
-            loading="lazy"
+          <LightboxImage
+             src={IMG.family}
+             alt="GallantryAI — Family"
+             className="w-full max-w-lg mx-auto rounded-xl shadow-2xl mb-10"
           />
           <p className="text-2xl md:text-3xl text-[#FAF6EF] italic" style={{ fontFamily: "'Playfair Display', serif" }}>
             I humbly seek to learn.

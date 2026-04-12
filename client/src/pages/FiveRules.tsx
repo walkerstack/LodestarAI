@@ -7,6 +7,7 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
 
@@ -225,11 +226,11 @@ export default function FiveRules() {
                     >
                       {/* Sloth header */}
                       <div className="flex items-center gap-4 mb-5">
-                        <img
-                          src={SLOTH_URL}
-                          alt="GallantryAI Sloth"
-                          className="w-14 h-14 rounded-full object-cover flex-shrink-0"
-                          style={{ border: '2px solid #E8520A' }}
+                        <LightboxImage
+                           src={SLOTH_URL}
+                           alt="GallantryAI Sloth"
+                           className="w-14 h-14 rounded-full object-cover flex-shrink-0"
+                           style={{ border: '2px solid #E8520A' }}
                         />
                         <div>
                           <p

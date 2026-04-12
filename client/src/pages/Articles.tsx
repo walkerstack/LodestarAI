@@ -6,6 +6,7 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LightboxImage } from "@/components/Lightbox";
 
 const IMGS = {
   pieInTheSky: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008218_6cc748c7.png",
@@ -149,11 +150,11 @@ export default function Articles() {
                 {article.excerpt}
               </p>
               {article.image && (
-                <img
-                  src={article.image}
-                  alt={article.imageAlt}
-                  className="w-full rounded-2xl shadow-sm mt-2"
-                  style={{ maxHeight: "320px", objectFit: "cover", objectPosition: "top" }}
+                <LightboxImage
+                   src={article.image}
+                   alt={article.imageAlt}
+                   className="w-full rounded-2xl shadow-sm mt-2"
+                   style={{ maxHeight: "320px", objectFit: "cover", objectPosition: "top" }}
                 />
               )}
               <div className="mt-2 text-xs text-[#888] italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>

@@ -10,6 +10,7 @@
 import { useState, useCallback } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 
 const FIELD_GUIDE_URL =
@@ -441,11 +442,11 @@ export default function ChildLens() {
           <div className="text-xs uppercase tracking-widest mb-4 font-semibold text-center" style={{ color: "#E8520A" }}>
             What Can You Do With AI?
           </div>
-          <img
-            src={IMGS.whatCanYouDo}
-            alt="What can you do with AI — User, Builder, Painter, Lion Tamer. You decide. Not the AI."
-            className="w-full rounded-2xl shadow-md"
-            style={{ maxWidth: "480px", margin: "0 auto", display: "block" }}
+        <LightboxImage
+           src={IMGS.whatCanYouDo}
+           alt="What can you do with AI — User, Builder, Painter, Lion Tamer. You decide. Not the AI."
+           className="w-full rounded-2xl shadow-md"
+           style={{ maxWidth: "480px", margin: "0 auto", display: "block" }}
           />
         </div>
       </section>
@@ -456,11 +457,11 @@ export default function ChildLens() {
           <div className="text-xs uppercase tracking-widest mb-4 font-semibold text-center" style={{ color: "#E8520A" }}>
             The Sloth Trick
           </div>
-          <img
-            src={IMGS.slothTrick}
-            alt="Beating Tricky AI Patterns — The Sloth Trick: Add something new, Use a cute fix, Turn it into a joke"
-            className="w-full rounded-2xl shadow-md"
-            style={{ maxWidth: "480px", margin: "0 auto", display: "block" }}
+        <LightboxImage
+           src={IMGS.slothTrick}
+           alt="Beating Tricky AI Patterns — The Sloth Trick: Add something new, Use a cute fix, Turn it into a joke"
+           className="w-full rounded-2xl shadow-md"
+           style={{ maxWidth: "480px", margin: "0 auto", display: "block" }}
           />
           <p
             className="text-center mt-4 text-sm"
@@ -474,11 +475,11 @@ export default function ChildLens() {
       {/* Remember — You Are In Charge */}
       <section className="py-12 px-6" style={{ background: "#FFFDF8" }}>
         <div className="max-w-2xl mx-auto">
-          <img
-            src={IMGS.remember}
-            alt="Remember — AI is not a person. It cannot feel. You are in charge."
-            className="w-full rounded-2xl shadow-md"
-            style={{ maxWidth: "480px", margin: "0 auto", display: "block" }}
+        <LightboxImage
+           src={IMGS.remember}
+           alt="Remember — AI is not a person. It cannot feel. You are in charge."
+           className="w-full rounded-2xl shadow-md"
+           style={{ maxWidth: "480px", margin: "0 auto", display: "block" }}
           />
         </div>
       </section>

@@ -7,6 +7,7 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 
@@ -237,11 +238,10 @@ export default function RoadProtocol() {
               "Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo." Same word. Eight meanings. Structure creates meaning — not individual words. Know the session rules. Stay in charge.
             </p>
           </div>
-          <img
-            src={IMG.buffalo}
-            alt="The Buffalo Protocol — a buffalo with a judge's wig walks the Wisdom Path through a forest of code, asking: Is it a Story or a Question? Knowing Session Rules! Stay in Charge!"
-            className="w-full rounded-2xl shadow-2xl"
-            loading="lazy"
+          <LightboxImage
+             src={IMG.buffalo}
+             alt="The Buffalo Protocol — a buffalo with a judge's wig walks the Wisdom Path through a forest of code, asking: Is it a Story or a Question? Knowing Session Rules! Stay in Charge!"
+             className="w-full rounded-2xl shadow-2xl"
           />
           <p className="text-xs text-[#555] mt-4 text-center italic" style={{ fontFamily: "'Playfair Display', serif" }}>
             The word is the same. The structure is everything.
@@ -253,7 +253,7 @@ export default function RoadProtocol() {
       <section className="py-16 md:py-20">
         <div className="container max-w-3xl mx-auto px-6">
           <div className="flex gap-8 items-start mb-10">
-            <img src={IMG.elder} alt="The keeper" className="w-32 md:w-44 rounded-xl shadow-lg hidden md:block" loading="lazy" />
+            <LightboxImage src={IMG.elder} alt="The keeper" className="w-32 md:w-44 rounded-xl shadow-lg hidden md:block" />
             <div>
               <h2 className="text-2xl font-bold text-[#FAF6EF] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Why a Vault
@@ -273,7 +273,7 @@ export default function RoadProtocol() {
       <section className="py-16 md:py-20 bg-[#0a0a0a]">
         <div className="container max-w-3xl mx-auto px-6">
           <div className="text-center mb-10">
-            <img src={IMG.kidsColor} alt="Kids Color Framework" className="w-full max-w-sm mx-auto rounded-xl shadow-lg mb-6" loading="lazy" />
+            <LightboxImage src={IMG.kidsColor} alt="Kids Color Framework" className="w-full max-w-sm mx-auto rounded-xl shadow-lg mb-6" />
             <h2 className="text-2xl font-bold text-[#FAF6EF] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               The Wig Check
             </h2>
@@ -289,7 +289,7 @@ export default function RoadProtocol() {
       {/* The Child Prompt — Not Published */}
       <section className="py-16 md:py-20">
         <div className="container max-w-3xl mx-auto px-6 text-center">
-          <img src={IMG.childStars} alt="Child looking at stars" className="w-full max-w-md mx-auto rounded-xl shadow-2xl mb-10 opacity-80" loading="lazy" />
+          <LightboxImage src={IMG.childStars} alt="Child looking at stars" className="w-full max-w-md mx-auto rounded-xl shadow-2xl mb-10 opacity-80" />
           <p className="text-base text-[#b0a898] italic leading-relaxed max-w-lg mx-auto" style={{ fontFamily: "'Playfair Display', serif" }}>
             The working prompt that sits inside this vault is not published here. It stays with the Builder. What you see is the governance — the rules, the check, the structure. The prompt itself is a living document, still being refined.
           </p>

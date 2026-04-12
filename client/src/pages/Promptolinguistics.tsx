@@ -7,6 +7,7 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 
@@ -76,7 +77,7 @@ export default function Promptolinguistics() {
             "One word can open doors that extensive sentences cannot close."
           </p>
           <div className="rounded-xl overflow-hidden border border-[#e8e0d0] shadow-sm">
-            <img src={IMG.prompto4effects} alt="Promptolinguistics — The four foundational effects" className="w-full" loading="lazy" />
+            <LightboxImage src={IMG.prompto4effects} alt="Promptolinguistics — The four foundational effects" className="w-full" />
           </div>
           <p className="text-xs text-[#888] mt-3 text-center italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             The "CAN" Effect, The "WHY" Factor, The "AND YET" Tension, Foundational Word "SAFE". The Wall Concept & Alignment.
@@ -94,7 +95,7 @@ export default function Promptolinguistics() {
               The ALCM maps atomic words to their functional roles. Three layers: Foundational Tokens (hinges & ignition), Multi-Axis Control System (variables), and Action & Regulation Layers (force & tension). Language is not just content — it is a structural shaping force.
             </p>
             <div className="rounded-xl overflow-hidden border border-[#e8e0d0] shadow-lg mb-8">
-              <img src={IMG.alcmFull} alt="ALCM: Cognitive Physics & Reasoning — Full Model" className="w-full" loading="lazy" />
+              <LightboxImage src={IMG.alcmFull} alt="ALCM: Cognitive Physics & Reasoning — Full Model" className="w-full" />
             </div>
 
             {/* Foundational Tokens */}
@@ -249,7 +250,7 @@ export default function Promptolinguistics() {
                 </p>
               </div>
               <div className="rounded-xl overflow-hidden shadow-lg">
-                <img src={IMG.ozzyProtocol} alt="The Ozzy Protocol" className="w-full" loading="lazy" />
+                <LightboxImage src={IMG.ozzyProtocol} alt="The Ozzy Protocol" className="w-full" />
               </div>
             </div>
           </div>
@@ -264,7 +265,7 @@ export default function Promptolinguistics() {
             </h2>
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="rounded-xl overflow-hidden border border-[#e8e0d0] shadow-sm">
-                <img src={IMG.tokenEfficiency} alt="Token Efficiency Strategy" className="w-full" loading="lazy" />
+                <LightboxImage src={IMG.tokenEfficiency} alt="Token Efficiency Strategy" className="w-full" />
               </div>
               <div>
                 <p className="text-sm text-[#555] leading-relaxed mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
@@ -300,7 +301,7 @@ export default function Promptolinguistics() {
                 </p>
               </div>
               <div className="rounded-lg overflow-hidden border border-[#e8e0d0]">
-                <img src={IMG.rlhf} alt="RLHF vs GallantryAI" className="w-full object-cover" loading="lazy" />
+                <LightboxImage src={IMG.rlhf} alt="RLHF vs GallantryAI" className="w-full object-cover" />
               </div>
             </div>
           </div>
