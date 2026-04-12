@@ -604,15 +604,22 @@ export default function Promptolinguistics() {
           </div>
         </section>
 
-        {/* Playground placeholder */}
+        {/* Playground */}
         <section className="py-12 md:py-16 bg-[#f5f0e8]">
           <div className="container max-w-4xl mx-auto px-6">
             <div className="bg-[#1A1A2E] rounded-xl p-8 text-center">
               <div className="text-[#E8520A] font-bold text-sm uppercase tracking-wide mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>Coming Soon</div>
               <h3 className="text-[#FAF6EF] text-xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>The Promptolinguistics Playground</h3>
-              <p className="text-[#aaa] text-sm max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-[#aaa] text-sm max-w-md mx-auto mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 An interactive space to test word roles, observe register drift, and practice the ALCM in real time.
               </p>
+              <Link
+                href="/playground"
+                className="inline-flex items-center gap-2 bg-[#E8520A] text-white px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-orange-700 transition-colors"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Enter the Playground →
+              </Link>
             </div>
           </div>
         </section>

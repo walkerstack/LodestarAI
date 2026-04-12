@@ -46,6 +46,7 @@ export default function Footer() {
               <Link href="/taxonomy" className="block hover:text-[#E8520A] no-underline transition-colors">AI Family Taxonomy</Link>
               <Link href="/prompt-games" className="block hover:text-[#E8520A] no-underline transition-colors">Prompt Games</Link>
               <Link href="/malbolge" className="block hover:text-[#E8520A] no-underline transition-colors">Malbolge Geofence</Link>
+              <Link href="/playground" className="block hover:text-[#E8520A] no-underline transition-colors">Playground</Link>
             </div>
 
             {/* Explore */}
@@ -62,6 +63,7 @@ export default function Footer() {
               <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Research</div>
               <Link href="/citizen-researcher" className="block hover:text-[#E8520A] no-underline transition-colors">Citizen Researcher</Link>
               <Link href="/builder" className="block hover:text-[#E8520A] no-underline transition-colors">The Builder</Link>
+              <Link href="/builder-origin" className="block hover:text-[#E8520A] no-underline transition-colors">Builder Origin</Link>
             </div>
 
             {/* Safety */}

@@ -39,6 +39,8 @@ import FlowerPresets from "./pages/FlowerPresets";
 import Taxonomy from "./pages/Taxonomy";
 import PromptGames from "./pages/PromptGames";
 import Malbolge from "./pages/Malbolge";
+import Playground from "./pages/Playground";
+import BuilderOrigin from "./pages/BuilderOrigin";
 
 function Router() {
   return (
@@ -74,6 +76,8 @@ function Router() {
       <Route path="/taxonomy" component={Taxonomy} />
       <Route path="/prompt-games" component={PromptGames} />
       <Route path="/malbolge" component={Malbolge} />
+      <Route path="/playground" component={Playground} />
+      <Route path="/builder-origin" component={BuilderOrigin} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

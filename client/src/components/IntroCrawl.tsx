@@ -9,8 +9,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
+// Use the same working sloth image as the homepage
 const SLOTH_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008840_5b1a6230.png";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-click-me-Y6T8mt8R4mLzfr3QeK78Yy.webp";
 
 const SCENE_DURATION_MS = 22000;
 const DISSOLVE_MS = 1800;

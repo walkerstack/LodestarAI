@@ -248,6 +248,7 @@ const scaffoldLevels = [
       { label: "Malbolge Geofence", path: "/malbolge", why: "See how word mechanics create boundaries." },
       { label: "AI Family Taxonomy", path: "/taxonomy", why: "Each AI responds to words differently." },
       { label: "Prompt Games", path: "/prompt-games", why: "Practice word control through play." },
+      { label: "Promptology Playground", path: "/playground", why: "Test the ALCM and practice prompt literacy." },
     ],
   },
   {
@@ -342,6 +343,13 @@ export default function Home() {
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               Explore the Discipline
+            </Link>
+            <Link
+              href="/playground"
+              className="inline-flex items-center gap-2 border border-[#3a3020] text-[#6b5a3e] px-4 py-2 rounded-lg text-xs no-underline hover:border-[#E8520A]/40 hover:text-[#E8520A] transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Playground (Coming Soon)
             </Link>
           </div>
         </div>

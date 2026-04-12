@@ -31,6 +31,7 @@ const learnLinks = [
   { label: "AI Family Taxonomy", path: "/taxonomy" },
   { label: "Prompt Games", path: "/prompt-games" },
   { label: "Malbolge Geofence", path: "/malbolge" },
+  { label: "Promptology Playground", path: "/playground" },
 ];
 
 const exploreLinks = [
@@ -40,6 +41,7 @@ const exploreLinks = [
   { label: "Field Papers", path: "/field-papers" },
   { label: "Citizen Researcher", path: "/citizen-researcher" },
   { label: "The Builder", path: "/builder" },
+  { label: "Builder Origin", path: "/builder-origin" },
 ];
 
 export default function Nav() {
@@ -129,6 +131,10 @@ export default function Nav() {
             {exploreOpen && <DropdownMenu items={exploreLinks} onClose={() => setExploreOpen(false)} />}
           </div>
 
+          <Link href="/human-line" className="text-[#E8520A] hover:text-orange-700 transition-colors no-underline text-xs font-semibold">
+            The Human Line
+          </Link>
+
           <Link href="/if-you-need-to-stop" className="text-rose-600 hover:text-rose-700 transition-colors no-underline text-xs font-semibold uppercase tracking-wide">
             If You Need to Stop
           </Link>
@@ -173,7 +179,10 @@ export default function Nav() {
           </div>
 
           <div className="border-t border-[#e8e0d0] pt-3">
-            <Link href="/if-you-need-to-stop" onClick={() => setOpen(false)} className="block text-sm font-semibold text-rose-600 no-underline">
+            <Link href="/human-line" onClick={() => setOpen(false)} className="block text-sm font-semibold text-[#E8520A] no-underline py-1">
+              The Human Line
+            </Link>
+            <Link href="/if-you-need-to-stop" onClick={() => setOpen(false)} className="block text-sm font-semibold text-rose-600 no-underline py-1">
               If You Need to Stop
             </Link>
           </div>

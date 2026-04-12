@@ -367,6 +367,17 @@ export default function Builder() {
 
         <Divider />
 
+        {/* Builder Origin link */}
+        <div className="my-12 text-center">
+          <Link
+            href="/builder-origin"
+            className="inline-flex items-center gap-2 border border-[#E8520A]/60 text-[#E8520A] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-[#E8520A]/10 transition-colors"
+            style={{ fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Behind the Build: Screenshots, Docs &amp; Stories →
+          </Link>
+        </div>
+
         {/* Cross-links */}
         <div className="my-16 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
