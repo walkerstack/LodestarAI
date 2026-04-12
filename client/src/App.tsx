@@ -93,6 +93,10 @@ function App() {
   const handleIntroComplete = () => {
     sessionStorage.setItem("gallantry-intro-v6", "1");
     setShowIntro(false);
+    // Always land on home after intro
+    if (window.location.pathname !== "/") {
+      window.location.href = "/";
+    }
   };
 
   return (
