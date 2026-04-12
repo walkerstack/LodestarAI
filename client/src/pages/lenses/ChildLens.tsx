@@ -7,6 +7,7 @@
  * Framed as: "how you can use Barney or silly things to make sure AI is paying attention"
  */
 
+import { useState, useCallback } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
@@ -24,6 +25,78 @@ const IMGS = {
 
 const baseFont = "'Nunito', 'DM Sans', sans-serif";
 const serifFont = "'Playfair Display', serif";
+
+const GUIDE_PAGES = [
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-1_40c2804f.png", alt: "Field Guide — Cover" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-2_6c2949be.png", alt: "Field Guide — Page 2" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-3_7b40bcaa.png", alt: "Field Guide — Page 3" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-4_947fa3d8.png", alt: "Field Guide — Page 4" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-5_a2775178.png", alt: "Field Guide — Page 5" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-6_b2b0980f.png", alt: "Field Guide — Page 6" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-7_25e2bca4.png", alt: "Field Guide — Page 7" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-8_e6955dc9.png", alt: "Field Guide — Page 8" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-9_d321c6c1.png", alt: "Field Guide — Page 9" },
+];
+
+function FieldGuideCarousel() {
+  const [current, setCurrent] = useState(0);
+  const total = GUIDE_PAGES.length;
+
+  const prev = useCallback(() => setCurrent((c) => (c === 0 ? total - 1 : c - 1)), [total]);
+  const next = useCallback(() => setCurrent((c) => (c === total - 1 ? 0 : c + 1)), [total]);
+
+  return (
+    <div className="w-full">
+      {/* Slide */}
+      <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ background: "#1A1A2E" }}>
+        <img
+          src={GUIDE_PAGES[current].src}
+          alt={GUIDE_PAGES[current].alt}
+          className="w-full"
+          style={{ display: "block" }}
+        />
+
+        {/* Prev / Next arrows */}
+        <button
+          onClick={prev}
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white text-lg font-bold transition-all hover:scale-110"
+          style={{ background: "rgba(26,26,46,0.7)", backdropFilter: "blur(4px)" }}
+          aria-label="Previous slide"
+        >
+          ‹
+        </button>
+        <button
+          onClick={next}
+          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white text-lg font-bold transition-all hover:scale-110"
+          style={{ background: "rgba(26,26,46,0.7)", backdropFilter: "blur(4px)" }}
+          aria-label="Next slide"
+        >
+          ›
+        </button>
+      </div>
+
+      {/* Dots + counter */}
+      <div className="flex items-center justify-center gap-2 mt-4">
+        {GUIDE_PAGES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className="rounded-full transition-all"
+            style={{
+              width: current === i ? "24px" : "8px",
+              height: "8px",
+              background: current === i ? "#E8520A" : "#d4c4a8",
+            }}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+      <p className="text-center text-xs mt-2" style={{ color: "#9a8a7a" }}>
+        {current + 1} of {total}
+      </p>
+    </div>
+  );
+}
 
 const selfReflectionPrompts = [
   { q: "What do I actually want to know?", hint: "Before you type anything, ask yourself this." },
@@ -410,30 +483,35 @@ export default function ChildLens() {
         </div>
       </section>
 
-      {/* Field Guide PDF */}
-      <section className="py-12 px-6 text-center" style={{ background: "#FFF0D8" }}>
-        <div className="max-w-lg mx-auto">
-          <div className="text-xs uppercase tracking-widest mb-3 font-semibold" style={{ color: "#E8520A" }}>
+      {/* Field Guide Carousel */}
+      <section className="py-14 px-6" style={{ background: "#FFF0D8" }}>
+        <div className="max-w-xl mx-auto">
+          <div className="text-xs uppercase tracking-widest text-center mb-2 font-semibold" style={{ color: "#E8520A" }}>
             The Little AI Field Guide
           </div>
-          <h3
-            className="text-xl font-black mb-3"
+          <h2
+            className="text-2xl md:text-3xl font-black text-center mb-3"
             style={{ fontFamily: serifFont, color: "#1A1A2E" }}
           >
-            Download the full carousel.
-          </h3>
-          <p style={{ color: "#5a4a3a", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            The Little AI Field Guide in slide format. Print it. Read it together. Share it.
+            Read it right here.
+          </h2>
+          <p className="text-center text-sm mb-8" style={{ color: "#5a4a3a", lineHeight: 1.7 }}>
+            Swipe through the full Field Guide. Print it. Read it together. Share it.
           </p>
-          <a
-            href="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/Little_AI_Field_Guide_Carousel_FINAL(1)_8ea0eaec.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block rounded-2xl px-6 py-3 font-bold text-sm no-underline transition-opacity hover:opacity-80"
-            style={{ background: "#1A1A2E", color: "#FFF0D8" }}
-          >
-            Open Field Guide PDF →
-          </a>
+
+          <FieldGuideCarousel />
+
+          <div className="text-center mt-6">
+            <a
+              href="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/Little_AI_Field_Guide_Carousel_FINAL(1)_8ea0eaec.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block rounded-2xl px-6 py-3 font-bold text-sm no-underline transition-opacity hover:opacity-80"
+              style={{ background: "#1A1A2E", color: "#FFF0D8" }}
+            >
+              Download PDF \u2192
+            </a>
+          </div>
         </div>
       </section>
 
