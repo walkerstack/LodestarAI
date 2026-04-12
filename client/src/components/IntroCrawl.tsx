@@ -251,93 +251,92 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
               — The Builder
             </span>
           </div>
+
+          {/* Help sloth — bottom-left of the black card */}
+          <div className="pointer-events-auto" style={{ position: "relative", marginTop: "0.75rem" }}>
+            <button
+              onClick={() => setHumanOpen(!humanOpen)}
+              className="flex items-center gap-2 transition-all rounded-full"
+              style={{ background: "transparent", border: "none", padding: 0 }}
+            >
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-red-cross-bTsLnBvjbiw38436VqkcCr.webp"
+                alt="Need help?"
+                style={{
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  opacity: humanOpen ? 0.95 : 0.4,
+                  transition: "opacity 0.3s ease",
+                }}
+              />
+              <span
+                className="text-[9px] uppercase tracking-[0.1em]"
+                style={{ color: humanOpen ? "#E8520A" : "#605040", fontFamily: baseFont, transition: "color 0.3s ease" }}
+              >
+                {humanOpen ? "close" : "if you need help"}
+              </span>
+            </button>
+
+            {/* Expanded: two gentle options */}
+            {humanOpen && (
+              <div
+                className="mt-2 rounded-2xl px-5 py-4 flex flex-col gap-3"
+                style={{
+                  background: "rgba(10, 8, 4, 0.92)",
+                  backdropFilter: "blur(8px)",
+                  border: "1px solid #2a2018",
+                }}
+              >
+                <p
+                  className="text-center text-xs mb-1"
+                  style={{ color: "#a09080", fontFamily: baseFont }}
+                >
+                  You are not alone. These pages are here for you.
+                </p>
+                <a
+                  href="/safety"
+                  className="block text-center py-3 rounded-xl text-sm font-bold transition-colors"
+                  style={{
+                    background: "#E8520A",
+                    color: "#fff",
+                    fontFamily: baseFont,
+                  }}
+                >
+                  Crisis Resources & Safety
+                </a>
+                <a
+                  href="/human-line"
+                  className="block text-center py-3 rounded-xl text-sm font-bold transition-colors"
+                  style={{
+                    background: "transparent",
+                    color: "#E8520A",
+                    border: "1px solid #E8520A",
+                    fontFamily: baseFont,
+                  }}
+                >
+                  The Human Line — Why This Matters
+                </a>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       {/* ── Bottom buttons ── */}
       <div className="absolute bottom-0 left-0 right-0 z-40 px-5 pb-5 flex flex-col items-center gap-3">
 
-        {/* Human Connection — discreet translucent sloth */}
-        <div className="w-full max-w-sm flex flex-col items-center">
-          <button
-            onClick={() => setHumanOpen(!humanOpen)}
-            className="flex flex-col items-center gap-1 transition-all"
-            style={{ background: "transparent", border: "none" }}
-          >
-            <img
-              src={SLOTH_URL}
-              alt="Need help?"
-              style={{
-                width: "44px",
-                height: "44px",
-                borderRadius: "50%",
-                objectFit: "cover",
-                opacity: humanOpen ? 0.9 : 0.35,
-                transition: "opacity 0.3s ease",
-                filter: "grayscale(0.2)",
-              }}
-            />
-            <span
-              className="text-[10px] uppercase tracking-[0.12em]"
-              style={{ color: humanOpen ? "#E8520A" : "#706050", fontFamily: baseFont, transition: "color 0.3s ease" }}
-            >
-              {humanOpen ? "close" : "if you need help"}
-            </span>
-          </button>
-
-          {/* Expanded: two gentle options */}
-          {humanOpen && (
-            <div
-              className="mt-2 rounded-2xl px-5 py-4 flex flex-col gap-3"
-              style={{
-                background: "rgba(10, 8, 4, 0.85)",
-                backdropFilter: "blur(8px)",
-                border: "1px solid #2a2018",
-              }}
-            >
-              <p
-                className="text-center text-xs mb-1"
-                style={{ color: "#a09080", fontFamily: baseFont }}
-              >
-                You are not alone. These pages are here for you.
-              </p>
-              <a
-                href="/safety"
-                className="block text-center py-3 rounded-xl text-sm font-bold transition-colors"
-                style={{
-                  background: "#E8520A",
-                  color: "#fff",
-                  fontFamily: baseFont,
-                }}
-              >
-                Crisis Resources & Safety
-              </a>
-              <a
-                href="/human-line"
-                className="block text-center py-3 rounded-xl text-sm font-bold transition-colors"
-                style={{
-                  background: "transparent",
-                  color: "#E8520A",
-                  border: "1px solid #E8520A",
-                  fontFamily: baseFont,
-                }}
-              >
-                The Human Line — Why This Matters
-              </a>
-            </div>
-          )}
-        </div>
-
         {/* Enter button — replaces Skip */}
         <button
           onClick={handleComplete}
           className="w-full max-w-sm text-sm font-bold uppercase tracking-wider py-3 rounded-xl transition-all hover:scale-[1.02]"
           style={{
-            color: "#fff",
-            background: "linear-gradient(135deg, #E8520A 0%, #c44508 100%)",
+            color: "#E8520A",
+            background: "rgba(10, 8, 4, 0.85)",
             fontFamily: baseFont,
-            boxShadow: "0 4px 20px rgba(232,82,10,0.3)",
-            border: "none",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+            border: "1px solid #2a2018",
           }}
         >
           Let's Learn & Grow Safely Together
