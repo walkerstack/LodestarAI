@@ -226,6 +226,32 @@ export default function HumanLine() {
         </div>
       </section>
 
+      {/* ── THE BUILDER'S CONNECTION ── */}
+      <section className="container py-12 border-t" style={{ borderColor: "#2a2018" }}>
+        <div className="max-w-2xl flex flex-col md:flex-row gap-8 items-start">
+          <div className="md:w-48 flex-shrink-0">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/hospital-monitor-vitals_278899c6.jpg"
+              alt="Hospital monitor — the human behind the work"
+              className="rounded-xl w-full opacity-80"
+            />
+            <p className="text-[10px] mt-2 text-center" style={{ color: "#6b5a3e", fontFamily: "'DM Sans', sans-serif" }}>Real. Not stock.</p>
+          </div>
+          <div>
+            <p className="text-base leading-relaxed mb-3" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+              The person who built GallantryAI has been on both sides of that monitor. The work is not theoretical. The credential is the wound.
+            </p>
+            <Link
+              href="/builder"
+              className="inline-flex items-center gap-2 text-sm font-semibold no-underline transition-colors hover:opacity-80"
+              style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Read the Builder's story →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── CLOSING ── */}
       <section className="container py-12 border-t" style={{ borderColor: "#2a2018" }}>
         <div className="max-w-xl">
@@ -249,6 +275,13 @@ export default function HumanLine() {
               style={{ borderColor: "#E8520A", color: "#E8520A", fontFamily: "'DM Sans', sans-serif", background: "transparent" }}
             >
               Living Lexicon
+            </Link>
+            <Link
+              href="/rules"
+              className="inline-flex items-center gap-2 border px-5 py-2.5 rounded-xl text-sm font-semibold no-underline transition-colors hover:opacity-80"
+              style={{ borderColor: "#E8520A", color: "#E8520A", fontFamily: "'DM Sans', sans-serif", background: "transparent" }}
+            >
+              The Five Rules
             </Link>
           </div>
         </div>

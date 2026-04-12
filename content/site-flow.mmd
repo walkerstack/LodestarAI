@@ -1,0 +1,50 @@
+graph TD
+    HOME["● HOME<br/>/"]
+
+    LENS["◎ ENTER YOUR LENS<br/>dropdown"]
+
+    CHILD["● Child<br/>/for/child"]
+    GUARDIAN["● Guardian & Teacher<br/>/for/guardian-teacher"]
+    ENGINEER["● Prompt Engineer<br/>/for/prompt-engineer"]
+    LINGUIST["● Linguist<br/>/for/linguist"]
+    MATH["● Mathematician<br/>/for/mathematician"]
+    COGSCI["● Cognitive Science<br/>/for/cognitive-science"]
+    PSYCH["● Psychology<br/>/for/psychology"]
+    RESEARCHER["● Researcher<br/>/for/researcher"]
+
+    PROMPTO["● Promptolinguistics<br/>/promptolinguistics"]
+    LEXICON["● Living Lexicon<br/>/lexicon"]
+    GALLERY["● Gallery<br/>/gallery"]
+    ARTICLES["● Articles<br/>/articles"]
+    HUMANLINE["● Human Line<br/>/human-line"]
+    FIELDPAPERS["● Field Papers<br/>/field-papers"]
+    STOP["⚠ If You Need to Stop<br/>/if-you-need-to-stop"]
+    BACKSTAGE["● Backstage<br/>/backstage"]
+    BARNEY["● Barney Poem<br/>/barney-poem"]
+
+    HOME --> LENS
+    HOME --> PROMPTO
+    HOME --> LEXICON
+    HOME --> GALLERY
+    HOME --> ARTICLES
+    HOME --> HUMANLINE
+    HOME --> FIELDPAPERS
+    HOME --> STOP
+
+    LENS --> CHILD
+    LENS --> GUARDIAN
+    LENS --> ENGINEER
+    LENS --> LINGUIST
+    LENS --> MATH
+    LENS --> COGSCI
+    LENS --> PSYCH
+    LENS --> RESEARCHER
+
+    FIELDPAPERS --> LEXICON
+    CHILD --> FIELDPAPERS
+
+    style HOME fill:#E8520A,color:#fff,stroke:none
+    style STOP fill:#be123c,color:#fff,stroke:none
+    style LENS fill:#1A1A2E,color:#fff,stroke:none
+    style BACKSTAGE fill:#888,color:#fff,stroke:none
+    style BARNEY fill:#888,color:#fff,stroke:none

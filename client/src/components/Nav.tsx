@@ -1,10 +1,11 @@
 /*
- * GALLANTRYAI Navigation
+ * GALLANTRYAI Navigation — Updated with all new pages
  * Design: The Living Document — editorial register
  * Orange top bar. Clean sans. The watcher is always present.
+ * Now includes: Builder, Frameworks, Citizen Researcher, Road Protocol, Five Rules
  */
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 
@@ -19,10 +20,70 @@ const lenses = [
   { label: "Researcher", path: "/for/researcher", color: "text-teal-600" },
 ];
 
+const learnLinks = [
+  { label: "Promptolinguistics", path: "/promptolinguistics" },
+  { label: "Framework Families", path: "/frameworks" },
+  { label: "Living Lexicon", path: "/lexicon" },
+  { label: "The Five Rules", path: "/rules" },
+  { label: "Road Protocol", path: "/road-protocol" },
+];
+
+const exploreLinks = [
+  { label: "Gallery", path: "/gallery" },
+  { label: "Articles", path: "/articles" },
+  { label: "The Human Line", path: "/human-line" },
+  { label: "Field Papers", path: "/field-papers" },
+  { label: "Citizen Researcher", path: "/citizen-researcher" },
+  { label: "The Builder", path: "/builder" },
+];
+
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [lensOpen, setLensOpen] = useState(false);
+  const [learnOpen, setLearnOpen] = useState(false);
+  const [exploreOpen, setExploreOpen] = useState(false);
   const [location] = useLocation();
+
+  const lensRef = useRef<HTMLDivElement>(null);
+  const learnRef = useRef<HTMLDivElement>(null);
+  const exploreRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdowns on outside click
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (lensRef.current && !lensRef.current.contains(e.target as Node)) setLensOpen(false);
+      if (learnRef.current && !learnRef.current.contains(e.target as Node)) setLearnOpen(false);
+      if (exploreRef.current && !exploreRef.current.contains(e.target as Node)) setExploreOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  function DropdownButton({ label, isOpen, onClick }: { label: string; isOpen: boolean; onClick: () => void }) {
+    return (
+      <button onClick={onClick} className="flex items-center gap-1 hover:text-[#E8520A] transition-colors">
+        {label}
+        <span className="text-[10px]">{isOpen ? "▲" : "▼"}</span>
+      </button>
+    );
+  }
+
+  function DropdownMenu({ items, onClose }: { items: { label: string; path: string; color?: string }[]; onClose: () => void }) {
+    return (
+      <div className="absolute top-full left-0 mt-2 w-52 bg-white border border-[#e8e0d0] rounded-2xl shadow-lg py-2 z-50 overflow-hidden">
+        {items.map((item) => (
+          <Link
+            key={item.path}
+            href={item.path}
+            onClick={onClose}
+            className={`block px-4 py-2 text-sm hover:bg-[#FAF6EF] transition-colors no-underline ${item.color || "text-[#2D2D2D]"}`}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <header className="w-full sticky top-0 z-50 bg-[#FAF6EF] border-b border-[#e8e0d0]">
@@ -44,50 +105,25 @@ export default function Nav() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[#2D2D2D]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          {/* Enter Through Your Lens dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => setLensOpen(!lensOpen)}
-              className="flex items-center gap-1 hover:text-[#E8520A] transition-colors"
-            >
-              Enter Your Lens
-              <span className="text-[10px]">{lensOpen ? "▲" : "▼"}</span>
-            </button>
-            {lensOpen && (
-              <div className="absolute top-full left-0 mt-2 w-52 bg-white border border-[#e8e0d0] rounded-2xl shadow-lg py-2 z-50 overflow-hidden">
-                {lenses.map((lens) => (
-                  <Link
-                    key={lens.path}
-                    href={lens.path}
-                    onClick={() => setLensOpen(false)}
-                    className={`block px-4 py-2 text-sm hover:bg-[#FAF6EF] transition-colors no-underline ${lens.color}`}
-                  >
-                    {lens.label}
-                  </Link>
-                ))}
-              </div>
-            )}
+        <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-[#2D2D2D]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          {/* Enter Through Your Lens */}
+          <div className="relative" ref={lensRef}>
+            <DropdownButton label="Enter Your Lens" isOpen={lensOpen} onClick={() => { setLensOpen(!lensOpen); setLearnOpen(false); setExploreOpen(false); }} />
+            {lensOpen && <DropdownMenu items={lenses} onClose={() => setLensOpen(false)} />}
           </div>
 
-          <Link href="/promptolinguistics" className={`hover:text-[#E8520A] transition-colors no-underline ${location === '/promptolinguistics' ? 'text-[#E8520A]' : ''}`}>
-            Promptolinguistics
-          </Link>
-          <Link href="/lexicon" className={`hover:text-[#E8520A] transition-colors no-underline ${location === '/lexicon' ? 'text-[#E8520A]' : ''}`}>
-            Lexicon
-          </Link>
-          <Link href="/gallery" className={`hover:text-[#E8520A] transition-colors no-underline ${location === '/gallery' ? 'text-[#E8520A]' : ''}`}>
-            Gallery
-          </Link>
-          <Link href="/articles" className={`hover:text-[#E8520A] transition-colors no-underline ${location === '/articles' ? 'text-[#E8520A]' : ''}`}>
-            Articles
-          </Link>
-          <Link href="/human-line" className={`hover:text-[#E8520A] transition-colors no-underline ${location === '/human-line' ? 'text-[#E8520A]' : ''}`}>
-            The Human Line
-          </Link>
-          <Link href="/field-papers" className={`hover:text-[#E8520A] transition-colors no-underline ${location === '/field-papers' ? 'text-[#E8520A]' : ''}`}>
-            Field Papers
-          </Link>
+          {/* Learn dropdown */}
+          <div className="relative" ref={learnRef}>
+            <DropdownButton label="Learn" isOpen={learnOpen} onClick={() => { setLearnOpen(!learnOpen); setLensOpen(false); setExploreOpen(false); }} />
+            {learnOpen && <DropdownMenu items={learnLinks} onClose={() => setLearnOpen(false)} />}
+          </div>
+
+          {/* Explore dropdown */}
+          <div className="relative" ref={exploreRef}>
+            <DropdownButton label="Explore" isOpen={exploreOpen} onClick={() => { setExploreOpen(!exploreOpen); setLensOpen(false); setLearnOpen(false); }} />
+            {exploreOpen && <DropdownMenu items={exploreLinks} onClose={() => setExploreOpen(false)} />}
+          </div>
+
           <Link href="/if-you-need-to-stop" className="text-rose-600 hover:text-rose-700 transition-colors no-underline text-xs font-semibold uppercase tracking-wide">
             If You Need to Stop
           </Link>
@@ -95,7 +131,7 @@ export default function Nav() {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 text-[#2D2D2D]"
+          className="lg:hidden p-2 text-[#2D2D2D]"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -105,31 +141,33 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 space-y-3 rounded-b-2xl" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+        <div className="lg:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 space-y-3 rounded-b-2xl max-h-[80vh] overflow-y-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           <div className="section-label mb-2">Enter Your Lens</div>
           {lenses.map((lens) => (
-            <Link
-              key={lens.path}
-              href={lens.path}
-              onClick={() => setOpen(false)}
-              className={`block text-sm font-medium no-underline ${lens.color}`}
-            >
+            <Link key={lens.path} href={lens.path} onClick={() => setOpen(false)} className={`block text-sm font-medium no-underline ${lens.color}`}>
               {lens.label}
             </Link>
           ))}
-          <div className="border-t border-[#e8e0d0] pt-3 space-y-2">
-            {[
-              { label: "Promptolinguistics", path: "/promptolinguistics" },
-              { label: "Living Lexicon", path: "/lexicon" },
-              { label: "Gallery", path: "/gallery" },
-              { label: "Articles", path: "/articles" },
-              { label: "The Human Line", path: "/human-line" },
-              { label: "Field Papers", path: "/field-papers" },
-            ].map((item) => (
-              <Link key={item.path} href={item.path} onClick={() => setOpen(false)} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A]">
+
+          <div className="border-t border-[#e8e0d0] pt-3">
+            <div className="section-label mb-2">Learn</div>
+            {learnLinks.map((item) => (
+              <Link key={item.path} href={item.path} onClick={() => setOpen(false)} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
                 {item.label}
               </Link>
             ))}
+          </div>
+
+          <div className="border-t border-[#e8e0d0] pt-3">
+            <div className="section-label mb-2">Explore</div>
+            {exploreLinks.map((item) => (
+              <Link key={item.path} href={item.path} onClick={() => setOpen(false)} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="border-t border-[#e8e0d0] pt-3">
             <Link href="/if-you-need-to-stop" onClick={() => setOpen(false)} className="block text-sm font-semibold text-rose-600 no-underline">
               If You Need to Stop
             </Link>

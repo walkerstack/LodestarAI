@@ -29,6 +29,11 @@ import SafetyPage from "./pages/SafetyPage";
 import Backstage from "./pages/Backstage";
 import HumanLine from "./pages/HumanLine";
 import FieldPapers from "./pages/FieldPapers";
+import Builder from "./pages/Builder";
+import Frameworks from "./pages/Frameworks";
+import CitizenResearcher from "./pages/CitizenResearcher";
+import RoadProtocol from "./pages/RoadProtocol";
+import FiveRules from "./pages/FiveRules";
 
 function Router() {
   return (
@@ -52,8 +57,13 @@ function Router() {
       {/* Research */}
       <Route path="/human-line" component={HumanLine} />
       <Route path="/field-papers" component={FieldPapers} />
-      {/* Builder Backstage */}
+      {/* Builder & New Sections */}
       <Route path="/backstage" component={Backstage} />
+      <Route path="/builder" component={Builder} />
+      <Route path="/frameworks" component={Frameworks} />
+      <Route path="/citizen-researcher" component={CitizenResearcher} />
+      <Route path="/road-protocol" component={RoadProtocol} />
+      <Route path="/rules" component={FiveRules} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
