@@ -6,6 +6,8 @@
 
 import { Link } from "wouter";
 
+const SLOTH_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/oops-sloth-dpBa4VaDRVEQQogvEc76jm.webp";
+
 export default function Footer() {
   return (
     <footer className="w-full border-t border-[#e8e0d0] bg-[#FAF6EF] mt-16">
@@ -118,7 +120,15 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-[#e8e0d0] text-[10px] text-[#aaa]">
+          {/* Sloth link for kids */}
+          <div className="mt-4 pt-3 border-t border-[#e8e0d0] flex items-center gap-3">
+            <Link href="/for/child" className="flex items-center gap-2 no-underline">
+              <img src={SLOTH_IMG} alt="Kids page" className="w-7 h-7 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
+              <span className="text-xs font-bold text-sky-600">Hey kid? Tap here.</span>
+            </Link>
+          </div>
+
+          <div className="mt-3 pt-3 border-t border-[#e8e0d0] text-[10px] text-[#aaa]">
             <span>배움을 정합니다 — I humbly seek to learn.</span>
             <span className="ml-4">whatisgallantryai.com</span>
           </div>

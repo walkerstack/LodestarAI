@@ -185,7 +185,7 @@ export default function Scaffold() {
             </div>
           
           <div className="flex justify-center mt-6">
-            <KidsMidLink />
+            <KidsMidLink bg="#f5f0e8" />
           </div>
         </div>
         </section>

@@ -5,6 +5,9 @@
  *   "Send me home" → /for/child
  *   "I'm chill" → closes popup, stays on page
  * No text outside the button. No section creation. No flow disruption.
+ *
+ * Accepts optional `bg` prop to blend the radial glow into the
+ * surrounding section color (defaults to dark #1A1A2E).
  */
 
 import { useState } from "react";
@@ -13,7 +16,12 @@ import { useLocation } from "wouter";
 const STICKER_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/kids-mid-link-sticker-Nmh6s3hknwKR5FNbsvDCHx.webp";
 
-export default function KidsMidLink() {
+interface Props {
+  /** Background color of the surrounding section — glow fades into this */
+  bg?: string;
+}
+
+export default function KidsMidLink({ bg = "#1A1A2E" }: Props) {
   const [open, setOpen] = useState(false);
   const [, navigate] = useLocation();
 
@@ -26,12 +34,11 @@ export default function KidsMidLink() {
         aria-label="Hey kid — click here"
         type="button"
       >
-        {/* Glow */}
+        {/* Outer glow — fades from orange into the surrounding bg color */}
         <div
           className="absolute inset-0 rounded-full animate-pulse pointer-events-none"
           style={{
-            background:
-              "radial-gradient(circle, rgba(232,82,10,0.45) 0%, transparent 70%)",
+            background: `radial-gradient(circle, rgba(232,82,10,0.45) 0%, ${bg} 70%)`,
             transform: "scale(2.4)",
           }}
         />
@@ -42,7 +49,7 @@ export default function KidsMidLink() {
           className="relative w-16 h-16 rounded-full object-cover transition-transform duration-200 group-hover:scale-110"
           style={{
             border: "2px solid rgba(232,82,10,0.6)",
-            boxShadow: "0 0 20px rgba(232,82,10,0.3)",
+            boxShadow: `0 0 20px rgba(232,82,10,0.3), 0 0 40px ${bg}`,
           }}
         />
       </button>

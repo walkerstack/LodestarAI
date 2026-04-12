@@ -351,13 +351,13 @@ export default function KidsLearn() {
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             {[
-              { label: "Your Page (Child Lens)", desc: "Everything built for you. Stories, rules, the buffalo.", link: "/for/child", color: "#E8520A" },
-              { label: "Prompt Games", desc: "Learn through play. Low stakes, big lessons.", link: "/prompt-games", color: "#2A9D8F" },
-              { label: "The Five Rules", desc: "The foundation. Start here if you haven't.", link: "/rules", color: "#6366f1" },
-              { label: "Road Protocol", desc: "The grown-up version of setting rules. Peek at it.", link: "/road-protocol", color: "#c87533" },
-              { label: "AI Family Taxonomy", desc: "Know which AI you're talking to.", link: "/taxonomy", color: "#E8520A" },
-              { label: "Research Hub", desc: "Where all the ideas came from. Real links.", link: "/research-hub", color: "#7C3AED" },
-              { label: "If You Need to Stop", desc: "Safety first. Always.", link: "/if-you-need-to-stop", color: "#dc2626" },
+              { label: "Your Page", desc: "Everything built for you. Stories, rules, the buffalo.", link: "/for/child", color: "#E8520A" },
+              { label: "Play & Practice", desc: "Games that teach you how to talk to AI. Fun stuff.", link: "/prompt-games", color: "#2A9D8F" },
+              { label: "The Five Rules", desc: "The most important things to remember. Start here.", link: "/rules", color: "#6366f1" },
+              { label: "How to Set Up a Chat", desc: "What the grown-ups do before talking to AI. You can peek.", link: "/road-protocol", color: "#c87533" },
+              { label: "Which AI Am I Talking To?", desc: "They're not all the same. Learn the difference.", link: "/taxonomy", color: "#E8520A" },
+              { label: "Where the Ideas Came From", desc: "Real scientists studied the same things. Cool, right?", link: "/research-hub", color: "#7C3AED" },
+              { label: "I Need Help", desc: "If something feels wrong, come here. Always.", link: "/if-you-need-to-stop", color: "#dc2626" },
             ].map((item) => (
               <Link
                 key={item.label}

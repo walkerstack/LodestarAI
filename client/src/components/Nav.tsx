@@ -7,6 +7,8 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 
+const SLOTH_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/oops-sloth-dpBa4VaDRVEQQogvEc76jm.webp";
+
 const lenses = [
   { label: "Everyday Person", path: "/for/everyday", color: "text-amber-600" },
   { label: "Child", path: "/for/child", color: "text-sky-500" },
@@ -173,6 +175,9 @@ export default function Nav() {
           <Link href="/human-line" className="text-amber-700 hover:text-amber-800 transition-colors no-underline text-xs font-semibold uppercase tracking-wide">
             The Human Line
           </Link>
+          <Link href="/for/child" className="no-underline flex items-center gap-1 hover:scale-110 transition-transform" title="Kids page">
+            <img src={SLOTH_IMG} alt="Kids page" className="w-7 h-7 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
+          </Link>
         </nav>
 
         <button
@@ -241,6 +246,10 @@ export default function Nav() {
           </div>
 
           <div className="border-t border-[#e8e0d0] pt-3 mt-3">
+            <Link href="/for/child" onClick={closeAll} className="flex items-center gap-2 no-underline py-2">
+              <img src={SLOTH_IMG} alt="Kids page" className="w-8 h-8 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
+              <span className="text-sm font-bold text-sky-600">Hey kid? Tap here.</span>
+            </Link>
             <Link href="/if-you-need-to-stop" onClick={closeAll} className="block text-sm font-semibold text-rose-600 no-underline py-1">
               If You Need to Stop
             </Link>

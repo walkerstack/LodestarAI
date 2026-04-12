@@ -210,12 +210,12 @@ export const flowMap: Record<string, FlowEntry> = {
 
   child: {
     deeper: [
-      { label: "Five Rules", href: "/rules", description: "The rules with sloth examples" },
-      { label: "Road Protocol", href: "/road-protocol", description: "The foundation under the stories" },
+      { label: "The Five Rules", href: "/rules", description: "The most important things. With sloth examples." },
+      { label: "How to Set Up a Chat", href: "/road-protocol", description: "What grown-ups do before talking to AI." },
     ],
     wider: [
-      { label: "Prompt Games", href: "/prompt-games", description: "Games to practice with" },
-      { label: "Guardian Lens", href: "/for/guardian-teacher", description: "For the adults helping you" },
+      { label: "Play & Practice", href: "/prompt-games", description: "Games that teach you how to talk to AI." },
+      { label: "For Your Grown-Up", href: "/for/guardian-teacher", description: "Show this to the adult helping you." },
     ],
     simpler: [],
   },

@@ -10,6 +10,8 @@ import { useState, useEffect } from "react";
 const OOPS_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/oops-sloth-dpBa4VaDRVEQQogvEc76jm.webp";
 
+export const SLOTH_NAV_IMG = OOPS_IMG;
+
 export default function OopsSloth() {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
