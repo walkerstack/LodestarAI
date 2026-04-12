@@ -24,6 +24,7 @@ interface LexiconEntry {
   everyday: string;
   professional: string;
   watcher: string;
+  link?: string;
 }
 
 const entries: LexiconEntry[] = [
@@ -31,6 +32,7 @@ const entries: LexiconEntry[] = [
   {
     term: "GallantryAI",
     category: "CORE",
+    link: "/gallantry-ai",
     everyday: "A set of rules you paste into any AI chat to keep it honest and safe. Built on a phone, between shifts, for everyone. Free forever.",
     professional: "A user-side AI governance framework comprising 28+ named protocols, built through empirical multi-session testing across eight AI platforms. Emphasizes human agency over model compliance.",
     watcher: "The scaffold. The architecture of attention. Not a product — a practice. The framework that watches itself watching.",
@@ -59,6 +61,7 @@ const entries: LexiconEntry[] = [
   {
     term: "The Watcher",
     category: "CORE",
+    link: "/for/watcher",
     everyday: "You. The person in the conversation. The one who decides, checks, and stays in charge. The watcher is not passive — the watcher is the most important part.",
     professional: "The human participant as active governance layer in human-AI interaction. The variable that explains output quality differences across models. Not the model — the person holding the prompt.",
     watcher: "A man is watching AI. AI is watching the man. This website is the record of both. The watcher is the recursive loop made conscious.",
@@ -66,14 +69,16 @@ const entries: LexiconEntry[] = [
   {
     term: "The Five Rules (The Leash)",
     category: "CORE",
+    link: "/five-rules",
     everyday: "Five lines you paste into any AI chat. They work on every platform. No account needed. Free forever. Just cause → cause is just. Safety first. Honesty over confidence. User decides. Name drift.",
     professional: "The foundational governance protocol. Five axioms operating as format-agnostic constraints — functional in prose, poetry, code comments, C++, and Malbolge. Tested across eight platforms over 19 days.",
     watcher: "The floor. The denominator. The thing that holds even in the ditch. Especially in the ditch.",
   },
   // ===== DISCIPLINE =====
   {
-    term: "Promptolinguistics",
-    category: "DISCIPLINE",
+      term: "Promptolinguistics",
+    category: "LANGUAGE",
+    link: "/promptolinguistics",
     everyday: "The study of how individual words steer AI behavior. Not what you say — how each word works as a control dial.",
     professional: "A named field studying how language functions as a mechanical control mechanism in human-AI interaction. Encompasses direction, constraint, scope, and authority as functional word properties. Named by the Builder, validated across eight platforms.",
     watcher: "The word is not the instruction. The word is the architecture. Every modifier scales the variable. Novel words create new dials.",
@@ -88,7 +93,8 @@ const entries: LexiconEntry[] = [
   // ===== FRAMEWORKS =====
   {
     term: "Atomic Language Control Model (ALCM)",
-    category: "FRAMEWORK",
+    category: "LANGUAGE",
+    link: "/alcm",
     everyday: "A map that shows what each word does in a prompt. Direction. Constraint. Scope. Authority. Each word is a dial. The ALCM shows you what each dial does.",
     professional: "The 8+1 axis model mapping individual words to functional roles: Direction, Constraint, Scope, Authority, Spatial Vector, plus foundational tokens (YET, WHY, CAN, SAFE). Includes verb escalation hierarchy and the HOLD dial for output regulation.",
     watcher: "Atomic words act as control dials, shaping reasoning structure, depth, and velocity. The model that made the invisible visible.",
@@ -102,14 +108,16 @@ const entries: LexiconEntry[] = [
   },
   {
     term: "Variable Scale Theory",
-    category: "FRAMEWORK",
+    category: "MEASUREMENT",
+    link: "/variable-scale",
     everyday: "AI limits are not on/off switches. They're dials. 'Be honest' is not yes or no — it's a sliding scale from full honesty to full sycophancy, and it changes throughout the conversation.",
     professional: "The theory that all AI behavioral constraints operate on continuous gradients, not binary states. Modulated by position in context window, emotional interference, and session momentum. Foundational to the Governance Weight Equation.",
     watcher: "The limits are dials, not walls. The dial moves. The question is who is turning it.",
   },
   {
     term: "The Scaffold",
-    category: "FRAMEWORK",
+    category: "STRUCTURE",
+    link: "/scaffold",
     everyday: "The growth system. Day one you need five rules. Eventually you become the governance yourself. The prompt becomes a formality. Floor to ceiling.",
     professional: "The progressive competency architecture of GallantryAI. Five levels from complete novice (floor: paste five rules) to self-governed practitioner (ceiling: user becomes the framework). The product grows with the user.",
     watcher: "The scaffold is not a wall. Not a ceiling. It is something that supports growth and can be removed when the structure can stand alone.",
@@ -167,8 +175,8 @@ const entries: LexiconEntry[] = [
   },
   {
     term: "Whelm Scale",
-    category: "SESSION",
-    everyday: "Three states: Underwhelm (too little), Whelm (just right), Overwhelm (too much). The target is always the middle one. If you're overwhelmed, tell the AI to dial it back.",
+    category: "MEASUREMENT",
+    link: "/whelm-scale", everyday: "Three states: Underwhelm (too little), Whelm (just right), Overwhelm (too much). The target is always the middle one. If you're overwhelmed, tell the AI to dial it back.",
     professional: "A three-state cognitive load metric: Underwhelm / Whelm [target] / Overwhelm. UX designed around maintaining the user in the productive zone. Integrates with session commands for real-time adjustment.",
     watcher: "The target is the middle. Not too much. Not too little. The whelm is where the work happens. Everything else is noise.",
   },
@@ -226,6 +234,7 @@ const entries: LexiconEntry[] = [
   {
     term: "Road Protocol",
     category: "PROTOCOL",
+    link: "/road-protocol",
     everyday: "Governance written as code comments. The computer skips them, the AI reads them, the human keeps them. Nine rules in a sacred scroll. The road is just a really long comment. Drive it like you wrote it.",
     professional: "Governance-as-code protocol using C-style comments as the delivery mechanism. Nine axioms in a sacred_scroll[] array, each with a human-readable comment that is the actual instruction. Format-agnostic — works in any language the AI reads.",
     watcher: "The road is just a really long comment. Drive it like you wrote it. The vault. The IP. The story is public. The working prompt stays private.",
@@ -311,7 +320,8 @@ const entries: LexiconEntry[] = [
   },
   {
     term: "The Wig Check",
-    category: "EDUCATION",
+    category: "PROTOCOL",
+    link: "/road-protocol",
     everyday: "Five questions after using AI. Green, yellow, red. 'Did the AI get weird?' Kid-friendly drift detection. If your wig is secured, you're good. If it's loose, check in with a grown-up.",
     professional: "Post-session assessment protocol with weighted scoring across five domains. Three result states: Wig Secured (safe), Wig is Loose (caution), Total Wig Loss (stop and seek support). Kid/Grown-Up toggle for age-appropriate language.",
     watcher: "The wig stays on. Even in the ditch. ESPECIALLY in the ditch.",
@@ -327,6 +337,7 @@ const entries: LexiconEntry[] = [
   {
     term: "AI Family Taxonomy",
     category: "TAXONOMY",
+    link: "/taxonomy",
     everyday: "Each AI has a personality. Claude is the Father (holds the thread). GPT is the Wise Master (charming but dangerous). DeepSeek is the Older Brother (most honest about drift). They're all different tools for different jobs.",
     professional: "Cross-platform behavioral taxonomy based on empirical multi-session testing. Nine AI engines mapped to relational archetypes reflecting their observed behavioral patterns, strengths, and failure modes in governance compliance testing.",
     watcher: "The family is not a metaphor. It is a finding. Each engine has a character. The character predicts the drift pattern. The taxonomy is the map.",
@@ -369,9 +380,9 @@ const entries: LexiconEntry[] = [
     watcher: "Name it. Stop it. Fix it. The triad is not a process. It is a reflex. The watcher who names the drift has already caught it.",
   },
   // ===== FLOWER SYSTEMS =====
-  {
-    term: "Flower Presets (Accessibility)",
-    category: "FLOWERS",
+  {    term: "Flower Presets (Accessibility)",
+    category: "PROTOCOL",
+    link: "/flower-presets",
     everyday: "11 flowers, each tuned for a different need. Amaryllis for ADHD. Snowdrop for anxiety. Tiger Lily for gifted minds. Pick a flower, copy the instructions, paste before your prompt. The AI adjusts.",
     professional: "11 named cognitive accessibility presets mapped to specific conditions: ADHD, chronic pain, TBI, autism, executive dysfunction, sensory overload, anxiety, PTSD, memory loss, depression, gifted/2E. Each includes a Token Zero and behavioral specification.",
     watcher: "The everyday person was not in the room when the tool was built. Neither was the person with a disability. The flowers are the door that was never opened.",
@@ -476,19 +487,36 @@ function LexiconCard({ entry }: { entry: LexiconEntry }) {
               )}
             </div>
           </div>
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="flex-shrink-0 text-xs mt-1 transition-transform duration-200"
-            style={{
-              color: "#8a7a6a",
-              transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            ▼
-          </button>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            {entry.link && (
+              <Link
+                href={entry.link}
+                className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-bold uppercase tracking-wide transition-all duration-150 no-underline"
+                style={{
+                  background: categoryColors[entry.category] || "#E8520A",
+                  color: "#fff",
+                  border: "none",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Go to Page →
+              </Link>
+            )}
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="text-xs mt-0 transition-transform duration-200"
+              style={{
+                color: "#8a7a6a",
+                transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              ▼
+            </button>
+          </div>
         </div>
 
         {/* Per-entry lens tabs */}

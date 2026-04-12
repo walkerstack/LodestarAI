@@ -63,6 +63,15 @@ export default function SchoolBoard() {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden" style={{ background: "#1A1A2E" }}>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/school-board-hero-na2rdc2gKijFWpeCdCdzt2.webp)`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(26,26,46,0.82) 0%, rgba(26,26,46,0.92) 100%)" }} />
           <div className="relative container py-16 md:py-24 max-w-3xl mx-auto px-6 text-center">
             <div className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ fontFamily: sansFont }}>
               For School Boards & Institutions

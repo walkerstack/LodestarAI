@@ -22,6 +22,7 @@ const lenses = [
 
 const foundationLinks = [
   { label: "Gallantry AI", path: "/gallantry-ai" },
+  { label: "The Three Lenses", path: "/three-lenses" },
   { label: "The Five Rules", path: "/rules" },
   { label: "Road Protocol", path: "/road-protocol" },
   { label: "The Scaffold", path: "/scaffold" },
@@ -32,6 +33,7 @@ const foundationLinks = [
 const toolsLinks = [
   { label: "Flower Presets", path: "/flower-presets" },
   { label: "Prompt Games", path: "/prompt-games" },
+  { label: "Math Through Prompting", path: "/math-prompting" },
   { label: "Promptology Playground", path: "/playground" },
   { label: "Framework Families", path: "/frameworks" },
   { label: "Whelm Scale", path: "/whelm-scale" },

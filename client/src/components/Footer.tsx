@@ -1,7 +1,7 @@
 /*
- * GALLANTRYAI Footer — Updated with all pages
+ * GALLANTRYAI Footer — Matches Nav 6-category structure
+ * Enter Your Lens | Foundation | Tools | Research | For You | Explore
  * Design: The Living Document — editorial register
- * Matches document footer: italic left, bold right. Safety. Honesty. Trust.
  */
 
 import { Link } from "wouter";
@@ -31,53 +31,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Links — organized by section */}
+        {/* Links — organized by Nav categories */}
         <div className="mt-6 pt-4 border-t border-[#e8e0d0]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-[#888]">
-            {/* Learn */}
-            <div className="space-y-1.5">
-              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Learn</div>
-              <Link href="/gallantry-ai" className="block hover:text-[#E8520A] no-underline transition-colors">Gallantry AI</Link>
-              <Link href="/user-governance" className="block hover:text-[#E8520A] no-underline transition-colors">User-Side Governance</Link>
-              <Link href="/dual-strategy" className="block hover:text-[#E8520A] no-underline transition-colors">Dual Strategy</Link>
-              <Link href="/alcm" className="block hover:text-[#E8520A] no-underline transition-colors">ALCM</Link>
-              <Link href="/whelm-scale" className="block hover:text-[#E8520A] no-underline transition-colors">Whelm Scale</Link>
-              <Link href="/variable-scale" className="block hover:text-[#E8520A] no-underline transition-colors">Variable Scale Theory</Link>
-              <Link href="/promptolinguistics" className="block hover:text-[#E8520A] no-underline transition-colors">Promptolinguistics</Link>
-              <Link href="/frameworks" className="block hover:text-[#E8520A] no-underline transition-colors">Framework Families</Link>
-              <Link href="/lexicon" className="block hover:text-[#E8520A] no-underline transition-colors">Living Lexicon</Link>
-              <Link href="/rules" className="block hover:text-[#E8520A] no-underline transition-colors">The Five Rules</Link>
-              <Link href="/road-protocol" className="block hover:text-[#E8520A] no-underline transition-colors">Road Protocol</Link>
-              <Link href="/flower-presets" className="block hover:text-[#E8520A] no-underline transition-colors">Flower Presets</Link>
-              <Link href="/taxonomy" className="block hover:text-[#E8520A] no-underline transition-colors">AI Family Taxonomy</Link>
-              <Link href="/prompt-games" className="block hover:text-[#E8520A] no-underline transition-colors">Prompt Games</Link>
-              <Link href="/malbolge" className="block hover:text-[#E8520A] no-underline transition-colors">Malbolge Geofence</Link>
-              <Link href="/playground" className="block hover:text-[#E8520A] no-underline transition-colors">Playground</Link>
-              <Link href="/scaffold" className="block hover:text-[#E8520A] no-underline transition-colors">The Scaffold</Link>
-              <Link href="/school-board" className="block hover:text-[#E8520A] no-underline transition-colors">School Board</Link>
-              <Link href="/kids-learn" className="block hover:text-[#E8520A] no-underline transition-colors">Kids Learn</Link>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-xs text-[#888]">
 
-            {/* Explore */}
+            {/* Enter Your Lens */}
             <div className="space-y-1.5">
-              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Explore</div>
-              <Link href="/gallery" className="block hover:text-[#E8520A] no-underline transition-colors">Gallery</Link>
-              <Link href="/articles" className="block hover:text-[#E8520A] no-underline transition-colors">Articles</Link>
-              <Link href="/human-line" className="block hover:text-[#E8520A] no-underline transition-colors">The Human Line</Link>
-              <Link href="/field-papers" className="block hover:text-[#E8520A] no-underline transition-colors">Field Papers</Link>
-            </div>
-
-            {/* Research */}
-            <div className="space-y-1.5">
-              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Research</div>
-              <Link href="/citizen-researcher" className="block hover:text-[#E8520A] no-underline transition-colors">Citizen Researcher</Link>
-              <Link href="/builder" className="block hover:text-[#E8520A] no-underline transition-colors">The Builder</Link>
-              <Link href="/builder-origin" className="block hover:text-[#E8520A] no-underline transition-colors">Builder Origin</Link>
-            </div>
-
-            {/* Lenses & Safety */}
-            <div className="space-y-1.5">
-              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Lenses</div>
+              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Enter Your Lens</div>
               <Link href="/for/everyday" className="block hover:text-[#E8520A] no-underline transition-colors">Everyday Person</Link>
               <Link href="/for/child" className="block hover:text-[#E8520A] no-underline transition-colors">Child</Link>
               <Link href="/for/guardian-teacher" className="block hover:text-[#E8520A] no-underline transition-colors">Guardian & Teacher</Link>
@@ -88,9 +48,65 @@ export default function Footer() {
               <Link href="/for/psychology" className="block hover:text-[#E8520A] no-underline transition-colors">Psychology</Link>
               <Link href="/for/researcher" className="block hover:text-[#E8520A] no-underline transition-colors">Researcher</Link>
               <Link href="/for/watcher" className="block hover:text-[#E8520A] no-underline transition-colors">The Watcher</Link>
+            </div>
+
+            {/* Foundation */}
+            <div className="space-y-1.5">
+              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Foundation</div>
+              <Link href="/gallantry-ai" className="block hover:text-[#E8520A] no-underline transition-colors">Gallantry AI</Link>
+              <Link href="/three-lenses" className="block hover:text-[#E8520A] no-underline transition-colors">The Three Lenses</Link>
+              <Link href="/rules" className="block hover:text-[#E8520A] no-underline transition-colors">The Five Rules</Link>
+              <Link href="/road-protocol" className="block hover:text-[#E8520A] no-underline transition-colors">Road Protocol</Link>
+              <Link href="/scaffold" className="block hover:text-[#E8520A] no-underline transition-colors">The Scaffold</Link>
+              <Link href="/user-governance" className="block hover:text-[#E8520A] no-underline transition-colors">User-Side Governance</Link>
+              <Link href="/dual-strategy" className="block hover:text-[#E8520A] no-underline transition-colors">Dual Strategy</Link>
+            </div>
+
+            {/* Tools */}
+            <div className="space-y-1.5">
+              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Tools</div>
+              <Link href="/flower-presets" className="block hover:text-[#E8520A] no-underline transition-colors">Flower Presets</Link>
+              <Link href="/prompt-games" className="block hover:text-[#E8520A] no-underline transition-colors">Prompt Games</Link>
+              <Link href="/math-prompting" className="block hover:text-[#E8520A] no-underline transition-colors">Math Through Prompting</Link>
+              <Link href="/playground" className="block hover:text-[#E8520A] no-underline transition-colors">Playground</Link>
+              <Link href="/frameworks" className="block hover:text-[#E8520A] no-underline transition-colors">Framework Families</Link>
+              <Link href="/whelm-scale" className="block hover:text-[#E8520A] no-underline transition-colors">Whelm Scale</Link>
+              <Link href="/variable-scale" className="block hover:text-[#E8520A] no-underline transition-colors">Variable Scale Theory</Link>
+              <Link href="/malbolge" className="block hover:text-[#E8520A] no-underline transition-colors">Malbolge Geofence</Link>
+            </div>
+
+            {/* Research */}
+            <div className="space-y-1.5">
+              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Research</div>
+              <Link href="/promptolinguistics" className="block hover:text-[#E8520A] no-underline transition-colors">Promptolinguistics</Link>
+              <Link href="/alcm" className="block hover:text-[#E8520A] no-underline transition-colors">ALCM</Link>
+              <Link href="/lexicon" className="block hover:text-[#E8520A] no-underline transition-colors">Living Lexicon</Link>
+              <Link href="/taxonomy" className="block hover:text-[#E8520A] no-underline transition-colors">AI Family Taxonomy</Link>
+            </div>
+
+            {/* For You */}
+            <div className="space-y-1.5">
+              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">For You</div>
+              <Link href="/school-board" className="block hover:text-[#E8520A] no-underline transition-colors">School Board</Link>
+              <Link href="/kids-learn" className="block hover:text-[#E8520A] no-underline transition-colors">Kids Learn</Link>
+
+              {/* Safety — nested under For You */}
               <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mt-4 mb-2">Safety</div>
               <Link href="/if-you-need-to-stop" className="block text-rose-500 hover:text-rose-700 no-underline transition-colors font-medium">If You Need to Stop</Link>
               <Link href="/" className="block hover:text-[#E8520A] no-underline transition-colors">Home</Link>
+            </div>
+
+            {/* Explore */}
+            <div className="space-y-1.5">
+              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Explore</div>
+              <Link href="/gallery" className="block hover:text-[#E8520A] no-underline transition-colors">Gallery</Link>
+              <Link href="/articles" className="block hover:text-[#E8520A] no-underline transition-colors">Articles</Link>
+              <Link href="/human-line" className="block hover:text-[#E8520A] no-underline transition-colors">The Human Line</Link>
+              <Link href="/field-papers" className="block hover:text-[#E8520A] no-underline transition-colors">Field Papers</Link>
+              <Link href="/citizen-researcher" className="block hover:text-[#E8520A] no-underline transition-colors">Citizen Researcher</Link>
+              <Link href="/builder" className="block hover:text-[#E8520A] no-underline transition-colors">The Builder</Link>
+              <Link href="/builder-origin" className="block hover:text-[#E8520A] no-underline transition-colors">Builder Origin</Link>
+              <Link href="/backstage" className="block hover:text-[#E8520A] no-underline transition-colors">Backstage</Link>
             </div>
           </div>
 

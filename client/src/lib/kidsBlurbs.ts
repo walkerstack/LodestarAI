@@ -73,6 +73,16 @@ export const kidsBlurbs: Record<string, { story: string; quote: string; attribut
     quote: "Two minds are better than one — when one of them is yours.",
     attribution: "The Dual Path",
   },
+  "/three-lenses": {
+    story: "This page explains the three ways grown-ups read about AI on this site. Everyday is the simple version — like how the buffalo explains things. Professional is the detailed version — like a textbook. Watcher is the deep-thinking version — like a poem. You can read any of them!",
+    quote: "Three ways to see the same thing. All of them true.",
+    attribution: "The Three Lenses",
+  },
+  "/math-prompting": {
+    story: "This page is about learning math by talking to AI! You ask the AI math questions, and it helps you figure things out. But you do the thinking — the AI just helps you see the path.",
+    quote: "Math is a conversation. The AI is your study buddy.",
+    attribution: "The Math Path",
+  },
   "/user-governance": {
     story: "This page is about being the boss of AI. Not the AI being the boss of you. You set the rules. You check the answers. You decide what happens.",
     quote: "You're not the passenger. You're the one who says where the car goes.",

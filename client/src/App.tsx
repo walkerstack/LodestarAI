@@ -51,6 +51,8 @@ import WatcherLens from "./pages/lenses/WatcherLens";
 import SchoolBoard from "./pages/SchoolBoard";
 import Scaffold from "./pages/Scaffold";
 import KidsLearn from "./pages/KidsLearn";
+import ThreeLenses from "./pages/ThreeLenses";
+import MathPrompting from "./pages/MathPrompting";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -106,6 +108,8 @@ function Router() {
       <Route path="/school-board" component={SchoolBoard} />
       <Route path="/scaffold" component={Scaffold} />
       <Route path="/kids-learn" component={KidsLearn} />
+      <Route path="/three-lenses" component={ThreeLenses} />
+      <Route path="/math-prompting" component={MathPrompting} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

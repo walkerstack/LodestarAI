@@ -46,7 +46,7 @@ export default function PromptEngineerLens() {
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-[#1A1A2E]" />
           <div className="absolute inset-0 opacity-40">
-            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/prompt-engineer-hero-new_7844ffb2.png" alt="" className="w-full h-full object-cover" />
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_ad2ff07b_2b7da237.png" alt="" className="w-full h-full object-cover" />
           </div>
           <div className="relative container py-16 md:py-24 max-w-4xl mx-auto px-6">
             <div className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
