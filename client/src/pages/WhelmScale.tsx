@@ -10,6 +10,7 @@ import { Link } from "wouter";
 import { useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 export default function WhelmScale() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -71,6 +72,8 @@ export default function WhelmScale() {
             </div>
           </div>
         </section>
+        <KidsMidLink />
+
 
         {/* How It Works */}
         <section className="py-12">

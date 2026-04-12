@@ -9,6 +9,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsMidLink from "@/components/KidsMidLink";
 
 export default function BuilderOrigin() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -77,6 +78,8 @@ export default function BuilderOrigin() {
           ))}
         </div>
       </section>
+        <KidsMidLink />
+
 
       {/* Tab content */}
       <section className="py-12 px-6">

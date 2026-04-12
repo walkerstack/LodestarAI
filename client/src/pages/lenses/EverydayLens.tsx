@@ -11,6 +11,7 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const sections = [
   { id: "start", label: "Where You Are" },
@@ -112,6 +113,8 @@ export default function EverydayLens() {
             </div>
           </div>
         </section>
+        <KidsMidLink />
+
 
         {/* What Matters First */}
         <section id="matters" className="py-12 md:py-16 bg-[#f5f0e8]" style={{ scrollMarginTop: '60px' }}>

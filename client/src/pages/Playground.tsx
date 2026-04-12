@@ -10,6 +10,7 @@ import { Link } from "wouter";
 import { useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const audiences = [
   {
@@ -131,6 +132,8 @@ export default function Playground() {
           </div>
         </div>
       </section>
+        <KidsMidLink />
+
 
       {/* What it will include */}
       <section className="py-12 px-6" style={{ borderTop: "1px solid #1a1610" }}>

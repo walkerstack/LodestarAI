@@ -11,6 +11,7 @@ import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const codeLines = [
   { text: "/* BUILDER SYSTEM LOG */", type: "comment" },
@@ -298,6 +299,8 @@ export default function Malbolge() {
           </p>
         </div>
       </section>
+        <KidsMidLink />
+
 
       {/* The Geofence Concept */}
       <section className="px-6 pb-16" style={{ borderTop: '1px solid #1a1610' }}>

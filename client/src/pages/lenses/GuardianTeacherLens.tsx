@@ -11,6 +11,7 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const sections = [
   { id: "role", label: "Your Role" },
@@ -103,6 +104,8 @@ export default function GuardianTeacherLens() {
             </div>
           </div>
         </section>
+        <KidsMidLink />
+
 
         {/* What Kids Face */}
         <section id="face" className="py-12 md:py-16 bg-[#f5f0e8]" style={{ scrollMarginTop: '60px' }}>

@@ -9,6 +9,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const cases = [
   {
@@ -102,6 +103,8 @@ export default function HumanLine() {
           ))}
         </div>
       </section>
+        <KidsMidLink />
+
 
       {/* ── WHAT IS A SPIRAL ── */}
       <section className="container py-10 border-t" style={{ borderColor: "#2a2018" }}>

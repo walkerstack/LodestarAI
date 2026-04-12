@@ -10,6 +10,7 @@ import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -111,6 +112,8 @@ export default function LinguistLens() {
             </div>
           </div>
         </section>
+        <KidsMidLink />
+
 
         {/* Section 2: What AI Reveals */}
         <section id="reveals" className="py-12 md:py-16 bg-[#f5f0e8]">

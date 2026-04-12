@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 type Lens = 'everyday' | 'professional' | 'watcher';
 
@@ -121,6 +122,8 @@ export default function MathematicianLens() {
             )}
           </div>
         </section>
+        <KidsMidLink />
+
 
         {/* Force Vectors */}
         <section id="vectors" className="py-12 md:py-16 bg-[#f5f0e8]" style={{ scrollMarginTop: '60px' }}>

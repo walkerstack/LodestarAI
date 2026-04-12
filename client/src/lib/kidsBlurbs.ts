@@ -79,8 +79,8 @@ export const kidsBlurbs: Record<string, { story: string; quote: string; attribut
     attribution: "The Three Lenses",
   },
   "/math-prompting": {
-    story: "This page is about learning math by talking to AI! You ask the AI math questions, and it helps you figure things out. But you do the thinking — the AI just helps you see the path.",
-    quote: "Math is a conversation. The AI is your study buddy.",
+    story: "This page is about learning math by talking to AI. Stay — let's learn together. The Builder isn't a math whiz either. Or is he? That's the thing — we can't know how high we can grow until we try. You ask the AI math questions, and it helps you see the path. But you do the thinking. That's the deal.",
+    quote: "We can't know how high we can grow. Let's find out together.",
     attribution: "The Math Path",
   },
   "/user-governance": {

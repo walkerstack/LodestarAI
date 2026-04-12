@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect } from "react";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const IMG = {
   governance: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/plaud-governance-framework_f15cccb0.jpg",
@@ -120,6 +121,8 @@ export default function CitizenResearcher() {
           </WatcherNote>
         </div>
       </section>
+        <KidsMidLink />
+
 
       {/* What Citizen Research Is */}
       <section className="py-16 md:py-20 bg-[#f5f0e8]">

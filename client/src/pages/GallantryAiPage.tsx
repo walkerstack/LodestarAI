@@ -11,6 +11,7 @@ import LearningFlow from "@/components/LearningFlow";
 import Nav from "@/components/Nav";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const IMG = {
   govCapability: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000005556_a269fa9a.jpg",
@@ -71,6 +72,8 @@ export default function GallantryAiPage() {
             </div>
           </div>
         </section>
+        <KidsMidLink />
+
 
         {/* Governance as Capability */}
         <section>

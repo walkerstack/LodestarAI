@@ -14,6 +14,7 @@ import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const SLOTH_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008840_5b1a6230.png";
@@ -315,6 +316,8 @@ export default function FiveRules() {
           })}
         </div>
       </section>
+        <KidsMidLink />
+
 
       {/* The Equation */}
       <section className="py-16 md:py-20 px-6" style={{ borderTop: '1px solid #1a1610' }}>

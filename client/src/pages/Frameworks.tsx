@@ -13,6 +13,7 @@ import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const families = [
   {
@@ -241,6 +242,8 @@ export default function Frameworks() {
           </p>
         </div>
       </section>
+
+      <KidsMidLink />
 
       {/* Cross-links */}
       <section className="py-16 bg-[#FAF6EF]">

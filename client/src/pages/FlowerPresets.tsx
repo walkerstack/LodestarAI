@@ -15,6 +15,7 @@ import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -309,6 +310,8 @@ export default function FlowerPresets() {
           )}
         </div>
       </section>
+        <KidsMidLink />
+
 
       {/* System 2: Essence Modulations */}
       <section className="py-16 px-6" style={{ background: "#FFF8EE" }}>

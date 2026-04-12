@@ -13,6 +13,7 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 interface AIFamily {
   name: string;
@@ -206,6 +207,8 @@ export default function Taxonomy() {
           </div>
         </div>
       </section>
+        <KidsMidLink />
+
 
       {/* Family Grid */}
       <main className="flex-1 px-6 pb-16">

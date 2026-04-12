@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect } from "react";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const IMG = {
   brain: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/brand-brain-poster_a255dafa.png",
@@ -76,6 +77,8 @@ export default function Builder() {
           </p>
         </div>
       </section>
+        <KidsMidLink />
+
 
       {/* Story */}
       <article className="container max-w-3xl mx-auto px-6 text-[#c8bfb0] text-base md:text-lg leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>

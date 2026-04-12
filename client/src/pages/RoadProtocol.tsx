@@ -12,6 +12,7 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const IMG = {
   elder: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/15-elder-wisdom_4ddefdeb.jpg",
@@ -530,6 +531,8 @@ export default function RoadProtocol() {
           </p>
         </div>
       </section>
+        <KidsMidLink />
+
 
       {/* Ghost Protocol — Unified interactive section */}
       <section className="py-16 md:py-20">

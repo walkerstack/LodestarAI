@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -173,8 +174,21 @@ export default function MathPrompting() {
                 <strong style={{ color: "#1A1A2E" }}>The Variable Scale applies here too.</strong> Sometimes you need the AI to show you every step. Sometimes you just need a hint. Sometimes you need it to stay quiet while you figure it out. You control the dial. That's the governance. That's the math.
               </p>
             </div>
+            <div className="mt-6 flex items-center gap-3 p-4 rounded-xl" style={{ background: "#FFF7ED", border: "1px solid #FED7AA" }}>
+              <span className="text-2xl flex-shrink-0">🦬</span>
+              <div className="flex-1">
+                <p className="text-sm" style={{ color: "#3a2a1a" }}>
+                  <strong>Hey kids</strong> — the Builder isn't a math whiz either. Or is he? That's the thing — we can't know how high we can grow until we try.
+                </p>
+                <Link href="/kids-learn" className="text-xs font-bold mt-1 inline-block" style={{ color: "#D97706" }}>
+                  Let's learn together →
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
+        <KidsMidLink />
+
 
         {/* Global Lens Toggle */}
         <section className="py-4 px-6 sticky top-[57px] z-40" style={{ background: "#FAF6EF", borderBottom: "1px solid #e8e0d0" }}>
@@ -308,6 +322,15 @@ export default function MathPrompting() {
                   </p>
                 </div>
               ))}
+            </div>
+            <div className="mt-6 text-center">
+              <Link
+                href="/for/child"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold no-underline transition-all hover:scale-[1.03]"
+                style={{ background: "rgba(217,119,6,0.15)", color: "#D97706", border: "1px solid rgba(217,119,6,0.3)" }}
+              >
+                🦬 Kids — your page is here →
+              </Link>
             </div>
           </div>
         </section>

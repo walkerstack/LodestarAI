@@ -15,6 +15,7 @@ import KidsRedirect from "@/components/KidsRedirect";
 import LearningFlow from "@/components/LearningFlow";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import { flowMap } from "@/lib/learningFlowMap";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -229,6 +230,8 @@ export default function OpenDoor() {
             </div>
           </div>
         </section>
+        <KidsMidLink />
+
 
         {/* Global Lens Toggle */}
         <section className="py-4 px-6 sticky top-[57px] z-40" style={{ background: "#FAF6EF", borderBottom: "1px solid #e8e0d0" }}>

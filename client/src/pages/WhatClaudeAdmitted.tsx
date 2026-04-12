@@ -14,6 +14,7 @@ import KidsRedirect from "@/components/KidsRedirect";
 import LearningFlow from "@/components/LearningFlow";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import { flowMap } from "@/lib/learningFlowMap";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -226,6 +227,8 @@ export default function WhatClaudeAdmitted() {
             </div>
           </div>
         </section>
+        <KidsMidLink />
+
 
         {/* Global Lens Toggle */}
         <section className="py-4 px-6 sticky top-[57px] z-40" style={{ background: "#0D0D0D", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>

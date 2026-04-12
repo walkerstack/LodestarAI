@@ -6,6 +6,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect } from "react";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -104,6 +105,8 @@ export default function SchoolBoard() {
             </div>
           </div>
         </section>
+        <KidsMidLink />
+
 
         {/* Four Levels */}
         <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
