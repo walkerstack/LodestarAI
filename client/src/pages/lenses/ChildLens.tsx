@@ -141,14 +141,17 @@ export default function ChildLens() {
     >
       <Nav />
 
-      {/* Hero — warm white with orange accent */}
+      {/* Hero — warm white with orange accent + background image */}
       <section
-        className="w-full py-16 px-6 text-center"
+        className="relative w-full py-16 px-6 text-center overflow-hidden"
         style={{
           background: "linear-gradient(to bottom, #1A1A2E 0%, #E8520A 35%, #FFF8EE 100%)",
         }}
       >
-        <div className="max-w-2xl mx-auto">
+        <div className="absolute inset-0 opacity-15">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/child-lens-hero-Mp8H27goyAVtAg5mmKpwre.webp" alt="" className="w-full h-full object-cover" />
+        </div>
+        <div className="relative max-w-2xl mx-auto">
           <div
             className="text-xs uppercase tracking-widest mb-3 font-semibold"
             style={{ color: "#FFF8EE", opacity: 0.8 }}

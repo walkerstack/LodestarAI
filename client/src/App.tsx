@@ -47,6 +47,7 @@ import VariableScale from "./pages/VariableScale";
 import GallantryAiPage from "./pages/GallantryAiPage";
 import DualStrategy from "./pages/DualStrategy";
 import UserGovernance from "./pages/UserGovernance";
+import WatcherLens from "./pages/lenses/WatcherLens";
 
 function Router() {
   return (
@@ -62,6 +63,7 @@ function Router() {
       <Route path="/for/cognitive-science" component={CognitiveScienceLens} />
       <Route path="/for/psychology" component={PsychologyLens} />
       <Route path="/for/researcher" component={ResearcherLens} />
+      <Route path="/for/watcher" component={WatcherLens} />
       {/* Feature Sections */}
       <Route path="/promptolinguistics" component={Promptolinguistics} />
       <Route path="/lexicon" component={LivingLexicon} />

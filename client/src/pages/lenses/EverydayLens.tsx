@@ -31,16 +31,19 @@ export default function EverydayLens() {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#E8520A]/10 via-[#FAF6EF] to-[#f5f0e8]" />
+          <div className="absolute inset-0 bg-[#1A1A2E]" />
+          <div className="absolute inset-0 opacity-20">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/everyday-lens-hero-mD9U9S6yX6Khatkn3tQTSR.webp" alt="" className="w-full h-full object-cover" />
+          </div>
           <div className="relative container py-16 md:py-24 max-w-4xl mx-auto px-6">
             <div className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               Lens: Everyday Person
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-[#1A1A2E] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-3xl md:text-5xl font-bold text-[#FAF6EF] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               You Don't Need to Be an Expert.<br />
               <span className="text-[#E8520A]">You Just Need to Start.</span>
             </h1>
-            <p className="text-base text-[#555] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               You're not a programmer. You're not a researcher. You're someone who uses AI — or wants to — and you want to do it well. This page is your starting line. No jargon. No prerequisites. Just honest tools that work.
             </p>
           </div>

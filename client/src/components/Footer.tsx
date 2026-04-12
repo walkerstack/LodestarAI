@@ -62,6 +62,7 @@ export default function Footer() {
               <Link href="/articles" className="block hover:text-[#E8520A] no-underline transition-colors">Articles</Link>
               <Link href="/human-line" className="block hover:text-[#E8520A] no-underline transition-colors">The Human Line</Link>
               <Link href="/field-papers" className="block hover:text-[#E8520A] no-underline transition-colors">Field Papers</Link>
+              <Link href="/for/watcher" className="block hover:text-[#E8520A] no-underline transition-colors">The Watcher</Link>
             </div>
 
             {/* Research */}

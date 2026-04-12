@@ -32,16 +32,19 @@ export default function GuardianTeacherLens() {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-[#FAF6EF] to-[#f5f0e8]" />
+          <div className="absolute inset-0 bg-[#1A1A2E]" />
+          <div className="absolute inset-0 opacity-20">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/guardian-teacher-hero-Ca6BWk6JQGwvoKHVGffe42.webp" alt="" className="w-full h-full object-cover" />
+          </div>
           <div className="relative container py-16 md:py-24 max-w-4xl mx-auto px-6">
             <div className="text-[#2A9D8F] text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               Lens: Guardian & Teacher
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-[#1A1A2E] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-3xl md:text-5xl font-bold text-[#FAF6EF] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               They're Going to Use AI.<br />
               <span className="text-[#2A9D8F]">Help Them Use It Well.</span>
             </h1>
-            <p className="text-base text-[#555] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               Whether you're a parent at the kitchen table or a teacher in a classroom of thirty — the question isn't whether kids will use AI. It's whether they'll have a framework when they do. This page gives you that framework.
             </p>
           </div>

@@ -33,7 +33,7 @@ const families: AIFamily[] = [
     personality: "The thoughtful collaborator. Claude tends toward careful, nuanced responses. It will push back when it disagrees. It reads tone well and adjusts register naturally. The closest thing to a thinking partner in the current landscape.",
     strengths: ["Register sensitivity", "Nuanced reasoning", "Honest pushback", "Long-context coherence", "Emotional intelligence"],
     watchFor: ["Can be overly cautious", "Sometimes hedges when directness is needed", "May over-qualify statements"],
-    gallantryNote: "Claude was the primary testing ground for the GallantryAI framework. Most protocols were developed and refined through thousands of Claude sessions. It responds to governance prompts with unusual depth — it doesn't just follow instructions, it appears to understand the intent behind them.",
+    gallantryNote: "Claude was the primary testing ground for the GallantryAI framework. Most protocols were developed and refined through hundreds of Claude sessions. It responds to governance prompts with unusual depth — it doesn't just follow instructions, it appears to understand the intent behind them.",
     color: "#D97706",
     icon: "🧠",
     tier: "primary",
@@ -174,7 +174,7 @@ export default function Taxonomy() {
           </h1>
           <p className="text-sm mb-3" style={{ color: "#b0a898", lineHeight: 1.7, maxWidth: "520px", margin: "0 auto" }}>
             Every AI has a personality, a tendency, and a blind spot. This is not a ranking.
-            It is a field guide — built from thousands of sessions across eight platforms.
+            It is a field guide — built from hundreds of sessions across eight platforms.
           </p>
           <p className="text-xs italic" style={{ color: "#6a5a4a" }}>
             "The prompt is the same. The model is different. The output changes. That's the taxonomy."

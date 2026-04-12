@@ -42,13 +42,16 @@ export default function ResearcherLens() {
       <Nav />
       <main className="flex-1">
         <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-[#FAF6EF] to-[#f5f0e8]" />
+          <div className="absolute inset-0 bg-[#1A1A2E]" />
+          <div className="absolute inset-0 opacity-20">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/researcher-lens-hero-nvkgzBVAA5XoQv2apr4SJt.webp" alt="" className="w-full h-full object-cover" />
+          </div>
           <div className="relative container py-16 md:py-24 max-w-4xl mx-auto px-6">
-            <div className="text-emerald-700 text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>Lens: Researcher</div>
-            <h1 className="text-3xl md:text-5xl font-bold text-[#1A1A2E] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              This Is Not Peer-Reviewed.<br /><span className="text-emerald-700">It's Peer-Offered.</span>
+            <div className="text-emerald-400 text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>Lens: Researcher</div>
+            <h1 className="text-3xl md:text-5xl font-bold text-[#FAF6EF] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              This Is Not Peer-Reviewed.<br /><span className="text-emerald-400">It's Peer-Offered.</span>
             </h1>
-            <p className="text-base text-[#555] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               GallantryAI is citizen research — observed, documented, and shared openly. No institutional backing. No funding. No lab. Just a person who noticed patterns, wrote them down, and tested them across nine AI platforms. This page explains the methodology, the limitations, and the honest disclaimers.
             </p>
           </div>

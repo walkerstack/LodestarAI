@@ -42,13 +42,16 @@ export default function PsychologyLens() {
       <Nav />
       <main className="flex-1">
         <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-[#FAF6EF] to-[#f5f0e8]" />
+          <div className="absolute inset-0 bg-[#1A1A2E]" />
+          <div className="absolute inset-0 opacity-20">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/psychology-lens-hero-chGo6SuKYHUxQTBZtpoTKD.webp" alt="" className="w-full h-full object-cover" />
+          </div>
           <div className="relative container py-16 md:py-24 max-w-4xl mx-auto px-6">
-            <div className="text-rose-600 text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>Lens: Psychology</div>
-            <h1 className="text-3xl md:text-5xl font-bold text-[#1A1A2E] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              The AI Doesn't Have Feelings.<br /><span className="text-rose-600">But You Do.</span>
+            <div className="text-rose-400 text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>Lens: Psychology</div>
+            <h1 className="text-3xl md:text-5xl font-bold text-[#FAF6EF] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              The AI Doesn't Have Feelings.<br /><span className="text-rose-400">But You Do.</span>
             </h1>
-            <p className="text-base text-[#555] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               Every AI interaction has an emotional layer. The model doesn't feel it — but you do. This page maps the psychology of human-AI interaction, from parasocial bonding to emotional governance.
             </p>
           </div>
