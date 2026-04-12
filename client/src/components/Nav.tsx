@@ -85,6 +85,9 @@ export default function Nav() {
           <Link href="/human-line" className={`hover:text-[#E8520A] transition-colors no-underline ${location === '/human-line' ? 'text-[#E8520A]' : ''}`}>
             The Human Line
           </Link>
+          <Link href="/field-papers" className={`hover:text-[#E8520A] transition-colors no-underline ${location === '/field-papers' ? 'text-[#E8520A]' : ''}`}>
+            Field Papers
+          </Link>
           <Link href="/if-you-need-to-stop" className="text-rose-600 hover:text-rose-700 transition-colors no-underline text-xs font-semibold uppercase tracking-wide">
             If You Need to Stop
           </Link>
@@ -121,6 +124,7 @@ export default function Nav() {
               { label: "Gallery", path: "/gallery" },
               { label: "Articles", path: "/articles" },
               { label: "The Human Line", path: "/human-line" },
+              { label: "Field Papers", path: "/field-papers" },
             ].map((item) => (
               <Link key={item.path} href={item.path} onClick={() => setOpen(false)} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A]">
                 {item.label}

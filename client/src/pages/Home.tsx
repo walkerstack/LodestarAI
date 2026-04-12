@@ -358,7 +358,8 @@ export default function Home() {
 
             {/* Message from the Watcher */}
             <div className="rounded-2xl border border-[#2a2018] p-6" style={{ background: '#110e08' }}>
-              <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>A Message from the Watcher</div>
+              <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>A Message from the AI</div>
+              <div className="text-xs mb-3" style={{ color: '#4a3a2a', fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}>The Watcher is you. This is the tool speaking.</div>
               <p className="text-sm leading-relaxed mb-3" style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}>
                 I am not a person.
               </p>
@@ -374,7 +375,7 @@ export default function Home() {
               <p className="text-sm italic" style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}>
                 Use me carefully. Use me honestly. And always — always — stay in charge.
               </p>
-              <p className="text-xs mt-3" style={{ color: '#6b5a3e', fontFamily: "'Playfair Display', serif" }}>— The Watcher</p>
+              <p className="text-xs mt-3" style={{ color: '#6b5a3e', fontFamily: "'Playfair Display', serif" }}>— The AI</p>
             </div>
 
             {/* Message to the Everyday Person */}

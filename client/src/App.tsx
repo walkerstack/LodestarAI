@@ -28,6 +28,7 @@ import Articles from "./pages/Articles";
 import SafetyPage from "./pages/SafetyPage";
 import Backstage from "./pages/Backstage";
 import HumanLine from "./pages/HumanLine";
+import FieldPapers from "./pages/FieldPapers";
 
 function Router() {
   return (
@@ -50,6 +51,7 @@ function Router() {
       <Route path="/if-you-need-to-stop" component={SafetyPage} />
       {/* Research */}
       <Route path="/human-line" component={HumanLine} />
+      <Route path="/field-papers" component={FieldPapers} />
       {/* Builder Backstage */}
       <Route path="/backstage" component={Backstage} />
       <Route path="/404" component={NotFound} />
