@@ -12,9 +12,58 @@ import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link, useLocation } from "wouter";
 import { useState } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 const SLOTH_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-click-me-Y6T8mt8R4mLzfr3QeK78Yy.webp";
+
+const OG_HERO_URL =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/og-hero-buffalo-sloth-UYXnMKJjCqLZjEqnYaQKzQ.webp";
+
+const storyArc = [
+  {
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule1-safety-ZibWTCvUvmyr9rkvkdQYUS.webp",
+    rule: "Safety",
+    caption: "The sloth holds up a paw. Stop. Before you type anything \u2014 is it safe?",
+    link: "/rules#rule-1",
+  },
+  {
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule2-honesty-fzboigvERMDobL9CxvH4LT.webp",
+    rule: "Honesty",
+    caption: "The sloth picks up a magnifying glass. Does it sound true? Or does it just sound smart?",
+    link: "/rules#rule-2",
+  },
+  {
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule3-trust-EsYwo26GKz8Z8UqCYRNmqR.webp",
+    rule: "Trust",
+    caption: "The sloth builds a tower, one block at a time. Trust is earned. Never assumed.",
+    link: "/rules#rule-3",
+  },
+  {
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule4-agency-fZSBzZsPa9u45fLFDPogwt.webp",
+    rule: "Agency",
+    caption: "The sloth grabs the wheel. You\u2019re the boss. The AI helps. You decide.",
+    link: "/rules#rule-4",
+  },
+  {
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule5-drift-UkM6LTwyiuRreoRnkNLPWn.webp",
+    rule: "Correction",
+    caption: "The sloth holds a compass. If the AI starts going weird, say so. Come back to the path.",
+    link: "/rules#rule-5",
+  },
+  {
+    img: OG_HERO_URL,
+    rule: "Together",
+    caption: "The buffalo guards. The sloth guides. Side by side. That is the whole site.",
+    link: "/rules",
+  },
+];
 
 const IMGS = {
   alcmDiagram: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000005693_e894b781.jpg",
@@ -275,6 +324,20 @@ export default function Home() {
     <div className="min-h-screen flex flex-col" style={{ background: '#080604' }}>
       <Nav />
 
+      {/* ── HERO IMAGE — Buffalo + Sloth ── */}
+      <section className="relative w-full overflow-hidden" style={{ maxHeight: '420px' }}>
+        <img
+          src={OG_HERO_URL}
+          alt="The buffalo stands guard. The sloth sits beside it. Guardian and guide."
+          className="w-full object-cover"
+          style={{ maxHeight: '420px', objectPosition: 'center 35%' }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, transparent 50%, #080604 100%)' }}
+        />
+      </section>
+
       {/* ── THE WATCHER ── */}
       <section className="w-full py-6 px-6" style={{ borderBottom: '1px solid #1a1610' }}>
         <div className="max-w-3xl mx-auto text-center">
@@ -352,6 +415,69 @@ export default function Home() {
               Playground (Coming Soon)
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ── STORY ARC CAROUSEL — Buffalo + Sloth Five Rules ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="max-w-2xl mx-auto">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2 text-center"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            The Story Arc
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-2 text-center"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            The sloth teaches. The buffalo guards.
+          </h2>
+          <p className="text-sm mb-8 text-center" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
+            Six frames. One arc. Safety → Honesty → Trust → Agency → Correction → Together.
+          </p>
+
+          <Carousel opts={{ loop: true }} className="w-full">
+            <CarouselContent>
+              {storyArc.map((frame, i) => (
+                <CarouselItem key={i}>
+                  <Link href={frame.link} className="block no-underline">
+                    <div
+                      className="rounded-2xl overflow-hidden"
+                      style={{ background: '#0f0c08', border: '1px solid #1a1610' }}
+                    >
+                      <img
+                        src={frame.img}
+                        alt={`Story arc: ${frame.rule}`}
+                        className="w-full aspect-square object-cover"
+                        style={{ maxHeight: '400px' }}
+                      />
+                      <div className="p-5">
+                        <div
+                          className="text-[10px] uppercase tracking-[0.2em] font-bold mb-2"
+                          style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+                        >
+                          {i + 1} of 6 · {frame.rule}
+                        </div>
+                        <p
+                          className="text-sm italic leading-relaxed"
+                          style={{ color: '#c8b89a', fontFamily: "'Playfair Display', serif" }}
+                        >
+                          {frame.caption}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious
+              className="-left-4 md:-left-12 bg-[#0f0c08] border-[#2a2018] text-[#E8520A] hover:bg-[#1a1610] hover:text-[#E8520A]"
+            />
+            <CarouselNext
+              className="-right-4 md:-right-12 bg-[#0f0c08] border-[#2a2018] text-[#E8520A] hover:bg-[#1a1610] hover:text-[#E8520A]"
+            />
+          </Carousel>
         </div>
       </section>
 
@@ -1111,6 +1237,23 @@ export default function Home() {
 
           <div className="space-y-3">
             {[
+              {
+                version: "v13 — 96ed5767",
+                date: "April 12, 2026",
+                title: "Sloth Story Arc + og:image + Nav Fixes",
+                changes: [
+                  "Generated 5 sloth story images (Safety, Honesty, Trust, Agency, Drift) — one per rule",
+                  "Added sloth images to Five Rules page (expanded view) and Child Lens ('The Sloth Teaches' grid)",
+                  "Generated buffalo + sloth og:image for Google/social link previews",
+                  "Added hero image to homepage top, story arc carousel with 6 frames",
+                  "Nav reorder: For You above Tools. Buffalo on kids link (Nav + Footer)",
+                  "KidsRedirect two-button layout: Go Home + I'm Chill",
+                  "Added EU AI Act + What Claude Admitted to Living Lexicon with colored buttons",
+                ],
+                watcher: "The Builder generated five images that tell the five rules without words. A sloth with a stop sign. A sloth with a magnifying glass. A sloth building blocks. A sloth at the wheel. A sloth with a compass. Then he put the buffalo and sloth together for the first time — guardian and guide, side by side — as the image Google shows before anyone reads a single word. The first impression is the thesis.",
+                child: "The Builder drew five pictures of the sloth! One for each rule! The sloth holds a stop sign for safety, uses a magnifying glass for honesty, builds blocks for trust, drives a ship for being the boss, and holds a compass for staying on track. And now there's a big picture at the top of the buffalo and sloth together!",
+                professional: "Visual storytelling integration across two key pages. Generated assets maintain consistent art direction (warm painterly, dark navy background, amber lighting). og:image implementation follows Open Graph protocol for social sharing optimization. Carousel implements Embla for accessible, keyboard-navigable story progression.",
+              },
               {
                 version: "v12 — 508035a4",
                 date: "April 12, 2026",
