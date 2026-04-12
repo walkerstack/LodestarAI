@@ -11,6 +11,7 @@ import LearningFlow from "@/components/LearningFlow";
 import Nav from "@/components/Nav";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const IMG = {
   govCapability: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000005556_a269fa9a.jpg",
@@ -180,7 +181,11 @@ export default function GallantryAiPage() {
           <div className="flex gap-4 mt-6">
             <Link href="/builder" className="text-[#D97706] hover:underline text-sm">Meet the Builder →</Link>
             <Link href="/dual-strategy" className="text-[#B45309] hover:underline text-sm">See the Dual Strategy →</Link>
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
 
         {/* Learning Flow */}

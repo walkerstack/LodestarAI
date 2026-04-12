@@ -14,7 +14,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import IntroCrawl from "./components/IntroCrawl";
 import OopsSloth from "./components/OopsSloth";
-import KidsMidLink from "./components/KidsMidLink";
+
 import ChildLens from "./pages/lenses/ChildLens";
 import GuardianTeacherLens from "./pages/lenses/GuardianTeacherLens";
 import PromptEngineerLens from "./pages/lenses/PromptEngineerLens";
@@ -149,7 +149,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <OopsSloth />
-          <KidsMidLink />
+
           {showIntro && <IntroCrawl onComplete={handleIntroComplete} />}
           <ScrollToTop />
           <Router />

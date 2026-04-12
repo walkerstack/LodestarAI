@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 type Lens = 'everyday' | 'professional' | 'watcher';
 
@@ -66,7 +67,11 @@ export default function MathematicianLens() {
             <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               Every prompt is a vector in a high-dimensional space. Every word shifts the trajectory. Every constraint narrows the solution set. If you think in functions, mappings, and transformations — this is where language becomes your kind of math.
             </p>
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
 
         {/* Section Nav */}

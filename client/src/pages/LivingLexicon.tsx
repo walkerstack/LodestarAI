@@ -14,6 +14,7 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 type Lens = "everyday" | "professional" | "watcher";
 
@@ -697,6 +698,10 @@ export default function LivingLexicon() {
           </div>
         </div>
       </main>
+
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
 
       <LearningFlow current="Living Lexicon" deeper={flowMap.lexicon.deeper} wider={flowMap.lexicon.wider} simpler={flowMap.lexicon.simpler} dark />
       <Footer />

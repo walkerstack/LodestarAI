@@ -6,6 +6,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect } from "react";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -250,6 +251,10 @@ export default function SchoolBoard() {
           </div>
         </section>
       </main>
+
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
 
       <Footer />
     </div>

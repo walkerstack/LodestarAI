@@ -11,6 +11,7 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const sections = [
   { id: "role", label: "Your Role" },
@@ -49,7 +50,11 @@ export default function GuardianTeacherLens() {
             <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               Whether you're a parent at the kitchen table or a teacher in a classroom of thirty — the question isn't whether kids will use AI. It's whether they'll have a framework when they do. This page gives you that framework.
             </p>
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
 
         {/* Section Nav */}

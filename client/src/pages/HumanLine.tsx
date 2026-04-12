@@ -9,6 +9,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const cases = [
   {
@@ -286,6 +287,10 @@ export default function HumanLine() {
           </div>
         </div>
       </section>
+
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
 
       <Footer />
     </div>

@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -437,6 +438,10 @@ export default function ThreeLenses() {
           </div>
         </section>
       </main>
+
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
 
       <Footer />
     </div>

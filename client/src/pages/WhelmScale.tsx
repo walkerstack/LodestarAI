@@ -10,6 +10,7 @@ import { Link } from "wouter";
 import { useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 export default function WhelmScale() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -196,6 +197,10 @@ export default function WhelmScale() {
           </div>
         </section>
       </main>
+
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
 
       <Footer />
     </div>

@@ -11,6 +11,7 @@ import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -104,7 +105,11 @@ export default function CognitiveScienceLens() {
             <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               You study how humans think, perceive, decide, and remember. You understand that cognition is not a single process — it is a system of systems. AI gives you something unprecedented: a real-time mirror of cognitive interaction where every input produces measurable output. Every session is an experiment. Every drift is data.
             </p>
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
 
         {/* Section Nav */}

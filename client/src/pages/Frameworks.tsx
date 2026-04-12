@@ -13,6 +13,7 @@ import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const families = [
   {
@@ -239,6 +240,10 @@ export default function Frameworks() {
           <p className="mt-6 text-sm text-[#888] italic" style={{ fontFamily: "'Playfair Display', serif" }}>
             Stay tuned.
           </p>
+        
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
+          </div>
         </div>
       </section>
       {/* Cross-links */}

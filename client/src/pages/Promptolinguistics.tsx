@@ -14,6 +14,7 @@ import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -432,7 +433,11 @@ export default function Promptolinguistics() {
                 <span className="text-[#b0a898]">{holdExamples[selectedHold]}</span>
               </div>
             )}
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
         {/* Power Prompt Combos */}
         <section className="py-12 md:py-16">

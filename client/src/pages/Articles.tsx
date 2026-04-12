@@ -7,6 +7,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const IMGS = {
   pieInTheSky: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008218_6cc748c7.png",
@@ -170,6 +171,10 @@ export default function Articles() {
           </p>
         </div>
       </main>
+
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
 
       <Footer />
     </div>

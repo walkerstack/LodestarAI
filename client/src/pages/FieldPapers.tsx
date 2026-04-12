@@ -6,6 +6,7 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -309,6 +310,10 @@ export default function FieldPapers() {
           </p>
         </div>
       </section>
+
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
 
       <Footer />
     </div>

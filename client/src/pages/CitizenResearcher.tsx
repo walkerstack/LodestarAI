@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect } from "react";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const IMG = {
   governance: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/plaud-governance-framework_f15cccb0.jpg",
@@ -99,6 +100,10 @@ export default function CitizenResearcher() {
           <p className="text-lg text-[#555] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             Every AI governance framework in the world points at institutions. Nobody built the user-side layer. Until now.
           </p>
+        
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
+          </div>
         </div>
       </section>
 

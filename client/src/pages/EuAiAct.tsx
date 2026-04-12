@@ -14,6 +14,7 @@ import KidsRedirect from "@/components/KidsRedirect";
 import LearningFlow from "@/components/LearningFlow";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import { flowMap } from "@/lib/learningFlowMap";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -385,6 +386,10 @@ export default function EuAiAct() {
         </section>
 
         {/* Learning Flow */}
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
+
         <LearningFlow
           current="EU AI Act"
           deeper={flowMap.euAiAct?.deeper ?? []}

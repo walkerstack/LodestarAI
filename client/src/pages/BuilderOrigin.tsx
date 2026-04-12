@@ -9,6 +9,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsMidLink from "@/components/KidsMidLink";
 
 export default function BuilderOrigin() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -374,6 +375,10 @@ export default function BuilderOrigin() {
       </section>
 
       <div style={{ background: "#1A1A1A" }}>
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
+
         <Footer />
       </div>
     </div>

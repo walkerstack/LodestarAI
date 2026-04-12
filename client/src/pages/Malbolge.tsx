@@ -11,6 +11,7 @@ import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const codeLines = [
   { text: "/* BUILDER SYSTEM LOG */", type: "comment" },
@@ -686,6 +687,10 @@ export default function Malbolge() {
       </section>
 
       <div style={{ background: '#080604' }}>
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
+
         <Footer />
       </div>
     </div>

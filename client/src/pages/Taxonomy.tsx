@@ -13,6 +13,7 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 interface AIFamily {
   name: string;
@@ -396,6 +397,10 @@ export default function Taxonomy() {
           </div>
         </div>
       </main>
+
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
 
       <LearningFlow current="Taxonomy" deeper={flowMap.taxonomy.deeper} wider={flowMap.taxonomy.wider} simpler={flowMap.taxonomy.simpler} dark />
       <Footer />

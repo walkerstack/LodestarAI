@@ -10,6 +10,7 @@ import LearningFlow from "@/components/LearningFlow";
 import Nav from "@/components/Nav";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const IMG = {
   fieldGuide: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000005836_2f9cacc6.jpg",
@@ -203,7 +204,11 @@ export default function UserGovernance() {
             <Link href="/dual-strategy" className="inline-block bg-[#1A1A2E] text-[#E8520A] px-6 py-2 rounded-lg text-sm font-semibold hover:bg-[#2D2D2D] transition-colors no-underline">
               See the Dual Strategy →
             </Link>
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
 
         {/* Closing */}

@@ -10,6 +10,7 @@ import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -59,7 +60,11 @@ export default function PromptEngineerLens() {
             <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               You've mastered tone, role, and instruction. You know chain-of-thought, few-shot, and system prompts. This page is about what happens after all of that — when the AI still drifts, still flatters, still loses the thread. The gap isn't in your technique. It's in your governance.
             </p>
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
 
         {/* Section Nav */}

@@ -8,6 +8,7 @@
 import { useState } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import KidsMidLink from "@/components/KidsMidLink";
 
 // Simple client-side password gate — not cryptographic security,
 // but sufficient to keep casual visitors out.
@@ -80,6 +81,10 @@ export default function Backstage() {
             </button>
           </div>
         </main>
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
+
         <Footer />
       </div>
     );

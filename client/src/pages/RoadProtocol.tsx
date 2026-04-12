@@ -12,6 +12,7 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const IMG = {
   elder: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/15-elder-wisdom_4ddefdeb.jpg",
@@ -702,6 +703,10 @@ export default function RoadProtocol() {
       </section>
 
       <LearningFlow current="Road Protocol" deeper={flowMap.roadProtocol.deeper} wider={flowMap.roadProtocol.wider} simpler={flowMap.roadProtocol.simpler} dark />
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
+
       <Footer />
     </div>
   );

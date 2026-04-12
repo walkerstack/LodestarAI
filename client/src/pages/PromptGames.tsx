@@ -14,6 +14,7 @@ import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -354,6 +355,10 @@ export default function PromptGames() {
           <p className="text-sm text-[#E8520A] italic" style={{ fontFamily: "'Playfair Display', serif" }}>
             "Rules drift. Metaphors hold. Tested fourteen days across eight platforms."
           </p>
+        
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
+          </div>
         </div>
         </section>
 

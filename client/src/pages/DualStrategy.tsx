@@ -9,6 +9,7 @@ import LearningFlow from "@/components/LearningFlow";
 import Nav from "@/components/Nav";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const IMG = {
   humanCentered: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000005846_af0e2453.jpg",
@@ -111,7 +112,11 @@ export default function DualStrategy() {
             <p className="text-sm font-semibold text-[#1A1A2E]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               Shared Foundation: Same core principles, different doors for distinct audiences. Grounded in user autonomy.
             </p>
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
 
         {/* Human-Centered AI Governance */}

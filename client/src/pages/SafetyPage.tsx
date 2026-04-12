@@ -7,6 +7,7 @@
 import { useState } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const resources = [
   {
@@ -211,6 +212,10 @@ export default function SafetyPage() {
           </p>
         </div>
       </main>
+
+      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+        <KidsMidLink />
+      </div>
 
       <Footer />
     </div>

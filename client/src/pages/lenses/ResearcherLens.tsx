@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 type Lens = 'everyday' | 'professional' | 'watcher';
 const sections = [
@@ -56,7 +57,11 @@ export default function ResearcherLens() {
             <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               GallantryAI is citizen research — observed, documented, and shared openly. No institutional backing. No funding. No lab. Just a person who noticed patterns, wrote them down, and tested them across nine AI platforms. This page explains the methodology, the limitations, and the honest disclaimers.
             </p>
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
 
         <div className="sticky top-0 z-30 bg-[#FAF6EF] border-b border-[#e8e0d0] shadow-sm">

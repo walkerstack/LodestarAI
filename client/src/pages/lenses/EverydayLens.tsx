@@ -11,6 +11,7 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const sections = [
   { id: "start", label: "Where You Are" },
@@ -48,7 +49,11 @@ export default function EverydayLens() {
             <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               You're not a programmer. You're not a researcher. You're someone who uses AI — or wants to — and you want to do it well. This page is your starting line. No jargon. No prerequisites. Just honest tools that work.
             </p>
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
 
         {/* Section Nav */}

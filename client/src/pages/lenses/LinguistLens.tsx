@@ -10,6 +10,7 @@ import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -58,7 +59,11 @@ export default function LinguistLens() {
             <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               You've studied syntax, semantics, pragmatics, and discourse. You understand that language is not just communication — it is cognition made visible. AI gives you something no linguist has ever had before: a system that responds to individual words with measurable behavioral changes. Every prompt is an experiment. Every response is data.
             </p>
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
 
         {/* Section Nav */}

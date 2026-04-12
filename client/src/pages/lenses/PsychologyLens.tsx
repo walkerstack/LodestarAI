@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 
 type Lens = 'everyday' | 'professional' | 'watcher';
 const sections = [
@@ -56,7 +57,11 @@ export default function PsychologyLens() {
             <p className="text-base text-[#b0a898] max-w-xl leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               Every AI interaction has an emotional layer. The model doesn't feel it — but you do. This page maps the psychology of human-AI interaction, from parasocial bonding to emotional governance.
             </p>
+          
+          <div className="flex justify-center mt-6">
+            <KidsMidLink />
           </div>
+        </div>
         </section>
 
         <div className="sticky top-0 z-30 bg-[#FAF6EF] border-b border-[#e8e0d0] shadow-sm">
