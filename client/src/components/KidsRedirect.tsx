@@ -1,6 +1,7 @@
 /*
  * KidsRedirect — Reusable bright buffalo popup for adult pages
- * Small glowing buffalo image under the header. Tap → popup with kid-friendly blurb → redirect to /for/child
+ * Small glowing buffalo image under the header. Tap → popup with kid-friendly blurb
+ * Two buttons: "Go home 🏠" → /for/child  |  "I'm chill, let me learn" → closes popup
  * Non-intrusive to adults. Visible to kids who know to look.
  */
 import { useState } from "react";
@@ -85,14 +86,29 @@ export default function KidsRedirect({ story, quote, attribution }: KidsRedirect
               "{quote}"
             </p>
 
-            <div className="text-center">
+            {/* Two-button layout — matching KidsMidLink pattern */}
+            <div className="flex gap-3 justify-center">
               <Link
                 href="/for/child"
-                className="inline-block px-6 py-3 rounded-full text-sm font-bold no-underline transition-all hover:scale-[1.05]"
-                style={{ background: "#1A1A2E", color: "#E8520A" }}
+                className="flex-1 text-center px-4 py-3 rounded-full text-sm font-bold no-underline transition-all hover:scale-[1.05]"
+                style={{ background: "#E8520A", color: "#fff", maxWidth: "160px" }}
               >
-                Go Back to Your Page →
+                Go home 🏠
               </Link>
+              <button
+                onClick={() => setOpen(false)}
+                className="flex-1 px-4 py-3 rounded-full text-sm font-bold transition-all hover:scale-[1.05]"
+                style={{
+                  background: "rgba(26,26,46,0.08)",
+                  color: "#1A1A2E",
+                  border: "1.5px solid rgba(26,26,46,0.2)",
+                  cursor: "pointer",
+                  maxWidth: "160px",
+                }}
+                type="button"
+              >
+                I'm chill 📖
+              </button>
             </div>
 
             <p className="text-[10px] text-center mt-3" style={{ color: "#b0a090" }}>

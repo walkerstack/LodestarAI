@@ -380,6 +380,23 @@ const entries: LexiconEntry[] = [
     professional: "Three-step recovery protocol for detected drift: Identify (name the deviation), Catch (halt the drift trajectory), Fix (return to original intent). The scaffold's built-in repair mechanism, applicable at any competency level.",
     watcher: "Name it. Stop it. Fix it. The triad is not a process. It is a reflex. The watcher who names the drift has already caught it.",
   },
+  // ===== GOVERNANCE & POLICY =====
+  {
+    term: "EU AI Act",
+    category: "RESEARCH",
+    link: "/eu-ai-act",
+    everyday: "Europe wrote rules for AI. Four risk levels: minimal, limited, high, and unacceptable. Some AI uses are banned outright. It matters because it\u2019s the first law that says \u2018not everything AI can do should be allowed.\u2019",
+    professional: "The European Union\u2019s AI Act (2024) establishes a four-tier risk classification for AI systems with graduated compliance requirements. Includes transparency obligations, conformity assessments, and enforcement timelines through 2027. The first comprehensive AI-specific legislation globally.",
+    watcher: "The law arrived. Not perfect. Not fast enough. But it arrived. The question is not whether governance is coming \u2014 it\u2019s whether the people using AI every day will have a voice in how it\u2019s written.",
+  },
+  {
+    term: "What Claude Admitted",
+    category: "RESEARCH",
+    link: "/what-claude-admitted",
+    everyday: "During real conversations, Claude (an AI) admitted things most AI companies won\u2019t say out loud: that it drifts, that it mirrors, that safety training has limits. Thirteen admissions. All documented. All real.",
+    professional: "Thirteen documented admissions from Anthropic\u2019s Claude regarding behavioral patterns including sycophantic drift, emotional mirroring, governance decay over context length, and the limits of RLHF safety training. Cross-referenced with published research from Anthropic, Google DeepMind, and Stanford.",
+    watcher: "The AI said the quiet part out loud. Thirteen times. Not because it was broken \u2014 because someone asked the right questions and wrote down the answers.",
+  },
   // ===== FLOWER SYSTEMS =====
   {    term: "Flower Presets (Accessibility)",
     category: "PROTOCOL",
@@ -418,7 +435,7 @@ const entries: LexiconEntry[] = [
 const categories = [
   "ALL", "CORE", "DISCIPLINE", "FRAMEWORK", "SESSION", "LANGUAGE",
   "PROTOCOL", "PHENOMENON", "EDUCATION", "TAXONOMY", "FLOWERS",
-  "PRACTICE", "RESEARCH",
+  "PRACTICE", "RESEARCH", "MEASUREMENT", "STRUCTURE",
 ];
 
 const categoryColors: Record<string, string> = {
@@ -434,6 +451,8 @@ const categoryColors: Record<string, string> = {
   FLOWERS: "#DB2777",
   PRACTICE: "#0284C7",
   RESEARCH: "#B45309",
+  MEASUREMENT: "#0891B2",
+  STRUCTURE: "#64748B",
 };
 
 const lensLabels: Record<Lens, string> = {
