@@ -19,6 +19,14 @@ import KidsMidLink from "@/components/KidsMidLink";
 const SLOTH_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008840_5b1a6230.png";
 
+const SLOTH_RULE_IMAGES = [
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule1-safety-ZibWTCvUvmyr9rkvkdQYUS.webp",
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule2-honesty-fzboigvERMDobL9CxvH4LT.webp",
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule3-trust-EsYwo26GKz8Z8UqCYRNmqR.webp",
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule4-agency-fZSBzZsPa9u45fLFDPogwt.webp",
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule5-drift-UkM6LTwyiuRreoRnkNLPWn.webp",
+];
+
 const rules = [
   {
     number: 1,
@@ -241,6 +249,16 @@ export default function FiveRules() {
                       className="rounded-2xl p-6"
                       style={{ background: '#0a0804', border: '1px solid #2a2018' }}
                     >
+                      {/* Sloth story image for this rule */}
+                      <div className="flex justify-center mb-5">
+                        <LightboxImage
+                          src={SLOTH_RULE_IMAGES[rule.number - 1]}
+                          alt={`Sloth guide — Rule ${rule.number}`}
+                          className="w-40 h-40 md:w-48 md:h-48 rounded-2xl object-cover"
+                          style={{ border: '2px solid rgba(232,82,10,0.3)' }}
+                        />
+                      </div>
+
                       {/* Sloth header */}
                       <div className="flex items-center gap-4 mb-5">
                         <LightboxImage

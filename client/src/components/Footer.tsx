@@ -1,12 +1,12 @@
 /*
  * GALLANTRYAI Footer — Matches Nav 6-category structure
- * Enter Your Lens | Foundation | Tools | Research | For You | Explore
- * Design: The Living Document — editorial register
+ * Enter Your Lens | Foundation | For You | Tools | Research | Explore
+ * Buffalo = Guardian (shows the way) — kids link uses buffalo
  */
 
 import { Link } from "wouter";
 
-const SLOTH_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/oops-sloth-dpBa4VaDRVEQQogvEc76jm.webp";
+const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png";
 
 export default function Footer() {
   return (
@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Links — organized by Nav categories */}
+        {/* Links — organized by Nav categories: Lenses | Foundation | For You | Tools | Research | Explore */}
         <div className="mt-6 pt-4 border-t border-[#e8e0d0]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-xs text-[#888]">
 
@@ -64,6 +64,19 @@ export default function Footer() {
               <Link href="/dual-strategy" className="block hover:text-[#E8520A] no-underline transition-colors">Dual Strategy</Link>
             </div>
 
+            {/* For You — above Tools to match Nav order */}
+            <div className="space-y-1.5">
+              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">For You</div>
+              <Link href="/school-board" className="block hover:text-[#E8520A] no-underline transition-colors">School Board</Link>
+              <Link href="/kids-learn" className="block hover:text-[#E8520A] no-underline transition-colors">Kids Learn</Link>
+
+              {/* Safety — nested under For You */}
+              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mt-4 mb-2">Safety</div>
+              <Link href="/if-you-need-to-stop" className="block text-rose-500 hover:text-rose-700 no-underline transition-colors font-medium">If You Need to Stop</Link>
+              <Link href="/human-line" className="block text-amber-600 hover:text-amber-800 no-underline transition-colors font-medium">The Human Line</Link>
+              <Link href="/" className="block hover:text-[#E8520A] no-underline transition-colors">Home</Link>
+            </div>
+
             {/* Tools */}
             <div className="space-y-1.5">
               <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Tools</div>
@@ -92,19 +105,6 @@ export default function Footer() {
               <Link href="/field-report-review" className="block hover:text-[#E8520A] no-underline transition-colors">Field Report Review</Link>
             </div>
 
-            {/* For You */}
-            <div className="space-y-1.5">
-              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">For You</div>
-              <Link href="/school-board" className="block hover:text-[#E8520A] no-underline transition-colors">School Board</Link>
-              <Link href="/kids-learn" className="block hover:text-[#E8520A] no-underline transition-colors">Kids Learn</Link>
-
-              {/* Safety — nested under For You */}
-              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mt-4 mb-2">Safety</div>
-              <Link href="/if-you-need-to-stop" className="block text-rose-500 hover:text-rose-700 no-underline transition-colors font-medium">If You Need to Stop</Link>
-              <Link href="/human-line" className="block text-amber-600 hover:text-amber-800 no-underline transition-colors font-medium">The Human Line</Link>
-              <Link href="/" className="block hover:text-[#E8520A] no-underline transition-colors">Home</Link>
-            </div>
-
             {/* Explore */}
             <div className="space-y-1.5">
               <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Explore</div>
@@ -120,11 +120,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Sloth link for kids */}
+          {/* Buffalo guardian link for kids */}
           <div className="mt-4 pt-3 border-t border-[#e8e0d0] flex items-center gap-3">
             <Link href="/for/child" className="flex items-center gap-2 no-underline">
-              <img src={SLOTH_IMG} alt="Kids page" className="w-7 h-7 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
-              <span className="text-xs font-bold text-sky-600">Hey kid? Tap here.</span>
+              <img src={BUFFALO_IMG} alt="Psst, hey kids!" className="w-7 h-7 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
+              <span className="text-xs font-bold text-sky-600">Psst, hey kids!</span>
             </Link>
           </div>
 

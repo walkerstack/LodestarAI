@@ -18,6 +18,14 @@ import { Link } from "wouter";
 const FIELD_GUIDE_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008840_5b1a6230.png";
 
+const SLOTH_RULE_IMAGES = [
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule1-safety-ZibWTCvUvmyr9rkvkdQYUS.webp", label: "Safety First" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule2-honesty-fzboigvERMDobL9CxvH4LT.webp", label: "Honesty Over Confidence" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule3-trust-EsYwo26GKz8Z8UqCYRNmqR.webp", label: "Trust Is Earned" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule4-agency-fZSBzZsPa9u45fLFDPogwt.webp", label: "You're the Boss" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule5-drift-UkM6LTwyiuRreoRnkNLPWn.webp", label: "Notice the Drift" },
+];
+
 const IMGS = {
   fieldGuideCover: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008740_d2ac3f98.png",
   slothTrick: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008728_a5deb072.png",
@@ -834,6 +842,42 @@ export default function ChildLens() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* The Five Rules — Sloth Story Images */}
+      <section className="py-14 px-6" style={{ background: "#FFF8EE" }}>
+        <div className="max-w-3xl mx-auto">
+          <div
+            className="text-xs uppercase tracking-widest text-center mb-2 font-semibold"
+            style={{ color: "#E8520A" }}
+          >
+            The Sloth Teaches
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-black text-center mb-10"
+            style={{ fontFamily: serifFont, color: "#1A1A2E" }}
+          >
+            The Five Rules — in pictures.
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {SLOTH_RULE_IMAGES.map((img, i) => (
+              <div key={i} className="text-center">
+                <LightboxImage
+                  src={img.src}
+                  alt={`Sloth guide — Rule ${i + 1}: ${img.label}`}
+                  className="w-full rounded-2xl shadow-md"
+                  style={{ border: "2px solid #F5D9B0" }}
+                />
+                <p className="text-xs font-bold mt-2" style={{ color: "#E8520A" }}>
+                  {i + 1}. {img.label}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-xs mt-6 italic" style={{ color: "#9a8a7a" }}>
+            Tap any image to see it bigger. The sloth tells the story.
+          </p>
         </div>
       </section>
 

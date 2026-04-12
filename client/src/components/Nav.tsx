@@ -1,13 +1,15 @@
 /*
  * GALLANTRYAI Navigation — Categorized menu
- * Foundation | Tools | Research | For You | Explore | Lenses
+ * Enter Your Lens | Foundation | For You | Tools | Research | Explore
+ * Buffalo = Guardian (shows the way) — kids link uses buffalo
+ * Sloth = Guide (helps you see it) — stays as OopsSloth
  */
 
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 
-const SLOTH_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/oops-sloth-dpBa4VaDRVEQQogvEc76jm.webp";
+const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png";
 
 const lenses = [
   { label: "Everyday Person", path: "/for/everyday", color: "text-amber-600" },
@@ -30,6 +32,11 @@ const foundationLinks = [
   { label: "The Scaffold", path: "/scaffold" },
   { label: "User-Side Governance", path: "/user-governance" },
   { label: "Dual Strategy", path: "/dual-strategy" },
+];
+
+const forYouLinks = [
+  { label: "School Board", path: "/school-board" },
+  { label: "Kids Learn", path: "/kids-learn" },
 ];
 
 const toolsLinks = [
@@ -56,11 +63,6 @@ const researchLinks = [
   { label: "Field Report Review", path: "/field-report-review" },
 ];
 
-const forYouLinks = [
-  { label: "School Board", path: "/school-board" },
-  { label: "Kids Learn", path: "/kids-learn" },
-];
-
 const exploreLinks = [
   { label: "Gallery", path: "/gallery" },
   { label: "Articles", path: "/articles" },
@@ -73,7 +75,7 @@ const exploreLinks = [
   { label: "The Open Door", path: "/open-door" },
 ];
 
-type NavSection = "lenses" | "foundation" | "tools" | "research" | "forYou" | "explore" | null;
+type NavSection = "lenses" | "foundation" | "forYou" | "tools" | "research" | "explore" | null;
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -146,7 +148,7 @@ export default function Nav() {
           </div>
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop Nav — order: Lenses | Foundation | For You | Tools | Research | Explore */}
         <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-[#2D2D2D]" ref={navRef} style={{ fontFamily: "'DM Sans', sans-serif" }}>
           <div className="relative">
             <DropdownButton label="Enter Your Lens" section="lenses" />
@@ -155,6 +157,10 @@ export default function Nav() {
           <div className="relative">
             <DropdownButton label="Foundation" section="foundation" />
             {activeDropdown === "foundation" && <DropdownMenu items={foundationLinks} onClose={closeAll} />}
+          </div>
+          <div className="relative">
+            <DropdownButton label="For You" section="forYou" />
+            {activeDropdown === "forYou" && <DropdownMenu items={forYouLinks} onClose={closeAll} />}
           </div>
           <div className="relative">
             <DropdownButton label="Tools" section="tools" />
@@ -175,8 +181,8 @@ export default function Nav() {
           <Link href="/human-line" className="text-amber-700 hover:text-amber-800 transition-colors no-underline text-xs font-semibold uppercase tracking-wide">
             The Human Line
           </Link>
-          <Link href="/for/child" className="no-underline flex items-center gap-1 hover:scale-110 transition-transform" title="Kids page">
-            <img src={SLOTH_IMG} alt="Kids page" className="w-7 h-7 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
+          <Link href="/for/child" className="no-underline flex items-center gap-1 hover:scale-110 transition-transform" title="Psst, hey kids!">
+            <img src={BUFFALO_IMG} alt="Psst, hey kids!" className="w-7 h-7 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
           </Link>
         </nav>
 
@@ -189,7 +195,7 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — order: Lenses | Foundation | For You | Tools | Research | Explore */}
       {open && (
         <div className="lg:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 space-y-1 rounded-b-2xl max-h-[80vh] overflow-y-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
 
@@ -203,6 +209,16 @@ export default function Nav() {
           <div className="border-t border-[#e8e0d0] pt-3 mt-3">
             <div className="section-label mb-2">Foundation</div>
             {foundationLinks.map((item) => (
+              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* For You — above Tools */}
+          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
+            <div className="section-label mb-2">For You</div>
+            {forYouLinks.map((item) => (
               <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
                 {item.label}
               </Link>
@@ -228,15 +244,6 @@ export default function Nav() {
           </div>
 
           <div className="border-t border-[#e8e0d0] pt-3 mt-3">
-            <div className="section-label mb-2">For You</div>
-            {forYouLinks.map((item) => (
-              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
             <div className="section-label mb-2">Explore</div>
             {exploreLinks.map((item) => (
               <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
@@ -245,10 +252,11 @@ export default function Nav() {
             ))}
           </div>
 
+          {/* Buffalo guardian + Safety links at bottom */}
           <div className="border-t border-[#e8e0d0] pt-3 mt-3">
             <Link href="/for/child" onClick={closeAll} className="flex items-center gap-2 no-underline py-2">
-              <img src={SLOTH_IMG} alt="Kids page" className="w-8 h-8 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
-              <span className="text-sm font-bold text-sky-600">Hey kid? Tap here.</span>
+              <img src={BUFFALO_IMG} alt="Psst, hey kids!" className="w-8 h-8 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
+              <span className="text-sm font-bold text-sky-600">Psst, hey kids!</span>
             </Link>
             <Link href="/if-you-need-to-stop" onClick={closeAll} className="block text-sm font-semibold text-rose-600 no-underline py-1">
               If You Need to Stop
