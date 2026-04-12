@@ -29,9 +29,12 @@ const userPaths = [
     examples: "Homeschool parent, worried mom, dad learning AI with kids",
     icon: "\u{1F3E0}",
     highlight: "Start with the Five Rules, then explore the Children\u2019s section together.",
-    flow: [
+    lens: [
+      { label: "Child Lens", path: "/for/child" },
+      { label: "Guardian & Teacher Lens", path: "/for/guardian-teacher" },
+    ],
+    learn: [
       { label: "The Five Rules", path: "/rules" },
-      { label: "Children\u2019s Page", path: "/for/child" },
       { label: "Flower Presets", path: "/flower-presets" },
       { label: "Prompt Games", path: "/prompt-games" },
     ],
@@ -41,8 +44,12 @@ const userPaths = [
     examples: "Classroom teacher, tutor, curriculum designer",
     icon: "\u{1F3EB}",
     highlight: "The scaffold is your lesson plan. Start at the floor, build to the ceiling.",
-    flow: [
-      { label: "The Five Rules", path: "/rules" },
+    lens: [
+      { label: "Guardian & Teacher Lens", path: "/for/guardian-teacher" },
+      { label: "Child Lens", path: "/for/child" },
+      { label: "Cognitive Science Lens", path: "/for/cognitive-science" },
+    ],
+    learn: [
       { label: "Living Lexicon", path: "/lexicon" },
       { label: "Prompt Games", path: "/prompt-games" },
       { label: "Framework Families", path: "/frameworks" },
@@ -53,7 +60,11 @@ const userPaths = [
     examples: "RN, PSW, paramedic, mental health worker",
     icon: "\u{1FA7A}",
     highlight: "You already triage. Learn to triage your AI sessions the same way.",
-    flow: [
+    lens: [
+      { label: "Psychology Lens", path: "/for/psychology" },
+      { label: "Cognitive Science Lens", path: "/for/cognitive-science" },
+    ],
+    learn: [
       { label: "The Five Rules", path: "/rules" },
       { label: "Flower Presets", path: "/flower-presets" },
       { label: "Road Protocol", path: "/road-protocol" },
@@ -65,7 +76,12 @@ const userPaths = [
     examples: "High school, college, grad student, self-taught",
     icon: "\u{1F4DA}",
     highlight: "AI is a thinking partner, not a homework machine. Learn the difference.",
-    flow: [
+    lens: [
+      { label: "Linguist Lens", path: "/for/linguist" },
+      { label: "Researcher Lens", path: "/for/researcher" },
+      { label: "Cognitive Science Lens", path: "/for/cognitive-science" },
+    ],
+    learn: [
       { label: "The Five Rules", path: "/rules" },
       { label: "Prompt Games", path: "/prompt-games" },
       { label: "Living Lexicon", path: "/lexicon" },
@@ -77,7 +93,12 @@ const userPaths = [
     examples: "PhD, postdoc, lab researcher, policy analyst",
     icon: "\u{1F4CB}",
     highlight: "The watcher variable is the dataset you forgot to log: yourself.",
-    flow: [
+    lens: [
+      { label: "Researcher Lens", path: "/for/researcher" },
+      { label: "Cognitive Science Lens", path: "/for/cognitive-science" },
+      { label: "Mathematician Lens", path: "/for/mathematician" },
+    ],
+    learn: [
       { label: "Citizen Researcher", path: "/citizen-researcher" },
       { label: "Framework Families", path: "/frameworks" },
       { label: "AI Family Taxonomy", path: "/taxonomy" },
@@ -89,11 +110,16 @@ const userPaths = [
     examples: "Software dev, prompt designer, AI builder",
     icon: "\u{2699}\u{FE0F}",
     highlight: "Token Zero is the pre-output force profile. Everything starts before the first word.",
-    flow: [
+    lens: [
       { label: "Prompt Engineer Lens", path: "/for/prompt-engineer" },
+      { label: "Linguist Lens", path: "/for/linguist" },
+      { label: "Mathematician Lens", path: "/for/mathematician" },
+    ],
+    learn: [
       { label: "Promptolinguistics", path: "/promptolinguistics" },
       { label: "Living Lexicon", path: "/lexicon" },
       { label: "Malbolge Geofence", path: "/malbolge" },
+      { label: "Framework Families", path: "/frameworks" },
     ],
   },
   {
@@ -101,7 +127,11 @@ const userPaths = [
     examples: "Curious, no tech background, just trying to use AI safely",
     icon: "\u{1F44B}",
     highlight: "You don\u2019t need to understand how it works. You just need one honest question.",
-    flow: [
+    lens: [
+      { label: "Child Lens", path: "/for/child" },
+      { label: "Psychology Lens", path: "/for/psychology" },
+    ],
+    learn: [
       { label: "The Five Rules", path: "/rules" },
       { label: "Flower Presets", path: "/flower-presets" },
       { label: "Prompt Games", path: "/prompt-games" },
@@ -113,8 +143,10 @@ const userPaths = [
     examples: "Just exploring, curious about AI",
     icon: "\u{1F9D2}",
     highlight: "The sloth is waiting for you. Slow down, think first, you\u2019re in charge!",
-    flow: [
+    lens: [
       { label: "Children\u2019s Page", path: "/for/child" },
+    ],
+    learn: [
       { label: "The Five Rules", path: "/rules" },
       { label: "Prompt Games", path: "/prompt-games" },
     ],
@@ -171,16 +203,70 @@ const ethosNav = [
 
 /* ── Scaffold levels ── */
 const scaffoldLevels = [
-  { level: "Floor", title: "Three Values. One Prompt.", desc: "Safety. Honesty. Trust. No prior knowledge required.", color: "#E8520A" },
-  { level: "Level Two", title: "Pre-Session Intention", desc: "Set the room before you type. Token Zero: the pre-output force profile.", color: "#D4722A" },
-  { level: "Level Three", title: "Drift Recognition", desc: "Identify when the session has left your intent. Catch it. Fix it.", color: "#C4923A" },
-  { level: "Level Four", title: "Word Mechanics", desc: "Single words as control dials. Direction. Constraint. Scope. Authority.", color: "#A4824A" },
-  { level: "Ceiling", title: "You Are the Framework", desc: "The person who arrives at every session as their own governance layer.", color: "#8A6E2F" },
+  {
+    level: "Floor",
+    title: "Three Values. One Prompt.",
+    desc: "Safety. Honesty. Trust. No prior knowledge required.",
+    color: "#E8520A",
+    steps: [
+      { label: "The Five Rules", path: "/rules", why: "Start here. The foundation of every AI session." },
+      { label: "Children\u2019s Page", path: "/for/child", why: "See the rules through a child\u2019s eyes." },
+      { label: "Flower Presets", path: "/flower-presets", why: "Pre-built safety configurations for anyone." },
+      { label: "Safety Page", path: "/if-you-need-to-stop", why: "If something goes wrong, stop here first." },
+    ],
+  },
+  {
+    level: "Level Two",
+    title: "Pre-Session Intention",
+    desc: "Set the room before you type. Token Zero: the pre-output force profile.",
+    color: "#D4722A",
+    steps: [
+      { label: "Promptolinguistics", path: "/promptolinguistics", why: "Learn Token Zero and the force profile." },
+      { label: "Road Protocol", path: "/road-protocol", why: "The vault structure for session setup." },
+      { label: "Framework Families", path: "/frameworks", why: "See how different frameworks set intention." },
+    ],
+  },
+  {
+    level: "Level Three",
+    title: "Drift Recognition",
+    desc: "Identify when the session has left your intent. Catch it. Fix it.",
+    color: "#C4923A",
+    steps: [
+      { label: "Cognitive Science Lens", path: "/for/cognitive-science", why: "How your brain drifts and how to notice it." },
+      { label: "Living Lexicon", path: "/lexicon", why: "Words that help you name what\u2019s happening." },
+      { label: "Human Line", path: "/human-line", why: "The boundary between you and the machine." },
+    ],
+  },
+  {
+    level: "Level Four",
+    title: "Word Mechanics",
+    desc: "Single words as control dials. Direction. Constraint. Scope. Authority.",
+    color: "#A4824A",
+    steps: [
+      { label: "Promptolinguistics", path: "/promptolinguistics", why: "Control axes, action verbs, HOLD dial." },
+      { label: "Malbolge Geofence", path: "/malbolge", why: "See how word mechanics create boundaries." },
+      { label: "AI Family Taxonomy", path: "/taxonomy", why: "Each AI responds to words differently." },
+      { label: "Prompt Games", path: "/prompt-games", why: "Practice word control through play." },
+    ],
+  },
+  {
+    level: "Ceiling",
+    title: "You Are the Framework",
+    desc: "The person who arrives at every session as their own governance layer.",
+    color: "#8A6E2F",
+    steps: [
+      { label: "Citizen Researcher", path: "/citizen-researcher", why: "Document your own governance practice." },
+      { label: "Field Papers", path: "/field-papers", why: "Read the research behind the scaffold." },
+      { label: "Builder", path: "/builder", why: "Build your own prompt frameworks." },
+      { label: "Gallery", path: "/gallery", why: "See the full body of work." },
+    ],
+  },
 ];
 
 export default function Home() {
   const [selectedRole, setSelectedRole] = useState<number | null>(null);
   const [expandedEthos, setExpandedEthos] = useState<number | null>(null);
+  const [expandedScaffold, setExpandedScaffold] = useState<number | null>(null);
   const [, setLocation] = useLocation();
 
   return (
@@ -450,27 +536,53 @@ export default function Home() {
                 </div>
               </div>
 
+              {/* ── Enter Your Lens ── */}
+              <div
+                className="text-[10px] uppercase tracking-[0.2em] font-bold mb-3"
+                style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Enter Your Lens
+              </div>
+              <div className="flex flex-wrap gap-2 mb-5">
+                {userPaths[selectedRole].lens.map((item: { label: string; path: string }, j: number) => (
+                  <Link
+                    key={`lens-${j}`}
+                    href={item.path}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm no-underline transition-all hover:scale-[1.03]"
+                    style={{
+                      fontFamily: "'DM Sans', sans-serif",
+                      background: '#E8520A',
+                      color: '#fff',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* ── Learn ── */}
               <div
                 className="text-[10px] uppercase tracking-[0.2em] font-bold mb-3"
                 style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}
               >
-                Your recommended learning flow:
+                Learn
               </div>
               <div className="flex flex-wrap gap-2">
-                {userPaths[selectedRole].flow.map((step, j) => (
+                {userPaths[selectedRole].learn.map((item: { label: string; path: string }, j: number) => (
                   <Link
-                    key={j}
-                    href={step.path}
+                    key={`learn-${j}`}
+                    href={item.path}
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm no-underline transition-all hover:scale-[1.03]"
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
-                      background: j === 0 ? '#E8520A' : '#1a1610',
-                      color: j === 0 ? '#fff' : '#c8b89a',
-                      border: j === 0 ? 'none' : '1px solid #2a2018',
+                      background: '#1a1610',
+                      color: '#c8b89a',
+                      border: '1px solid #2a2018',
                       cursor: 'pointer',
                     }}
                   >
-                    <span className="text-xs opacity-60">{j + 1}.</span> {step.label}
+                    {item.label}
                   </Link>
                 ))}
               </div>
@@ -593,32 +705,92 @@ export default function Home() {
           </p>
           <div className="space-y-3 max-w-2xl">
             {scaffoldLevels.map((s, i) => (
-              <div
-                key={i}
-                className="pl-4 py-3 rounded-r-xl"
-                style={{
-                  borderLeft: `4px solid ${s.color}`,
-                  background: '#0f0c08',
-                }}
-              >
-                <div
-                  className="text-[10px] uppercase tracking-[0.2em] font-bold mb-1"
-                  style={{ color: s.color, fontFamily: "'DM Sans', sans-serif" }}
+              <div key={i}>
+                <button
+                  onClick={() => setExpandedScaffold(expandedScaffold === i ? null : i)}
+                  className="w-full text-left pl-4 py-4 pr-4 rounded-r-xl transition-all hover:scale-[1.01]"
+                  style={{
+                    borderLeft: `4px solid ${s.color}`,
+                    background: expandedScaffold === i ? '#1a1610' : '#0f0c08',
+                    border: expandedScaffold === i ? `2px solid ${s.color}` : undefined,
+                    borderLeftWidth: '4px',
+                    borderLeftColor: s.color,
+                    borderLeftStyle: 'solid',
+                  }}
                 >
-                  {s.level}
-                </div>
-                <div
-                  className="font-bold text-sm"
-                  style={{ color: '#f5e6d0', fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  {s.title}
-                </div>
-                <div
-                  className="text-xs mt-1 leading-relaxed"
-                  style={{ color: '#6b5a3e', fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  {s.desc}
-                </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex-1">
+                      <div
+                        className="text-[10px] uppercase tracking-[0.2em] font-bold mb-1"
+                        style={{ color: s.color, fontFamily: "'DM Sans', sans-serif" }}
+                      >
+                        {s.level}
+                      </div>
+                      <div
+                        className="font-bold text-sm"
+                        style={{ color: '#f5e6d0', fontFamily: "'DM Sans', sans-serif" }}
+                      >
+                        {s.title}
+                      </div>
+                      <div
+                        className="text-xs mt-1 leading-relaxed"
+                        style={{ color: '#6b5a3e', fontFamily: "'DM Sans', sans-serif" }}
+                      >
+                        {s.desc}
+                      </div>
+                    </div>
+                    <span
+                      className="text-lg ml-3 transition-transform duration-200 flex-shrink-0"
+                      style={{
+                        color: s.color,
+                        transform: expandedScaffold === i ? 'rotate(90deg)' : 'rotate(0deg)',
+                      }}
+                    >
+                      {"\u2192"}
+                    </span>
+                  </div>
+                </button>
+
+                {expandedScaffold === i && (
+                  <div
+                    className="mt-2 space-y-2 pl-2"
+                    style={{ animation: 'fadeUp 0.3s ease-out' }}
+                  >
+                    <div
+                      className="text-[10px] uppercase tracking-[0.15em] font-bold mb-2 pl-3"
+                      style={{ color: s.color, fontFamily: "'DM Sans', sans-serif" }}
+                    >
+                      Learn &amp; grow at this level:
+                    </div>
+                    {s.steps.map((step: { label: string; path: string; why: string }, j: number) => (
+                      <Link
+                        key={j}
+                        href={step.path}
+                        className="flex items-center gap-3 rounded-xl p-3 no-underline transition-all hover:scale-[1.01]"
+                        style={{ background: '#0f0c08', border: '1px solid #1a1610' }}
+                      >
+                        <div
+                          className="w-1.5 h-8 rounded-full flex-shrink-0"
+                          style={{ background: s.color }}
+                        />
+                        <div>
+                          <div
+                            className="font-semibold text-sm"
+                            style={{ color: '#f5e6d0', fontFamily: "'DM Sans', sans-serif" }}
+                          >
+                            {step.label}
+                          </div>
+                          <div
+                            className="text-xs"
+                            style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}
+                          >
+                            {step.why}
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
