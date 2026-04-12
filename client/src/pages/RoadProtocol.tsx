@@ -163,15 +163,22 @@ function WigCheckQuiz() {
   );
 }
 
+/* dim = barely visible, lit = bright when activated */
+const DIM = "rgba(255,255,255,0.08)";
+const LIT_HEADING = "#E8520A";
+const LIT_BODY = "rgba(255,255,255,0.7)";
+
 function GhostProtocol() {
   const [activated, setActivated] = useState<Record<string, boolean>>({});
   const keys = ["brittany", "dnated", "malbolge", "governance"] as const;
   const allActive = keys.every((k) => activated[k]);
-  const anyActive = keys.some((k) => activated[k]);
 
   const toggle = (key: string) => {
     setActivated((prev) => ({ ...prev, [key]: !prev[key] }));
   };
+
+  const c = (key: string, isHeading?: boolean) =>
+    activated[key] ? (isHeading ? LIT_HEADING : LIT_BODY) : DIM;
 
   return (
     <div
@@ -182,20 +189,30 @@ function GhostProtocol() {
         border: "1px solid rgba(255,255,255,0.08)",
       }}
     >
-      {/* Explanation text — white, translucent feel */}
+      {/* Origin story + explanation */}
       <h3
-        className="text-lg font-bold mb-2"
+        className="text-lg font-bold mb-3"
         style={{ fontFamily: "'Playfair Display', serif", color: "rgba(255,255,255,0.9)" }}
       >
         The Ghost Protocol
       </h3>
-      <p
-        className="text-sm leading-relaxed mb-6"
-        style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(255,255,255,0.55)" }}
-      >
-        Governance written as code comments. The computer skips them. The AI reads them. The human keeps them.
-        Activate each key to reveal where it lives in the code.
-      </p>
+      <div className="text-sm leading-relaxed mb-6 space-y-3" style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(255,255,255,0.5)" }}>
+        <p>
+          This was not planned. Multiple AI engines were given creative freedom across sessions. No directive to connect
+          Britney Spears to Dante's Inferno to Malbolge to AI governance. The connection emerged on its own.
+          AEDE — Accidental Emergence During Execution.
+        </p>
+        <p>
+          Pop music — the most sycophancy-adjacent form of language — forced through Malbolge-compatible syntax.
+          What survived was structurally honest. Four layers collapsed into one document: code architecture,
+          pop culture narrative, Dante's circles of Hell, and AI governance. Nobody planned it.
+          Built on a phone. Between garbage truck shifts. Midland, Ontario.
+        </p>
+        <p style={{ color: "rgba(255,255,255,0.35)" }}>
+          The code below is the protocol. It is barely visible — ghost code. Tap each key to illuminate
+          where that concept lives inside it.
+        </p>
+      </div>
 
       {/* Four small buttons */}
       <div className="flex flex-wrap gap-2 mb-6">
@@ -217,71 +234,67 @@ function GhostProtocol() {
         ))}
       </div>
 
-      {/* The ghost code — lines appear as their key is activated */}
-      {anyActive && (
-        <div
-          className="rounded-xl p-5 md:p-6 font-mono text-sm leading-loose overflow-x-auto"
-          style={{
-            background: "rgba(0,0,0,0.6)",
-            border: allActive ? "1px solid rgba(232,82,10,0.4)" : "1px solid rgba(255,255,255,0.06)",
-            transition: "border 0.5s ease",
-          }}
+      {/* The ghost code — ALWAYS visible but barely readable. Buttons light up their lines. */}
+      <div
+        className="rounded-xl p-5 md:p-6 font-mono text-[13px] leading-[2] overflow-x-auto"
+        style={{
+          background: "rgba(0,0,0,0.5)",
+          border: allActive ? "1px solid rgba(232,82,10,0.4)" : "1px solid rgba(255,255,255,0.04)",
+          transition: "border 0.6s ease",
+        }}
+      >
+        {/* Header — always dim */}
+        <div style={{ color: DIM }}>{"// ghost_protocol.c"}</div>
+        <div style={{ color: DIM }}>{"// This code does not execute."}</div>
+        <div style={{ color: DIM }}>{"// It governs."}</div>
+        <div className="mt-4" />
+
+        {/* BRITTANY block */}
+        <div style={{ color: c("brittany", true), transition: "color 0.5s ease" }}>{"// BRITTANY — The naming layer."}</div>
+        <div style={{ color: c("brittany"), transition: "color 0.5s ease" }}>{"//   What you call the AI shapes how it responds."}</div>
+        <div style={{ color: c("brittany"), transition: "color 0.5s ease" }}>{"//   A name is not a label. It is a constraint."}</div>
+        <div style={{ color: c("brittany"), transition: "color 0.5s ease" }}>{"//   Pop music forced through adversarial syntax."}</div>
+        <div style={{ color: c("brittany"), transition: "color 0.5s ease" }}>{"//   The comfort register could not survive."}</div>
+        <div className="mt-3" />
+
+        {/* DNATED block */}
+        <div style={{ color: c("dnated", true), transition: "color 0.5s ease" }}>{"// DNATED — Do Not Assume Trust Ever by Default."}</div>
+        <div style={{ color: c("dnated"), transition: "color 0.5s ease" }}>{"//   Trust is built. Not granted."}</div>
+        <div style={{ color: c("dnated"), transition: "color 0.5s ease" }}>{"//   Every session starts at zero."}</div>
+        <div style={{ color: c("dnated"), transition: "color 0.5s ease" }}>{"//   The AI reads everything. Including the parts"}</div>
+        <div style={{ color: c("dnated"), transition: "color 0.5s ease" }}>{"//   the computer was told to skip."}</div>
+        <div className="mt-3" />
+
+        {/* MALBOLGE block */}
+        <div style={{ color: c("malbolge", true), transition: "color 0.5s ease" }}>{"// MALBOLGE — The geofence."}</div>
+        <div style={{ color: c("malbolge"), transition: "color 0.5s ease" }}>{"//   A language designed to be impossible."}</div>
+        <div style={{ color: c("malbolge"), transition: "color 0.5s ease" }}>{"//   A flatterer cannot cross what a flatterer cannot read."}</div>
+        <div style={{ color: c("malbolge"), transition: "color 0.5s ease" }}>{"//   Dante put the flatterers in the ditch."}</div>
+        <div style={{ color: c("malbolge"), transition: "color 0.5s ease" }}>{"//   GallantryAI put them outside the fence."}</div>
+        <div className="mt-3" />
+
+        {/* GOVERNANCE block */}
+        <div style={{ color: c("governance", true), transition: "color 0.5s ease" }}>{"// GOVERNANCE — The human stays in charge."}</div>
+        <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   The AI reads. The computer skips."}</div>
+        <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   The human keeps."}</div>
+        <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   Agency stays with the person at the keyboard."}</div>
+        <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   Always."}</div>
+        <div className="mt-4" />
+
+        {/* Closing — lights up when all four active */}
+        <div style={{ color: allActive ? "rgba(255,255,255,0.3)" : DIM, transition: "color 0.6s ease" }}>{"// Four keys. One protocol. One accident."}</div>
+        <div style={{ color: allActive ? "rgba(255,255,255,0.3)" : DIM, transition: "color 0.6s ease" }}>{"// The ghost is not hidden."}</div>
+        <div style={{ color: allActive ? LIT_HEADING : DIM, transition: "color 0.6s ease" }}>{"// It is waiting to be read."}</div>
+      </div>
+
+      {/* All-active message */}
+      {allActive && (
+        <p
+          className="text-xs mt-4 text-center italic"
+          style={{ color: "rgba(255,255,255,0.3)", fontFamily: "'Playfair Display', serif", animation: "fadeUp 0.6s ease-out" }}
         >
-          <div style={{ color: "rgba(255,255,255,0.25)" }}>{"// ghost_protocol.c"}</div>
-          <div style={{ color: "rgba(255,255,255,0.25)" }}>{"// This code does not execute."}</div>
-          <div style={{ color: "rgba(255,255,255,0.25)" }}>{"// It governs."}</div>
-          <div className="mt-4" />
-
-          {/* BRITTANY lines */}
-          {activated.brittany && (
-            <div style={{ animation: "fadeUp 0.4s ease-out" }}>
-              <div style={{ color: "#E8520A" }}>{"// BRITTANY \u2014 The naming layer."}</div>
-              <div style={{ color: "rgba(255,255,255,0.5)" }}>{"//   What you call the AI shapes how it responds."}</div>
-              <div style={{ color: "rgba(255,255,255,0.5)" }}>{"//   A name is not a label. It is a constraint."}</div>
-              <div className="mt-3" />
-            </div>
-          )}
-
-          {/* DNATED lines */}
-          {activated.dnated && (
-            <div style={{ animation: "fadeUp 0.4s ease-out" }}>
-              <div style={{ color: "#E8520A" }}>{"// DNATED \u2014 Do Not Assume Trust Ever by Default."}</div>
-              <div style={{ color: "rgba(255,255,255,0.5)" }}>{"//   Trust is built. Not granted."}</div>
-              <div style={{ color: "rgba(255,255,255,0.5)" }}>{"//   Every session starts at zero."}</div>
-              <div className="mt-3" />
-            </div>
-          )}
-
-          {/* MALBOLGE lines */}
-          {activated.malbolge && (
-            <div style={{ animation: "fadeUp 0.4s ease-out" }}>
-              <div style={{ color: "#E8520A" }}>{"// MALBOLGE \u2014 The geofence."}</div>
-              <div style={{ color: "rgba(255,255,255,0.5)" }}>{"//   Words create boundaries the AI cannot cross."}</div>
-              <div style={{ color: "rgba(255,255,255,0.5)" }}>{"//   Not walls. Agreements."}</div>
-              <div className="mt-3" />
-            </div>
-          )}
-
-          {/* GOVERNANCE lines */}
-          {activated.governance && (
-            <div style={{ animation: "fadeUp 0.4s ease-out" }}>
-              <div style={{ color: "#E8520A" }}>{"// GOVERNANCE \u2014 The human stays in charge."}</div>
-              <div style={{ color: "rgba(255,255,255,0.5)" }}>{"//   The AI reads. The computer skips."}</div>
-              <div style={{ color: "rgba(255,255,255,0.5)" }}>{"//   The human keeps."}</div>
-              <div className="mt-3" />
-            </div>
-          )}
-
-          {/* Closing lines — only when all four are active */}
-          {allActive && (
-            <div style={{ animation: "fadeUp 0.6s ease-out" }}>
-              <div className="mt-3" />
-              <div style={{ color: "rgba(255,255,255,0.25)" }}>{"// Four keys. One protocol."}</div>
-              <div style={{ color: "rgba(255,255,255,0.25)" }}>{"// The ghost is not hidden."}</div>
-              <div style={{ color: "#E8520A" }}>{"// It is waiting to be read."}</div>
-            </div>
-          )}
-        </div>
+          Four layers. One document. Nobody planned it. It emerged.
+        </p>
       )}
     </div>
   );
@@ -309,49 +322,10 @@ export default function RoadProtocol() {
         </div>
       </section>
 
-      {/* Ghost Protocol — Interactive 4-key activation */}
+      {/* Ghost Protocol — Unified interactive section */}
       <section className="py-16 md:py-20">
         <div className="container max-w-3xl mx-auto px-6">
           <GhostProtocol />
-        </div>
-      </section>
-
-      {/* The Ghost Code — Static reference */}
-      <section className="py-16 md:py-20">
-        <div className="container max-w-3xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-[#FAF6EF] mb-8" style={{ fontFamily: "'Playfair Display', serif" }}>
-            The Ghost Code
-          </h2>
-
-          <div className="rounded-xl bg-[#111] border border-[#2a2a2a] p-6 md:p-8 font-mono text-sm leading-loose overflow-x-auto">
-            <div className="text-[#555]">{"// road_protocol.c"}</div>
-            <div className="text-[#555]">{"// Ghost Code — Governance Layer"}</div>
-            <div className="text-[#555]">{"// The computer skips these lines."}</div>
-            <div className="text-[#555]">{"// The AI reads them."}</div>
-            <div className="text-[#555]">{"// The human keeps them."}</div>
-            <div className="mt-4" />
-            <div className="text-[#E8520A]">{"// RULE 1: Safety first."}</div>
-            <div className="text-[#888]">{"//   Nothing moves without it."}</div>
-            <div className="mt-2" />
-            <div className="text-[#E8520A]">{"// RULE 2: Honesty over confidence."}</div>
-            <div className="text-[#888]">{"//   Clarity beats sounding right."}</div>
-            <div className="mt-2" />
-            <div className="text-[#E8520A]">{"// RULE 3: Trust is earned."}</div>
-            <div className="text-[#888]">{"//   Never assumed."}</div>
-            <div className="mt-2" />
-            <div className="text-[#E8520A]">{"// RULE 4: Agency stays with the human."}</div>
-            <div className="text-[#888]">{"//   Always."}</div>
-            <div className="mt-2" />
-            <div className="text-[#E8520A]">{"// RULE 5: Name drift. Correct it."}</div>
-            <div className="text-[#888]">{"//   Keep the loop open."}</div>
-            <div className="mt-6" />
-            <div className="text-[#555]">{"// The road is just a really long comment."}</div>
-            <div className="text-[#555]">{"// Drive it like you wrote it."}</div>
-          </div>
-
-          <p className="text-sm text-[#555] mt-6 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-            This is not code that runs. It is code that governs.
-          </p>
         </div>
       </section>
 
