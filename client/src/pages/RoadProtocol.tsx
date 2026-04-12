@@ -14,6 +14,7 @@ const IMG = {
   elder: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/15-elder-wisdom_4ddefdeb.jpg",
   childStars: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/18-child-stars_714fd5ce.jpg",
   kidsColor: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/kids-color-poster_89458138.png",
+  buffalo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png",
 };
 
 /* ── Wig Check Quiz ── */
@@ -218,6 +219,32 @@ export default function RoadProtocol() {
 
           <p className="text-sm text-[#555] mt-6 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
             This is not code that runs. It is code that governs.
+          </p>
+        </div>
+      </section>
+
+      {/* The Buffalo Protocol — Wisdom Path */}
+      <section className="py-16 md:py-20">
+        <div className="container max-w-3xl mx-auto px-6">
+          <div className="text-center mb-6">
+            <p className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              The Buffalo Protocol
+            </p>
+            <h2 className="text-2xl font-bold text-[#FAF6EF] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Is it a Story or a Question?
+            </h2>
+            <p className="text-sm text-[#888] max-w-lg mx-auto mb-8" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              "Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo." Same word. Eight meanings. Structure creates meaning — not individual words. Know the session rules. Stay in charge.
+            </p>
+          </div>
+          <img
+            src={IMG.buffalo}
+            alt="The Buffalo Protocol — a buffalo with a judge's wig walks the Wisdom Path through a forest of code, asking: Is it a Story or a Question? Knowing Session Rules! Stay in Charge!"
+            className="w-full rounded-2xl shadow-2xl"
+            loading="lazy"
+          />
+          <p className="text-xs text-[#555] mt-4 text-center italic" style={{ fontFamily: "'Playfair Display', serif" }}>
+            The word is the same. The structure is everything.
           </p>
         </div>
       </section>
