@@ -4,6 +4,7 @@
  * The site is a scaffold. Each route is a level. Each lens is a door.
  */
 
+import { useState } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
@@ -11,6 +12,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import IntroCrawl from "./components/IntroCrawl";
 import ChildLens from "./pages/lenses/ChildLens";
 import GuardianTeacherLens from "./pages/lenses/GuardianTeacherLens";
 import PromptEngineerLens from "./pages/lenses/PromptEngineerLens";
@@ -54,11 +56,22 @@ function Router() {
 }
 
 function App() {
+  const [showIntro, setShowIntro] = useState(() => {
+    // Show intro only once per browser session
+    return !sessionStorage.getItem("gallantry-intro-seen");
+  });
+
+  const handleIntroComplete = () => {
+    sessionStorage.setItem("gallantry-intro-seen", "1");
+    setShowIntro(false);
+  };
+
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
+          {showIntro && <IntroCrawl onComplete={handleIntroComplete} />}
           <Router />
         </TooltipProvider>
       </ThemeProvider>

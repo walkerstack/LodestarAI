@@ -83,7 +83,13 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.75rem;
+
+  /* Global rounded corners — Builder preference */
+  --radius-card: 1rem;
+  --radius-btn: 0.75rem;
+  --radius-input: 0.5rem;
+  --radius-pill: 9999px;
 
   /* GallantryAI Editorial Register (default) */
   --background: oklch(0.97 0.015 80);       /* warm cream */
@@ -162,6 +168,13 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+  }
+  /* Global rounded corners — Builder preference */
+  button, input, textarea, select {
+    border-radius: var(--radius-btn);
+  }
+  img {
+    border-radius: 0.5rem;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -277,6 +290,7 @@
   .dark-card {
     background: oklch(0.15 0.03 264);
     color: oklch(0.92 0.01 80);
+    border-radius: 1rem;
   }
 
   /* Children's register */

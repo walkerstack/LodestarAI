@@ -55,7 +55,7 @@ export default function Nav() {
               <span className="text-[10px]">{lensOpen ? "▲" : "▼"}</span>
             </button>
             {lensOpen && (
-              <div className="absolute top-full left-0 mt-2 w-52 bg-white border border-[#e8e0d0] rounded-lg shadow-lg py-2 z-50">
+              <div className="absolute top-full left-0 mt-2 w-52 bg-white border border-[#e8e0d0] rounded-2xl shadow-lg py-2 z-50 overflow-hidden">
                 {lenses.map((lens) => (
                   <Link
                     key={lens.path}
@@ -99,7 +99,7 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 space-y-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+        <div className="md:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 space-y-3 rounded-b-2xl" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           <div className="section-label mb-2">Enter Your Lens</div>
           {lenses.map((lens) => (
             <Link
