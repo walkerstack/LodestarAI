@@ -473,18 +473,18 @@ export default function OpenDoor() {
 
             <div className="mt-8 grid sm:grid-cols-3 gap-3 max-w-xl mx-auto">
               {[
-                { label: "What I Can Offer", items: ["Pattern detection", "User-side research", "Framework construction", "Multi-audience communication", "Systematic testing", "Honest documentation"] },
-                { label: "What I'm Looking For", items: ["Mentorship", "Research collaboration", "Consulting opportunities", "Employment in AI safety", "Academic partnerships", "Speaking opportunities"] },
-                { label: "What I Bring", items: ["No institutional bias", "User-side perspective", "Cross-disciplinary vision", "Teaching instinct", "Documented track record", "Relentless honesty"] },
+                { label: "What I Can Offer", items: ["Pattern detection", "User-side research", "Framework construction", "Multi-audience communication", "Systematic testing", "Honest documentation"], accent: "#D97706" },
+                { label: "What I'm Looking For", items: ["Mentorship", "Research collaboration", "Consulting opportunities", "Employment in AI safety", "Academic partnerships", "Speaking opportunities"], accent: "#B45309" },
+                { label: "What I Bring", items: ["No institutional bias", "User-side perspective", "Cross-disciplinary vision", "Teaching instinct", "Documented track record", "Relentless honesty"], accent: "#92400E" },
               ].map((col) => (
-                <div key={col.label} className="rounded-xl p-4 text-left" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                  <div className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: "#E8520A" }}>
+                <div key={col.label} className="rounded-xl p-4 text-left" style={{ background: `${col.accent}08`, border: `1px solid ${col.accent}20` }}>
+                  <div className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: col.accent }}>
                     {col.label}
                   </div>
                   <ul className="space-y-1">
                     {col.items.map((item) => (
                       <li key={item} className="text-xs text-[#b0a898] flex items-start gap-1.5">
-                        <span className="text-[#E8520A] mt-0.5 flex-shrink-0">→</span>
+                        <span className="mt-0.5 flex-shrink-0" style={{ color: col.accent }}>→</span>
                         {item}
                       </li>
                     ))}

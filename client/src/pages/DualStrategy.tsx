@@ -80,7 +80,7 @@ export default function DualStrategy() {
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-[#1A1A2E] rounded-xl p-6 text-[#FAF6EF]">
-              <h3 className="text-xl font-bold text-[#E8520A] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h3 className="text-xl font-bold text-[#6366F1] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Galentry
               </h3>
               <p className="text-xs uppercase tracking-widest text-[#FAF6EF]/50 mb-3">Meta Layer for Researchers</p>
@@ -88,13 +88,13 @@ export default function DualStrategy() {
                 Conceptual rigor, language mechanics, governance theory. The research framework that maps how language, structure, and human posture interact with AI systems. For those who study the mechanics.
               </p>
               <div className="mt-4 pt-4 border-t border-[#FAF6EF]/10">
-                <Link href="/promptolinguistics" className="text-[#E8520A] text-sm hover:underline block mb-1">Promptolinguistics →</Link>
-                <Link href="/frameworks" className="text-[#E8520A] text-sm hover:underline block mb-1">Framework Families →</Link>
-                <Link href="/alcm" className="text-[#E8520A] text-sm hover:underline block">ALCM →</Link>
+                <Link href="/promptolinguistics" className="text-[#818CF8] text-sm hover:underline block mb-1">Promptolinguistics →</Link>
+                <Link href="/frameworks" className="text-[#6366F1] text-sm hover:underline block mb-1">Framework Families →</Link>
+                <Link href="/alcm" className="text-[#4F46E5] text-sm hover:underline block">ALCM →</Link>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-6 border-2 border-[#E8520A]">
-              <h3 className="text-xl font-bold text-[#E8520A] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <div className="bg-white rounded-xl p-6 border-2 border-[#B45309]">
+              <h3 className="text-xl font-bold text-[#B45309] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Gallantry AI
               </h3>
               <p className="text-xs uppercase tracking-widest text-[#888] mb-3">Deployed Product for Users</p>
@@ -102,9 +102,9 @@ export default function DualStrategy() {
                 Operationalizing user autonomy with minimal surface area. The product that takes the research and makes it usable. For those who need a thinking partner, not a theory paper.
               </p>
               <div className="mt-4 pt-4 border-t border-[#e8e0d0]">
-                <Link href="/gallantry-ai" className="text-[#E8520A] text-sm hover:underline block mb-1">Gallantry AI →</Link>
-                <Link href="/rules" className="text-[#E8520A] text-sm hover:underline block mb-1">The Five Rules →</Link>
-                <Link href="/flower-presets" className="text-[#E8520A] text-sm hover:underline block">Flower Presets →</Link>
+                <Link href="/gallantry-ai" className="text-[#D97706] text-sm hover:underline block mb-1">Gallantry AI →</Link>
+                <Link href="/rules" className="text-[#B45309] text-sm hover:underline block mb-1">The Five Rules →</Link>
+                <Link href="/flower-presets" className="text-[#92400E] text-sm hover:underline block">Flower Presets →</Link>
               </div>
             </div>
           </div>

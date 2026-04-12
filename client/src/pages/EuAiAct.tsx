@@ -347,19 +347,19 @@ export default function EuAiAct() {
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
               {[
-                { title: "Know Your Rights", text: "Under the EU AI Act, you have the right to know when AI is making decisions about you. Ask. If they can't answer, that's your answer.", link: "/rules", linkLabel: "The Five Rules" },
-                { title: "Govern Your Sessions", text: "Don't wait for companies to comply. Set up every AI session with your own rules. Safety first. Honesty over confidence. You decide.", link: "/road-protocol", linkLabel: "Road Protocol" },
-                { title: "Teach Your Kids", text: "The AI literacy requirement in the law applies to organizations. But the real AI literacy starts at home. With questions. With practice. With honesty.", link: "/kids-learn", linkLabel: "Kids Learn" },
-                { title: "Watch the Watchers", text: "The law creates oversight bodies. But oversight only works if people pay attention. Read. Question. Document. That's citizen research.", link: "/citizen-researcher", linkLabel: "Citizen Researcher" },
+                { title: "Know Your Rights", text: "Under the EU AI Act, you have the right to know when AI is making decisions about you. Ask. If they can't answer, that's your answer.", link: "/rules", linkLabel: "The Five Rules", accent: "#1E40AF" },
+                { title: "Govern Your Sessions", text: "Don't wait for companies to comply. Set up every AI session with your own rules. Safety first. Honesty over confidence. You decide.", link: "/road-protocol", linkLabel: "Road Protocol", accent: "#1E3A8A" },
+                { title: "Teach Your Kids", text: "The AI literacy requirement in the law applies to organizations. But the real AI literacy starts at home. With questions. With practice. With honesty.", link: "/kids-learn", linkLabel: "Kids Learn", accent: "#B45309" },
+                { title: "Watch the Watchers", text: "The law creates oversight bodies. But oversight only works if people pay attention. Read. Question. Document. That's citizen research.", link: "/citizen-researcher", linkLabel: "Citizen Researcher", accent: "#92400E" },
               ].map((item) => (
-                <div key={item.title} className="rounded-xl p-5" style={{ background: "#fff", border: "1.5px solid #e8e0d0" }}>
-                  <h3 className="text-sm font-bold mb-2" style={{ fontFamily: serifFont, color: "#1A1A2E" }}>
+                <div key={item.title} className="rounded-xl p-5" style={{ background: `${item.accent}06`, border: `1.5px solid ${item.accent}20` }}>
+                  <h3 className="text-sm font-bold mb-2" style={{ fontFamily: serifFont, color: item.accent }}>
                     {item.title}
                   </h3>
                   <p className="text-xs leading-relaxed mb-3" style={{ color: "#5a4a3a" }}>
                     {item.text}
                   </p>
-                  <Link href={item.link} className="text-xs font-bold no-underline" style={{ color: "#E8520A" }}>
+                  <Link href={item.link} className="text-xs font-bold no-underline" style={{ color: item.accent }}>
                     {item.linkLabel} →
                   </Link>
                 </div>
@@ -372,7 +372,7 @@ export default function EuAiAct() {
         <section className="py-14 px-6" style={{ background: "#FAF6EF" }}>
           <div className="max-w-3xl mx-auto">
             <div className="rounded-2xl p-8" style={{ background: "#fff", border: "1.5px solid #e8e0d0" }}>
-              <div className="text-[10px] uppercase tracking-widest font-semibold mb-3" style={{ color: "#E8520A" }}>
+              <div className="text-[10px] uppercase tracking-widest font-semibold mb-3" style={{ color: "#1E40AF" }}>
                 From the Builder
               </div>
               <p className="text-base leading-relaxed italic" style={{ color: "#3a2a1a", fontFamily: serifFont }}>

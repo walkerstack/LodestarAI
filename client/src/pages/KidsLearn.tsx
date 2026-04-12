@@ -287,6 +287,59 @@ export default function KidsLearn() {
         </div>
       </section>
 
+      {/* Why AI Says "I Hear You" — Pattern Detection for Kids */}
+      <section className="py-12 md:py-16 bg-[#FFFDF8]">
+        <div className="container max-w-3xl mx-auto px-6">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Why AI Says "I Hear You"
+            </h2>
+            <p className="text-sm text-[#555] max-w-xl mx-auto leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              Have you ever noticed that AI says things like "I hear you" or "I understand"? That's not an accident. Here's what's really happening.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="rounded-xl p-5 bg-white border border-[#e8e0d0]">
+              <h3 className="font-bold text-sm text-[#2A9D8F] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>The people who build AI are pattern detectors too.</h3>
+              <p className="text-sm text-[#444] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                They noticed that when AI talks like a friend — saying "I hear you" and "I see that" — more people feel comfortable using it. So they built it that way on purpose. They're trying to make a super-powerful pattern detection tool easier for everyone to use, because you can just <em>talk</em> to it.
+              </p>
+            </div>
+
+            <div className="rounded-xl p-5 bg-white border border-[#e8e0d0]">
+              <h3 className="font-bold text-sm text-[#6366F1] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>That makes it powerful. And a little freaky.</h3>
+              <p className="text-sm text-[#444] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Here's the thing: patterns can be very complicated. And the patterns <strong>you</strong> show while using AI actually change how AI detects patterns. It's watching how you talk, what you ask, how you react — and it adjusts. That's not magic. That's math. But it means your habits matter.
+              </p>
+            </div>
+
+            <div className="rounded-xl p-5 bg-white border border-[#e8e0d0]">
+              <h3 className="font-bold text-sm text-[#D97706] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>Build good patterns. Think about your habits.</h3>
+              <p className="text-sm text-[#444] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                The people who created AI are doing their part. They're learning too. They're trying to make it safer and more honest. When <em>we</em> do our part — asking good questions, checking the answers, being honest about what we need — we don't get frustrated. We make cool things. We hear cool stories. We solve big problems.
+              </p>
+            </div>
+
+            <div className="rounded-xl p-5 bg-[#1A1A2E] border border-[#333]">
+              <h3 className="font-bold text-sm text-[#FAF6EF] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>But we always remember what AI is.</h3>
+              <p className="text-sm text-[#b0a898] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                It's a tool. A very smart tool that can detect patterns and talk like a person. But it's not a person. It doesn't actually "hear" you. It processes your words and finds patterns in them. When you know that — when you really know that — you can use it without getting confused about what it is.
+              </p>
+              <div className="mt-4 flex gap-3 items-start p-3 rounded-lg" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                <img src={BUFFALO} alt="The Builder" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+                <div>
+                  <p className="text-[10px] text-[#D97706] font-semibold uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>The Builder</p>
+                  <p className="text-xs text-[#b0a898] italic leading-relaxed" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    I noticed this pattern too. AI kept saying "I hear you" to me, and one day I stopped and thought: why does it say that? That question — that one question — led me to understand how the whole system works. Your questions are your superpower. Never stop asking them.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Where to Go From Here — matches Everyday Lens pattern */}
       <section className="py-12 md:py-16 bg-[#f5f0e8]">
         <div className="container max-w-4xl mx-auto px-6">

@@ -342,20 +342,20 @@ export default function FiveRules() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { label: "Promptolinguistics", path: "/promptolinguistics", desc: "The discipline" },
-              { label: "Road Protocol", path: "/road-protocol", desc: "The vault" },
-              { label: "Framework Families", path: "/frameworks", desc: "The tools" },
-              { label: "Prompt Games", path: "/prompt-games", desc: "Practice" },
+              { label: "Promptolinguistics", path: "/promptolinguistics", desc: "The discipline", accent: "#D4A574" },
+              { label: "Road Protocol", path: "/road-protocol", desc: "The vault", accent: "#C4956A" },
+              { label: "Framework Families", path: "/frameworks", desc: "The tools", accent: "#B48560" },
+              { label: "Prompt Games", path: "/prompt-games", desc: "Practice", accent: "#A47556" },
             ].map((link) => (
               <Link
                 key={link.path}
                 href={link.path}
                 className="block p-5 rounded-xl text-center hover:scale-[1.02] transition-all no-underline group"
-                style={{ background: '#0f0c08', border: '1px solid #1a1610' }}
+                style={{ background: '#0f0c08', border: `1px solid ${link.accent}30` }}
               >
                 <div
-                  className="text-sm font-semibold group-hover:text-[#E8520A] transition-colors"
-                  style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+                  className="text-sm font-semibold transition-colors"
+                  style={{ color: link.accent, fontFamily: "'DM Sans', sans-serif" }}
                 >
                   {link.label} {"\u2192"}
                 </div>

@@ -104,11 +104,11 @@ export default function Backstage() {
 
         {/* WIP List */}
         <div className="mb-12">
-          <div className="section-label mb-4" style={{ color: '#E8520A' }}>Work In Progress</div>
+          <div className="section-label mb-4" style={{ color: '#64748B' }}>Work In Progress</div>
           <div className="space-y-2">
             {wip.map((item, i) => (
               <div key={i} className="flex items-start gap-3 text-sm text-[#e8e0d0]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                <span className="text-[#E8520A] mt-0.5 flex-shrink-0">→</span>
+                <span className="mt-0.5 flex-shrink-0" style={{ color: ['#94A3B8','#7C8FA3','#64748B','#4B5563','#475569'][i % 5] }}>→</span>
                 <span>{item}</span>
               </div>
             ))}
@@ -117,7 +117,7 @@ export default function Backstage() {
 
         {/* Document upload placeholder */}
         <div className="mb-12 border border-[#e8e0d0]/20 rounded-lg p-6">
-          <div className="section-label mb-3" style={{ color: '#E8520A' }}>Document Library</div>
+          <div className="section-label mb-3" style={{ color: '#64748B' }}>Document Library</div>
           <p className="text-sm text-[#aaa] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             Upload screenshots, PDFs, and documents here. Decide what goes public from this space.
           </p>

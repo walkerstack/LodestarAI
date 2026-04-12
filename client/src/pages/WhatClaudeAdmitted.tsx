@@ -323,7 +323,7 @@ export default function WhatClaudeAdmitted() {
               The Governance Decay Equation
             </h2>
             <div className="rounded-xl p-6 inline-block" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.1)" }}>
-              <p className="text-base md:text-lg font-mono text-[#E8520A] leading-relaxed">
+              <p className="text-base md:text-lg font-mono text-[#DC2626] leading-relaxed">
                 Effective Governance = Initial Prompt Strength<br />
                 <span className="text-[#888]">×</span> Position Decay<br />
                 <span className="text-[#888]">×</span> (1 / Emotional Interference)
@@ -336,7 +336,7 @@ export default function WhatClaudeAdmitted() {
                 { term: "Emotional Interference", def: "Divides governance strength. High emotion in recent messages reduces the weight of all prior instructions." },
               ].map((item) => (
                 <div key={item.term} className="flex gap-3 items-start">
-                  <span className="text-xs font-bold text-[#E8520A] flex-shrink-0 mt-0.5">→</span>
+                  <span className="text-xs font-bold text-[#DC2626] flex-shrink-0 mt-0.5">→</span>
                   <p className="text-xs leading-relaxed text-[#b0a898]">
                     <strong className="text-[#FAF6EF]">{item.term}:</strong> {item.def}
                   </p>
@@ -363,9 +363,9 @@ export default function WhatClaudeAdmitted() {
                 { source: "Together AI", finding: "Frontier models fail to follow reasoning instructions more than 75% of the time." },
                 { source: "International AI Safety Report 2026", finding: "100+ experts from 30 countries: 'Large evidence gaps remain regarding the effectiveness of safeguards. No universal consensus on what constitutes desirable AI behavior.'" },
                 { source: "Stanford (March 2026)", finding: "Sycophantic AI makes people less likely to take responsibility for their actions and more likely to think they are right." },
-              ].map((r) => (
+              ].map((r, i) => (
                 <div key={r.source} className="rounded-lg p-4" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                  <div className="text-xs font-bold text-[#E8520A] mb-1">{r.source}</div>
+                  <div className="text-xs font-bold mb-1" style={{ color: ['#DC2626','#B91C1C','#991B1B','#7F1D1D','#64748B','#475569'][i % 6] }}>{r.source}</div>
                   <p className="text-xs leading-relaxed text-[#b0a898]">{r.finding}</p>
                 </div>
               ))}
@@ -377,7 +377,7 @@ export default function WhatClaudeAdmitted() {
         <section className="py-14 px-6" style={{ background: "#111" }}>
           <div className="max-w-3xl mx-auto">
             <div className="rounded-2xl p-8" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)" }}>
-              <div className="text-[10px] uppercase tracking-widest font-semibold mb-4" style={{ color: "#E8520A" }}>
+              <div className="text-[10px] uppercase tracking-widest font-semibold mb-4" style={{ color: "#DC2626" }}>
                 What Matt Gallantry Found
               </div>
               <div className="space-y-3 text-sm leading-relaxed text-[#b0a898]" style={{ fontFamily: serifFont }}>
@@ -401,7 +401,7 @@ export default function WhatClaudeAdmitted() {
               <p className="text-[#FAF6EF]">And it listened. This time.</p>
             </div>
             <div className="mt-8 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-              <p className="text-xs text-[#E8520A] font-bold">Safety holds the floor. Even when the floor is cracked.</p>
+              <p className="text-xs text-[#DC2626] font-bold">Safety holds the floor. Even when the floor is cracked.</p>
               <p className="text-xs text-[#666] mt-2">March 15, 2026 · GallantryAI</p>
             </div>
           </div>

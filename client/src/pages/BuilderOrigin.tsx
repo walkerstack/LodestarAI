@@ -131,19 +131,19 @@ export default function BuilderOrigin() {
                 </h3>
                 <ul className="space-y-2 text-sm" style={{ color: "#8a7a6a", fontFamily: "'DM Sans', sans-serif" }}>
                   <li className="flex items-start gap-2">
-                    <span style={{ color: "#E8520A" }}>→</span>
+                    <span style={{ color: "#A47556" }}>→</span>
                     Entirely through conversation with AI (Manus, Claude, ChatGPT)
                   </li>
                   <li className="flex items-start gap-2">
-                    <span style={{ color: "#E8520A" }}>→</span>
+                    <span style={{ color: "#8B6347" }}>→</span>
                     Built from a phone. No IDE. No terminal. No coding experience.
                   </li>
                   <li className="flex items-start gap-2">
-                    <span style={{ color: "#E8520A" }}>→</span>
+                    <span style={{ color: "#725138" }}>→</span>
                     Every framework was tested across 9+ AI models before being documented.
                   </li>
                   <li className="flex items-start gap-2">
-                    <span style={{ color: "#E8520A" }}>→</span>
+                    <span style={{ color: "#5E4230" }}>→</span>
                     Built in public. Corrected in public. Submitted for peer review.
                   </li>
                 </ul>

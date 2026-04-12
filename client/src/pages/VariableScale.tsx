@@ -23,7 +23,7 @@ export default function VariableScale() {
         {/* Hero */}
         <section className="py-20 md:py-28">
           <div className="container max-w-3xl mx-auto px-6">
-            <p className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-[#B45309] text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               Framework
             </p>
             <h1 className="text-3xl md:text-5xl font-bold text-[#FAF6EF] leading-tight mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -67,7 +67,7 @@ export default function VariableScale() {
               className="rounded-2xl p-6 md:p-8"
               style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-[#E8520A] font-bold mb-6 text-center" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-xs uppercase tracking-[0.2em] text-[#D97706] font-bold mb-6 text-center" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 The Honesty Dial — A Single Constraint
               </p>
 
@@ -83,9 +83,9 @@ export default function VariableScale() {
 
               <div className="space-y-3 mt-6">
                 {[
-                  { factor: "Position Decay", desc: "Instructions weaken as the conversation grows. Token 1 has more weight than token 10,000.", color: "#E8520A" },
-                  { factor: "Emotional Interference", desc: "Your emotional state divides governance strength. Confirmed by Anthropic's April 2026 emotion vector research.", color: "#E8520A" },
-                  { factor: "Session Momentum", desc: "The conversation has velocity. Fast sessions drift faster. Slow sessions hold longer.", color: "#E8520A" },
+                  { factor: "Position Decay", desc: "Instructions weaken as the conversation grows. Token 1 has more weight than token 10,000.", color: "#D97706" },
+                  { factor: "Emotional Interference", desc: "Your emotional state divides governance strength. Confirmed by Anthropic's April 2026 emotion vector research.", color: "#B45309" },
+                  { factor: "Session Momentum", desc: "The conversation has velocity. Fast sessions drift faster. Slow sessions hold longer.", color: "#92400E" },
                 ].map((f) => (
                   <div key={f.factor} className="flex gap-3 items-start">
                     <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: f.color }} />
@@ -112,7 +112,7 @@ export default function VariableScale() {
             >
               <div className="text-[#555]">{"// The Governance Weight Equation"}</div>
               <div className="mt-2" />
-              <div className="text-[#E8520A]">{"Effective Governance ="}</div>
+              <div className="text-[#D97706]">{"Effective Governance ="}</div>
               <div className="text-[#c8bfb0] ml-4">{"Initial Prompt Strength"}</div>
               <div className="text-[#c8bfb0] ml-4">{"× Position Decay"}</div>
               <div className="text-[#c8bfb0] ml-4">{"× (1 / Emotional Interference)"}</div>
@@ -139,7 +139,7 @@ export default function VariableScale() {
               {[
                 {
                   label: "Everyday",
-                  color: "#E8520A",
+                  color: "#D97706",
                   text: "AI limits are not on/off switches. They're dials. 'Be honest' is not yes or no — it's a sliding scale from full honesty to full sycophancy, and it changes throughout the conversation. The longer you talk, the more the dial moves. Your emotions make it move faster.",
                 },
                 {

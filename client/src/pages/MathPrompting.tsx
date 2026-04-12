@@ -295,12 +295,12 @@ export default function MathPrompting() {
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
               {[
-                { rule: "Safety First", description: "Never share personal information. Use made-up names and numbers for practice problems." },
-                { rule: "Honesty Over Confidence", description: "If the AI gives a wrong answer, say so. Checking the AI's work IS the math lesson." },
-                { rule: "You Decide", description: "You control how much help the AI gives. Full guidance, hints only, or silent while you work. Your dial." },
+                { rule: "Safety First", description: "Never share personal information. Use made-up names and numbers for practice problems.", accent: "#3B82F6" },
+                { rule: "Honesty Over Confidence", description: "If the AI gives a wrong answer, say so. Checking the AI's work IS the math lesson.", accent: "#2563EB" },
+                { rule: "You Decide", description: "You control how much help the AI gives. Full guidance, hints only, or silent while you work. Your dial.", accent: "#1D4ED8" },
               ].map((r) => (
-                <div key={r.rule} className="rounded-xl p-5 text-left" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                  <div className="text-sm font-bold mb-2" style={{ color: "#E8520A" }}>
+                <div key={r.rule} className="rounded-xl p-5 text-left" style={{ background: `${r.accent}10`, border: `1px solid ${r.accent}25` }}>
+                  <div className="text-sm font-bold mb-2" style={{ color: r.accent }}>
                     {r.rule}
                   </div>
                   <p className="text-xs leading-relaxed" style={{ color: "#b0a898" }}>
@@ -329,7 +329,7 @@ export default function MathPrompting() {
                   className="block rounded-xl p-5 no-underline transition-all duration-200 hover:shadow-md"
                   style={{ background: "#fff", border: "1.5px solid #e8e0d0" }}
                 >
-                  <div className="text-sm font-bold mb-1" style={{ color: "#E8520A" }}>
+                  <div className="text-sm font-bold mb-1" style={{ color: "#2563EB" }}>
                     {conn.label} →
                   </div>
                   <p className="text-xs leading-relaxed" style={{ color: "#5a4a3a" }}>
@@ -345,7 +345,7 @@ export default function MathPrompting() {
         <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
           <div className="max-w-3xl mx-auto">
             <div className="rounded-2xl p-8" style={{ background: "#fff", border: "1.5px solid #e8e0d0" }}>
-              <div className="text-[10px] uppercase tracking-widest font-semibold mb-3" style={{ color: "#E8520A" }}>
+              <div className="text-[10px] uppercase tracking-widest font-semibold mb-3" style={{ color: "#2563EB" }}>
                 From the Builder
               </div>
               <p className="text-base leading-relaxed italic" style={{ color: "#3a2a1a", fontFamily: serifFont }}>

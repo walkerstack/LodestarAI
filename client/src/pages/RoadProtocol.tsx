@@ -583,31 +583,31 @@ export default function RoadProtocol() {
 
           <div className="space-y-6 text-base text-[#b0a898] leading-relaxed mb-12" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             <p>Think of it like driving. You don't start the car and then decide where you're going. You check the mirrors. You set the GPS. You know the speed limit before you hit the gas.</p>
-            <p>The Road Protocol is the same thing for AI. <span className="text-[#E8520A] font-semibold">Token Zero</span> — the moment before the first output — is where you set the behavioral vector. Safety, honesty, and trust are not things you hope the AI will do. They are inputs you provide.</p>
+            <p>The Road Protocol is the same thing for AI. <span className="text-[#0D9488] font-semibold">Token Zero</span> — the moment before the first output — is where you set the behavioral vector. Safety, honesty, and trust are not things you hope the AI will do. They are inputs you provide.</p>
             <p>This is not about controlling the AI. It's about <em>knowing what you asked for</em> before you evaluate what you got back.</p>
           </div>
 
           {/* Three principles as tappable learning buttons */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
             <Link href="/five-rules" className="block">
-              <div className="rounded-2xl p-6 text-center transition-all hover:scale-[1.02] cursor-pointer" style={{ background: "rgba(232, 82, 10, 0.08)", border: "1px solid #3a2a1a" }}>
-                <div className="font-bold text-[#E8520A] text-sm mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Ask First</div>
+              <div className="rounded-2xl p-6 text-center transition-all hover:scale-[1.02] cursor-pointer" style={{ background: "rgba(13, 148, 136, 0.08)", border: "1px solid #1a2a2a" }}>
+                <div className="font-bold text-[#0D9488] text-sm mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Ask First</div>
                 <p className="text-xs text-[#999] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>Before you type anything, know what you actually want to know. Not what sounds smart. What matters.</p>
-                <span className="text-[10px] text-[#E8520A] uppercase tracking-widest">The Five Rules →</span>
+                <span className="text-[10px] text-[#0D9488] uppercase tracking-widest">The Five Rules →</span>
               </div>
             </Link>
             <Link href="/variable-scale" className="block">
-              <div className="rounded-2xl p-6 text-center transition-all hover:scale-[1.02] cursor-pointer" style={{ background: "rgba(232, 82, 10, 0.08)", border: "1px solid #3a2a1a" }}>
-                <div className="font-bold text-[#E8520A] text-sm mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Stay Honest</div>
+              <div className="rounded-2xl p-6 text-center transition-all hover:scale-[1.02] cursor-pointer" style={{ background: "rgba(20, 120, 100, 0.08)", border: "1px solid #1a2a2a" }}>
+                <div className="font-bold text-[#0F766E] text-sm mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Stay Honest</div>
                 <p className="text-xs text-[#999] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>If the answer doesn't feel right, say so. Honesty is a dial, not a switch. You set the level before the session starts.</p>
-                <span className="text-[10px] text-[#E8520A] uppercase tracking-widest">Variable Scale Theory →</span>
+                <span className="text-[10px] text-[#0F766E] uppercase tracking-widest">Variable Scale Theory →</span>
               </div>
             </Link>
             <Link href="/user-governance" className="block">
-              <div className="rounded-2xl p-6 text-center transition-all hover:scale-[1.02] cursor-pointer" style={{ background: "rgba(232, 82, 10, 0.08)", border: "1px solid #3a2a1a" }}>
-                <div className="font-bold text-[#E8520A] text-sm mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Stay in Charge</div>
+              <div className="rounded-2xl p-6 text-center transition-all hover:scale-[1.02] cursor-pointer" style={{ background: "rgba(6, 95, 70, 0.08)", border: "1px solid #1a2a2a" }}>
+                <div className="font-bold text-[#065F46] text-sm mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Stay in Charge</div>
                 <p className="text-xs text-[#999] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>The AI helps. The tools help. But you decide where you're going. Governance is not the AI's job. It's yours.</p>
-                <span className="text-[10px] text-[#E8520A] uppercase tracking-widest">User-Side Governance →</span>
+                <span className="text-[10px] text-[#065F46] uppercase tracking-widest">User-Side Governance →</span>
               </div>
             </Link>
           </div>
@@ -617,14 +617,14 @@ export default function RoadProtocol() {
             <Link
               href="/for/child"
               className="px-6 py-3 rounded-xl text-sm font-bold text-center transition-all hover:scale-[1.02]"
-              style={{ background: "#E8520A", color: "#fff" }}
+              style={{ background: "#0D9488", color: "#fff" }}
             >
               See the Children's Version →
             </Link>
             <Link
               href="/gallantry-ai"
               className="px-6 py-3 rounded-xl text-sm font-bold text-center transition-all hover:scale-[1.02]"
-              style={{ background: "transparent", color: "#E8520A", border: "1px solid #E8520A" }}
+              style={{ background: "transparent", color: "#0D9488", border: "1px solid #0D9488" }}
             >
               What is Gallantry AI? →
             </Link>
@@ -692,7 +692,7 @@ export default function RoadProtocol() {
               <Link
                 key={link.path}
                 href={link.path}
-                className="block p-4 rounded-xl border border-[#333] bg-[#111] text-center text-sm text-[#b0a898] hover:border-[#E8520A]/50 hover:text-[#FAF6EF] transition-all no-underline"
+                className="block p-4 rounded-xl border border-[#333] bg-[#111] text-center text-sm text-[#b0a898] hover:border-[#0D9488]/50 hover:text-[#FAF6EF] transition-all no-underline"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
                 {link.label} →

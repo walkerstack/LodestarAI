@@ -179,8 +179,8 @@ export default function GallantryAiPage() {
             Real systems born from real needs. Not institutional design. A garbage man in Midland, Ontario, building at 5 AM on a phone between shifts. That origin is not a limitation — it is the credential. Because governance built from need understands what governance built from theory cannot: the user was never the problem. The user was always the answer.
           </p>
           <div className="flex gap-4 mt-6">
-            <Link href="/builder" className="text-[#E8520A] hover:underline text-sm">Meet the Builder →</Link>
-            <Link href="/dual-strategy" className="text-[#E8520A] hover:underline text-sm">See the Dual Strategy →</Link>
+            <Link href="/builder" className="text-[#D97706] hover:underline text-sm">Meet the Builder →</Link>
+            <Link href="/dual-strategy" className="text-[#B45309] hover:underline text-sm">See the Dual Strategy →</Link>
           </div>
         </section>
 
