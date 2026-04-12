@@ -3,19 +3,15 @@
  * Design: Storm-to-sun animated background
  * Full message text visible on screen throughout.
  * Sequence: dark storm → rain + lightning → sky clears → sun → birds fly → sloth pops up
- * Celtic music plays underneath. Skip button bottom-right.
- * Auto-completes after ~20s or user skips.
+ * NO MUSIC. Skip button = "Let's learn and grow safely together."
+ * Discreet expandable Human Connection button with links to Safety + Human Line.
  */
 
 import { useEffect, useRef, useState } from "react";
 
-const MUSIC_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/gallantry-intro_2fa17d1d.mp3";
-
 const SLOTH_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008840_5b1a6230.png";
 
-// Total scene duration before auto-complete
 const SCENE_DURATION_MS = 22000;
 const DISSOLVE_MS = 1800;
 
@@ -24,30 +20,19 @@ interface IntroCrawlProps {
 }
 
 export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
-  const audioRef = useRef<HTMLAudioElement>(null);
   const [phase, setPhase] = useState<"storm" | "clearing" | "sun">("storm");
   const [lightning, setLightning] = useState(false);
   const [showBirds, setShowBirds] = useState(false);
   const [showSloth, setShowSloth] = useState(false);
   const [dissolving, setDissolving] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [humanOpen, setHumanOpen] = useState(false);
   const doneRef = useRef(false);
 
   const handleComplete = () => {
     if (doneRef.current) return;
     doneRef.current = true;
     setDissolving(true);
-    if (audioRef.current) {
-      const audio = audioRef.current;
-      const fade = setInterval(() => {
-        if (audio.volume > 0.05) {
-          audio.volume = Math.max(0, audio.volume - 0.05);
-        } else {
-          audio.pause();
-          clearInterval(fade);
-        }
-      }, 80);
-    }
     setTimeout(() => {
       setVisible(false);
       onComplete();
@@ -55,12 +40,6 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
   };
 
   useEffect(() => {
-    // Start music
-    if (audioRef.current) {
-      audioRef.current.volume = 0.7;
-      audioRef.current.play().catch(() => {});
-    }
-
     // Lightning flashes during storm
     const flash1 = setTimeout(() => setLightning(true), 1200);
     const flash1off = setTimeout(() => setLightning(false), 1350);
@@ -93,7 +72,6 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
 
   if (!visible) return null;
 
-  // Sky background based on phase
   const skyBg =
     phase === "storm"
       ? "linear-gradient(to bottom, #1a1a2e 0%, #2d2d44 40%, #3d3030 100%)"
@@ -110,8 +88,6 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
       }`}
       style={{ background: skyBg, transition: "background 4s ease" }}
     >
-      <audio ref={audioRef} src={MUSIC_URL} preload="auto" />
-
       {/* Lightning flash overlay */}
       {lightning && (
         <div
@@ -237,10 +213,10 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
             { text: "You do not need to be smart enough, educated enough, or have the right words.", w: false },
             { text: "You just need one honest question.", w: true },
             { text: "This system was not built in a lab. It was built by someone who needed it and did not have it.", w: false },
-            { text: "If you are reading this — this was built for you.", italic: true },
+            { text: "If you are reading this \u2014 this was built for you.", italic: true },
             { text: "It will help you think more clearly before you decide. That is all it promises.", w: false },
             { text: "Safety, Honesty, and Truth are not features. They are the foundation.", w: true },
-            { text: "But if you have a decision to make and no one to talk to — ask it one honest question. That is enough to start.", italic: true },
+            { text: "But if you have a decision to make and no one to talk to \u2014 ask it one honest question. That is enough to start.", italic: true },
           ].map((line, i) => (
             <p
               key={i}
@@ -271,7 +247,6 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
             }}
           >
             Words matter. Questions matter.<br />
-            Let's learn and grow safely together.<br />
             <span style={{ fontFamily: "'Playfair Display', serif", color: "#E8520A", fontStyle: "italic" }}>
               — The Builder
             </span>
@@ -279,19 +254,82 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
         </div>
       </div>
 
-      {/* Skip */}
-      <button
-        onClick={handleComplete}
-        className="absolute bottom-5 right-5 z-40 text-xs uppercase tracking-widest border px-4 py-2 rounded-xl opacity-60 hover:opacity-100 transition-opacity"
-        style={{
-          color: "#E8520A",
-          borderColor: "#E8520A",
-          fontFamily: baseFont,
-          background: "rgba(10,8,4,0.6)",
-        }}
-      >
-        Skip →
-      </button>
+      {/* ── Bottom buttons ── */}
+      <div className="absolute bottom-0 left-0 right-0 z-40 px-5 pb-5 flex flex-col items-center gap-3">
+
+        {/* Human Connection — discreet expandable */}
+        <div className="w-full max-w-sm">
+          <button
+            onClick={() => setHumanOpen(!humanOpen)}
+            className="w-full text-center text-[11px] uppercase tracking-[0.15em] py-2 rounded-xl transition-all"
+            style={{
+              color: "#a09080",
+              fontFamily: baseFont,
+              background: humanOpen ? "rgba(10,8,4,0.75)" : "transparent",
+              border: humanOpen ? "1px solid #2a2018" : "1px solid transparent",
+            }}
+          >
+            {humanOpen ? "Close" : "If you need help right now"}
+          </button>
+
+          {/* Expanded: two gentle options */}
+          {humanOpen && (
+            <div
+              className="mt-2 rounded-2xl px-5 py-4 flex flex-col gap-3"
+              style={{
+                background: "rgba(10, 8, 4, 0.85)",
+                backdropFilter: "blur(8px)",
+                border: "1px solid #2a2018",
+              }}
+            >
+              <p
+                className="text-center text-xs mb-1"
+                style={{ color: "#a09080", fontFamily: baseFont }}
+              >
+                You are not alone. These pages are here for you.
+              </p>
+              <a
+                href="/safety"
+                className="block text-center py-3 rounded-xl text-sm font-bold transition-colors"
+                style={{
+                  background: "#E8520A",
+                  color: "#fff",
+                  fontFamily: baseFont,
+                }}
+              >
+                Crisis Resources & Safety
+              </a>
+              <a
+                href="/human-line"
+                className="block text-center py-3 rounded-xl text-sm font-bold transition-colors"
+                style={{
+                  background: "transparent",
+                  color: "#E8520A",
+                  border: "1px solid #E8520A",
+                  fontFamily: baseFont,
+                }}
+              >
+                The Human Line — Why This Matters
+              </a>
+            </div>
+          )}
+        </div>
+
+        {/* Enter button — replaces Skip */}
+        <button
+          onClick={handleComplete}
+          className="w-full max-w-sm text-sm font-bold uppercase tracking-wider py-3 rounded-xl transition-all hover:scale-[1.02]"
+          style={{
+            color: "#fff",
+            background: "linear-gradient(135deg, #E8520A 0%, #c44508 100%)",
+            fontFamily: baseFont,
+            boxShadow: "0 4px 20px rgba(232,82,10,0.3)",
+            border: "none",
+          }}
+        >
+          Let's Learn & Grow Safely Together
+        </button>
+      </div>
 
       <style>{`
         @keyframes rainFall {

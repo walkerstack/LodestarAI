@@ -14,7 +14,7 @@ import { Link, useLocation } from "wouter";
 import { useState } from "react";
 
 const SLOTH_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008840_5b1a6230.png";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/gallantry-sloth-hero-5NPiLMnJCpqXK6gu9eYvuD.webp";
 
 const IMGS = {
   alcmDiagram: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000005693_e894b781.jpg",

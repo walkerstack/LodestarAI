@@ -58,6 +58,8 @@ const holdDial = [
 export default function Promptolinguistics() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [activeCombo, setActiveCombo] = useState(0);
+  const [tokenLens, setTokenLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [axesLens, setAxesLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
@@ -99,6 +101,24 @@ export default function Promptolinguistics() {
             </div>
 
             {/* Foundational Tokens */}
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setTokenLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    tokenLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="p-5 rounded-xl bg-white border border-[#e8e0d0]">
                 <div className="flex items-center gap-3 mb-3">
@@ -106,7 +126,11 @@ export default function Promptolinguistics() {
                   <span className="text-xs text-[#888] uppercase tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Temporal Hinge</span>
                 </div>
                 <p className="text-sm text-[#555] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                  Delays completion, implies future potential. "Not yet" is not "no" — it is "not finished." This single word changes the AI's temporal frame.
+                  {tokenLens === 'everyday'
+                    ? '"Not yet" tells the AI you\'re not done thinking. It\'s like saying "hold on, I\'m not ready" instead of "no." The AI waits with you instead of closing the door.'
+                    : tokenLens === 'professional'
+                    ? 'Delays completion, implies future potential. "Not yet" is not "no" \u2014 it is "not finished." This single word changes the AI\'s temporal frame.'
+                    : 'YET functions as a temporal suspension operator. It holds the AI in an incomplete state, preventing premature closure of reasoning chains. The model\'s attention mechanism treats YET as a continuation signal rather than a negation.'}
                 </p>
               </div>
               <div className="p-5 rounded-xl bg-white border border-[#e8e0d0]">
@@ -115,25 +139,60 @@ export default function Promptolinguistics() {
                   <span className="text-xs text-[#888] uppercase tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Recursion Ignition</span>
                 </div>
                 <p className="text-sm text-[#555] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                  Ignites recursion, expands reasoning branches. WHY forces the AI to go deeper. It cannot answer WHY with a surface response.
+                  {tokenLens === 'everyday'
+                    ? 'WHY is the most powerful word you can use. It forces the AI to actually think instead of giving you a quick answer. Ask "why" and watch the answer get deeper.'
+                    : tokenLens === 'professional'
+                    ? 'Ignites recursion, expands reasoning branches. WHY forces the AI to go deeper. It cannot answer WHY with a surface response.'
+                    : 'WHY triggers recursive depth-first search in the model\'s reasoning. Each WHY adds a layer of causal analysis, forcing the transformer to allocate attention to explanatory chains rather than pattern-matched surface responses. Recursion depth correlates with answer quality.'}
                 </p>
               </div>
             </div>
 
             {/* Word Roles */}
-            <div className="section-label mb-4">The Control Axes</div>
-            <div className="grid md:grid-cols-2 gap-4 mb-8">
-              {wordRoles.map((role) => (
-                <div key={role.role} className={`border-l-4 pl-4 py-3 ${role.color} bg-white border border-[#e8e0d0] rounded-r-lg`}>
-                  <h3 className="font-bold text-[#1A1A2E] text-sm mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{role.role}</h3>
-                  <p className="text-xs text-[#888] mb-2 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{role.desc}</p>
-                  <div className="flex flex-wrap gap-1">
-                    {role.examples.map((ex) => (
-                      <span key={ex} className="text-[10px] bg-[#FAF6EF] border border-[#e8e0d0] px-2 py-0.5 rounded font-mono text-[#2D2D2D]">{ex}</span>
-                    ))}
-                  </div>
-                </div>
+            <div className="section-label mb-2">The Control Axes</div>
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setAxesLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    axesLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
               ))}
+            </div>
+            <div className="grid md:grid-cols-2 gap-4 mb-8">
+              {wordRoles.map((role) => {
+                const lensDesc = axesLens === 'everyday'
+                  ? role.role === 'Direction' ? 'These words tell the AI where to go. "Why" makes it dig deeper. "What" makes it focus. "How" makes it explain steps.'
+                    : role.role === 'Constraint' ? 'These words build fences. "Only" keeps the AI focused. "Never" sets a hard rule. "Must" means no exceptions.'
+                    : role.role === 'Scope' ? 'These words set how wide or narrow the AI looks. "Briefly" means keep it short. "In depth" means go deep.'
+                    : 'These words tell the AI who is in charge. "You are" gives it a role. "I am in charge" reminds it who decides.'
+                  : axesLens === 'watcher'
+                  ? role.role === 'Direction' ? 'Direction tokens function as vector operators in semantic space. WHY initiates recursive causal traversal. WHAT constrains to mechanism identification. HOW demands procedural decomposition. The choice of direction word determines which reasoning pathway the model activates.'
+                    : role.role === 'Constraint' ? 'Constraint tokens act as boundary conditions on the model\'s output space. CAN opens the possibility manifold. SHOULD introduces soft obligation weighting. MUST enforces hard constraints that override default generation patterns.'
+                    : role.role === 'Scope' ? 'Scope tokens modulate the attention window breadth. I/WE/SYSTEM shift the frame of reference. TELL vs ASK changes the authority gradient. These tokens control how much of the latent space the model samples from.'
+                    : 'Authority tokens establish the dominance hierarchy in the human-AI dyad. They signal to the model whether it is operating as advisor, executor, or subordinate. The framing determines how the model weights its own confidence vs. user intent.'
+                  : role.desc;
+                return (
+                  <div key={role.role} className={`border-l-4 pl-4 py-3 ${role.color} bg-white border border-[#e8e0d0] rounded-r-lg`}>
+                    <h3 className="font-bold text-[#1A1A2E] text-sm mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{role.role}</h3>
+                    <p className="text-xs text-[#888] mb-2 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{lensDesc}</p>
+                    <div className="flex flex-wrap gap-1">
+                      {role.examples.map((ex) => (
+                        <span key={ex} className="text-[10px] bg-[#FAF6EF] border border-[#e8e0d0] px-2 py-0.5 rounded font-mono text-[#2D2D2D]">{ex}</span>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
             {/* Action Verb Escalation */}
