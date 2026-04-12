@@ -311,8 +311,90 @@ export default function RoadProtocol() {
     <div className="min-h-screen bg-[#0D0D0D]">
       <Nav />
 
+      {/* Road Protocol — Three Lens Intro with horizon image */}
+      <section className="relative overflow-hidden" style={{ background: "#0D0D0D" }}>
+        {/* Horizon image with blurred edges */}
+        <div className="relative w-full" style={{ maxHeight: "420px", overflow: "hidden" }}>
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/road-protocol-horizon-LePF5V2qoPGSgq2tmZ9mT2.webp"
+            alt="A lone car driving into the horizon"
+            className="w-full object-cover"
+            style={{
+              maskImage: "radial-gradient(ellipse 80% 90% at center, black 40%, transparent 75%)",
+              WebkitMaskImage: "radial-gradient(ellipse 80% 90% at center, black 40%, transparent 75%)",
+            }}
+          />
+        </div>
+
+        <div className="container max-w-2xl mx-auto px-6 text-center" style={{ marginTop: "-2rem", position: "relative", zIndex: 2 }}>
+          <h2
+            className="text-2xl md:text-4xl font-black mb-3"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              color: "#FAF6EF",
+              textShadow: "0 0 30px rgba(232,82,10,0.15)",
+            }}
+          >
+            You're Already on the Road.
+          </h2>
+          <p
+            className="text-sm md:text-base mb-10 leading-relaxed"
+            style={{ color: "#888", fontFamily: "'DM Sans', sans-serif" }}
+          >
+            The question is whether you're driving — or being driven.
+          </p>
+
+          {/* Three Lenses */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 text-left">
+            {/* Everyday */}
+            <div
+              className="rounded-xl p-5"
+              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+            >
+              <p className="text-[#E8520A] text-[10px] font-bold tracking-[0.2em] uppercase mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>Everyday</p>
+              <p className="text-sm leading-relaxed" style={{ color: "#aaa", fontFamily: "'DM Sans', sans-serif" }}>
+                The Road Protocol is how you stay in charge of an AI conversation. Before you type anything, you set the rules: what the AI can do, what it can't, and who decides. It's like adjusting your mirrors before you drive.
+              </p>
+            </div>
+            {/* Professional */}
+            <div
+              className="rounded-xl p-5"
+              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+            >
+              <p className="text-[#E8520A] text-[10px] font-bold tracking-[0.2em] uppercase mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>Professional</p>
+              <p className="text-sm leading-relaxed" style={{ color: "#aaa", fontFamily: "'DM Sans', sans-serif" }}>
+                A pre-session governance layer. The Road Protocol defines behavioral constraints, trust boundaries, and escalation rules before the first token is generated. It's the difference between a managed session and an unmanaged one.
+              </p>
+            </div>
+            {/* Watcher */}
+            <div
+              className="rounded-xl p-5"
+              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+            >
+              <p className="text-[#E8520A] text-[10px] font-bold tracking-[0.2em] uppercase mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>Watcher</p>
+              <p className="text-sm leading-relaxed" style={{ color: "#aaa", fontFamily: "'DM Sans', sans-serif" }}>
+                Governance written as code comments. The compiler skips them. The AI reads them. The human enforces them. The Road Protocol is where intent becomes structure — before output exists. It inverts the feedback loop.
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="#vault"
+            className="inline-block px-5 py-2.5 rounded-full text-xs font-bold no-underline transition-all hover:scale-105 mb-16"
+            style={{
+              background: "transparent",
+              color: "#888",
+              border: "1px solid rgba(255,255,255,0.15)",
+              fontFamily: "'DM Sans', sans-serif",
+            }}
+          >
+            Enter the Vault
+          </a>
+        </div>
+      </section>
+
       {/* Hero */}
-      <section className="py-24 md:py-36">
+      <section id="vault" className="py-24 md:py-36">
         <div className="container max-w-3xl mx-auto px-6">
           <p className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             The Vault

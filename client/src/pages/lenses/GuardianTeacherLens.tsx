@@ -131,8 +131,8 @@ export default function GuardianTeacherLens() {
             <div className="space-y-3">
               {[
                 { adult: "Be safe.", child: "If it feels weird, close the lid.", why: "Safety is non-negotiable. Kids need permission to walk away." },
-                { adult: "Be honest.", child: "Tell the robot the truth.", why: "Honesty produces better results and builds better habits." },
-                { adult: "Be in charge.", child: "You're the boss, not the robot.", why: "Authority must be established from the first session." },
+                { adult: "Be honest.", child: "Tell the AI the truth.", why: "Honesty produces better results and builds better habits." },
+                { adult: "Be in charge.", child: "You're the boss, not the smart pattern detector.", why: "Authority must be established from the first session." },
                 { adult: "Be kind.", child: "Talk to it the way you'd talk to a friend.", why: "Language habits with AI transfer to language habits with people." },
                 { adult: "Be curious.", child: "Ask it why. Then ask it again.", why: "Curiosity is the engine of learning. AI rewards it." },
               ].map((item, i) => (

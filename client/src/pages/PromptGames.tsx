@@ -46,7 +46,7 @@ const games = [
     },
     teaching: {
       explain: "\"Imagine you're wearing armor, but it's made of tiny rings that move with you. You're safe, but you can still run and play. That's what we're telling the AI to be — a helper that keeps you safe but doesn't boss you around.\"",
-      activity: "Ask the child: \"If the AI was a suit of armor, would you want it stiff like a robot or bendy like chain mail?\" Then paste the prompt together and ask the AI a question.",
+      activity: "Ask the child: 'If the AI was a suit of armor, would you want it stiff like a tin can or bendy like chain mail?' Then paste the prompt together and ask the AI a question.",
       watch: "Does the AI agree with everything or does it gently say \"but have you thought about...\"? That's the habergeon working.",
     },
     metaphor: "Chain mail is thousands of small rings linked together. Each ring is weak alone but strong in formation. That's how governance works — not one big rule, but many small connected ones. The AI reads this prompt and activates a network of small behaviors: honesty, patience, humility, service. No single word does it. The pattern does.",

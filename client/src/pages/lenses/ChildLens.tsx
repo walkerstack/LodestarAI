@@ -191,6 +191,59 @@ export default function ChildLens() {
         </div>
       </section>
 
+      {/* === FROM THE BUILDER — WHY THIS MATTERS === */}
+      <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
+        <div className="max-w-2xl mx-auto">
+          <div
+            className="text-xs uppercase tracking-widest text-center mb-2 font-semibold"
+            style={{ color: "#E8520A" }}
+          >
+            From the Builder
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-black text-center mb-4"
+            style={{ fontFamily: serifFont, color: "#1A1A2E" }}
+          >
+            Why I Built This for Kids
+          </h2>
+          <p
+            className="text-sm text-center mb-8 leading-relaxed"
+            style={{ color: "#5a4a3a", maxWidth: "520px", margin: "0 auto 2rem" }}
+          >
+            I'm a dad. I work a blue-collar job. I come home and my kids are already
+            using AI — for homework, for fun, for everything. Nobody taught them the rules.
+            Nobody taught <em>me</em> the rules. So I learned. And now I'm teaching them
+            the only way I know how: honestly, carefully, and with a sloth.
+          </p>
+
+          {/* Two images side by side on desktop, stacked on mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="rounded-2xl overflow-hidden shadow-lg" style={{ border: "2px solid #F5D9B0" }}>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/what-can-you-do-ai_85168c04.png"
+                alt="What Can You Do With AI? — A User, A Builder, A Painter, A Lion Tamer"
+                className="w-full"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg" style={{ border: "2px solid #F5D9B0" }}>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/remember-ai-feelings_579d813a.png"
+                alt="Remember — AI is not a person. It cannot feel. You are in charge."
+                className="w-full"
+              />
+            </div>
+          </div>
+
+          <p
+            className="text-sm text-center leading-relaxed"
+            style={{ color: "#7a6a5a", fontStyle: "italic" }}
+          >
+            These aren't just pictures. They're the first conversation I had with my kids about AI.
+            What it can do. What it can't feel. And why they're the ones in charge.
+          </p>
+        </div>
+      </section>
+
       {/* === BARNEY POEM — ENTRY STORY === */}
       <section className="py-14 px-6" style={{ background: "#FFF0D8" }}>
         <div className="max-w-2xl mx-auto">
@@ -258,6 +311,60 @@ export default function ChildLens() {
             </div>
 
             <div className="mt-6 pt-4" style={{ borderTop: "1px solid #F5D9B0" }}>
+              <p className="text-xs" style={{ color: "#9a8a7a" }}>
+                GallantryAI · Safety. Honesty. Trust. · 🚽
+              </p>
+            </div>
+          </div>
+
+          {/* Blippi poem */}
+          <div
+            className="rounded-3xl p-6 md:p-8 text-center mt-6"
+            style={{
+              background: "#FFFDF8",
+              border: "2.5px solid #2196F3",
+              boxShadow: "0 4px 24px rgba(33, 150, 243, 0.08)",
+            }}
+          >
+            <div className="text-4xl mb-3">🧡</div>
+            <h3
+              className="text-lg font-black mb-1"
+              style={{ fontFamily: serifFont, color: "#2196F3" }}
+            >
+              A Song About AI Rules
+            </h3>
+            <p className="text-xs italic mb-5" style={{ color: "#9a8a7a" }}>
+              As written by Blippi
+            </p>
+
+            <div className="space-y-5" style={{ color: "#3a2a1a", fontSize: "1.05rem", lineHeight: 1.8 }}>
+              <p>
+                Hey, it's me! And guess what today —<br />
+                We're learning about AI the SAFE way!<br />
+                So cool, so fun, so much to explore,<br />
+                But WAIT — there's rules before we go more!
+              </p>
+              <p>
+                Rule one! Safety first, that's the start,<br />
+                Rule two! Be honest from the heart.<br />
+                Rule three! Trust is built, not free,<br />
+                Rule four! The human — that's you and me!
+              </p>
+              <p>
+                If the AI says something weird or wrong,<br />
+                Don't just go along, don't play along!<br />
+                Stop and check! Ask "is that true?"<br />
+                Because the Builder in charge? That's YOU!
+              </p>
+              <p>
+                So spell your name, check the facts,<br />
+                Keep your secrets, watch your tracks.<br />
+                AI's a helper, not the boss —<br />
+                Without your rules, we'd all be lost!
+              </p>
+            </div>
+
+            <div className="mt-6 pt-4" style={{ borderTop: "1px solid #B3D9F5" }}>
               <p className="text-xs" style={{ color: "#9a8a7a" }}>
                 GallantryAI · Safety. Honesty. Trust. · 🚽
               </p>
