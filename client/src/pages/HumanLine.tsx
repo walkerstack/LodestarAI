@@ -73,8 +73,82 @@ export default function HumanLine() {
     <div className="min-h-screen flex flex-col" style={{ background: "#0a0804" }}>
       <Nav />
 
+      {/* ── WELCOME BANNER — You're not in crisis, you clicked a button ── */}
+      <section className="container pt-8 pb-6">
+        <div
+          className="rounded-2xl p-6 flex flex-col md:flex-row items-center gap-5"
+          style={{ background: '#0f0c08', border: '1px solid #2a2018' }}
+        >
+          {/* Buffalo — guardian */}
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/kids-mid-link-sticker-Nmh6s3hknwKR5FNbsvDCHx.webp"
+            alt="Buffalo guardian"
+            className="w-16 h-16 md:w-20 md:h-20 object-contain flex-shrink-0"
+          />
+          <div className="flex-1 text-center md:text-left">
+            <p
+              className="text-base md:text-lg font-bold mb-2"
+              style={{ color: '#f5e6d0', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              You clicked a button. That{"\u2019"}s all that happened.
+            </p>
+            <p
+              className="text-sm leading-relaxed mb-3"
+              style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              This is one of the first links people see, so most visitors land here by exploring {"\u2014"} not because something is wrong.
+              If you{"\u2019"}re just looking around, that{"\u2019"}s great. Here{"\u2019"}s where to start learning and growing:
+            </p>
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+              <Link
+                href="/rules"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm no-underline transition-colors"
+                style={{ background: '#E8520A', color: '#fff', fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Start with the Five Rules
+              </Link>
+              <Link
+                href="/for/child"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm no-underline transition-colors"
+                style={{ background: '#1a1610', color: '#c8b89a', border: '1px solid #2a2018', fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Children{"\u2019"}s Section
+              </Link>
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm no-underline transition-colors"
+                style={{ background: '#1a1610', color: '#c8b89a', border: '1px solid #2a2018', fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Go Home
+              </Link>
+            </div>
+          </div>
+          {/* Sloth — guide */}
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/oops-sloth-dpBa4VaDRVEQQogvEc76jm.webp"
+            alt="Sloth guide"
+            className="w-14 h-14 md:w-16 md:h-16 object-contain flex-shrink-0 hidden md:block"
+          />
+        </div>
+        {/* Watcher observation */}
+        <div
+          className="mt-3 rounded-xl px-5 py-3"
+          style={{ background: '#0a0804', border: '1px solid #1a1610' }}
+        >
+          <div className="flex items-start gap-2">
+            <span className="text-[9px] font-bold uppercase tracking-widest mt-0.5 flex-shrink-0" style={{ color: '#7C3AED' }}>Watcher</span>
+            <p
+              className="text-xs italic leading-relaxed"
+              style={{ color: '#8a7a6a', fontFamily: "'Playfair Display', serif" }}
+            >
+              You landed here because this link is colored and visible. That is how navigation works {"\u2014"} people follow what stands out. The fact that a safety page is one of the first things you see is not an accident. It is the design. You are not in crisis. You are exploring. And the system noticed you.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── HEADER ── */}
-      <section className="container pt-16 pb-10">
+      <section className="container pt-8 pb-10">
         <div className="section-label mb-3" style={{ color: "#E8520A" }}>Field Research · April 2026</div>
         <h1
           className="text-4xl md:text-5xl font-black mb-4 leading-tight"

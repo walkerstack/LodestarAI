@@ -128,6 +128,78 @@ export default function SafetyPage() {
       <Nav />
 
       <main className="flex-1 container py-16 max-w-2xl">
+        {/* ── WELCOME BANNER — You're exploring, not in crisis ── */}
+        <div
+          className="rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center gap-5"
+          style={{ background: '#12121e', border: '1px solid #2a2a3e' }}
+        >
+          {/* Buffalo — guardian */}
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/kids-mid-link-sticker-Nmh6s3hknwKR5FNbsvDCHx.webp"
+            alt="Buffalo guardian"
+            className="w-16 h-16 md:w-20 md:h-20 object-contain flex-shrink-0"
+          />
+          <div className="flex-1 text-center md:text-left">
+            <p
+              className="text-base md:text-lg font-bold mb-2"
+              style={{ color: '#FAF6EF', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              You{"\u2019"}re not in trouble. You clicked a button.
+            </p>
+            <p
+              className="text-sm leading-relaxed mb-3"
+              style={{ color: '#c8c0b0', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              This is one of the first links people see on the site, so most visitors land here just by exploring {"\u2014"} not because something is wrong.
+              If you{"\u2019"}re just looking around, welcome. Here{"\u2019"}s where to start learning and growing:
+            </p>
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+              <a
+                href="/rules"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm no-underline transition-colors"
+                style={{ background: '#E8520A', color: '#fff', fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Start with the Five Rules
+              </a>
+              <a
+                href="/for/child"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm no-underline transition-colors"
+                style={{ background: '#1a1a2e', color: '#c8c0b0', border: '1px solid #2a2a3e', fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Children{"\u2019"}s Section
+              </a>
+              <a
+                href="/"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm no-underline transition-colors"
+                style={{ background: '#1a1a2e', color: '#c8c0b0', border: '1px solid #2a2a3e', fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Go Home
+              </a>
+            </div>
+          </div>
+          {/* Sloth — guide */}
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/oops-sloth-dpBa4VaDRVEQQogvEc76jm.webp"
+            alt="Sloth guide"
+            className="w-14 h-14 md:w-16 md:h-16 object-contain flex-shrink-0 hidden md:block"
+          />
+        </div>
+        {/* Watcher observation */}
+        <div
+          className="rounded-xl px-5 py-3 mb-8"
+          style={{ background: '#0e0e1a', border: '1px solid #1a1a2e' }}
+        >
+          <div className="flex items-start gap-2">
+            <span className="text-[9px] font-bold uppercase tracking-widest mt-0.5 flex-shrink-0" style={{ color: '#7C3AED' }}>Watcher</span>
+            <p
+              className="text-xs italic leading-relaxed"
+              style={{ color: '#8a8090', fontFamily: "'Playfair Display', serif" }}
+            >
+              This page exists because safety is the first value. But you arrived here because it was the first colored link you saw. That is not a coincidence {"\u2014"} it is the design working. The system put safety where your eyes would go first. If you need this page, it is here. If you don{"\u2019"}t, the buttons above will take you where the learning begins.
+            </p>
+          </div>
+        </div>
+
         <div className="brand-top-bar mb-8" />
 
         <div className="section-label mb-4" style={{ color: '#E8520A' }}>Safety First</div>
