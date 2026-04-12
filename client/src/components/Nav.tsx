@@ -22,6 +22,9 @@ const lenses = [
 ];
 
 const learnLinks = [
+  { label: "Gallantry AI", path: "/gallantry-ai" },
+  { label: "User-Side Governance", path: "/user-governance" },
+  { label: "Dual Strategy", path: "/dual-strategy" },
   { label: "The Five Rules", path: "/rules" },
   { label: "ALCM", path: "/alcm" },
   { label: "Whelm Scale", path: "/whelm-scale" },

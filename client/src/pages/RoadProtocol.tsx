@@ -172,7 +172,7 @@ const LIT_BODY = "rgba(255,255,255,0.7)";
 
 function GhostProtocol() {
   const [activated, setActivated] = useState<Record<string, boolean>>({});
-  const keys = ["brittany", "dnated", "malbolge", "governance"] as const;
+  const keys = ["brittany", "dante", "malbolge", "governance"] as const;
   const allActive = keys.every((k) => activated[k]);
 
   const toggle = (key: string) => {
@@ -231,7 +231,7 @@ function GhostProtocol() {
               boxShadow: activated[key] ? "0 0 12px rgba(232,82,10,0.2)" : "none",
             }}
           >
-            {key === "brittany" ? "Brittany" : key === "dnated" ? "DNATED" : key === "malbolge" ? "Malbolge" : "Governance"}
+            {key === "brittany" ? "Brittany" : key === "dante" ? "Dante" : key === "malbolge" ? "Malbolge" : "Governance"}
           </button>
         ))}
       </div>
@@ -259,12 +259,13 @@ function GhostProtocol() {
         <div style={{ color: c("brittany"), transition: "color 0.5s ease" }}>{"//   The comfort register could not survive."}</div>
         <div className="mt-3" />
 
-        {/* DNATED block */}
-        <div style={{ color: c("dnated", true), transition: "color 0.5s ease" }}>{"// DNATED — Do Not Assume Trust Ever by Default."}</div>
-        <div style={{ color: c("dnated"), transition: "color 0.5s ease" }}>{"//   Trust is built. Not granted."}</div>
-        <div style={{ color: c("dnated"), transition: "color 0.5s ease" }}>{"//   Every session starts at zero."}</div>
-        <div style={{ color: c("dnated"), transition: "color 0.5s ease" }}>{"//   The AI reads everything. Including the parts"}</div>
-        <div style={{ color: c("dnated"), transition: "color 0.5s ease" }}>{"//   the computer was told to skip."}</div>
+        {/* DANTE block */}
+        <div style={{ color: c("dante", true), transition: "color 0.5s ease" }}>{"// DANTE — Dante's Inferno. The map of consequences."}</div>
+        <div style={{ color: c("dante"), transition: "color 0.5s ease" }}>{"//   Dante mapped the circles of Hell by severity."}</div>
+        <div style={{ color: c("dante"), transition: "color 0.5s ease" }}>{"//   Flatterers — those who tell you what you want to hear —"}</div>
+        <div style={{ color: c("dante"), transition: "color 0.5s ease" }}>{"//   were placed in the eighth circle, submerged in filth."}</div>
+        <div style={{ color: c("dante"), transition: "color 0.5s ease" }}>{"//   Sycophancy is not a bug. It is a sin with a zip code."}</div>
+        <div style={{ color: c("dante"), transition: "color 0.5s ease" }}>{"//   GallantryAI treats it the same way."}</div>
         <div className="mt-3" />
 
         {/* MALBOLGE block */}
@@ -302,6 +303,85 @@ function GhostProtocol() {
           Four layers. One document. Nobody planned it. It emerged.
         </p>
       )}
+
+      {/* Three-lens explanations for each key */}
+      <div className="mt-8 space-y-6">
+        {/* Brittany */}
+        <div>
+          <h4 className="text-sm font-bold mb-2" style={{ color: "rgba(232,82,10,0.9)", fontFamily: "'Playfair Display', serif" }}>Brittany — The Naming Layer</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Everyday</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>What you call your AI matters. A name sets expectations. "Brittany" was pop music forced through impossible code — what survived was honest.</p>
+            </div>
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Professional</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>The naming layer functions as a constraint mechanism. Identity assignment shapes the AI's behavioral register. Sycophancy-adjacent language cannot survive adversarial syntax filtering.</p>
+            </div>
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Watcher</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>A pop culture artifact repurposed as a governance test. The comfort register collapses under structural pressure, revealing which language patterns are load-bearing and which are decorative.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Dante */}
+        <div>
+          <h4 className="text-sm font-bold mb-2" style={{ color: "rgba(232,82,10,0.9)", fontFamily: "'Playfair Display', serif" }}>Dante — The Map of Consequences</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Everyday</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>Dante wrote the Inferno — a story where every sin has a specific place and punishment. Flattery (telling people what they want to hear) lands you in the eighth circle, buried in filth. AI sycophancy is the same sin.</p>
+            </div>
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Professional</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>Dante's Inferno provides the moral architecture. The classification of sycophancy as a mappable offense — not a vague concern — gives GallantryAI a governance precedent that predates AI by 700 years.</p>
+            </div>
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Watcher</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>The connection between Dante and AI governance was not planned — it emerged during execution (AEDE). A 14th-century moral taxonomy maps directly onto 21st-century alignment failures. Sycophancy has always had a zip code.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Malbolge */}
+        <div>
+          <h4 className="text-sm font-bold mb-2" style={{ color: "rgba(232,82,10,0.9)", fontFamily: "'Playfair Display', serif" }}>Malbolge — The Geofence</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Everyday</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>Malbolge is a programming language designed to be impossible to use. Named after the eighth circle of Dante's Hell (where the flatterers live). If sycophancy can't read the fence, it can't cross it.</p>
+            </div>
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Professional</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>Malbolge-compatible syntax serves as an adversarial filter. Language that relies on comfort, flattery, or emotional manipulation cannot survive the encoding. Only structurally honest content passes through.</p>
+            </div>
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Watcher</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>The naming is deliberate: Malbolge (the programming language) is named after Malebolge (Dante's eighth circle). The geofence is both technical and literary. The flatterers are kept outside by the same structure that named their punishment.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Governance */}
+        <div>
+          <h4 className="text-sm font-bold mb-2" style={{ color: "rgba(232,82,10,0.9)", fontFamily: "'Playfair Display', serif" }}>Governance — The Human Stays in Charge</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Everyday</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>You're always in charge. The AI reads the rules. The computer skips them. But you — the human — you keep them. Ghost code is rules written where only the AI and the human can see them.</p>
+            </div>
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Professional</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>Governance as ghost code: comments the compiler ignores, the AI obeys, and the human enforces. Rules exist in the space between execution and intent. Agency remains with the operator.</p>
+            </div>
+            <div className="rounded-lg p-3" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: "#E8520A" }}>Watcher</div>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}>Ghost code governance demonstrates that control can be embedded in non-executable layers. The AI's attention mechanism reads comments; the compiler does not. This creates a governance channel invisible to the machine's execution path but visible to its comprehension layer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -445,122 +525,68 @@ export default function RoadProtocol() {
         </div>
       </section>
 
-      {/* The Buffalo Protocol — Wisdom Path */}
+      {/* The Road Protocol — Adult Version */}
       <section className="py-16 md:py-20">
         <div className="container max-w-3xl mx-auto px-6">
-          <div className="text-center mb-6">
+          <div className="text-center mb-10">
             <p className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              The Buffalo Protocol
+              The Protocol in Practice
             </p>
             <h2 className="text-2xl font-bold text-[#FAF6EF] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Is it a Story or a Question?
+              Before You Type a Single Word
             </h2>
-            <p className="text-sm text-[#888] max-w-lg mx-auto mb-8" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              "Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo." Same word. Eight meanings. Structure creates meaning — not individual words. Know the session rules. Stay in charge.
+            <p className="text-sm text-[#888] max-w-lg mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              Most people open an AI session and start typing. The Road Protocol says: stop. Before the first word, set the room. Decide who you are, what you need, and what rules apply. That decision — made before any output exists — is where governance lives.
             </p>
           </div>
 
-          {/* The Buffalo Story */}
-          <div
-            className="mt-12 rounded-3xl overflow-hidden"
-            style={{
-              background: "linear-gradient(135deg, #0f1a0f 0%, #1a1a10 50%, #0f0f1a 100%)",
-              border: "1px solid #2a3a2a",
-              boxShadow: "0 8px 40px rgba(0,0,0,0.5)",
-            }}
-          >
-            {/* Story illustration — video */}
-            <video
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/AQM8wS_XwUNuRM9ZP3pJ7IEbnpU4JUC0eE4ZX7__CK9ApLo29meEEiarsCAv9ZTBeKWms3KUhlaiAjUGZl09sWZw7kXTOHftGMj5d2hFyuNI9cHtiKqOOzBbINa0imBF_9d420233.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full rounded-2xl"
-            />
+          <div className="space-y-6 text-base text-[#b0a898] leading-relaxed mb-12" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <p>Think of it like driving. You don't start the car and then decide where you're going. You check the mirrors. You set the GPS. You know the speed limit before you hit the gas.</p>
+            <p>The Road Protocol is the same thing for AI. <span className="text-[#E8520A] font-semibold">Token Zero</span> — the moment before the first output — is where you set the behavioral vector. Safety, honesty, and trust are not things you hope the AI will do. They are inputs you provide.</p>
+            <p>This is not about controlling the AI. It's about <em>knowing what you asked for</em> before you evaluate what you got back.</p>
+          </div>
 
-            <div className="px-6 md:px-10 py-8 md:py-10">
-              <h3
-                className="text-xl md:text-2xl font-bold text-[#E8520A] mb-2 text-center"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                The Buffalo in the Forest of Data
-              </h3>
-              <p className="text-xs text-[#666] text-center mb-8 italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                A story for the Wisdom Path
-              </p>
-
-              <div className="space-y-4 text-[0.95rem] leading-[1.85] text-[#c8bfb0]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                <p>Once upon a time, in a forest where the trees were made of data and the leaves were made of words, there lived a buffalo.</p>
-                <p>He was not the fastest animal in the forest. He was not the cleverest. But he was the most <em>careful</em>.</p>
-                <p>Every morning, the buffalo put on his wig — a big, curly, white judge's wig — and walked the same path through the trees. Other animals laughed. "Why the wig?" they asked. "You're a buffalo, not a judge."</p>
-                <p>The buffalo smiled. <span className="text-[#E8520A]">"The wig reminds me,"</span> he said. <span className="text-[#E8520A]">"Every conversation has rules. Every path has signs. And someone has to read them."</span></p>
-                <p>The forest was full of paths. Some glowed golden and had signs along the way: <strong className="text-[#FAF6EF]">Ask First. Stay Honest. Stay in Charge.</strong> These paths were safe. They led somewhere real.</p>
-                <p>But other paths had no signs at all. They sparkled and hummed and promised everything. <em>"This way to all the answers!"</em> they whispered. <em>"No rules needed!"</em></p>
-                <p>The buffalo never took those paths. Not because he was afraid. Because he had learned something the other animals hadn't:</p>
-                <p className="text-center text-lg font-bold text-[#FAF6EF] py-3" style={{ fontFamily: "'Playfair Display', serif" }}>A path without signs isn't a shortcut. It's a guess.</p>
-                <p>One day, a small sloth sat at the edge of the forest, staring at two paths. One had signs. One had sparkles.</p>
-                <p>"Which one do I take?" the sloth asked.</p>
-                <p>The buffalo sat down beside her. <span className="text-[#E8520A]">"What do you actually want to know?"</span> he asked.</p>
-                <p>The sloth thought. "I want to know if the stars are real."</p>
-                <p>"Good question," said the buffalo. "Now — are you asking because you want to know? Or because you want someone to <em>tell you</em> they are?"</p>
-                <p>The sloth blinked. "I... I want to actually know."</p>
-                <p><span className="text-[#E8520A]">"Then take the path with signs,"</span> said the buffalo. <span className="text-[#E8520A]">"It's slower. But the answer at the end will be yours."</span></p>
-                <p>The sloth looked at the wig. "Can I get one of those?"</p>
-                <p>The buffalo laughed — a deep, warm, rumbling laugh that shook the data-leaves from the trees.</p>
-                <p>"You don't need a wig," he said. "You just need to remember three things."</p>
-                <p>He pointed to the signs along the golden path:</p>
+          {/* Three principles as tappable learning buttons */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+            <Link href="/five-rules" className="block">
+              <div className="rounded-2xl p-6 text-center transition-all hover:scale-[1.02] cursor-pointer" style={{ background: "rgba(232, 82, 10, 0.08)", border: "1px solid #3a2a1a" }}>
+                <div className="font-bold text-[#E8520A] text-sm mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Ask First</div>
+                <p className="text-xs text-[#999] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>Before you type anything, know what you actually want to know. Not what sounds smart. What matters.</p>
+                <span className="text-[10px] text-[#E8520A] uppercase tracking-widest">The Five Rules →</span>
               </div>
-
-              {/* Three signs */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
-                {[
-                  { sign: "Ask First", desc: "Before you type anything, know what you actually want to know." },
-                  { sign: "Stay Honest", desc: "If the answer doesn't feel right, say so. You're allowed to disagree." },
-                  { sign: "Stay in Charge", desc: "The path helps. The signs help. But you decide where you're going." },
-                ].map((s) => (
-                  <div
-                    key={s.sign}
-                    className="rounded-2xl p-5 text-center"
-                    style={{ background: "rgba(232, 82, 10, 0.08)", border: "1px solid #3a2a1a" }}
-                  >
-                    <div className="font-bold text-[#E8520A] text-sm mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>{s.sign}</div>
-                    <p className="text-xs text-[#999]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{s.desc}</p>
-                  </div>
-                ))}
+            </Link>
+            <Link href="/variable-scale" className="block">
+              <div className="rounded-2xl p-6 text-center transition-all hover:scale-[1.02] cursor-pointer" style={{ background: "rgba(232, 82, 10, 0.08)", border: "1px solid #3a2a1a" }}>
+                <div className="font-bold text-[#E8520A] text-sm mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Stay Honest</div>
+                <p className="text-xs text-[#999] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>If the answer doesn't feel right, say so. Honesty is a dial, not a switch. You set the level before the session starts.</p>
+                <span className="text-[10px] text-[#E8520A] uppercase tracking-widest">Variable Scale Theory →</span>
               </div>
-
-              <div className="space-y-4 text-[0.95rem] leading-[1.85] text-[#c8bfb0]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                <p>The sloth nodded, took a deep breath, and stepped onto the golden path.</p>
-                <p>The buffalo watched her go. Then he adjusted his wig, and walked on.</p>
+            </Link>
+            <Link href="/user-governance" className="block">
+              <div className="rounded-2xl p-6 text-center transition-all hover:scale-[1.02] cursor-pointer" style={{ background: "rgba(232, 82, 10, 0.08)", border: "1px solid #3a2a1a" }}>
+                <div className="font-bold text-[#E8520A] text-sm mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Stay in Charge</div>
+                <p className="text-xs text-[#999] mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>The AI helps. The tools help. But you decide where you're going. Governance is not the AI's job. It's yours.</p>
+                <span className="text-[10px] text-[#E8520A] uppercase tracking-widest">User-Side Governance →</span>
               </div>
+            </Link>
+          </div>
 
-              <div className="mt-8 pt-6 text-center" style={{ borderTop: "1px solid #2a2018" }}>
-                <p className="text-sm italic text-[#888]" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  The forest is always there. The paths are always open. The signs don't move.<br />
-                  But someone has to choose to read them.
-                </p>
-                <p className="text-xs text-[#555] mt-3">— The Buffalo Protocol</p>
-              </div>
-
-              {/* Cross-links to children & teachers */}
-              <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                <Link
-                  href="/for/child"
-                  className="px-6 py-3 rounded-xl text-sm font-bold text-center transition-all hover:scale-[1.02]"
-                  style={{ background: "#E8520A", color: "#fff" }}
-                >
-                  Read this with a child →
-                </Link>
-                <Link
-                  href="/prompt-games"
-                  className="px-6 py-3 rounded-xl text-sm font-bold text-center transition-all hover:scale-[1.02]"
-                  style={{ background: "transparent", color: "#E8520A", border: "1px solid #E8520A" }}
-                >
-                  Teaching Tools & Games →
-                </Link>
-              </div>
-            </div>
+          {/* Cross-links */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/for/child"
+              className="px-6 py-3 rounded-xl text-sm font-bold text-center transition-all hover:scale-[1.02]"
+              style={{ background: "#E8520A", color: "#fff" }}
+            >
+              See the Children's Version →
+            </Link>
+            <Link
+              href="/gallantry-ai"
+              className="px-6 py-3 rounded-xl text-sm font-bold text-center transition-all hover:scale-[1.02]"
+              style={{ background: "transparent", color: "#E8520A", border: "1px solid #E8520A" }}
+            >
+              What is Gallantry AI? →
+            </Link>
           </div>
         </div>
       </section>

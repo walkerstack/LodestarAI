@@ -747,6 +747,133 @@ export default function ChildLens() {
         </div>
       </section>
 
+      {/* === KID-FRIENDLY BRAIN DASHBOARD === */}
+      <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
+        <div className="max-w-2xl mx-auto">
+          <div
+            className="text-xs uppercase tracking-widest text-center mb-2 font-semibold"
+            style={{ color: "#E8520A" }}
+          >
+            Your Brain Dashboard
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-black text-center mb-3"
+            style={{ fontFamily: serifFont, color: "#1A1A2E" }}
+          >
+            Check your dashboard after every session.
+          </h2>
+          <p
+            className="text-center text-sm mb-8"
+            style={{ color: "#5a4a3a", lineHeight: 1.7, maxWidth: "520px", margin: "0 auto 2rem" }}
+          >
+            Just like a car has a dashboard that tells you how fast you're going and how much gas you have,
+            your brain has a dashboard too. After using AI, check these five things.
+          </p>
+
+          <div className="space-y-3">
+            {[
+              {
+                color: "#4CAF50",
+                light: "#E8F5E9",
+                emoji: "\ud83d\udfe2",
+                label: "How do I feel?",
+                green: "I feel fine. Normal.",
+                yellow: "Something feels a little off.",
+                red: "I feel upset, confused, or scared.",
+              },
+              {
+                color: "#2196F3",
+                light: "#E3F2FD",
+                emoji: "\ud83d\udfe2",
+                label: "Did I stay in charge?",
+                green: "Yes! I decided what to ask.",
+                yellow: "The AI kind of led the conversation.",
+                red: "I just went along with whatever it said.",
+              },
+              {
+                color: "#FF9800",
+                light: "#FFF3E0",
+                emoji: "\ud83d\udfe2",
+                label: "Did I keep my secrets?",
+                green: "No names, no address, no school.",
+                yellow: "I might have shared a little.",
+                red: "I told it personal stuff.",
+              },
+              {
+                color: "#9C27B0",
+                light: "#F3E5F5",
+                emoji: "\ud83d\udfe2",
+                label: "Was the AI honest?",
+                green: "It seemed right and I checked.",
+                yellow: "I'm not sure if it was right.",
+                red: "It said something that felt wrong or fake.",
+              },
+              {
+                color: "#E8520A",
+                light: "#FFF0D8",
+                emoji: "\ud83d\udfe2",
+                label: "Would a grown-up be okay with this?",
+                green: "Yes, totally fine.",
+                yellow: "Maybe... I should ask.",
+                red: "Probably not. I should tell someone.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="rounded-2xl p-5"
+                style={{ background: item.light, border: `2px solid ${item.color}20` }}
+              >
+                <div
+                  className="font-black text-sm mb-3"
+                  style={{ fontFamily: serifFont, color: item.color }}
+                >
+                  {i + 1}. {item.label}
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="rounded-xl p-2 text-center" style={{ background: "#C8E6C9" }}>
+                    <div className="text-lg">{"🟢"}</div>
+                    <p className="text-[10px] mt-1" style={{ color: "#2E7D32" }}>{item.green}</p>
+                  </div>
+                  <div className="rounded-xl p-2 text-center" style={{ background: "#FFF9C4" }}>
+                    <div className="text-lg">{"🟡"}</div>
+                    <p className="text-[10px] mt-1" style={{ color: "#F57F17" }}>{item.yellow}</p>
+                  </div>
+                  <div className="rounded-xl p-2 text-center" style={{ background: "#FFCDD2" }}>
+                    <div className="text-lg">{"🔴"}</div>
+                    <p className="text-[10px] mt-1" style={{ color: "#C62828" }}>{item.red}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div
+            className="mt-6 rounded-2xl p-5 text-center"
+            style={{ background: "#FFF0D8", border: "1.5px solid #F5D9B0" }}
+          >
+            <p className="text-sm font-bold" style={{ color: "#1A1A2E", fontFamily: serifFont }}>
+              Mostly green? Your wig is secure.
+            </p>
+            <p className="text-xs mt-1" style={{ color: "#5a4a3a" }}>
+              Some yellow? Talk to a grown-up about what happened.
+            </p>
+            <p className="text-xs mt-1" style={{ color: "#E8520A", fontWeight: 600 }}>
+              Any red? Stop. Tell a trusted adult right away.
+            </p>
+          </div>
+
+          <div className="mt-4 text-center">
+            <Link
+              href="/road-protocol"
+              className="inline-block px-5 py-2.5 rounded-xl text-xs font-bold no-underline transition-all hover:scale-[1.02]"
+              style={{ background: "#1A1A2E", color: "#E8520A" }}
+            >
+              See the grown-up version (Road Protocol) \u2192
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Safety link */}
       <section className="py-10 px-6 text-center" style={{ background: "#FFFDF8" }}>
         <div className="max-w-lg mx-auto">

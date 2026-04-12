@@ -44,6 +44,9 @@ import BuilderOrigin from "./pages/BuilderOrigin";
 import AlcmPage from "./pages/AlcmPage";
 import WhelmScale from "./pages/WhelmScale";
 import VariableScale from "./pages/VariableScale";
+import GallantryAiPage from "./pages/GallantryAiPage";
+import DualStrategy from "./pages/DualStrategy";
+import UserGovernance from "./pages/UserGovernance";
 
 function Router() {
   return (
@@ -84,6 +87,9 @@ function Router() {
       <Route path="/alcm" component={AlcmPage} />
       <Route path="/whelm-scale" component={WhelmScale} />
       <Route path="/variable-scale" component={VariableScale} />
+      <Route path="/gallantry-ai" component={GallantryAiPage} />
+      <Route path="/dual-strategy" component={DualStrategy} />
+      <Route path="/user-governance" component={UserGovernance} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

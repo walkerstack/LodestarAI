@@ -156,18 +156,21 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
         </div>
       )}
 
-      {/* Sloth pops up from bottom — links to safety page */}
+      {/* Sloth pops up from bottom — decorative only, non-interactive when help popup is open */}
       {showSloth && (
-        <a
-          href="/human-line"
+        <div
           className="absolute z-20"
           style={{
             bottom: 0,
             right: "8%",
             width: "110px",
             animation: "slothPopUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
-            cursor: "pointer",
+            pointerEvents: humanOpen ? "none" : "auto",
+            cursor: humanOpen ? "default" : "pointer",
           }}
+          onClick={() => { if (!humanOpen) window.location.href = "/human-line"; }}
+          role="link"
+          tabIndex={humanOpen ? -1 : 0}
         >
           <img
             src={SLOTH_URL}
@@ -180,7 +183,7 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
               maxHeight: "130px",
             }}
           />
-        </a>
+        </div>
       )}
 
       {/* Message text — always visible, centred, readable */}
@@ -250,6 +253,9 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
             }}
           >
             Words matter. Questions matter.<br />
+            <span style={{ color: "rgba(240,224,200,0.7)", fontSize: "clamp(0.8rem, 2vw, 0.95rem)", fontWeight: 400, display: "block", marginTop: "0.5rem" }}>
+              Let's learn and grow safely together.
+            </span>
             <span style={{ fontFamily: "'Playfair Display', serif", color: "#E8520A", fontStyle: "italic" }}>
               — The Builder
             </span>
@@ -294,7 +300,9 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
                     backdropFilter: "blur(8px)",
                     border: "1px solid #2a2018",
                     minWidth: "220px",
-                    zIndex: 50,
+                    position: "relative",
+                    zIndex: 100,
+                    touchAction: "manipulation",
                   }}
                 >
                   <p
@@ -304,16 +312,20 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
                     You are not alone.
                   </p>
                   <button
-                    onClick={() => { window.location.href = "/if-you-need-to-stop"; }}
-                    className="block w-full text-center py-2.5 rounded-lg text-xs font-bold cursor-pointer"
-                    style={{ background: "#E8520A", color: "#fff", fontFamily: baseFont, border: "none" }}
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); e.preventDefault(); window.location.href = "/if-you-need-to-stop"; }}
+                    onTouchEnd={(e) => { e.stopPropagation(); e.preventDefault(); window.location.href = "/if-you-need-to-stop"; }}
+                    className="block w-full text-center py-3 rounded-lg text-sm font-bold cursor-pointer"
+                    style={{ background: "#E8520A", color: "#fff", fontFamily: baseFont, border: "none", WebkitTapHighlightColor: "transparent", touchAction: "manipulation", minHeight: "44px" }}
                   >
                     Crisis Resources
                   </button>
                   <button
-                    onClick={() => { window.location.href = "/human-line"; }}
-                    className="block w-full text-center py-2.5 rounded-lg text-xs font-bold cursor-pointer"
-                    style={{ background: "transparent", color: "#E8520A", border: "1px solid #E8520A", fontFamily: baseFont }}
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); e.preventDefault(); window.location.href = "/human-line"; }}
+                    onTouchEnd={(e) => { e.stopPropagation(); e.preventDefault(); window.location.href = "/human-line"; }}
+                    className="block w-full text-center py-3 rounded-lg text-sm font-bold cursor-pointer"
+                    style={{ background: "transparent", color: "#E8520A", border: "2px solid #E8520A", fontFamily: baseFont, WebkitTapHighlightColor: "transparent", touchAction: "manipulation", minHeight: "44px" }}
                   >
                     The Human Line
                   </button>

@@ -856,9 +856,42 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { img: IMGS.alcmDiagram, label: "Atomic Language Control Model", tag: "ALCM", path: "/alcm" },
-              { img: IMGS.rlhfVsGallantry, label: "RLHF vs. GallantryAI", tag: "RESEARCH", path: "/frameworks" },
-              { img: IMGS.humanDrift, label: "Human Drift Governance Paradigm", tag: "FRAMEWORK", path: "/frameworks" },
+              {
+                img: IMGS.alcmDiagram,
+                label: "Atomic Language Control Model",
+                tag: "ALCM",
+                path: "/alcm",
+                destination: "Explore the ALCM →",
+                lenses: {
+                  everyday: "Eight dials that control how your AI session behaves. Turn them before you start.",
+                  professional: "A multi-axis governance model mapping linguistic, structural, and behavioral constraints pre-session.",
+                  watcher: "The control surface for user-side governance — 8 axes, each a measurable force profile."
+                }
+              },
+              {
+                img: IMGS.rlhfVsGallantry,
+                label: "RLHF vs. GallantryAI",
+                tag: "RESEARCH",
+                path: "/dual-strategy",
+                destination: "See the Dual Strategy →",
+                lenses: {
+                  everyday: "Most AI companies fix the output after it's wrong. GallantryAI helps you set things up right before you start.",
+                  professional: "RLHF operates post-output with institutional mediation. GallantryAI operates pre-session with individual autonomy.",
+                  watcher: "A paradigm inversion: from training-signal extraction to user-empowerment architecture."
+                }
+              },
+              {
+                img: IMGS.humanDrift,
+                label: "Human Drift Governance Paradigm",
+                tag: "FRAMEWORK",
+                path: "/user-governance",
+                destination: "Explore User-Side Governance →",
+                lenses: {
+                  everyday: "Sometimes you drift away from what you actually needed. This framework helps you notice and come back.",
+                  professional: "Session momentum overrides signal. The Correction Triad provides systematic recovery: Fail → Catch → Fix.",
+                  watcher: "Drift is not a model failure — it is a human pattern. Governance must address both sides of the session."
+                }
+              },
             ].map((item, i) => (
               <Link key={i} href={item.path} className="block group no-underline">
                 <div
@@ -870,7 +903,7 @@ export default function Home() {
                      alt={item.label}
                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                    />
-                  <div className="p-3">
+                  <div className="p-4">
                     <span
                       className="inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mr-2"
                       style={{ background: '#E8520A', color: '#fff' }}
@@ -878,10 +911,31 @@ export default function Home() {
                       {item.tag}
                     </span>
                     <p
-                      className="text-xs mt-2 font-medium"
+                      className="text-sm mt-2 font-medium"
                       style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
                     >
                       {item.label}
+                    </p>
+                    {/* Three-lens descriptions */}
+                    <div className="mt-3 space-y-1.5">
+                      <div className="flex gap-1.5 items-start">
+                        <span className="text-[9px] font-bold uppercase tracking-wider mt-0.5 shrink-0" style={{ color: '#E8520A' }}>Everyday</span>
+                        <span className="text-[11px] leading-tight" style={{ color: '#7a6a5a' }}>{item.lenses.everyday}</span>
+                      </div>
+                      <div className="flex gap-1.5 items-start">
+                        <span className="text-[9px] font-bold uppercase tracking-wider mt-0.5 shrink-0" style={{ color: '#E8520A' }}>Pro</span>
+                        <span className="text-[11px] leading-tight" style={{ color: '#7a6a5a' }}>{item.lenses.professional}</span>
+                      </div>
+                      <div className="flex gap-1.5 items-start">
+                        <span className="text-[9px] font-bold uppercase tracking-wider mt-0.5 shrink-0" style={{ color: '#E8520A' }}>Watcher</span>
+                        <span className="text-[11px] leading-tight" style={{ color: '#7a6a5a' }}>{item.lenses.watcher}</span>
+                      </div>
+                    </div>
+                    <p
+                      className="text-[10px] mt-3 font-semibold uppercase tracking-widest group-hover:text-[#E8520A] transition-colors"
+                      style={{ color: '#5a4a3a' }}
+                    >
+                      {item.destination}
                     </p>
                   </div>
                 </div>
