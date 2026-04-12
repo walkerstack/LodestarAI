@@ -41,6 +41,9 @@ import PromptGames from "./pages/PromptGames";
 import Malbolge from "./pages/Malbolge";
 import Playground from "./pages/Playground";
 import BuilderOrigin from "./pages/BuilderOrigin";
+import AlcmPage from "./pages/AlcmPage";
+import WhelmScale from "./pages/WhelmScale";
+import VariableScale from "./pages/VariableScale";
 
 function Router() {
   return (
@@ -78,6 +81,9 @@ function Router() {
       <Route path="/malbolge" component={Malbolge} />
       <Route path="/playground" component={Playground} />
       <Route path="/builder-origin" component={BuilderOrigin} />
+      <Route path="/alcm" component={AlcmPage} />
+      <Route path="/whelm-scale" component={WhelmScale} />
+      <Route path="/variable-scale" component={VariableScale} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

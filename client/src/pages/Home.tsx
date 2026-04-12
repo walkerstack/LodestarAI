@@ -856,11 +856,11 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { img: IMGS.alcmDiagram, label: "Atomic Language Control Model", tag: "ALCM" },
-              { img: IMGS.rlhfVsGallantry, label: "RLHF vs. GallantryAI", tag: "RESEARCH" },
-              { img: IMGS.humanDrift, label: "Human Drift Governance Paradigm", tag: "FRAMEWORK" },
+              { img: IMGS.alcmDiagram, label: "Atomic Language Control Model", tag: "ALCM", path: "/alcm" },
+              { img: IMGS.rlhfVsGallantry, label: "RLHF vs. GallantryAI", tag: "RESEARCH", path: "/frameworks" },
+              { img: IMGS.humanDrift, label: "Human Drift Governance Paradigm", tag: "FRAMEWORK", path: "/frameworks" },
             ].map((item, i) => (
-              <Link key={i} href="/gallery" className="block group no-underline">
+              <Link key={i} href={item.path} className="block group no-underline">
                 <div
                   className="overflow-hidden rounded-2xl"
                   style={{ border: '1px solid #1a1610', background: '#0f0c08' }}
