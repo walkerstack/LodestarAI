@@ -16,7 +16,7 @@ const IMG = {
   alcm: `${CDN}/alcm-cognitive-physics_b9dcb9dc.jpg`,
   prompto: `${CDN}/promptolinguistics-infographic_b90e3b9d.jpg`,
   guide: `${CDN}/03-promptolinguistics-guide_0bf40786.png`,
-  treeNeural: `${CDN}/14-tree-neural_fb1c8ab4.jpg`,
+  treeNeural: `${CDN}/linguist-hero-bg_861b53b2.png`,
   geometry: `${CDN}/geometry-of-insight-5-pathways_666fcf61.png`,
 };
 
