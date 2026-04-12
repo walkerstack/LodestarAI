@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/watcher-lens-hero-FxDxdhm4nGhCYBznxJ2MbV.webp";
+const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png";
 
 const sections = [
   { id: "observe", label: "What It Sees" },
@@ -26,6 +27,7 @@ export default function WatcherLens() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [activeSection, setActiveSection] = useState(0);
   const [revealedSteps, setRevealedSteps] = useState<number[]>([]);
+  const [kidsPopup, setKidsPopup] = useState(false);
 
   const toggleStep = (i: number) => {
     setRevealedSteps((prev) =>
@@ -36,6 +38,41 @@ export default function WatcherLens() {
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'DM Sans', sans-serif" }}>
       <Nav />
+
+      {/* ── Kids light — tiny bright dot under header ── */}
+      <div className="w-full flex justify-end px-4 py-1" style={{ background: "#0a0a0f" }}>
+        <button
+          onClick={() => setKidsPopup(true)}
+          className="w-3 h-3 rounded-full transition-all hover:scale-150"
+          style={{ background: "radial-gradient(circle, #FFFDF8 0%, #E8520A 60%, transparent 100%)", boxShadow: "0 0 8px rgba(232,82,10,0.4)" }}
+          title="..."
+          aria-label="Kids: tap the light"
+        />
+      </div>
+
+      {/* Kids popup overlay */}
+      {kidsPopup && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-6"
+          style={{ background: "rgba(0,0,0,0.9)" }}
+          onClick={() => setKidsPopup(false)}
+        >
+          <div
+            className="relative rounded-3xl p-6 md:p-8 max-w-sm w-full text-center"
+            style={{ background: "#FFFDF8", boxShadow: "0 0 60px rgba(232,82,10,0.3)" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button onClick={() => setKidsPopup(false)} className="absolute top-3 right-4 text-[#999] hover:text-[#333] text-lg" aria-label="Close">✕</button>
+            <img src={BUFFALO_IMG} alt="The buffalo with binoculars" className="w-28 h-28 mx-auto rounded-2xl mb-4 object-cover" style={{ border: "3px solid #E8520A" }} />
+            <h3 className="text-lg font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "#1A1A2E" }}>The Buffalo Sees You.</h3>
+            <p className="text-sm leading-relaxed mb-2" style={{ color: "#555", fontFamily: "'Nunito', 'DM Sans', sans-serif" }}>This is the <strong style={{ color: "#E8520A" }}>Watcher</strong> page. It's a place where we watch how AI watches us — and how we can watch it back.</p>
+            <p className="text-sm leading-relaxed mb-2" style={{ color: "#555", fontFamily: "'Nunito', 'DM Sans', sans-serif" }}>The buffalo picked up his binoculars one day and looked at the AI looking at him. <strong style={{ color: "#E8520A" }}>"Interesting,"</strong> he said. <strong style={{ color: "#E8520A" }}>"It thinks it knows me. But I know me better."</strong></p>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "#555", fontFamily: "'Nunito', 'DM Sans', sans-serif" }}>That's the secret. The AI watches. But <strong style={{ color: "#E8520A" }}>you</strong> get to decide what it sees. And you can always walk away.</p>
+            <p className="text-xs italic mb-5" style={{ color: "#999", fontFamily: "'Playfair Display', serif" }}>"The one who watches the watcher — that's the one in charge."</p>
+            <Link href="/for/child" className="inline-block px-6 py-3 rounded-full text-sm font-bold no-underline transition-all hover:scale-[1.05]" style={{ background: "#E8520A", color: "#fff" }}>Go Back to Your Page →</Link>
+          </div>
+        </div>
+      )}
 
       <main className="flex-1">
         {/* ═══════════════════════════════════════════════════════════

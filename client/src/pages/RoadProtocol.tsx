@@ -394,6 +394,41 @@ export default function RoadProtocol() {
     <div className="min-h-screen bg-[#0D0D0D]">
       <Nav />
 
+      {/* ── Kids light — tiny bright dot under header ── */}
+      <div className="w-full flex justify-end px-4 py-1" style={{ background: "#0D0D0D" }}>
+        <button
+          onClick={() => setKidsPopup(true)}
+          className="w-3 h-3 rounded-full transition-all hover:scale-150"
+          style={{ background: "radial-gradient(circle, #FFFDF8 0%, #E8520A 60%, transparent 100%)", boxShadow: "0 0 8px rgba(232,82,10,0.4)" }}
+          title="..."
+          aria-label="Kids: tap the light"
+        />
+      </div>
+
+      {/* Kids popup overlay */}
+      {kidsPopup && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-6"
+          style={{ background: "rgba(0,0,0,0.85)" }}
+          onClick={() => setKidsPopup(false)}
+        >
+          <div
+            className="relative rounded-3xl p-6 md:p-8 max-w-sm w-full text-center"
+            style={{ background: "#FFFDF8", boxShadow: "0 0 60px rgba(232,82,10,0.3)" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button onClick={() => setKidsPopup(false)} className="absolute top-3 right-4 text-[#999] hover:text-[#333] text-lg" aria-label="Close">✕</button>
+            <img src={IMG.buffalo} alt="The buffalo wearing a wig" className="w-28 h-28 mx-auto rounded-2xl mb-4 object-cover" style={{ border: "3px solid #E8520A" }} />
+            <h3 className="text-lg font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "#1A1A2E" }}>Hey there, young explorer!</h3>
+            <p className="text-sm leading-relaxed mb-2" style={{ color: "#555", fontFamily: "'Nunito', 'DM Sans', sans-serif" }}>This page is the <strong style={{ color: "#E8520A" }}>Road</strong> — it's where grown-ups learn the rules of talking to AI.</p>
+            <p className="text-sm leading-relaxed mb-2" style={{ color: "#555", fontFamily: "'Nunito', 'DM Sans', sans-serif" }}>Think of it like learning to drive. Before you go anywhere, you check your mirrors, you know the speed limit, and you decide where you're going.</p>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "#555", fontFamily: "'Nunito', 'DM Sans', sans-serif" }}>AI is the same. <strong style={{ color: "#E8520A" }}>You set the rules first.</strong> Then you talk. The buffalo knows — that's why he wears the wig. It reminds him to think before he speaks.</p>
+            <p className="text-xs italic mb-5" style={{ color: "#999", fontFamily: "'Playfair Display', serif" }}>"Every conversation has rules. Every path has signs. And someone has to read them."</p>
+            <Link href="/for/child" className="inline-block px-6 py-3 rounded-full text-sm font-bold no-underline transition-all hover:scale-[1.05]" style={{ background: "#E8520A", color: "#fff" }}>Go Back to Your Page →</Link>
+          </div>
+        </div>
+      )}
+
       {/* Road Protocol — Three Lens Intro with horizon image */}
       <section className="relative overflow-hidden" style={{ background: "#0D0D0D" }}>
         {/* Horizon image with blurred edges */}
@@ -638,93 +673,6 @@ export default function RoadProtocol() {
           </p>
         </div>
       </section>
-
-      {/* ── Kids Redirect — subtle wig button, bright popup ── */}
-      <section className="py-8">
-        <div className="container max-w-3xl mx-auto px-6 text-center">
-          <button
-            onClick={() => setKidsPopup(true)}
-            className="text-[#222] hover:text-[#444] transition-colors text-2xl"
-            title="Psst... are you a kid?"
-            aria-label="Kids: tap the wig"
-          >
-            👨‍⚖️
-          </button>
-        </div>
-      </section>
-
-      {/* Kids popup overlay */}
-      {kidsPopup && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-6"
-          style={{ background: "rgba(0,0,0,0.85)" }}
-          onClick={() => setKidsPopup(false)}
-        >
-          <div
-            className="relative rounded-3xl p-6 md:p-8 max-w-sm w-full text-center"
-            style={{ background: "#FFFDF8", boxShadow: "0 0 60px rgba(232,82,10,0.3)" }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close */}
-            <button
-              onClick={() => setKidsPopup(false)}
-              className="absolute top-3 right-4 text-[#999] hover:text-[#333] text-lg"
-              aria-label="Close"
-            >
-              ✕
-            </button>
-
-            {/* Buffalo with wig */}
-            <img
-              src={IMG.buffalo}
-              alt="The buffalo wearing a wig"
-              className="w-28 h-28 mx-auto rounded-2xl mb-4 object-cover"
-              style={{ border: "3px solid #E8520A" }}
-            />
-
-            <h3
-              className="text-lg font-bold mb-3"
-              style={{ fontFamily: "'Playfair Display', serif", color: "#1A1A2E" }}
-            >
-              Hey there, young explorer!
-            </h3>
-
-            <p
-              className="text-sm leading-relaxed mb-2"
-              style={{ color: "#555", fontFamily: "'Nunito', 'DM Sans', sans-serif" }}
-            >
-              This page is the <strong style={{ color: "#E8520A" }}>Road</strong> — it's where grown-ups learn the rules of talking to AI.
-            </p>
-            <p
-              className="text-sm leading-relaxed mb-2"
-              style={{ color: "#555", fontFamily: "'Nunito', 'DM Sans', sans-serif" }}
-            >
-              Think of it like learning to drive. Before you go anywhere, you check your mirrors, you know the speed limit, and you decide where you're going.
-            </p>
-            <p
-              className="text-sm leading-relaxed mb-4"
-              style={{ color: "#555", fontFamily: "'Nunito', 'DM Sans', sans-serif" }}
-            >
-              AI is the same. <strong style={{ color: "#E8520A" }}>You set the rules first.</strong> Then you talk. The buffalo knows — that's why he wears the wig. It reminds him to think before he speaks.
-            </p>
-
-            <p
-              className="text-xs italic mb-5"
-              style={{ color: "#999", fontFamily: "'Playfair Display', serif" }}
-            >
-              "Every conversation has rules. Every path has signs. And someone has to read them."
-            </p>
-
-            <Link
-              href="/for/child"
-              className="inline-block px-6 py-3 rounded-full text-sm font-bold no-underline transition-all hover:scale-[1.05]"
-              style={{ background: "#E8520A", color: "#fff" }}
-            >
-              Go Back to Your Page →
-            </Link>
-          </div>
-        </div>
-      )}
 
       {/* Cross-links */}
       <section className="py-16">

@@ -134,12 +134,48 @@ const threeRules = [
 ];
 
 export default function ChildLens() {
+  const [watcherPopup, setWatcherPopup] = useState(false);
+
   return (
     <div
       className="min-h-screen flex flex-col"
       style={{ background: "#FFFDF8", fontFamily: baseFont }}
     >
       <Nav />
+
+      {/* ── Watcher peek — tiny bright dot under header ── */}
+      <div className="w-full flex justify-end px-4 py-1" style={{ background: "#1A1A2E" }}>
+        <button
+          onClick={() => setWatcherPopup(true)}
+          className="w-3 h-3 rounded-full transition-all hover:scale-150"
+          style={{ background: "radial-gradient(circle, #FFFDF8 0%, #E8520A 60%, transparent 100%)", boxShadow: "0 0 8px rgba(232,82,10,0.4)" }}
+          title="..."
+          aria-label="Peek at the Watcher"
+        />
+      </div>
+
+      {/* Watcher peek popup */}
+      {watcherPopup && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-6"
+          style={{ background: "rgba(0,0,0,0.85)" }}
+          onClick={() => setWatcherPopup(false)}
+        >
+          <div
+            className="relative rounded-3xl p-6 md:p-8 max-w-sm w-full text-center"
+            style={{ background: "#FFFDF8", boxShadow: "0 0 60px rgba(232,82,10,0.3)" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button onClick={() => setWatcherPopup(false)} className="absolute top-3 right-4 text-[#999] hover:text-[#333] text-lg" aria-label="Close">✕</button>
+            <div className="text-4xl mb-3">🔭</div>
+            <h3 className="text-lg font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "#1A1A2E" }}>Want to see something cool?</h3>
+            <p className="text-sm leading-relaxed mb-2" style={{ color: "#555" }}>There's a page called <strong style={{ color: "#E8520A" }}>The Watcher</strong>. It's a little bit spooky — but in a good way.</p>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "#555" }}>It shows how AI watches you — and how <strong style={{ color: "#E8520A" }}>you can watch it back</strong>. The buffalo is there too, with his binoculars.</p>
+            <p className="text-xs italic mb-5" style={{ color: "#999", fontFamily: "'Playfair Display', serif" }}>"The one who watches the watcher — that's the one in charge."</p>
+            <Link href="/for/watcher" className="inline-block px-6 py-3 rounded-full text-sm font-bold no-underline transition-all hover:scale-[1.05]" style={{ background: "#1A1A2E", color: "#fff" }}>Peek at the Watcher →</Link>
+          </div>
+        </div>
+      )}
 
       {/* Hero — warm white with orange accent + background image */}
       <section
