@@ -35,8 +35,8 @@ const foundationLinks = [
 ];
 
 const forYouLinks = [
-  { label: "School Board", path: "/school-board" },
-  { label: "Kids Learn", path: "/kids-learn" },
+  { label: "School Board", path: "/school-board", color: "#0d9488" },
+  { label: "Kids Learn", path: "/kids-learn", color: "#7c3aed" },
 ];
 
 const toolsLinks = [
@@ -219,7 +219,7 @@ export default function Nav() {
           <div className="border-t border-[#e8e0d0] pt-3 mt-3">
             <div className="section-label mb-2">For You</div>
             {forYouLinks.map((item) => (
-              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
+              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium no-underline hover:text-[#E8520A] py-1" style={{ color: item.color || '#2D2D2D' }}>
                 {item.label}
               </Link>
             ))}
