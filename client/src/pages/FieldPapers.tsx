@@ -140,6 +140,15 @@ const papers = [
         tags: ["Education", "Architecture", "Implementation"],
         url: `${CDN}/gallantry_classroom_technical_architecture_copy_3aeba83b.pdf`,
       },
+      {
+        id: "EDU-03",
+        title: "Little AI Field Guide Carousel",
+        subtitle: "Visual Slide Deck for Children",
+        date: "April 2026",
+        description: "The Little AI Field Guide in carousel format. Designed for young people and families. Warm, visual, honest. The sloth is your guide.",
+        tags: ["Children", "Visual", "Field Guide", "Carousel"],
+        url: `${CDN}/Little_AI_Field_Guide_Carousel_FINAL(1)_8ea0eaec.pdf`,
+      },
     ],
   },
   {

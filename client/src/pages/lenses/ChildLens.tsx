@@ -13,6 +13,14 @@ import { Link } from "wouter";
 const FIELD_GUIDE_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008840_5b1a6230.png";
 
+const IMGS = {
+  fieldGuideCover: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008740_d2ac3f98.png",
+  slothTrick: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008728_a5deb072.png",
+  remember: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008721_99c2f0db.png",
+  whatCanYouDo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008720_800863cc.png",
+  familyLantern: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008706_916d1099.png",
+};
+
 const baseFont = "'Nunito', 'DM Sans', sans-serif";
 const serifFont = "'Playfair Display', serif";
 
@@ -227,29 +235,93 @@ export default function ChildLens() {
         </div>
       </section>
 
-      {/* Placeholder for Builder's Claude research — clearly marked */}
-      <section
-        className="py-12 px-6"
-        style={{
-          background: "#FFF8EE",
-          borderTop: "2px dashed #F5D9B0",
-          borderBottom: "2px dashed #F5D9B0",
-        }}
-      >
-        <div className="max-w-2xl mx-auto text-center">
-          <div
-            className="text-xs uppercase tracking-widest mb-2 font-semibold"
-            style={{ color: "#E8520A" }}
-          >
-            More Coming Soon
-          </div>
-          <p
-            className="text-lg font-semibold"
-            style={{ color: "#5a4a3a", fontFamily: serifFont, fontStyle: "italic" }}
-          >
-            The Builder is doing research with Claude right now.<br />
-            New content, images, and activities will be added here.
+      {/* Family lantern — warmth image */}
+      <section className="w-full" style={{ background: "#FFF8EE" }}>
+        <img
+          src={IMGS.familyLantern}
+          alt="A family gathered around a lantern at dusk — different ages, one light"
+          className="w-full"
+          style={{ maxHeight: "480px", objectFit: "cover", objectPosition: "center 30%" }}
+        />
+        <div className="text-center py-4 px-6">
+          <p style={{ color: "#9a8a7a", fontSize: "0.85rem", fontStyle: "italic" }}>
+            Different ages. Different questions. One light.
           </p>
+        </div>
+      </section>
+
+      {/* What Can You Do With AI */}
+      <section className="py-12 px-6" style={{ background: "#FFFDF8" }}>
+        <div className="max-w-2xl mx-auto">
+          <div className="text-xs uppercase tracking-widest mb-4 font-semibold text-center" style={{ color: "#E8520A" }}>
+            What Can You Do With AI?
+          </div>
+          <img
+            src={IMGS.whatCanYouDo}
+            alt="What can you do with AI — User, Builder, Painter, Lion Tamer. You decide. Not the AI."
+            className="w-full rounded-2xl shadow-md"
+            style={{ maxWidth: "480px", margin: "0 auto", display: "block" }}
+          />
+        </div>
+      </section>
+
+      {/* The Sloth Trick */}
+      <section className="py-12 px-6" style={{ background: "#FFF3E8" }}>
+        <div className="max-w-2xl mx-auto">
+          <div className="text-xs uppercase tracking-widest mb-4 font-semibold text-center" style={{ color: "#E8520A" }}>
+            The Sloth Trick
+          </div>
+          <img
+            src={IMGS.slothTrick}
+            alt="Beating Tricky AI Patterns — The Sloth Trick: Add something new, Use a cute fix, Turn it into a joke"
+            className="w-full rounded-2xl shadow-md"
+            style={{ maxWidth: "480px", margin: "0 auto", display: "block" }}
+          />
+          <p
+            className="text-center mt-4 text-sm"
+            style={{ color: "#5a4a3a", fontStyle: "italic" }}
+          >
+            If AI won't change, YOU can change the plan.
+          </p>
+        </div>
+      </section>
+
+      {/* Remember — You Are In Charge */}
+      <section className="py-12 px-6" style={{ background: "#FFFDF8" }}>
+        <div className="max-w-2xl mx-auto">
+          <img
+            src={IMGS.remember}
+            alt="Remember — AI is not a person. It cannot feel. You are in charge."
+            className="w-full rounded-2xl shadow-md"
+            style={{ maxWidth: "480px", margin: "0 auto", display: "block" }}
+          />
+        </div>
+      </section>
+
+      {/* Field Guide PDF */}
+      <section className="py-12 px-6 text-center" style={{ background: "#FFF0D8" }}>
+        <div className="max-w-lg mx-auto">
+          <div className="text-xs uppercase tracking-widest mb-3 font-semibold" style={{ color: "#E8520A" }}>
+            The Little AI Field Guide
+          </div>
+          <h3
+            className="text-xl font-black mb-3"
+            style={{ fontFamily: serifFont, color: "#1A1A2E" }}
+          >
+            Download the full carousel.
+          </h3>
+          <p style={{ color: "#5a4a3a", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            The Little AI Field Guide in slide format. Print it. Read it together. Share it.
+          </p>
+          <a
+            href="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/Little_AI_Field_Guide_Carousel_FINAL(1)_8ea0eaec.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block rounded-2xl px-6 py-3 font-bold text-sm no-underline transition-opacity hover:opacity-80"
+            style={{ background: "#1A1A2E", color: "#FFF0D8" }}
+          >
+            Open Field Guide PDF →
+          </a>
         </div>
       </section>
 
