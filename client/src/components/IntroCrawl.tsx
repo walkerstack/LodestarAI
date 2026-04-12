@@ -252,95 +252,105 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
             </span>
           </div>
 
-          {/* Help sloth — bottom-left of the black card */}
-          <div className="pointer-events-auto" style={{ position: "relative", marginTop: "0.75rem" }}>
+          {/* Bottom row: help sloth left, enter sloth right */}
+          <div className="pointer-events-auto flex items-end justify-between" style={{ marginTop: "0.75rem" }}>
+
+            {/* Help sloth — bottom-left */}
+            <div>
+              <button
+                onClick={() => setHumanOpen(!humanOpen)}
+                className="flex items-center gap-1.5 transition-all rounded-full"
+                style={{ background: "transparent", border: "none", padding: 0 }}
+              >
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-red-cross-bTsLnBvjbiw38436VqkcCr.webp"
+                  alt="Need help?"
+                  style={{
+                    width: "28px",
+                    height: "28px",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    opacity: humanOpen ? 0.95 : 0.4,
+                    transition: "opacity 0.3s ease",
+                  }}
+                />
+                <span
+                  className="text-[8px] uppercase tracking-[0.1em]"
+                  style={{ color: humanOpen ? "#E8520A" : "#504030", fontFamily: baseFont, transition: "color 0.3s ease" }}
+                >
+                  {humanOpen ? "close" : "if you need help"}
+                </span>
+              </button>
+
+              {/* Expanded: two gentle options */}
+              {humanOpen && (
+                <div
+                  className="mt-2 rounded-2xl px-4 py-3 flex flex-col gap-2"
+                  style={{
+                    background: "rgba(10, 8, 4, 0.92)",
+                    backdropFilter: "blur(8px)",
+                    border: "1px solid #2a2018",
+                    position: "absolute",
+                    bottom: "100%",
+                    left: 0,
+                    marginBottom: "0.5rem",
+                    minWidth: "200px",
+                    zIndex: 50,
+                  }}
+                >
+                  <p
+                    className="text-center text-[10px] mb-1"
+                    style={{ color: "#a09080", fontFamily: baseFont }}
+                  >
+                    You are not alone.
+                  </p>
+                  <a
+                    href="/safety"
+                    className="block text-center py-2 rounded-lg text-xs font-bold"
+                    style={{ background: "#E8520A", color: "#fff", fontFamily: baseFont }}
+                  >
+                    Crisis Resources
+                  </a>
+                  <a
+                    href="/human-line"
+                    className="block text-center py-2 rounded-lg text-xs font-bold"
+                    style={{ background: "transparent", color: "#E8520A", border: "1px solid #E8520A", fontFamily: baseFont }}
+                  >
+                    The Human Line
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* Enter button — bottom-right, small, with sloth */}
             <button
-              onClick={() => setHumanOpen(!humanOpen)}
-              className="flex items-center gap-2 transition-all rounded-full"
-              style={{ background: "transparent", border: "none", padding: 0 }}
+              onClick={handleComplete}
+              className="flex items-center gap-2 transition-all hover:scale-[1.03] rounded-full px-3 py-1.5"
+              style={{
+                background: "transparent",
+                border: "none",
+              }}
             >
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-red-cross-bTsLnBvjbiw38436VqkcCr.webp"
-                alt="Need help?"
-                style={{
-                  width: "32px",
-                  height: "32px",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  opacity: humanOpen ? 0.95 : 0.4,
-                  transition: "opacity 0.3s ease",
-                }}
-              />
               <span
                 className="text-[9px] uppercase tracking-[0.1em]"
-                style={{ color: humanOpen ? "#E8520A" : "#605040", fontFamily: baseFont, transition: "color 0.3s ease" }}
+                style={{ color: "#E8520A", fontFamily: baseFont, fontWeight: 700 }}
               >
-                {humanOpen ? "close" : "if you need help"}
+                learn here
               </span>
-            </button>
-
-            {/* Expanded: two gentle options */}
-            {humanOpen && (
-              <div
-                className="mt-2 rounded-2xl px-5 py-4 flex flex-col gap-3"
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-phone-guide-N7Fzga2wzA6hzj6pqwLuQA.webp"
+                alt="Learn here"
                 style={{
-                  background: "rgba(10, 8, 4, 0.92)",
-                  backdropFilter: "blur(8px)",
-                  border: "1px solid #2a2018",
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  opacity: 0.85,
                 }}
-              >
-                <p
-                  className="text-center text-xs mb-1"
-                  style={{ color: "#a09080", fontFamily: baseFont }}
-                >
-                  You are not alone. These pages are here for you.
-                </p>
-                <a
-                  href="/safety"
-                  className="block text-center py-3 rounded-xl text-sm font-bold transition-colors"
-                  style={{
-                    background: "#E8520A",
-                    color: "#fff",
-                    fontFamily: baseFont,
-                  }}
-                >
-                  Crisis Resources & Safety
-                </a>
-                <a
-                  href="/human-line"
-                  className="block text-center py-3 rounded-xl text-sm font-bold transition-colors"
-                  style={{
-                    background: "transparent",
-                    color: "#E8520A",
-                    border: "1px solid #E8520A",
-                    fontFamily: baseFont,
-                  }}
-                >
-                  The Human Line — Why This Matters
-                </a>
-              </div>
-            )}
+              />
+            </button>
           </div>
         </div>
-      </div>
-
-      {/* ── Bottom buttons ── */}
-      <div className="absolute bottom-0 left-0 right-0 z-40 px-5 pb-5 flex flex-col items-center gap-3">
-
-        {/* Enter button — replaces Skip */}
-        <button
-          onClick={handleComplete}
-          className="w-full max-w-sm text-sm font-bold uppercase tracking-wider py-3 rounded-xl transition-all hover:scale-[1.02]"
-          style={{
-            color: "#E8520A",
-            background: "rgba(10, 8, 4, 0.85)",
-            fontFamily: baseFont,
-            boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-            border: "1px solid #2a2018",
-          }}
-        >
-          Let's Learn & Grow Safely Together
-        </button>
       </div>
 
       <style>{`
