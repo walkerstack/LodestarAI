@@ -355,6 +355,34 @@ export default function RoadProtocol() {
         </div>
       </section>
 
+      {/* Foundation statement */}
+      <section className="py-10">
+        <div className="container max-w-3xl mx-auto px-6">
+          <div
+            className="rounded-xl p-5 text-center"
+            style={{
+              background: "rgba(232,82,10,0.04)",
+              border: "1px solid rgba(232,82,10,0.15)",
+            }}
+          >
+            <p
+              className="text-xs uppercase tracking-[0.25em] mb-2"
+              style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Foundation Layer
+            </p>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              The Road Protocol is the governance layer beneath everything that follows.
+              The children's stories, the wig check, the buffalo — they all stand on this foundation.
+              The code above is the ground. What comes next is built on top of it.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* The Buffalo Protocol — Wisdom Path */}
       <section className="py-16 md:py-20">
         <div className="container max-w-3xl mx-auto px-6">
