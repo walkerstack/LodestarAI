@@ -137,6 +137,87 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
 
+      {/* ── WATCHER STATEMENT ── */}
+      <section className="w-full py-16 px-6" style={{ background: '#0a0804', borderBottom: '1px solid #2a2018' }}>
+        <div className="max-w-3xl mx-auto">
+          {/* Recursive loop label */}
+          <div
+            className="text-xs uppercase tracking-widest font-bold mb-6"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            What This Site Is
+          </div>
+
+          {/* The recursive loop — plain language */}
+          <div className="space-y-4 mb-10">
+            <p
+              className="text-xl md:text-2xl font-black leading-snug"
+              style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+            >
+              A man is watching AI.<br />
+              AI is watching the man.<br />
+              <span style={{ color: '#E8520A' }}>This website is the record of both.</span>
+            </p>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              The Watcher Variable is the missing dataset in all AI research — the human holding the word.
+              Nobody logs who was running the experiment. What they were feeling. How long they had been awake.
+              What happened that day. This site does.
+            </p>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              It is not a product. It is not a platform. It is a citizen field researcher
+              building a scaffold in public — so that anyone who needs it can use it,
+              question it, and walk away from it safely.
+            </p>
+          </div>
+
+          {/* Four pillars */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { label: 'Safety', sub: 'First. Always.' },
+              { label: 'Honesty over Confidence', sub: 'The AI can be wrong. Say so.' },
+              { label: 'Trust Built Over Time', sub: 'Not assumed. Earned.' },
+              { label: 'The User Decides', sub: 'Always. No exceptions.' },
+            ].map((pillar) => (
+              <div
+                key={pillar.label}
+                className="rounded-2xl p-4"
+                style={{ background: '#110e08', border: '1px solid #2a2018' }}
+              >
+                <div
+                  className="font-black text-sm mb-1 leading-snug"
+                  style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}
+                >
+                  {pillar.label}
+                </div>
+                <div
+                  className="text-xs leading-relaxed"
+                  style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {pillar.sub}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Link to field paper */}
+          <div className="mt-6">
+            <a
+              href="/field-papers"
+              className="text-xs uppercase tracking-widest font-semibold no-underline hover:opacity-80 transition-opacity"
+              style={{ color: '#E8520A' }}
+            >
+              Read the Field Papers →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── HERO ── */}
       <section className="container pt-16 pb-12">
         <div className="max-w-3xl">
