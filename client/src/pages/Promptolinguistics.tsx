@@ -7,6 +7,8 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
@@ -644,6 +646,7 @@ export default function Promptolinguistics() {
         </section>
       </main>
 
+      <LearningFlow current="Promptolinguistics" deeper={flowMap.promptolinguistics.deeper} wider={flowMap.promptolinguistics.wider} simpler={flowMap.promptolinguistics.simpler} dark />
       <Footer />
     </div>
   );

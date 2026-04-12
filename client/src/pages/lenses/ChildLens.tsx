@@ -10,6 +10,8 @@
 import { useState, useCallback } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 
@@ -762,6 +764,7 @@ export default function ChildLens() {
         </div>
       </section>
 
+      <LearningFlow current="Child Lens" deeper={flowMap.child.deeper} wider={flowMap.child.wider} simpler={flowMap.child.simpler} />
       <Footer />
     </div>
   );

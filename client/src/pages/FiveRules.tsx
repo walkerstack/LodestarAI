@@ -7,6 +7,8 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
@@ -363,6 +365,7 @@ export default function FiveRules() {
         </div>
       </section>
 
+      <LearningFlow current="Five Rules" deeper={flowMap.fiveRules.deeper} wider={flowMap.fiveRules.wider} simpler={flowMap.fiveRules.simpler} dark />
       <div style={{ background: '#080604' }}>
         <Footer />
       </div>

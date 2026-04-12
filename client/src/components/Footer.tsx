@@ -37,6 +37,9 @@ export default function Footer() {
             {/* Learn */}
             <div className="space-y-1.5">
               <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Learn</div>
+              <Link href="/alcm" className="block hover:text-[#E8520A] no-underline transition-colors">ALCM</Link>
+              <Link href="/whelm-scale" className="block hover:text-[#E8520A] no-underline transition-colors">Whelm Scale</Link>
+              <Link href="/variable-scale" className="block hover:text-[#E8520A] no-underline transition-colors">Variable Scale Theory</Link>
               <Link href="/promptolinguistics" className="block hover:text-[#E8520A] no-underline transition-colors">Promptolinguistics</Link>
               <Link href="/frameworks" className="block hover:text-[#E8520A] no-underline transition-colors">Framework Families</Link>
               <Link href="/lexicon" className="block hover:text-[#E8520A] no-underline transition-colors">Living Lexicon</Link>

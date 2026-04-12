@@ -6,6 +6,8 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
@@ -264,6 +266,7 @@ export default function Frameworks() {
         </div>
       </section>
 
+      <LearningFlow current="Frameworks" deeper={flowMap.frameworks.deeper} wider={flowMap.frameworks.wider} simpler={flowMap.frameworks.simpler} dark />
       <Footer />
     </div>
   );

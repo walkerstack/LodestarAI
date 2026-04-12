@@ -8,6 +8,8 @@
 import { useState, useEffect } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 
 interface AIFamily {
@@ -393,6 +395,7 @@ export default function Taxonomy() {
         </div>
       </main>
 
+      <LearningFlow current="Taxonomy" deeper={flowMap.taxonomy.deeper} wider={flowMap.taxonomy.wider} simpler={flowMap.taxonomy.simpler} dark />
       <Footer />
     </div>
   );

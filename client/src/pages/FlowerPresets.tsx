@@ -9,6 +9,8 @@
 import { useState, useEffect } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 
@@ -498,6 +500,7 @@ export default function FlowerPresets() {
         </div>
       </section>
 
+      <LearningFlow current="Flower Presets" deeper={flowMap.flowerPresets.deeper} wider={flowMap.flowerPresets.wider} simpler={flowMap.flowerPresets.simpler} />
       <Footer />
     </div>
   );

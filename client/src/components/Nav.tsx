@@ -22,10 +22,13 @@ const lenses = [
 ];
 
 const learnLinks = [
+  { label: "The Five Rules", path: "/rules" },
+  { label: "ALCM", path: "/alcm" },
+  { label: "Whelm Scale", path: "/whelm-scale" },
+  { label: "Variable Scale Theory", path: "/variable-scale" },
   { label: "Promptolinguistics", path: "/promptolinguistics" },
   { label: "Framework Families", path: "/frameworks" },
   { label: "Living Lexicon", path: "/lexicon" },
-  { label: "The Five Rules", path: "/rules" },
   { label: "Road Protocol", path: "/road-protocol" },
   { label: "Flower Presets", path: "/flower-presets" },
   { label: "AI Family Taxonomy", path: "/taxonomy" },

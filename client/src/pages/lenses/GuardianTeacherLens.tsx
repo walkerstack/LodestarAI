@@ -6,6 +6,8 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 
@@ -307,6 +309,7 @@ export default function GuardianTeacherLens() {
         </section>
       </main>
 
+      <LearningFlow current="Guardian & Teacher Lens" deeper={flowMap.guardianTeacher.deeper} wider={flowMap.guardianTeacher.wider} simpler={flowMap.guardianTeacher.simpler} />
       <Footer />
     </div>
   );

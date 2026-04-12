@@ -7,6 +7,8 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
@@ -457,6 +459,7 @@ export default function PromptGames() {
         </section>
       </main>
 
+      <LearningFlow current="Prompt Games" deeper={flowMap.promptGames.deeper} wider={flowMap.promptGames.wider} simpler={flowMap.promptGames.simpler} dark />
       <Footer />
     </div>
   );

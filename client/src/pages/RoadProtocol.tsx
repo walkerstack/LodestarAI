@@ -7,6 +7,8 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
@@ -633,6 +635,7 @@ export default function RoadProtocol() {
         </div>
       </section>
 
+      <LearningFlow current="Road Protocol" deeper={flowMap.roadProtocol.deeper} wider={flowMap.roadProtocol.wider} simpler={flowMap.roadProtocol.simpler} dark />
       <Footer />
     </div>
   );

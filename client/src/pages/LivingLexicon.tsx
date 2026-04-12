@@ -9,6 +9,8 @@
 import { useState, useEffect } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 
 type Lens = "everyday" | "professional" | "watcher";
@@ -666,6 +668,7 @@ export default function LivingLexicon() {
         </div>
       </main>
 
+      <LearningFlow current="Living Lexicon" deeper={flowMap.lexicon.deeper} wider={flowMap.lexicon.wider} simpler={flowMap.lexicon.simpler} dark />
       <Footer />
     </div>
   );
