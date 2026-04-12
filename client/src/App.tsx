@@ -27,6 +27,7 @@ import Gallery from "./pages/Gallery";
 import Articles from "./pages/Articles";
 import SafetyPage from "./pages/SafetyPage";
 import Backstage from "./pages/Backstage";
+import HumanLine from "./pages/HumanLine";
 
 function Router() {
   return (
@@ -47,6 +48,8 @@ function Router() {
       <Route path="/gallery" component={Gallery} />
       <Route path="/articles" component={Articles} />
       <Route path="/if-you-need-to-stop" component={SafetyPage} />
+      {/* Research */}
+      <Route path="/human-line" component={HumanLine} />
       {/* Builder Backstage */}
       <Route path="/backstage" component={Backstage} />
       <Route path="/404" component={NotFound} />
@@ -58,11 +61,11 @@ function Router() {
 function App() {
   const [showIntro, setShowIntro] = useState(() => {
     // Show intro only once per browser session
-    return !sessionStorage.getItem("gallantry-intro-seen");
+    return !sessionStorage.getItem("gallantry-intro-v6");
   });
 
   const handleIntroComplete = () => {
-    sessionStorage.setItem("gallantry-intro-seen", "1");
+    sessionStorage.setItem("gallantry-intro-v6", "1");
     setShowIntro(false);
   };
 
