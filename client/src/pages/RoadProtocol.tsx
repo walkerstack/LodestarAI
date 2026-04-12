@@ -274,9 +274,13 @@ function GhostProtocol() {
         <div className="mt-3" />
 
         {/* GOVERNANCE block */}
-        <div style={{ color: c("governance", true), transition: "color 0.5s ease" }}>{"// GOVERNANCE — The human stays in charge."}</div>
+        <div style={{ color: c("governance", true), transition: "color 0.5s ease" }}>{"// GOVERNANCE \u2014 The human stays in charge."}</div>
         <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   The AI reads. The computer skips."}</div>
         <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   The human keeps."}</div>
+        <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   Governance can be written as ghost code \u2014"}</div>
+        <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   comments the compiler ignores, the AI obeys,"}</div>
+        <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   and the human enforces. Rules that exist"}</div>
+        <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   in the space between execution and intent."}</div>
         <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   Agency stays with the person at the keyboard."}</div>
         <div style={{ color: c("governance"), transition: "color 0.5s ease" }}>{"//   Always."}</div>
         <div className="mt-4" />
