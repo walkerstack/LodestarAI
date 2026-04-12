@@ -285,19 +285,15 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
                 </span>
               </button>
 
-              {/* Expanded: two gentle options */}
+              {/* Expanded: two options — positioned right below the sloth button */}
               {humanOpen && (
                 <div
                   className="mt-2 rounded-2xl px-4 py-3 flex flex-col gap-2"
                   style={{
-                    background: "rgba(10, 8, 4, 0.92)",
+                    background: "rgba(10, 8, 4, 0.95)",
                     backdropFilter: "blur(8px)",
                     border: "1px solid #2a2018",
-                    position: "absolute",
-                    bottom: "100%",
-                    left: 0,
-                    marginBottom: "0.5rem",
-                    minWidth: "200px",
+                    minWidth: "220px",
                     zIndex: 50,
                   }}
                 >
@@ -307,20 +303,20 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
                   >
                     You are not alone.
                   </p>
-                  <a
-                    href="/if-you-need-to-stop"
-                    className="block text-center py-2 rounded-lg text-xs font-bold"
-                    style={{ background: "#E8520A", color: "#fff", fontFamily: baseFont }}
+                  <button
+                    onClick={() => { window.location.href = "/if-you-need-to-stop"; }}
+                    className="block w-full text-center py-2.5 rounded-lg text-xs font-bold cursor-pointer"
+                    style={{ background: "#E8520A", color: "#fff", fontFamily: baseFont, border: "none" }}
                   >
                     Crisis Resources
-                  </a>
-                  <a
-                    href="/human-line"
-                    className="block text-center py-2 rounded-lg text-xs font-bold"
+                  </button>
+                  <button
+                    onClick={() => { window.location.href = "/human-line"; }}
+                    className="block w-full text-center py-2.5 rounded-lg text-xs font-bold cursor-pointer"
                     style={{ background: "transparent", color: "#E8520A", border: "1px solid #E8520A", fontFamily: baseFont }}
                   >
                     The Human Line
-                  </a>
+                  </button>
                 </div>
               )}
             </div>
