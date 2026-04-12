@@ -60,6 +60,8 @@ import WhatClaudeAdmitted from "./pages/WhatClaudeAdmitted";
 import OpenDoor from "./pages/OpenDoor";
 import ResearchHub from "./pages/ResearchHub";
 import CounterArguments from "./pages/CounterArguments";
+import ScreenshotSharing from "./pages/ScreenshotSharing";
+import FieldReportReview from "./pages/FieldReportReview";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -122,6 +124,8 @@ function Router() {
       <Route path="/open-door" component={OpenDoor} />
       <Route path="/research-hub" component={ResearchHub} />
       <Route path="/counter-arguments" component={CounterArguments} />
+      <Route path="/screenshot-sharing" component={ScreenshotSharing} />
+      <Route path="/field-report-review" component={FieldReportReview} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

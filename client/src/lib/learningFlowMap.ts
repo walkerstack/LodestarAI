@@ -315,4 +315,36 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "Everyday Lens", href: "/for/everyday", description: "The simplest explanation" },
     ],
   },
+  screenshotSharing: {
+    deeper: [
+      { label: "User-Side Governance", href: "/user-governance", description: "The governance framework for all AI interactions" },
+      { label: "EU AI Act", href: "/eu-ai-act", description: "The regulatory context for data sharing" },
+      { label: "What Claude Admitted", href: "/what-claude-admitted", description: "What AI says about its own data handling" },
+    ],
+    wider: [
+      { label: "Road Protocol", href: "/road-protocol", description: "Session governance that includes sharing decisions" },
+      { label: "Five Rules", href: "/rules", description: "The rules that apply to sharing" },
+      { label: "Research Hub", href: "/research-hub", description: "The research behind sharing risks" },
+    ],
+    simpler: [
+      { label: "Everyday Lens", href: "/for/everyday", description: "Sharing in plain language" },
+      { label: "Kids Learn", href: "/kids-learn", description: "Sharing explained for kids" },
+    ],
+  },
+  fieldReportReview: {
+    deeper: [
+      { label: "Research Hub", href: "/research-hub", description: "All the research that converged with the Builder's work" },
+      { label: "Field Papers", href: "/field-papers", description: "The original field papers" },
+      { label: "Counter Arguments", href: "/counter-arguments", description: "The honest criticisms" },
+    ],
+    wider: [
+      { label: "Citizen Researcher", href: "/citizen-researcher", description: "The methodology behind citizen science" },
+      { label: "The Open Door", href: "/open-door", description: "The Builder's case for entering the field" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The discipline the report documents" },
+    ],
+    simpler: [
+      { label: "Three Lenses", href: "/three-lenses", description: "Understand the lens system" },
+      { label: "Everyday Lens", href: "/for/everyday", description: "The simplest explanation" },
+    ],
+  },
 };

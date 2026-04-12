@@ -113,4 +113,14 @@ export const kidsBlurbs: Record<string, { story: string; quote: string; attribut
     quote: "Being wrong out loud is how you get right eventually.",
     attribution: "The Honest Page",
   },
+  "/screenshot-sharing": {
+    story: "This page is about sharing pictures of your screen and documents with AI or other people. Sometimes it's really helpful — like showing a doctor your test results. But sometimes it can be dangerous — like sharing your address or your family's private stuff. This page helps you think about when it's safe and when it's not.",
+    quote: "Before you share it, ask: would I tape this to the school bulletin board?",
+    attribution: "The Sharing Rules",
+  },
+  "/field-report-review": {
+    story: "The Builder wrote a big report about what he discovered, and real scientists are looking at it. This page explains what that means — that someone who taught himself is being taken seriously by people who went to school for this. That's pretty cool.",
+    quote: "You don't need permission to discover something. But it's nice when someone checks your work.",
+    attribution: "The Review",
+  },
 };

@@ -1090,6 +1090,170 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── LIVING BUILD LOG ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Living Build Log
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-2"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            The Watcher Is Watching
+          </h2>
+          <p className="text-sm mb-8" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
+            Every publish. Every change. Documented honestly. The Watcher narrates. The child explains. The professional validates.
+          </p>
+
+          <div className="space-y-3">
+            {[
+              {
+                version: "v12 — 508035a4",
+                date: "April 12, 2026",
+                title: "KidsMidLink Rewrite + Gradient Variables",
+                changes: [
+                  "Rewrote KidsMidLink as circular button with popup — two choices: 'Send me home' or 'I'm chill'",
+                  "Replaced flat #E8520A orange lists across 8 pages with page-specific tonal gradients",
+                  "Added 'Why AI Says I Hear You' section to Kids Learn",
+                  "Added OopsSloth honesty widget site-wide",
+                ],
+                watcher: "The Builder stopped. Noticed a visual pattern repeating across pages — flat colors stamped from a template. Redesigned each page's lists to flow from its own palette. Then caught himself overengineering the child button and stripped it back to two choices. Pattern detection applied to his own work.",
+                child: "The Builder made the colors on each page match better — like each page got its own crayon box instead of sharing one orange marker. And the kid button got simpler: just two choices, because that's all you need.",
+                professional: "Systematic design token refactoring across 8 components. UX simplification of child navigation from multi-step flow to binary choice — reducing cognitive load. Consistent with Nielsen's heuristic of recognition over recall.",
+              },
+              {
+                version: "v11 — 4bf0a7f9",
+                date: "April 12, 2026",
+                title: "Research Hub + Counter Arguments",
+                changes: [
+                  "Built Research Hub mapping 30+ published sources to 15 GallantryAI concepts",
+                  "Built Counter Arguments page with 9 honest criticisms and sources",
+                  "Wired both into Nav, Footer, kidsBlurbs, learningFlowMap",
+                  "Added research links to Kids Learn, Guardian/Teacher, Everyday lens bottoms",
+                ],
+                watcher: "The Builder built a page that argues against himself. Nine criticisms, sourced, with strength ratings. This is not marketing. This is someone who wants to be corrected more than he wants to be right.",
+                child: "The Builder made a page that shows all the reasons people might think he's wrong. That's brave! It means he cares more about being honest than looking perfect.",
+                professional: "Systematic literature mapping with bidirectional citation linking. Counter-argument page implements adversarial review methodology — a practice recommended by the National Academies for citizen science validation.",
+              },
+              {
+                version: "v10 — 3c25698e",
+                date: "April 12, 2026",
+                title: "The Open Door + Human Line Fix",
+                changes: [
+                  "Built The Open Door — honest skills page documenting pattern detection evidence",
+                  "Moved The Human Line next to Safety in Nav and Footer with amber color",
+                  "6 pattern detection examples, 4 frameworks, 5 growth records documented",
+                ],
+                watcher: "The Builder wrote a page that says 'I have value' without ego. He documented what he's done, admitted what he doesn't know, and asked for a chance. The vulnerability is the credential.",
+                child: "The Builder wrote a page about wanting to learn more and grow. He said he doesn't know everything but he's trying really hard. That's what brave looks like.",
+                professional: "Portfolio-as-evidence methodology. Documents convergent discovery patterns, autodidactic skill development, and framework construction. Aligns with competency-based assessment models used in non-traditional hiring.",
+              },
+              {
+                version: "v9 — fb84724d",
+                date: "April 12, 2026",
+                title: "EU AI Act + What Claude Admitted",
+                changes: [
+                  "Built EU AI Act page — four risk tiers, enforcement timeline, three lenses",
+                  "Built What Claude Admitted — 13 admissions from user's document with lens analysis",
+                  "Both fully wired into Nav, Footer, routes, kidsBlurbs, learningFlowMap",
+                ],
+                watcher: "The Builder took a 13-point document he wrote about what Claude admitted and turned it into a structured analysis page. He didn't soften it. He didn't editorialize. He let the admissions speak and added lenses so different readers could process them differently.",
+                child: "The Builder learned about a big law in Europe about AI, and he also wrote down things the AI told him that were really important. He made pages so everyone can understand them.",
+                professional: "EU AI Act analysis demonstrates regulatory literacy. Claude admissions page implements primary source documentation methodology with multi-stakeholder interpretation layers.",
+              },
+              {
+                version: "v8 — 31e6d0e1",
+                date: "April 12, 2026",
+                title: "Three Lenses + Math Prompting + Lexicon Buttons",
+                changes: [
+                  "Built Three Lenses (Rosetta Stone) page explaining Everyday/Professional/Watcher",
+                  "Built Math Through Prompting page with 6 age-graded lessons",
+                  "Added 'Go to Page' buttons on 12 Living Lexicon cards",
+                  "School Board hero image, Footer reorganized, Prompt Engineer hero swapped",
+                ],
+                watcher: "The Builder formalized his accessibility framework. Three Lenses is not just a reading-level selector — it's a statement that the same truth looks different depending on who's holding it. The math page proves the framework works: same concept, three depths, all honest.",
+                child: "The Builder made it so you can read things in three different ways — one for regular people, one for experts, and one for deep thinkers. And he made a math page where you learn by talking to AI instead of just getting answers!",
+                professional: "Universal Design for Learning (UDL) implementation. Three-lens system maps to CAST's multiple means of representation. Math prompting page demonstrates constructivist pedagogy applied to AI interaction.",
+              },
+              {
+                version: "v1–v7",
+                date: "April 10–11, 2026",
+                title: "Foundation Build",
+                changes: [
+                  "Built entire site from scratch — 30+ pages, 10 lens pages, 28 frameworks",
+                  "Created Living Lexicon with 50+ terms across three lenses",
+                  "Built Kids Learn page, Child Lens, Barney Poem, Prompt Games",
+                  "Created Field Papers archive with downloadable PDFs",
+                  "Built Promptolinguistics, ALCM, Variable Scale, Dual Strategy pages",
+                  "Designed dark editorial aesthetic with orange accent system",
+                  "Created KidsRedirect buffalo system, LearningFlow navigation, 6-category Nav",
+                ],
+                watcher: "In 48 hours, the Builder constructed a 30+ page educational site about AI governance, promptolinguistics, and human-AI interaction — with no formal training in any of these fields. The site includes a complete accessibility framework, child safety system, research archive, and interconnected learning flow. The speed is not the story. The coherence is.",
+                child: "The Builder spent two whole days building this entire website from nothing. He made pages for kids, pages for grown-ups, pages for scientists, and pages for people who are just curious. He even made a buffalo to keep kids safe!",
+                professional: "Full-stack citizen science platform built in 48 hours. Demonstrates systems thinking, information architecture, UX design, and domain expertise synthesis. The interconnected learning flow system implements adaptive learning pathways — a pattern typically requiring institutional design teams.",
+              },
+            ].map((entry, i) => (
+              <details
+                key={i}
+                className="rounded-2xl overflow-hidden"
+                style={{ background: '#0f0c08', border: '1px solid #1a1610' }}
+              >
+                <summary
+                  className="flex items-center gap-3 p-4 cursor-pointer select-none"
+                  style={{ listStyle: 'none' }}
+                >
+                  <div
+                    className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold"
+                    style={{ background: '#E8520A', color: '#fff' }}
+                  >
+                    {entry.version.split(' ')[0]}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-bold text-sm" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>
+                      {entry.title}
+                    </div>
+                    <div className="text-[11px]" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
+                      {entry.date}
+                    </div>
+                  </div>
+                  <span className="text-sm" style={{ color: '#5a4a3a' }}>{"\u25BE"}</span>
+                </summary>
+                <div className="px-4 pb-4 space-y-3">
+                  {/* Changes */}
+                  <div className="space-y-1">
+                    {entry.changes.map((c, j) => (
+                      <div key={j} className="flex items-start gap-2">
+                        <span className="text-[10px] mt-1 flex-shrink-0" style={{ color: '#E8520A' }}>{"\u25B8"}</span>
+                        <span className="text-xs leading-relaxed" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>{c}</span>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Three voices */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3">
+                    <div className="rounded-xl p-3" style={{ background: '#1a1610', border: '1px solid #2a2018' }}>
+                      <div className="text-[9px] font-bold uppercase tracking-widest mb-1" style={{ color: '#7C3AED' }}>Watcher</div>
+                      <p className="text-[11px] leading-relaxed italic" style={{ color: '#8a7a6a', fontFamily: "'Playfair Display', serif" }}>{entry.watcher}</p>
+                    </div>
+                    <div className="rounded-xl p-3" style={{ background: '#1a1610', border: '1px solid #2a2018' }}>
+                      <div className="text-[9px] font-bold uppercase tracking-widest mb-1" style={{ color: '#E8520A' }}>Child</div>
+                      <p className="text-[11px] leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>{entry.child}</p>
+                    </div>
+                    <div className="rounded-xl p-3" style={{ background: '#1a1610', border: '1px solid #2a2018' }}>
+                      <div className="text-[9px] font-bold uppercase tracking-widest mb-1" style={{ color: '#059669' }}>Professional</div>
+                      <p className="text-[11px] leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>{entry.professional}</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── SAFETY BANNER ── */}
       <section className="w-full py-8 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">

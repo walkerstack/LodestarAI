@@ -50,6 +50,8 @@ const researchLinks = [
   { label: "EU AI Act", path: "/eu-ai-act" },
   { label: "Research Hub", path: "/research-hub" },
   { label: "Counter Arguments", path: "/counter-arguments" },
+  { label: "Screenshot Sharing", path: "/screenshot-sharing" },
+  { label: "Field Report Review", path: "/field-report-review" },
 ];
 
 const forYouLinks = [
