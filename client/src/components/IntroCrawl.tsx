@@ -159,7 +159,7 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
       {/* Sloth pops up from bottom — links to safety page */}
       {showSloth && (
         <a
-          href="/if-you-need-to-stop"
+          href="/human-line"
           className="absolute z-20"
           style={{
             bottom: 0,
@@ -171,7 +171,7 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
         >
           <img
             src={SLOTH_URL}
-            alt="If you need to stop — safety resources"
+            alt="The Human Line — tap the sloth"
             style={{
               width: "100%",
               borderRadius: "50% 50% 0 0",
