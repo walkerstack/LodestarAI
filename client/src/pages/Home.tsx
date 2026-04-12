@@ -214,7 +214,9 @@ const ethosNav = [
       { label: "The Five Rules", path: "/rules", why: "The foundation of every session" },
       { label: "If You Need to Stop", path: "/if-you-need-to-stop", why: "Crisis resources and grounding" },
       { label: "Road Protocol", path: "/road-protocol", why: "The vault that holds the session" },
-      { label: "Children\u2019s Safety", path: "/for/child", why: "Protecting young minds" },
+      { label: "Children\u2019s Safety", path: "/for/child", why: "Protecting young minds", color: "#7C3AED" },
+      { label: "School Board", path: "/school-board", why: "AI governance for education leaders", color: "#2A9D8F" },
+      { label: "Kids Learn", path: "/kids-learn", why: "AI literacy for young learners", color: "#059669" },
     ],
   },
   {
@@ -261,7 +263,7 @@ const scaffoldLevels = [
     color: "#E8520A",
     steps: [
       { label: "The Five Rules", path: "/rules", why: "Start here. The foundation of every AI session." },
-      { label: "Children\u2019s Page", path: "/for/child", why: "See the rules through a child\u2019s eyes." },
+      { label: "Children\u2019s Page", path: "/for/child", why: "See the rules through a child\u2019s eyes.", color: "#7C3AED" },
       { label: "Flower Presets", path: "/flower-presets", why: "Pre-built safety configurations for anyone." },
       { label: "Safety Page", path: "/if-you-need-to-stop", why: "If something goes wrong, stop here first." },
     ],
@@ -783,17 +785,17 @@ export default function Home() {
         <div className="container">
           <div
             className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
-            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+            style={{ color: '#E8520A', fontFamily: "'Nunito', sans-serif" }}
           >
             The Foundation
           </div>
           <h2
-            className="text-2xl md:text-3xl font-bold mb-2"
-            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+            className="text-2xl md:text-3xl font-black mb-2"
+            style={{ fontFamily: "'Nunito', sans-serif", color: '#f5e6d0' }}
           >
             Four values. Every page built on them.
           </h2>
-          <p className="text-sm mb-8" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-sm mb-8" style={{ color: '#5a4a3a', fontFamily: "'Nunito', sans-serif" }}>
             Tap any value to see where it lives on this site.
           </p>
 
@@ -811,7 +813,7 @@ export default function Home() {
                     }
                   }}
                   id={`ethos-${i}`}
-                  className="w-full text-left rounded-2xl p-5 transition-all hover:scale-[1.01]"
+                  className="w-full text-left rounded-3xl p-5 transition-all hover:scale-[1.01]"
                   style={{
                     background: expandedEthos === i ? '#1a1610' : '#0f0c08',
                     border: expandedEthos === i ? `2px solid ${ethos.color}` : '1px solid #1a1610',
@@ -822,13 +824,13 @@ export default function Home() {
                     <div>
                       <div
                         className="font-black text-base mb-1 leading-snug"
-                        style={{ color: ethos.color, fontFamily: "'Playfair Display', serif" }}
+                        style={{ color: ethos.color, fontFamily: "'Nunito', sans-serif" }}
                       >
                         {ethos.label}
                       </div>
                       <div
                         className="text-xs leading-relaxed"
-                        style={{ color: '#6b5a3e', fontFamily: "'DM Sans', sans-serif" }}
+                        style={{ color: '#6b5a3e', fontFamily: "'Nunito', sans-serif" }}
                       >
                         {ethos.sub}
                       </div>
@@ -856,12 +858,12 @@ export default function Home() {
                       >
                         <div
                           className="w-1.5 h-8 rounded-full flex-shrink-0"
-                          style={{ background: ethos.color }}
+                          style={{ background: (link as any).color || ethos.color }}
                         />
                         <div>
                           <div
                             className="font-semibold text-sm"
-                            style={{ color: '#f5e6d0', fontFamily: "'DM Sans', sans-serif" }}
+                            style={{ color: (link as any).color || '#f5e6d0', fontFamily: "'Nunito', sans-serif" }}
                           >
                             {link.label}
                           </div>
@@ -976,7 +978,7 @@ export default function Home() {
                     >
                       Learn &amp; grow at this level:
                     </div>
-                    {s.steps.map((step: { label: string; path: string; why: string }, j: number) => (
+                    {s.steps.map((step: { label: string; path: string; why: string; color?: string }, j: number) => (
                       <Link
                         key={j}
                         href={step.path}
@@ -985,12 +987,12 @@ export default function Home() {
                       >
                         <div
                           className="w-1.5 h-8 rounded-full flex-shrink-0"
-                          style={{ background: s.color }}
+                          style={{ background: step.color || s.color }}
                         />
                         <div>
                           <div
                             className="font-semibold text-sm"
-                            style={{ color: '#f5e6d0', fontFamily: "'DM Sans', sans-serif" }}
+                            style={{ color: step.color || '#f5e6d0', fontFamily: "'Nunito', sans-serif" }}
                           >
                             {step.label}
                           </div>

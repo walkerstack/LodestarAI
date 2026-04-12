@@ -11,3 +11,5 @@
 - [x] Build child-specific Five Rules page at /for/child/rules (sloth-guided, kid language, light theme)
 - [x] Wire route in App.tsx and link from Child Lens and other kids pages
 - [x] Add colored text treatment to all children's links on homepage (Safety, Human Line, Kids Learn buttons)
+- [x] Foundation section: different font (Nunito), rounded-3xl cards
+- [x] Kids and School Board links get color treatment on homepage (purple, teal, green)
