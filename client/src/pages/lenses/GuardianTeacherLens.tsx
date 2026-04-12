@@ -10,6 +10,7 @@ import LearningFlow from "@/components/LearningFlow";
 import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
 
 const sections = [
   { id: "role", label: "Your Role" },
@@ -28,6 +29,7 @@ export default function GuardianTeacherLens() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
+      <KidsRedirect story="This page is for parents and teachers — the grown-ups who help kids use AI safely. It has tips and tools for them. You already know the important parts from your own page." quote="The ones who watch over you are learning too." attribution="The Guardian Lens" />
 
       <main className="flex-1">
         {/* Hero */}

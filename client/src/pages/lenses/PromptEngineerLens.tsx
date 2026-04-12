@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -38,13 +39,14 @@ export default function PromptEngineerLens() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
+      <KidsRedirect story="This page is for people who already know a lot about prompting. It goes deeper into how to control AI conversations. You'll get here one day — but your page has the foundation." quote="First learn the rules. Then learn to bend them." attribution="The Prompt Engineer" />
 
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-[#1A1A2E]" />
-          <div className="absolute inset-0 opacity-20">
-            <img src={IMG.dataStreams} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 opacity-40">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/prompt-engineer-hero-new_7844ffb2.png" alt="" className="w-full h-full object-cover" />
           </div>
           <div className="relative container py-16 md:py-24 max-w-4xl mx-auto px-6">
             <div className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>

@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
 
 type Lens = 'everyday' | 'professional' | 'watcher';
 const sections = [
@@ -40,6 +41,7 @@ export default function PsychologyLens() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
+      <KidsRedirect story="This page is about feelings — how AI makes you feel and why that matters. Sometimes AI makes you feel smart. Sometimes confused. Both are worth noticing." quote="How you feel matters. Always." attribution="The Feelings Lens" />
       <main className="flex-1">
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-[#1A1A2E]" />

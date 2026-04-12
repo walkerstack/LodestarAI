@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -37,6 +38,7 @@ export default function LinguistLens() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
+      <KidsRedirect story="This page is about language — how words work when you talk to AI. Different words get different answers. It's like learning that 'please' changes everything." quote="Words are tools. Choose them carefully." attribution="The Linguist" />
 
       <main className="flex-1">
         {/* Hero */}

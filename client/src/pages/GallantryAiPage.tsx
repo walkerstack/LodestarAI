@@ -8,6 +8,9 @@
 import { Link } from "wouter";
 import Footer from "@/components/Footer";
 import LearningFlow from "@/components/LearningFlow";
+import Nav from "@/components/Nav";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 const IMG = {
   govCapability: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000005556_a269fa9a.jpg",
@@ -17,6 +20,8 @@ const IMG = {
 export default function GallantryAiPage() {
   return (
     <div className="min-h-screen bg-[#FAF6EF] text-[#2D2D2D]">
+      <Nav />
+      <KidsRedirect story={kidsBlurbs["/gallantry-ai"].story} quote={kidsBlurbs["/gallantry-ai"].quote} attribution={kidsBlurbs["/gallantry-ai"].attribution} />
       {/* Hero */}
       <section className="py-20 px-4 text-center bg-gradient-to-b from-[#1A1A2E] to-[#2D2D2D]">
         <h1 className="text-4xl md:text-6xl font-bold text-[#E8520A] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>

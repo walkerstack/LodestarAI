@@ -12,6 +12,8 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 const SLOTH_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008840_5b1a6230.png";
@@ -92,6 +94,7 @@ export default function FiveRules() {
   return (
     <div className="min-h-screen" style={{ background: '#080604' }}>
       <Nav />
+      <KidsRedirect story={kidsBlurbs["/five-rules"].story} quote={kidsBlurbs["/five-rules"].quote} attribution={kidsBlurbs["/five-rules"].attribution} />
 
       {/* Hero */}
       <section className="py-20 md:py-28 px-6">

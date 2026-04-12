@@ -9,6 +9,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 const codeLines = [
   { text: "/* BUILDER SYSTEM LOG */", type: "comment" },
@@ -229,6 +231,7 @@ export default function Malbolge() {
   return (
     <div className="min-h-screen" style={{ background: '#080604' }}>
       <Nav />
+      <KidsRedirect story={kidsBlurbs["/malbolge"].story} quote={kidsBlurbs["/malbolge"].quote} attribution={kidsBlurbs["/malbolge"].attribution} />
 
       {/* Hero */}
       <section className="py-20 md:py-28 px-6">

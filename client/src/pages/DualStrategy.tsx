@@ -6,6 +6,9 @@
 import { Link } from "wouter";
 import Footer from "@/components/Footer";
 import LearningFlow from "@/components/LearningFlow";
+import Nav from "@/components/Nav";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 const IMG = {
   humanCentered: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000005846_af0e2453.jpg",
@@ -18,6 +21,8 @@ const IMG = {
 export default function DualStrategy() {
   return (
     <div className="min-h-screen bg-[#FAF6EF] text-[#2D2D2D]">
+      <Nav />
+      <KidsRedirect story={kidsBlurbs["/dual-strategy"].story} quote={kidsBlurbs["/dual-strategy"].quote} attribution={kidsBlurbs["/dual-strategy"].attribution} />
       {/* Hero */}
       <section className="py-20 px-4 text-center bg-gradient-to-b from-[#1A1A2E] to-[#2D2D2D]">
         <h1 className="text-4xl md:text-5xl font-bold text-[#E8520A] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>

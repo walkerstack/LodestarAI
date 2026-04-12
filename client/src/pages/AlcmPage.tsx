@@ -9,6 +9,8 @@ import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 const ALCM_IMG = `${CDN}/1000005693_e894b781.jpg`;
@@ -19,6 +21,7 @@ export default function AlcmPage() {
   return (
     <div className="min-h-screen flex flex-col bg-[#0D0D0D]">
       <Nav />
+      <KidsRedirect story={kidsBlurbs["/alcm"].story} quote={kidsBlurbs["/alcm"].quote} attribution={kidsBlurbs["/alcm"].attribution} />
 
       <main className="flex-1">
         {/* Hero */}

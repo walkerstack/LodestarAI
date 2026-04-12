@@ -8,6 +8,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 export default function WhelmScale() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -15,6 +17,7 @@ export default function WhelmScale() {
   return (
     <div className="min-h-screen flex flex-col bg-[#0D0D0D]">
       <Nav />
+      <KidsRedirect story={kidsBlurbs["/whelm-scale"].story} quote={kidsBlurbs["/whelm-scale"].quote} attribution={kidsBlurbs["/whelm-scale"].attribution} />
 
       <main className="flex-1">
         {/* Hero */}

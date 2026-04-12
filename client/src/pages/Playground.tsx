@@ -8,6 +8,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 const audiences = [
   {
@@ -39,6 +41,7 @@ export default function Playground() {
   return (
     <div className="min-h-screen bg-[#1A1A1A]">
       <Nav />
+      <KidsRedirect story={kidsBlurbs["/playground"].story} quote={kidsBlurbs["/playground"].quote} attribution={kidsBlurbs["/playground"].attribution} />
 
       {/* Hero */}
       <section className="relative py-24 md:py-36 overflow-hidden">

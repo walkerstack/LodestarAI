@@ -11,6 +11,8 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 const families = [
   {
@@ -166,6 +168,7 @@ export default function Frameworks() {
   return (
     <div className="min-h-screen bg-[#FAF6EF]">
       <Nav />
+      <KidsRedirect story={kidsBlurbs["/framework-families"].story} quote={kidsBlurbs["/framework-families"].quote} attribution={kidsBlurbs["/framework-families"].attribution} />
 
       {/* Hero */}
       <section className="py-20 md:py-28 bg-gradient-to-b from-[#FAF6EF] to-[#f0ebe0]">

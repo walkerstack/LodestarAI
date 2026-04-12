@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -83,6 +84,7 @@ export default function CognitiveScienceLens() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
+      <KidsRedirect story="This page is about how AI affects your thinking. It studies what happens in your brain when you use AI a lot. Good to know — but don't worry, your page keeps it simple." quote="Your brain is the most important tool you have." attribution="The Brain Scientist" />
 
       <main className="flex-1">
         {/* Hero */}

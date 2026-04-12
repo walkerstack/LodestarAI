@@ -13,6 +13,8 @@ import LearningFlow from "@/components/LearningFlow";
 import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -177,6 +179,7 @@ export default function FlowerPresets() {
   return (
     <div className="min-h-screen flex flex-col" style={{ background: "#FAF6EF", fontFamily: "'DM Sans', sans-serif" }}>
       <Nav />
+      <KidsRedirect story={kidsBlurbs["/flower-presets"].story} quote={kidsBlurbs["/flower-presets"].quote} attribution={kidsBlurbs["/flower-presets"].attribution} />
 
       {/* Hero */}
       <section

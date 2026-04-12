@@ -8,6 +8,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 export default function VariableScale() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -15,6 +17,7 @@ export default function VariableScale() {
   return (
     <div className="min-h-screen flex flex-col bg-[#0D0D0D]">
       <Nav />
+      <KidsRedirect story={kidsBlurbs["/variable-scale"].story} quote={kidsBlurbs["/variable-scale"].quote} attribution={kidsBlurbs["/variable-scale"].attribution} />
 
       <main className="flex-1">
         {/* Hero */}

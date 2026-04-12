@@ -12,6 +12,8 @@ import Footer from "@/components/Footer";
 import LearningFlow from "@/components/LearningFlow";
 import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 type Lens = "everyday" | "professional" | "watcher";
 
@@ -565,6 +567,7 @@ export default function LivingLexicon() {
   return (
     <div className="min-h-screen flex flex-col" style={{ background: "#FAF6EF", fontFamily: "'DM Sans', sans-serif" }}>
       <Nav />
+      <KidsRedirect story={kidsBlurbs["/living-lexicon"].story} quote={kidsBlurbs["/living-lexicon"].quote} attribution={kidsBlurbs["/living-lexicon"].attribution} />
 
       {/* Hero */}
       <section

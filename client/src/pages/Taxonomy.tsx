@@ -11,6 +11,8 @@ import Footer from "@/components/Footer";
 import LearningFlow from "@/components/LearningFlow";
 import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 interface AIFamily {
   name: string;
@@ -156,6 +158,7 @@ export default function Taxonomy() {
   return (
     <div className="min-h-screen flex flex-col" style={{ background: "#0D0D0D", fontFamily: "'DM Sans', sans-serif" }}>
       <Nav />
+      <KidsRedirect story={kidsBlurbs["/taxonomy"].story} quote={kidsBlurbs["/taxonomy"].quote} attribution={kidsBlurbs["/taxonomy"].attribution} />
 
       {/* Hero */}
       <section

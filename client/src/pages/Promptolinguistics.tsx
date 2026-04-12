@@ -12,6 +12,8 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -145,6 +147,7 @@ export default function Promptolinguistics() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
+      <KidsRedirect story={kidsBlurbs["/promptolinguistics"].story} quote={kidsBlurbs["/promptolinguistics"].quote} attribution={kidsBlurbs["/promptolinguistics"].attribution} />
 
       <main className="flex-1">
         {/* Hero */}

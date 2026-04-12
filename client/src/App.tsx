@@ -48,6 +48,8 @@ import GallantryAiPage from "./pages/GallantryAiPage";
 import DualStrategy from "./pages/DualStrategy";
 import UserGovernance from "./pages/UserGovernance";
 import WatcherLens from "./pages/lenses/WatcherLens";
+import SchoolBoard from "./pages/SchoolBoard";
+import Scaffold from "./pages/Scaffold";
 
 function Router() {
   return (
@@ -92,6 +94,8 @@ function Router() {
       <Route path="/gallantry-ai" component={GallantryAiPage} />
       <Route path="/dual-strategy" component={DualStrategy} />
       <Route path="/user-governance" component={UserGovernance} />
+      <Route path="/school-board" component={SchoolBoard} />
+      <Route path="/scaffold" component={Scaffold} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

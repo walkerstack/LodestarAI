@@ -39,6 +39,8 @@ const learnLinks = [
   { label: "Prompt Games", path: "/prompt-games" },
   { label: "Malbolge Geofence", path: "/malbolge" },
   { label: "Promptology Playground", path: "/playground" },
+  { label: "The Scaffold", path: "/scaffold" },
+  { label: "School Board", path: "/school-board" },
 ];
 
 const exploreLinks = [

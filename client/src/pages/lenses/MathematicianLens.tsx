@@ -8,6 +8,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
 
 type Lens = 'everyday' | 'professional' | 'watcher';
 
@@ -49,6 +50,7 @@ export default function MathematicianLens() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
+      <KidsRedirect story="This page looks at AI through numbers and patterns. Math people see AI differently — they look for structure. You can too." quote="Patterns are everywhere. Even in conversations." attribution="The Mathematician" />
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden">

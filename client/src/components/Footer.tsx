@@ -53,6 +53,8 @@ export default function Footer() {
               <Link href="/prompt-games" className="block hover:text-[#E8520A] no-underline transition-colors">Prompt Games</Link>
               <Link href="/malbolge" className="block hover:text-[#E8520A] no-underline transition-colors">Malbolge Geofence</Link>
               <Link href="/playground" className="block hover:text-[#E8520A] no-underline transition-colors">Playground</Link>
+              <Link href="/scaffold" className="block hover:text-[#E8520A] no-underline transition-colors">The Scaffold</Link>
+              <Link href="/school-board" className="block hover:text-[#E8520A] no-underline transition-colors">School Board</Link>
             </div>
 
             {/* Explore */}

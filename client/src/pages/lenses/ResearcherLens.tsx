@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
 
 type Lens = 'everyday' | 'professional' | 'watcher';
 const sections = [
@@ -40,6 +41,7 @@ export default function ResearcherLens() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
+      <KidsRedirect story="This page is for people who study AI — like scientists. They watch, they write things down, they ask questions. Sound familiar? You're already doing that." quote="Curiosity is the beginning of everything." attribution="The Researcher" />
       <main className="flex-1">
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-[#1A1A2E]" />

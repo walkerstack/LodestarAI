@@ -10,6 +10,7 @@ import LearningFlow from "@/components/LearningFlow";
 import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import KidsRedirect from "@/components/KidsRedirect";
 
 const sections = [
   { id: "start", label: "Where You Are" },
@@ -27,6 +28,7 @@ export default function EverydayLens() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
+      <KidsRedirect story="This page is the everyday version — for grown-ups who use AI in their daily life. It's like the buffalo's page, but with more detail. Your page has the same ideas, just told as stories." quote="Everyone starts somewhere. This is where." attribution="The Everyday Lens" />
 
       <main className="flex-1">
         {/* Hero */}
