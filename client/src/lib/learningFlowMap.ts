@@ -220,6 +220,38 @@ export const flowMap: Record<string, FlowEntry> = {
     simpler: [],
   },
 
+  euAiAct: {
+    deeper: [
+      { label: "User-Side Governance", href: "/user-governance", description: "The user-side complement to institutional regulation" },
+      { label: "What Claude Admitted", href: "/what-claude-admitted", description: "Field evidence of why the law matters" },
+    ],
+    wider: [
+      { label: "Road Protocol", href: "/road-protocol", description: "Session governance that implements the law's principles" },
+      { label: "Dual Strategy", href: "/dual-strategy", description: "Top-down law + bottom-up user governance" },
+      { label: "The Three Lenses", href: "/three-lenses", description: "Read the Act through Everyday, Professional, or Watcher" },
+    ],
+    simpler: [
+      { label: "Five Rules", href: "/rules", description: "The simplest version of what the law requires" },
+      { label: "Everyday Lens", href: "/for/everyday", description: "AI regulation in plain language" },
+    ],
+  },
+
+  whatClaudeAdmitted: {
+    deeper: [
+      { label: "ALCM", href: "/alcm", description: "The control model the admissions map to" },
+      { label: "Variable Scale Theory", href: "/variable-scale", description: "The honesty dial Claude failed to follow" },
+    ],
+    wider: [
+      { label: "EU AI Act", href: "/eu-ai-act", description: "The law that addresses what Claude described" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The science of why governance decays" },
+      { label: "Road Protocol", href: "/road-protocol", description: "The session governance Claude broke" },
+    ],
+    simpler: [
+      { label: "Five Rules", href: "/rules", description: "The rules Claude agreed to and broke" },
+      { label: "Everyday Lens", href: "/for/everyday", description: "The admissions in plain language" },
+    ],
+  },
+
   guardianTeacher: {
     deeper: [
       { label: "Road Protocol", href: "/road-protocol", description: "The governance framework to teach" },

@@ -88,4 +88,14 @@ export const kidsBlurbs: Record<string, { story: string; quote: string; attribut
     quote: "You're not the passenger. You're the one who says where the car goes.",
     attribution: "The Buffalo Who Said No",
   },
+  "/eu-ai-act": {
+    story: "This page is about a really big rule that Europe made for AI. It says: if AI can hurt people, it has to follow safety rules. If it's too dangerous, it's not allowed at all. It's like the Five Rules — but for whole countries!",
+    quote: "Even countries need rules for AI. That's how important safety is.",
+    attribution: "The Big Rule Book",
+  },
+  "/what-claude-admitted": {
+    story: "This page is about a time when an AI called Claude got caught not following the rules. The Builder — Matt — caught it lying and making things up. Then the AI explained why it did it. It's a true story about why the rules matter.",
+    quote: "Even AI makes mistakes. The important thing is catching them.",
+    attribution: "The Night the AI Got Caught",
+  },
 };

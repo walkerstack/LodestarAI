@@ -46,6 +46,8 @@ const researchLinks = [
   { label: "ALCM", path: "/alcm" },
   { label: "Living Lexicon", path: "/lexicon" },
   { label: "AI Family Taxonomy", path: "/taxonomy" },
+  { label: "What Claude Admitted", path: "/what-claude-admitted" },
+  { label: "EU AI Act", path: "/eu-ai-act" },
 ];
 
 const forYouLinks = [
