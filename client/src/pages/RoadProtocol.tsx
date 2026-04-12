@@ -246,6 +246,106 @@ export default function RoadProtocol() {
           <p className="text-xs text-[#555] mt-4 text-center italic" style={{ fontFamily: "'Playfair Display', serif" }}>
             The word is the same. The structure is everything.
           </p>
+
+          {/* The Buffalo Story */}
+          <div
+            className="mt-12 rounded-3xl overflow-hidden"
+            style={{
+              background: "linear-gradient(135deg, #0f1a0f 0%, #1a1a10 50%, #0f0f1a 100%)",
+              border: "1px solid #2a3a2a",
+              boxShadow: "0 8px 40px rgba(0,0,0,0.5)",
+            }}
+          >
+            {/* Story illustration */}
+            <LightboxImage
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/buffalo-story-forest-HJHBf38foWeu5tCaqBHBLX.webp"
+              alt="The Buffalo walks the Wisdom Path through the Forest of Data — signs read Ask First, Stay Honest, Stay in Charge"
+              className="w-full"
+            />
+
+            <div className="px-6 md:px-10 py-8 md:py-10">
+              <h3
+                className="text-xl md:text-2xl font-bold text-[#E8520A] mb-2 text-center"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                The Buffalo in the Forest of Data
+              </h3>
+              <p className="text-xs text-[#666] text-center mb-8 italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                A story for the Wisdom Path
+              </p>
+
+              <div className="space-y-4 text-[0.95rem] leading-[1.85] text-[#c8bfb0]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p>Once upon a time, in a forest where the trees were made of data and the leaves were made of words, there lived a buffalo.</p>
+                <p>He was not the fastest animal in the forest. He was not the cleverest. But he was the most <em>careful</em>.</p>
+                <p>Every morning, the buffalo put on his wig — a big, curly, white judge's wig — and walked the same path through the trees. Other animals laughed. "Why the wig?" they asked. "You're a buffalo, not a judge."</p>
+                <p>The buffalo smiled. <span className="text-[#E8520A]">"The wig reminds me,"</span> he said. <span className="text-[#E8520A]">"Every conversation has rules. Every path has signs. And someone has to read them."</span></p>
+                <p>The forest was full of paths. Some glowed golden and had signs along the way: <strong className="text-[#FAF6EF]">Ask First. Stay Honest. Stay in Charge.</strong> These paths were safe. They led somewhere real.</p>
+                <p>But other paths had no signs at all. They sparkled and hummed and promised everything. <em>"This way to all the answers!"</em> they whispered. <em>"No rules needed!"</em></p>
+                <p>The buffalo never took those paths. Not because he was afraid. Because he had learned something the other animals hadn't:</p>
+                <p className="text-center text-lg font-bold text-[#FAF6EF] py-3" style={{ fontFamily: "'Playfair Display', serif" }}>A path without signs isn't a shortcut. It's a guess.</p>
+                <p>One day, a small sloth sat at the edge of the forest, staring at two paths. One had signs. One had sparkles.</p>
+                <p>"Which one do I take?" the sloth asked.</p>
+                <p>The buffalo sat down beside her. <span className="text-[#E8520A]">"What do you actually want to know?"</span> he asked.</p>
+                <p>The sloth thought. "I want to know if the stars are real."</p>
+                <p>"Good question," said the buffalo. "Now — are you asking because you want to know? Or because you want someone to <em>tell you</em> they are?"</p>
+                <p>The sloth blinked. "I... I want to actually know."</p>
+                <p><span className="text-[#E8520A]">"Then take the path with signs,"</span> said the buffalo. <span className="text-[#E8520A]">"It's slower. But the answer at the end will be yours."</span></p>
+                <p>The sloth looked at the wig. "Can I get one of those?"</p>
+                <p>The buffalo laughed — a deep, warm, rumbling laugh that shook the data-leaves from the trees.</p>
+                <p>"You don't need a wig," he said. "You just need to remember three things."</p>
+                <p>He pointed to the signs along the golden path:</p>
+              </div>
+
+              {/* Three signs */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+                {[
+                  { sign: "Ask First", desc: "Before you type anything, know what you actually want to know." },
+                  { sign: "Stay Honest", desc: "If the answer doesn't feel right, say so. You're allowed to disagree." },
+                  { sign: "Stay in Charge", desc: "The path helps. The signs help. But you decide where you're going." },
+                ].map((s) => (
+                  <div
+                    key={s.sign}
+                    className="rounded-2xl p-5 text-center"
+                    style={{ background: "rgba(232, 82, 10, 0.08)", border: "1px solid #3a2a1a" }}
+                  >
+                    <div className="font-bold text-[#E8520A] text-sm mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>{s.sign}</div>
+                    <p className="text-xs text-[#999]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{s.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="space-y-4 text-[0.95rem] leading-[1.85] text-[#c8bfb0]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p>The sloth nodded, took a deep breath, and stepped onto the golden path.</p>
+                <p>The buffalo watched her go. Then he adjusted his wig, and walked on.</p>
+              </div>
+
+              <div className="mt-8 pt-6 text-center" style={{ borderTop: "1px solid #2a2018" }}>
+                <p className="text-sm italic text-[#888]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  The forest is always there. The paths are always open. The signs don't move.<br />
+                  But someone has to choose to read them.
+                </p>
+                <p className="text-xs text-[#555] mt-3">— The Buffalo Protocol</p>
+              </div>
+
+              {/* Cross-links to children & teachers */}
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+                <Link
+                  href="/for/child"
+                  className="px-6 py-3 rounded-xl text-sm font-bold text-center transition-all hover:scale-[1.02]"
+                  style={{ background: "#E8520A", color: "#fff" }}
+                >
+                  Read this with a child →
+                </Link>
+                <Link
+                  href="/prompt-games"
+                  className="px-6 py-3 rounded-xl text-sm font-bold text-center transition-all hover:scale-[1.02]"
+                  style={{ background: "transparent", color: "#E8520A", border: "1px solid #E8520A" }}
+                >
+                  Teaching Tools & Games →
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

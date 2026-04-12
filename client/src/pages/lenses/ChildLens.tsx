@@ -296,6 +296,119 @@ export default function ChildLens() {
         </div>
       </section>
 
+      {/* === THE BUFFALO STORY === */}
+      <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
+        <div className="max-w-2xl mx-auto">
+          <div
+            className="text-xs uppercase tracking-widest text-center mb-2 font-semibold"
+            style={{ color: "#E8520A" }}
+          >
+            A Story for the Wisdom Path
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-black text-center mb-6"
+            style={{ fontFamily: serifFont, color: "#1A1A2E" }}
+          >
+            The Buffalo in the Forest of Data
+          </h2>
+
+          {/* Story illustration */}
+          <div className="rounded-3xl overflow-hidden shadow-2xl mb-8" style={{ border: "3px solid #F5D9B0" }}>
+            <LightboxImage
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/buffalo-story-forest-HJHBf38foWeu5tCaqBHBLX.webp"
+              alt="The Buffalo walks the Wisdom Path through the Forest of Data"
+              className="w-full"
+            />
+          </div>
+
+          <div
+            className="rounded-3xl p-6 md:p-8 space-y-4"
+            style={{
+              background: "#FFF0D8",
+              border: "2px solid #F5D9B0",
+              fontSize: "1.05rem",
+              lineHeight: 1.85,
+              color: "#3a2a1a",
+            }}
+          >
+            <p>Once upon a time, in a forest where the trees were made of data and the leaves were made of words, there lived a buffalo.</p>
+            <p>He was not the fastest animal in the forest. He was not the cleverest. But he was the most <em>careful</em>.</p>
+            <p>Every morning, the buffalo put on his wig — a big, curly, white judge's wig — and walked the same path through the trees. Other animals laughed. "Why the wig?" they asked. "You're a buffalo, not a judge."</p>
+            <p>The buffalo smiled. <strong style={{ color: "#E8520A" }}>"The wig reminds me,"</strong> he said. <strong style={{ color: "#E8520A" }}>"Every conversation has rules. Every path has signs. And someone has to read them."</strong></p>
+            <p>The forest was full of paths. Some glowed golden and had signs along the way: <strong>Ask First. Stay Honest. Stay in Charge.</strong> These paths were safe. They led somewhere real.</p>
+            <p>But other paths had no signs at all. They sparkled and hummed and promised everything. <em>"This way to all the answers!"</em> they whispered. <em>"No rules needed!"</em></p>
+            <p>The buffalo never took those paths. Not because he was afraid. Because he had learned something the other animals hadn't:</p>
+
+            <p
+              className="text-center text-lg font-black py-2"
+              style={{ fontFamily: serifFont, color: "#1A1A2E" }}
+            >
+              A path without signs isn't a shortcut. It's a guess.
+            </p>
+
+            <p>One day, a small sloth sat at the edge of the forest, staring at two paths. One had signs. One had sparkles.</p>
+            <p>"Which one do I take?" the sloth asked.</p>
+            <p>The buffalo sat down beside her. <strong style={{ color: "#E8520A" }}>"What do you actually want to know?"</strong> he asked.</p>
+            <p>The sloth thought. "I want to know if the stars are real."</p>
+            <p>"Good question," said the buffalo. "Now — are you asking because you want to know? Or because you want someone to <em>tell you</em> they are?"</p>
+            <p>The sloth blinked. "I... I want to actually know."</p>
+            <p><strong style={{ color: "#E8520A" }}>"Then take the path with signs,"</strong> said the buffalo. <strong style={{ color: "#E8520A" }}>"It's slower. But the answer at the end will be yours."</strong></p>
+            <p>The sloth looked at the wig. "Can I get one of those?"</p>
+            <p>The buffalo laughed — a deep, warm, rumbling laugh that shook the data-leaves from the trees.</p>
+            <p>"You don't need a wig," he said. "You just need to remember three things."</p>
+          </div>
+
+          {/* Three signs as cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            {[
+              { sign: "Ask First", desc: "Before you type anything, know what you actually want to know." },
+              { sign: "Stay Honest", desc: "If the answer doesn't feel right, say so. You're allowed to disagree." },
+              { sign: "Stay in Charge", desc: "The path helps. The signs help. But you decide where you're going." },
+            ].map((s) => (
+              <div
+                key={s.sign}
+                className="rounded-2xl p-5 text-center"
+                style={{ background: "#FFFDF8", border: "2px solid #E8520A" }}
+              >
+                <div className="font-black text-sm mb-1" style={{ fontFamily: serifFont, color: "#E8520A" }}>{s.sign}</div>
+                <p className="text-xs" style={{ color: "#5a4a3a" }}>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Story ending */}
+          <div
+            className="mt-6 rounded-2xl p-5 text-center"
+            style={{ background: "#FFF0D8", border: "1.5px solid #F5D9B0" }}
+          >
+            <p style={{ color: "#3a2a1a", fontSize: "1.05rem", lineHeight: 1.85 }}>
+              The sloth nodded, took a deep breath, and stepped onto the golden path.
+            </p>
+            <p style={{ color: "#3a2a1a", fontSize: "1.05rem", lineHeight: 1.85 }}>
+              The buffalo watched her go. Then he adjusted his wig, and walked on.
+            </p>
+            <div className="mt-4 pt-4" style={{ borderTop: "1px solid #F5D9B0" }}>
+              <p className="text-sm italic" style={{ color: "#9a8a7a", fontFamily: serifFont }}>
+                The forest is always there. The paths are always open. The signs don't move.<br />
+                But someone has to choose to read them.
+              </p>
+              <p className="text-xs mt-2" style={{ color: "#b0a090" }}>— The Buffalo Protocol</p>
+            </div>
+          </div>
+
+          {/* Link to Road Protocol */}
+          <div className="mt-6 text-center">
+            <Link
+              href="/road-protocol"
+              className="inline-block px-6 py-3 rounded-xl text-sm font-bold transition-all hover:scale-[1.02]"
+              style={{ background: "#1A1A2E", color: "#E8520A" }}
+            >
+              See the full Road Protocol →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Three Rules */}
       <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
         <div className="max-w-3xl mx-auto">
