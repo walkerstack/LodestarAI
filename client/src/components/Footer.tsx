@@ -44,6 +44,7 @@ export default function Footer() {
               <Link href="/road-protocol" className="block hover:text-[#E8520A] no-underline transition-colors">Road Protocol</Link>
               <Link href="/flower-presets" className="block hover:text-[#E8520A] no-underline transition-colors">Flower Presets</Link>
               <Link href="/taxonomy" className="block hover:text-[#E8520A] no-underline transition-colors">AI Family Taxonomy</Link>
+              <Link href="/prompt-games" className="block hover:text-[#E8520A] no-underline transition-colors">Prompt Games</Link>
             </div>
 
             {/* Explore */}

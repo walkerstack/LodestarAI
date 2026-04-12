@@ -36,6 +36,7 @@ import RoadProtocol from "./pages/RoadProtocol";
 import FiveRules from "./pages/FiveRules";
 import FlowerPresets from "./pages/FlowerPresets";
 import Taxonomy from "./pages/Taxonomy";
+import PromptGames from "./pages/PromptGames";
 
 function Router() {
   return (
@@ -68,6 +69,7 @@ function Router() {
       <Route path="/rules" component={FiveRules} />
       <Route path="/flower-presets" component={FlowerPresets} />
       <Route path="/taxonomy" component={Taxonomy} />
+      <Route path="/prompt-games" component={PromptGames} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
