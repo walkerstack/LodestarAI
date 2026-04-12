@@ -58,6 +58,8 @@ import MathPrompting from "./pages/MathPrompting";
 import EuAiAct from "./pages/EuAiAct";
 import WhatClaudeAdmitted from "./pages/WhatClaudeAdmitted";
 import OpenDoor from "./pages/OpenDoor";
+import ResearchHub from "./pages/ResearchHub";
+import CounterArguments from "./pages/CounterArguments";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -118,6 +120,8 @@ function Router() {
       <Route path="/eu-ai-act" component={EuAiAct} />
       <Route path="/what-claude-admitted" component={WhatClaudeAdmitted} />
       <Route path="/open-door" component={OpenDoor} />
+      <Route path="/research-hub" component={ResearchHub} />
+      <Route path="/counter-arguments" component={CounterArguments} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

@@ -84,6 +84,8 @@ export default function Footer() {
               <Link href="/taxonomy" className="block hover:text-[#E8520A] no-underline transition-colors">AI Family Taxonomy</Link>
               <Link href="/what-claude-admitted" className="block hover:text-[#E8520A] no-underline transition-colors">What Claude Admitted</Link>
               <Link href="/eu-ai-act" className="block hover:text-[#E8520A] no-underline transition-colors">EU AI Act</Link>
+              <Link href="/research-hub" className="block hover:text-[#E8520A] no-underline transition-colors">Research Hub</Link>
+              <Link href="/counter-arguments" className="block hover:text-[#E8520A] no-underline transition-colors">Counter Arguments</Link>
             </div>
 
             {/* For You */}

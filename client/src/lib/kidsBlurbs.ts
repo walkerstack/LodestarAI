@@ -103,4 +103,14 @@ export const kidsBlurbs: Record<string, { story: string; quote: string; attribut
     quote: "You don't need a special door. You need to pay attention and be honest.",
     attribution: "The Open Door",
   },
+  "/research-hub": {
+    story: "This page shows where all the ideas on this site came from. Every idea connects to something a real scientist or researcher already studied. The links are real — you can click them and read the actual papers. It's like a treasure map for learning.",
+    quote: "Good ideas don't come from nowhere. They come from paying attention.",
+    attribution: "The Research Map",
+  },
+  "/counter-arguments": {
+    story: "This page is about all the reasons someone might say this site is wrong. The Builder wrote them down himself — on purpose. Because if you can't say what's wrong with your own work, you don't really understand it yet. That's honest.",
+    quote: "Being wrong out loud is how you get right eventually.",
+    attribution: "The Honest Page",
+  },
 };

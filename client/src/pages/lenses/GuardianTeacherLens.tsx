@@ -282,6 +282,7 @@ export default function GuardianTeacherLens() {
                 { label: "Framework Families", desc: "Visual tools for teaching AI thinking.", link: "/frameworks", color: "#c87533" },
                 { label: "Everyday Person Lens", desc: "If you're also learning alongside them.", link: "/for/everyday", color: "#6366f1" },
                 { label: "Prompt Engineer Lens", desc: "When you're ready to go deeper.", link: "/for/prompt-engineer", color: "#E8520A" },
+                { label: "Research Hub", desc: "The published research behind every concept.", link: "/research-hub", color: "#7C3AED" },
               ].map((item) => (
                 <Link
                   key={item.label}

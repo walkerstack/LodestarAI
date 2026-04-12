@@ -284,4 +284,35 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "Everyday Lens", href: "/for/everyday", description: "The simplest explanation" },
     ],
   },
+  researchHub: {
+    deeper: [
+      { label: "Field Papers", href: "/field-papers", description: "The Builder's own published research" },
+      { label: "Counter Arguments", href: "/counter-arguments", description: "The honest criticisms" },
+      { label: "Citizen Researcher", href: "/citizen-researcher", description: "The methodology behind the observations" },
+    ],
+    wider: [
+      { label: "What Claude Admitted", href: "/what-claude-admitted", description: "Field evidence from real sessions" },
+      { label: "EU AI Act", href: "/eu-ai-act", description: "The regulatory landscape" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The discipline of prompt language" },
+    ],
+    simpler: [
+      { label: "Three Lenses", href: "/three-lenses", description: "Understand the lens system first" },
+      { label: "Five Rules", href: "/rules", description: "Start with the basics" },
+    ],
+  },
+  counterArguments: {
+    deeper: [
+      { label: "Research Hub", href: "/research-hub", description: "The evidence behind every claim" },
+      { label: "Field Papers", href: "/field-papers", description: "The Builder's own research documents" },
+    ],
+    wider: [
+      { label: "The Open Door", href: "/open-door", description: "The honest case for entering the field" },
+      { label: "Citizen Researcher", href: "/citizen-researcher", description: "The methodology" },
+      { label: "What Claude Admitted", href: "/what-claude-admitted", description: "The field evidence" },
+    ],
+    simpler: [
+      { label: "Five Rules", href: "/rules", description: "Start with the foundation" },
+      { label: "Everyday Lens", href: "/for/everyday", description: "The simplest explanation" },
+    ],
+  },
 };

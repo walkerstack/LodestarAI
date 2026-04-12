@@ -275,6 +275,7 @@ export default function EverydayLens() {
                 { label: "Road Protocol", desc: "Pre-session checklist.", link: "/road-protocol", color: "#c87533" },
                 { label: "AI Taxonomy", desc: "Know which AI you're talking to.", link: "/taxonomy", color: "#2A9D8F" },
                 { label: "Guardian & Teacher Lens", desc: "If you're a parent or educator.", link: "/for/guardian-teacher", color: "#6366f1" },
+                { label: "Research Hub", desc: "Where every idea came from. Real links.", link: "/research-hub", color: "#7C3AED" },
                 { label: "If You Need to Stop", desc: "Safety first. Always.", link: "/if-you-need-to-stop", color: "#dc2626" },
               ].map((item) => (
                 <Link

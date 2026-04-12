@@ -356,6 +356,7 @@ export default function KidsLearn() {
               { label: "The Five Rules", desc: "The foundation. Start here if you haven't.", link: "/rules", color: "#6366f1" },
               { label: "Road Protocol", desc: "The grown-up version of setting rules. Peek at it.", link: "/road-protocol", color: "#c87533" },
               { label: "AI Family Taxonomy", desc: "Know which AI you're talking to.", link: "/taxonomy", color: "#E8520A" },
+              { label: "Research Hub", desc: "Where all the ideas came from. Real links.", link: "/research-hub", color: "#7C3AED" },
               { label: "If You Need to Stop", desc: "Safety first. Always.", link: "/if-you-need-to-stop", color: "#dc2626" },
             ].map((item) => (
               <Link
