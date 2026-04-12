@@ -238,17 +238,6 @@ export default function RoadProtocol() {
               "Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo." Same word. Eight meanings. Structure creates meaning — not individual words. Know the session rules. Stay in charge.
             </p>
           </div>
-          <video
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/AQM8wS_XwUNuRM9ZP3pJ7IEbnpU4JUC0eE4ZX7__CK9ApLo29meEEiarsCAv9ZTBeKWms3KUhlaiAjUGZl09sWZw7kXTOHftGMj5d2hFyuNI9cHtiKqOOzBbINa0imBF_9d420233.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full rounded-2xl shadow-2xl"
-          />
-          <p className="text-xs text-[#555] mt-4 text-center italic" style={{ fontFamily: "'Playfair Display', serif" }}>
-            The word is the same. The structure is everything.
-          </p>
 
           {/* The Buffalo Story */}
           <div

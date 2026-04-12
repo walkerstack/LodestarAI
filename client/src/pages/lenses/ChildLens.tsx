@@ -36,7 +36,7 @@ const GUIDE_PAGES = [
   { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-6_b2b0980f.png", alt: "Field Guide — Page 6" },
   { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-7_25e2bca4.png", alt: "Field Guide — Page 7" },
   { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-8_e6955dc9.png", alt: "Field Guide — Page 8" },
-  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page-9_d321c6c1.png", alt: "Field Guide — Page 9" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/page9-compressed_2d193f63.png", alt: "Field Guide — Page 9" },
 ];
 
 function FieldGuideCarousel() {

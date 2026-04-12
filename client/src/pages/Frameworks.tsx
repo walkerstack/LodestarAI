@@ -17,6 +17,7 @@ const families = [
     subtitle: "Cognitive Accessibility & Tone",
     color: "#8B5E3C",
     description: "Twelve flowers for disability and neurodivergent support. Twelve more for tone modulation. Each flower is a one-word instruction that reshapes how AI communicates. Copy the preset. Paste before your question. The AI adapts.",
+    link: "/flower-presets",
     items: [
       {
         title: "Cognitive Accessibility Presets",
@@ -41,6 +42,7 @@ const families = [
     subtitle: "Barnyard Cognitive Spectrum",
     color: "#6B4226",
     description: "Four animals. Four communication styles. The Pecking Order is not about intelligence — it is about delivery. Choose the animal that matches how you need the message to land.",
+    link: "/taxonomy",
     items: [
       {
         title: "The Pecking Order v3.0",
@@ -55,6 +57,7 @@ const families = [
     subtitle: "Environmental Metaphors",
     color: "#2E5E4E",
     description: "The tactical environment your message must occupy. Not what you say — where you say it from. The landscape shapes the reception. Choose the terrain before you speak.",
+    link: "/promptolinguistics",
     items: [
       {
         title: "Landscape of Cognition v3.0",
@@ -74,6 +77,7 @@ const families = [
     subtitle: "Disability Support",
     color: "#7B3F00",
     description: "Curated support-essence from a fruit basket. Each fruit matches a cognitive flavor to the interaction. Built for accessibility. Built for dignity.",
+    link: "/flower-presets",
     items: [
       {
         title: "Cognitive Harvest v7.0",
@@ -88,6 +92,7 @@ const families = [
     subtitle: "Geometry of Insight",
     color: "#4A5568",
     description: "Insight has its own geometry. Five pathways through the territory of discovery. Each one is a different relationship between pressure, release, and arrival. Choose the pathway that matches the type of thinking you need.",
+    link: "/citizen-researcher",
     items: [
       {
         title: "Geometry of Insight: 5 Pathways",
@@ -107,6 +112,7 @@ const families = [
     subtitle: "Temporal Control System",
     color: "#8B6914",
     description: "Say the season. The metaphor is the instruction. No explanation required. Spring generates. Summer executes. Autumn cuts. Winter consolidates. One season at a time. User calls the season. AI does not suggest. Transition only by instruction.",
+    link: "/promptolinguistics",
     items: [
       {
         title: "Framework of the Seasons",
@@ -117,9 +123,18 @@ const families = [
   },
 ];
 
-function FrameworkCard({ item }: { item: { title: string; description: string; image: string } }) {
+function FrameworkCard({ item, familyLink }: { item: { title: string; description: string; image: string }; familyLink?: string }) {
   return (
-    <div className="bg-white rounded-2xl border border-[#e8e0d0] shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div className="relative bg-white rounded-2xl border border-[#e8e0d0] shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
+      {familyLink && (
+        <Link
+          href={familyLink}
+          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 border border-[#e8e0d0] flex items-center justify-center text-[#888] hover:text-[#E8520A] hover:border-[#E8520A] transition-colors no-underline shadow-sm"
+          title="Go to related page"
+        >
+          <span className="text-sm">→</span>
+        </Link>
+      )}
       <div>
         <LightboxImage
           src={item.image}
@@ -192,7 +207,7 @@ export default function Frameworks() {
             {/* Framework Cards */}
             <div className={`grid gap-8 ${family.items.length === 1 ? "max-w-2xl" : "md:grid-cols-2"}`}>
               {family.items.map((item) => (
-                <FrameworkCard key={item.title} item={item} />
+                <FrameworkCard key={item.title} item={item} familyLink={family.link} />
               ))}
             </div>
           </div>
