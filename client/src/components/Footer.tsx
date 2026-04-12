@@ -62,7 +62,6 @@ export default function Footer() {
               <Link href="/articles" className="block hover:text-[#E8520A] no-underline transition-colors">Articles</Link>
               <Link href="/human-line" className="block hover:text-[#E8520A] no-underline transition-colors">The Human Line</Link>
               <Link href="/field-papers" className="block hover:text-[#E8520A] no-underline transition-colors">Field Papers</Link>
-              <Link href="/for/watcher" className="block hover:text-[#E8520A] no-underline transition-colors">The Watcher</Link>
             </div>
 
             {/* Research */}
@@ -73,9 +72,20 @@ export default function Footer() {
               <Link href="/builder-origin" className="block hover:text-[#E8520A] no-underline transition-colors">Builder Origin</Link>
             </div>
 
-            {/* Safety */}
+            {/* Lenses & Safety */}
             <div className="space-y-1.5">
-              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Safety</div>
+              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Lenses</div>
+              <Link href="/for/everyday" className="block hover:text-[#E8520A] no-underline transition-colors">Everyday Person</Link>
+              <Link href="/for/child" className="block hover:text-[#E8520A] no-underline transition-colors">Child</Link>
+              <Link href="/for/guardian-teacher" className="block hover:text-[#E8520A] no-underline transition-colors">Guardian & Teacher</Link>
+              <Link href="/for/prompt-engineer" className="block hover:text-[#E8520A] no-underline transition-colors">Prompt Engineer</Link>
+              <Link href="/for/linguist" className="block hover:text-[#E8520A] no-underline transition-colors">Linguist</Link>
+              <Link href="/for/mathematician" className="block hover:text-[#E8520A] no-underline transition-colors">Mathematician</Link>
+              <Link href="/for/cognitive-science" className="block hover:text-[#E8520A] no-underline transition-colors">Cognitive Science</Link>
+              <Link href="/for/psychology" className="block hover:text-[#E8520A] no-underline transition-colors">Psychology</Link>
+              <Link href="/for/researcher" className="block hover:text-[#E8520A] no-underline transition-colors">Researcher</Link>
+              <Link href="/for/watcher" className="block hover:text-[#E8520A] no-underline transition-colors">The Watcher</Link>
+              <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mt-4 mb-2">Safety</div>
               <Link href="/if-you-need-to-stop" className="block text-rose-500 hover:text-rose-700 no-underline transition-colors font-medium">If You Need to Stop</Link>
               <Link href="/" className="block hover:text-[#E8520A] no-underline transition-colors">Home</Link>
             </div>
