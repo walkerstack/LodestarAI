@@ -394,15 +394,20 @@ export default function RoadProtocol() {
     <div className="min-h-screen bg-[#0D0D0D]">
       <Nav />
 
-      {/* ── Kids light — tiny bright dot under header ── */}
-      <div className="w-full flex justify-end px-4 py-1" style={{ background: "#0D0D0D" }}>
+      {/* ── Kids light — bright buffalo in the dark ── */}
+      <div className="w-full flex justify-center py-4" style={{ background: "#0D0D0D" }}>
         <button
           onClick={() => setKidsPopup(true)}
-          className="w-3 h-3 rounded-full transition-all hover:scale-150"
-          style={{ background: "radial-gradient(circle, #FFFDF8 0%, #E8520A 60%, transparent 100%)", boxShadow: "0 0 8px rgba(232,82,10,0.4)" }}
-          title="..."
-          aria-label="Kids: tap the light"
-        />
+          className="transition-all hover:scale-110 focus:outline-none"
+          aria-label="Kids: tap the buffalo"
+        >
+          <img
+            src={IMG.buffalo}
+            alt="The buffalo wearing a wig"
+            className="w-16 h-16 rounded-full object-cover"
+            style={{ boxShadow: "0 0 24px 8px rgba(255,253,248,0.5), 0 0 48px 16px rgba(232,82,10,0.3)", border: "2px solid rgba(255,253,248,0.6)" }}
+          />
+        </button>
       </div>
 
       {/* Kids popup overlay */}
