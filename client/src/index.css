@@ -338,3 +338,13 @@
     }
   }
 }
+
+/* ── Storybook slide animations ── */
+@keyframes storyFadeIn {
+  0% { opacity: 0; transform: scale(1.03); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes storyBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.008); }
+}

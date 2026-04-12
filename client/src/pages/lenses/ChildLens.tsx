@@ -41,20 +41,26 @@ const GUIDE_PAGES = [
 
 function FieldGuideCarousel() {
   const [current, setCurrent] = useState(0);
+  const [animKey, setAnimKey] = useState(0);
   const total = GUIDE_PAGES.length;
 
-  const prev = useCallback(() => setCurrent((c) => (c === 0 ? total - 1 : c - 1)), [total]);
-  const next = useCallback(() => setCurrent((c) => (c === total - 1 ? 0 : c + 1)), [total]);
+  const go = useCallback((i: number) => { setCurrent(i); setAnimKey((k) => k + 1); }, []);
+  const prev = useCallback(() => go(current === 0 ? total - 1 : current - 1), [current, total, go]);
+  const next = useCallback(() => go(current === total - 1 ? 0 : current + 1), [current, total, go]);
 
   return (
     <div className="w-full">
       {/* Slide */}
       <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ background: "#1A1A2E" }}>
         <img
+          key={animKey}
           src={GUIDE_PAGES[current].src}
           alt={GUIDE_PAGES[current].alt}
           className="w-full"
-          style={{ display: "block" }}
+          style={{
+            display: "block",
+            animation: "storyFadeIn 0.8s ease-out, storyBreathe 4s ease-in-out 0.8s infinite",
+          }}
         />
 
         {/* Prev / Next arrows */}
@@ -81,7 +87,7 @@ function FieldGuideCarousel() {
         {GUIDE_PAGES.map((_, i) => (
           <button
             key={i}
-            onClick={() => setCurrent(i)}
+            onClick={() => go(i)}
             className="rounded-full transition-all"
             style={{
               width: current === i ? "24px" : "8px",
