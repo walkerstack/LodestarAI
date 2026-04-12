@@ -155,20 +155,22 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
         </div>
       )}
 
-      {/* Sloth pops up from bottom */}
+      {/* Sloth pops up from bottom — links to safety page */}
       {showSloth && (
-        <div
-          className="absolute z-20 pointer-events-none"
+        <a
+          href="/if-you-need-to-stop"
+          className="absolute z-20"
           style={{
             bottom: 0,
             right: "8%",
             width: "110px",
             animation: "slothPopUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+            cursor: "pointer",
           }}
         >
           <img
             src={SLOTH_URL}
-            alt="The sloth says hello"
+            alt="If you need to stop — safety resources"
             style={{
               width: "100%",
               borderRadius: "50% 50% 0 0",
@@ -177,7 +179,7 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
               maxHeight: "130px",
             }}
           />
-        </div>
+        </a>
       )}
 
       {/* Message text — always visible, centred, readable */}

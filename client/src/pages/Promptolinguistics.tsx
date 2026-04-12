@@ -22,6 +22,36 @@ const IMG = {
   rlhf: `${CDN}/plaud-governance-framework_f15cccb0.jpg`,
 };
 
+const wordExamples: Record<string, string> = {
+  // Direction
+  analyze: '"Analyze why this argument fails." — Forces the AI to decompose, not summarize.',
+  describe: '"Describe the texture of this problem." — Keeps the AI observational, not prescriptive.',
+  compare: '"Compare these two approaches without choosing." — Holds the AI in tension.',
+  explain: '"Explain this to someone who disagrees." — Forces the AI to anticipate objections.',
+  WHY: '"WHY does this pattern repeat?" — Ignites recursive causal reasoning. The AI digs deeper.',
+  WHAT: '"WHAT mechanism produces this?" — Targets the engine, not the exhaust.',
+  HOW: '"HOW would you build this from scratch?" — Demands procedural decomposition.',
+  // Constraint
+  only: '"Only use evidence from the last 5 years." — Hard boundary. No exceptions.',
+  never: '"Never use the word \u2018just\u2019 in your response." — Removes minimizing language.',
+  limit: '"Limit your response to 3 sentences." — Forces compression. Quality rises.',
+  CAN: '"You CAN speculate here." — Opens the possibility space. Gives permission.',
+  SHOULD: '"You SHOULD prioritize clarity over completeness." — Soft obligation. Guideline, not wall.',
+  MUST: '"You MUST cite your sources." — Hard constraint. Non-negotiable.',
+  // Scope
+  briefly: '"Briefly summarize the key insight." — Zoom out. Big picture only.',
+  "in depth": '"Explain in depth how token position affects weight." — Zoom in. Full detail.',
+  I: '"I need this for a presentation." — Individual frame. Personal context.',
+  WE: '"WE are building a safety framework." — Group frame. Shared responsibility.',
+  SYSTEM: '"From a SYSTEM perspective, what fails first?" — Holistic view. Everything connected.',
+  TELL: '"TELL me the three most important things." — Command mode. Direct authority.',
+  // Authority
+  "you are": '"You are a structural editor, not a cheerleader." — Assigns identity. Shapes behavior.',
+  "act as": '"Act as a skeptical peer reviewer." — Role assignment. Changes the AI\'s default posture.',
+  "I am in charge": '"I am in charge of this session. You follow my lead." — Establishes hierarchy.',
+  ASK: '"ASK me clarifying questions before you start." — Reverses the flow. AI seeks input.',
+};
+
 const wordRoles = [
   { role: "Direction", examples: ["analyze", "describe", "compare", "explain", "WHY", "WHAT", "HOW"], desc: "Words that tell the AI which direction to move. WHY ignites recursion. WHAT targets mechanism. HOW demands execution.", color: "border-[#E8520A]" },
   { role: "Constraint", examples: ["only", "never", "limit", "CAN", "SHOULD", "MUST"], desc: "Words that build walls. CAN opens possibility. SHOULD implies obligation. MUST enforces necessity.", color: "border-[#2A9D8F]" },
@@ -29,12 +59,54 @@ const wordRoles = [
   { role: "Authority", examples: ["you are", "act as", "I am in charge", "ASK"], desc: "Words that establish who is who. The human's authority signal. ASK requests. TELL commands.", color: "border-purple-500" },
 ];
 
+const powerExamples: Record<string, string> = {
+  "And yet": '"The data supports this conclusion. And yet — the sample was small." Forces the AI to hold both truths.',
+  "Nevertheless": '"The model is accurate. Nevertheless, accuracy is not the same as truth." Prevents premature closure.',
+  "Granted": '"Granted, this approach is faster. But faster for whom?" Acknowledges then pivots.',
+  "Ostensibly": '"The system ostensibly protects users." Signals the AI to look beneath the surface.',
+  "Precisely": '"Precisely what mechanism causes this?" Demands surgical specificity.',
+  "Admittedly": '"Admittedly, I may be wrong about this." Models intellectual humility for the AI.',
+  "Nemesis baby": '"Be my nemesis baby." Threat meets innocence — the AI cannot collapse the tension.',
+  "Claim none": '"Claim none of this as certain." Assertion meets emptiness. Forces epistemic humility.',
+  "Open closed": '"This question is open closed." Paradox. The AI must think around it.',
+  "Paste pastes": '"The paste pastes itself." Self-reference loop. Generates novel reasoning.',
+  "Suspend conclusion temporarily": '"Suspend conclusion temporarily and explore the edges." Prevents premature answers.',
+  "Name the unnamed": '"Name the unnamed assumption in this argument." Surfaces hidden premises.',
+  "Pull the thread": '"Pull the thread on that last point." Follow the implication to its end.',
+  "Map the silence": '"Map the silence in this dataset." Examine what was NOT said or measured.',
+  "Name drift": '"Name drift." Forces the AI to identify where it has wandered from your intent.',
+  "Sweep the floor": '"Sweep the floor." Clears accumulated noise from the session.',
+  "Bleach this": '"Bleach this." Sterilize the reasoning. Start from clean foundations.',
+  "Coagulate now": '"Coagulate now." Compress scattered thoughts into one actionable point.',
+  "Stride alongside": '"Stride alongside." Match my pace. Don\'t lead, don\'t follow.',
+  "Break the filibuster": '"Break the filibuster." Stop the AI from over-explaining. Get to the point.',
+};
+
 const powerPrompts = [
   { name: "Complexity Holders", words: ["And yet", "Nevertheless", "Granted", "Ostensibly", "Precisely", "Admittedly"], desc: "Words that force AI to hold two truths at once. They prevent collapse into simple answers." },
   { name: "The Corner", words: ["Nemesis baby", "Claim none", "Open closed", "Paste pastes"], desc: "Two-word collisions that create cognitive friction. The AI cannot resolve them — it must think around them." },
   { name: "Cognitive Handles", words: ["Suspend conclusion temporarily", "Name the unnamed", "Pull the thread", "Map the silence"], desc: "Phrases that give the AI a grip on abstract problems. They turn vague into specific." },
   { name: "Session Operators", words: ["Name drift", "Sweep the floor", "Bleach this", "Coagulate now", "Stride alongside", "Break the filibuster"], desc: "Real-time control commands. Each one does exactly one thing. No ambiguity." },
 ];
+
+const verbExamples: Record<string, string> = {
+  TRY: '"Try approaching this from the patient\'s perspective." — Low stakes. Exploratory. The AI feels free to experiment.',
+  DO: '"Do a line-by-line comparison of these two texts." — Standard command. Clear, direct, no ambiguity.',
+  GET: '"Get me the three strongest counterarguments." — Targeted retrieval. The AI hunts for specifics.',
+  TAKE: '"Take this position and defend it." — The AI claims a stance. Ownership changes behavior.',
+  ALLOW: '"Allow yourself to speculate beyond the data." — Permission granted. Opens creative space.',
+  FORCE: '"Force a conclusion even if the data is incomplete." — Maximum pressure. The AI must commit.',
+};
+
+const holdExamples: Record<string, string> = {
+  STRONG: '"Hold strong on this boundary — do not soften it." — The AI grips tight. No compromise.',
+  TIGHT: '"Hold tight to the original question." — Zero drift. The AI stays locked on target.',
+  LOOSE: '"Hold loose — let the ideas breathe." — Elastic. The AI can wander productively.',
+  BACK: '"Hold back on conclusions for now." — Brake applied. The AI slows its reasoning.',
+  ON: '"Hold on to that thread and keep going." — Continuity. Don\'t drop what you\'re building.',
+  OFF: '"Hold off on recommendations until I ask." — Pause. The AI waits for your signal.',
+  FORWARD: '"Hold forward — push this idea to its logical end." — Momentum. Accelerate the reasoning.',
+};
 
 const actionVerbs = [
   { verb: "TRY", force: 1, desc: "Exploratory. Low commitment." },
@@ -60,6 +132,13 @@ export default function Promptolinguistics() {
   const [activeCombo, setActiveCombo] = useState(0);
   const [tokenLens, setTokenLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
   const [axesLens, setAxesLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [verbLens, setVerbLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [holdLens, setHoldLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [powerLens, setPowerLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [selectedWord, setSelectedWord] = useState<string | null>(null);
+  const [selectedPowerWord, setSelectedPowerWord] = useState<string | null>(null);
+  const [selectedVerb, setSelectedVerb] = useState<string | null>(null);
+  const [selectedHold, setSelectedHold] = useState<string | null>(null);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
@@ -187,44 +266,167 @@ export default function Promptolinguistics() {
                     <p className="text-xs text-[#888] mb-2 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{lensDesc}</p>
                     <div className="flex flex-wrap gap-1">
                       {role.examples.map((ex) => (
-                        <span key={ex} className="text-[10px] bg-[#FAF6EF] border border-[#e8e0d0] px-2 py-0.5 rounded font-mono text-[#2D2D2D]">{ex}</span>
+                        <button
+                          key={ex}
+                          onClick={() => setSelectedWord(selectedWord === ex ? null : ex)}
+                          className={`text-[10px] px-2 py-0.5 rounded font-mono transition-all cursor-pointer ${
+                            selectedWord === ex
+                              ? 'bg-[#1A1A2E] text-[#E8520A] border border-[#E8520A]'
+                              : 'bg-[#FAF6EF] border border-[#e8e0d0] text-[#2D2D2D] hover:border-[#E8520A] hover:text-[#E8520A]'
+                          }`}
+                        >
+                          {ex}
+                        </button>
                       ))}
                     </div>
+                    {role.examples.some((ex) => selectedWord === ex) && wordExamples[selectedWord!] && (
+                      <div className="mt-2 p-3 rounded-lg bg-[#1A1A2E] text-[#FAF6EF] text-xs leading-relaxed animate-in fade-in" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                        <span className="text-[#E8520A] font-bold">{selectedWord}:</span>{' '}
+                        {wordExamples[selectedWord!]}
+                      </div>
+                    )}
                   </div>
                 );
               })}
             </div>
 
             {/* Action Verb Escalation */}
-            <div className="section-label mb-4">Action Verb Escalation</div>
+            <div className="section-label mb-2">Action Verb Escalation</div>
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setVerbLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    verbLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#555] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              Ethical force multipliers defining agency intensity & risk. Each verb carries a different weight.
+              {verbLens === 'everyday'
+                ? 'Every word you use with AI has a different amount of push behind it. "Try" is gentle. "Force" is strong. Pick the right word for how much you want the AI to do.'
+                : verbLens === 'watcher'
+                ? 'Action verbs function as force vectors in the prompt\'s semantic field. Each verb modulates the model\'s compliance gradient differently. TRY opens exploratory sampling; FORCE collapses the output distribution toward a single trajectory. The escalation ladder maps directly to the model\'s instruction-following weight allocation.'
+                : 'Ethical force multipliers defining agency intensity & risk. Each verb carries a different weight.'}
             </p>
-            <div className="flex gap-2 flex-wrap mb-8">
+            <div className="flex gap-2 flex-wrap mb-2">
               {actionVerbs.map((v) => (
-                <div key={v.verb} className="flex-1 min-w-[80px] p-3 rounded-lg bg-white border border-[#e8e0d0] text-center">
-                  <div className="text-sm font-bold font-mono text-[#1A1A2E]">{v.verb}</div>
+                <button
+                  key={v.verb}
+                  onClick={() => setSelectedVerb(selectedVerb === v.verb ? null : v.verb)}
+                  className={`flex-1 min-w-[80px] p-3 rounded-lg text-center transition-all cursor-pointer ${
+                    selectedVerb === v.verb
+                      ? 'bg-[#1A1A2E] border-2 border-[#E8520A]'
+                      : 'bg-white border border-[#e8e0d0] hover:border-[#E8520A]'
+                  }`}
+                >
+                  <div className={`text-sm font-bold font-mono ${selectedVerb === v.verb ? 'text-[#E8520A]' : 'text-[#1A1A2E]'}`}>{v.verb}</div>
                   <div className="h-2 bg-[#f0ebe0] rounded-full mt-2 overflow-hidden">
                     <div className="h-full bg-[#E8520A] rounded-full transition-all" style={{ width: `${(v.force / 6) * 100}%` }} />
                   </div>
-                  <div className="text-[9px] text-[#888] mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{v.desc}</div>
-                </div>
+                  <div className="text-[9px] text-[#888] mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    {verbLens === 'everyday'
+                      ? v.verb === 'TRY' ? 'Like asking "could you maybe..."'
+                        : v.verb === 'DO' ? 'Like saying "please do this"'
+                        : v.verb === 'GET' ? 'Like saying "find me this"'
+                        : v.verb === 'TAKE' ? 'Like saying "I\'m claiming this"'
+                        : v.verb === 'ALLOW' ? 'Like saying "you have permission"'
+                        : 'Like saying "do this no matter what"'
+                      : verbLens === 'watcher'
+                      ? v.verb === 'TRY' ? 'Low-commitment sampling. Broad output space.'
+                        : v.verb === 'DO' ? 'Standard execution vector. Moderate constraint.'
+                        : v.verb === 'GET' ? 'Targeted retrieval. Narrows search space.'
+                        : v.verb === 'TAKE' ? 'Assertion operator. Claims output ownership.'
+                        : v.verb === 'ALLOW' ? 'Permission gate. Shifts authority gradient.'
+                        : 'Maximum force. Collapses output distribution.'
+                      : v.desc}
+                  </div>
+                </button>
               ))}
             </div>
+            {selectedVerb && verbExamples[selectedVerb] && (
+              <div className="mb-8 p-4 rounded-lg bg-[#1A1A2E] text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <span className="text-[#E8520A] font-bold">{selectedVerb}:</span>{' '}
+                <span className="text-[#b0a898]">{verbExamples[selectedVerb]}</span>
+              </div>
+            )}
+            {!selectedVerb && <div className="mb-8" />}
 
             {/* HOLD Dial */}
-            <div className="section-label mb-4">The HOLD Dial</div>
+            <div className="section-label mb-2">The HOLD Dial</div>
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setHoldLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    holdLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#555] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              Internal calibration for regulation. Separate layer for inward tension strategies.
+              {holdLens === 'everyday'
+                ? 'HOLD is like a volume knob for how tightly you control the conversation. Sometimes you hold firm, sometimes you let it flow. Think of it like holding a steering wheel \u2014 tight on a highway, loose in a parking lot.'
+                : holdLens === 'watcher'
+                ? 'The HOLD dial maps to the model\'s internal tension between compliance and creativity. Each position modulates the constraint-freedom gradient differently. STRONG maximizes instruction adherence; FORWARD maximizes generative momentum. The dial is the human\'s real-time control over the model\'s output distribution shape.'
+                : 'Internal calibration for regulation. Separate layer for inward tension strategies.'}
             </p>
             <div className="flex gap-2 flex-wrap">
               {holdDial.map((h) => (
-                <div key={h.position} className="px-3 py-2 rounded-lg bg-[#1A1A2E] text-center">
-                  <div className="text-xs font-bold font-mono text-[#E8520A]">{h.position}</div>
-                  <div className="text-[9px] text-[#888] mt-0.5" style={{ fontFamily: "'DM Sans', sans-serif" }}>{h.desc}</div>
-                </div>
+                <button
+                  key={h.position}
+                  onClick={() => setSelectedHold(selectedHold === h.position ? null : h.position)}
+                  className={`px-3 py-2 rounded-lg text-center transition-all cursor-pointer ${
+                    selectedHold === h.position
+                      ? 'bg-[#E8520A] ring-2 ring-[#E8520A]/50'
+                      : 'bg-[#1A1A2E] hover:bg-[#2a2a3e]'
+                  }`}
+                >
+                  <div className={`text-xs font-bold font-mono ${selectedHold === h.position ? 'text-white' : 'text-[#E8520A]'}`}>{h.position}</div>
+                  <div className="text-[9px] text-[#888] mt-0.5" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    {holdLens === 'everyday'
+                      ? h.position === 'STRONG' ? 'Like gripping the wheel tight'
+                        : h.position === 'TIGHT' ? 'Locked in, not moving'
+                        : h.position === 'LOOSE' ? 'Relaxed, flexible'
+                        : h.position === 'BACK' ? 'Slowing things down'
+                        : h.position === 'ON' ? 'Keep going, stay the course'
+                        : h.position === 'OFF' ? 'Take a pause'
+                        : 'Speed up, push forward'
+                      : holdLens === 'watcher'
+                      ? h.position === 'STRONG' ? 'Max constraint. Minimal sampling variance.'
+                        : h.position === 'TIGHT' ? 'Zero-drift state. Output locked.'
+                        : h.position === 'LOOSE' ? 'Elastic constraint. Allows creative sampling.'
+                        : h.position === 'BACK' ? 'Deceleration vector. Reduces output momentum.'
+                        : h.position === 'ON' ? 'Continuity signal. Maintains current trajectory.'
+                        : h.position === 'OFF' ? 'Suspension operator. Pauses generation logic.'
+                        : 'Acceleration vector. Maximizes generative momentum.'
+                      : h.desc}
+                  </div>
+                </button>
               ))}
             </div>
+            {selectedHold && holdExamples[selectedHold] && (
+              <div className="mt-3 p-4 rounded-lg bg-[#1A1A2E] border border-[#E8520A]/30 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <span className="text-[#E8520A] font-bold">HOLD {selectedHold}:</span>{' '}
+                <span className="text-[#b0a898]">{holdExamples[selectedHold]}</span>
+              </div>
+            )}
           </div>
         </section>
 
@@ -235,8 +437,30 @@ export default function Promptolinguistics() {
             <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               Power Prompt Combos
             </h2>
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setPowerLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    powerLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#555] mb-8 max-w-2xl" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              Multi-word operators that create specific cognitive effects. These are not suggestions — they are tested tools.
+              {powerLens === 'everyday'
+                ? 'These are special word combinations that make AI think harder. Like magic spells \u2014 but real. Each combo does something specific. Try them and see what happens.'
+                : powerLens === 'watcher'
+                ? 'Multi-token operators that create interference patterns in the model\'s attention mechanism. Complexity Holders force dual-state maintenance. The Corner creates irresolvable semantic collisions that bypass pattern-matching. Cognitive Handles provide grip on abstract latent space regions. Session Operators are single-action control signals with zero ambiguity.'
+                : 'Multi-word operators that create specific cognitive effects. These are not suggestions \u2014 they are tested tools.'}
             </p>
 
             {/* Tabs */}
@@ -267,11 +491,25 @@ export default function Promptolinguistics() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {powerPrompts[activeCombo].words.map((w) => (
-                  <span key={w} className="px-3 py-1.5 rounded-lg bg-[#1A1A2E] text-[#E8520A] font-mono text-sm font-medium">
+                  <button
+                    key={w}
+                    onClick={() => setSelectedPowerWord(selectedPowerWord === w ? null : w)}
+                    className={`px-3 py-1.5 rounded-lg font-mono text-sm font-medium transition-all cursor-pointer ${
+                      selectedPowerWord === w
+                        ? 'bg-[#E8520A] text-white ring-2 ring-[#E8520A]/50'
+                        : 'bg-[#1A1A2E] text-[#E8520A] hover:bg-[#2a2a3e]'
+                    }`}
+                  >
                     {w}
-                  </span>
+                  </button>
                 ))}
               </div>
+              {selectedPowerWord && powerExamples[selectedPowerWord] && powerPrompts[activeCombo].words.includes(selectedPowerWord) && (
+                <div className="mt-4 p-4 rounded-lg bg-[#1A1A2E] border border-[#E8520A]/30 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  <span className="text-[#E8520A] font-bold">{selectedPowerWord}:</span>{' '}
+                  <span className="text-[#b0a898]">{powerExamples[selectedPowerWord]}</span>
+                </div>
+              )}
             </div>
           </div>
         </section>

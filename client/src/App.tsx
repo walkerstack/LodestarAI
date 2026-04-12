@@ -21,6 +21,7 @@ import MathematicianLens from "./pages/lenses/MathematicianLens";
 import CognitiveScienceLens from "./pages/lenses/CognitiveScienceLens";
 import PsychologyLens from "./pages/lenses/PsychologyLens";
 import ResearcherLens from "./pages/lenses/ResearcherLens";
+import EverydayLens from "./pages/lenses/EverydayLens";
 import Promptolinguistics from "./pages/Promptolinguistics";
 import LivingLexicon from "./pages/LivingLexicon";
 import Gallery from "./pages/Gallery";
@@ -43,7 +44,8 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      {/* The 8 Audience Lenses */}
+      {/* The 9 Audience Lenses */}
+      <Route path="/for/everyday" component={EverydayLens} />
       <Route path="/for/child" component={ChildLens} />
       <Route path="/for/guardian-teacher" component={GuardianTeacherLens} />
       <Route path="/for/prompt-engineer" component={PromptEngineerLens} />

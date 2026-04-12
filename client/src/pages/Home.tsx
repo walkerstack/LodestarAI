@@ -128,6 +128,7 @@ const userPaths = [
     icon: "\u{1F44B}",
     highlight: "You don\u2019t need to understand how it works. You just need one honest question.",
     lens: [
+      { label: "Everyday Person Lens", path: "/for/everyday" },
       { label: "Child Lens", path: "/for/child" },
       { label: "Psychology Lens", path: "/for/psychology" },
     ],
@@ -483,7 +484,15 @@ export default function Home() {
             {userPaths.map((up, i) => (
               <button
                 key={i}
-                onClick={() => setSelectedRole(selectedRole === i ? null : i)}
+                onClick={() => {
+                  const next = selectedRole === i ? null : i;
+                  setSelectedRole(next);
+                  if (next !== null) {
+                    setTimeout(() => {
+                      document.getElementById('role-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 80);
+                  }
+                }}
                 className="text-left p-4 rounded-2xl border transition-all hover:scale-[1.02]"
                 style={{
                   background: selectedRole === i ? '#1a1610' : '#0f0c08',
@@ -511,11 +520,13 @@ export default function Home() {
           {/* Expanded path recommendation */}
           {selectedRole !== null && (
             <div
+              id="role-detail"
               className="rounded-2xl p-6"
               style={{
                 background: '#0f0c08',
                 border: '2px solid #E8520A',
                 animation: 'fadeUp 0.3s ease-out',
+                scrollMarginTop: '80px',
               }}
             >
               <div className="flex items-start gap-3 mb-4">
@@ -614,11 +625,21 @@ export default function Home() {
             {ethosNav.map((ethos, i) => (
               <div key={i}>
                 <button
-                  onClick={() => setExpandedEthos(expandedEthos === i ? null : i)}
+                  onClick={() => {
+                    const next = expandedEthos === i ? null : i;
+                    setExpandedEthos(next);
+                    if (next !== null) {
+                      setTimeout(() => {
+                        document.getElementById(`ethos-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                      }, 80);
+                    }
+                  }}
+                  id={`ethos-${i}`}
                   className="w-full text-left rounded-2xl p-5 transition-all hover:scale-[1.01]"
                   style={{
                     background: expandedEthos === i ? '#1a1610' : '#0f0c08',
                     border: expandedEthos === i ? `2px solid ${ethos.color}` : '1px solid #1a1610',
+                    scrollMarginTop: '80px',
                   }}
                 >
                   <div className="flex items-center justify-between">
@@ -707,7 +728,16 @@ export default function Home() {
             {scaffoldLevels.map((s, i) => (
               <div key={i}>
                 <button
-                  onClick={() => setExpandedScaffold(expandedScaffold === i ? null : i)}
+                  onClick={() => {
+                    const next = expandedScaffold === i ? null : i;
+                    setExpandedScaffold(next);
+                    if (next !== null) {
+                      setTimeout(() => {
+                        document.getElementById(`scaffold-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                      }, 80);
+                    }
+                  }}
+                  id={`scaffold-${i}`}
                   className="w-full text-left pl-4 py-4 pr-4 rounded-r-xl transition-all hover:scale-[1.01]"
                   style={{
                     borderLeft: `4px solid ${s.color}`,
@@ -716,6 +746,7 @@ export default function Home() {
                     borderLeftWidth: '4px',
                     borderLeftColor: s.color,
                     borderLeftStyle: 'solid',
+                    scrollMarginTop: '80px',
                   }}
                 >
                   <div className="flex items-center justify-between">

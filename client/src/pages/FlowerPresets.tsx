@@ -231,7 +231,15 @@ export default function FlowerPresets() {
             {accessibilityPresets.map((preset, i) => (
               <button
                 key={preset.name}
-                onClick={() => setSelectedPreset(selectedPreset === i ? null : i)}
+                onClick={() => {
+                  const next = selectedPreset === i ? null : i;
+                  setSelectedPreset(next);
+                  if (next !== null) {
+                    setTimeout(() => {
+                      document.getElementById('preset-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 80);
+                  }
+                }}
                 className="rounded-2xl p-4 text-center transition-all duration-200 hover:scale-105"
                 style={{
                   background: selectedPreset === i ? preset.bgColor : "#fff",
@@ -249,10 +257,12 @@ export default function FlowerPresets() {
           {/* Selected Preset Detail */}
           {selectedPreset !== null && (
             <div
+              id="preset-detail"
               className="rounded-2xl p-6 md:p-8 mb-6 transition-all duration-300"
               style={{
                 background: accessibilityPresets[selectedPreset].bgColor,
                 border: `2px solid ${accessibilityPresets[selectedPreset].color}`,
+                scrollMarginTop: '80px',
               }}
             >
               <div className="flex items-start gap-4 mb-4">
@@ -323,7 +333,15 @@ export default function FlowerPresets() {
             {essenceModulations.map((essence, i) => (
               <button
                 key={essence.name}
-                onClick={() => setSelectedEssence(selectedEssence === i ? null : i)}
+                onClick={() => {
+                  const next = selectedEssence === i ? null : i;
+                  setSelectedEssence(next);
+                  if (next !== null) {
+                    setTimeout(() => {
+                      document.getElementById('essence-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 80);
+                  }
+                }}
                 className="rounded-2xl p-4 text-center transition-all duration-200 hover:scale-105"
                 style={{
                   background: selectedEssence === i ? essence.bgColor : "#fff",
@@ -341,10 +359,12 @@ export default function FlowerPresets() {
           {/* Selected Essence Detail */}
           {selectedEssence !== null && (
             <div
+              id="essence-detail"
               className="rounded-2xl p-6 md:p-8 mb-6 transition-all duration-300"
               style={{
                 background: essenceModulations[selectedEssence].bgColor,
                 border: `2px solid ${essenceModulations[selectedEssence].color}`,
+                scrollMarginTop: '80px',
               }}
             >
               <div className="flex items-start gap-4 mb-4">

@@ -333,17 +333,23 @@ export default function PromptGames() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="container py-12 md:py-16 max-w-5xl mx-auto px-6">
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/prompt-games-hero-8xC4YDYzQLBcpyN3qAJKCs.webp" alt="" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A2E]/80 via-[#1A1A2E]/60 to-[#FAF6EF]" />
+          </div>
+        <div className="relative container py-12 md:py-16 max-w-5xl mx-auto px-6">
           <div className="section-label mb-2">The Tools</div>
-          <h1 className="text-3xl md:text-5xl font-bold text-[#1A1A2E] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Prompt Games & Power Prompts
+          <h1 className="text-3xl md:text-5xl font-bold text-[#FAF6EF] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Prompt Games & <span className="text-[#E8520A]">Power Prompts</span>
           </h1>
-          <p className="text-base text-[#2D2D2D] max-w-2xl mb-2 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-base text-[#b0a898] max-w-2xl mb-2 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             Every game has a poster, a prompt you can copy, and two ways to learn it — as someone discovering it, and as someone teaching it to a child. The metaphor explanations show why each one works.
           </p>
           <p className="text-sm text-[#E8520A] italic" style={{ fontFamily: "'Playfair Display', serif" }}>
             "Rules drift. Metaphors hold. Tested fourteen days across eight platforms."
           </p>
+        </div>
         </section>
 
         {/* How to Use This Page */}

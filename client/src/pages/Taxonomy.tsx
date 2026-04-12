@@ -209,7 +209,15 @@ export default function Taxonomy() {
             {filtered.map((fam) => (
               <button
                 key={fam.name}
-                onClick={() => setSelectedFamily(selectedFamily === fam.name ? null : fam.name)}
+                onClick={() => {
+                  const next = selectedFamily === fam.name ? null : fam.name;
+                  setSelectedFamily(next);
+                  if (next !== null) {
+                    setTimeout(() => {
+                      document.getElementById('taxonomy-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 80);
+                  }
+                }}
                 className="rounded-xl p-4 text-center transition-all duration-200 hover:scale-[1.03]"
                 style={{
                   background: selectedFamily === fam.name ? fam.color : "#1a1a1a",
@@ -237,11 +245,13 @@ export default function Taxonomy() {
           {/* Selected Family Detail */}
           {selected && (
             <div
+              id="taxonomy-detail"
               className="rounded-2xl overflow-hidden mb-10 transition-all duration-300"
               style={{
                 background: "#111",
                 border: `2px solid ${selected.color}40`,
                 boxShadow: `0 8px 32px ${selected.color}15`,
+                scrollMarginTop: '80px',
               }}
             >
               {/* Header bar */}

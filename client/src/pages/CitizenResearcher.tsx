@@ -36,36 +36,43 @@ const lensArguments = [
     lens: "Researchers & Academics",
     argument: "GallantryAI provides a documented, replicable methodology for studying human-AI interaction at the individual level. The Living Lexicon offers standardized terminology. The ALCM provides measurable axes. The session archives provide raw data. This is field research infrastructure that did not exist before.",
     color: "text-teal-600",
+    link: "/for/researcher",
   },
   {
     lens: "Educators & Teachers",
     argument: "The Framework Families are ready-made teaching tools. The Flower Presets provide accessibility without complexity. The Kids Color Framework makes AI modes visible to children. The Seasons framework teaches metacognition through metaphor. This is curriculum, not theory.",
     color: "text-green-600",
+    link: "/for/guardian-teacher",
   },
   {
     lens: "Policymakers & Governance",
     argument: "Every existing AI governance framework addresses institutional behavior. None address the individual user. GallantryAI fills this gap with user-side governance tools: the Five Rules, the Road Protocol, the Ozzy Protocol. These are enforceable at the interaction level without requiring institutional adoption.",
     color: "text-blue-600",
+    link: "/rules",
   },
   {
     lens: "Linguists",
     argument: "Promptolinguistics is a new discipline. The discovery that single words function as mechanical control dials — not semantic carriers but structural forces — opens an entirely new field of study. The ALCM maps these forces across eight axes. The Corner explores two-word collisions. This is language as physics.",
     color: "text-purple-600",
+    link: "/for/linguist",
   },
   {
     lens: "Cognitive Scientists",
     argument: "The Geometry of Insight maps five distinct pathways through which understanding arrives. The Twig Reasoning Engine provides a verification framework. The Whelm Scale measures cognitive load in real time. These are not metaphors — they are operational models tested across nine AI platforms.",
     color: "text-slate-600",
+    link: "/for/cognitive-science",
   },
   {
     lens: "Psychologists",
     argument: "The Flower Presets address ADHD, autism, PTSD, TBI, depression, anxiety, chronic pain, sensory overload, memory loss, executive dysfunction, and gifted-2E populations. Each preset was designed from lived experience, not clinical abstraction. The Brain Dashboard provides emotional check-in before AI sessions. This is accessibility infrastructure.",
     color: "text-rose-600",
+    link: "/for/psychology",
   },
   {
     lens: "Prompt Engineers",
     argument: "The ALCM provides the first systematic model of how atomic words alter AI behavior. Power Prompt Combos document tested multi-word operators. Session Operators provide real-time control mechanisms. The Token Efficiency Strategy maps the path from strong to elite. This is the engineering manual for language-as-control.",
     color: "text-orange-600",
+    link: "/for/prompt-engineer",
   },
 ];
 
@@ -184,7 +191,14 @@ export default function CitizenResearcher() {
 
           <div className="space-y-6">
             {lensArguments.map((item) => (
-              <div key={item.lens} className="p-6 rounded-xl bg-white border border-[#e8e0d0] hover:shadow-md transition-shadow">
+              <div key={item.lens} className="relative p-6 rounded-xl bg-white border border-[#e8e0d0] hover:shadow-md transition-shadow">
+                <Link
+                  href={item.link}
+                  className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#FAF6EF] border border-[#e8e0d0] flex items-center justify-center text-[#888] hover:text-[#E8520A] hover:border-[#E8520A] transition-colors no-underline"
+                  title={`Go to ${item.lens}`}
+                >
+                  <span className="text-sm">→</span>
+                </Link>
                 <h3 className={`text-base font-bold mb-3 ${item.color}`} style={{ fontFamily: "'DM Sans', sans-serif" }}>
                   {item.lens}
                 </h3>

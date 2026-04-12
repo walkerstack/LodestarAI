@@ -130,14 +130,25 @@ export default function FiveRules() {
               <div
                 key={rule.number}
                 className="rounded-2xl overflow-hidden transition-all"
+                id={`rule-${rule.number}`}
                 style={{
                   background: '#0f0c08',
                   border: isOpen ? '2px solid #E8520A' : '1px solid #1a1610',
+                  borderRadius: '1rem',
+                  overflow: 'hidden',
+                  scrollMarginTop: '80px',
                 }}
               >
-                {/* Rule header — clickable */}
                 <button
-                  onClick={() => setExpandedRule(isOpen ? null : rule.number)}
+                  onClick={() => {
+                    const next = isOpen ? null : rule.number;
+                    setExpandedRule(next);
+                    if (next !== null) {
+                      setTimeout(() => {
+                        document.getElementById(`rule-${rule.number}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }, 80);
+                    }
+                  }}
                   className="w-full text-left"
                 >
                   {/* Number bar */}

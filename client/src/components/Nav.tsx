@@ -10,6 +10,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 
 const lenses = [
+  { label: "Everyday Person", path: "/for/everyday", color: "text-amber-600" },
   { label: "Child", path: "/for/child", color: "text-sky-500" },
   { label: "Guardian & Teacher", path: "/for/guardian-teacher", color: "text-green-600" },
   { label: "Prompt Engineer", path: "/for/prompt-engineer", color: "text-orange-600" },

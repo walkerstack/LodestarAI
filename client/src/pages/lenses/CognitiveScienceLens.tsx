@@ -461,7 +461,7 @@ export default function CognitiveScienceLens() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/children" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8520A] text-white text-xs font-semibold no-underline hover:bg-[#d04a08] transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <Link href="/for/child" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8520A] text-white text-xs font-semibold no-underline hover:bg-[#d04a08] transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Visit the Children's Page &rarr;
               </Link>
               <Link href="/flower-presets" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1A1A2E] text-white text-xs font-semibold no-underline hover:bg-[#111] transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>
