@@ -2,3 +2,5 @@
 - [x] Resolve Home.tsx conflict from upgrade (kept existing homepage, added useAuth import)
 - [x] Push database schema (users table)
 - [x] Restart dev server after upgrade
+- [x] Generate dedicated image for story arc frame 6 (Together — buffalo + sloth) and swap into carousel
+- [x] Generate new og:image for link previews (dark editorial, buffalo with wig + sloth in corners)

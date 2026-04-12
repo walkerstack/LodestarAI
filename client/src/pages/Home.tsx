@@ -25,7 +25,7 @@ const SLOTH_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-click-me-Y6T8mt8R4mLzfr3QeK78Yy.webp";
 
 const OG_HERO_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/og-hero-buffalo-sloth-UYXnMKJjCqLZjEqnYaQKzQ.webp";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/og-hero-v2-ANjG24hqHFNLTULaRPgLyt.webp";
 
 const storyArc = [
   {
@@ -59,7 +59,7 @@ const storyArc = [
     link: "/rules#rule-5",
   },
   {
-    img: OG_HERO_URL,
+    img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-rule6-together-v2-Mi3MM8752en7NCUjzmL6vn.webp",
     rule: "Together",
     caption: "The buffalo guards. The sloth guides. Side by side. That is the whole site.",
     link: "/rules",
