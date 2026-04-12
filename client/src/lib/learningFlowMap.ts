@@ -252,6 +252,23 @@ export const flowMap: Record<string, FlowEntry> = {
     ],
   },
 
+  openDoor: {
+    deeper: [
+      { label: "What Claude Admitted", href: "/what-claude-admitted", description: "The field evidence behind the skills" },
+      { label: "ALCM", href: "/alcm", description: "The control model built from observation" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The field that emerged from pattern detection" },
+    ],
+    wider: [
+      { label: "The Builder", href: "/builder", description: "Who built this and why" },
+      { label: "Citizen Researcher", href: "/citizen-researcher", description: "The research approach" },
+      { label: "The Human Line", href: "/human-line", description: "Where the line is drawn" },
+    ],
+    simpler: [
+      { label: "Five Rules", href: "/rules", description: "The simplest version of the framework" },
+      { label: "Everyday Lens", href: "/for/everyday", description: "The whole system in plain language" },
+    ],
+  },
+
   guardianTeacher: {
     deeper: [
       { label: "Road Protocol", href: "/road-protocol", description: "The governance framework to teach" },

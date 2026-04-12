@@ -55,6 +55,7 @@ import ThreeLenses from "./pages/ThreeLenses";
 import MathPrompting from "./pages/MathPrompting";
 import EuAiAct from "./pages/EuAiAct";
 import WhatClaudeAdmitted from "./pages/WhatClaudeAdmitted";
+import OpenDoor from "./pages/OpenDoor";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -114,6 +115,7 @@ function Router() {
       <Route path="/math-prompting" component={MathPrompting} />
       <Route path="/eu-ai-act" component={EuAiAct} />
       <Route path="/what-claude-admitted" component={WhatClaudeAdmitted} />
+      <Route path="/open-door" component={OpenDoor} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

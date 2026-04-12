@@ -64,6 +64,7 @@ const exploreLinks = [
   { label: "Citizen Researcher", path: "/citizen-researcher" },
   { label: "The Builder", path: "/builder" },
   { label: "Builder Origin", path: "/builder-origin" },
+  { label: "The Open Door", path: "/open-door" },
 ];
 
 type NavSection = "lenses" | "foundation" | "tools" | "research" | "forYou" | "explore" | null;
@@ -165,6 +166,9 @@ export default function Nav() {
           <Link href="/if-you-need-to-stop" className="text-rose-600 hover:text-rose-700 transition-colors no-underline text-xs font-semibold uppercase tracking-wide">
             Safety
           </Link>
+          <Link href="/human-line" className="text-amber-700 hover:text-amber-800 transition-colors no-underline text-xs font-semibold uppercase tracking-wide">
+            The Human Line
+          </Link>
         </nav>
 
         <button
@@ -235,6 +239,9 @@ export default function Nav() {
           <div className="border-t border-[#e8e0d0] pt-3 mt-3">
             <Link href="/if-you-need-to-stop" onClick={closeAll} className="block text-sm font-semibold text-rose-600 no-underline py-1">
               If You Need to Stop
+            </Link>
+            <Link href="/human-line" onClick={closeAll} className="block text-sm font-semibold text-amber-700 no-underline py-1">
+              The Human Line
             </Link>
           </div>
         </div>

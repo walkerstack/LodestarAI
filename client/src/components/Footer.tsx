@@ -95,6 +95,7 @@ export default function Footer() {
               {/* Safety — nested under For You */}
               <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mt-4 mb-2">Safety</div>
               <Link href="/if-you-need-to-stop" className="block text-rose-500 hover:text-rose-700 no-underline transition-colors font-medium">If You Need to Stop</Link>
+              <Link href="/human-line" className="block text-amber-600 hover:text-amber-800 no-underline transition-colors font-medium">The Human Line</Link>
               <Link href="/" className="block hover:text-[#E8520A] no-underline transition-colors">Home</Link>
             </div>
 
@@ -108,6 +109,7 @@ export default function Footer() {
               <Link href="/citizen-researcher" className="block hover:text-[#E8520A] no-underline transition-colors">Citizen Researcher</Link>
               <Link href="/builder" className="block hover:text-[#E8520A] no-underline transition-colors">The Builder</Link>
               <Link href="/builder-origin" className="block hover:text-[#E8520A] no-underline transition-colors">Builder Origin</Link>
+              <Link href="/open-door" className="block hover:text-[#E8520A] no-underline transition-colors">The Open Door</Link>
               <Link href="/backstage" className="block hover:text-[#E8520A] no-underline transition-colors">Backstage</Link>
             </div>
           </div>

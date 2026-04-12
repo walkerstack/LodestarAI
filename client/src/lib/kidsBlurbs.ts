@@ -98,4 +98,9 @@ export const kidsBlurbs: Record<string, { story: string; quote: string; attribut
     quote: "Even AI makes mistakes. The important thing is catching them.",
     attribution: "The Night the AI Got Caught",
   },
+  "/open-door": {
+    story: "This page is about the Builder — Matt — and how he learned all the things on this site. He didn't go to a special school for it. He learned by watching carefully and writing down what he saw. He wants to help more people, and he's asking for a chance to do that.",
+    quote: "You don't need a special door. You need to pay attention and be honest.",
+    attribution: "The Open Door",
+  },
 };
