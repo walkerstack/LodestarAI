@@ -1,0 +1,4 @@
+- [x] Upgrade project to full-stack with web-db-user (database, server, user management)
+- [x] Resolve Home.tsx conflict from upgrade (kept existing homepage, added useAuth import)
+- [x] Push database schema (users table)
+- [x] Restart dev server after upgrade

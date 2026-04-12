@@ -7,6 +7,7 @@
  * Sloth kids link: glowing, easy, "check this out kids."
  */
 
+import { useAuth } from "@/_core/hooks/useAuth";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
@@ -315,6 +316,10 @@ const scaffoldLevels = [
 ];
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   const [selectedRole, setSelectedRole] = useState<number | null>(null);
   const [expandedEthos, setExpandedEthos] = useState<number | null>(null);
   const [expandedScaffold, setExpandedScaffold] = useState<number | null>(null);
