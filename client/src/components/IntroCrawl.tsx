@@ -305,7 +305,7 @@ export default function IntroCrawl({ onComplete }: IntroCrawlProps) {
                     You are not alone.
                   </p>
                   <a
-                    href="/safety"
+                    href="/if-you-need-to-stop"
                     className="block text-center py-2 rounded-lg text-xs font-bold"
                     style={{ background: "#E8520A", color: "#fff", fontFamily: baseFont }}
                   >

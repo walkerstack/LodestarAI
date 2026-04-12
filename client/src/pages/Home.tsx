@@ -14,7 +14,7 @@ import { Link, useLocation } from "wouter";
 import { useState } from "react";
 
 const SLOTH_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/gallantry-sloth-hero-5NPiLMnJCpqXK6gu9eYvuD.webp";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-click-me-Y6T8mt8R4mLzfr3QeK78Yy.webp";
 
 const IMGS = {
   alcmDiagram: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000005693_e894b781.jpg",
@@ -261,34 +261,32 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          CHILDREN'S SECTION — BRIGHT LIGHT SHINING IN THE DARK
+          CHILDREN'S SECTION — BLACK FADES INTO WHITE, GOLDEN SPOTLIGHT
          ══════════════════════════════════════════════════════════ */}
+      {/* Fade: dark → white */}
+      <div
+        className="w-full h-32"
+        style={{ background: 'linear-gradient(to bottom, #080604 0%, #fffaf0 100%)' }}
+      />
       <section
-        className="w-full py-12 my-8 relative overflow-hidden"
+        className="w-full py-12 relative overflow-hidden"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(135,206,235,0.15) 0%, rgba(255,250,240,0.95) 30%, rgba(255,250,240,1) 50%, rgba(255,250,240,0.95) 70%, rgba(135,206,235,0.15) 90%, transparent 100%)',
-          boxShadow: '0 0 120px 60px rgba(255,250,240,0.3), 0 0 60px 30px rgba(135,206,235,0.15), inset 0 0 60px rgba(255,250,240,0.5)',
+          background: '#fffaf0',
         }}
       >
-        {/* Glow edges */}
+        {/* Golden/orange aura spotlight around the sloth area */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="absolute pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, rgba(8,6,4,0.8) 0%, transparent 8%, transparent 92%, rgba(8,6,4,0.8) 100%)',
-          }}
-        />
-        <div
-          className="absolute -top-8 left-1/2 -translate-x-1/2 w-[80%] h-16 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse, rgba(135,206,235,0.4) 0%, transparent 70%)',
-            filter: 'blur(20px)',
-          }}
-        />
-        <div
-          className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-16 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse, rgba(135,206,235,0.4) 0%, transparent 70%)',
-            filter: 'blur(20px)',
+            top: '-40px',
+            left: '50%',
+            transform: 'translateX(-70%)',
+            width: '350px',
+            height: '350px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(232,82,10,0.18) 0%, rgba(255,200,50,0.12) 35%, rgba(255,215,0,0.06) 60%, transparent 80%)',
+            filter: 'blur(30px)',
+            zIndex: 1,
           }}
         />
 
@@ -300,16 +298,15 @@ export default function Home() {
               onClick={() => setLocation("/for/child")}
             >
               <div
-                className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden"
+                className="w-36 h-36 md:w-48 md:h-48 overflow-hidden"
                 style={{
-                  border: '4px solid #87CEEB',
-                  boxShadow: '0 0 30px rgba(135,206,235,0.5), 0 0 60px rgba(135,206,235,0.2)',
+                  filter: 'drop-shadow(0 0 25px rgba(232,82,10,0.35)) drop-shadow(0 0 50px rgba(255,215,0,0.2))',
                 }}
               >
-                <LightboxImage
+                <img
                    src={SLOTH_URL}
-                   alt="GallantryAI Sloth"
-                   className="w-full h-full object-cover"
+                   alt="GallantryAI Sloth — Click Me!"
+                   className="w-full h-full object-contain"
                  />
               </div>
             </div>
@@ -318,9 +315,9 @@ export default function Home() {
             <div className="text-center md:text-left flex-1">
               <p
                 className="text-xs font-bold uppercase tracking-[0.2em] mb-2"
-                style={{ color: '#87CEEB', fontFamily: "'Nunito', sans-serif" }}
+                style={{ color: '#E8520A', fontFamily: "'Nunito', sans-serif" }}
               >
-                Hey Kids! Check This Out!
+                Hey Kids! The Sloth Says Check This Out!
               </p>
               <h2
                 className="text-2xl md:text-3xl font-black mb-3"
@@ -338,7 +335,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
                 <span
                   className="px-3 py-1 rounded-full text-xs font-bold"
-                  style={{ background: '#87CEEB', color: '#1A1A2E' }}
+                  style={{ background: '#FFD700', color: '#1A1A2E' }}
                 >
                   Ages 6+
                 </span>
@@ -359,10 +356,10 @@ export default function Home() {
                 href="/for/child"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm no-underline transition-all hover:scale-105"
                 style={{
-                  background: '#87CEEB',
-                  color: '#1A1A2E',
+                  background: '#E8520A',
+                  color: '#fff',
                   fontFamily: "'Nunito', sans-serif",
-                  boxShadow: '0 0 20px rgba(135,206,235,0.4)',
+                  boxShadow: '0 0 20px rgba(232,82,10,0.4)',
                 }}
               >
                 Enter the Children{"\u2019"}s Section {"\u2192"}
@@ -371,6 +368,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Fade: white → dark */}
+      <div
+        className="w-full h-32"
+        style={{ background: 'linear-gradient(to bottom, #fffaf0 0%, #080604 100%)' }}
+      />
 
       {/* ── WHO ARE YOU? — Pathfinding Entry ── */}
       <section className="w-full py-12 px-6">
@@ -456,10 +458,9 @@ export default function Home() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {userPaths[selectedRole].flow.map((step, j) => (
-                  <Link
+                  <div
                     key={j}
-                    href={step.path}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm no-underline transition-all hover:scale-105"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm"
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
                       background: j === 0 ? '#E8520A' : '#1a1610',
@@ -467,8 +468,8 @@ export default function Home() {
                       border: j === 0 ? 'none' : '1px solid #2a2018',
                     }}
                   >
-                    <span className="text-xs opacity-60">{j + 1}.</span> {step.label} {"\u2192"}
-                  </Link>
+                    <span className="text-xs opacity-60">{j + 1}.</span> {step.label}
+                  </div>
                 ))}
               </div>
             </div>
@@ -776,6 +777,46 @@ export default function Home() {
                 <p className="text-sm italic mt-3" style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}>
                   {"\u201C"}Built for the people no one was watching for.{"\u201D"}
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── RESEARCH STATUS ── */}
+      <section className="w-full py-8 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div
+            className="rounded-2xl p-6"
+            style={{ background: '#0f0c08', border: '1px solid #1a1610' }}
+          >
+            <div className="flex items-start gap-3">
+              <div
+                className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"
+                style={{ background: '#2A9D8F', color: '#fff' }}
+              >
+                {"\u2713"}
+              </div>
+              <div>
+                <div
+                  className="text-xs font-bold uppercase tracking-widest mb-2"
+                  style={{ color: '#2A9D8F', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Research Status
+                </div>
+                <p className="text-sm leading-relaxed mb-2" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
+                  The <strong style={{ color: '#f5e6d0' }}>Marketing Prompt Field Report</strong> has been submitted to SSCI for peer review.
+                </p>
+                <p className="text-xs leading-relaxed mb-3" style={{ color: '#6b5a3e', fontFamily: "'DM Sans', sans-serif" }}>
+                  Not all content on this site is peer-reviewed. This is citizen field research {"\u2014"} kitchen-table work, documented honestly, submitted for scrutiny rather than validation. I am still learning how to be a field researcher.
+                </p>
+                <Link
+                  href="/field-papers"
+                  className="inline-flex items-center gap-2 text-xs font-semibold no-underline hover:underline"
+                  style={{ color: '#2A9D8F', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Read the Field Papers {"\u2192"}
+                </Link>
               </div>
             </div>
           </div>
