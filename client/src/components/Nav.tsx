@@ -41,6 +41,7 @@ const learnLinks = [
   { label: "Promptology Playground", path: "/playground" },
   { label: "The Scaffold", path: "/scaffold" },
   { label: "School Board", path: "/school-board" },
+  { label: "Kids Learn", path: "/kids-learn" },
 ];
 
 const exploreLinks = [

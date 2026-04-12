@@ -1149,6 +1149,13 @@ export default function ChildLens() {
             >
               Peek at the Watcher →
             </Link>
+            <Link
+              href="/kids-learn"
+              className="inline-block px-5 py-2.5 rounded-xl text-xs font-bold no-underline transition-all hover:scale-[1.02]"
+              style={{ background: "#2A9D8F", color: "#fff" }}
+            >
+              Learn to Prompt & Code →
+            </Link>
           </div>
         </div>
       </section>

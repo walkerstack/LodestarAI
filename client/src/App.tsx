@@ -50,6 +50,7 @@ import UserGovernance from "./pages/UserGovernance";
 import WatcherLens from "./pages/lenses/WatcherLens";
 import SchoolBoard from "./pages/SchoolBoard";
 import Scaffold from "./pages/Scaffold";
+import KidsLearn from "./pages/KidsLearn";
 
 function Router() {
   return (
@@ -96,6 +97,7 @@ function Router() {
       <Route path="/user-governance" component={UserGovernance} />
       <Route path="/school-board" component={SchoolBoard} />
       <Route path="/scaffold" component={Scaffold} />
+      <Route path="/kids-learn" component={KidsLearn} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

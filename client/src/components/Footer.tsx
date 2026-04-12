@@ -55,6 +55,7 @@ export default function Footer() {
               <Link href="/playground" className="block hover:text-[#E8520A] no-underline transition-colors">Playground</Link>
               <Link href="/scaffold" className="block hover:text-[#E8520A] no-underline transition-colors">The Scaffold</Link>
               <Link href="/school-board" className="block hover:text-[#E8520A] no-underline transition-colors">School Board</Link>
+              <Link href="/kids-learn" className="block hover:text-[#E8520A] no-underline transition-colors">Kids Learn</Link>
             </div>
 
             {/* Explore */}

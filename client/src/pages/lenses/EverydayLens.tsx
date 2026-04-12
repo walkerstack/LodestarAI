@@ -202,6 +202,7 @@ export default function EverydayLens() {
                 { step: "Learn the Road Protocol", desc: "A simple checklist for any AI session: Where am I going? What are my rules? When do I stop? It's like a pre-flight checklist for conversations.", link: "/road-protocol", color: "#6366f1" },
                 { step: "Explore the Framework Families", desc: "Visual tools that organize how you think about AI. Seasons, Colors, the Whelm Scale. Pick the one that makes sense to you.", link: "/frameworks", color: "#E8520A" },
                 { step: "Read the Children's Section", desc: "Even if you don't have kids — the children's section explains everything in the simplest possible terms. Sometimes that's exactly what you need.", link: "/for/child", color: "#2A9D8F" },
+                { step: "Learn to Prompt & Code Together", desc: "The Builder doesn't know how to code either. This page teaches kids (and anyone) how to prompt and code — step by step, honestly, together.", link: "/kids-learn", color: "#6366f1" },
               ].map((item, i) => (
                 <Link
                   key={i}
