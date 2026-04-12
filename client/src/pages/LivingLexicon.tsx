@@ -426,17 +426,124 @@ const lensLabels: Record<Lens, string> = {
   watcher: "Watcher",
 };
 
-const lensDescriptions: Record<Lens, string> = {
-  everyday: "Plain language. For anyone.",
-  professional: "Technical precision. For researchers and practitioners.",
-  watcher: "The deeper read. For those who watch the watchers.",
+const lensColors: Record<Lens, string> = {
+  everyday: "#059669",
+  professional: "#2563EB",
+  watcher: "#7C3AED",
 };
+
+function LexiconCard({ entry }: { entry: LexiconEntry }) {
+  const [lens, setLens] = useState<Lens>("everyday");
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div
+      className="rounded-xl overflow-hidden transition-all duration-200"
+      style={{
+        background: "#fff",
+        border: expanded ? `2px solid ${categoryColors[entry.category] || "#E8520A"}` : "1.5px solid #e8e0d0",
+        boxShadow: expanded ? `0 4px 16px ${categoryColors[entry.category] || "#E8520A"}15` : "none",
+      }}
+    >
+      {/* Header */}
+      <div className="p-5 pb-3">
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex-1">
+            <div className="flex items-center gap-2 flex-wrap mb-1">
+              <h3
+                className="font-bold text-base"
+                style={{ fontFamily: "'Playfair Display', serif", color: "#1A1A2E" }}
+              >
+                {entry.term}
+              </h3>
+              <span
+                className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wide"
+                style={{
+                  background: `${categoryColors[entry.category] || "#888"}15`,
+                  color: categoryColors[entry.category] || "#888",
+                }}
+              >
+                {entry.category}
+              </span>
+              {entry.family && (
+                <span className="text-[10px] italic" style={{ color: "#8a7a6a" }}>
+                  {entry.family}
+                </span>
+              )}
+            </div>
+          </div>
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="flex-shrink-0 text-xs mt-1 transition-transform duration-200"
+            style={{
+              color: "#8a7a6a",
+              transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            ▼
+          </button>
+        </div>
+
+        {/* Per-entry lens tabs */}
+        <div className="flex gap-1 mt-3 mb-3">
+          {(["everyday", "professional", "watcher"] as Lens[]).map((l) => (
+            <button
+              key={l}
+              onClick={() => setLens(l)}
+              className="px-3 py-1.5 rounded-lg text-[11px] font-bold uppercase tracking-wide transition-all duration-150"
+              style={{
+                background: lens === l ? lensColors[l] : "transparent",
+                color: lens === l ? "#fff" : lensColors[l],
+                border: lens === l ? `1.5px solid ${lensColors[l]}` : "1.5px solid #e8e0d0",
+              }}
+            >
+              {lensLabels[l]}
+            </button>
+          ))}
+        </div>
+
+        {/* Active lens content */}
+        <p className="text-sm leading-relaxed" style={{ color: "#4a4a4a" }}>
+          {entry[lens]}
+        </p>
+      </div>
+
+      {/* Expanded — all three lenses side by side */}
+      {expanded && (
+        <div className="px-5 pb-5 pt-2">
+          <div
+            className="rounded-xl p-4 space-y-4"
+            style={{ background: "#FAF6EF", border: "1px solid #e8e0d0" }}
+          >
+            <div className="text-[10px] uppercase tracking-wide font-semibold" style={{ color: "#E8520A" }}>
+              All Three Lenses
+            </div>
+            {(["everyday", "professional", "watcher"] as Lens[]).map((l) => (
+              <div key={l}>
+                <div
+                  className="text-xs font-bold uppercase tracking-wide mb-1"
+                  style={{ color: lensColors[l] }}
+                >
+                  {lensLabels[l]}
+                </div>
+                <p className="text-sm leading-relaxed" style={{ color: "#3a2a1a" }}>
+                  {entry[l]}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function LivingLexicon() {
   const [activeCategory, setActiveCategory] = useState("ALL");
-  const [activeLens, setActiveLens] = useState<Lens>("everyday");
   const [search, setSearch] = useState("");
-  const [expandedTerm, setExpandedTerm] = useState<string | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -447,7 +554,9 @@ export default function LivingLexicon() {
     const matchesSearch =
       search === "" ||
       t.term.toLowerCase().includes(search.toLowerCase()) ||
-      t[activeLens].toLowerCase().includes(search.toLowerCase());
+      t.everyday.toLowerCase().includes(search.toLowerCase()) ||
+      t.professional.toLowerCase().includes(search.toLowerCase()) ||
+      t.watcher.toLowerCase().includes(search.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -483,31 +592,6 @@ export default function LivingLexicon() {
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
 
-          {/* Lens Selector */}
-          <div className="mb-6">
-            <div className="text-xs uppercase tracking-wide font-semibold mb-3" style={{ color: "#E8520A" }}>
-              Choose Your Lens
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {(["everyday", "professional", "watcher"] as Lens[]).map((lens) => (
-                <button
-                  key={lens}
-                  onClick={() => setActiveLens(lens)}
-                  className="rounded-xl px-5 py-3 text-left transition-all duration-200"
-                  style={{
-                    background: activeLens === lens ? "#1A1A2E" : "#fff",
-                    color: activeLens === lens ? "#FFF8EE" : "#2D2D2D",
-                    border: activeLens === lens ? "2px solid #E8520A" : "2px solid #e8e0d0",
-                    minWidth: "160px",
-                  }}
-                >
-                  <div className="font-bold text-sm">{lensLabels[lens]}</div>
-                  <div className="text-[11px] mt-0.5" style={{ opacity: 0.7 }}>{lensDescriptions[lens]}</div>
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* Search */}
           <div className="mb-4">
             <input
@@ -539,88 +623,13 @@ export default function LivingLexicon() {
 
           {/* Count */}
           <div className="text-xs mb-6" style={{ color: "#8a7a6a" }}>
-            Showing {filtered.length} of {entries.length} entries · {lensLabels[activeLens]} lens
+            Showing {filtered.length} of {entries.length} entries · Each entry has its own lens toggle
           </div>
 
           {/* Terms */}
           <div className="space-y-3">
             {filtered.map((t) => (
-              <div
-                key={t.term}
-                className="rounded-xl overflow-hidden transition-all duration-200"
-                style={{
-                  background: "#fff",
-                  border: expandedTerm === t.term ? `2px solid ${categoryColors[t.category] || "#E8520A"}` : "1.5px solid #e8e0d0",
-                  boxShadow: expandedTerm === t.term ? `0 4px 16px ${categoryColors[t.category] || "#E8520A"}15` : "none",
-                }}
-              >
-                {/* Header — always visible */}
-                <button
-                  onClick={() => setExpandedTerm(expandedTerm === t.term ? null : t.term)}
-                  className="w-full p-5 text-left flex items-start justify-between gap-3"
-                >
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 flex-wrap mb-1">
-                      <h3
-                        className="font-bold text-base"
-                        style={{ fontFamily: "'Playfair Display', serif", color: "#1A1A2E" }}
-                      >
-                        {t.term}
-                      </h3>
-                      <span
-                        className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wide"
-                        style={{
-                          background: `${categoryColors[t.category] || "#888"}15`,
-                          color: categoryColors[t.category] || "#888",
-                        }}
-                      >
-                        {t.category}
-                      </span>
-                    </div>
-                    <p className="text-sm leading-relaxed" style={{ color: "#4a4a4a" }}>
-                      {t[activeLens]}
-                    </p>
-                  </div>
-                  <div
-                    className="flex-shrink-0 text-xs mt-1 transition-transform duration-200"
-                    style={{
-                      color: "#8a7a6a",
-                      transform: expandedTerm === t.term ? "rotate(180deg)" : "rotate(0deg)",
-                    }}
-                  >
-                    ▼
-                  </div>
-                </button>
-
-                {/* Expanded — all three lenses */}
-                {expandedTerm === t.term && (
-                  <div className="px-5 pb-5 pt-0">
-                    <div
-                      className="rounded-xl p-4 space-y-4"
-                      style={{ background: "#FAF6EF", border: "1px solid #e8e0d0" }}
-                    >
-                      <div className="text-[10px] uppercase tracking-wide font-semibold" style={{ color: "#E8520A" }}>
-                        All Three Lenses
-                      </div>
-                      {(["everyday", "professional", "watcher"] as Lens[]).map((lens) => (
-                        <div key={lens}>
-                          <div
-                            className="text-xs font-bold uppercase tracking-wide mb-1"
-                            style={{
-                              color: lens === "everyday" ? "#059669" : lens === "professional" ? "#2563EB" : "#7C3AED",
-                            }}
-                          >
-                            {lensLabels[lens]}
-                          </div>
-                          <p className="text-sm leading-relaxed" style={{ color: "#3a2a1a" }}>
-                            {t[lens]}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+              <LexiconCard key={t.term} entry={t} />
             ))}
           </div>
 

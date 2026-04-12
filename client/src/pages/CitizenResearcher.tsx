@@ -6,6 +6,7 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect } from "react";
 
@@ -126,7 +127,7 @@ export default function CitizenResearcher() {
           </div>
 
           <div className="mt-10">
-            <img src={IMG.governance} alt="Governance-First Framework" className="w-full rounded-xl shadow-lg" loading="lazy" />
+            <LightboxImage src={IMG.governance} alt="Governance-First Framework" className="w-full rounded-xl shadow-lg" />
             <p className="text-xs text-[#888] mt-3 text-center italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               Governance disciplines behavior across six refinement categories, converting constraint into capability.
             </p>
@@ -163,7 +164,7 @@ export default function CitizenResearcher() {
           </div>
 
           <div className="mt-10">
-            <img src={IMG.alcm} alt="Atomic Language Control Model" className="w-full rounded-xl shadow-lg" loading="lazy" />
+            <LightboxImage src={IMG.alcm} alt="Atomic Language Control Model" className="w-full rounded-xl shadow-lg" />
             <p className="text-xs text-[#888] mt-3 text-center italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
               The Atomic Language Control Model: Cognitive Physics & Reasoning. Words as control dials.
             </p>
@@ -203,7 +204,7 @@ export default function CitizenResearcher() {
       {/* The Watcher */}
       <section className="py-16 md:py-20 bg-[#1A1A2E]">
         <div className="container max-w-3xl mx-auto px-6 text-center">
-          <img src={IMG.bridge} alt="Bridge between two worlds" className="w-full max-w-md mx-auto rounded-xl shadow-2xl mb-10 opacity-80" loading="lazy" />
+          <LightboxImage src={IMG.bridge} alt="Bridge between two worlds" className="w-full max-w-md mx-auto rounded-xl shadow-2xl mb-10 opacity-80" />
           <h2 className="text-2xl md:text-3xl font-bold text-[#FAF6EF] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
             The Watcher
           </h2>

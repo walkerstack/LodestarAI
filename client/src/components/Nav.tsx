@@ -27,6 +27,7 @@ const learnLinks = [
   { label: "The Five Rules", path: "/rules" },
   { label: "Road Protocol", path: "/road-protocol" },
   { label: "Flower Presets", path: "/flower-presets" },
+  { label: "AI Family Taxonomy", path: "/taxonomy" },
 ];
 
 const exploreLinks = [

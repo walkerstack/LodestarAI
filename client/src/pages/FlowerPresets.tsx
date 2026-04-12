@@ -9,6 +9,7 @@
 import { useState, useEffect } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
@@ -222,7 +223,7 @@ export default function FlowerPresets() {
 
           {/* Infographic */}
           <div className="mb-10 rounded-2xl overflow-hidden shadow-md" style={{ border: "2px solid #e8e0d0" }}>
-            <img src={IMG.accessibilityPresets} alt="Cognitive Accessibility Flower Presets — 11 flowers for 11 needs" className="w-full" />
+            <LightboxImage src={IMG.accessibilityPresets} alt="Cognitive Accessibility Flower Presets — 11 flowers for 11 needs" className="w-full" />
           </div>
 
           {/* Interactive Flower Grid */}
@@ -314,7 +315,7 @@ export default function FlowerPresets() {
 
           {/* Infographic */}
           <div className="mb-10 rounded-2xl overflow-hidden shadow-md" style={{ border: "2px solid #e8e0d0" }}>
-            <img src={IMG.essenceModulation} alt="Essence Modulation — 12 flowers for tone tuning" className="w-full" />
+            <LightboxImage src={IMG.essenceModulation} alt="Essence Modulation — 12 flowers for tone tuning" className="w-full" />
           </div>
 
           {/* Interactive Essence Grid */}
@@ -385,7 +386,7 @@ export default function FlowerPresets() {
             when applied systematically. The content stays the same. The voice changes everything.
           </p>
           <div className="rounded-2xl overflow-hidden shadow-lg" style={{ border: "2px solid #e8e0d0" }}>
-            <img src={IMG.essenceSpectrum} alt="The 12-Essence Spectrum — complete document rewriting system" className="w-full" />
+            <LightboxImage src={IMG.essenceSpectrum} alt="The 12-Essence Spectrum — complete document rewriting system" className="w-full" />
           </div>
         </div>
       </section>

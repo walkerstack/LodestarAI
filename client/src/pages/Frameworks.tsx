@@ -6,6 +6,7 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 
@@ -117,20 +118,14 @@ const families = [
 ];
 
 function FrameworkCard({ item }: { item: { title: string; description: string; image: string } }) {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <div className="bg-white rounded-2xl border border-[#e8e0d0] shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <div
-        className="cursor-pointer"
-        onClick={() => setExpanded(!expanded)}
-      >
-        <img
+      <div>
+        <LightboxImage
           src={item.image}
           alt={item.title}
           className="w-full object-contain bg-[#faf8f4]"
-          loading="lazy"
-          style={{ maxHeight: expanded ? "none" : "400px" }}
+          style={{ maxHeight: "500px" }}
         />
       </div>
       <div className="p-6">
@@ -140,13 +135,9 @@ function FrameworkCard({ item }: { item: { title: string; description: string; i
         <p className="text-sm text-[#555] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           {item.description}
         </p>
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="mt-3 text-xs text-[#E8520A] font-medium hover:underline"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
-        >
-          {expanded ? "Collapse image ↑" : "Expand full image ↓"}
-        </button>
+        <p className="mt-3 text-[10px] text-[#999] italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          Click image to expand
+        </p>
       </div>
     </div>
   );
@@ -220,11 +211,10 @@ export default function Frameworks() {
           <p className="text-base text-[#b0a898] mb-8" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             Where are you thinking? Not all thinking travels the same ground. Season + Weather + Geography = a three-axis control system.
           </p>
-          <img
+          <LightboxImage
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/geography-next-layer-teaser_604e82c0.png"
-            alt="Geography — Next Layer"
+            alt="Geography \u2014 Next Layer"
             className="w-full max-w-lg mx-auto rounded-xl shadow-2xl"
-            loading="lazy"
           />
           <p className="mt-6 text-sm text-[#888] italic" style={{ fontFamily: "'Playfair Display', serif" }}>
             Stay tuned.
