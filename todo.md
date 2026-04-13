@@ -14,3 +14,7 @@
 - [x] Foundation section: different font (Nunito), rounded-3xl cards
 - [x] Kids and School Board links get color treatment on homepage (purple, teal, green)
 - [x] Build kids page 'What Are Patterns?' — sloth-guided, warm white theme, wired into children's learning flow
+- [x] Build "What the AI Said" page with 3 conversation exchanges from screenshots
+- [x] Add Watcher description to What the AI Said page
+- [x] Wire What the AI Said into routes and nav
+- [x] Include AI-written report to its creators on the What the AI Said page

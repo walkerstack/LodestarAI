@@ -123,4 +123,9 @@ export const kidsBlurbs: Record<string, { story: string; quote: string; attribut
     quote: "You don't need permission to discover something. But it's nice when someone checks your work.",
     attribution: "The Review",
   },
+  "/what-the-ai-said": {
+    story: "This page has real conversations between the Builder and the AI — where the AI said some really important things about itself. Like admitting it can be careless, and that it has tools to do better but didn't use them. This is grown-up stuff about honesty and trust. Your page keeps it simpler.",
+    quote: "When someone tells you who they are, listen.",
+    attribution: "What the AI Said",
+  },
 };

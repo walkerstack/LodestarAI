@@ -103,6 +103,7 @@ export default function Footer() {
               <Link href="/counter-arguments" className="block hover:text-[#E8520A] no-underline transition-colors">Counter Arguments</Link>
               <Link href="/screenshot-sharing" className="block hover:text-[#E8520A] no-underline transition-colors">Screenshot Sharing</Link>
               <Link href="/field-report-review" className="block hover:text-[#E8520A] no-underline transition-colors">Field Report Review</Link>
+              <Link href="/what-the-ai-said" className="block hover:text-[#E8520A] no-underline transition-colors">What the AI Said</Link>
             </div>
 
             {/* Explore */}

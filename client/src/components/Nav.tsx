@@ -63,6 +63,7 @@ const researchLinks = [
   { label: "Counter Arguments", path: "/counter-arguments" },
   { label: "Screenshot Sharing", path: "/screenshot-sharing" },
   { label: "Field Report Review", path: "/field-report-review" },
+  { label: "What the AI Said", path: "/what-the-ai-said" },
 ];
 
 const exploreLinks = [

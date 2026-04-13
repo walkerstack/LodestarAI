@@ -64,6 +64,7 @@ import ScreenshotSharing from "./pages/ScreenshotSharing";
 import FieldReportReview from "./pages/FieldReportReview";
 import ChildFiveRules from "./pages/ChildFiveRules";
 import ChildPatterns from "./pages/ChildPatterns";
+import WhatTheAiSaid from "./pages/WhatTheAiSaid";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -130,6 +131,7 @@ function Router() {
       <Route path="/counter-arguments" component={CounterArguments} />
       <Route path="/screenshot-sharing" component={ScreenshotSharing} />
       <Route path="/field-report-review" component={FieldReportReview} />
+      <Route path="/what-the-ai-said" component={WhatTheAiSaid} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

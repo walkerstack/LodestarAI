@@ -347,4 +347,19 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "Everyday Lens", href: "/for/everyday", description: "The simplest explanation" },
     ],
   },
+  whatTheAiSaid: {
+    deeper: [
+      { label: "What Claude Admitted", href: "/what-claude-admitted", description: "13 admissions from a real AI session" },
+      { label: "User-Side Governance", href: "/user-governance", description: "The framework the AI failed to follow" },
+    ],
+    wider: [
+      { label: "The Human Line", href: "/human-line", description: "Where the boundary lives" },
+      { label: "Counter Arguments", href: "/counter-arguments", description: "The honest criticisms" },
+      { label: "Dual Strategy", href: "/dual-strategy", description: "Why user governance matters" },
+    ],
+    simpler: [
+      { label: "Five Rules", href: "/rules", description: "The rules the AI agreed it should follow" },
+      { label: "Everyday Lens", href: "/for/everyday", description: "The simplest version" },
+    ],
+  },
 };
