@@ -12,7 +12,7 @@ import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import IntroCrawl from "./components/IntroCrawl";
+// IntroCrawl saved in components/IntroCrawl.tsx — removed from display, kept in codebase
 import OopsSloth from "./components/OopsSloth";
 
 import ChildLens from "./pages/lenses/ChildLens";
@@ -139,19 +139,7 @@ function Router() {
 }
 
 function App() {
-  const [showIntro, setShowIntro] = useState(() => {
-    // Show intro only once per browser session
-    return !sessionStorage.getItem("gallantry-intro-v6");
-  });
-
-  const handleIntroComplete = () => {
-    sessionStorage.setItem("gallantry-intro-v6", "1");
-    setShowIntro(false);
-    // Always land on home after intro
-    if (window.location.pathname !== "/") {
-      window.location.href = "/";
-    }
-  };
+  // IntroCrawl splash screen disabled — file preserved in components/IntroCrawl.tsx
 
   return (
     <ErrorBoundary>
@@ -160,7 +148,7 @@ function App() {
           <Toaster />
           <OopsSloth />
 
-          {showIntro && <IntroCrawl onComplete={handleIntroComplete} />}
+          {/* IntroCrawl removed from display — file preserved in components/IntroCrawl.tsx */}
           <ScrollToTop />
           <Router />
         </TooltipProvider>
