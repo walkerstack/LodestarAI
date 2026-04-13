@@ -37,8 +37,8 @@ const foundationLinks = [
 const forYouLinks = [
   { label: "School Board", path: "/school-board", color: "#0d9488" },
   { label: "Kids Learn", path: "/kids-learn", color: "#7c3aed" },
-  { label: "Child Five Rules", path: "/for/child/rules", color: "#7c3aed" },
-  { label: "What Are Patterns?", path: "/for/child/patterns", color: "#7c3aed" },
+  { label: "Child Five Rules", path: "/for/child/rules", color: "#e11d48" },
+  { label: "What Are Patterns?", path: "/for/child/patterns", color: "#059669" },
 ];
 
 const toolsLinks = [
