@@ -18,3 +18,5 @@
 - [x] Add Watcher description to What the AI Said page
 - [x] Wire What the AI Said into routes and nav
 - [x] Include AI-written report to its creators on the What the AI Said page
+- [x] Backup full Home.tsx to HomeFullBackup.tsx (complete, untouched)
+- [x] Trim Home.tsx to hero-only (top of screen: hero image, tagline, CTAs, nav)
