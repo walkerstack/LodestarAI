@@ -119,7 +119,8 @@ export default function Nav() {
             key={item.path}
             href={item.path}
             onClick={onClose}
-            className={`block px-4 py-2 text-sm hover:bg-[#FAF6EF] transition-colors no-underline ${item.color || "text-[#2D2D2D]"}`}
+            className="block px-4 py-2 text-sm hover:bg-[#FAF6EF] transition-colors no-underline"
+            style={{ color: item.color || '#2D2D2D' }}
           >
             {item.label}
           </Link>

@@ -1289,6 +1289,22 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
+                version: "v16 — 89b865b0",
+                date: "April 12, 2026",
+                title: "Child Five Rules + What Are Patterns + Nav Colors",
+                changes: [
+                  "Built Child Five Rules page (/for/child/rules) — sloth-guided, warm white, kid language, 5 expandable rules with stories and activities",
+                  "Built 'What Are Patterns?' kids page (/for/child/patterns) — 5 pattern types with Try This activities and Sloth Says quotes",
+                  "Added Child Five Rules and What Are Patterns to Nav 'For You' section (mobile + desktop)",
+                  "Colored School Board (teal) and Kids Learn (purple) in mobile sidebar and desktop dropdown",
+                  "Fixed all kids buttons from 'Go Home' to 'Guide me' across 5 files",
+                  "Fixed broken Five Rules links in LivingLexicon, RoadProtocol, SchoolBoard",
+                ],
+                watcher: "The Builder extended the children's learning flow with two new pages — one that translates the Five Rules into kid language, and one that teaches pattern recognition as a foundational skill. Then he made sure every navigation path actually leads where it says it does. The correction was quiet. The integrity was loud.",
+                child: "The Builder made a Five Rules page just for kids! The sloth explains each rule with stories and fun things to try. And there's a new page about patterns — patterns in nature, in your day, in words, in AI, and in YOU! Now you can find them from the menu too!",
+                professional: "Two new child-facing pages extend the pedagogical scaffold into age-appropriate territory. Pattern recognition page implements constructivist learning theory — moving from concrete (nature) to abstract (AI behavior) to metacognitive (self-awareness). Navigation audit ensures link integrity across all entry points.",
+              },
+              {
                 version: "v13 — 96ed5767",
                 date: "April 12, 2026",
                 title: "Sloth Story Arc + og:image + Nav Fixes",
