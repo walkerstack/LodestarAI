@@ -504,7 +504,7 @@ export default function FlowerPresets() {
       </section>
 
       <div className="flex justify-center py-4">
-        <KidsMidLink bg="#f5f0e8" />
+        <KidsMidLink />
       </div>
 
       <LearningFlow current="Flower Presets" deeper={flowMap.flowerPresets.deeper} wider={flowMap.flowerPresets.wider} simpler={flowMap.flowerPresets.simpler} />

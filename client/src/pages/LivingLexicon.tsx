@@ -719,7 +719,7 @@ export default function LivingLexicon() {
       </main>
 
       <div className="flex justify-center py-4">
-        <KidsMidLink bg="#f5f0e8" />
+        <KidsMidLink />
       </div>
 
       <LearningFlow current="Living Lexicon" deeper={flowMap.lexicon.deeper} wider={flowMap.lexicon.wider} simpler={flowMap.lexicon.simpler} dark />
