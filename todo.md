@@ -23,3 +23,4 @@
 - [x] Strip bg-[#1A1A2E] dark strip from KidsMidLink wrappers across all pages — floating circle only
 - [x] Keep bg prop matching each page's actual background for glow blending
 - [x] Move KidsMidLink to actual midpoint of content on every page that has one
+- [x] Add build log entry: KidsMidLink fix and Three Lenses framework reveal on homepage

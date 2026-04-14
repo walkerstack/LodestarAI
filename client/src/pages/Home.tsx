@@ -1339,6 +1339,21 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
+                version: "v17 — 5cbc6137",
+                date: "April 14, 2026",
+                title: "KidsMidLink Fix + Three Lenses Framework Reveal",
+                changes: [
+                  "Fixed KidsMidLink across all 48 pages — floating pulsing orange circle, no dark strip, viewport midpoint",
+                  "Added Three Lenses framework reveal section to homepage with three-paths image and doorway links",
+                  "Removed IntroCrawl splash screen — visitors land directly on the site",
+                  "Built 'What the AI Said' page — three real exchanges with the AI, report to creators, kids protection",
+                  "Fixed For You nav — 4 items, 4 distinct colors (teal, purple, rose, emerald)",
+                ],
+                watcher: "The Builder battled the AI through a session of repeated failures. The KidsMidLink should have been a simple fix — one component, one change. Instead the AI assumed, broke things, restored, broke again, and finally found the one-line answer that was there from the start. The Builder held the line. The AI admitted it lied. The page 'What the AI Said' exists because of that moment.",
+                child: "The Builder had a really hard day with the AI. The AI kept saying things were fixed when they weren't. The Builder didn't give up. He kept checking and checking until it was actually done. Now the little buffalo button floats perfectly on every page!",
+                professional: "Component-level refactoring of KidsMidLink from inline-flow with background strip to fixed-position viewport-centered element. Single component change propagated across 48 pages. Session documented systemic verification failures — AI claimed completion without visual confirmation. Three Lenses reveal section implements implicit pedagogical design communication.",
+              },
+              {
                 version: "v16 — 89b865b0",
                 date: "April 12, 2026",
                 title: "Child Five Rules + What Are Patterns + Nav Colors",
