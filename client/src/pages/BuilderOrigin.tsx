@@ -375,7 +375,7 @@ export default function BuilderOrigin() {
       </section>
 
       <div style={{ background: "#1A1A1A" }}>
-      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+      <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
 

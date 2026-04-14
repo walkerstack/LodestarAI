@@ -20,3 +20,5 @@
 - [x] Include AI-written report to its creators on the What the AI Said page
 - [x] Backup full Home.tsx to HomeFullBackup.tsx (complete, untouched)
 - [x] Trim Home.tsx to hero-only (top of screen: hero image, tagline, CTAs, nav)
+- [x] Strip bg-[#1A1A2E] dark strip from KidsMidLink wrappers across all pages — floating circle only
+- [x] Keep bg prop matching each page's actual background for glow blending

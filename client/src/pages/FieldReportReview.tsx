@@ -298,7 +298,7 @@ export default function FieldReportReview() {
           </div>
 
           {/* KidsMidLink */}
-          <div className="flex justify-center py-6">
+          <div className="flex justify-center py-4">
             <KidsMidLink />
           </div>
         </div>

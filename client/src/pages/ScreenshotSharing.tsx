@@ -359,7 +359,7 @@ export default function ScreenshotSharing() {
           </div>
 
           {/* KidsMidLink in dark section */}
-          <div className="flex justify-center py-6">
+          <div className="flex justify-center py-4">
             <KidsMidLink />
           </div>
         </div>

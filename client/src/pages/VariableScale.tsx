@@ -200,7 +200,7 @@ export default function VariableScale() {
         </section>
       </main>
 
-      <div className="flex justify-center py-6 bg-[#1A1A2E]">
+      <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
 
