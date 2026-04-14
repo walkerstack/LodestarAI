@@ -1188,6 +1188,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── THE FRAMEWORK REVEAL ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/three-paths-converge_eb134838.png"
+              alt="Three paths converge — the sloth, the buffalo, and the child meet at the same point of light."
+              className="w-full max-w-2xl mx-auto rounded-2xl mb-8"
+              style={{ border: '1px solid #1a1610' }}
+            />
+            <p
+              className="text-sm md:text-base leading-relaxed mb-4"
+              style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              You just read three voices saying the same thing differently. That was not an accident.
+            </p>
+            <p
+              className="text-sm md:text-base leading-relaxed mb-4"
+              style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              This site is built as a framework of learning and growing. The structure teaches you while you read it. Three paths — the guide, the guardian, and the learner — all arriving at the same place.
+            </p>
+            <p
+              className="text-sm md:text-base leading-relaxed mb-8"
+              style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              <strong style={{ color: '#f5e6d0' }}>You have already been inside the framework.</strong> Now you can choose your next step.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/three-lenses">
+                <span
+                  className="inline-block px-6 py-3 rounded-lg text-sm font-semibold cursor-pointer transition-opacity hover:opacity-80"
+                  style={{ background: '#E8520A', color: '#fff', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Understand the Three Lenses
+                </span>
+              </Link>
+              <Link href="/rules">
+                <span
+                  className="inline-block px-6 py-3 rounded-lg text-sm font-semibold cursor-pointer transition-opacity hover:opacity-80"
+                  style={{ background: 'transparent', color: '#E8520A', border: '1px solid #E8520A', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Start with the Five Rules
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── WHO BUILT THIS ── */}
       <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">
