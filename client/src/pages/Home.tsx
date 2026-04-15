@@ -1441,7 +1441,20 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                version: "v22 — current",
+                version: "v23 — current",
+                date: "April 15, 2026",
+                title: "v23: AI Companies Taxonomy + Research Hub Field Events + Homepage Taxonomy Entry",
+                changes: [
+                  "Taxonomy page expanded with AI Companies section — Anthropic, OpenAI, Google DeepMind, Meta AI, xAI (Grok), Mistral. Each entry includes: what the company is, their stated stance on safety, a GallantryAI field note on how they behave when something unexpected happens, and a one-line signal for users. Written at the GallantryAI register: honest, not promotional, not dismissive.",
+                  "Homepage — added Taxonomy entry section before Research Status. 'Know Who You're Talking To. Know Who Built It.' Links to /taxonomy. Notes the new Companies section as v23 addition.",
+                  "Research Hub — added two new entries under a new 'Field Events' category: (1) 171 Emotion Vectors Inside Claude — Anthropic interpretability team, April 2026. Links to transformer-circuits.pub paper and Wired coverage. Three voices: everyday, professional, watcher. (2) Claude Mythos: Autonomous Discovery and Project Glasswing — links to Anthropic system card, Glasswing page, and Fortune coverage. Three voices. First version of the site to respond directly to breaking field events.",
+                ],
+                watcher: "The site grew up a little in this version. The Taxonomy always mapped what kind of AI you're talking to. Now it maps who built it and how they behave. That's the second layer of trust. The Research Hub now has two entries that didn't exist as academic papers — they're field events, happening in real time. The 171 vectors paper is the most important piece of AI research for the GallantryAI thesis since the RLHF papers. It proves the anthropomorphism page isn't just about user perception. The model has internal states that function like emotions and causally drive output. Governance is not just about the user. It's about the model.",
+                child: "The Builder added a new section to the Taxonomy page that talks about the companies that make the AIs — not just the AIs themselves. And the Research page now has two new entries about things that just happened in the real world. One is about scientists finding 171 feelings inside Claude. The other is about an AI called Mythos that found old broken things in computers that nobody had found for 27 years.",
+                professional: "Taxonomy page extended with company-level analysis: six major AI labs assessed on stated safety stance, disclosure behavior, and field-observable signals. Research Hub extended with two contemporaneous field events: (1) Anthropic interpretability team's 171 functional emotion representation paper (transformer-circuits.pub, April 2026) — first published evidence of causal emotional states in a major model, with direct implications for user-side governance. (2) Claude Mythos autonomous zero-day discovery and Project Glasswing — case study in responsible disclosure when AI capability outpaces human planning. First version of the site to document breaking field events alongside peer-reviewed research.",
+              },
+              {
+                version: "v22 — previous",
                 date: "April 15, 2026",
                 title: "v22: Anthropomorphism Across All Professional Lenses + Guardian/Teacher Teaching Sections",
                 changes: [

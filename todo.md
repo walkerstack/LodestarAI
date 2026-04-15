@@ -51,3 +51,5 @@
 - [x] v23: Homepage — add Taxonomy entry with link and short description
 - [x] v23: Research page — add 171 emotion vectors article (link + why it matters, three voices)
 - [x] v23: Research page — add Mythos/Project Glasswing article (link + why it matters, three voices)
+- [x] v23.1: Update builder's log to v23 in Home.tsx
+- [x] v23.1: Add Field Events category to ResearchHub, re-tag 171 vectors and Mythos entries

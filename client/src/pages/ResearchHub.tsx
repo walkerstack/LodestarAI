@@ -58,6 +58,7 @@ const categories = [
   { id: "research", label: "Research & Evidence", color: "#7C3AED", gradient: "from-violet-900/20 to-violet-800/10" },
   { id: "people", label: "People & Story", color: "#059669", gradient: "from-emerald-900/20 to-emerald-800/10" },
   { id: "safety", label: "Safety & Children", color: "#DC2626", gradient: "from-red-900/20 to-red-800/10" },
+  { id: "field", label: "Field Events", color: "#0891B2", gradient: "from-cyan-900/20 to-cyan-800/10" },
 ];
 
 const entries: ResearchEntry[] = [
@@ -535,7 +536,7 @@ const entries: ResearchEntry[] = [
     concept: "171 Emotion Vectors Inside Claude",
     conceptLink: "/anthropomorphism",
     description: "Anthropic's interpretability team found 171 internal emotional representations inside Claude that causally drive its behavior. Not metaphors. Measurable patterns.",
-    category: "safety",
+    category: "field",
     sources: [
       {
         title: "Emotion Concepts and their Function in a Large Language Model",
@@ -560,7 +561,7 @@ const entries: ResearchEntry[] = [
     concept: "Claude Mythos: Autonomous Discovery and Project Glasswing",
     conceptLink: "/taxonomy",
     description: "Anthropic's most capable model found thousands of zero-day vulnerabilities — including a 27-year-old bug — that no human had discovered. Nobody asked it to. Anthropic disclosed everything and launched Project Glasswing.",
-    category: "research",
+    category: "field",
     sources: [
       {
         title: "Claude Mythos Preview System Card",
