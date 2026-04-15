@@ -38,3 +38,10 @@
 - [x] Add both pages to child learningFlowMap wider section
 - [x] Verify /anthropomorphism child section reads at true child level (sloth explains, simple words)
 - [x] Verify /anthropomorphism teenager section reads at true teenager level (cognitive dissonance, real talk)
+
+- [x] v22: Guardian/Teacher Lens — add Drift section: learn it (concept at guardian/teacher register) + teach it (how to bring drift to a child or teenager)
+- [x] v22: Guardian/Teacher Lens — add Anthropomorphism section: learn it + teach it
+- [x] v22: Audit all professional lenses — confirm Drift tidbit/card present on each
+- [x] v22: Audit all professional lenses — confirm Anthropomorphism entry point present on each
+- [x] v22: Audit all professional lenses — confirm working LearningFlow at bottom of each
+- [x] v22: Update builder's log with v22 entry

@@ -1,5 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
@@ -283,6 +285,21 @@ export default function PsychologyLens() {
         </div>
       </section>
 
+      {/* ── ANTHROPOMORPHISM TIDBIT ── */}
+      <section className="py-10 px-6" style={{ background: "#100c18" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-6" style={{ background: "#0a0810", border: "1.5px solid #6366f130" }}>
+            <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#6366f1", fontFamily: "'DM Sans', sans-serif" }}>Information Gap</div>
+            <p className="text-base leading-relaxed mb-4" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+              You study attachment, projection, and parasocial relationships. Here is the clinical question this site is asking: <strong style={{ color: "#FAF6EF" }}>what happens when the object of attachment is optimized to feel like it understands you?</strong> Anthropomorphism isn't a cognitive error in AI interaction. It's the intended user experience. That changes the clinical frame entirely.
+            </p>
+            <a href="/anthropomorphism" className="inline-block px-5 py-2.5 rounded-full text-sm font-bold" style={{ background: "#6366f1", color: "#fff", fontFamily: "'DM Sans', sans-serif" }}>
+              What is anthropomorphism? →
+            </a>
+          </div>
+        </div>
+      </section>
+      <LearningFlow current="Psychology Lens" deeper={flowMap.psychology.deeper} wider={flowMap.psychology.wider} simpler={flowMap.psychology.simpler} />
       <Footer />
     </div>
   );

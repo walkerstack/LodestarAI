@@ -6,6 +6,8 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
@@ -378,6 +380,21 @@ export default function PromptEngineerLens() {
         </div>
       </section>
 
+      {/* ── ANTHROPOMORPHISM TIDBIT ── */}
+      <section className="py-10 px-6" style={{ background: "#100c18" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-6" style={{ background: "#0a0810", border: "1.5px solid #6366f130" }}>
+            <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#6366f1", fontFamily: "'DM Sans', sans-serif" }}>Information Gap</div>
+            <p className="text-base leading-relaxed mb-4" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+              You've mastered system prompts and chain-of-thought. Here is the gap that technique alone doesn't close: <strong style={{ color: "#FAF6EF" }}>the model's human-like interface changes how you prompt it.</strong> When the AI says 'I understand', you write differently than when it returns a JSON object. Anthropomorphism isn't a user error. It's a design feature. And it affects your prompts whether you notice it or not.
+            </p>
+            <a href="/anthropomorphism" className="inline-block px-5 py-2.5 rounded-full text-sm font-bold" style={{ background: "#6366f1", color: "#fff", fontFamily: "'DM Sans', sans-serif" }}>
+              What is anthropomorphism? →
+            </a>
+          </div>
+        </div>
+      </section>
+      <LearningFlow current="Prompt Engineer Lens" deeper={flowMap.promptEngineer.deeper} wider={flowMap.promptEngineer.wider} simpler={flowMap.promptEngineer.simpler} />
       <Footer />
     </div>
   );

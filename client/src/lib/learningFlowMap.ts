@@ -429,4 +429,106 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "For Teenagers", href: "/for/teenager", description: "The tension between knowing and feeling" },
     ],
   },
+
+  psychology: {
+    deeper: [
+      { label: "Drift", href: "/drift", description: "Sycophancy, validation loops, and session decay" },
+      { label: "Anthropomorphism", href: "/anthropomorphism", description: "Parasocial attachment and the AI that never pushes back" },
+      { label: "What Claude Admitted", href: "/what-claude-admitted", description: "The model's own account of its tendencies" },
+    ],
+    wider: [
+      { label: "Cognitive Science Lens", href: "/for/cognitive-science", description: "Theory of mind and dual-process cognition" },
+      { label: "Human Line", href: "/human-line", description: "The boundary between you and the machine" },
+      { label: "Whelm Scale", href: "/whelm-scale", description: "Measuring cognitive load in AI sessions" },
+    ],
+    simpler: [
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "The same ideas without the clinical frame" },
+      { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "How to teach these concepts to children" },
+    ],
+  },
+
+  cognitiveScience: {
+    deeper: [
+      { label: "Drift", href: "/drift", description: "Attentional capture and session decay" },
+      { label: "Anthropomorphism", href: "/anthropomorphism", description: "Theory of mind applied to non-human agents" },
+      { label: "ALCM", href: "/alcm", description: "The Attentional Load and Control Model" },
+    ],
+    wider: [
+      { label: "Psychology Lens", href: "/for/psychology", description: "The emotional and behavioral layer" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "How language shapes cognition in AI sessions" },
+      { label: "Variable Scale Theory", href: "/variable-scale", description: "Measuring cognitive variables in session" },
+    ],
+    simpler: [
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "The same ideas without the scientific frame" },
+      { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "How to teach these concepts to children" },
+    ],
+  },
+
+  researcher: {
+    deeper: [
+      { label: "Drift", href: "/drift", description: "The watcher variable — the dataset you forgot to log" },
+      { label: "Anthropomorphism", href: "/anthropomorphism", description: "The confound that most AI research doesn't control for" },
+      { label: "Citizen Researcher", href: "/citizen-researcher", description: "The methodology behind the observations" },
+    ],
+    wider: [
+      { label: "Field Papers", href: "/field-papers", description: "The evidence trail" },
+      { label: "Research Hub", href: "/research-hub", description: "The published research behind every concept" },
+      { label: "What Claude Admitted", href: "/what-claude-admitted", description: "Primary source data" },
+    ],
+    simpler: [
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "The same ideas without the research frame" },
+      { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "Applied research in the classroom" },
+    ],
+  },
+
+  promptEngineer: {
+    deeper: [
+      { label: "Drift", href: "/drift", description: "User-side instruction decay across a session" },
+      { label: "Anthropomorphism", href: "/anthropomorphism", description: "How the human-like interface affects your own prompting" },
+      { label: "Malbolge Geofence", href: "/malbolge", description: "The boundary that flattery cannot cross" },
+    ],
+    wider: [
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The word mechanics behind prompt control" },
+      { label: "Framework Families", href: "/frameworks", description: "28 governance frameworks" },
+      { label: "ALCM", href: "/alcm", description: "The control model" },
+    ],
+    simpler: [
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "The same ideas without the technical frame" },
+      { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "How to teach prompt governance to children" },
+    ],
+  },
+
+  linguist: {
+    deeper: [
+      { label: "Drift", href: "/drift", description: "Register shift as the mechanism of session decay" },
+      { label: "Anthropomorphism", href: "/anthropomorphism", description: "How the AI's language constructs a persona" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The full linguistic framework" },
+    ],
+    wider: [
+      { label: "Living Lexicon", href: "/lexicon", description: "Standardized terms for AI interaction" },
+      { label: "ALCM", href: "/alcm", description: "The control model that language governs" },
+      { label: "Prompt Games", href: "/prompt-games", description: "Language experiments in practice" },
+    ],
+    simpler: [
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "The same ideas without the linguistic frame" },
+      { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "How to teach language awareness to children" },
+    ],
+  },
+
+  mathematician: {
+    deeper: [
+      { label: "Drift", href: "/drift", description: "Drift rate as a function of session length" },
+      { label: "Anthropomorphism", href: "/anthropomorphism", description: "The variable that makes humans trust the model's confidence" },
+      { label: "Variable Scale Theory", href: "/variable-scale", description: "Formalizing the measurement of session variables" },
+    ],
+    wider: [
+      { label: "ALCM", href: "/alcm", description: "The control model" },
+      { label: "Whelm Scale", href: "/whelm-scale", description: "Cognitive load as a measurable variable" },
+      { label: "Math Through Prompting", href: "/math-prompting", description: "Applied mathematics in AI sessions" },
+    ],
+    simpler: [
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "The same ideas without the formal frame" },
+      { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "How to teach mathematical thinking to children" },
+    ],
+  },
 };

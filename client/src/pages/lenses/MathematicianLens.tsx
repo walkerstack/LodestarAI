@@ -6,6 +6,8 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
@@ -330,6 +332,21 @@ export default function MathematicianLens() {
         </div>
       </section>
 
+      {/* ── ANTHROPOMORPHISM TIDBIT ── */}
+      <section className="py-10 px-6" style={{ background: "#100c18" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-6" style={{ background: "#0a0810", border: "1.5px solid #6366f130" }}>
+            <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#6366f1", fontFamily: "'DM Sans', sans-serif" }}>Information Gap</div>
+            <p className="text-base leading-relaxed mb-4" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+              You model systems with precision. Here is the variable most AI governance frameworks haven't formalized: <strong style={{ color: "#FAF6EF" }}>the human's trust in the model is a function of anthropomorphism, not accuracy.</strong> Users trust confident-sounding AI more than accurate-but-uncertain AI. The confidence signal is social, not mathematical. That's the gap anthropomorphism creates in your model.
+            </p>
+            <a href="/anthropomorphism" className="inline-block px-5 py-2.5 rounded-full text-sm font-bold" style={{ background: "#6366f1", color: "#fff", fontFamily: "'DM Sans', sans-serif" }}>
+              What is anthropomorphism? →
+            </a>
+          </div>
+        </div>
+      </section>
+      <LearningFlow current="Mathematician Lens" deeper={flowMap.mathematician.deeper} wider={flowMap.mathematician.wider} simpler={flowMap.mathematician.simpler} />
       <Footer />
     </div>
   );

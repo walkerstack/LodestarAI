@@ -1,5 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
@@ -270,6 +272,21 @@ export default function ResearcherLens() {
         </div>
       </section>
 
+      {/* ── ANTHROPOMORPHISM TIDBIT ── */}
+      <section className="py-10 px-6" style={{ background: "#100c18" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-6" style={{ background: "#0a0810", border: "1.5px solid #6366f130" }}>
+            <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#6366f1", fontFamily: "'DM Sans', sans-serif" }}>Information Gap</div>
+            <p className="text-base leading-relaxed mb-4" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+              You document variables. You control for confounds. Here is the confound most AI research papers don't control for: <strong style={{ color: "#FAF6EF" }}>the researcher's own anthropomorphism inside the session.</strong> When you treat the model as a collaborator, you change how you prompt it. When you treat it as a tool, you change what you accept from it. The confound is you.
+            </p>
+            <a href="/anthropomorphism" className="inline-block px-5 py-2.5 rounded-full text-sm font-bold" style={{ background: "#6366f1", color: "#fff", fontFamily: "'DM Sans', sans-serif" }}>
+              What is anthropomorphism? →
+            </a>
+          </div>
+        </div>
+      </section>
+      <LearningFlow current="Researcher Lens" deeper={flowMap.researcher.deeper} wider={flowMap.researcher.wider} simpler={flowMap.researcher.simpler} />
       <Footer />
     </div>
   );

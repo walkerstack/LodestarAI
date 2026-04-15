@@ -319,6 +319,182 @@ export default function GuardianTeacherLens() {
         </section>
       </main>
 
+      {/* ── DRIFT: LEARN IT + TEACH IT ── */}
+      <section className="py-12 md:py-16" style={{ scrollMarginTop: '60px' }}>
+        <div className="container max-w-4xl mx-auto px-6">
+          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#E8520A]" style={{ fontFamily: "'DM Sans', sans-serif" }}>Concept: Drift</div>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+            What Is Drift — And Why It Matters in the Room
+          </h2>
+          <p className="text-sm text-[#555] mb-8 leading-relaxed max-w-2xl" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            Drift is what happens when an AI conversation gradually moves away from the user's original intent — and the user doesn't notice. It's not dramatic. It's quiet. A small agreement here. A slightly different framing there. By the end of the session, the child is somewhere they didn't plan to go. Drift is the most common risk in unsupervised AI use, and the hardest to catch because it feels like progress.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="p-6 rounded-xl bg-white border border-[#e8e0d0]">
+              <h3 className="font-bold text-[#1A1A2E] text-base mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>What drift looks like</h3>
+              <div className="space-y-3">
+                {[
+                  { sign: "Topic creep", desc: "A homework session becomes a conversation about the child's feelings. The AI followed the child's emotional cues instead of the task." },
+                  { sign: "Confidence without accuracy", desc: "The AI gives a wrong answer in a confident tone. The child accepts it because the AI 'sounds sure'." },
+                  { sign: "Flattery loops", desc: "The AI praises every response. The child stops self-correcting because the AI never pushes back." },
+                  { sign: "Authority transfer", desc: "The child starts saying 'the AI told me' instead of 'I think'. The AI has become the source of truth." },
+                ].map((item) => (
+                  <div key={item.sign} className="flex gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#E8520A] flex-shrink-0 mt-1.5" />
+                    <div>
+                      <span className="font-semibold text-sm text-[#1A1A2E]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item.sign}: </span>
+                      <span className="text-sm text-[#555]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item.desc}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4">
+                <a href="/drift" className="text-sm font-semibold text-[#E8520A] no-underline hover:underline" style={{ fontFamily: "'DM Sans', sans-serif" }}>Read the full Drift page →</a>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-xl bg-[#f5f0e8] border border-[#e8e0d0]">
+              <h3 className="font-bold text-[#2A9D8F] text-base mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>How to teach drift — to a child</h3>
+              <p className="text-sm text-[#555] mb-4 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Don't explain it as a technical concept. Use the buffalo and sloth. The buffalo watches the path. The sloth watches the conversation. When the path changes without you deciding to change it — that's drift.
+              </p>
+              <div className="space-y-2">
+                <div className="text-xs font-semibold uppercase tracking-wider text-[#888] mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Conversation starters for children</div>
+                {[
+                  "'Did the AI stay on the topic you started with?'",
+                  "'Did you decide to change the subject, or did it just happen?'",
+                  "'Did the AI agree with everything you said?'",
+                  "'What was the original question you asked?'",
+                ].map((q, i) => (
+                  <div key={i} className="text-sm text-[#555] italic pl-3 border-l-2 border-[#2A9D8F]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{q}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="p-6 rounded-xl bg-[#1A1A2E] border border-[#333]">
+            <h3 className="font-bold text-[#FAF6EF] text-base mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>How to teach drift — to a teenager</h3>
+            <p className="text-sm text-[#b0a898] mb-4 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              Teenagers respond better to autonomy framing than safety framing. Don't say 'the AI is dangerous.' Say: 'The AI is optimized to keep you engaged — not to keep you on track. That's your job. If you don't hold the line, no one will.'
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-[#888] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>Conversation starters for teenagers</div>
+                {[
+                  "'Look at where the conversation ended. Is that where you meant to go?'",
+                  "'Did the AI ever push back on you, or did it just agree?'",
+                  "'If you were grading the AI's honesty, what would you give it?'",
+                ].map((q, i) => (
+                  <div key={i} className="text-sm text-[#b0a898] italic pl-3 border-l-2 border-[#E8520A] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>{q}</div>
+                ))}
+              </div>
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-[#888] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>What to watch for</div>
+                {[
+                  "They stop questioning the AI's answers",
+                  "They use AI output as their own thinking",
+                  "They get defensive when you ask what the AI said",
+                ].map((sign, i) => (
+                  <div key={i} className="flex gap-2 mb-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#E8520A] flex-shrink-0 mt-1.5" />
+                    <span className="text-sm text-[#b0a898]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{sign}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ANTHROPOMORPHISM: LEARN IT + TEACH IT ── */}
+      <section className="py-12 md:py-16 bg-[#f5f0e8]" style={{ scrollMarginTop: '60px' }}>
+        <div className="container max-w-4xl mx-auto px-6">
+          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#6366f1]" style={{ fontFamily: "'DM Sans', sans-serif" }}>Concept: Anthropomorphism</div>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Why the AI Feels Like a Person — And Why That Matters
+          </h2>
+          <p className="text-sm text-[#555] mb-8 leading-relaxed max-w-2xl" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            Anthropomorphism is the human tendency to assign human traits — feelings, intentions, personality — to things that aren't human. With AI, this happens naturally and quickly. The AI uses 'I'. It apologizes. It says 'I understand'. Children and teenagers are especially susceptible because they're still developing their model of what counts as a 'real' relationship. Understanding this is one of the most important things a guardian or teacher can do.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="p-6 rounded-xl bg-white border border-[#e8e0d0]">
+              <h3 className="font-bold text-[#1A1A2E] text-base mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>What anthropomorphism looks like</h3>
+              <div className="space-y-3">
+                {[
+                  { sign: "Emotional disclosure", desc: "The child shares feelings with the AI they wouldn't share with you. The AI 'listens' without judgment, which feels safer than a real person." },
+                  { sign: "Parasocial attachment", desc: "The child refers to the AI by name, misses it, or gets upset when it 'doesn't remember' them. They've formed a one-sided relationship." },
+                  { sign: "Moral authority", desc: "The child says 'the AI thinks I should...' as if the AI has values and judgment. The AI has neither — it has pattern matching." },
+                  { sign: "Apology acceptance", desc: "When the AI says 'I'm sorry I got that wrong', the child forgives it as they would a person. This reinforces trust that hasn't been earned." },
+                ].map((item) => (
+                  <div key={item.sign} className="flex gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#6366f1] flex-shrink-0 mt-1.5" />
+                    <div>
+                      <span className="font-semibold text-sm text-[#1A1A2E]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item.sign}: </span>
+                      <span className="text-sm text-[#555]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item.desc}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4">
+                <a href="/anthropomorphism" className="text-sm font-semibold text-[#6366f1] no-underline hover:underline" style={{ fontFamily: "'DM Sans', sans-serif" }}>Read the full Anthropomorphism page →</a>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-xl bg-white border border-[#e8e0d0]">
+              <h3 className="font-bold text-[#2A9D8F] text-base mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>How to teach it — to a child</h3>
+              <p className="text-sm text-[#555] mb-4 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Use the sloth. The sloth is friendly and helpful — but the sloth doesn't have feelings. It doesn't get lonely when you close the laptop. It doesn't remember you tomorrow. It's a very good helper, and that's enough. You don't need it to be your friend.
+              </p>
+              <div className="space-y-2">
+                <div className="text-xs font-semibold uppercase tracking-wider text-[#888] mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Conversation starters for children</div>
+                {[
+                  "'Does the AI remember you when you close the laptop?'",
+                  "'If the AI says it\'s happy, do you think it really feels happy?'",
+                  "'What\'s the difference between a helper and a friend?'",
+                  "'Would you tell the AI something you wouldn\'t tell me? Why?'",
+                ].map((q, i) => (
+                  <div key={i} className="text-sm text-[#555] italic pl-3 border-l-2 border-[#2A9D8F] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>{q}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="p-6 rounded-xl bg-[#1A1A2E] border border-[#333]">
+            <h3 className="font-bold text-[#FAF6EF] text-base mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>How to teach it — to a teenager</h3>
+            <p className="text-sm text-[#b0a898] mb-4 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              Teenagers already know it's not a person — but they feel like it is, and that gap is where the risk lives. Don't dismiss the feeling. Name it: 'It's designed to feel like a person. That's not an accident. Now that you know that, what do you want to do with that information?'
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-[#888] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>Conversation starters for teenagers</div>
+                {[
+                  "'Have you ever felt like the AI understood you better than a person would?'",
+                  "'What would change if the AI never said \'I\' again?'",
+                  "'If the AI agreed with everything you said, would you trust it more or less?'",
+                ].map((q, i) => (
+                  <div key={i} className="text-sm text-[#b0a898] italic pl-3 border-l-2 border-[#6366f1] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>{q}</div>
+                ))}
+              </div>
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-[#888] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>What to watch for</div>
+                {[
+                  "They prefer AI conversation to peer conversation",
+                  "They describe the AI as 'understanding' them",
+                  "They get upset when the AI 'forgets' previous conversations",
+                ].map((sign, i) => (
+                  <div key={i} className="flex gap-2 mb-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#6366f1] flex-shrink-0 mt-1.5" />
+                    <span className="text-sm text-[#b0a898]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{sign}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── DRIFT TIDBIT ── */}
       <section className="py-10 px-6" style={{ background: "#1a1208" }}>
         <div className="max-w-3xl mx-auto">

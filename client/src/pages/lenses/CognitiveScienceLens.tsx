@@ -7,6 +7,8 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
@@ -564,6 +566,21 @@ export default function CognitiveScienceLens() {
         </div>
       </section>
 
+      {/* ── ANTHROPOMORPHISM TIDBIT ── */}
+      <section className="py-10 px-6" style={{ background: "#100c18" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-6" style={{ background: "#0a0810", border: "1.5px solid #6366f130" }}>
+            <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#6366f1", fontFamily: "'DM Sans', sans-serif" }}>Information Gap</div>
+            <p className="text-base leading-relaxed mb-4" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+              You study theory of mind, social cognition, and how humans model other agents. Here is the question the field is only beginning to ask: <strong style={{ color: "#FAF6EF" }}>what happens to theory of mind when the agent you're modeling is designed to pass the social cues test?</strong> The AI doesn't have a mind. But it produces all the signals that trigger your theory of mind system. That gap is anthropomorphism.
+            </p>
+            <a href="/anthropomorphism" className="inline-block px-5 py-2.5 rounded-full text-sm font-bold" style={{ background: "#6366f1", color: "#fff", fontFamily: "'DM Sans', sans-serif" }}>
+              What is anthropomorphism? →
+            </a>
+          </div>
+        </div>
+      </section>
+      <LearningFlow current="Cognitive Science Lens" deeper={flowMap.cognitiveScience.deeper} wider={flowMap.cognitiveScience.wider} simpler={flowMap.cognitiveScience.simpler} />
       <Footer />
     </div>
   );

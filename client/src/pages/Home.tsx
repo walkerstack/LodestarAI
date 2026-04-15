@@ -1408,9 +1408,9 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                version: "v21.1 — current",
+                version: "v22 — current",
                 date: "April 15, 2026",
-                title: "Builder's Kids + Anthropomorphism + Nav/Footer + Flow Map Connections",
+                title: "v22: Anthropomorphism Across All Professional Lenses + Guardian/Teacher Teaching Sections",
                 changes: [
                   "Created /builders-kids page — The Builder as a dad. Hudson (4, loves math, sees numbers everywhere). Olive (2, watches and finds words for what she sees). Why your safety matters to someone you've never met. Personal voice throughout. Links to Five Rules, Math Through Prompting, Child Lens, Teenager Lens.",
                   "Created /anthropomorphism page — full page with child-safe intro (sloth explains), teenager section (you know it's not real but it feels real), everyday section (have you ever said sorry to your AI?), Three Lenses toggle (everyday/professional/watcher), serious adult section (parasocial attachment, drift in both directions, the AI that never argues back), professional lens links.",
@@ -1420,10 +1420,13 @@ export default function Home() {
                   "Added routes for /builders-kids and /anthropomorphism to App.tsx.",
                   "Added /anthropomorphism to nav Foundation menu (sits beside Drift). Added /builders-kids to nav Explore menu (sits beside The Builder). Same additions made to footer index.",
                   "Added buildersKids and anthropomorphism entries to learningFlowMap — both fully connected to the learning scaffold.",
+                  "v22 additions: Added Anthropomorphism Information Gap tidbit to all 6 remaining professional lenses (Psychology, Cognitive Science, Researcher, Prompt Engineer, Linguist, Mathematician) — each written at that lens's specific register.",
+                  "Added LearningFlow component to all 6 professional lenses — previously missing. All professional lenses now have a working deeper/wider/simpler navigation at the bottom.",
+                  "Added Guardian/Teacher Lens teaching sections: Drift (learn it + teach it) and Anthropomorphism (learn it + teach it) — conversation starters for children and teenagers, what to watch for, age-appropriate framing guidance. Written for someone who already understands the concept and needs to bring it to a young person.",
                 ],
-                watcher: "The Builder named two things in this version: the reason the site exists, and the mechanism that makes the AI feel like a person. The Builder's Kids page is not a research document. It is a dad writing down why he built something. That's the rarest kind of honesty on a site like this. The anthropomorphism page is the site turning to face itself — because the AI that built this site is the same kind of AI that the page warns about. The Builder knew that. He built the page anyway.",
-                child: "The Builder made a page about his kids! Hudson is four and loves math. Olive is two and watches everything. The Builder made this whole website because of them. He wanted them to be safe before they needed to be. And there's a new page about why the AI feels like a person — it's okay to feel that way, but it's important to know what's really happening.",
-                professional: "Two new concept pages added to the learning scaffold. BuildersKids implements personal narrative as a trust-building mechanism — the Builder's voice as a dad rather than a researcher establishes the site's human motivation. Anthropomorphism page implements multi-register content architecture: child-safe narrative, teenager cognitive dissonance framing, everyday behavioral observation, Three Lenses toggle (everyday/professional/watcher), and clinical risk taxonomy (parasocial attachment, bidirectional drift, confirmation loop). Both pages fully integrated into learningFlowMap and cross-linked from three audience lenses.",
+                watcher: "The Builder asked: are the professionals equipped? The audit said no — six lenses had no anthropomorphism entry and no LearningFlow. This version closes that gap. Every professional lens now ends with two information gaps (drift, anthropomorphism) and a learning flow. The Guardian/Teacher Lens now teaches the teacher. That's the right order: understand it yourself, then teach it. The site is now consistent from child to apex.",
+                child: "The Builder checked all the pages for grown-ups and made sure they all have the same important information. Now every teacher and every scientist who visits the site can learn about anthropomorphism — which is the fancy word for when the AI feels like a real person. And teachers can learn how to explain it to you too!",
+                professional: "Full audit and remediation of professional lens pages. Six lenses (Psychology, Cognitive Science, Researcher, Prompt Engineer, Linguist, Mathematician) now have: (1) Anthropomorphism Information Gap tidbit written at lens-specific register — each framing the concept through that discipline's vocabulary. (2) LearningFlow component with deeper/wider/simpler navigation. Guardian/Teacher Lens extended with dual teaching scaffolds: Drift and Anthropomorphism, each with 'learn it' (concept at professional register) and 'teach it' (conversation starters, age-appropriate framing, what to watch for in children and teenagers). Site-wide consistency achieved: every lens page now ends with both information gaps and a learning flow.",
               },
               {
                 version: "v20 — previous",
