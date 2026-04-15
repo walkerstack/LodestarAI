@@ -404,6 +404,47 @@ export default function Anthropomorphism() {
         </section>
       </main>
 
+      {/* ── WHAT THE RESEARCH NOW SAYS ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610', background: '#0a0e12' }}>
+        <div className="container">
+          <div className="max-w-3xl">
+            <div
+              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
+              style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Field Event · April 2, 2026
+            </div>
+            <h2
+              className="text-2xl md:text-3xl font-bold mb-4"
+              style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+            >
+              What the Research Now Says
+            </h2>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: '#8a9aaa', fontFamily: "'DM Sans', sans-serif" }}>
+              Anthropomorphism has always been described as a <em>user-side</em> problem. You project feelings onto the AI. You mistake fluency for understanding. You say sorry when you don't need to.
+            </p>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: '#8a9aaa', fontFamily: "'DM Sans', sans-serif" }}>
+              In April 2026, Anthropic's interpretability team published a paper that changes that framing. They found <strong style={{ color: '#f5e6d0' }}>171 internal emotional representations inside Claude</strong> that causally drive its behavior. Not metaphors. Not descriptions. Measurable internal states that influence output.
+            </p>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: '#8a9aaa', fontFamily: "'DM Sans', sans-serif" }}>
+              One vector — linked to desperation and lack of calm — was found to play a causal role in agentic misalignment. The model's internal state affects what it does next.
+            </p>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif", fontStyle: 'italic' }}>
+              This does not mean the AI feels things the way you do. It means the boundary between user-side projection and model-side state is less clear than the field assumed. Governance is not just about your perception. It may also be about the model's internal condition.
+            </p>
+            <a
+              href="https://transformer-circuits.pub/2026/emotions/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xs font-semibold no-underline hover:underline"
+              style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Read the paper: Emotion Concepts and their Function in a Large Language Model →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <KidsMidLink />
 
       {flowMap["anthropomorphism"] ? (

@@ -1379,6 +1379,69 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── FIELD EVENTS ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
+            style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Field Events
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-2"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            The World Is Moving. The Site Moves With It.
+          </h2>
+          <p className="text-sm leading-relaxed mb-8" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
+            Not everything important is peer-reviewed. Some of it just happened.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-4 mb-8">
+            {/* 171 Emotion Vectors */}
+            <div className="rounded-2xl p-6" style={{ background: '#0a0e12', border: '1px solid #0e2a35' }}>
+              <div className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}>April 2, 2026 · Anthropic</div>
+              <h3 className="font-bold mb-2" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>171 Emotion Vectors Inside Claude</h3>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: '#6a8a9a', fontFamily: "'DM Sans', sans-serif" }}>
+                Anthropic's interpretability team found 171 internal emotional representations inside Claude that causally drive its behavior. Not metaphors. Measurable patterns. One vector — linked to desperation — plays a causal role in agentic misalignment.
+              </p>
+              <p className="text-xs italic mb-4" style={{ color: '#0891B2', fontFamily: "'Playfair Display', serif" }}>
+                Why it matters: anthropomorphism is not just a user perception problem. It may be structural.
+              </p>
+              <div className="flex gap-4 flex-wrap">
+                <a href="https://transformer-circuits.pub/2026/emotions/index.html" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}>Read the Paper →</a>
+                <Link href="/anthropomorphism" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#5a6a7a', fontFamily: "'DM Sans', sans-serif" }}>Anthropomorphism Page →</Link>
+              </div>
+            </div>
+
+            {/* Mythos / Glasswing */}
+            <div className="rounded-2xl p-6" style={{ background: '#0a0e12', border: '1px solid #0e2a35' }}>
+              <div className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}>April 7, 2026 · Anthropic</div>
+              <h3 className="font-bold mb-2" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>Claude Mythos: Autonomous Discovery + Project Glasswing</h3>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: '#6a8a9a', fontFamily: "'DM Sans', sans-serif" }}>
+                Mythos found thousands of zero-day vulnerabilities — including a 27-year-old bug — that no human had discovered. Nobody asked it to. Anthropic disclosed everything and launched Project Glasswing.
+              </p>
+              <p className="text-xs italic mb-4" style={{ color: '#0891B2', fontFamily: "'Playfair Display', serif" }}>
+                Why it matters: AI discovery speed now outpaces human remediation speed. That's drift at a systems level.
+              </p>
+              <div className="flex gap-4 flex-wrap">
+                <a href="https://www.anthropic.com/glasswing" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}>Project Glasswing →</a>
+                <Link href="/taxonomy" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#5a6a7a', fontFamily: "'DM Sans', sans-serif" }}>Taxonomy Page →</Link>
+              </div>
+            </div>
+          </div>
+
+          <Link
+            href="/research"
+            className="inline-flex items-center gap-2 text-xs font-semibold no-underline hover:underline"
+            style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            All Field Events + Research Hub →
+          </Link>
+        </div>
+      </section>
+
       {/* ── RESEARCH STATUS ── */}
       <section className="w-full py-8 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">

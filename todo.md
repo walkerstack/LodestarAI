@@ -53,3 +53,6 @@
 - [x] v23: Research page — add Mythos/Project Glasswing article (link + why it matters, three voices)
 - [x] v23.1: Update builder's log to v23 in Home.tsx
 - [x] v23.1: Add Field Events category to ResearchHub, re-tag 171 vectors and Mythos entries
+- [x] v24: Homepage — add Field Events section with 171 vectors and Mythos article links + link to Research Hub
+- [x] v24: Taxonomy page — Mythos already covered under Anthropic entry, no duplicate needed
+- [x] v24: Anthropomorphism page — add 171 vectors finding block (What the Research Now Says section)
