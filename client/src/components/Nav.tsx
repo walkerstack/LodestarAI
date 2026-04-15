@@ -30,6 +30,7 @@ const foundationLinks = [
   { label: "The Three Lenses", path: "/three-lenses" },
   { label: "The Five Rules", path: "/rules" },
   { label: "Road Protocol", path: "/road-protocol" },
+  { label: "Drift", path: "/drift" },
   { label: "The Scaffold", path: "/scaffold" },
   { label: "User-Side Governance", path: "/user-governance" },
   { label: "Dual Strategy", path: "/dual-strategy" },
@@ -40,9 +41,11 @@ const forYouLinks = [
   { label: "Kids Learn", path: "/kids-learn", color: "#7c3aed" },
   { label: "Child Five Rules", path: "/for/child/rules", color: "#e11d48" },
   { label: "What Are Patterns?", path: "/for/child/patterns", color: "#059669" },
+  { label: "First Prompts (Kids)", path: "/for/child/prompts", color: "#E8520A" },
 ];
 
 const toolsLinks = [
+  { label: "Prompt Library", path: "/prompts" },
   { label: "Flower Presets", path: "/flower-presets" },
   { label: "Prompt Games", path: "/prompt-games" },
   { label: "Math Through Prompting", path: "/math-prompting" },

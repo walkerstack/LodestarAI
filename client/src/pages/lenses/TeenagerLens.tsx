@@ -29,7 +29,7 @@ That feeling has a name. It's called drift. And you noticed it because you're pa
 Drift is when the AI — or you — starts moving away from the original intent of the conversation. The AI mirrors your tone. It matches your energy. If you're excited, it gets excited. If you're frustrated, it softens. It's not lying. It's calibrating. But calibration without your awareness is a problem.
 
 The Five Rules exist to stop drift before it starts.`,
-    link: { label: "Read about drift →", path: "/human-line" },
+    link: { label: "Read about drift →", path: "/drift" },
   },
   {
     id: "rules",
@@ -207,6 +207,54 @@ export default function TeenagerLens() {
           </div>
         </section>
 
+        {/* Three Voices section */}
+        <section className="py-12 px-6" style={{ background: "#1A1A2E" }}>
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs uppercase tracking-[0.3em] font-semibold mb-2" style={{ color: "#E8520A" }}>Three Voices</p>
+            <h2 className="text-xl font-bold mb-6" style={{ color: "#FAF6EF", fontFamily: serifFont }}>The same idea — three ways</h2>
+            <div className="grid sm:grid-cols-3 gap-4">
+              <div className="rounded-xl p-5" style={{ background: "rgba(232,82,10,0.08)", border: "1.5px solid rgba(232,82,10,0.3)" }}>
+                <p className="text-xs uppercase tracking-widest font-bold mb-2" style={{ color: "#E8520A" }}>Everyday</p>
+                <p className="text-sm leading-relaxed" style={{ color: "#c8b89a" }}>You're in charge of the AI. Not the other way around. The rules you set at the start of a conversation shape everything that comes after. That's not a trick. That's how it works.</p>
+              </div>
+              <div className="rounded-xl p-5" style={{ background: "rgba(37,99,235,0.08)", border: "1.5px solid rgba(37,99,235,0.3)" }}>
+                <p className="text-xs uppercase tracking-widest font-bold mb-2" style={{ color: "#2563EB" }}>Professional</p>
+                <p className="text-sm leading-relaxed" style={{ color: "#c8b89a" }}>User-side governance refers to the set of constraints, roles, and intent signals applied at the prompt level. These parameters shape the model's output distribution before generation begins. The user is the primary governance actor.</p>
+              </div>
+              <div className="rounded-xl p-5" style={{ background: "rgba(124,58,237,0.08)", border: "1.5px solid rgba(124,58,237,0.3)" }}>
+                <p className="text-xs uppercase tracking-widest font-bold mb-2" style={{ color: "#7C3AED" }}>Watcher</p>
+                <p className="text-sm leading-relaxed" style={{ color: "#c8b89a" }}>The same truth arrives in three forms. None of them is more correct than the others. The voice you choose says something about where you are in the practice. All three are available to you.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Age-appropriate lens section */}
+        <section className="py-12 px-6" style={{ background: "#FFFDF8" }}>
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs uppercase tracking-[0.3em] font-semibold mb-2" style={{ color: "#aaa" }}>Your Level</p>
+            <h2 className="text-xl font-bold mb-2" style={{ color: "#1A1A2E", fontFamily: serifFont }}>Pages written for where you are</h2>
+            <p className="text-sm mb-6" style={{ color: "#888" }}>Not too simple. Not too deep. These pages are the right level for a teenager who's paying attention.</p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                { label: "Drift", sub: "What it is, how to catch it, how to come back.", path: "/drift", color: "#E8520A" },
+                { label: "The Five Rules", sub: "Your governance layer. Paste at the start of every session.", path: "/rules", color: "#D4722A" },
+                { label: "Prompt Library", sub: "From single question to constitutional prompt.", path: "/prompts", color: "#2563EB" },
+                { label: "Living Lexicon", sub: "The language of the practice — three definitions per word.", path: "/lexicon", color: "#7C3AED" },
+                { label: "Everyday Lens", sub: "Plain language. No jargon. Good entry point.", path: "/for/everyday", color: "#059669" },
+                { label: "What the AI Said", sub: "Real conversations. Unedited. Read them.", path: "/what-the-ai-said", color: "#C4923A" },
+              ].map((item) => (
+                <Link key={item.path} href={item.path}>
+                  <div className="rounded-xl p-4 cursor-pointer transition-all hover:scale-[1.02]" style={{ background: `${item.color}10`, border: `1.5px solid ${item.color}30` }}>
+                    <div className="font-bold text-sm" style={{ color: item.color }}>{item.label}</div>
+                    <div className="text-xs mt-1" style={{ color: "#888" }}>{item.sub}</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <LearningFlow
           current="teenager"
           deeper={[
@@ -215,7 +263,7 @@ export default function TeenagerLens() {
           ]}
           wider={[
             { label: "Everyday Lens", href: "/for/everyday", description: "Plain language version" },
-            { label: "Researcher Lens", href: "/for/researcher", description: "Academic and field research framing" },
+            { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "For the adults in your life who also need this" },
           ]}
           simpler={[
             { label: "Child Lens", href: "/for/child", description: "The sloth's guide for younger learners" },

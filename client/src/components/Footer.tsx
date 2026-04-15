@@ -60,6 +60,7 @@ export default function Footer() {
               <Link href="/three-lenses" className="block hover:text-[#E8520A] no-underline transition-colors">The Three Lenses</Link>
               <Link href="/rules" className="block hover:text-[#E8520A] no-underline transition-colors">The Five Rules</Link>
               <Link href="/road-protocol" className="block hover:text-[#E8520A] no-underline transition-colors">Road Protocol</Link>
+              <Link href="/drift" className="block hover:text-[#E8520A] no-underline transition-colors">Drift</Link>
               <Link href="/scaffold" className="block hover:text-[#E8520A] no-underline transition-colors">The Scaffold</Link>
               <Link href="/user-governance" className="block hover:text-[#E8520A] no-underline transition-colors">User-Side Governance</Link>
               <Link href="/dual-strategy" className="block hover:text-[#E8520A] no-underline transition-colors">Dual Strategy</Link>
@@ -70,6 +71,9 @@ export default function Footer() {
               <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">For You</div>
               <Link href="/school-board" className="block hover:text-[#E8520A] no-underline transition-colors">School Board</Link>
               <Link href="/kids-learn" className="block hover:text-[#E8520A] no-underline transition-colors">Kids Learn</Link>
+              <Link href="/for/child/rules" className="block hover:text-[#E8520A] no-underline transition-colors">Child Five Rules</Link>
+              <Link href="/for/child/patterns" className="block hover:text-[#E8520A] no-underline transition-colors">What Are Patterns?</Link>
+              <Link href="/for/child/prompts" className="block hover:text-[#E8520A] no-underline transition-colors">First Prompts (Kids)</Link>
 
               {/* Safety — nested under For You */}
               <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mt-4 mb-2">Safety</div>
@@ -81,6 +85,7 @@ export default function Footer() {
             {/* Tools */}
             <div className="space-y-1.5">
               <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Tools</div>
+              <Link href="/prompts" className="block hover:text-[#E8520A] no-underline transition-colors">Prompt Library</Link>
               <Link href="/flower-presets" className="block hover:text-[#E8520A] no-underline transition-colors">Flower Presets</Link>
               <Link href="/prompt-games" className="block hover:text-[#E8520A] no-underline transition-colors">Prompt Games</Link>
               <Link href="/math-prompting" className="block hover:text-[#E8520A] no-underline transition-colors">Math Through Prompting</Link>

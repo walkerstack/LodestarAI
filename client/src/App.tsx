@@ -66,6 +66,9 @@ import ChildFiveRules from "./pages/ChildFiveRules";
 import ChildPatterns from "./pages/ChildPatterns";
 import WhatTheAiSaid from "./pages/WhatTheAiSaid";
 import TeenagerLens from "./pages/lenses/TeenagerLens";
+import PromptLibrary from "./pages/PromptLibrary";
+import ChildPrompts from "./pages/ChildPrompts";
+import Drift from "./pages/Drift";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -84,6 +87,7 @@ function Router() {
       <Route path="/for/child" component={ChildLens} />
       <Route path="/for/child/rules" component={ChildFiveRules} />
       <Route path="/for/child/patterns" component={ChildPatterns} />
+      <Route path="/for/child/prompts" component={ChildPrompts} />
       <Route path="/for/guardian-teacher" component={GuardianTeacherLens} />
       <Route path="/for/prompt-engineer" component={PromptEngineerLens} />
       <Route path="/for/linguist" component={LinguistLens} />
@@ -134,6 +138,8 @@ function Router() {
       <Route path="/screenshot-sharing" component={ScreenshotSharing} />
       <Route path="/field-report-review" component={FieldReportReview} />
       <Route path="/what-the-ai-said" component={WhatTheAiSaid} />
+      <Route path="/prompts" component={PromptLibrary} />
+      <Route path="/drift" component={Drift} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

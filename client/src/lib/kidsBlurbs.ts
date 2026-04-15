@@ -128,6 +128,21 @@ export const kidsBlurbs: Record<string, { story: string; quote: string; attribut
     quote: "Every piece connects. That's what makes it a scaffold.",
     attribution: "The Scaffold",
   },
+  "/prompts": {
+    story: "This page is about all the different ways you can talk to AI — from asking one simple question all the way to writing a whole set of rules. There's a special kids version called First Prompts. You can find it by clicking the button at the top of this page.",
+    quote: "Every conversation starts with a single word. Choose it carefully.",
+    attribution: "The Prompt Library",
+  },
+  "/for/child/prompts": {
+    story: "This page is just for you. It shows you five kinds of prompts — the first things you can type to an AI. Start with asking a question. Work your way up to the safety prompt. The sloth will guide you.",
+    quote: "Your first prompt is already inside you. It's the thing you've always wanted to know.",
+    attribution: "First Prompts",
+  },
+  "/drift": {
+    story: "This page is about something called drift — when a conversation with AI slowly moves away from what you actually wanted. It's like starting a walk to the park and ending up at the grocery store without noticing. This page helps you notice. And come back.",
+    quote: "Drift is not a failure. Catching it is a skill.",
+    attribution: "The Drift Page",
+  },
   "/for/teenager": {
     story: "This page is for teenagers learning about AI. It talks about how to stay in charge of AI conversations, how to notice when something feels off, and how to use words carefully. It's honest and direct — just like the buffalo.",
     quote: "You already know something is off. Now you have the words for it.",
