@@ -59,3 +59,5 @@
 - [x] v24.1: Update builder's log to v24 in Home.tsx
 - [x] v24.1: Add Mythos/Glasswing Field Event block to Drift page
 - [x] v24.1: Add Field Events nav entry to Nav and Footer (deep-links to ?category=field filter)
+- [x] v24.3: Verify all Research Hub source URLs are live and accurate — all 40 URLs confirmed
+- [x] v24.3: Fact-check Mythos/Glasswing claims — 27yr OpenBSD confirmed, 17yr FreeBSD confirmed, 16yr FFmpeg confirmed. Fixed everyday register to say 'some for over 27 years' (was incorrectly implying all were 27yr)
