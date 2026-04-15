@@ -200,6 +200,23 @@ const userPaths = [
     learn: [
       { label: "The Five Rules", path: "/rules" },
       { label: "Prompt Games", path: "/prompt-games" },
+      { label: "First Prompts", path: "/for/child/prompts" },
+    ],
+  },
+  {
+    role: "Teenager",
+    examples: "13\u201317, curious, building your own thinking",
+    icon: "\u{1F9A6}",
+    highlight: "You already notice when something feels off. That instinct is the beginning of governance.",
+    lens: [
+      { label: "Teenager Lens", path: "/for/teenager" },
+      { label: "Everyday Lens", path: "/for/everyday" },
+    ],
+    learn: [
+      { label: "Drift", path: "/drift" },
+      { label: "The Five Rules", path: "/rules" },
+      { label: "Prompt Library", path: "/prompts" },
+      { label: "Living Lexicon", path: "/lexicon" },
     ],
   },
 ];
@@ -697,8 +714,11 @@ export default function Home() {
           >
             Who are you?
           </h2>
-          <p className="text-sm mb-8 max-w-lg" style={{ color: '#6b5a3e', fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-sm mb-2 max-w-lg" style={{ color: '#6b5a3e', fontFamily: "'DM Sans', sans-serif" }}>
             This site is a system of learning. Tell us where you{"\u2019"}re starting from, and we{"\u2019"}ll show you the path.
+          </p>
+          <p className="text-xs mb-8 max-w-lg italic" style={{ color: '#4a3a2a', fontFamily: "'DM Sans', sans-serif" }}>
+            These are hats, not labels. You might wear more than one. The hat you pick today is just a starting point — a way in. The site is built so you can move between them as you grow.
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
