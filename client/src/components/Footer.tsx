@@ -107,6 +107,7 @@ export default function Footer() {
               <Link href="/what-claude-admitted" className="block hover:text-[#E8520A] no-underline transition-colors">What Claude Admitted</Link>
               <Link href="/eu-ai-act" className="block hover:text-[#E8520A] no-underline transition-colors">EU AI Act</Link>
               <Link href="/research-hub" className="block hover:text-[#E8520A] no-underline transition-colors">Research Hub</Link>
+              <Link href="/research-hub?category=field" className="block no-underline transition-colors font-semibold" style={{ color: '#0891B2' }}>Field Events</Link>
               <Link href="/counter-arguments" className="block hover:text-[#E8520A] no-underline transition-colors">Counter Arguments</Link>
               <Link href="/screenshot-sharing" className="block hover:text-[#E8520A] no-underline transition-colors">Screenshot Sharing</Link>
               <Link href="/field-report-review" className="block hover:text-[#E8520A] no-underline transition-colors">Field Report Review</Link>

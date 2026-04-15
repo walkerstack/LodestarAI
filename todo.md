@@ -56,3 +56,6 @@
 - [x] v24: Homepage — add Field Events section with 171 vectors and Mythos article links + link to Research Hub
 - [x] v24: Taxonomy page — Mythos already covered under Anthropic entry, no duplicate needed
 - [x] v24: Anthropomorphism page — add 171 vectors finding block (What the Research Now Says section)
+- [x] v24.1: Update builder's log to v24 in Home.tsx
+- [x] v24.1: Add Mythos/Glasswing Field Event block to Drift page
+- [x] v24.1: Add Field Events nav entry to Nav and Footer (deep-links to ?category=field filter)

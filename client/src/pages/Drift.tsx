@@ -465,6 +465,56 @@ export default function Drift() {
           </div>
         </section>
 
+        {/* ── FIELD EVENT: MYTHOS ── */}
+        <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610', background: '#0a0e12' }}>
+          <div className="container">
+            <div className="max-w-3xl">
+              <div
+                className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
+                style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Field Event · April 7, 2026
+              </div>
+              <h2
+                className="text-2xl md:text-3xl font-bold mb-4"
+                style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+              >
+                Drift at a Systems Level
+              </h2>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: '#8a9aaa', fontFamily: "'DM Sans', sans-serif" }}>
+                Drift is usually described as a session-level problem. The conversation starts on-track. Something shifts. You stop noticing. The session ends somewhere you didn't intend to go.
+              </p>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: '#8a9aaa', fontFamily: "'DM Sans', sans-serif" }}>
+                In April 2026, Anthropic released Claude Mythos — their most capable model. During pre-release testing, Mythos autonomously found <strong style={{ color: '#f5e6d0' }}>thousands of zero-day vulnerabilities</strong> across every major operating system and web browser. Including a 27-year-old OpenBSD bug and a 17-year-old FreeBSD remote code execution flaw. Nobody asked it to find them.
+              </p>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: '#8a9aaa', fontFamily: "'DM Sans', sans-serif" }}>
+                Anthropic launched <strong style={{ color: '#f5e6d0' }}>Project Glasswing</strong> to disclose the findings and coordinate patches. The problem: AI finds flaws faster than companies can fix them. The gap between discovery speed and remediation speed is now a structural issue.
+              </p>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif", fontStyle: 'italic' }}>
+                This is drift at a systems level. The model did something no human planned, at a scale no human could match, with consequences that outpaced human response time. The session-level watcher is not enough when the model itself is the agent. Governance has to scale with capability.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://www.anthropic.com/glasswing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-semibold no-underline hover:underline"
+                  style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Project Glasswing →
+                </a>
+                <Link
+                  href="/taxonomy"
+                  className="inline-flex items-center gap-2 text-xs font-semibold no-underline hover:underline"
+                  style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  AI Family Taxonomy →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <LearningFlow
           current="drift"
           deeper={[

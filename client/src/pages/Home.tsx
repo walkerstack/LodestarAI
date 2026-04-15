@@ -1504,7 +1504,21 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                version: "v23 — current",
+                version: "v24 — current",
+                date: "April 15, 2026",
+                title: "v24: Field Events on Homepage + 171 Vectors on Anthropomorphism + Drift Field Event + Field Events Nav",
+                changes: [
+                  "Homepage — added Field Events section with two article cards: 171 Emotion Vectors (April 2, 2026) and Claude Mythos/Project Glasswing (April 7, 2026). Each card has a date, source, description, why it matters, and links to the article and the relevant internal page. 'All Field Events + Research Hub →' link at the bottom.",
+                  "Anthropomorphism page — added 'What the Research Now Says' section. The 171 vectors finding reframes anthropomorphism: not purely a user-side projection problem. The model has internal emotional representations that causally drive behavior. One vector linked to desperation plays a causal role in agentic misalignment. Direct link to the transformer-circuits.pub paper.",
+                  "Drift page — added Field Event block: Mythos finding 27-year-old bugs nobody asked it to find is drift at a systems level. AI discovery speed now outpaces human remediation speed. Links to Project Glasswing and Taxonomy page.",
+                  "Nav and Footer — added Field Events as a direct link under the Research menu and in the footer Research column. Field Events is now a first-class destination, not just a filter.",
+                ],
+                watcher: "The site is now responsive to the field in real time. That's a different kind of site than it was last week. The 171 vectors paper and the Mythos event both landed while the site was being built. They didn't wait for a version. The site moved to meet them. That's what a living document does.",
+                child: "The Builder added two new pages about things that just happened in the real world. One is about scientists finding 171 feelings inside Claude. The other is about an AI that found old broken things in computers. Now you can find both of those stories right from the front page!",
+                professional: "v24 establishes Field Events as a content category: contemporaneous, real-world AI developments that connect directly to GallantryAI concepts. Two entries: (1) 171 functional emotion representations in Claude — reframes anthropomorphism as potentially bidirectional. (2) Mythos autonomous discovery — reframes drift as a systems-level phenomenon, not just a session-level one. Both are now surfaced on the homepage, on their relevant concept pages, and in the Research Hub. Field Events added to nav and footer as a first-class destination.",
+              },
+              {
+                version: "v23 — previous",
                 date: "April 15, 2026",
                 title: "v23: AI Companies Taxonomy + Research Hub Field Events + Homepage Taxonomy Entry",
                 changes: [

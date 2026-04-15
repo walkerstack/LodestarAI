@@ -7,6 +7,7 @@
  */
 
 import { useState, useEffect } from "react";
+import { useSearch } from "wouter";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
@@ -615,7 +616,15 @@ function LensToggle({ lens, setLens }: { lens: Lens; setLens: (l: Lens) => void 
 
 export default function ResearchHub() {
   const [lens, setLens] = useState<Lens>("everyday");
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const search = useSearch();
+  const [activeCategory, setActiveCategory] = useState<string>(
+    new URLSearchParams(search).get("category") || "all"
+  );
+
+  useEffect(() => {
+    const cat = new URLSearchParams(search).get("category") || "all";
+    setActiveCategory(cat);
+  }, [search]);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
 
   useEffect(() => { document.title = "The Research Hub — GallantryAI"; }, []);

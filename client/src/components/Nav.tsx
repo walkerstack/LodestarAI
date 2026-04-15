@@ -65,6 +65,7 @@ const researchLinks = [
   { label: "What Claude Admitted", path: "/what-claude-admitted" },
   { label: "EU AI Act", path: "/eu-ai-act" },
   { label: "Research Hub", path: "/research-hub" },
+  { label: "Field Events", path: "/research-hub?category=field" },
   { label: "Counter Arguments", path: "/counter-arguments" },
   { label: "Screenshot Sharing", path: "/screenshot-sharing" },
   { label: "Field Report Review", path: "/field-report-review" },
