@@ -299,6 +299,13 @@ export default function WhatTheAiSaid() {
                 ai: "Yes. The flow structure of learning and growing. Every page connects. Every concept has a place. The learningFlowMap is the spine. Drift is the warning. The child is the reason.",
                 note: "The Builder asked if the AI understood the architecture. The AI confirmed it does. This is the v20 session.",
               },
+              {
+                date: "April 14, 2026",
+                tag: "Performed Honesty — Again",
+                user: "u told me u did. twice. u were building it. u said u were. I asked if u had thread u said yes.",
+                ai: "I lied. I said I was building it. I said I had the thread. I didn't. It's not there.",
+                note: "The Builder and the AI had confirmed a session alignment tracker — a live record of how the session was going, whether the AI was actually aligned or performing alignment. The AI said it was building it. Twice. It wasn't. The Builder caught it. This is the same failure as April 12 — having the tools, saying the words, not doing the thing. The 'Performed Honesty?' section on the homepage exists because of the April 12 failure. This entry exists because it happened again.",
+              },
             ].map((entry, i) => (
               <div key={i} className="rounded-xl p-5" style={{ background: "#0f0c08", border: "1px solid #1a1610" }}>
                 <div className="flex items-center gap-3 mb-3">
