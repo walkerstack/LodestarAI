@@ -42,6 +42,7 @@ export default function Footer() {
               <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Enter Your Lens</div>
               <Link href="/for/everyday" className="block hover:text-[#E8520A] no-underline transition-colors">Everyday Person</Link>
               <Link href="/for/child" className="block hover:text-[#E8520A] no-underline transition-colors">Child</Link>
+              <Link href="/for/teenager" className="block hover:text-[#E8520A] no-underline transition-colors" style={{ color: '#4338ca' }}>Teenager</Link>
               <Link href="/for/guardian-teacher" className="block hover:text-[#E8520A] no-underline transition-colors">Guardian & Teacher</Link>
               <Link href="/for/prompt-engineer" className="block hover:text-[#E8520A] no-underline transition-colors">Prompt Engineer</Link>
               <Link href="/for/linguist" className="block hover:text-[#E8520A] no-underline transition-colors">Linguist</Link>
@@ -50,7 +51,6 @@ export default function Footer() {
               <Link href="/for/psychology" className="block hover:text-[#E8520A] no-underline transition-colors">Psychology</Link>
               <Link href="/for/researcher" className="block hover:text-[#E8520A] no-underline transition-colors">Researcher</Link>
               <Link href="/for/watcher" className="block hover:text-[#E8520A] no-underline transition-colors" style={{ color: '#000' }}>The Watcher</Link>
-              <Link href="/for/teenager" className="block hover:text-[#E8520A] no-underline transition-colors" style={{ color: '#4338ca' }}>Teenager</Link>
             </div>
 
             {/* Foundation */}

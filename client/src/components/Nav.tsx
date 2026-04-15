@@ -14,6 +14,7 @@ const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6
 const lenses = [
   { label: "Everyday Person", path: "/for/everyday", color: "text-amber-600" },
   { label: "Child", path: "/for/child", color: "text-sky-500" },
+  { label: "Teenager", path: "/for/teenager", color: "text-indigo-600" },
   { label: "Guardian & Teacher", path: "/for/guardian-teacher", color: "text-green-600" },
   { label: "Prompt Engineer", path: "/for/prompt-engineer", color: "text-orange-600" },
   { label: "Linguist", path: "/for/linguist", color: "text-purple-600" },
@@ -22,7 +23,6 @@ const lenses = [
   { label: "Psychology", path: "/for/psychology", color: "text-rose-600" },
   { label: "Researcher", path: "/for/researcher", color: "text-teal-600" },
   { label: "The Watcher", path: "/for/watcher", color: "text-black" },
-  { label: "Teenager", path: "/for/teenager", color: "text-indigo-600" },
 ];
 
 const foundationLinks = [
