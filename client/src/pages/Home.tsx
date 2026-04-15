@@ -1433,7 +1433,7 @@ export default function Home() {
           </div>
 
           <Link
-            href="/research"
+            href="/research-hub?category=field"
             className="inline-flex items-center gap-2 text-xs font-semibold no-underline hover:underline"
             style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}
           >
