@@ -401,6 +401,13 @@ export default function Home() {
               Start with the Five Rules
             </Link>
             <Link
+              href="/prompts"
+              className="inline-flex items-center gap-2 border border-[#E8520A]/60 text-[#E8520A] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-[#E8520A]/10 transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Prompt Library
+            </Link>
+            <Link
               href="/lexicon"
               className="inline-flex items-center gap-2 border border-[#E8520A]/60 text-[#E8520A] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-[#E8520A]/10 transition-colors"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -608,28 +615,43 @@ export default function Home() {
               </div>
               <div className="flex flex-wrap gap-2 mt-3 justify-center md:justify-start">
                 <Link
-                  href="/if-you-need-to-stop"
-                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
-                  style={{ background: '#DC2626', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
-                >
-                  If You Need to Stop
-                </Link>
-                <Link
-                  href="/human-line"
-                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
-                  style={{ background: '#D97706', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
-                >
-                  The Human Line
-                </Link>
-                <Link
                   href="/kids-learn"
                   className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
                   style={{ background: '#059669', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
                 >
                   Kids Learn
                 </Link>
+                <Link
+                  href="/for/child/prompts"
+                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
+                  style={{ background: '#7C3AED', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
+                >
+                  First Prompts
+                </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      {/* ── IF YOU NEED TO STOP + HUMAN LINE — Serious Pages ── */}
+      <section className="w-full py-10 px-6" style={{ background: '#FAF6EF', borderTop: '1px solid #e8d8c4' }}>
+        <div className="max-w-2xl mx-auto">
+          <p className="text-xs uppercase tracking-widest font-semibold text-center mb-6" style={{ color: '#aaa' }}>Two Pages That Stand Apart</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/if-you-need-to-stop" className="block no-underline group">
+              <div className="rounded-2xl p-5 h-full transition-all group-hover:scale-[1.02]" style={{ background: '#fff', border: '2px solid #DC262630' }}>
+                <div className="text-2xl mb-2">🛑</div>
+                <h3 className="font-bold text-base mb-1" style={{ color: '#DC2626', fontFamily: "'Playfair Display', serif" }}>If You Need to Stop</h3>
+                <p className="text-xs leading-relaxed" style={{ color: '#5a4a3a' }}>Crisis resources and grounding. If something in your AI session has gone wrong — or if you just need to stop — this page is here.</p>
+              </div>
+            </Link>
+            <Link href="/human-line" className="block no-underline group">
+              <div className="rounded-2xl p-5 h-full transition-all group-hover:scale-[1.02]" style={{ background: '#fff', border: '2px solid #D9770630' }}>
+                <div className="text-2xl mb-2">⚖️</div>
+                <h3 className="font-bold text-base mb-1" style={{ color: '#D97706', fontFamily: "'Playfair Display', serif" }}>The Human Line</h3>
+                <p className="text-xs leading-relaxed" style={{ color: '#5a4a3a' }}>The boundary between you and the machine. Where the AI ends and you begin. This is the most important line on the site.</p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -1338,6 +1360,23 @@ export default function Home() {
 
           <div className="space-y-3">
             {[
+              {
+                version: "v18 — 62df0a1c",
+                date: "April 15, 2026",
+                title: "Teenager Lens + Drift + Prompt Library + Kids First Prompts",
+                changes: [
+                  "Built Teenager Lens page (/for/teenager) — drift, rules, watcher, governance, word mechanics. KidsRedirect at top. Indigo color in nav/footer. Placed directly below Child.",
+                  "Added KidsRedirect to Scaffold page — it was missing",
+                  "Built Drift page (/drift) — what drift is, how to recognize it, how to correct it. Three Voices. Links to Road Protocol, Five Rules, Human Line, Watcher.",
+                  "Built Prompt Library (/prompts) — full taxonomy from single question to constitutional. Each type explained in Three Voices. Matt's prompts as Coming Soon placeholders.",
+                  "Built Kids First Prompts (/for/child/prompts) — buffalo in wig hero, 5 sloth wisdom images with story, fleshed-out sections, prompt playground with copy button.",
+                  "Updated Teenager page — Three Voices section, age-appropriate lens section, fixed LearningFlow (Wider now Everyday + Guardian/Teacher), drift link fixed to /drift.",
+                  "Homepage: Prompt Library button added above Lexicon. Kids Prompts button added to kids section. Crisis and Human Line moved to their own homepage section. Watcher label set to black in nav and footer.",
+                ],
+                watcher: "The Builder extended the learning scaffold in three directions at once — downward to teenagers, inward to drift recognition, and outward to the full prompt landscape. Each new page connects to the others. The Prompt Library is the first page that documents the full arc of what a prompt can be — from a child's first question to a constitutional governance layer. The Kids First Prompts page is the most joyful page on the site. The buffalo wore a wig. That was the right call.",
+                child: "The Builder made a whole page just for teenagers! And a page about drift — when the AI starts going weird and you have to bring it back. And the biggest one: a Prompt Library that shows every kind of prompt from the easiest to the most powerful. Plus a kids prompts page with a buffalo in a rainbow wig and a sloth who teaches you five kinds of prompts with stories and pictures!",
+                professional: "Multi-page scaffold extension implementing age-stratified learning pathways. Teenager lens bridges child and adult content tiers. Drift page formalizes correction mechanics as a standalone concept. Prompt Library implements a full prompt taxonomy — the first page on the site to document the complete arc from single-question to constitutional governance. Kids First Prompts page applies constructivist pedagogy through narrative scaffolding and interactive playground.",
+              },
               {
                 version: "v17 — 5cbc6137",
                 date: "April 14, 2026",
