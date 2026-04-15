@@ -1247,6 +1247,50 @@ export default function ChildLens() {
         </div>
       </section>
 
+      {/* ── DRIFT INTRO ── */}
+      <section className="py-14 px-6" style={{ background: "#FAF6EF", borderTop: "2px solid #e8e0d0" }}>
+        <div className="max-w-3xl mx-auto">
+          <p className="text-xs font-semibold tracking-[0.25em] uppercase mb-2" style={{ color: "#E8520A" }}>Something to Know</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#1A1A2E", fontFamily: serifFont }}>
+            Sometimes the AI goes the wrong way. That's called drift.
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-6 mb-8">
+            <div>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/drift-buffalo-guardian-FtBGmK7eyxrwceSa9LCBco.webp"
+                alt="The buffalo with a rainbow wig watches the winding path"
+                className="w-full rounded-2xl mb-4"
+                style={{ objectFit: "cover" }}
+              />
+              <p className="text-sm leading-relaxed" style={{ color: "#3a2a1a" }}>
+                The buffalo watches the path. When the conversation starts going a different way than you wanted — that's drift. The buffalo notices.
+              </p>
+            </div>
+            <div>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/drift-sloth-noticing-RmbAH7KAqm4hPfNk5mUpVS.webp"
+                alt="The sloth raises a paw — wait a moment"
+                className="w-full rounded-2xl mb-4"
+                style={{ objectFit: "cover" }}
+              />
+              <p className="text-sm leading-relaxed" style={{ color: "#3a2a1a" }}>
+                The sloth slows down and notices. One paw up. Wait. Did the AI just go somewhere you didn't ask it to go? That feeling is important. Trust it.
+              </p>
+            </div>
+          </div>
+          <div className="rounded-2xl p-6 mb-6" style={{ background: "#fff8f0", border: "1.5px solid #E8520A30" }}>
+            <p className="text-base leading-relaxed font-medium" style={{ color: "#3a2a1a" }}>
+              Drift is not a failure. It happens to everyone — kids, adults, experts. The skill is <strong>noticing</strong>. When something feels off, say so. You can always say: <em>"Wait, that's not what I meant. Let's go back."</em>
+            </p>
+          </div>
+          <Link href="/drift">
+            <span className="inline-block px-5 py-2.5 rounded-full text-sm font-bold cursor-pointer" style={{ background: "#E8520A", color: "#fff" }}>
+              Learn more about drift →
+            </span>
+          </Link>
+        </div>
+      </section>
+
       <LearningFlow current="Child Lens" deeper={flowMap.child.deeper} wider={flowMap.child.wider} simpler={flowMap.child.simpler} />
       <Footer />
     </div>

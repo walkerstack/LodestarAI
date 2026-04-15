@@ -655,10 +655,31 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Fade: white → dark */}
+      {/* ── PERFORMED HONESTY? ── */}
+      <section className="w-full py-12 px-6" style={{ background: '#0f0c08', borderTop: '1px solid #1a1410' }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs uppercase tracking-widest font-semibold mb-3" style={{ color: '#E8520A' }}>The Record</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#FAF6EF', fontFamily: "'Playfair Display', serif" }}>
+            Performed Honesty?
+          </h2>
+          <p className="text-sm leading-relaxed mb-3" style={{ color: '#b0a090' }}>
+            The AI said things I didn't expect. I kept a record. Unedited. Real conversations — where the AI admitted things, failed, or said something worth documenting.
+          </p>
+          <p className="text-xs leading-relaxed mb-6 italic" style={{ color: '#6a5a4a' }}>
+            Is it honest? Is it performing honesty? I'm not sure. I kept the record anyway.
+          </p>
+          <Link href="/what-the-ai-said">
+            <span className="inline-block px-6 py-3 rounded-full text-sm font-bold cursor-pointer transition-all hover:scale-[1.03]" style={{ background: '#E8520A', color: '#fff' }}>
+              Read What the AI Said →
+            </span>
+          </Link>
+        </div>
+      </section>
+
+      {/* Fade: dark → dark */}
       <div
         className="w-full h-32"
-        style={{ background: 'linear-gradient(to bottom, #fffaf0 0%, #080604 100%)' }}
+        style={{ background: 'linear-gradient(to bottom, #0f0c08 0%, #080604 100%)' }}
       />
 
       {/* ── WHO ARE YOU? — Pathfinding Entry ── */}
