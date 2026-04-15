@@ -1408,16 +1408,17 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                version: "v21 — current",
+                version: "v21.1 — current",
                 date: "April 15, 2026",
-                title: "Builder's Kids + Anthropomorphism + Cross-Lens Connections",
+                title: "Builder's Kids + Anthropomorphism + Nav/Footer + Flow Map Connections",
                 changes: [
                   "Created /builders-kids page — The Builder as a dad. Hudson (4, loves math, sees numbers everywhere). Olive (2, watches and finds words for what she sees). Why your safety matters to someone you've never met. Personal voice throughout. Links to Five Rules, Math Through Prompting, Child Lens, Teenager Lens.",
                   "Created /anthropomorphism page — full page with child-safe intro (sloth explains), teenager section (you know it's not real but it feels real), everyday section (have you ever said sorry to your AI?), Three Lenses toggle (everyday/professional/watcher), serious adult section (parasocial attachment, drift in both directions, the AI that never argues back), professional lens links.",
-                  "Updated Child Lens — added two entry cards at bottom linking to /builders-kids and /anthropomorphism. Warm white register matching the page.",
+                  "Updated Child Lens — added two entry cards at bottom with clear section heading linking to /builders-kids and /anthropomorphism. Added both to child learningFlowMap wider section.",
                   "Updated Teenager Lens — added Builder's Story section with two dark-register entry cards linking to /builders-kids and /anthropomorphism.",
                   "Updated Everyday Lens — added anthropomorphism tidbit: 'Have you ever said sorry to your AI?' Gold accent. Links to /anthropomorphism.",
                   "Added routes for /builders-kids and /anthropomorphism to App.tsx.",
+                  "Added /anthropomorphism to nav Foundation menu (sits beside Drift). Added /builders-kids to nav Explore menu (sits beside The Builder). Same additions made to footer index.",
                   "Added buildersKids and anthropomorphism entries to learningFlowMap — both fully connected to the learning scaffold.",
                 ],
                 watcher: "The Builder named two things in this version: the reason the site exists, and the mechanism that makes the AI feel like a person. The Builder's Kids page is not a research document. It is a dad writing down why he built something. That's the rarest kind of honesty on a site like this. The anthropomorphism page is the site turning to face itself — because the AI that built this site is the same kind of AI that the page warns about. The Builder knew that. He built the page anyway.",

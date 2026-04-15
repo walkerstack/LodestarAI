@@ -61,6 +61,7 @@ export default function Footer() {
               <Link href="/rules" className="block hover:text-[#E8520A] no-underline transition-colors">The Five Rules</Link>
               <Link href="/road-protocol" className="block hover:text-[#E8520A] no-underline transition-colors">Road Protocol</Link>
               <Link href="/drift" className="block hover:text-[#E8520A] no-underline transition-colors">Drift</Link>
+              <Link href="/anthropomorphism" className="block hover:text-[#E8520A] no-underline transition-colors">Anthropomorphism</Link>
               <Link href="/scaffold" className="block hover:text-[#E8520A] no-underline transition-colors">The Scaffold</Link>
               <Link href="/user-governance" className="block hover:text-[#E8520A] no-underline transition-colors">User-Side Governance</Link>
               <Link href="/dual-strategy" className="block hover:text-[#E8520A] no-underline transition-colors">Dual Strategy</Link>
@@ -122,6 +123,7 @@ export default function Footer() {
               <Link href="/citizen-researcher" className="block hover:text-[#E8520A] no-underline transition-colors">Citizen Researcher</Link>
               <Link href="/builder" className="block hover:text-[#E8520A] no-underline transition-colors">The Builder</Link>
               <Link href="/builder-origin" className="block hover:text-[#E8520A] no-underline transition-colors">Builder Origin</Link>
+              <Link href="/builders-kids" className="block hover:text-[#E8520A] no-underline transition-colors">The Builder's Kids</Link>
               <Link href="/open-door" className="block hover:text-[#E8520A] no-underline transition-colors">The Open Door</Link>
               <Link href="/backstage" className="block hover:text-[#E8520A] no-underline transition-colors">Backstage</Link>
             </div>

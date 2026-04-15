@@ -1350,8 +1350,12 @@ export default function ChildLens() {
       </section>
 
       {/* Builder's Kids + Anthropomorphism entry points */}
-      <section className="py-14 px-6" style={{ background: '#FFF9F0', borderTop: '1px solid #e8e0d0' }}>
+      <section className="py-14 px-6" style={{ background: '#FFF9F0', borderTop: '2px solid #E8520A' }}>
         <div className="max-w-3xl mx-auto">
+          <div className="text-[10px] uppercase tracking-widest font-semibold mb-2" style={{ color: '#E8520A', fontFamily: baseFont }}>Two More Things to Explore</div>
+          <h2 className="text-xl md:text-2xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: '#1A1A2E' }}>
+            Meet the Builder's Kids. And find out why the AI feels like a person.
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <Link href="/builders-kids">
               <div

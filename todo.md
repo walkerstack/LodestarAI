@@ -32,3 +32,9 @@
 - [x] v21: Add routes for /builders-kids and /anthropomorphism to App.tsx
 - [x] v21: Add buildersKids and anthropomorphism entries to learningFlowMap
 - [x] v21: Add v21 builder's log entry to HomePage (Watcher voice, Child voice, Professional voice)
+- [x] Fix ChildLens — add visible entry cards for /anthropomorphism and /builders-kids (currently missing or not rendering)
+- [x] Verify TeenagerLens — confirm both cards are visible, fix if missing
+- [x] Add /builders-kids and /anthropomorphism to nav Foundation/Explore menus and footer index
+- [x] Add both pages to child learningFlowMap wider section
+- [x] Verify /anthropomorphism child section reads at true child level (sloth explains, simple words)
+- [x] Verify /anthropomorphism teenager section reads at true teenager level (cognitive dissonance, real talk)

@@ -31,6 +31,7 @@ const foundationLinks = [
   { label: "The Five Rules", path: "/rules" },
   { label: "Road Protocol", path: "/road-protocol" },
   { label: "Drift", path: "/drift" },
+  { label: "Anthropomorphism", path: "/anthropomorphism" },
   { label: "The Scaffold", path: "/scaffold" },
   { label: "User-Side Governance", path: "/user-governance" },
   { label: "Dual Strategy", path: "/dual-strategy" },
@@ -79,6 +80,7 @@ const exploreLinks = [
   { label: "Citizen Researcher", path: "/citizen-researcher" },
   { label: "The Builder", path: "/builder" },
   { label: "Builder Origin", path: "/builder-origin" },
+  { label: "The Builder's Kids", path: "/builders-kids" },
   { label: "The Open Door", path: "/open-door" },
 ];
 

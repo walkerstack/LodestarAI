@@ -217,6 +217,8 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "Play & Practice", href: "/prompt-games", description: "Games that teach you how to talk to AI." },
       { label: "For Your Grown-Up", href: "/for/guardian-teacher", description: "Show this to the adult helping you." },
       { label: "What is Drift?", href: "/drift", description: "When the AI starts going the wrong way. The buffalo watches for it." },
+      { label: "The Builder's Kids", href: "/builders-kids", description: "Meet Hudson and Olive. Why your safety matters to someone you've never met." },
+      { label: "Why the AI Feels Like a Person", href: "/anthropomorphism", description: "It talks like a person. It isn't one. The sloth explains." },
     ],
     simpler: [],
   },
