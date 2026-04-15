@@ -395,4 +395,36 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "Everyday Lens", href: "/for/everyday", description: "The simplest version" },
     ],
   },
+  buildersKids: {
+    deeper: [
+      { label: "Anthropomorphism", href: "/anthropomorphism", description: "Why the AI feels like a person — and why that matters" },
+      { label: "The Watcher", href: "/for/watcher", description: "The recursive voice — for people inside the loop" },
+      { label: "Drift", href: "/drift", description: "What happens when the session loses your intent" },
+    ],
+    wider: [
+      { label: "Everyday Lens", href: "/for/everyday", description: "Plain language. No jargon. Good entry point." },
+      { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "For the adults who also need this" },
+      { label: "What the AI Said", href: "/what-the-ai-said", description: "The honest record — including the failures" },
+    ],
+    simpler: [
+      { label: "Child Lens", href: "/for/child", description: "The sloth's guide for younger learners" },
+      { label: "The Five Rules", href: "/rules", description: "Start here — the foundation" },
+    ],
+  },
+  anthropomorphism: {
+    deeper: [
+      { label: "Drift", href: "/drift", description: "What happens when the session loses your intent" },
+      { label: "Psychology Lens", href: "/for/psychology", description: "Parasocial attachment and AI" },
+      { label: "Cognitive Science Lens", href: "/for/cognitive-science", description: "Theory of mind and social cognition" },
+    ],
+    wider: [
+      { label: "The Five Rules", href: "/rules", description: "The governance foundation" },
+      { label: "What the AI Said", href: "/what-the-ai-said", description: "The honest record" },
+      { label: "Human Line", href: "/human-line", description: "The boundary between you and the machine" },
+    ],
+    simpler: [
+      { label: "For Children", href: "/for/child", description: "The simplest version — the sloth explains" },
+      { label: "For Teenagers", href: "/for/teenager", description: "The tension between knowing and feeling" },
+    ],
+  },
 };

@@ -69,6 +69,8 @@ import TeenagerLens from "./pages/lenses/TeenagerLens";
 import PromptLibrary from "./pages/PromptLibrary";
 import ChildPrompts from "./pages/ChildPrompts";
 import Drift from "./pages/Drift";
+import BuildersKids from "./pages/BuildersKids";
+import Anthropomorphism from "./pages/Anthropomorphism";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -140,6 +142,8 @@ function Router() {
       <Route path="/what-the-ai-said" component={WhatTheAiSaid} />
       <Route path="/prompts" component={PromptLibrary} />
       <Route path="/drift" component={Drift} />
+      <Route path="/builders-kids" component={BuildersKids} />
+      <Route path="/anthropomorphism" component={Anthropomorphism} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

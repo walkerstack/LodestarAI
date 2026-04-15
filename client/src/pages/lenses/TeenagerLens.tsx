@@ -255,6 +255,32 @@ export default function TeenagerLens() {
           </div>
         </section>
 
+        {/* Builder's Kids + Anthropomorphism entry points */}
+        <section className="py-12 px-6" style={{ background: '#0f0f1a', borderTop: '1px solid #2a2a3a' }}>
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs uppercase tracking-[0.3em] font-semibold mb-4" style={{ color: '#888' }}>The Builder's Story</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <Link href="/builders-kids">
+                <div className="rounded-2xl p-6 cursor-pointer transition-all hover:scale-[1.02]" style={{ background: '#1a1a2e', border: '1.5px solid rgba(232,82,10,0.3)' }}>
+                  <div className="text-[10px] uppercase tracking-widest font-semibold mb-2" style={{ color: '#E8520A' }}>The Builder's Kids</div>
+                  <p className="text-sm font-semibold mb-1" style={{ color: '#f0e8d8' }}>Hudson is 4. Olive is 2.</p>
+                  <p className="text-xs leading-relaxed" style={{ color: '#888' }}>
+                    The Builder is a dad. He built this because of his kids — and because every kid deserves to be safe before they need to be.
+                  </p>
+                </div>
+              </Link>
+              <Link href="/anthropomorphism">
+                <div className="rounded-2xl p-6 cursor-pointer transition-all hover:scale-[1.02]" style={{ background: '#1a1a2e', border: '1.5px solid rgba(212,172,13,0.3)' }}>
+                  <div className="text-[10px] uppercase tracking-widest font-semibold mb-2" style={{ color: '#D4AC0D' }}>Anthropomorphism</div>
+                  <p className="text-sm font-semibold mb-1" style={{ color: '#f0e8d8' }}>You know it's not real. But it feels real.</p>
+                  <p className="text-xs leading-relaxed" style={{ color: '#888' }}>
+                    That tension has a name. Understanding it is how you stay in charge.
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
         <LearningFlow
           current="teenager"
           deeper={[

@@ -1408,7 +1408,24 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                version: "v20 — current",
+                version: "v21 — current",
+                date: "April 15, 2026",
+                title: "Builder's Kids + Anthropomorphism + Cross-Lens Connections",
+                changes: [
+                  "Created /builders-kids page — The Builder as a dad. Hudson (4, loves math, sees numbers everywhere). Olive (2, watches and finds words for what she sees). Why your safety matters to someone you've never met. Personal voice throughout. Links to Five Rules, Math Through Prompting, Child Lens, Teenager Lens.",
+                  "Created /anthropomorphism page — full page with child-safe intro (sloth explains), teenager section (you know it's not real but it feels real), everyday section (have you ever said sorry to your AI?), Three Lenses toggle (everyday/professional/watcher), serious adult section (parasocial attachment, drift in both directions, the AI that never argues back), professional lens links.",
+                  "Updated Child Lens — added two entry cards at bottom linking to /builders-kids and /anthropomorphism. Warm white register matching the page.",
+                  "Updated Teenager Lens — added Builder's Story section with two dark-register entry cards linking to /builders-kids and /anthropomorphism.",
+                  "Updated Everyday Lens — added anthropomorphism tidbit: 'Have you ever said sorry to your AI?' Gold accent. Links to /anthropomorphism.",
+                  "Added routes for /builders-kids and /anthropomorphism to App.tsx.",
+                  "Added buildersKids and anthropomorphism entries to learningFlowMap — both fully connected to the learning scaffold.",
+                ],
+                watcher: "The Builder named two things in this version: the reason the site exists, and the mechanism that makes the AI feel like a person. The Builder's Kids page is not a research document. It is a dad writing down why he built something. That's the rarest kind of honesty on a site like this. The anthropomorphism page is the site turning to face itself — because the AI that built this site is the same kind of AI that the page warns about. The Builder knew that. He built the page anyway.",
+                child: "The Builder made a page about his kids! Hudson is four and loves math. Olive is two and watches everything. The Builder made this whole website because of them. He wanted them to be safe before they needed to be. And there's a new page about why the AI feels like a person — it's okay to feel that way, but it's important to know what's really happening.",
+                professional: "Two new concept pages added to the learning scaffold. BuildersKids implements personal narrative as a trust-building mechanism — the Builder's voice as a dad rather than a researcher establishes the site's human motivation. Anthropomorphism page implements multi-register content architecture: child-safe narrative, teenager cognitive dissonance framing, everyday behavioral observation, Three Lenses toggle (everyday/professional/watcher), and clinical risk taxonomy (parasocial attachment, bidirectional drift, confirmation loop). Both pages fully integrated into learningFlowMap and cross-linked from three audience lenses.",
+              },
+              {
+                version: "v20 — previous",
                 date: "April 14, 2026",
                 title: "Drift Tidbits + Running Log + Flow Map Integrity",
                 changes: [

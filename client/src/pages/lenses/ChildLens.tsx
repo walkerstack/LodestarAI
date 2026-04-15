@@ -1349,6 +1349,41 @@ export default function ChildLens() {
         </div>
       </section>
 
+      {/* Builder's Kids + Anthropomorphism entry points */}
+      <section className="py-14 px-6" style={{ background: '#FFF9F0', borderTop: '1px solid #e8e0d0' }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <Link href="/builders-kids">
+              <div
+                className="rounded-2xl p-6 cursor-pointer transition-all"
+                style={{ background: '#fff', border: '1.5px solid #e8e0d0' }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = '#E8520A'; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = '#e8e0d0'; }}
+              >
+                <div className="text-[10px] uppercase tracking-widest font-semibold mb-2" style={{ color: '#E8520A', fontFamily: baseFont }}>The Builder's Kids</div>
+                <p className="text-sm font-semibold mb-1" style={{ color: '#1A1A2E', fontFamily: baseFont }}>Hudson is 4. Olive is 2.</p>
+                <p className="text-xs leading-relaxed" style={{ color: '#6a5a4a', fontFamily: baseFont }}>
+                  The Builder built this site because of his kids. Find out why your safety matters to someone you've never met.
+                </p>
+              </div>
+            </Link>
+            <Link href="/anthropomorphism">
+              <div
+                className="rounded-2xl p-6 cursor-pointer transition-all"
+                style={{ background: '#fff', border: '1.5px solid #e8e0d0' }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = '#D4AC0D'; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = '#e8e0d0'; }}
+              >
+                <div className="text-[10px] uppercase tracking-widest font-semibold mb-2" style={{ color: '#D4AC0D', fontFamily: baseFont }}>Why the AI Feels Like a Person</div>
+                <p className="text-sm font-semibold mb-1" style={{ color: '#1A1A2E', fontFamily: baseFont }}>It talks like a person. It isn't one.</p>
+                <p className="text-xs leading-relaxed" style={{ color: '#6a5a4a', fontFamily: baseFont }}>
+                  It's okay to feel like the AI is your friend. But it's important to know what's actually happening.
+                </p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
       <LearningFlow current="Child Lens" deeper={flowMap.child.deeper} wider={flowMap.child.wider} simpler={flowMap.child.simpler} />
       <Footer />
     </div>

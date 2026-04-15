@@ -24,3 +24,11 @@
 - [x] Keep bg prop matching each page's actual background for glow blending
 - [x] Move KidsMidLink to actual midpoint of content on every page that has one
 - [x] Add build log entry: KidsMidLink fix and Three Lenses framework reveal on homepage
+- [x] v21: Create /builders-kids page (The Builder as a dad, Hudson 4, Olive 2, why your safety matters)
+- [x] v21: Create /anthropomorphism page (full page with child intro, teenager section, everyday section, Three Lenses, serious adult section)
+- [x] v21: Update ChildLens — add entry cards linking to /builders-kids and /anthropomorphism
+- [x] v21: Update TeenagerLens — add Builder's Story section with entry cards for both new pages
+- [x] v21: Update EverydayLens — add anthropomorphism tidbit (Have you ever said sorry to your AI?)
+- [x] v21: Add routes for /builders-kids and /anthropomorphism to App.tsx
+- [x] v21: Add buildersKids and anthropomorphism entries to learningFlowMap
+- [x] v21: Add v21 builder's log entry to HomePage (Watcher voice, Child voice, Professional voice)

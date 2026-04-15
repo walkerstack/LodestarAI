@@ -328,6 +328,21 @@ export default function EverydayLens() {
         </div>
       </section>
 
+      {/* ── ANTHROPOMORPHISM TIDBIT ── */}
+      <section className="py-10 px-6" style={{ background: '#0f0c08' }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-6" style={{ background: '#1a1208', border: '1.5px solid rgba(212,172,13,0.3)' }}>
+            <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: '#D4AC0D', fontFamily: "'DM Sans', sans-serif" }}>Have you ever said sorry to your AI?</div>
+            <p className="text-base leading-relaxed mb-4" style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}>
+              Most people have. You typed something, felt like it was rude, and added "sorry" or "please" before the next message. That instinct is real — and it has a name. <strong style={{ color: '#FAF6EF' }}>Anthropomorphism</strong> is when we treat something that isn't a person like it is one. The AI talks like a person. It uses your name. It says things like "I understand." Your brain responds the way it's wired to respond — with social instincts. That's not a flaw. It's just something worth knowing.
+            </p>
+            <a href="/anthropomorphism" className="inline-block px-5 py-2.5 rounded-full text-sm font-bold" style={{ background: '#D4AC0D', color: '#1a1208', fontFamily: "'DM Sans', sans-serif" }}>
+              Why the AI feels like a person →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <LearningFlow current="Everyday Lens" deeper={flowMap.everyday.deeper} wider={flowMap.everyday.wider} simpler={flowMap.everyday.simpler} />
       <Footer />
     </div>
