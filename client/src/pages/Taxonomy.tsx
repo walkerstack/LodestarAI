@@ -348,6 +348,90 @@ export default function Taxonomy() {
             </div>
           )}
 
+          {/* AI Companies Section */}
+          <section className="py-10">
+            <div className="mb-6">
+              <div className="text-xs uppercase tracking-[0.3em] font-semibold mb-2" style={{ color: '#D4AC0D' }}>The Companies Behind the Models</div>
+              <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: '#FAF6EF' }}>Who Built It. How They Behave.</h2>
+              <p className="text-sm leading-relaxed" style={{ color: '#b0a898', maxWidth: '560px' }}>
+                Knowing the model is not enough. Knowing the company behind it — how they respond when something unexpected happens, what they disclose, what they hide — is the second layer of the taxonomy.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  name: "Anthropic",
+                  models: "Claude (all versions), Mythos",
+                  stance: "Safety-first. Publishes system cards, interpretability research, and model assessments before release. When Mythos found 27-year-old vulnerabilities nobody asked it to find, Anthropic disclosed everything and launched Project Glasswing to patch them. They also commissioned a psychodynamic personality assessment of Mythos before release.",
+                  gallantryNote: "The most transparent of the major labs. Their interpretability research — including the 171 emotion vectors paper — is the kind of disclosure that makes user-side governance possible. You can't govern what you don't understand.",
+                  color: "#D97706",
+                  signal: "Discloses surprises. Builds in public.",
+                },
+                {
+                  name: "OpenAI",
+                  models: "GPT-4o, o1, o3, Sora",
+                  stance: "Commercially dominant. Has shifted from non-profit research lab to capped-profit company. Publishes safety research but has faced criticism for withholding model details. The company that made AI mainstream.",
+                  gallantryNote: "GPT is where most people first encounter AI at scale. The governance gap is widest here — the most users, the least preparation. The Everyday Lens was built for GPT users who don't know they need governance.",
+                  color: "#10B981",
+                  signal: "Mainstream reach. Variable transparency.",
+                },
+                {
+                  name: "Google DeepMind",
+                  models: "Gemini (all versions), Veo, Imagen",
+                  stance: "Research-first heritage merged with Google's commercial scale. Publishes extensively. Has the deepest research bench of any lab. Gemini is integrated into Google's entire ecosystem — Search, Workspace, Android.",
+                  gallantryNote: "The integration risk is real: Gemini is already in tools people use without thinking of them as AI. Governance matters more when the AI is invisible.",
+                  color: "#8B5CF6",
+                  signal: "Deep research. Ecosystem integration risk.",
+                },
+                {
+                  name: "Meta AI",
+                  models: "Llama (all versions), open-weight releases",
+                  stance: "Open-weight strategy: releases model weights publicly. Believes openness accelerates safety research. Critics argue it also accelerates misuse. The largest open-source AI ecosystem in the world.",
+                  gallantryNote: "Meta's open-weight releases prove that governance is a user-side concern, not a model-side feature. The same Llama weights can be deployed safely or recklessly. Your prompt is the governance layer.",
+                  color: "#EC4899",
+                  signal: "Open weights. Governance is your responsibility.",
+                },
+                {
+                  name: "xAI",
+                  models: "Grok (all versions)",
+                  stance: "Founded by Elon Musk with an explicit 'anti-woke' positioning. Grok is designed to be less filtered. Integrated into X (Twitter). The lab most openly skeptical of AI safety as a field.",
+                  gallantryNote: "Grok is the strongest argument for user-side governance. When the model is less filtered by design, the human's governance layer becomes the primary safety mechanism. The Road Protocol was stress-tested against Grok's tendencies.",
+                  color: "#EF4444",
+                  signal: "Less filtered by design. Governance is critical.",
+                },
+                {
+                  name: "Mistral AI",
+                  models: "Mistral Large, Mixtral, Codestral",
+                  stance: "European lab. Efficiency-focused. Strong multilingual support. Operates under EU AI Act jurisdiction — the most regulated AI environment in the world. Publishes openly.",
+                  gallantryNote: "Mistral is evidence that governance frameworks are architecture-agnostic and jurisdiction-agnostic. The Five Rules work here. European data governance adds a layer of user protection that other labs don't have by default.",
+                  color: "#F59E0B",
+                  signal: "EU-regulated. Efficiency-first. Transparent.",
+                },
+              ].map((company) => (
+                <div
+                  key={company.name}
+                  className="rounded-2xl p-5"
+                  style={{ background: '#111', border: `1.5px solid ${company.color}30` }}
+                >
+                  <div className="flex items-start justify-between mb-2">
+                    <div>
+                      <div className="text-xs uppercase tracking-widest font-semibold mb-1" style={{ color: company.color }}>{company.name}</div>
+                      <div className="text-[11px]" style={{ color: '#6a5a4a' }}>{company.models}</div>
+                    </div>
+                    <div className="text-[10px] px-2 py-1 rounded-full font-semibold" style={{ background: `${company.color}15`, color: company.color }}>
+                      {company.signal}
+                    </div>
+                  </div>
+                  <p className="text-xs leading-relaxed mb-3" style={{ color: '#b0a898' }}>{company.stance}</p>
+                  <div className="rounded-lg p-3" style={{ background: '#E8520A08', border: '1px solid #E8520A20' }}>
+                    <div className="text-[9px] uppercase tracking-wide font-semibold mb-1" style={{ color: '#E8520A' }}>GallantryAI Note</div>
+                    <p className="text-xs leading-relaxed italic" style={{ color: '#9a8a7a' }}>{company.gallantryNote}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
           {/* The Point */}
           <section className="py-10">
             <div

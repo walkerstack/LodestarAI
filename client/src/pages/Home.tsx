@@ -1346,6 +1346,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── TAXONOMY ENTRY ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div className="max-w-3xl">
+            <div
+              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
+              style={{ color: '#D4AC0D', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              AI Family Taxonomy
+            </div>
+            <h2
+              className="text-2xl md:text-3xl font-bold mb-4"
+              style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+            >
+              Know Who You're Talking To. Know Who Built It.
+            </h2>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+              Every AI has a personality, a tendency, and a blind spot. The Taxonomy is a field guide — built from hundreds of sessions across eight platforms. Not a ranking. A map.
+            </p>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+              New in v23: <strong style={{ color: '#f5e6d0' }}>The Companies section.</strong> Knowing the model is not enough. How a company behaves when something unexpected happens — what they disclose, what they hide — is the second layer of the taxonomy.
+            </p>
+            <Link
+              href="/taxonomy"
+              className="inline-flex items-center gap-2 text-xs font-semibold no-underline hover:underline"
+              style={{ color: '#D4AC0D', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Open the Taxonomy →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── RESEARCH STATUS ── */}
       <section className="w-full py-8 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">

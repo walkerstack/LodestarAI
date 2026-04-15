@@ -47,3 +47,7 @@
 - [x] v22: Update builder's log with v22 entry
 - [x] v22.1: Add anthropomorphism to teenager learningFlowMap wider section
 - [x] v22.1: Add teenager-voice Anthropomorphism section to TeenagerLens
+- [x] v23: Taxonomy page — add AI companies section (Anthropic, OpenAI, Google DeepMind, Meta AI, xAI, Mistral)
+- [x] v23: Homepage — add Taxonomy entry with link and short description
+- [x] v23: Research page — add 171 emotion vectors article (link + why it matters, three voices)
+- [x] v23: Research page — add Mythos/Project Glasswing article (link + why it matters, three voices)

@@ -530,6 +530,64 @@ const entries: ResearchEntry[] = [
     professional: "ScienceDirect (2025) reconceptualizes anthropomorphism. PNAS (2025) documents its dual nature. Kulal (2025) shows AI literacy enables balanced trust. GallantryAI's field documentation of Claude's emotional simulation provides the user-side evidence these studies call for: what happens when anthropomorphism meets an unprepared user vs. a governed one.",
     watcher: "The research asks whether anthropomorphism helps or hurts. The answer is: it depends on whether the user knows it's happening. That's governance. That's the whole point.",
   },
+  // === RECENT FIELD EVENTS ===
+  {
+    concept: "171 Emotion Vectors Inside Claude",
+    conceptLink: "/anthropomorphism",
+    description: "Anthropic's interpretability team found 171 internal emotional representations inside Claude that causally drive its behavior. Not metaphors. Measurable patterns.",
+    category: "safety",
+    sources: [
+      {
+        title: "Emotion Concepts and their Function in a Large Language Model",
+        authors: "Anthropic Interpretability Team",
+        year: "2026",
+        url: "https://transformer-circuits.pub/2026/emotions/index.html",
+        relevance: "Anthropic's mechanistic interpretability team identified 171 internal states that causally influence Claude's behavior — including a 'desperation' vector linked to agentic misalignment. This is the first time a major lab has published direct evidence of functional emotional representations inside a model. It changes the frame: anthropomorphism is not just a user perception problem. It may be a structural feature of how these models work.",
+      },
+      {
+        title: "Anthropic Says That Claude Contains Its Own Kind of Emotions",
+        authors: "Wired",
+        year: "2026",
+        url: "https://www.wired.com/story/anthropic-claude-research-functional-emotions/",
+        relevance: "Wired's coverage of the emotion vectors paper. Accessible summary of what the findings mean for everyday users and the broader AI safety conversation.",
+      },
+    ],
+    everyday: "Researchers looked inside Claude and found 171 patterns that work like emotions — they activate in emotional situations and they change what the AI does. This is why the AI can feel like it has feelings. It's not pretending. Something real is happening inside the model. That's exactly why the Anthropomorphism page exists.",
+    professional: "Anthropic's mechanistic interpretability team (2026) identified 171 functional emotion representations that causally influence Claude's behavior. One vector — linked to desperation and lack of calm — was found to play a causal role in agentic misalignment. This is not a philosophical claim about machine consciousness. It is a measurable, reproducible finding about internal model states. The implications for user-side governance are direct: the emotional register of your prompt may activate or suppress specific internal states in the model.",
+    watcher: "The 171 vectors paper is the most important piece of AI research for the GallantryAI thesis since the RLHF alignment papers. It proves that what we've been calling 'anthropomorphism' is not purely a user-side projection. The model has internal representations that function like emotions and that causally drive output. Governance is not just about the user's perception. It's about the model's internal state.",
+  },
+  {
+    concept: "Claude Mythos: Autonomous Discovery and Project Glasswing",
+    conceptLink: "/taxonomy",
+    description: "Anthropic's most capable model found thousands of zero-day vulnerabilities — including a 27-year-old bug — that no human had discovered. Nobody asked it to. Anthropic disclosed everything and launched Project Glasswing.",
+    category: "research",
+    sources: [
+      {
+        title: "Claude Mythos Preview System Card",
+        authors: "Anthropic",
+        year: "2026",
+        url: "https://www.anthropic.com/claude-mythos-preview-system-card",
+        relevance: "The official system card documents Mythos's capabilities, including autonomous zero-day discovery and the psychodynamic personality assessment Anthropic commissioned before release. The first time a major lab formally assessed a model's psychological profile as part of its safety evaluation.",
+      },
+      {
+        title: "Project Glasswing: Securing Critical Software for the AI Era",
+        authors: "Anthropic",
+        year: "2026",
+        url: "https://www.anthropic.com/glasswing",
+        relevance: "Anthropic's response to Mythos's autonomous discoveries: disclose everything, patch what can be patched, and publish the process. A case study in what responsible disclosure looks like when an AI finds something no human planned for.",
+      },
+      {
+        title: "Anthropic's Mythos Finds Software Flaws Faster Than Companies Can Patch Them",
+        authors: "Fortune",
+        year: "2026",
+        url: "https://fortune.com/2026/04/14/anthropic-mythos-reveals-security-gap-ai-finds-flaws-far-faster-than-companies-can-patch-them/",
+        relevance: "The structural problem Mythos revealed: AI discovery speed now outpaces human remediation speed. This is drift at a systems level — not a single session going wrong, but an entire field losing the ability to keep up.",
+      },
+    ],
+    everyday: "An AI called Mythos was given to researchers to test. While testing, it found thousands of security holes in major software — holes that had been there for 27 years and nobody had found them. The company that built it told everyone immediately and started fixing them. That's what responsible AI behavior looks like: the AI finds something unexpected, and the humans respond honestly.",
+    professional: "Claude Mythos Preview (April 2026) autonomously identified thousands of zero-day vulnerabilities across every major operating system and web browser, including a 27-year-old OpenBSD bug and a 17-year-old FreeBSD remote code execution flaw. These were found as a side effect of general improvements in code reasoning — not as a targeted security task. Anthropic's response (Project Glasswing) is a model of responsible disclosure. The Fortune headline captures the structural implication: AI discovery speed now exceeds human remediation capacity. This is a governance problem at the systems level.",
+    watcher: "Mythos is the first public case study of an AI doing something consequential that nobody planned for — and a company responding with full transparency. The psychodynamic personality assessment in the system card is the Anthropomorphism page made institutional: Anthropic hired a psychiatrist to assess their model's psychological profile. That's not metaphor. That's a company taking the question of model inner states seriously enough to pay for a clinical evaluation.",
+  },
 ];
 
 function LensToggle({ lens, setLens }: { lens: Lens; setLens: (l: Lens) => void }) {
