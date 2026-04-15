@@ -351,7 +351,7 @@ export default function MathPrompting() {
                 From the Builder
               </div>
               <p className="text-base leading-relaxed italic" style={{ color: "#3a2a1a", fontFamily: serifFont }}>
-                My daughter is four. She counts everything. Stairs, apples, the number of times the dog barks. One day she'll use AI for math homework. When that day comes, I want her to know that the question matters more than the answer. That checking the AI's work IS the work. That the variable — the unknown — is always her.
+                Hudson is four. He sees numbers everywhere — stairs, apples, how many steps to the door. Olive is two. She watches him and finds the words for what she sees. One day they'll both use AI for homework. When that day comes, I want them to know that the question matters more than the answer. That checking the AI's work IS the work. That the variable — the unknown — is always them.
               </p>
               <p className="text-sm mt-4" style={{ color: "#8a7a6a" }}>
                 — Matt Gallantry, Midland, Ontario

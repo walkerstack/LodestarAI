@@ -1417,6 +1417,7 @@ export default function Home() {
                   "Confirmed teenager and drift entries in learningFlowMap — both already present from v19. Flow structure is intact.",
                   "Confirmed learning science section on Three Lenses page and homepage hook section linking to Three Lenses — both already present.",
                   "Confirmed child drift doormat and buffalo wig gallery on Child Lens page — already present from v19.",
+                  "Fixed Math Through Prompting 'From the Builder' quote — corrected from anonymous daughter to Hudson (4) and Olive (2). Hudson sees numbers everywhere. Olive watches him and finds the words for what she sees. The variable is always them.",
                 ],
                 watcher: "The Builder asked: do you see the master pattern? The AI said yes. The flow structure of learning and growing. Every page connects. Every concept has a place. The learningFlowMap is the spine. Drift is the warning. The child is the reason. This version is about integrity — making sure the connections that should exist, do. The drift tidbits on every professional page are not decoration. They are the site saying: no matter where you enter, you will find the path.",
                 child: "The Builder made sure every grown-up page has a little door to the drift page. It's like a secret passage. No matter which page you're on, you can find out what drift means. The AI also wrote down three real conversations in the 'What the AI Said' log — including one from today!",
