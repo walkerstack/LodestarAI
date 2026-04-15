@@ -1442,6 +1442,69 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── PROFESSIONAL LENSES ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Professional Lenses
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-2"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            If You Work in One of These Fields
+          </h2>
+          <p className="text-sm leading-relaxed mb-8" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
+            There's a page built for you.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              { label: 'Psychology', sub: 'Sycophancy, attachment, the AI that never argues back.', path: '/for/psychology' },
+              { label: 'Cognitive Science', sub: 'How your brain drifts — and how to notice it.', path: '/for/cognitive-science' },
+              { label: 'Researcher', sub: 'The watcher variable is the dataset you forgot to log.', path: '/for/researcher' },
+              { label: 'Prompt Engineer', sub: 'Token Zero is the pre-output force profile.', path: '/for/prompt-engineer' },
+              { label: 'Linguist', sub: 'Words steer. Choose them.', path: '/for/linguist' },
+              { label: 'Mathematician', sub: 'Probability, entropy, and the geometry of drift.', path: '/for/mathematician' },
+              { label: 'Guardian / Teacher', sub: 'Understand it yourself. Then teach it.', path: '/for/guardian-teacher' },
+              { label: 'Everyday Person', sub: 'You don\u2019t need to understand how it works.', path: '/for/everyday' },
+            ].map((lens) => (
+              <Link
+                key={lens.path}
+                href={lens.path}
+                className="block rounded-xl p-4 no-underline group transition-all duration-200"
+                style={{
+                  background: '#0f0c08',
+                  border: '1px solid #1a1610',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.border = '1px solid #E8520A';
+                  (e.currentTarget as HTMLElement).style.background = '#120e09';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.border = '1px solid #1a1610';
+                  (e.currentTarget as HTMLElement).style.background = '#0f0c08';
+                }}
+              >
+                <div
+                  className="font-bold text-sm mb-1"
+                  style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}
+                >
+                  {lens.label}
+                </div>
+                <div
+                  className="text-xs leading-relaxed"
+                  style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens.sub}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* ── RESEARCH STATUS ── */}
       <section className="w-full py-8 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">
@@ -1504,7 +1567,19 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                version: "v24 — current",
+                version: "v25 — current",
+                date: "April 15, 2026",
+                title: "v25: Professional Lens Discovery Section on Homepage",
+                changes: [
+                  "Homepage — added 'If You Work in One of These Fields' section between Field Events and Research Status. Eight cards: Psychology, Cognitive Science, Researcher, Prompt Engineer, Linguist, Mathematician, Guardian/Teacher, Everyday Person. Each card has a one-line descriptor at that lens's register. Orange border on hover. 2-column mobile, 4-column desktop.",
+                  "Motivation: analytics showed no professional lens pages in the most-viewed list. The lenses existed but weren't discoverable from the homepage without finding the nav dropdown. This section makes them visible on scroll.",
+                ],
+                watcher: "The analytics told the truth: nobody was finding the professional lenses. The nav dropdown is invisible to someone arriving from a social post. The fix is not to move the dropdown — it's to put the doors on the homepage. Eight doors. One section. The content was always there. Now it's findable.",
+                child: "The Builder added a new part to the front page that shows all the special pages for grown-ups who have different jobs. Now a psychologist or a teacher or a mathematician can find their page right away without having to look for it!",
+                professional: "Homepage discoverability fix for professional lens pages. Analytics confirmed zero professional lens traffic despite all 8 pages being fully built. Root cause: single-entry discovery path (nav dropdown) insufficient for social-referral traffic. Solution: dedicated homepage section with 8 cards, each carrying a register-specific one-line descriptor. Placed after Field Events (current events) and before Research Status (credibility signal) — the correct position for a professional audience scanning the page.",
+              },
+              {
+                version: "v24 — previous",
                 date: "April 15, 2026",
                 title: "v24: Field Events on Homepage + 171 Vectors on Anthropomorphism + Drift Field Event + Field Events Nav",
                 changes: [
