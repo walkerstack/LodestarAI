@@ -363,6 +363,21 @@ export default function PromptEngineerLens() {
         </section>
       </main>
 
+      {/* ── DRIFT TIDBIT ── */}
+      <section className="py-10 px-6" style={{ background: "#1a1208" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-6" style={{ background: "#0f0c08", border: "1.5px solid #E8520A30" }}>
+            <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}>Information Gap</div>
+            <p className="text-base leading-relaxed mb-4" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+              You've mastered system prompts, chain-of-thought, and few-shot. You know that instructions decay. Here is the gap that technique alone doesn't close: <strong style={{ color: "#FAF6EF" }}>the drift isn't in the model. It's in you.</strong> By message 20, you're not following your own system prompt anymore. You've adapted to the AI's responses. That's drift. And it starts before the model does anything wrong.
+            </p>
+            <a href="/drift" className="inline-block px-5 py-2.5 rounded-full text-sm font-bold" style={{ background: "#E8520A", color: "#fff", fontFamily: "'DM Sans', sans-serif" }}>
+              What is drift? →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

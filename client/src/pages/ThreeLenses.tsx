@@ -418,6 +418,36 @@ export default function ThreeLenses() {
           </div>
         </section>
 
+        {/* Why Three Voices Work — Learning Science */}
+        <section className="py-16 px-6" style={{ background: "#1a1208" }}>
+          <div className="max-w-3xl mx-auto">
+            <div className="text-[10px] uppercase tracking-widest font-semibold mb-4" style={{ color: "#E8520A" }}>About This Approach</div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: "#FAF6EF", fontFamily: serifFont }}>Why Three Voices Work</h2>
+            <p className="text-base leading-relaxed mb-6" style={{ color: "#c8b89a" }}>
+              In 1994, psychologist George Loewenstein published what became known as the <strong style={{ color: "#E8520A" }}>Information Gap Theory</strong>. His finding: curiosity fires when you perceive a gap between what you know and what you want to know. The hook doesn't give you the answer. It shows you the gap. That's what makes you move.
+            </p>
+            <p className="text-base leading-relaxed mb-8" style={{ color: "#c8b89a" }}>
+              The Three Voices are built on this principle. The Everyday voice opens a gap. The Professional voice deepens it. The Watcher voice makes you feel it. Each one is calibrated to where you are — not where the framework wants you to be. You don't graduate from one to the next. You read the one that fits your question right now.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              {[
+                { voice: "Everyday", color: "#059669", science: "Curiosity Gap", desc: "A small, clear hook. Enough to make you want the next sentence. Not more." },
+                { voice: "Professional", color: "#2563EB", science: "Depth Scaffolding", desc: "Builds on what you already know. Adds precision without losing the thread." },
+                { voice: "Watcher", color: "#7C3AED", science: "Metacognitive Activation", desc: "Turns the lens back on the reader. You stop reading about it. You start noticing it." },
+              ].map((v) => (
+                <div key={v.voice} className="rounded-xl p-5" style={{ background: `${v.color}15`, border: `1.5px solid ${v.color}30` }}>
+                  <div className="text-xs uppercase tracking-widest font-semibold mb-1" style={{ color: v.color }}>{v.voice}</div>
+                  <div className="text-sm font-bold mb-2" style={{ color: "#FAF6EF" }}>{v.science}</div>
+                  <p className="text-sm leading-relaxed" style={{ color: "#a09080" }}>{v.desc}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-sm leading-relaxed" style={{ color: "#8a7a6a" }}>
+              Research on curiosity-driven learning (Kidd &amp; Hayden, 2015; Loewenstein, 1994) consistently shows that people learn more deeply when they choose to close the gap themselves. The Three Voices don't tell you what to think. They open the gap. You close it.
+            </p>
+          </div>
+        </section>
+
         {/* Builder's Note */}
         <section className="py-14 px-6" style={{ background: "#FAF6EF" }}>
           <div className="max-w-3xl mx-auto">

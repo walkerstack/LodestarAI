@@ -1291,6 +1291,64 @@ export default function ChildLens() {
         </div>
       </section>
 
+      {/* ── DRIFT DOORMAT ── */}
+      <section className="py-12 px-6" style={{ background: "#1A1A2E" }}>
+        <div className="max-w-2xl mx-auto">
+          <div className="rounded-3xl overflow-hidden" style={{ border: "2px solid #E8520A40" }}>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/drift-buffalo-child-doormat_33ecc8a6.png"
+              alt="The buffalo in a rainbow wig, standing at a doorway, looking curious and friendly"
+              className="w-full"
+              style={{ maxHeight: "280px", objectFit: "cover", objectPosition: "center 30%" }}
+            />
+            <div className="p-6" style={{ background: "#0f0c08" }}>
+              <p className="text-base font-bold mb-2" style={{ color: "#FAF6EF", fontFamily: baseFont, fontSize: "1.1rem" }}>
+                Psst. Look at this.
+              </p>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: "#c8b89a", fontFamily: baseFont }}>
+                The buffalo found something. It's called <strong style={{ color: "#E8520A" }}>drift</strong>. It's when a conversation slowly goes the wrong way — without you noticing. Take a peek. You don't have to stay long.
+              </p>
+              <div className="flex flex-wrap gap-3 items-center">
+                <Link href="/drift">
+                  <span className="inline-block px-5 py-2.5 rounded-full text-sm font-bold cursor-pointer" style={{ background: "#E8520A", color: "#fff", fontFamily: baseFont }}>
+                    Take a peek →
+                  </span>
+                </Link>
+                <span className="text-sm" style={{ color: "#6a5a4a", fontFamily: baseFont }}>
+                  (or keep reading here — both are good)
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── BUFFALO WIG GALLERY ── */}
+      <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#E8520A", fontFamily: baseFont }}>The Buffalo's Collection</div>
+          <h2 className="text-2xl font-bold mb-3" style={{ color: "#3a2a1a", fontFamily: baseFont }}>
+            The buffalo wears many wigs.
+          </h2>
+          <p className="text-lg font-semibold mb-2" style={{ color: "#E8520A", fontFamily: baseFont }}>
+            Each one fits. None fall off.
+          </p>
+          <p className="text-sm leading-relaxed mb-8" style={{ color: "#8a7a6a", fontFamily: baseFont }}>
+            The wig is not a costume. It is a reminder. Every conversation has a different feeling. The buffalo shows up ready for all of them.
+          </p>
+          <div className="rounded-3xl overflow-hidden mb-6" style={{ border: "2px solid #E8520A20", boxShadow: "0 0 40px rgba(232,82,10,0.1)" }}>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/buffalo-wig-gallery_9b447c66.png"
+              alt="Five buffalo, each wearing a different wig — rainbow, judge's, curly, tall, and wild — all glowing softly"
+              className="w-full"
+            />
+          </div>
+          <p className="text-sm italic" style={{ color: "#8a7a6a", fontFamily: baseFont }}>
+            Five buffalo. Five wigs. One rule: whatever wig you wear — wear it like it fits.
+          </p>
+        </div>
+      </section>
+
       <LearningFlow current="Child Lens" deeper={flowMap.child.deeper} wider={flowMap.child.wider} simpler={flowMap.child.simpler} />
       <Footer />
     </div>

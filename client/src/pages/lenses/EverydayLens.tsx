@@ -313,6 +313,21 @@ export default function EverydayLens() {
         </section>
       </main>
 
+      {/* ── DRIFT TIDBIT ── */}
+      <section className="py-10 px-6" style={{ background: "#1a1208" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-6" style={{ background: "#0f0c08", border: "1.5px solid #E8520A30" }}>
+            <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}>Information Gap</div>
+            <p className="text-base leading-relaxed mb-4" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+              You've had a conversation with AI that started fine and ended somewhere strange. You weren't sure when it happened. You just noticed that the answers stopped feeling right. <strong style={{ color: "#FAF6EF" }}>That's drift.</strong> It's not the AI's fault. It's not your fault. It's just what happens when no one's watching the direction. Here's how to watch.
+            </p>
+            <a href="/drift" className="inline-block px-5 py-2.5 rounded-full text-sm font-bold" style={{ background: "#E8520A", color: "#fff", fontFamily: "'DM Sans', sans-serif" }}>
+              What is drift? →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <LearningFlow current="Everyday Lens" deeper={flowMap.everyday.deeper} wider={flowMap.everyday.wider} simpler={flowMap.everyday.simpler} />
       <Footer />
     </div>

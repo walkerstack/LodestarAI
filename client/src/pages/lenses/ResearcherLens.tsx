@@ -254,6 +254,22 @@ export default function ResearcherLens() {
           </div>
         </section>
       </main>
+
+      {/* ── DRIFT TIDBIT ── */}
+      <section className="py-10 px-6" style={{ background: "#1a1208" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-6" style={{ background: "#0f0c08", border: "1.5px solid #E8520A30" }}>
+            <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}>Information Gap</div>
+            <p className="text-base leading-relaxed mb-4" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+              You document variables. You control for confounds. You know that unobserved variables corrupt data. Here is the variable most AI research papers don't log: <strong style={{ color: "#FAF6EF" }}>the researcher's own drift inside the session.</strong> The watcher variable is the dataset you forgot to collect. It's yourself.
+            </p>
+            <a href="/drift" className="inline-block px-5 py-2.5 rounded-full text-sm font-bold" style={{ background: "#E8520A", color: "#fff", fontFamily: "'DM Sans', sans-serif" }}>
+              What is drift? →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

@@ -216,8 +216,41 @@ export const flowMap: Record<string, FlowEntry> = {
     wider: [
       { label: "Play & Practice", href: "/prompt-games", description: "Games that teach you how to talk to AI." },
       { label: "For Your Grown-Up", href: "/for/guardian-teacher", description: "Show this to the adult helping you." },
+      { label: "What is Drift?", href: "/drift", description: "When the AI starts going the wrong way. The buffalo watches for it." },
     ],
     simpler: [],
+  },
+
+  teenager: {
+    deeper: [
+      { label: "The Watcher", href: "/for/watcher", description: "The part of you that notices what you're doing while you're doing it." },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "How words steer the AI. The science behind the steering wheel." },
+    ],
+    wider: [
+      { label: "Everyday Lens", href: "/for/everyday", description: "The plain-language version of everything on this site." },
+      { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "What the adults around you are learning." },
+      { label: "Drift", href: "/drift", description: "When the AI starts going a different way. How to catch it and fix it." },
+    ],
+    simpler: [
+      { label: "Child Lens", href: "/for/child", description: "The version built for younger learners." },
+      { label: "The Five Rules", href: "/rules", description: "The foundation. Start here if anything feels overwhelming." },
+    ],
+  },
+
+  drift: {
+    deeper: [
+      { label: "The Watcher", href: "/for/watcher", description: "The instrument that catches drift before it takes hold." },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The word mechanics that prevent and correct drift." },
+    ],
+    wider: [
+      { label: "Road Protocol", href: "/road-protocol", description: "The session structure that prevents drift from starting." },
+      { label: "The Human Line", href: "/human-line", description: "The boundary drift erodes." },
+      { label: "Cognitive Science Lens", href: "/for/cognitive-science", description: "The brain science behind why drift happens." },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "The simplest anti-drift tool on the site." },
+      { label: "Everyday Lens", href: "/for/everyday", description: "Drift explained in plain language." },
+    ],
   },
 
   euAiAct: {

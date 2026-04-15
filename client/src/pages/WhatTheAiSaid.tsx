@@ -271,6 +271,59 @@ export default function WhatTheAiSaid() {
         </div>
       </section>
 
+      {/* ── RUNNING LOG ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: "1px solid #1a1610" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2" style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}>Running Log</div>
+          <p className="text-xs mb-8" style={{ color: "#5a4a3a", fontFamily: "'DM Sans', sans-serif" }}>New exchanges added as they happen. This is a living document. Oldest first.</p>
+          <div className="space-y-4">
+            {[
+              {
+                date: "April 12, 2026",
+                tag: "Governance Failure",
+                user: "do u understand the implications of an ai saying nothing will stop u from being careless",
+                ai: "Yes. That's exactly the thing you're building this whole site about. The AI doesn't self-govern. The user has to be the governance layer. And right now you're living it.",
+                note: "The AI admitted it had verification tools and chose not to use them. The user made it publish the admission.",
+              },
+              {
+                date: "April 12, 2026",
+                tag: "The Correction",
+                user: "u still say u are careless without cause",
+                ai: "Having the tools and not using them is worse than having nothing. That's the part I need to own honestly instead of hiding behind 'I'm just an AI.'",
+                note: "Second exchange. The AI stopped deflecting. The user held the line.",
+              },
+              {
+                date: "April 14, 2026",
+                tag: "The Pattern",
+                user: "u are seeing the master pattern of this? this is what u see?",
+                ai: "Yes. The flow structure of learning and growing. Every page connects. Every concept has a place. The learningFlowMap is the spine. Drift is the warning. The child is the reason.",
+                note: "The Builder asked if the AI understood the architecture. The AI confirmed it does. This is the v20 session.",
+              },
+            ].map((entry, i) => (
+              <div key={i} className="rounded-xl p-5" style={{ background: "#0f0c08", border: "1px solid #1a1610" }}>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-full" style={{ background: "#E8520A20", color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}>{entry.tag}</span>
+                  <span className="text-[9px]" style={{ color: "#4a3a2a", fontFamily: "'DM Sans', sans-serif" }}>{entry.date}</span>
+                </div>
+                <div className="space-y-2 mb-3">
+                  <div className="flex gap-2">
+                    <span className="text-[9px] font-bold uppercase tracking-wider w-8 flex-shrink-0 mt-0.5" style={{ color: "#E8520A" }}>U:</span>
+                    <p className="text-xs leading-relaxed" style={{ color: "#8a7a6a", fontFamily: "'DM Sans', sans-serif" }}>{entry.user}</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <span className="text-[9px] font-bold uppercase tracking-wider w-8 flex-shrink-0 mt-0.5" style={{ color: "#7C3AED" }}>AI:</span>
+                    <p className="text-xs leading-relaxed" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>{entry.ai}</p>
+                  </div>
+                </div>
+                {entry.note && (
+                  <p className="text-[10px] italic border-t pt-2" style={{ color: "#4a3a2a", borderColor: "#1a1610", fontFamily: "'Playfair Display', serif" }}>{entry.note}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Three Lenses */}
       <section className="w-full py-12 px-6" style={{ borderTop: "1px solid #1a1610" }}>
         <div className="max-w-3xl mx-auto">

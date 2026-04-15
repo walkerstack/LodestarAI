@@ -366,6 +366,21 @@ export default function LinguistLens() {
         </section>
       </main>
 
+      {/* ── DRIFT TIDBIT ── */}
+      <section className="py-10 px-6" style={{ background: "#1a1208" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-6" style={{ background: "#0f0c08", border: "1.5px solid #E8520A30" }}>
+            <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}>Information Gap</div>
+            <p className="text-base leading-relaxed mb-4" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+              You know that language shapes thought. You know that register shifts meaning. Here is what the linguistics literature hasn't caught up to yet: <strong style={{ color: "#FAF6EF" }}>AI drift is a register problem.</strong> The model doesn't lose your intent. It mirrors your affect. The conversation drifts because your language drifted first.
+            </p>
+            <a href="/drift" className="inline-block px-5 py-2.5 rounded-full text-sm font-bold" style={{ background: "#E8520A", color: "#fff", fontFamily: "'DM Sans', sans-serif" }}>
+              What is drift? →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

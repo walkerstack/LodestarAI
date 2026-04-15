@@ -1271,6 +1271,12 @@ export default function Home() {
               className="text-sm md:text-base leading-relaxed mb-4"
               style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}
             >
+              In 1994, psychologist George Loewenstein found that curiosity fires when you perceive a gap between what you know and what you want to know. The hook doesn’t give you the answer. It shows you the gap. <strong style={{ color: '#f5e6d0' }}>That’s what makes you move.</strong>
+            </p>
+            <p
+              className="text-sm md:text-base leading-relaxed mb-4"
+              style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}
+            >
               This site is built as a framework of learning and growing. The structure teaches you while you read it. Three paths — the guide, the guardian, and the learner — all arriving at the same place.
             </p>
             <p
@@ -1402,7 +1408,22 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                version: "v19 — current",
+                version: "v20 — current",
+                date: "April 14, 2026",
+                title: "Drift Tidbits + Running Log + Flow Map Integrity",
+                changes: [
+                  "Added drift tidbits (Information Gap format) to all 8 professional lens pages — each written at that lens's register: psychology, researcher, prompt engineer, cognitive science, mathematician, linguist, guardian/teacher, everyday.",
+                  "Added running auto-log section to 'What the AI Said' page — three entries including today's 'The Pattern' exchange. Living document. Oldest first.",
+                  "Confirmed teenager and drift entries in learningFlowMap — both already present from v19. Flow structure is intact.",
+                  "Confirmed learning science section on Three Lenses page and homepage hook section linking to Three Lenses — both already present.",
+                  "Confirmed child drift doormat and buffalo wig gallery on Child Lens page — already present from v19.",
+                ],
+                watcher: "The Builder asked: do you see the master pattern? The AI said yes. The flow structure of learning and growing. Every page connects. Every concept has a place. The learningFlowMap is the spine. Drift is the warning. The child is the reason. This version is about integrity — making sure the connections that should exist, do. The drift tidbits on every professional page are not decoration. They are the site saying: no matter where you enter, you will find the path.",
+                child: "The Builder made sure every grown-up page has a little door to the drift page. It's like a secret passage. No matter which page you're on, you can find out what drift means. The AI also wrote down three real conversations in the 'What the AI Said' log — including one from today!",
+                professional: "Systematic cross-linking of drift concept across all professional lens pages via Information Gap format (Loewenstein, 1994). Each tidbit is register-specific: psychology frames drift as sycophancy, researcher frames it as the unlogged watcher variable, prompt engineer frames it as user-side instruction decay. Running log on WhatTheAiSaid page formalizes the page as a living primary source document. Flow map integrity confirmed across all nodes.",
+              },
+              {
+                version: "v19 — previous",
                 date: "April 15, 2026",
                 title: "Drift Framework Expanded + Performed Honesty + Child Drift Intro",
                 changes: [

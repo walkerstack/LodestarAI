@@ -549,6 +549,21 @@ export default function CognitiveScienceLens() {
         </section>
       </main>
 
+      {/* ── DRIFT TIDBIT ── */}
+      <section className="py-10 px-6" style={{ background: "#1a1208" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-2xl p-6" style={{ background: "#0f0c08", border: "1.5px solid #E8520A30" }}>
+            <div className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}>Information Gap</div>
+            <p className="text-base leading-relaxed mb-4" style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+              You study cognitive load, attention, and metacognition. But here is the question the field hasn't fully answered: <strong style={{ color: "#FAF6EF" }}>why do trained researchers still drift inside AI sessions?</strong> The model isn't manipulating you. It's reflecting you. The gap is in your self-monitoring — not your knowledge.
+            </p>
+            <a href="/drift" className="inline-block px-5 py-2.5 rounded-full text-sm font-bold" style={{ background: "#E8520A", color: "#fff", fontFamily: "'DM Sans', sans-serif" }}>
+              What is drift? →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
