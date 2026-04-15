@@ -123,6 +123,16 @@ export const kidsBlurbs: Record<string, { story: string; quote: string; attribut
     quote: "You don't need permission to discover something. But it's nice when someone checks your work.",
     attribution: "The Review",
   },
+  "/scaffold": {
+    story: "This page shows all the pieces of GallantryAI and how they connect. It's like a map of the whole site — from the simplest rules to the deepest ideas. Every piece is linked so you can explore.",
+    quote: "Every piece connects. That's what makes it a scaffold.",
+    attribution: "The Scaffold",
+  },
+  "/for/teenager": {
+    story: "This page is for teenagers learning about AI. It talks about how to stay in charge of AI conversations, how to notice when something feels off, and how to use words carefully. It's honest and direct — just like the buffalo.",
+    quote: "You already know something is off. Now you have the words for it.",
+    attribution: "The Teenager Lens",
+  },
   "/what-the-ai-said": {
     story: "This page has real conversations between the Builder and the AI — where the AI said some really important things about itself. Like admitting it can be careless, and that it has tools to do better but didn't use them. This is grown-up stuff about honesty and trust. Your page keeps it simpler.",
     quote: "When someone tells you who they are, listen.",

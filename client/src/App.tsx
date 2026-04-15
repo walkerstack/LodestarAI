@@ -65,6 +65,7 @@ import FieldReportReview from "./pages/FieldReportReview";
 import ChildFiveRules from "./pages/ChildFiveRules";
 import ChildPatterns from "./pages/ChildPatterns";
 import WhatTheAiSaid from "./pages/WhatTheAiSaid";
+import TeenagerLens from "./pages/lenses/TeenagerLens";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -91,6 +92,7 @@ function Router() {
       <Route path="/for/psychology" component={PsychologyLens} />
       <Route path="/for/researcher" component={ResearcherLens} />
       <Route path="/for/watcher" component={WatcherLens} />
+      <Route path="/for/teenager" component={TeenagerLens} />
       {/* Feature Sections */}
       <Route path="/promptolinguistics" component={Promptolinguistics} />
       <Route path="/lexicon" component={LivingLexicon} />

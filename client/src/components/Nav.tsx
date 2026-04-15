@@ -22,6 +22,7 @@ const lenses = [
   { label: "Psychology", path: "/for/psychology", color: "text-rose-600" },
   { label: "Researcher", path: "/for/researcher", color: "text-teal-600" },
   { label: "The Watcher", path: "/for/watcher", color: "text-black" },
+  { label: "Teenager", path: "/for/teenager", color: "text-indigo-600" },
 ];
 
 const foundationLinks = [

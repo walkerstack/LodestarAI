@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsMidLink from "@/components/KidsMidLink";
+import KidsRedirect from "@/components/KidsRedirect";
+import { kidsBlurbs } from "@/lib/kidsBlurbs";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -88,6 +90,11 @@ export default function Scaffold() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
+      <KidsRedirect
+        story={kidsBlurbs["/scaffold"]?.story || "This page shows all the pieces of GallantryAI and how they connect. It's like a map of the whole site — from the simplest rules to the deepest ideas. Every piece is linked so you can explore."}
+        quote={kidsBlurbs["/scaffold"]?.quote || "Every piece connects. That's what makes it a scaffold."}
+        attribution={kidsBlurbs["/scaffold"]?.attribution || "The Scaffold"}
+      />
 
       <main className="flex-1">
         {/* Hero */}

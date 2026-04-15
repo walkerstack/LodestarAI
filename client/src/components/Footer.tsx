@@ -50,6 +50,7 @@ export default function Footer() {
               <Link href="/for/psychology" className="block hover:text-[#E8520A] no-underline transition-colors">Psychology</Link>
               <Link href="/for/researcher" className="block hover:text-[#E8520A] no-underline transition-colors">Researcher</Link>
               <Link href="/for/watcher" className="block hover:text-[#E8520A] no-underline transition-colors" style={{ color: '#000' }}>The Watcher</Link>
+              <Link href="/for/teenager" className="block hover:text-[#E8520A] no-underline transition-colors" style={{ color: '#4338ca' }}>Teenager</Link>
             </div>
 
             {/* Foundation */}
