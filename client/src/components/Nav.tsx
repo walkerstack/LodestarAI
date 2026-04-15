@@ -21,7 +21,7 @@ const lenses = [
   { label: "Cognitive Science", path: "/for/cognitive-science", color: "text-slate-600" },
   { label: "Psychology", path: "/for/psychology", color: "text-rose-600" },
   { label: "Researcher", path: "/for/researcher", color: "text-teal-600" },
-  { label: "The Watcher", path: "/for/watcher", color: "text-gray-400" },
+  { label: "The Watcher", path: "/for/watcher", color: "text-black" },
 ];
 
 const foundationLinks = [
