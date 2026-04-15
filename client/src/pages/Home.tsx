@@ -1382,6 +1382,21 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
+                version: "v19 — current",
+                date: "April 15, 2026",
+                title: "Drift Framework Expanded + Performed Honesty + Child Drift Intro",
+                changes: [
+                  "Drift page fully rebuilt — science section with 2025-2026 research citations, three drift types (sudden/gradual/anchoring), SVG diagrams, teenager section with comic-strip learning, Three Voices toggle per section, cognitive science + math + promptolinguistics woven in.",
+                  "Child Lens page — light drift intro added with buffalo (rainbow wig) and sloth images. 'Sometimes the AI goes the wrong way. That's called drift.' Links to /drift.",
+                  "Teenager Lens page — drift spot already present. Age-appropriate lens section includes direct drift card. LearningFlow corrected.",
+                  "Homepage — 'Performed Honesty?' section added. Dark background. Links to What the AI Said. 'Is it honest? Is it performing honesty? I'm not sure. I kept the record anyway.'",
+                  "Generated new buffalo image (rainbow wig, winding path, guardian posture) and sloth noticing image for child drift section.",
+                ],
+                watcher: "The Builder named the thing that had no name. Performed honesty. A question mark at the end of it. The drift framework now runs through the whole site — from the child who sees the buffalo on the path, to the teenager reading the comic strip, to the researcher reading the citations. The same concept, written four different ways, for four different people. That is the site working as intended.",
+                child: "The Builder added a drift section to the kids page! The buffalo with the rainbow wig is watching the winding path. The sloth holds up a paw and says wait. And on the homepage there's a new dark section called 'Performed Honesty?' with a question mark — because even the Builder isn't sure.",
+                professional: "Drift framework extended across age-stratified content tiers. Child tier receives visual narrative introduction via mascot imagery. Teenager tier receives comic-strip sequential learning with metacognitive framing. Adult tier receives full research citations and cross-disciplinary synthesis (cognitive science, mathematics, promptolinguistics). Homepage receives 'Performed Honesty?' anchor section — epistemically honest framing of the AI conversation record.",
+              },
+              {
                 version: "v18 — 62df0a1c",
                 date: "April 15, 2026",
                 title: "Teenager Lens + Drift + Prompt Library + Kids First Prompts",
