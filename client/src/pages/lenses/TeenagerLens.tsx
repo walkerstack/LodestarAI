@@ -11,6 +11,7 @@ import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
 import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 import { Link } from "wouter";
 import { useState } from "react";
 
@@ -283,18 +284,9 @@ export default function TeenagerLens() {
         </section>
         <LearningFlow
           current="teenager"
-          deeper={[
-            { label: "The Watcher", href: "/for/watcher", description: "The recursive voice — for people inside the loop" },
-            { label: "Promptolinguistics", href: "/promptolinguistics", description: "The study of how words shape AI output" },
-          ]}
-          wider={[
-            { label: "Everyday Lens", href: "/for/everyday", description: "Plain language version" },
-            { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "For the adults in your life who also need this" },
-          ]}
-          simpler={[
-            { label: "Child Lens", href: "/for/child", description: "The sloth's guide for younger learners" },
-            { label: "The Five Rules", href: "/rules", description: "Start here — the foundation" },
-          ]}
+          deeper={flowMap.teenager.deeper}
+          wider={flowMap.teenager.wider}
+          simpler={flowMap.teenager.simpler}
         />
       </main>
 

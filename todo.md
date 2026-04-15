@@ -45,3 +45,5 @@
 - [x] v22: Audit all professional lenses — confirm Anthropomorphism entry point present on each
 - [x] v22: Audit all professional lenses — confirm working LearningFlow at bottom of each
 - [x] v22: Update builder's log with v22 entry
+- [x] v22.1: Add anthropomorphism to teenager learningFlowMap wider section
+- [x] v22.1: Add teenager-voice Anthropomorphism section to TeenagerLens

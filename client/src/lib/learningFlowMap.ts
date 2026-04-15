@@ -232,6 +232,7 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "Everyday Lens", href: "/for/everyday", description: "The plain-language version of everything on this site." },
       { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "What the adults around you are learning." },
       { label: "Drift", href: "/drift", description: "When the AI starts going a different way. How to catch it and fix it." },
+      { label: "Anthropomorphism", href: "/anthropomorphism", description: "Why the AI feels like a person \u2014 and why knowing that changes everything." },
     ],
     simpler: [
       { label: "Child Lens", href: "/for/child", description: "The version built for younger learners." },
