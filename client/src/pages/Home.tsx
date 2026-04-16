@@ -1563,6 +1563,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── SIX PANELS ONE MAP — Comic ── */}
+      <section className="w-full py-14 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container max-w-4xl">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-3"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Visual Map
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-6"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            Six Panels. One Map.
+          </h2>
+          <LightboxImage
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/six-panels-one-map_9a779cb9.png"
+            alt="Six panels. One map. The forest of data, the sloth guide, the buffalo guardian, what the adults learned, the loop, and the watcher."
+            className="w-full rounded-2xl mb-6 cursor-zoom-in"
+            style={{ border: '1px solid #2a1e10' }}
+          />
+          <p
+            className="text-sm leading-relaxed italic"
+            style={{ color: '#c8b89a', fontFamily: "'Playfair Display', serif", maxWidth: '680px' }}
+          >
+            A forest made of words. An AI learning to walk through it. A buffalo in a judge&rsquo;s wig guarding the rules. A sloth holding a lantern &mdash; not toward the path, toward you. A person trapped in a loop of errors and dollars and &ldquo;done&rdquo; that meant nothing. And at the end: the watcher. The one who has to check.
+            <br /><br />
+            This is what AI governance looks like when it&rsquo;s built for the person holding the phone &mdash; not the person writing the policy.
+          </p>
+        </div>
+      </section>
+
       {/* ── PROFESSIONAL LENSES ── */}
       <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">
