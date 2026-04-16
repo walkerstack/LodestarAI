@@ -31,6 +31,7 @@ const foundationLinks = [
   { label: "The Five Rules", path: "/rules" },
   { label: "Road Protocol", path: "/road-protocol" },
   { label: "Drift", path: "/drift" },
+  { label: "Hallucinations", path: "/hallucinations" },
   { label: "Anthropomorphism", path: "/anthropomorphism" },
   { label: "The Scaffold", path: "/scaffold" },
   { label: "User-Side Governance", path: "/user-governance" },

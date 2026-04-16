@@ -1033,6 +1033,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── HALLUCINATIONS SMALL DOOR ── */}
+      <section className="w-full py-6 px-6" style={{ borderTop: '1px solid #1a1610', background: '#0a0806' }}>
+        <div className="container">
+          <div className="max-w-2xl">
+            <Link href="/hallucinations" className="no-underline group flex items-center gap-4 rounded-2xl p-4 transition-all" style={{ background: '#110e08', border: '1px solid #2a1a0a' }}>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: '#E8520A22', border: '1px solid #E8520A44' }}>
+                <span className="text-sm" style={{ color: '#E8520A' }}>?</span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs font-semibold mb-0.5" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>Foundation</div>
+                <div className="text-sm font-bold" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>When the AI gets it wrong →</div>
+                <div className="text-xs mt-0.5" style={{ color: '#4a3a2a', fontFamily: "'DM Sans', sans-serif" }}>Hallucinations. Confident. Wrong. At the same time.</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
       {/* ── THE SCAFFOLD ── */}
       <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">
