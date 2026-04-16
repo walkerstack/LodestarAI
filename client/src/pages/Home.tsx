@@ -377,6 +377,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── HERO ── */}
+      <section className="w-full pt-16 pb-12 px-6">
+        <div className="max-w-3xl mx-auto">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-8"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            GallantryAI {"\u00B7"} A System of Learning {"\u00B7"} Midland, Ontario {"\u00B7"} 2026
+          </div>
+
+          <h1
+            className="text-4xl md:text-6xl font-black leading-[1.1] mb-6"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            A thinking partner.
+            <br />
+            <span style={{ color: '#E8520A' }}>Not a shortcut.</span>
+          </h1>
+
+          <p
+            className="text-lg leading-relaxed mb-2 max-w-xl"
+            style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Governance does not reside in the prompt. It resides in the person holding the prompt.
+          </p>
+          <p
+            className="text-sm italic mb-10"
+            style={{ color: '#5a4a3a', fontFamily: "'Playfair Display', serif" }}
+          >
+            {"\u2014"} GallantryAI Scaffold Paper, March 2026
+          </p>
+
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/rules"
+              className="inline-flex items-center gap-2 bg-[#E8520A] text-white px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-orange-700 transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Start with the Five Rules
+            </Link>
+            <Link
+              href="/prompts"
+              className="inline-flex items-center gap-2 border border-[#E8520A]/60 text-[#E8520A] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-[#E8520A]/10 transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Prompt Library
+            </Link>
+            <Link
+              href="/lexicon"
+              className="inline-flex items-center gap-2 border border-[#E8520A]/60 text-[#E8520A] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-[#E8520A]/10 transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Living Lexicon
+            </Link>
+            <Link
+              href="/promptolinguistics"
+              className="inline-flex items-center gap-2 border border-[#3a3020] text-[#8a7a6a] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:border-[#E8520A]/40 hover:text-[#E8520A] transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Explore the Discipline
+            </Link>
+            <Link
+              href="/playground"
+              className="inline-flex items-center gap-2 border border-[#3a3020] text-[#6b5a3e] px-4 py-2 rounded-lg text-xs no-underline hover:border-[#E8520A]/40 hover:text-[#E8520A] transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Playground (Coming Soon)
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── PROMPTOLINGUISTICS ── */}
       <section className="w-full py-12 px-6" style={{ borderBottom: '1px solid #1a1610' }}>
         <div className="max-w-3xl mx-auto">
@@ -460,78 +532,6 @@ export default function Home() {
           >
             Read the origin story {"\u2192"}
           </Link>
-        </div>
-      </section>
-
-      {/* ── HERO ── */}
-      <section className="w-full pt-16 pb-12 px-6">
-        <div className="max-w-3xl mx-auto">
-          <div
-            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-8"
-            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
-          >
-            GallantryAI {"\u00B7"} A System of Learning {"\u00B7"} Midland, Ontario {"\u00B7"} 2026
-          </div>
-
-          <h1
-            className="text-4xl md:text-6xl font-black leading-[1.1] mb-6"
-            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
-          >
-            A thinking partner.
-            <br />
-            <span style={{ color: '#E8520A' }}>Not a shortcut.</span>
-          </h1>
-
-          <p
-            className="text-lg leading-relaxed mb-2 max-w-xl"
-            style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}
-          >
-            Governance does not reside in the prompt. It resides in the person holding the prompt.
-          </p>
-          <p
-            className="text-sm italic mb-10"
-            style={{ color: '#5a4a3a', fontFamily: "'Playfair Display', serif" }}
-          >
-            {"\u2014"} GallantryAI Scaffold Paper, March 2026
-          </p>
-
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/rules"
-              className="inline-flex items-center gap-2 bg-[#E8520A] text-white px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-orange-700 transition-colors"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Start with the Five Rules
-            </Link>
-            <Link
-              href="/prompts"
-              className="inline-flex items-center gap-2 border border-[#E8520A]/60 text-[#E8520A] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-[#E8520A]/10 transition-colors"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Prompt Library
-            </Link>
-            <Link
-              href="/lexicon"
-              className="inline-flex items-center gap-2 border border-[#E8520A]/60 text-[#E8520A] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-[#E8520A]/10 transition-colors"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Living Lexicon
-            </Link>
-            <Link
-              href="/promptolinguistics"
-              className="inline-flex items-center gap-2 border border-[#3a3020] text-[#8a7a6a] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:border-[#E8520A]/40 hover:text-[#E8520A] transition-colors"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Explore the Discipline
-            </Link>
-            <Link
-              href="/playground"
-              className="inline-flex items-center gap-2 border border-[#3a3020] text-[#6b5a3e] px-4 py-2 rounded-lg text-xs no-underline hover:border-[#E8520A]/40 hover:text-[#E8520A] transition-colors"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Playground (Coming Soon)
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -1688,7 +1688,7 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                version: "v28 — current",
+                version: "v28 — previous",
                 date: "April 16, 2026",
                 title: "v28: Hallucinations Hero Image + Footer + Nav Parity",
                 changes: [
@@ -1700,6 +1700,19 @@ export default function Home() {
                 watcher: "The hallucinations page now has a visual that earns its place. A beam of light that is certain about where it is going. It is wrong. The image does not explain that. It shows it. The footer now matches the nav. These are small things. Small things done consistently are the whole practice.",
                 child: "The Builder added a picture to the hallucinations page. It looks like a bright orange light going in one direction. But at the end it breaks apart and goes everywhere. That is what a hallucination looks like. Confident. Then scattered.",
                 professional: "v28 completes the hallucinations content build. Hero image added (abstract, amber/dark, beam-dissolving-to-fragments). Footer parity established — Hallucinations now in both nav and footer Foundation sections. FR-2026-08 PDF live on CDN. The hallucinations page is now fully deployed: route, nav, footer, hero image, three-voice content, sources, FR-2026-08 connection.",
+              },
+              {
+                version: "v29 — current",
+                date: "April 15, 2026",
+                title: "v29: Homepage Title Restored + Hallucinations KidsMidLink + LearningFlow",
+                changes: [
+                  "Homepage section order fixed — 'A thinking partner. Not a shortcut.' headline and links moved back above Promptolinguistics and What GallantryAI Is sections. Correct order: Hero image → Watcher quote → Hero headline → Promptolinguistics → What GallantryAI Is → Story Arc.",
+                  "Hallucinations page — KidsMidLink added (floating buffalo circle, same as every other page). LearningFlow added at bottom: Deeper (FR-2026-08, Promptolinguistics), Wider (Drift, Anthropomorphism, Road Protocol), Simpler (Five Rules, Children's Page).",
+                  "Rule documented in todo.md: every new page ships with KidsMidLink + LearningFlow. No exceptions. 20+ older pages still missing LearningFlow — tracked in todo.md for a dedicated session.",
+                ],
+                watcher: "The title was moved. Then it needed to come back. The watcher notices when something that was right gets moved for the wrong reason. The homepage now leads with what it is before it explains what it's built on. That is the correct order. The Hallucinations page now has the full bottom flow — the floating circle, the learning path. Every page should have always had this. The tracking is honest about what still needs to be done.",
+                child: "The Builder fixed the homepage so the big words come first again. 'A thinking partner. Not a shortcut.' is back at the top where it belongs. The hallucinations page now has the buffalo circle button and the 'where to go next' section at the bottom, just like all the other pages.",
+                professional: "v29 corrects two structural issues introduced in v26-v28. (1) Homepage section order: the primary value proposition headline was displaced below two new content sections. Restored to position immediately after the Watcher quote. (2) Hallucinations page: KidsMidLink and LearningFlow were missing — both now added with contextual links appropriate to the page's position in the Foundation learning flow. LearningFlow parity audit documented: 20+ pages missing LearningFlow, tracked in todo.md for systematic resolution.",
               },
               {
                 version: "v27 — previous",

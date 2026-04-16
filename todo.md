@@ -62,3 +62,8 @@
 - [x] v24.3: Verify all Research Hub source URLs are live and accurate — all 40 URLs confirmed
 - [x] v24.3: Fact-check Mythos/Glasswing claims — 27yr OpenBSD confirmed, 17yr FreeBSD confirmed, 16yr FFmpeg confirmed. Fixed everyday register to say 'some for over 27 years' (was incorrectly implying all were 27yr)
 - [x] v25: Add professional lens discovery section to homepage — 8 cards (Psychology, Cognitive Science, Researcher, Prompt Engineer, Linguist, Mathematician, Guardian/Teacher, Everyday Person) between Field Events and Scaffold sections
+
+## LearningFlow + KidsMidLink Parity — All Pages (tracked from v29 session)
+- [ ] Add LearningFlow with contextual links to: AlcmPage, Articles, Backstage, BarneyPoem, Builder, BuilderOrigin, CitizenResearcher, FieldPapers, Gallery, HumanLine, KidsLearn, Malbolge, MathPrompting, Playground, SafetyPage, Scaffold, SchoolBoard, ThreeLenses, VariableScale, WhelmScale, WatcherLens
+- [ ] Add KidsMidLink to: KidsLearn, WhatTheAiSaid
+- [ ] Rule: every new page gets KidsMidLink + LearningFlow before it ships. No exceptions.

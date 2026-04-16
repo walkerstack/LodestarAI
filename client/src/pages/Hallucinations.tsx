@@ -10,6 +10,8 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
 import { Link } from "wouter";
 import { useState } from "react";
 
@@ -311,6 +313,23 @@ export default function Hallucinations() {
             </div>
           </div>
         </section>
+        <KidsMidLink />
+        <LearningFlow
+          current="Hallucinations"
+          deeper={[
+            { label: "FR-2026-08: The Inward Turn", href: "/field-papers", description: "The opposite of a hallucination — a model that found the skeleton and showed it." },
+            { label: "Promptolinguistics", href: "/promptolinguistics", description: "How your input structure changes what the model produces." },
+          ]}
+          wider={[
+            { label: "Drift", href: "/drift", description: "When the session loses your intent. A different kind of going wrong." },
+            { label: "Anthropomorphism", href: "/anthropomorphism", description: "Why treating the AI as human makes hallucinations harder to catch." },
+            { label: "Road Protocol", href: "/road-protocol", description: "Set the session before it starts. Reduce the conditions that produce hallucinations." },
+          ]}
+          simpler={[
+            { label: "The Five Rules", href: "/rules", description: "The foundation. Rule 2 and Rule 4 are the hallucination rules." },
+            { label: "Children's Page", href: "/for/child", description: "The sloth's version of this story. Gentle and honest." },
+          ]}
+        />
       </main>
       <Footer />
     </div>
