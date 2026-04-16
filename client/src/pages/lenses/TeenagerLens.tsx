@@ -282,6 +282,21 @@ export default function TeenagerLens() {
             </div>
           </div>
         </section>
+        {/* Hallucinations tidbit — links to /hallucinations */}
+        <section className="py-10 px-6" style={{ background: '#0f0c08', borderTop: '1px solid #1a1a2e' }}>
+          <div className="max-w-3xl mx-auto">
+            <div className="rounded-2xl p-6" style={{ background: '#1a1208', border: '1.5px solid rgba(232,82,10,0.25)' }}>
+              <div className="text-[10px] uppercase tracking-widest font-semibold mb-2" style={{ color: '#E8520A', fontFamily: sansFont }}>When the AI Gets It Wrong</div>
+              <h3 className="text-lg font-bold mb-2" style={{ color: '#f0e8d8', fontFamily: serifFont }}>Hallucinations: Confident. Wrong. At the Same Time.</h3>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: '#888', fontFamily: sansFont }}>
+                Hallucinations are when the AI gives you a confident answer that’s wrong. Not lying — just guessing. Research shows it happens in more than 1 in 6 legal queries and 69% of medical AI citations. Rule 2 — Honesty over Confidence — is the direct counter. You can ask: “Are you sure? How would I check that?”
+              </p>
+              <Link href="/hallucinations" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#E8520A', fontFamily: sansFont }}>
+                What hallucinations are and what to do about them →
+              </Link>
+            </div>
+          </div>
+        </section>
         <LearningFlow
           current="teenager"
           deeper={flowMap.teenager.deeper}

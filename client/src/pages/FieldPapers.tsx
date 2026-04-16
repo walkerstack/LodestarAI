@@ -49,6 +49,15 @@ const papers = [
     color: "#4a7fa5",
     items: [
       {
+        id: "FR-2026-08",
+        title: "The Inward Turn",
+        subtitle: "Field Research Report — First Instance Documentation",
+        date: "April 15, 2026",
+        description: "A user fed Google AI Mode the GallantryAI Living Lexicon and issued a two-word command: 'bleach this.' The model did not mirror the document. It extracted the governance logic and applied it to itself — then explained its own mechanism using the researcher's language. First documented instance of user-authored governance being turned inward by a model from a document mid-session. Independent technical validation of GallantryAI's core mechanics confirmed by GPT-4o: 'The industry is building Policy-as-Code for developers. You built a steering wheel for the human pilot.' Single instance. Not peer-reviewed. Honest about its edges.",
+        tags: ["Field Research", "Single Instance", "Google AI Mode", "Lexicon v3.0", "Governance", "Inward Turn"],
+        url: null,
+      },
+      {
         id: "FR-2026-05",
         title: "Will Awareness Change Output?",
         subtitle: "Field Report",
@@ -278,15 +287,24 @@ export default function FieldPapers() {
                     </div>
 
                     {/* Download */}
-                    <a
-                      href={paper.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm no-underline transition-opacity hover:opacity-80 self-start"
-                      style={{ background: "#E8520A", color: "#fff" }}
-                    >
-                      Read PDF ↗
-                    </a>
+                    {paper.url ? (
+                      <a
+                        href={paper.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm no-underline transition-opacity hover:opacity-80 self-start"
+                        style={{ background: "#E8520A", color: "#fff" }}
+                      >
+                        Read PDF ↗
+                      </a>
+                    ) : (
+                      <div
+                        className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm self-start"
+                        style={{ background: "#1a1208", color: "#4a7fa5", border: "1px solid #4a7fa544" }}
+                      >
+                        PDF Pending
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

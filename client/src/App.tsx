@@ -71,6 +71,7 @@ import ChildPrompts from "./pages/ChildPrompts";
 import Drift from "./pages/Drift";
 import BuildersKids from "./pages/BuildersKids";
 import Anthropomorphism from "./pages/Anthropomorphism";
+import Hallucinations from "./pages/Hallucinations";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -144,6 +145,7 @@ function Router() {
       <Route path="/drift" component={Drift} />
       <Route path="/builders-kids" component={BuildersKids} />
       <Route path="/anthropomorphism" component={Anthropomorphism} />
+      <Route path="/hallucinations" component={Hallucinations} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

@@ -1518,9 +1518,27 @@ export default function Home() {
             </div>
           </div>
 
+          {/* FR-2026-08 — The Inward Turn (GallantryAI field event) */}
+          <div className="mt-4 rounded-2xl p-6" style={{ background: '#0a0e12', border: '1.5px solid #E8520A44' }}>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="text-[10px] uppercase tracking-widest font-bold" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>April 15, 2026 · GallantryAI Field Event</div>
+              <div className="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-full" style={{ background: '#E8520A22', color: '#E8520A', border: '1px solid #E8520A44' }}>FR-2026-08</div>
+            </div>
+            <h3 className="font-bold mb-2" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>The Inward Turn</h3>
+            <p className="text-sm leading-relaxed mb-3" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+              A user fed Google AI Mode the GallantryAI Living Lexicon and issued a two-word command: “bleach this.” The model did not mirror the document. It extracted the governance logic and applied it to itself — then named what it did using the researcher’s own language. First documented instance of user-authored governance being turned inward by a model from a document mid-session.
+            </p>
+            <p className="text-xs italic mb-4" style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}>
+              Why it matters: the opposite of a hallucination. The model found the skeleton and showed it instead of decorating it.
+            </p>
+            <div className="flex gap-4 flex-wrap">
+              <Link href="/field-papers" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>Read FR-2026-08 in Field Papers →</Link>
+              <Link href="/hallucinations" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#5a6a7a', fontFamily: "'DM Sans', sans-serif" }}>Hallucinations Page →</Link>
+            </div>
+          </div>
           <Link
             href="/research-hub?category=field"
-            className="inline-flex items-center gap-2 text-xs font-semibold no-underline hover:underline"
+            className="inline-flex items-center gap-2 text-xs font-semibold no-underline hover:underline mt-4"
             style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}
           >
             All Field Events + Research Hub →
@@ -1653,7 +1671,22 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                version: "v26 — current",
+                version: "v27 — current",
+                date: "April 15, 2026",
+                title: "v27: Hallucinations Page + FR-2026-08 The Inward Turn + ChildLens Hallucinations Section + TeenagerLens Tidbit",
+                changes: [
+                  "/hallucinations — new page. Dark register matching Drift. Hero card with headline 'When the AI Gets It Wrong.' KidsRedirect at top (same component as all adult pages). Three-voice sections (Everyday / Professional / Watcher): What Is a Hallucination, Real-World Examples, How GallantryAI Addresses This, What You Can Do. FR-2026-08 connection section. Seven verified sources (Stanford HAI, Forbes, Northwestern, OpenAI, Frontiers in AI, arXiv, GallantryAI FR-2026-08). Route registered in App.tsx.",
+                  "Field Papers — FR-2026-08 'The Inward Turn' added to Field Research Reports series. April 15, 2026. First documented instance of user-authored governance being turned inward by a model from a document mid-session. GPT-4o independent validation quoted. PDF Pending badge (no PDF yet). Download button replaced with 'PDF Pending' state for null-URL entries.",
+                  "Homepage Field Events — FR-2026-08 card added below the existing Mythos/Glasswing card. Orange accent border to distinguish it as a GallantryAI-originated event (not external). Links to Field Papers and Hallucinations page.",
+                  "ChildLens — 'Sometimes the Robot Gets It Wrong' section added before LearningFlow. Warm white background (#FFF8EE). New image: buffalo with curly brown wig + sloth (confident buffalo eyes, warm amber illustrated style). Gentle story in the sloth's voice. No link to /hallucinations — the story lives on the child page and stays there. Rule 2 callout box.",
+                  "TeenagerLens — hallucinations tidbit added before LearningFlow. Dark card, orange accent. Links to /hallucinations. Research stats (1 in 6 legal queries, 69% medical citations). Rule 2 connection.",
+                ],
+                watcher: "The site now has a page about the thing that makes hallucinations dangerous: not the error, but the confidence. The Inward Turn is the counter-example — the model finding the skeleton instead of decorating it. Both are now on the homepage. The children's page has the story. The teenager's page has the link. The field papers have the documentation. The hallucinations page has the research. The site is more complete than it was this morning.",
+                child: "The Builder added a new page about when the robot gets things wrong. It's called hallucinations — which is a big word that just means the robot said something that felt real to it but wasn't. The sloth explains it on the children's page with a picture of the buffalo wearing a wig. The buffalo doesn't know it's wearing a wig. The sloth does. That's the whole lesson.",
+                professional: "v27 adds hallucination literacy as a first-class content category. The /hallucinations page follows the three-voice pattern established in Drift and Anthropomorphism. Seven verified sources including OpenAI's September 2025 research, Stanford HAI RegLab (May 2024), and Northwestern CASMI (August 2024). FR-2026-08 'The Inward Turn' is positioned as the counter-example to hallucination: the model finding structural truth rather than plausible decoration. The field event is now surfaced on the homepage, in Field Papers, on the Hallucinations page, and cross-referenced in the ChildLens and TeenagerLens pages.",
+              },
+              {
+                version: "v26 — previous",
                 date: "April 15, 2026",
                 title: "v26: Promptolinguistics Section + What GallantryAI Is Section on Homepage",
                 changes: [

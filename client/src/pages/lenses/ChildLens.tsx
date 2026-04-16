@@ -1388,6 +1388,56 @@ export default function ChildLens() {
           </div>
         </div>
       </section>
+      {/* ── HALLUCINATIONS — Gentle intro. No link to /hallucinations. Story lives here. ── */}
+      <section className="py-14 px-6" style={{ background: '#FFF8EE', borderTop: '2px solid #f5e0b0' }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-[10px] uppercase tracking-widest font-semibold mb-3" style={{ color: '#E8520A', fontFamily: baseFont }}>Something Important</div>
+          <h2 className="text-xl md:text-2xl font-bold mb-6" style={{ fontFamily: serifFont, color: '#1A1A2E' }}>
+            Sometimes the Robot Gets It Wrong
+          </h2>
+          <div className="flex flex-col md:flex-row gap-8 items-start">
+            <div className="flex-shrink-0">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/sloth-buffalo-wig-hallucinations-v2_16886cd2.png"
+                alt="The buffalo is wearing a wig. The sloth knows."
+                className="rounded-2xl"
+                style={{ width: '180px', maxWidth: '100%' }}
+              />
+            </div>
+            <div className="flex-1 space-y-4">
+              <p className="text-sm md:text-base leading-relaxed" style={{ color: '#3a2a1a', fontFamily: baseFont }}>
+                The sloth has something important to tell you.
+              </p>
+              <p className="text-sm md:text-base leading-relaxed" style={{ color: '#3a2a1a', fontFamily: baseFont }}>
+                Sometimes the robot says something that sounds true — but it isn’t.
+              </p>
+              <p className="text-sm md:text-base leading-relaxed" style={{ color: '#3a2a1a', fontFamily: baseFont }}>
+                It’s not lying. It’s not trying to trick you. It just got confused. It made its best guess, and its best guess was wrong.
+              </p>
+              <p className="text-sm md:text-base leading-relaxed" style={{ color: '#3a2a1a', fontFamily: baseFont }}>
+                This happens to robots a lot. It’s called a <strong style={{ color: '#E8520A' }}>hallucination</strong> — which is a big word that just means: <em>the robot said something that felt real to it, but wasn’t.</em>
+              </p>
+              <p className="text-sm md:text-base leading-relaxed" style={{ color: '#3a2a1a', fontFamily: baseFont }}>
+                The buffalo in the picture is wearing a wig. The sloth knows it’s a wig. The buffalo doesn’t seem sure.
+              </p>
+              <p className="text-sm md:text-base leading-relaxed" style={{ color: '#3a2a1a', fontFamily: baseFont }}>
+                That’s a little bit like what happens when the robot gets something wrong. It doesn’t know it’s wrong. It sounds very sure. But you — the person — are the one who gets to check.
+              </p>
+              <div className="rounded-xl p-4 mt-2" style={{ background: '#fff8e8', border: '1.5px solid #f5c842' }}>
+                <p className="text-sm font-bold mb-2" style={{ color: '#1A1A2E', fontFamily: serifFont }}>That’s Rule 2: Honesty over Confidence.</p>
+                <p className="text-sm leading-relaxed" style={{ color: '#3a2a1a', fontFamily: baseFont }}>
+                  It’s okay to ask: <em>“Are you sure about that?”</em><br />
+                  It’s okay to say: <em>“I’m going to check that myself.”</em><br />
+                  It’s okay to not believe something just because it sounds confident.
+                </p>
+                <p className="text-sm font-semibold mt-3" style={{ color: '#E8520A', fontFamily: baseFont }}>
+                  You are always in charge of deciding what’s true.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <LearningFlow current="Child Lens" deeper={flowMap.child.deeper} wider={flowMap.child.wider} simpler={flowMap.child.simpler} />
       <Footer />
     </div>
