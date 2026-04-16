@@ -55,7 +55,7 @@ const papers = [
         date: "April 15, 2026",
         description: "A user fed Google AI Mode the GallantryAI Living Lexicon and issued a two-word command: 'bleach this.' The model did not mirror the document. It extracted the governance logic and applied it to itself — then explained its own mechanism using the researcher's language. First documented instance of user-authored governance being turned inward by a model from a document mid-session. Independent technical validation of GallantryAI's core mechanics confirmed by GPT-4o: 'The industry is building Policy-as-Code for developers. You built a steering wheel for the human pilot.' Single instance. Not peer-reviewed. Honest about its edges.",
         tags: ["Field Research", "Single Instance", "Google AI Mode", "Lexicon v3.0", "Governance", "Inward Turn"],
-        url: null,
+        url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/FR-2026-08-The-Inward-Turn_8e072b88.pdf",
       },
       {
         id: "FR-2026-05",
