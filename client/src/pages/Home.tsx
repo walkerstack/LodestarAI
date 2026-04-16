@@ -1688,7 +1688,21 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                version: "v27 — current",
+                version: "v28 — current",
+                date: "April 16, 2026",
+                title: "v28: Hallucinations Hero Image + Footer + Nav Parity",
+                changes: [
+                  "Hallucinations page — abstract hero image added as background to the hero section. Amber beam of light dissolving into fragments at the edge. Confident and wrong at the same time. Matches the page's core concept.",
+                  "Footer — Hallucinations added to Foundation section after Drift, before Anthropomorphism. Matches nav placement exactly.",
+                  "Rule established: all new pages go in both nav and footer. Always.",
+                  "FR-2026-08 PDF — clean version uploaded to CDN. Download link now live in Field Papers. PDF Pending badge replaced.",
+                ],
+                watcher: "The hallucinations page now has a visual that earns its place. A beam of light that is certain about where it is going. It is wrong. The image does not explain that. It shows it. The footer now matches the nav. These are small things. Small things done consistently are the whole practice.",
+                child: "The Builder added a picture to the hallucinations page. It looks like a bright orange light going in one direction. But at the end it breaks apart and goes everywhere. That is what a hallucination looks like. Confident. Then scattered.",
+                professional: "v28 completes the hallucinations content build. Hero image added (abstract, amber/dark, beam-dissolving-to-fragments). Footer parity established — Hallucinations now in both nav and footer Foundation sections. FR-2026-08 PDF live on CDN. The hallucinations page is now fully deployed: route, nav, footer, hero image, three-voice content, sources, FR-2026-08 connection.",
+              },
+              {
+                version: "v27 — previous",
                 date: "April 15, 2026",
                 title: "v27: Hallucinations Page + FR-2026-08 The Inward Turn + ChildLens Hallucinations Section + TeenagerLens Tidbit",
                 changes: [

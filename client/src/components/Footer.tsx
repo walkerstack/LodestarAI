@@ -61,6 +61,7 @@ export default function Footer() {
               <Link href="/rules" className="block hover:text-[#E8520A] no-underline transition-colors">The Five Rules</Link>
               <Link href="/road-protocol" className="block hover:text-[#E8520A] no-underline transition-colors">Road Protocol</Link>
               <Link href="/drift" className="block hover:text-[#E8520A] no-underline transition-colors">Drift</Link>
+              <Link href="/hallucinations" className="block hover:text-[#E8520A] no-underline transition-colors">Hallucinations</Link>
               <Link href="/anthropomorphism" className="block hover:text-[#E8520A] no-underline transition-colors">Anthropomorphism</Link>
               <Link href="/scaffold" className="block hover:text-[#E8520A] no-underline transition-colors">The Scaffold</Link>
               <Link href="/user-governance" className="block hover:text-[#E8520A] no-underline transition-colors">User-Side Governance</Link>

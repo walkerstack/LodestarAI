@@ -131,8 +131,15 @@ export default function Hallucinations() {
       />
       <main className="flex-1">
         {/* ── HERO ── */}
-        <section className="py-20 px-6" style={{ background: "linear-gradient(135deg, #1A1A2E 0%, #0f0c08 100%)" }}>
-          <div className="max-w-3xl mx-auto">
+        <section className="relative overflow-hidden py-20 px-6" style={{ background: "linear-gradient(135deg, #1A1A2E 0%, #0f0c08 100%)" }}>
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/hallucinations-hero-JkcacG7uhrrx8Mu7S9SNuZ.webp"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none select-none"
+            style={{ mixBlendMode: 'luminosity' }}
+          />
+          <div className="relative z-10 max-w-3xl mx-auto">
             <div className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#E8520A" }}>
               Hallucinations
             </div>
