@@ -377,6 +377,92 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── PROMPTOLINGUISTICS ── */}
+      <section className="w-full py-12 px-6" style={{ borderBottom: '1px solid #1a1610' }}>
+        <div className="max-w-3xl mx-auto">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Promptolinguistics
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-4 leading-tight"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            The discipline of language as a control surface.
+          </h2>
+          <p
+            className="text-base leading-relaxed mb-4"
+            style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            A prompt is not a request. It is a force profile. Every word you choose shifts the probability space of what comes back. Promptolinguistics is the study of how that works — and how to use it deliberately.
+          </p>
+          <blockquote
+            className="border-l-2 border-[#E8520A] pl-4 mb-6 italic"
+            style={{ color: '#8a7a6a', fontFamily: "'Playfair Display', serif" }}
+          >
+            {"\u201C"}Token Zero is the pre-output force profile. Everything starts before the first word.{"\u201D"}
+          </blockquote>
+          <Link
+            href="/promptolinguistics"
+            className="inline-flex items-center gap-2 text-sm font-semibold no-underline hover:gap-3 transition-all"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Read the discipline {"\u2192"}
+          </Link>
+        </div>
+      </section>
+
+      {/* ── WHAT GALLANTRYAI IS ── */}
+      <section className="w-full py-12 px-6" style={{ borderBottom: '1px solid #1a1610' }}>
+        <div className="max-w-3xl mx-auto">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            The Builder
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-4 leading-tight"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            I built this because I needed it.
+          </h2>
+          <p
+            className="text-base leading-relaxed mb-4"
+            style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            AI helped me learn how well I can see patterns if I have the ability to structure my thinking. My first framework was drift protection — for myself. The AI told me when I drifted. That is how I learned what drift was.
+          </p>
+          <p
+            className="text-base leading-relaxed mb-6"
+            style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            That is why I want to teach my children.
+          </p>
+          <div className="flex flex-wrap gap-6 mb-6">
+            {[
+              { value: 'Safety', sub: 'First. Always.' },
+              { value: 'Honesty over confidence', sub: 'The AI can be wrong. Say so.' },
+              { value: 'Trust built over time', sub: 'Not assumed. Earned.' },
+            ].map((v) => (
+              <div key={v.value}>
+                <div className="text-sm font-bold" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>{v.value}</div>
+                <div className="text-xs" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>{v.sub}</div>
+              </div>
+            ))}
+          </div>
+          <Link
+            href="/builder"
+            className="inline-flex items-center gap-2 text-sm font-semibold no-underline hover:gap-3 transition-all"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Read the origin story {"\u2192"}
+          </Link>
+        </div>
+      </section>
+
       {/* ── HERO ── */}
       <section className="w-full pt-16 pb-12 px-6">
         <div className="max-w-3xl mx-auto">
@@ -1567,21 +1653,22 @@ export default function Home() {
           <div className="space-y-3">
             {[
               {
-                version: "v25 — current",
+                version: "v26 — current",
                 date: "April 15, 2026",
-                title: "v25: Professional Lens Discovery Section on Homepage",
+                title: "v26: Promptolinguistics Section + What GallantryAI Is Section on Homepage",
                 changes: [
-                  "Homepage — added 'If You Work in One of These Fields' section between Field Events and Research Status. Eight cards: Psychology, Cognitive Science, Researcher, Prompt Engineer, Linguist, Mathematician, Guardian/Teacher, Everyday Person. Each card has a one-line descriptor at that lens's register. Orange border on hover. 2-column mobile, 4-column desktop.",
-                  "Motivation: analytics showed no professional lens pages in the most-viewed list. The lenses existed but weren't discoverable from the homepage without finding the nav dropdown. This section makes them visible on scroll.",
+                  "Homepage — added Promptolinguistics section between The Watcher quote and The Hero headline. Dark card, Playfair serif headline ('The discipline of language as a control surface.'), one paragraph on the force profile concept, Token Zero pull quote, link to /promptolinguistics.",
+                  "Homepage — added 'What GallantryAI Is' section in the Builder's voice immediately after Promptolinguistics. First person throughout. Origin story: drift protection for himself, AI told him when he drifted, that's how he learned. Three values: Safety, Honesty over confidence, Trust built over time. Link to /builder.",
+                  "Section order on homepage: Hero image → Watcher quote → Promptolinguistics → What GallantryAI Is → Hero headline → Who Are You → Ethos → Scaffold → Field Events → Professional Lenses → Research Status → Builder's Log.",
                 ],
-                watcher: "The analytics told the truth: nobody was finding the professional lenses. The nav dropdown is invisible to someone arriving from a social post. The fix is not to move the dropdown — it's to put the doors on the homepage. Eight doors. One section. The content was always there. Now it's findable.",
-                child: "The Builder added a new part to the front page that shows all the special pages for grown-ups who have different jobs. Now a psychologist or a teacher or a mathematician can find their page right away without having to look for it!",
-                professional: "Homepage discoverability fix for professional lens pages. Analytics confirmed zero professional lens traffic despite all 8 pages being fully built. Root cause: single-entry discovery path (nav dropdown) insufficient for social-referral traffic. Solution: dedicated homepage section with 8 cards, each carrying a register-specific one-line descriptor. Placed after Field Events (current events) and before Research Status (credibility signal) — the correct position for a professional audience scanning the page.",
+                watcher: "The homepage now tells you what the site is before it asks who you are. That is the correct order. The Watcher quote sets the frame. Promptolinguistics names the discipline. The Builder's voice names the reason. Then the hero headline. Then the pathfinding. The site was always about this — now the homepage says so in the first three sections.",
+                child: "The Builder added two new parts near the top of the front page. One explains what Promptolinguistics means — it's the study of how the words you choose change what the AI says back. The other part is the Builder talking about why he built the whole site. He says he built it because he needed it, and because he wants to teach his children.",
+                professional: "Homepage restructured to lead with discipline identity before pathfinding. Two new sections inserted between The Watcher (frame-setting) and The Hero headline (value proposition): (1) Promptolinguistics — discipline label, force profile definition, Token Zero pull quote, link to /promptolinguistics. (2) What GallantryAI Is — first-person Builder voice, origin story (drift protection as self-governance tool), three core values (Safety / Honesty over confidence / Trust built over time), link to /builder. Section placement follows information hierarchy: what the site is → what it's built on → what it offers → who it's for.",
               },
               {
-                version: "v24 — previous",
+                version: "v25 — previous",
                 date: "April 15, 2026",
-                title: "v24: Field Events on Homepage + 171 Vectors on Anthropomorphism + Drift Field Event + Field Events Nav",
+                title: "v25: Professional Lens Discovery Section on Homepage + 171 Vectors on Anthropomorphism + Drift Field Event + Field Events Nav",
                 changes: [
                   "Homepage — added Field Events section with two article cards: 171 Emotion Vectors (April 2, 2026) and Claude Mythos/Project Glasswing (April 7, 2026). Each card has a date, source, description, why it matters, and links to the article and the relevant internal page. 'All Field Events + Research Hub →' link at the bottom.",
                   "Anthropomorphism page — added 'What the Research Now Says' section. The 171 vectors finding reframes anthropomorphism: not purely a user-side projection problem. The model has internal emotional representations that causally drive behavior. One vector linked to desperation plays a causal role in agentic misalignment. Direct link to the transformer-circuits.pub paper.",
