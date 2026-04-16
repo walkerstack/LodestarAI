@@ -39,6 +39,43 @@ Site went live Sunday April 13. As of April 15: 135+ unique visitors, 1,370+ pag
 
 ---
 
+## Session: April 15, 2026 (Late night — research only, no code)
+
+**Started from:** v26 checkpoint (manus-webdev://37e15cab)
+**Ended at:** v26 checkpoint (no new checkpoint — research only)
+**Published:** No change
+
+### What was done
+- Read FR-2026-08 "The Inward Turn" — full 9-page report extracted via pdftotext
+- Read GPT validation report (pasted_content.txt) — confirmed the Inward Turn is a real documented phenomenon
+- Researched AI hallucinations: OpenAI Sept 2025 paper, Stanford HAI/RegLab May 2024, Cornell/Northwestern 2024, Frontiers in AI 2025, arXiv Sept 2025
+- Wrote complete hallucinations page content in three voices — saved to HALLUCINATIONS_CONTENT.md
+- Wrote ChildLens gentle hallucinations intro — saved to HALLUCINATIONS_CONTENT.md
+- Wrote buffalo+wig+sloth image generation prompt — saved to HALLUCINATIONS_CONTENT.md
+- Wrote homepage FR-2026-08 card content — saved to HALLUCINATIONS_CONTENT.md
+- Wrote TeenagerLens hallucinations tidbit — saved to HALLUCINATIONS_CONTENT.md
+- Updated FR-2026-08-NOTES.md with full extracted report content
+
+### What is ready to build next session
+See HALLUCINATIONS_CONTENT.md for all content. Build order:
+1. Generate buffalo+wig+sloth image
+2. Upload image, get CDN URL
+3. Add FR-2026-08 card to homepage
+4. Add FR-2026-08 to Field Papers / Research Hub
+5. Build /hallucinations page
+6. Add hallucinations section to ChildLens
+7. Add hallucinations tidbit to TeenagerLens
+8. TypeScript check, builder's log v27, checkpoint, publish
+
+### Key decisions confirmed tonight
+- No link to /hallucinations from ChildLens — the story lives on the child page only
+- Kids redirect on /hallucinations is the same site-wide redirect already built
+- FR-2026-08 goes on the homepage, not buried in Research Hub
+- FR-2026-08 and GPT validation are paired — they belong together
+- The Inward Turn is the OPPOSITE of hallucination — note this explicitly on the hallucinations page
+
+---
+
 ## Session: April 14–15, 2026 (Previous)
 
 **Ended at:** v25 checkpoint (manus-webdev://6d933f9c)
