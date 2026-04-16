@@ -50,7 +50,7 @@ export default function GallantryAiPage() {
             The core idea: <strong>constraint is not limitation — it is power.</strong> When you set the rules before the session begins, you don't restrict the AI. You focus it. You make it yours.
           </p>
 
-          {/* Three Lenses */}
+          {/* Three Voices */}
           <div className="grid md:grid-cols-3 gap-4 mt-8">
             <div className="bg-white rounded-lg p-5 border border-[#e8e0d0]">
               <div className="text-xs uppercase tracking-widest text-[#E8520A] font-semibold mb-2">Everyday</div>
@@ -114,7 +114,7 @@ export default function GallantryAiPage() {
             </div>
           </div>
 
-          {/* Three Lenses */}
+          {/* Three Voices */}
           <div className="grid md:grid-cols-3 gap-4 mt-8">
             <div className="bg-white rounded-lg p-5 border border-[#e8e0d0]">
               <div className="text-xs uppercase tracking-widest text-[#E8520A] font-semibold mb-2">Everyday</div>

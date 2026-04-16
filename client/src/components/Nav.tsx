@@ -27,7 +27,7 @@ const lenses = [
 
 const foundationLinks = [
   { label: "Gallantry AI", path: "/gallantry-ai" },
-  { label: "The Three Lenses", path: "/three-lenses" },
+  { label: "The Three Voices", path: "/three-lenses" },
   { label: "The Five Rules", path: "/rules" },
   { label: "Road Protocol", path: "/road-protocol" },
   { label: "Drift", path: "/drift" },

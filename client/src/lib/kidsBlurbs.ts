@@ -76,7 +76,7 @@ export const kidsBlurbs: Record<string, { story: string; quote: string; attribut
   "/three-lenses": {
     story: "This page explains the three ways grown-ups read about AI on this site. Everyday is the simple version — like how the buffalo explains things. Professional is the detailed version — like a textbook. Watcher is the deep-thinking version — like a poem. You can read any of them!",
     quote: "Three ways to see the same thing. All of them true.",
-    attribution: "The Three Lenses",
+    attribution: "The Three Voices",
   },
   "/math-prompting": {
     story: "This page is about learning math by talking to AI. Stay — let's learn together. The Builder isn't a math whiz either. Or is he? That's the thing — we can't know how high we can grow until we try. You ask the AI math questions, and it helps you see the path. But you do the thinking. That's the deal.",

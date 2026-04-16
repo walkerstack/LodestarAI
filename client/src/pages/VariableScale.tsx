@@ -129,11 +129,11 @@ export default function VariableScale() {
           </div>
         </section>
 
-        {/* Three Lenses */}
+        {/* Three Voices */}
         <section className="py-12">
           <div className="container max-w-3xl mx-auto px-6">
             <h2 className="text-2xl font-bold text-[#FAF6EF] mb-8" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Three Lenses
+              Three Voices
             </h2>
             <div className="space-y-6">
               {[
@@ -182,7 +182,7 @@ export default function VariableScale() {
                 { label: "Whelm Scale", path: "/whelm-scale", desc: "The human side of the dial." },
                 { label: "Promptolinguistics", path: "/promptolinguistics", desc: "The science of what words do to AI." },
                 { label: "Road Protocol", path: "/road-protocol", desc: "The governance foundation." },
-                { label: "Living Lexicon", path: "/lexicon", desc: "Every term. Three lenses." },
+                { label: "Living Lexicon", path: "/lexicon", desc: "Every term. Three voices." },
                 { label: "Frameworks", path: "/frameworks", desc: "The full architecture." },
               ].map((link) => (
                 <Link

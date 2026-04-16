@@ -165,7 +165,7 @@ const whatCouldBeLeveled = [
   },
   {
     skill: "Teaching and Communication",
-    current: "Can explain complex AI concepts to children, everyday adults, professionals, and researchers — in their language. The Three Lenses system proves this.",
+    current: "Can explain complex AI concepts to children, everyday adults, professionals, and researchers — in their language. The Three Voices system proves this.",
     potential: "With platform and support, this becomes AI literacy education at scale. The ability to translate between audiences is a force multiplier.",
   },
 ];

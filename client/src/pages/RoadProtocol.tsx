@@ -468,7 +468,7 @@ export default function RoadProtocol() {
             The question is whether you're driving — or being driven.
           </p>
 
-          {/* Three Lenses */}
+          {/* Three Voices */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 text-left">
             {/* Everyday */}
             <div

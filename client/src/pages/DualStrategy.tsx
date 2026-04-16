@@ -51,7 +51,7 @@ export default function DualStrategy() {
             The gap: pre-session governance at the individual level. Shifting from harvesting feedback to empowering better inputs.
           </p>
 
-          {/* Three Lenses */}
+          {/* Three Voices */}
           <div className="grid md:grid-cols-3 gap-4 mt-8">
             <div className="bg-white rounded-lg p-5 border border-[#e8e0d0]">
               <div className="text-xs uppercase tracking-widest text-[#E8520A] font-semibold mb-2">Everyday</div>
@@ -131,7 +131,7 @@ export default function DualStrategy() {
             <img src={IMG.humanCentered} alt="Human-Centered AI Governance — Token Zero & Corner Words" className="w-full rounded" />
           </div>
 
-          {/* Three Lenses */}
+          {/* Three Voices */}
           <div className="grid md:grid-cols-3 gap-4 mt-6">
             <div className="bg-white rounded-lg p-5 border border-[#e8e0d0]">
               <div className="text-xs uppercase tracking-widest text-[#E8520A] font-semibold mb-2">Everyday</div>

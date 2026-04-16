@@ -1394,7 +1394,7 @@ export default function Home() {
                   className="inline-block px-6 py-3 rounded-lg text-sm font-semibold cursor-pointer transition-opacity hover:opacity-80"
                   style={{ background: '#E8520A', color: '#fff', fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  Understand the Three Lenses
+                  Understand the Three Voices
                 </span>
               </Link>
               <Link href="/rules">

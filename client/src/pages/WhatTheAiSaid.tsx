@@ -331,14 +331,14 @@ export default function WhatTheAiSaid() {
         </div>
       </section>
 
-      {/* Three Lenses */}
+      {/* Three Voices */}
       <section className="w-full py-12 px-6" style={{ borderTop: "1px solid #1a1610" }}>
         <div className="max-w-3xl mx-auto">
           <div
             className="text-[10px] uppercase tracking-[0.3em] font-bold mb-6"
             style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}
           >
-            Three Lenses
+            Three Voices
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

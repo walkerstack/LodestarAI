@@ -264,7 +264,7 @@ export const flowMap: Record<string, FlowEntry> = {
     wider: [
       { label: "Road Protocol", href: "/road-protocol", description: "Session governance that implements the law's principles" },
       { label: "Dual Strategy", href: "/dual-strategy", description: "Top-down law + bottom-up user governance" },
-      { label: "The Three Lenses", href: "/three-lenses", description: "Read the Act through Everyday, Professional, or Watcher" },
+      { label: "The Three Voices", href: "/three-lenses", description: "Read the Act through Everyday, Professional, or Watcher" },
     ],
     simpler: [
       { label: "Five Rules", href: "/rules", description: "The simplest version of what the law requires" },
@@ -332,7 +332,7 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "Promptolinguistics", href: "/promptolinguistics", description: "The discipline of prompt language" },
     ],
     simpler: [
-      { label: "Three Lenses", href: "/three-lenses", description: "Understand the lens system first" },
+      { label: "Three Voices", href: "/three-lenses", description: "Understand the voice system first" },
       { label: "Five Rules", href: "/rules", description: "Start with the basics" },
     ],
   },
@@ -379,7 +379,7 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "Promptolinguistics", href: "/promptolinguistics", description: "The discipline the report documents" },
     ],
     simpler: [
-      { label: "Three Lenses", href: "/three-lenses", description: "Understand the lens system" },
+      { label: "Three Voices", href: "/three-lenses", description: "Understand the voice system" },
       { label: "Everyday Lens", href: "/for/everyday", description: "The simplest explanation" },
     ],
   },

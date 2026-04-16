@@ -127,11 +127,11 @@ export default function WhelmScale() {
           </div>
         </section>
 
-        {/* Three Lenses */}
+        {/* Three Voices */}
         <section className="py-12">
           <div className="container max-w-3xl mx-auto px-6">
             <h2 className="text-2xl font-bold text-[#FAF6EF] mb-8" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Three Lenses
+              Three Voices
             </h2>
             <div className="space-y-6">
               {[
@@ -180,7 +180,7 @@ export default function WhelmScale() {
                 { label: "Variable Scale Theory", path: "/variable-scale", desc: "All limits are dials, not walls." },
                 { label: "Human Drift", path: "/frameworks", desc: "What happens when overwhelm wins." },
                 { label: "The Five Rules", path: "/rules", desc: "Where everyone starts." },
-                { label: "Living Lexicon", path: "/lexicon", desc: "Every term. Three lenses." },
+                { label: "Living Lexicon", path: "/lexicon", desc: "Every term. Three voices." },
                 { label: "Road Protocol", path: "/road-protocol", desc: "The governance foundation." },
               ].map((link) => (
                 <Link

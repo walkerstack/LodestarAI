@@ -57,7 +57,7 @@ export default function Footer() {
             <div className="space-y-1.5">
               <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">Foundation</div>
               <Link href="/gallantry-ai" className="block hover:text-[#E8520A] no-underline transition-colors">Gallantry AI</Link>
-              <Link href="/three-lenses" className="block hover:text-[#E8520A] no-underline transition-colors">The Three Lenses</Link>
+              <Link href="/three-lenses" className="block hover:text-[#E8520A] no-underline transition-colors">The Three Voices</Link>
               <Link href="/rules" className="block hover:text-[#E8520A] no-underline transition-colors">The Five Rules</Link>
               <Link href="/road-protocol" className="block hover:text-[#E8520A] no-underline transition-colors">Road Protocol</Link>
               <Link href="/drift" className="block hover:text-[#E8520A] no-underline transition-colors">Drift</Link>

@@ -139,7 +139,7 @@ export default function ThreeLenses() {
       <KidsRedirect
         story={kidsBlurbs["/three-lenses"]?.story || "This page explains the three ways grown-ups read about AI. Everyday is the simple version. Professional is the detailed version. Watcher is the deep-thinking version. You can read any of them!"}
         quote={kidsBlurbs["/three-lenses"]?.quote || "Three ways to see the same thing."}
-        attribution={kidsBlurbs["/three-lenses"]?.attribution || "The Three Lenses"}
+        attribution={kidsBlurbs["/three-lenses"]?.attribution || "The Three Voices"}
       />
 
       <main className="flex-1">
@@ -159,7 +159,7 @@ export default function ThreeLenses() {
               The Rosetta Stone
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-[#FAF6EF] mb-6" style={{ fontFamily: serifFont }}>
-              Three Lenses. One Framework.
+              Three Voices. One Framework.
             </h1>
             <p className="text-base md:text-lg text-[#b0a898] max-w-2xl mx-auto leading-relaxed">
               Every concept in GallantryAI is written three ways — for three different readers. The ideas are the same. The language changes. Pick the voice that fits you, or read all three to see the full picture.
@@ -201,7 +201,7 @@ export default function ThreeLenses() {
         <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-black mb-8 text-center" style={{ fontFamily: serifFont, color: "#1A1A2E" }}>
-              The Three Lenses
+              The Three Voices
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {lensDefinitions.map((lens, i) => (

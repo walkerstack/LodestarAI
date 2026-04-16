@@ -571,7 +571,7 @@ function LexiconCard({ entry }: { entry: LexiconEntry }) {
             style={{ background: "#FAF6EF", border: "1px solid #e8e0d0" }}
           >
             <div className="text-[10px] uppercase tracking-wide font-semibold" style={{ color: "#E8520A" }}>
-              All Three Lenses
+              All Three Voices
             </div>
             {(["everyday", "professional", "watcher"] as Lens[]).map((l) => (
               <div key={l}>

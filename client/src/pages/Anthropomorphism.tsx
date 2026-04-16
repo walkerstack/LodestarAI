@@ -219,7 +219,7 @@ export default function Anthropomorphism() {
           </div>
         </section>
 
-        {/* Three Lenses */}
+        {/* Three Voices */}
         <section className="py-16 px-6" style={{ background: "#FFFDF8", borderTop: "1px solid #e8e0d0" }}>
           <div className="max-w-3xl mx-auto">
             <div className="text-[10px] uppercase tracking-widest font-semibold mb-2" style={{ color: "#8a7a6a" }}>
