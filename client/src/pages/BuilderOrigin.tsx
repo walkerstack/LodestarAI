@@ -225,7 +225,7 @@ export default function BuilderOrigin() {
               <div className="space-y-4">
                 {[
                   { title: "Scaffold Paper — First Draft", date: "February 2026", status: "Raw", desc: "The original 12-page document that outlined the Floor-to-Ceiling model before it had a name." },
-                  { title: "Marketing Prompt Field Report", date: "March 2026", status: "Submitted to SSCI", desc: "The first formal paper. Tested across 9 AI models. Submitted for peer review." },
+                  { title: "Marketing Prompt Field Report", date: "March 2026", status: "Submitted to SSRN", desc: "The first formal paper. Tested across 9 AI models. Submitted for peer review." },
                   { title: "Promptolinguistics Notes", date: "February–March 2026", status: "Working", desc: "Running notes on Token Zero, control axes, and the ALCM. Updated as testing continues." },
                   { title: "Framework Family Index", date: "March 2026", status: "Working", desc: "The master list of all 28 frameworks, their origins, and their test results." },
                   { title: "Build Log", date: "Ongoing", status: "Active", desc: "A running log of every major decision, mistake, and correction made during the build." },
@@ -253,8 +253,8 @@ export default function BuilderOrigin() {
                       <span
                         className="flex-shrink-0 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded"
                         style={{
-                          background: doc.status === "Submitted to SSCI" ? "#2A9D8F20" : "#E8520A15",
-                          color: doc.status === "Submitted to SSCI" ? "#2A9D8F" : "#E8520A",
+                          background: doc.status === "Submitted to SSRN" ? "#2A9D8F20" : "#E8520A15",
+                          color: doc.status === "Submitted to SSRN" ? "#2A9D8F" : "#E8520A",
                           fontFamily: "'DM Sans', sans-serif",
                         }}
                       >
