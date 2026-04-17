@@ -52,6 +52,28 @@ Every page on the site should have:
 
 Hero images: when we reach a page that needs one, we write a Google image search prompt. We don't batch-generate in advance.
 
+7. **Interactive element visibility** — every page with clickable/tappable elements (word buttons, tabs, toggles, dial positions) must have sufficient contrast so they read as interactive. Visually obvious, not just functional.
+
+---
+
+## Fix-As-You-Go Checklist
+
+Every time I touch a page — for any reason — I run this check silently. No instruction needed from Matthew.
+
+| Check | What I look for |
+|---|---|
+| Button contrast | Are interactive elements visible enough to invite a tap? |
+| Hero image | Is there a CDN image behind the title text? |
+| KidsRedirect | Is it at the top? |
+| KidsMidLink | Is it mid-page? |
+| LearningFlow | Is it at the bottom using flowMap? |
+| Teenager entry | Is there a teenager-register entry point? |
+| Professional entry | Is there a professional-register entry point? |
+| Three Voices | Do concept sections have all three lenses? |
+| Builder's log | Does Home.tsx log reflect the version? |
+
+Fixes are additive only. Max 5 per page. When I hit 5, stop, checkpoint, move on.
+
 ---
 
 ## The Page Walk Workflow

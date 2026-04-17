@@ -73,9 +73,23 @@
 ## Session April 18, 2026 — New Items
 
 - [ ] Page standard: every page needs hero image, kids redirect top link, KidsMidLink, Growing and Learning framework, teenager nav entry, professional nav entry
+
+## COMPREHENSIVE REDO — Prompt Games + Power Prompts (DO NOT TOUCH until dedicated session)
+
+- [ ] COMPREHENSIVE REDO: Prompt Games page + Power Prompts section on Promptolinguistics page
+  ISSUE: Both were built as placeholders during a session where Matthew's thinking was not fully formed yet.
+  The content exists but lacks alignment with the actual GallantryAI framework.
+  Specific problems:
+  (1) Power Prompts on Promptolinguistics — "The Corner" category (Nemesis baby, Claim none, Open closed, Paste pastes) is listed as a tool category but the deeper concept of WHY corner words work (semantic collision, irresolvable tension, forcing the model out of pattern-matching) is not explained. The tools are there but the doctrine behind them is missing.
+  (2) Prompt Games page — content was added in the moment, not from a developed framework. Needs full rethink: what is a prompt game? what does it teach? how does it connect to ALCM axes and verb escalation? what is the difference between a game and a drill?
+  (3) Both pages need three-voice architecture applied properly — not as an afterthought.
+  ACTION WHEN READY: Dedicated session. Matthew leads with the framework. I build from that. No assumptions.
+  DO NOT start this until Matthew explicitly opens the session with direction on what prompt games and power prompts actually mean to him.
+  INTERACTIVE IDEA (from Matthew, April 17 session): Corner Words section could be the first truly interactive experience on the site — user taps/types a word pair and experiences the collision happening, not just reads about it. This is unique. No other page does this. Design it properly in the redo session. Do not build a quick version — build the right version.
 - [x] ALCM page: add teenager entry point, professional entry point, conceptual hero image
-- [ ] Promptolinguistics page: add teenager entry point, professional entry point
-- [ ] Promptolinguistics page: add Corner Words section, Third Entity / Teamwork Loop section, Living Prompt Framework risks section
+- [x] Promptolinguistics page: add teenager entry point, professional entry point
+- [x] Promptolinguistics page: add Corner Words section (3 voices), Third Entity / Teamwork Loop section (3 voices) — v31
+- [ ] Promptolinguistics page: add Living Prompt Framework risks section (deferred — needs Matthew's direction)
 - [ ] New page: Teamwork Loop / Third Entity / AEDE Pattern (archive content, not yet on site)
 - [ ] New page: Professionals landing page (LinkedIn card target URL)
 - [ ] Floating Lexicon panel: quarter-screen overlay triggered by term clicks, no page switch

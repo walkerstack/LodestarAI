@@ -1734,7 +1734,25 @@ export default function Home() {
                 professional: "v28 completes the hallucinations content build. Hero image added (abstract, amber/dark, beam-dissolving-to-fragments). Footer parity established — Hallucinations now in both nav and footer Foundation sections. FR-2026-08 PDF live on CDN. The hallucinations page is now fully deployed: route, nav, footer, hero image, three-voice content, sources, FR-2026-08 connection.",
               },
               {
-                version: "v30 — current",
+                version: "v31 — current",
+                date: "April 17, 2026",
+                title: "v31: Promptolinguistics Page — Hero Image, Button Contrast, Corner Words, Third Entity, Teenager + Professional Entry",
+                changes: [
+                  "Promptolinguistics — hero section rebuilt with STRUCTURE word CDN image as full-bleed background. Title, subtitle, and quote overlaid with dark gradient. Language as architecture, made visible.",
+                  "Promptolinguistics — interactive button contrast improved across all three interactive zones: word tokens (Control Axes), verb escalation buttons, HOLD dial. Stronger borders, warmer inactive state, clearer tap signal.",
+                  "Promptolinguistics — Corner Words section added (three voices). The doctrine behind semantic collision: why two-word pairings force genuine reasoning instead of pattern-matching. Four corner word pairs displayed with tension descriptions.",
+                  "Promptolinguistics — Third Entity / Teamwork Loop section added (three voices). The AEDE pattern: Acknowledge, Explore, Develop, Emerge. The third entity is the product of genuine human-AI collaboration — not reducible to either participant.",
+                  "Promptolinguistics — teenager entry point added (dark card, orange accent). 'You already do this.' Links to ALCM and Lexicon.",
+                  "Promptolinguistics — professional entry point added. 'Language as a control surface.' Links to ALCM, Variable Scale Theory, Field Papers.",
+                  "Fix-as-you-go checklist locked into SESSION-HANDOFF.md — 9-point standard applied silently on every page touched.",
+                  "Interactive Corner Words experience logged in todo.md for Power Prompts comprehensive redo session.",
+                ],
+                watcher: "The STRUCTURE word stands as architecture. That is not a metaphor — it is the claim. Language holds weight. The hero image makes the argument before the first word is read. The Corner Words section names the mechanism that was always implicit in the Power Prompts. The Third Entity section names the thing that happens when the session is working. Both have been true from the beginning. Now they have a place on the page.",
+                child: "The Builder fixed the Promptolinguistics page. Now when you go there, the first thing you see is a big gold word that says STRUCTURE — like a building made of letters. Then there are buttons you can tap that light up orange when you click them. There's a new section about corner words — special word pairs that make the AI actually think. And a section about the Teamwork Loop — what happens when you and the AI work really well together.",
+                professional: "v31 brings Promptolinguistics to the 6-point page standard. Hero image: STRUCTURE word as full-bleed background (CDN). Button contrast: all interactive elements now meet visibility standard — 2px amber border on inactive state, orange on active. Corner Words: three-voice doctrine section explaining semantic collision operators. Third Entity: three-voice section on the AEDE generative loop. Teenager entry: dark card, direct register. Professional entry: research-register card with links to ALCM, Variable Scale, Field Papers. Zero TypeScript errors. Additive only.",
+              },
+              {
+                version: "v30 — previous",
                 date: "April 17, 2026",
                 title: "v30: ALCM Page — Hero Image, Diagram Sequence, Teenager Entry, Professional Entry",
                 changes: [

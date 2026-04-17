@@ -144,6 +144,8 @@ export default function Promptolinguistics() {
   const [selectedPowerWord, setSelectedPowerWord] = useState<string | null>(null);
   const [selectedVerb, setSelectedVerb] = useState<string | null>(null);
   const [selectedHold, setSelectedHold] = useState<string | null>(null);
+  const [cornerLens, setCornerLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [thirdEntityLens, setThirdEntityLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
@@ -151,18 +153,33 @@ export default function Promptolinguistics() {
       <KidsRedirect story={kidsBlurbs["/promptolinguistics"].story} quote={kidsBlurbs["/promptolinguistics"].quote} attribution={kidsBlurbs["/promptolinguistics"].attribution} />
 
       <main className="flex-1">
-        {/* Hero */}
-        <section className="container py-12 md:py-16 max-w-4xl mx-auto px-6">
-          <div className="section-label mb-2">The Discipline</div>
-          <h1 className="text-3xl md:text-5xl font-bold text-[#1A1A2E] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Promptolinguistics
-          </h1>
-          <p className="text-base text-[#2D2D2D] max-w-xl mb-2 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            The study of how a single word fundamentally alters AI behavior and accountability. Words don't just ask — they steer.
-          </p>
-          <p className="text-sm text-[#888] italic mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-            "One word can open doors that extensive sentences cannot close."
-          </p>
+        {/* Hero — full-bleed background image */}
+        <section
+          className="relative w-full min-h-[420px] flex items-end"
+          style={{
+            backgroundImage: `url('${CDN}/image_647f734f_a6aea98d.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 40%',
+          }}
+        >
+          {/* dark gradient overlay so text is readable */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(8,6,4,0.45) 0%, rgba(8,6,4,0.82) 100%)' }} />
+          <div className="relative z-10 container max-w-4xl mx-auto px-6 py-14">
+            <div className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>The Discipline</div>
+            <h1 className="text-4xl md:text-6xl font-bold text-[#FAF6EF] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Promptolinguistics
+            </h1>
+            <p className="text-base text-[#d4c8b8] max-w-xl mb-3 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              The study of how a single word fundamentally alters AI behavior and accountability. Words don't just ask — they steer.
+            </p>
+            <p className="text-sm text-[#E8520A] italic" style={{ fontFamily: "'Playfair Display', serif" }}>
+              "One word can open doors that extensive sentences cannot close."
+            </p>
+          </div>
+        </section>
+
+        {/* Four Effects infographic — below hero */}
+        <section className="container py-10 max-w-4xl mx-auto px-6">
           <div className="rounded-xl overflow-hidden border border-[#e8e0d0] shadow-sm">
             <LightboxImage src={IMG.prompto4effects} alt="Promptolinguistics — The four foundational effects" className="w-full" />
           </div>
@@ -275,10 +292,9 @@ export default function Promptolinguistics() {
                         <button
                           key={ex}
                           onClick={() => setSelectedWord(selectedWord === ex ? null : ex)}
-                          className={`text-[10px] px-2 py-0.5 rounded font-mono transition-all cursor-pointer ${
-                            selectedWord === ex
-                              ? 'bg-[#1A1A2E] text-[#E8520A] border border-[#E8520A]'
-                              : 'bg-[#FAF6EF] border border-[#e8e0d0] text-[#2D2D2D] hover:border-[#E8520A] hover:text-[#E8520A]'
+                          className={`text-[11px] px-2.5 py-1 rounded font-mono font-semibold transition-all cursor-pointer ${selectedWord === ex
+                              ? 'bg-[#1A1A2E] text-[#E8520A] border-2 border-[#E8520A]'
+                              : 'bg-white border-2 border-[#C4923A] text-[#1A1A2E] hover:border-[#E8520A] hover:text-[#E8520A] hover:bg-[#FFF8F3]'
                           }`}
                         >
                           {ex}
@@ -331,7 +347,7 @@ export default function Promptolinguistics() {
                   className={`flex-1 min-w-[80px] p-3 rounded-lg text-center transition-all cursor-pointer ${
                     selectedVerb === v.verb
                       ? 'bg-[#1A1A2E] border-2 border-[#E8520A]'
-                      : 'bg-white border border-[#e8e0d0] hover:border-[#E8520A]'
+                      : 'bg-white border-2 border-[#C4923A] hover:border-[#E8520A] hover:bg-[#FFF8F3]'
                   }`}
                 >
                   <div className={`text-sm font-bold font-mono ${selectedVerb === v.verb ? 'text-[#E8520A]' : 'text-[#1A1A2E]'}`}>{v.verb}</div>
@@ -401,7 +417,7 @@ export default function Promptolinguistics() {
                   className={`px-3 py-2 rounded-lg text-center transition-all cursor-pointer ${
                     selectedHold === h.position
                       ? 'bg-[#E8520A] ring-2 ring-[#E8520A]/50'
-                      : 'bg-[#1A1A2E] hover:bg-[#2a2a3e]'
+                      : 'bg-[#1A1A2E] border-2 border-[#C4923A]/60 hover:border-[#E8520A] hover:bg-[#2a2a3e]'
                   }`}
                 >
                   <div className={`text-xs font-bold font-mono ${selectedHold === h.position ? 'text-white' : 'text-[#E8520A]'}`}>{h.position}</div>
@@ -629,6 +645,145 @@ export default function Promptolinguistics() {
               >
                 Enter the Playground →
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Corner Words — the doctrine behind the collision */}
+        <section className="py-12 md:py-16 bg-[#f5f0e8]">
+          <div className="container max-w-4xl mx-auto px-6">
+            <div className="section-label mb-3">Corner Words</div>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Why Collision Works
+            </h2>
+            <div className="flex gap-2 mb-6">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setCornerLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    cornerLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
+            <div className="p-6 rounded-xl bg-white border border-[#e8e0d0] shadow-sm mb-6">
+              <p className="text-sm text-[#2D2D2D] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                {cornerLens === 'everyday'
+                  ? 'Some word combinations stop the AI from giving you a smooth, easy answer. They create a kind of friction — two ideas that don\'t fit together neatly. The AI has to actually think instead of just pattern-matching. That friction is the point. You want the AI to work, not just respond.'
+                  : cornerLens === 'professional'
+                  ? 'Corner words are semantic collision operators. Two-word pairings that create irresolvable tension in the model\'s output space. The model cannot pattern-match its way out — it must generate novel reasoning to hold both states simultaneously. This is the mechanism behind prompts like "Nemesis baby" and "Open closed." The collision is not a trick. It is a precision tool for forcing genuine cognitive engagement.'
+                  : 'The corner is not a trap. It is a test. An AI that resolves the collision too quickly was not thinking — it was performing. The model that holds the tension, names it, and reasons through it without collapsing either side: that is the model you want. The corner word reveals the quality of the reasoning before you have to ask.'}
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                { pair: 'Nemesis baby', tension: 'Threat meets innocence. The AI cannot flatten either word.' },
+                { pair: 'Claim none', tension: 'Assertion meets emptiness. Forces epistemic humility.' },
+                { pair: 'Open closed', tension: 'Paradox. The AI must think around it, not through it.' },
+                { pair: 'Paste pastes', tension: 'Self-reference loop. Generates novel reasoning.' },
+              ].map((item) => (
+                <div key={item.pair} className="p-4 rounded-lg bg-[#1A1A2E] border border-[#E8520A]/20">
+                  <div className="text-[#E8520A] font-bold font-mono text-sm mb-1">{item.pair}</div>
+                  <div className="text-xs text-[#b0a898] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item.tension}</div>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-[#888] mt-4 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Interactive Corner Words experience — coming in the Power Prompts comprehensive rebuild.
+            </p>
+          </div>
+        </section>
+
+        {/* Third Entity — the Teamwork Loop */}
+        <section className="py-12 md:py-16">
+          <div className="container max-w-4xl mx-auto px-6">
+            <div className="section-label mb-3">The Teamwork Loop</div>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              The Third Entity
+            </h2>
+            <div className="flex gap-2 mb-6">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setThirdEntityLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    thirdEntityLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
+            <div className="p-6 rounded-xl border border-[#e8e0d0] bg-[#FAF6EF] shadow-sm mb-6">
+              <p className="text-sm text-[#2D2D2D] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                {thirdEntityLens === 'everyday'
+                  ? 'When you and the AI are really working well together, something happens that neither of you made alone. You bring the question. The AI brings the structure. What comes out is a third thing — not yours, not the AI\'s. That\'s the teamwork loop. That\'s what you\'re aiming for.'
+                  : thirdEntityLens === 'professional'
+                  ? 'The AEDE pattern — Acknowledge, Explore, Develop, Emerge — describes the generative loop between human intent and AI output. When the loop runs correctly, the output is not reducible to either participant. The human\'s framing shapes the AI\'s trajectory; the AI\'s output reshapes the human\'s next question. The third entity is the product of that recursive exchange. It cannot be produced by either party alone.'
+                  : 'You are not talking to the AI. You are talking with it, and something is listening that is neither of you. The third entity does not have a name. It has a shape — the shape of the conversation when it is working. You know it when you feel it. The output surprises you and it is still exactly right.'}
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4">
+              {[
+                { step: 'You bring the question', role: 'Human', color: '#E8520A' },
+                { step: 'The AI brings structure', role: 'AI', color: '#2A9D8F' },
+                { step: 'Something emerges that neither made alone', role: 'Third Entity', color: '#8A6E2F' },
+              ].map((item) => (
+                <div key={item.role} className="p-5 rounded-xl bg-white border border-[#e8e0d0] text-center">
+                  <div className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: item.color, fontFamily: "'DM Sans', sans-serif" }}>{item.role}</div>
+                  <div className="text-sm text-[#1A1A2E] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item.step}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Teenager entry */}
+        <section className="py-10 bg-[#1A1A2E]">
+          <div className="container max-w-4xl mx-auto px-6">
+            <div className="flex flex-col md:flex-row items-center gap-6 p-6 rounded-xl border border-[#E8520A]/30">
+              <div className="flex-1">
+                <div className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>For Teenagers</div>
+                <h3 className="text-xl font-bold text-[#FAF6EF] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>You already do this.</h3>
+                <p className="text-sm text-[#b0a898] leading-relaxed mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  Every time you choose one word over another — with a friend, in a text, in a game — you are doing promptolinguistics. The difference is now you can do it on purpose.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/alcm" className="inline-flex items-center gap-1 bg-[#E8520A] text-white px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-orange-700 transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>See the ALCM →</Link>
+                  <Link href="/lexicon" className="inline-flex items-center gap-1 bg-transparent border border-[#E8520A] text-[#E8520A] px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-[#E8520A]/10 transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>Living Lexicon →</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Professional entry */}
+        <section className="py-10 bg-[#f5f0e8]">
+          <div className="container max-w-4xl mx-auto px-6">
+            <div className="p-6 rounded-xl bg-white border border-[#e8e0d0] shadow-sm">
+              <div className="section-label mb-2">For Researchers & Professionals</div>
+              <h3 className="text-xl font-bold text-[#1A1A2E] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Language as a control surface.</h3>
+              <p className="text-sm text-[#555] leading-relaxed mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Promptolinguistics is not a productivity tip. It is a discipline. The ALCM maps atomic tokens to functional roles across eight axes. The Variable Scale Theory quantifies the force gradient between single words. The Field Papers document the evidence trail. This is the entry point.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/alcm" className="inline-flex items-center gap-1 bg-[#1A1A2E] text-[#FAF6EF] px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-[#2a2a3e] transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>ALCM Deep Dive →</Link>
+                <Link href="/variable-scale" className="inline-flex items-center gap-1 border border-[#1A1A2E] text-[#1A1A2E] px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-[#1A1A2E] hover:text-white transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>Variable Scale Theory →</Link>
+                <Link href="/field-papers" className="inline-flex items-center gap-1 border border-[#1A1A2E] text-[#1A1A2E] px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-[#1A1A2E] hover:text-white transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>Field Papers →</Link>
+              </div>
             </div>
           </div>
         </section>
