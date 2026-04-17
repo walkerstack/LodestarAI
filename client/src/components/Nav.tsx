@@ -134,12 +134,6 @@ export default function Nav() {
             {activeDropdown === "explore" && <DropdownMenu items={exploreLinks} onClose={closeAll} />}
           </div>
 
-          <Link href="/if-you-need-to-stop" className="text-rose-600 hover:text-rose-700 transition-colors no-underline text-xs font-semibold uppercase tracking-wide">
-            Safety
-          </Link>
-          <Link href="/human-line" className="text-amber-700 hover:text-amber-800 transition-colors no-underline text-xs font-semibold uppercase tracking-wide">
-            The Human Line
-          </Link>
           <Link href="/for/child" className="no-underline flex items-center gap-1 hover:scale-110 transition-transform" title="Psst, hey kids!">
             <img src={BUFFALO_IMG} alt="Psst, hey kids!" className="w-7 h-7 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
           </Link>
@@ -217,12 +211,7 @@ export default function Nav() {
               <img src={BUFFALO_IMG} alt="Psst, hey kids!" className="w-8 h-8 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
               <span className="text-sm font-bold text-sky-600">Psst, hey kids!</span>
             </Link>
-            <Link href="/if-you-need-to-stop" onClick={closeAll} className="block text-sm font-semibold text-rose-600 no-underline py-1">
-              If You Need to Stop
-            </Link>
-            <Link href="/human-line" onClick={closeAll} className="block text-sm font-semibold text-amber-700 no-underline py-1">
-              The Human Line
-            </Link>
+
           </div>
         </div>
       )}
