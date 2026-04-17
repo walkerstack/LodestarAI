@@ -153,7 +153,7 @@ export default function Nav() {
       <div className="container flex items-center justify-between py-3">
         <div className="flex items-center gap-2">
           <button
-            onClick={() => setPromptOpen(true)}
+            onClick={() => setPromptOpen((v) => !v)}
             aria-label="Open prompt library"
             className="mg-avatar text-xs transition-all duration-200 cursor-pointer select-none"
             style={{

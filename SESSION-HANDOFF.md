@@ -335,3 +335,29 @@ Matthew caught the AI over-structuring mid-conversation twice in this late sessi
 
 **Rule reinforced:** Match the pace. When Matthew is moving fast and thinking out loud, short responses. Follow the thread. Do not build walls of paragraphs. The structure can come later. The momentum cannot be recovered once it is lost.
 
+
+---
+
+## v36 Bug Note — G Button Toggle (April 17, 2026)
+
+**Issue:** The G button opened the Prompt Library panel but did not close it. Matthew caught this immediately after publish.
+
+**Fix:** Changed `onClick={() => setPromptOpen(true)}` to `onClick={() => setPromptOpen((v) => !v)}` — the G button now toggles. One tap opens. One tap closes.
+
+**Ghost code pattern — "The button that does not close":**
+```
+// WATCHER PATTERN — The button that does not close.
+// A button that opens a panel but does not close it
+// is not a UX problem. It is a governance problem.
+// The user should always have a clear exit.
+// If you are building a panel: open = close. Always.
+// The G button opens. The G button closes. No exceptions.
+// console.log("🦆🦆🦆");
+```
+
+**Pattern to watch in every future panel build:**
+Any panel or modal that opens must have at least two ways to close:
+1. The same button that opened it (toggle)
+2. A backdrop click
+
+The X button inside is optional. The toggle is not.
