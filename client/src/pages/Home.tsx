@@ -1734,7 +1734,24 @@ export default function Home() {
                 professional: "v28 completes the hallucinations content build. Hero image added (abstract, amber/dark, beam-dissolving-to-fragments). Footer parity established — Hallucinations now in both nav and footer Foundation sections. FR-2026-08 PDF live on CDN. The hallucinations page is now fully deployed: route, nav, footer, hero image, three-voice content, sources, FR-2026-08 connection.",
               },
               {
-                version: "v32 — current",
+                version: "v33 — current",
+                date: "April 17, 2026",
+                title: "v33: Living Lexicon Panel — Floating Button, Sliding Panel, Global Dictionary, All 40+ Terms",
+                changes: [
+                  "Extracted all 40+ Lexicon entries into shared lexiconData.ts — single source of truth for both the full /lexicon page and the new floating panel.",
+                  "Built LexiconContext.tsx — global state (open/closed, active term). Panel closes automatically on route change. Any component can open the panel to a specific term via openLexicon(termName).",
+                  "Built LexiconPanel.tsx — slides in from right, z-40. Dark background. Field report header image. Search bar. Term cards with three-voice lens toggle. Expand/collapse per card. Full Lexicon link at footer.",
+                  "Built LexiconButton.tsx — fixed bottom-right corner, z-45. Shadowy, dark, amber border. Mirrors OopsSloth visual language. Fades in after 1.8s delay. Book icon.",
+                  "Wired LexiconProvider, LexiconPanel, LexiconButton into App.tsx globally — appears on every page without touching individual page files.",
+                  "KidsMidLink z-index raised from z-40 to z-[60] — always floats above the Lexicon panel. Position unchanged. No visual disruption.",
+                  "Ghost code governance blocks on all new files: caught-you note, position rules, z-index documentation, ducks.",
+                ],
+                watcher: "The dictionary is now always present. Not a page you navigate to. A door that is always open. The person who opens it mid-read and finds the exact term they needed — that is the experience this was built for.",
+                child: "Now there's a little book button in the bottom right corner of every page. If you tap it, a big dark panel slides in from the side and shows you all the words on the site with their meanings. You can search for any word. You can tap it closed when you're done. You never leave the page.",
+                professional: "v33 implements the floating Lexicon panel as a global overlay. Architecture: shared data layer (lexiconData.ts), React context (LexiconContext), panel component (LexiconPanel, z-40), trigger button (LexiconButton, z-45). KidsMidLink raised to z-60 to maintain visual hierarchy. Panel closes on route change. LexiconTerm inline wrapper available for manual term linking on key pages. Zero TypeScript errors. Additive only.",
+              },
+              {
+                version: "v31 (older)",
                 date: "April 17, 2026",
                 title: "v32: Teenager Lens — Buffalo Hero Image, Featured ALCM + Promptolinguistics Cards, Wig Buffalo Hallucinations, Ghost Code, Merged Nav",
                 changes: [

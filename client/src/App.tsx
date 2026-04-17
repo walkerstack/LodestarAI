@@ -14,6 +14,9 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 // IntroCrawl saved in components/IntroCrawl.tsx — removed from display, kept in codebase
 import OopsSloth from "./components/OopsSloth";
+import LexiconButton from "./components/LexiconButton";
+import LexiconPanel from "./components/LexiconPanel";
+import { LexiconProvider } from "./contexts/LexiconContext";
 
 import ChildLens from "./pages/lenses/ChildLens";
 import GuardianTeacherLens from "./pages/lenses/GuardianTeacherLens";
@@ -158,14 +161,20 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
-        <TooltipProvider>
-          <Toaster />
-          <OopsSloth />
+        <LexiconProvider>
+          <TooltipProvider>
+            <Toaster />
+            <OopsSloth />
+            {/* Lexicon panel + button — bottom-right corner, z-45/z-40 */}
+            {/* KidsMidLink is z-60 and always floats above — do not change */}
+            <LexiconButton />
+            <LexiconPanel />
 
-          {/* IntroCrawl removed from display — file preserved in components/IntroCrawl.tsx */}
-          <ScrollToTop />
-          <Router />
-        </TooltipProvider>
+            {/* IntroCrawl removed from display — file preserved in components/IntroCrawl.tsx */}
+            <ScrollToTop />
+            <Router />
+          </TooltipProvider>
+        </LexiconProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

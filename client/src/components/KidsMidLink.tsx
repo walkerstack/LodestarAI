@@ -20,7 +20,7 @@ export default function KidsMidLink() {
 
   return (
     <div
-      className="fixed z-40"
+      className="fixed z-[60]"
       style={{
         top: "50%",
         right: "20px",

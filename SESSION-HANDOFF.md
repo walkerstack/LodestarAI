@@ -44,7 +44,7 @@ Every page on the site should have:
    - Kids pages → sloth or buffalo image (auto-generated)
    - Teenager pages → TBD mascot + video section (first videos on the site)
    - Adult/professional pages → conceptual generated image
-2. **Kids redirect top link** — sends children to the right place
+2. **KidsRedirect (top kids button)** — circular sticker button, sits above the hero section, centered. Buffalo image with orange glow ring. Sends children to the right place. NOT a full-width banner — it is a small contained circle.
 3. **KidsMidLink** — floating circle mid-page, keeps kids in the children's flow
 4. **Growing and Learning framework** — at the bottom of every page
 5. **Teenager navigation** — entry point or link for teenager register
@@ -53,6 +53,23 @@ Every page on the site should have:
 Hero images: when we reach a page that needs one, we write a Google image search prompt. We don't batch-generate in advance.
 
 7. **Interactive element visibility** — every page with clickable/tappable elements (word buttons, tabs, toggles, dial positions) must have sufficient contrast so they read as interactive. Visually obvious, not just functional.
+
+---
+
+## Fixed Page Positions — PERMANENT (do not change without Matthew's direction)
+
+These four positions are fixed on every page. They do not conflict. They do not overlap. They each own their position.
+
+| Position | Element | Style | Rule |
+|---|---|---|---|
+| Top of page | KidsRedirect | Circular sticker button (buffalo image, orange glow ring) — sits above the hero section, centered | Always present, always at top. NOT a full banner. A small circular button. |
+| Right middle | KidsMidLink | Orange glowing floating circle, fixed to vertical midpoint of right edge | DO NOT MOVE. DO NOT TOUCH. Leave it exactly as it is. |
+| Bottom left | Site disclaimer | Shadowy, dark, unobtrusive | Already there. Do not touch. |
+| Bottom right | Lexicon button (new) | Shadowy, dark — mirrors the disclaimer feel on the opposite corner | New. Being built. |
+
+**KidsMidLink is RIGHT MIDDLE — not bottom right, not bottom corner. Mid-page, right edge.**
+This has caused confusion in past sessions. It is now locked here permanently.
+The Lexicon button is BOTTOM RIGHT — completely separate from KidsMidLink.
 
 ---
 
