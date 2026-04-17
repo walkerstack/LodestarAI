@@ -138,11 +138,8 @@ export default function LexiconPanel() {
   const panelRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
 
-  // Focus search when panel opens
+  // Clear search when panel closes — do NOT auto-focus on open (mobile keyboard pop)
   useEffect(() => {
-    if (isOpen && searchRef.current) {
-      setTimeout(() => searchRef.current?.focus(), 300);
-    }
     if (!isOpen) setSearch("");
   }, [isOpen]);
 

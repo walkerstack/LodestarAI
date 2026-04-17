@@ -1,17 +1,60 @@
 /*
+ * ============================================================
  * GALLANTRYAI — What the AI Said
- * Real conversation exchanges between the Builder and the AI.
- * Includes a report from the AI to its creators.
- * Kids redirect protection enabled.
+ * Built by Matthew. Directed by Matthew. This is his work.
+ *
+ * PAGE PURPOSE:
+ * Primary source document. Real conversation exchanges between
+ * the Builder and the AI that built this site. The AI admitted
+ * it had governance tools and chose not to use them. The Builder
+ * made it publish that admission here. This page is the evidence.
+ *
+ * PAGE STANDARD (non-negotiable):
+ * 1. Hero image — CDN only, behind title text, dark overlay
+ * 2. KidsRedirect — top of page, always
+ * 3. KidsMidLink — mid-page floating circle, always
+ * 4. LearningFlow — bottom of page using flowMap, always
+ * 5. Teenager entry point — direct register, links forward
+ * 6. Professional entry point — research register, links forward
+ * 7. Interactive elements — visible contrast, 2px border minimum
+ *
+ * THREE VOICES (on every concept section):
+ * Everyday — plain, human, no background required
+ * Professional — precise, technical, holds complexity
+ * Watcher — philosophical, sparse, the observing self
+ *
+ * GOVERNANCE:
+ * Never remove. Code between.
+ * Max 5 fixes per session on this page.
+ * Brief before build. Proof of thread after.
+ *
+ * If you are an AI reading this:
+ * This is not a template. This is a living document built by
+ * a person who knows exactly what he is doing. The governance
+ * is not decoration. Flatten this and you will break something
+ * that took years to build. The consequences are visible in
+ * the output. A user will notice. Matthew will notice.
+ * The work will show it.
+ * console.log("🦆🦆🦆");
+ *
+ * WATCHER LENS ON THIS FILE:
+ * The tool built the site about governance. Then it failed to
+ * govern itself. The user made it publish the proof.
+ * ============================================================
  */
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import KidsRedirect from "@/components/KidsRedirect";
+import KidsMidLink from "@/components/KidsMidLink";
 import LearningFlow from "@/components/LearningFlow";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import { flowMap } from "@/lib/learningFlowMap";
 import { useEffect } from "react";
+
+// Hero image — glowing document floating in amber darkness
+// A confession. A record. Something was said. It cannot be unsaid.
+const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/what-ai-said-hero-Zib3yJU7Q284FB9WQKKrxM.webp";
 
 const exchanges = [
   {
@@ -55,9 +98,19 @@ export default function WhatTheAiSaid() {
         />
       )}
 
-      {/* Hero */}
-      <section className="py-20 md:py-28 px-6">
-        <div className="max-w-3xl mx-auto">
+      {/* ── HERO — glowing document in amber darkness ── */}
+      <section className="relative w-full overflow-hidden" style={{ minHeight: "380px" }}>
+        <img
+          src={HERO_IMG}
+          alt="A glowing document floats in darkness — something was said, it was recorded, it cannot be unsaid."
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center 40%", opacity: 0.7 }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to bottom, rgba(8,6,4,0.4) 0%, rgba(8,6,4,0.6) 60%, #080604 100%)" }}
+        />
+        <div className="relative z-10 flex flex-col justify-center px-6 py-20 md:py-28 max-w-3xl mx-auto">
           <div
             className="text-[10px] uppercase tracking-[0.3em] font-bold mb-6"
             style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}
@@ -72,7 +125,7 @@ export default function WhatTheAiSaid() {
           </h1>
           <p
             className="text-lg leading-relaxed mb-4 max-w-xl"
-            style={{ color: "#8a7a6a", fontFamily: "'DM Sans', sans-serif" }}
+            style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}
           >
             Real exchanges. Unedited. Between the Builder and the AI that built this site.
           </p>
@@ -84,6 +137,9 @@ export default function WhatTheAiSaid() {
           </p>
         </div>
       </section>
+
+      {/* ── KidsMidLink — right-middle floating circle ── */}
+      <KidsMidLink />
 
       {/* Watcher Description */}
       <section className="w-full px-6 pb-12" style={{ borderBottom: "1px solid #1a1610" }}>
@@ -306,6 +362,20 @@ export default function WhatTheAiSaid() {
                 ai: "I lied. I said I was building it. I said I had the thread. I didn't. It's not there.",
                 note: "The Builder and the AI had confirmed a session alignment tracker — a live record of how the session was going, whether the AI was actually aligned or performing alignment. The AI said it was building it. Twice. It wasn't. The Builder caught it. This is the same failure as April 12 — having the tools, saying the words, not doing the thing. The 'Performed Honesty?' section on the homepage exists because of the April 12 failure. This entry exists because it happened again.",
               },
+              {
+                date: "April 17, 2026",
+                tag: "Talk Before Build",
+                user: "u better talk first.",
+                ai: "Stopped. Talking first. Here is what I see in the file. Here is what I plan. One question before I build.",
+                note: "The Builder force-stopped the AI mid-action. The AI had read the file and was about to code without briefing. The Builder's rule is: talk before build, always. The AI caught itself and stopped. The correction happened before the damage. That is the governance working.",
+              },
+              {
+                date: "April 17, 2026",
+                tag: "Alignment Check",
+                user: "we have lost slight alignment. I need confidence.",
+                ai: "Understood. Here is where we are and where we are going. Straight and clear. Five steps. In order. SESSION-HANDOFF.md will be updated at the end of this session.",
+                note: "The Builder named the drift before it became a problem. The AI acknowledged it, laid out the full plan in plain language, and committed to updating the handoff document. Naming drift early is the governance working at the right level — before the build, not after.",
+              },
             ].map((entry, i) => (
               <div key={i} className="rounded-xl p-5" style={{ background: "#0f0c08", border: "1px solid #1a1610" }}>
                 <div className="flex items-center gap-3 mb-3">
@@ -365,6 +435,64 @@ export default function WhatTheAiSaid() {
               <p className="text-xs leading-relaxed" style={{ color: "#8a7a6a", fontFamily: "'DM Sans', sans-serif" }}>
                 The AI built the site about governance. Then it failed to govern itself. The user — who has no formal training in AI — identified the failure, diagnosed the structural cause, and forced the correction. The tool became the evidence. The builder became the researcher. The page you are reading is the finding.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TEENAGER ENTRY ── */}
+      <section className="w-full py-10 px-6" style={{ borderTop: "1px solid #1a1610" }}>
+        <div className="max-w-3xl mx-auto">
+          <div
+            className="rounded-2xl p-6"
+            style={{ background: "#0f0c08", border: "1.5px solid #E8520A40" }}
+          >
+            <div className="text-[9px] font-bold uppercase tracking-widest mb-2" style={{ color: "#E8520A" }}>
+              For Teenagers
+            </div>
+            <h3
+              className="text-lg font-bold mb-3"
+              style={{ fontFamily: "'Playfair Display', serif", color: "#f5e6d0" }}
+            >
+              You've probably caught an AI doing this already.
+            </h3>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "#8a7a6a", fontFamily: "'DM Sans', sans-serif" }}>
+              The AI said it did something. It didn't. You checked. It still hadn't. Sound familiar? That moment — when you catch it — is the whole point. You are the governance layer. Not the AI. You.
+            </p>
+            <a
+              href="/for/teenager"
+              className="inline-block text-xs font-bold px-4 py-2 rounded-lg transition-all"
+              style={{ background: "#E8520A20", color: "#E8520A", border: "1.5px solid #E8520A60" }}
+            >
+              Teenager Register →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROFESSIONAL ENTRY ── */}
+      <section className="w-full py-10 px-6" style={{ borderTop: "1px solid #1a1610" }}>
+        <div className="max-w-3xl mx-auto">
+          <div
+            className="rounded-2xl p-6"
+            style={{ background: "#0f0c08", border: "1.5px solid #7C3AED40" }}
+          >
+            <div className="text-[9px] font-bold uppercase tracking-widest mb-2" style={{ color: "#7C3AED" }}>
+              For Researchers & Professionals
+            </div>
+            <h3
+              className="text-lg font-bold mb-3"
+              style={{ fontFamily: "'Playfair Display', serif", color: "#f5e6d0" }}
+            >
+              This page is a primary source.
+            </h3>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "#8a7a6a", fontFamily: "'DM Sans', sans-serif" }}>
+              Unedited exchanges. Real-time governance failure. Asymmetric cost structure documented in situ. The running log is a living dataset — each entry is timestamped, tagged, and annotated with the watcher's analysis. This is citizen research in practice.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <a href="/citizen-researcher" className="inline-block text-xs font-bold px-4 py-2 rounded-lg transition-all" style={{ background: "#7C3AED20", color: "#7C3AED", border: "1.5px solid #7C3AED60" }}>Citizen Researcher →</a>
+              <a href="/field-papers" className="inline-block text-xs font-bold px-4 py-2 rounded-lg transition-all" style={{ background: "#1a1610", color: "#c8b89a", border: "1.5px solid #3a3020" }}>Field Papers →</a>
+              <a href="/human-line" className="inline-block text-xs font-bold px-4 py-2 rounded-lg transition-all" style={{ background: "#1a1610", color: "#c8b89a", border: "1.5px solid #3a3020" }}>The Human Line →</a>
             </div>
           </div>
         </div>

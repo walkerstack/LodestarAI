@@ -1,5 +1,5 @@
 # Session Handoff — GallantryAI
-*Last updated: April 18, 2026*
+*Last updated: April 17, 2026 — v35*
 
 ---
 
@@ -196,7 +196,8 @@ When we land on a page:
 
 ### LearningFlow + KidsMidLink Parity
 - [ ] Add LearningFlow to: AlcmPage, Articles, Backstage, BarneyPoem, Builder, BuilderOrigin, CitizenResearcher, FieldPapers, Gallery, HumanLine, KidsLearn, Malbolge, MathPrompting, Playground, SafetyPage, Scaffold, SchoolBoard, ThreeLenses, VariableScale, WhelmScale, WatcherLens
-- [ ] Add KidsMidLink to: KidsLearn, WhatTheAiSaid
+- [x] Add KidsMidLink to: WhatTheAiSaid — DONE v35
+- [ ] Add KidsMidLink to: KidsLearn
 - [ ] Rule: every new page gets KidsMidLink + LearningFlow before it ships
 
 ---
@@ -220,6 +221,27 @@ Search for the old URL string across the whole project before changing anything.
 - `/home/ubuntu/fr2026-09-research/opus-research-brief.md` — six-claim research brief from Opus
 - `/home/ubuntu/fr2026-09-research/user-pattern-analysis.md` — Matthew's pattern analysis + pond skipping metaphor
 - `/home/ubuntu/fr2026-09-research/fr2026-08-structure-notes.md` — FR-2026-08 structure for reference
+
+---
+
+## Last Session Summary (April 17, 2026 — v35)
+
+**What was done:**
+- LexiconPanel auto-focus removed — mobile keyboard no longer pops when panel opens
+- WhatTheAiSaid.tsx brought to 6-point page standard: ghost code, hero CDN image (glowing document in amber darkness), KidsMidLink, teenager entry, professional entry
+- Running log updated with two April 17 entries: 'Talk Before Build' and 'Alignment Check'
+- Builder's log updated to v35 in Home.tsx
+- SESSION-HANDOFF.md updated
+- Last checkpoint: v35
+
+**Alignment note from this session:**
+Matthew named a slight alignment drift mid-session. The AI had started reading a file without briefing first. Matthew force-stopped it. The AI acknowledged, laid out the full plan in plain language, and continued correctly. The drift was caught early — before the build, not after. That is the governance working at the right level.
+
+**Matthew's standing rules (reinforced this session):**
+- Talk before build. Always. No exceptions.
+- "u better talk first" = stop immediately, brief before touching anything
+- Force stop = full stop, acknowledge, re-brief, then continue
+- Confidence comes from the AI showing its work before acting, not after
 
 ---
 

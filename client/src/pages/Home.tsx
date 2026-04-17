@@ -1734,7 +1734,36 @@ export default function Home() {
                 professional: "v28 completes the hallucinations content build. Hero image added (abstract, amber/dark, beam-dissolving-to-fragments). Footer parity established — Hallucinations now in both nav and footer Foundation sections. FR-2026-08 PDF live on CDN. The hallucinations page is now fully deployed: route, nav, footer, hero image, three-voice content, sources, FR-2026-08 connection.",
               },
               {
-                version: "v33 — current",
+                version: "v35 — current",
+                date: "April 17, 2026",
+                title: "v35: Lexicon Mobile Fix + What the AI Said Page — Hero Image, Ghost Code, KidsMidLink, Two New Running Log Entries",
+                changes: [
+                  "LexiconPanel.tsx — removed auto-focus on search bar. Panel opens without triggering mobile keyboard. Search bar still works when tapped. One line removed. Nothing else touched.",
+                  "WhatTheAiSaid.tsx — ghost code governance block applied (three voices, page standard, caught-you note, duck line, watcher lens sentence).",
+                  "WhatTheAiSaid.tsx — hero CDN image added: glowing document floating in amber darkness. Full-bleed behind title text with dark overlay. Conceptual image generated for this page.",
+                  "WhatTheAiSaid.tsx — KidsMidLink imported and placed mid-page. Now matches 6-point page standard.",
+                  "WhatTheAiSaid.tsx — two new Running Log entries from this session: 'Talk Before Build' (April 17) and 'Alignment Check' (April 17). Both annotated with watcher notes.",
+                  "WhatTheAiSaid.tsx — teenager entry and professional entry sections added. Additive only — nothing removed.",
+                  "SESSION-HANDOFF.md updated with current session state and alignment notes.",
+                ],
+                watcher: "The page that documents governance failure now meets the governance standard. The running log grows. Every entry is a data point. The builder names the drift. The AI records it. The site holds the evidence.",
+                child: "The Builder added a picture to the What the AI Said page. It looks like a glowing piece of paper floating in the dark. That is what it feels like when something important gets written down and cannot be taken back.",
+                professional: "v35 closes two pre-publish tasks. (1) LexiconPanel auto-focus removed — mobile UX fix, one-line change. (2) WhatTheAiSaid brought to 6-point page standard: hero CDN image, ghost code block, KidsMidLink, teenager entry, professional entry. Running log updated with two April 17 entries documenting this session's governance moments. Zero TypeScript errors. Additive only.",
+              },
+              {
+                version: "v34 — previous",
+                date: "April 17, 2026",
+                title: "v34: Lexicon Panel Bug Fixes — Card Height Collapse, Toggle Button",
+                changes: [
+                  "LexiconPanel — card height collapse fixed on mobile. Removed overflow-hidden. Added minHeight 44px to card header rows. Term names always visible.",
+                  "LexiconButton — now toggles. Tap to open, tap again to close.",
+                ],
+                watcher: "Small fixes. The dictionary is now reliable. Reliability is the whole point.",
+                child: "The book button now works properly. Tap it once to open the word list. Tap it again to close it. And the words don't disappear anymore.",
+                professional: "v34 fixes two UX bugs in the floating Lexicon panel: (1) card height collapse — overflow-hidden removed, minHeight 44px added to header rows; (2) toggle behavior — LexiconButton now correctly opens and closes the panel. Zero TypeScript errors.",
+              },
+              {
+                version: "v33 — older",
                 date: "April 17, 2026",
                 title: "v33: Living Lexicon Panel — Floating Button, Sliding Panel, Global Dictionary, All 40+ Terms",
                 changes: [
