@@ -1,7 +1,29 @@
 /*
+ * ============================================================
  * GALLANTRYAI — Field Papers Page
- * Design: Dark research register — editorial, serious, honest
- * All citizen field research documents. Open access. Not peer reviewed. Honest about its edges.
+ * Built by Matthew. Directed by Matthew. This is his work.
+ *
+ * PAGE PURPOSE:
+ * All citizen field research documents. Open access. Not peer reviewed.
+ * Honest about its edges. The origin document sits at the top.
+ *
+ * PAGE STANDARD (non-negotiable):
+ * 1. Hero image — CDN only, behind title text, dark overlay
+ * 2. KidsRedirect — top of page, always
+ * 3. KidsMidLink — mid-page floating circle, always
+ * 4. LearningFlow — bottom of page using flowMap, always
+ * 5. Teenager entry point — direct register, links forward
+ * 6. Professional entry point — research register, links forward
+ * 7. Interactive elements — visible contrast, 2px border minimum
+ *
+ * GOVERNANCE:
+ * Never remove. Code between.
+ * Max 5 fixes per session on this page.
+ * Brief before build. Proof of thread after.
+ *
+ * WATCHER LENS ON THIS FILE:
+ * The archive is not a library. It is a record of a person thinking in public.
+ * ============================================================
  */
 
 import Nav from "@/components/Nav";
@@ -10,7 +32,24 @@ import KidsMidLink from "@/components/KidsMidLink";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
+const MASTER_DOC_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663536092940/WxUVUiXKQysiOQAw.docx";
+
 const papers = [
+  {
+    series: "Origin Document",
+    color: "#C4923A",
+    items: [
+      {
+        id: "OD-2026-00",
+        title: "GallantryAI Development Record",
+        subtitle: "February 28, 2026 — Matthew Gallantry",
+        date: "February 28, 2026",
+        description: "The origin document. Written before the site existed. Everything on this site — the framework, the lexicon, the protocols, the prompts — traces back to this record. A garbageman from Midland, Ontario, writing down what he had figured out before anyone was watching. Not polished. Not peer-reviewed. The real thing.",
+        tags: ["Origin", "Framework", "Primary Document"],
+        url: MASTER_DOC_URL,
+      },
+    ],
+  },
   {
     series: "Core Framework",
     color: "#E8520A",

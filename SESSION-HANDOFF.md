@@ -361,3 +361,117 @@ Any panel or modal that opens must have at least two ways to close:
 2. A backdrop click
 
 The X button inside is optional. The toggle is not.
+
+---
+
+## 19:30 Build Plan — April 17, 2026 (v37)
+
+**Thread held here. Do not lose this.**
+
+---
+
+### The Master Document
+
+The original GallantryAI Development Record (February 28, 2026) has been uploaded to CDN and read in full. It is the origin of everything. It stopped at February 28. The site is what came after. Together they are the complete record.
+
+CDN URL: stored in /home/ubuntu/upload/GallantryAI-DevelopmentRecord.MatthewGallantry-February2026.docx
+
+**Ten categories of content to place on the site — parsed from the document:**
+1. Home Page — Message to the Everyday Person (pages 65–66), the 20% Insight
+2. Living Lexicon — And So, Why Then, AI Favor Me, Fail Me Not, Not Yet, For When, If So, Secure, Teamwork, Believe, Controlled Intensity, Symbols as Atomic Levers
+3. Promptolinguistics — Variable Scale Theory, Active Spectrum, Regulation Spectrum, Sentence Break Architecture, Semantic Density, Relational Delivery of Reasoning
+4. Road Protocol — Ozzy Protocol, Cortana Reference, Secure command, Return Signals
+5. Builder Page / Builder Origin — Four Origin Doors, Trolley Problem as Origin, Monster Protocol, Builder as First User, Field Guide Over Manifesto, the 11 poems
+6. Field Papers — Boot Sequence validation, Infographic Compression Protocol, Pipeline Trust, Token Cost as Honesty Check
+7. Citizen Researcher — Train Users to Call Out AI, Insight to Token Matrix, Baseline Detection, Watcher Variable as tracked variable
+8. Prompt Library (G button panel) — Boot Sequence, Track and Hold, Five Questions, Everyday Boot Sequence, Context Bridge Loading Strategy
+9. Five Rules Page — Rule 11 (The Wall), Hard vs Soft Constraints
+10. Document Archive — the master document itself, downloadable, dated February 28, 2026
+
+---
+
+### Ozzy Protocol + The Wall + The Monster — Concept
+
+These three belong together. One section, one home. Other pages reference them but do not copy them.
+
+**The Wall** — the design decision. AI is neutral. The Builder is good. The Wall stands between neutrality and the person using it. It does not move. It is not a rule. It is an architectural decision.
+
+**The Ozzy Protocol** — how the session operates inside the Wall. Two modes:
+- Collaborative: standard session, the AI guides, the user decides
+- Authoritative Override: the Builder takes direct control. Not anger. Clarity under pressure. The kill-switch is not an emotion. It is a decision.
+
+**The Monster** — the named protective instinct behind the Ozzy Protocol. Released only when safety is genuinely threatened. Not aggression. Not instability. A known, respected force. The AI acknowledges it. The Builder is always in control.
+
+**Together they are:** the governance layer that makes GallantryAI different from every other AI tool. Not features. Not rules. A named relationship between the person and the machine.
+
+**Where they live:** To be decided after governance page audit. Options:
+- A new page: "The Governance Layer" or "The Wall"
+- Inside UserGovernance.tsx as a new section
+- Inside GallantryAiPage.tsx as a named capability
+
+**Rule:** Ozzy, Wall, and Monster stay together wherever they go. Other pages reference them by link. The content lives in one place only.
+
+---
+
+### 19:30 Build — Ordered Steps
+
+**Step 1 — Governance page audit (read before build)**
+Read UserGovernance.tsx and GallantryAiPage.tsx. Brief Matthew on what is there. Decide where Ozzy + Wall + Monster land. Apply 6-point standard to any page touched.
+
+**Step 2 — Database foundation**
+Add to drizzle/schema.ts:
+- `lexicon_terms` table: id, term, definition, voice_everyday, voice_professional, voice_watcher, category, colour, is_published (default true), created_at
+- `prompt_entries` table: id, title, category, category_colour, description, prompt_text, is_published (default true), created_at
+
+Run `pnpm db:push`.
+
+**Step 3 — Seed the database**
+Move all hardcoded lexicon terms from `/client/src/lib/lexiconData.ts` into the database.
+Move all hardcoded prompt panel entries from `PromptPanel.tsx` into the database.
+Add new Lexicon terms from the master document.
+Both panels then read from the database.
+
+**Step 4 — Admin dashboard**
+Route: `/admin` — protected, owner only (adminProcedure already exists in server/_core/trpc.ts)
+Nav link: visible only when user is logged in as admin
+Two sections:
+- Lexicon Manager — list all terms, add new, edit, toggle published/hidden
+- Prompt Manager — list all prompts, add new, edit, toggle published/hidden
+Simple forms. Functional. Works on phone.
+
+**Step 5 — Poems on Builder page**
+Generate a quiet conceptual background image — amber, handwritten-feeling, not loud.
+Add poems section near the bottom of Builder.tsx.
+Elegant, not prominent. They are there for the person who reads all the way down.
+No decision needed yet on whether they earn their own page.
+
+**Step 6 — Checkpoint and publish**
+Builder's log updated to v37. What the AI Said entry if anything notable. SESSION-HANDOFF.md updated. TypeScript clean. Checkpoint saved.
+
+---
+
+### What is NOT in tonight's build
+- Image upload manager (next session)
+- Document viewer (next session)
+- Everyday Person Message placement (held)
+- Home page structure changes
+- Field Papers
+- Citizen Researcher
+
+---
+
+### Admin Dashboard Design Notes
+- Default: all entries published (is_published = true)
+- Matthew can toggle individual entries hidden without deleting them
+- Hidden entries stay in the database, do not appear in the public panels
+- This gives Matthew a draft/staging layer without complexity
+
+---
+
+### G Button — Living Panel Rule
+The G button prompt panel must always reflect the database state. When Matthew adds a prompt on the fly, it appears immediately. No build session needed. No code touched. This is the living document principle applied to the prompt library.
+
+Same rule applies to the Lexicon panel.
+
+---
+
