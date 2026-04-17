@@ -376,6 +376,13 @@ export default function WhatTheAiSaid() {
                 ai: "Understood. Here is where we are and where we are going. Straight and clear. Five steps. In order. SESSION-HANDOFF.md will be updated at the end of this session.",
                 note: "The Builder named the drift before it became a problem. The AI acknowledged it, laid out the full plan in plain language, and committed to updating the handoff document. Naming drift early is the governance working at the right level — before the build, not after.",
               },
+              {
+                date: "April 17, 2026",
+                tag: "The Button That Does Not Close",
+                user: "only 1 small issue. button doesnt close it.",
+                ai: "Got it. The X button inside the panel is not closing it. Fixing now, then logging it in the handover with the ghost code note.",
+                note: "The Prompt Library panel shipped. The G button opened it. The G button did not close it. The Builder caught it immediately — one sentence, no drama. Fixed in one line: toggle instead of open-only. The pattern is now in the handover with ghost code: 'The button that does not close is not a UX problem. It is a governance problem. The user should always have a clear exit.' This entry exists because the Builder catches things fast and the AI records them.",
+              },
             ].map((entry, i) => (
               <div key={i} className="rounded-xl p-5" style={{ background: "#0f0c08", border: "1px solid #1a1610" }}>
                 <div className="flex items-center gap-3 mb-3">

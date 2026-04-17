@@ -1734,7 +1734,21 @@ export default function Home() {
                 professional: "v28 completes the hallucinations content build. Hero image added (abstract, amber/dark, beam-dissolving-to-fragments). Footer parity established — Hallucinations now in both nav and footer Foundation sections. FR-2026-08 PDF live on CDN. The hallucinations page is now fully deployed: route, nav, footer, hero image, three-voice content, sources, FR-2026-08 connection.",
               },
               {
-                version: "v35 — current",
+                version: "v36 — current",
+                date: "April 17, 2026",
+                title: "v36: Prompt Library — Glowing G Button, Five Categories, Copy-to-Clipboard, Toggle Fix",
+                changes: [
+                  "PromptPanel.tsx — new component. Five colour-coded categories: Power Prompts (orange), Session Tools (amber), Flower Presets (blue), Kids Prompts (green), Language Physics (indigo). Three prompts per category. Copy-to-clipboard with toast confirmation. More coming soon under each.",
+                  "Nav.tsx — G circle in top-left nav is now a glowing orange button. Orange glow ring, 3D press effect, no text label. Pure CSS. Tap opens the Prompt Library panel.",
+                  "Nav.tsx — G button toggles. One tap opens. One tap closes. Bug caught immediately after first publish. Fixed. Pattern logged in SESSION-HANDOFF.md with ghost code note.",
+                  "SESSION-HANDOFF.md — v36 bug note added: 'The button that does not close' pattern. Ghost code template for future panel builds.",
+                ],
+                watcher: "The prompt is the intention made visible before the session begins. The library makes that intention accessible to everyone. The toggle bug was caught immediately. The pattern is now in the handover. The next AI will know.",
+                child: "The Builder added a glowing button to the top of every page. It looks like the letter G but it glows orange. When you tap it, a list of special prompts slides out. You can copy them and use them in any AI. It is like a toolbox that is always there.",
+                professional: "v36 ships the Prompt Library as a public-facing feature. The G circle in the nav is now a tappable button with orange glow ring and 3D press effect. PromptPanel follows the LexiconPanel pattern exactly — same slide animation, same z-index, same backdrop close. Five categories, 15 prompts at launch. Toggle bug caught and fixed in the same session. Zero TypeScript errors. Additive only.",
+              },
+              {
+                version: "v35 — previous",
                 date: "April 17, 2026",
                 title: "v35: Lexicon Mobile Fix + What the AI Said Page — Hero Image, Ghost Code, KidsMidLink, Two New Running Log Entries",
                 changes: [
