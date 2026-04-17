@@ -55,17 +55,17 @@ function LexiconCard({ entry, defaultOpen }: { entry: LexiconEntry; defaultOpen?
 
   return (
     <div
-      className="rounded-lg overflow-hidden transition-all duration-200 cursor-pointer"
+      className="rounded-lg transition-all duration-200 cursor-pointer"
       style={{
-        background: expanded ? "#1a1610" : "#141008",
+        background: expanded ? "#221c12" : "#1a1510",
         border: expanded
-          ? `1.5px solid ${categoryColors[entry.category] || "#E8520A"}60`
-          : "1px solid #2a2218",
+          ? `1.5px solid ${categoryColors[entry.category] || "#E8520A"}80`
+          : "1.5px solid #3a2e1e",
       }}
       onClick={() => setExpanded((v) => !v)}
     >
       {/* Header */}
-      <div className="px-4 py-3 flex items-center justify-between gap-2">
+      <div className="px-4 py-3 flex items-center justify-between gap-2" style={{ minHeight: '44px' }}>
         <div className="flex items-center gap-2 flex-wrap">
           <span
             className="font-bold text-sm"

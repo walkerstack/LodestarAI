@@ -30,7 +30,7 @@ import { useLexicon } from "@/contexts/LexiconContext";
 import { BookOpen } from "lucide-react";
 
 export default function LexiconButton() {
-  const { openLexicon, isOpen } = useLexicon();
+  const { openLexicon, closeLexicon, isOpen } = useLexicon();
   const [visible, setVisible] = useState(false);
 
   // Fade in after a short delay — same pattern as OopsSloth
@@ -43,7 +43,7 @@ export default function LexiconButton() {
 
   return (
     <button
-      onClick={() => openLexicon()}
+      onClick={() => isOpen ? closeLexicon() : openLexicon()}
       className="fixed bottom-5 right-5 z-[45] rounded-full flex items-center justify-center transition-all duration-300"
       style={{
         width: "48px",
