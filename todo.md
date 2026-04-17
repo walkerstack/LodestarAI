@@ -104,3 +104,5 @@
 - [ ] File naming cleanup: rename files to be human-readable
 - [ ] Image generation: 7 prompts written (in SESSION-HANDOFF.md) — receive images from user then upload to CDN
 - [ ] Session analysis pattern: run at start of every new session as alignment tool
+- [ ] PARKED — Accessibility nav placement: Matthew to rethink where Flower Presets surface in nav. Currently buried as "Simpler view →" in grey text. Do not touch until Matthew decides.
+- [x] Mobile nav premium upgrade: hat tiles with generated images + touch press animation + accordion sections below — DONE

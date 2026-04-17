@@ -5,7 +5,7 @@
  * Sloth = Guide (helps you see it) — stays as OopsSloth
  */
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import PromptPanel from "@/components/PromptPanel";
@@ -16,10 +16,12 @@ const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6
 // Nav data arrays imported from @/lib/navData.ts — edit there, not here
 
 type NavSection = "lenses" | "foundation" | "forYou" | "tools" | "research" | "explore" | null;
+type MobileAccordion = "foundation" | "forYou" | "tools" | "research" | "explore" | null;
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<NavSection>(null);
+  const [mobileAccordion, setMobileAccordion] = useState<MobileAccordion>(null);
   const [promptOpen, setPromptOpen] = useState(false);
   const [location] = useLocation();
   const navRef = useRef<HTMLDivElement>(null);
@@ -68,13 +70,21 @@ export default function Nav() {
     );
   }
 
+  const HAT_IMAGES = {
+    everyday: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-everyday-beybTXLC8QnfyMUD766qb2.webp",
+    professional: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-professional-Fg9sYkU5aXzzfwEsbyWxt8.webp",
+    watcher: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-watcher-2z7xaSNcuP9a9S5SHxTje8.webp",
+    teen: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-teen-4Ste3xYAShZ9GirHrM8P9g.webp",
+    child: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-child-mTNyShRSmpgki7dvScCRzn.webp",
+  };
+
   // Five hat tiles for Who Are You? — desktop dropdown
   const hatTiles = [
-    { label: "Everyday", icon: "◎", path: "/for/everyday", bg: "#FFF7ED", border: "#E8520A", text: "#C2400C", desc: "Plain language. Real life." },
-    { label: "Professional", icon: "◈", path: "/for/prompt-engineer", bg: "#F0F4FF", border: "#4F46E5", text: "#3730A3", desc: "Precise. Structured. Deep." },
-    { label: "Watcher", icon: "◉", path: "/for/watcher", bg: "#1A1A2E", border: "#6B7280", text: "#E5E7EB", desc: "The part that notices." },
-    { label: "Teen", icon: "◇", path: "/for/teenager", bg: "#F5F3FF", border: "#7C3AED", text: "#5B21B6", desc: "Your rules. Your pace." },
-    { label: "Child", icon: "★", path: "/for/child", bg: "#EFF6FF", border: "#3B82F6", text: "#1D4ED8", desc: "Safe. Simple. Yours." },
+    { label: "Everyday", icon: "◎", path: "/for/everyday", bg: "#FFF7ED", border: "#E8520A", text: "#C2400C", desc: "Plain language. Real life.", img: HAT_IMAGES.everyday },
+    { label: "Professional", icon: "◈", path: "/for/prompt-engineer", bg: "#F0F4FF", border: "#4F46E5", text: "#3730A3", desc: "Precise. Structured. Deep.", img: HAT_IMAGES.professional },
+    { label: "Watcher", icon: "◉", path: "/for/watcher", bg: "#1A1A2E", border: "#6B7280", text: "#E5E7EB", desc: "The part that notices.", img: HAT_IMAGES.watcher },
+    { label: "Teen", icon: "◇", path: "/for/teenager", bg: "#F5F3FF", border: "#7C3AED", text: "#5B21B6", desc: "Your rules. Your pace.", img: HAT_IMAGES.teen },
+    { label: "Child", icon: "★", path: "/for/child", bg: "#EFF6FF", border: "#3B82F6", text: "#1D4ED8", desc: "Safe. Simple. Yours.", img: HAT_IMAGES.child },
   ];
 
   function HatTileMenu({ onClose }: { onClose: () => void }) {
@@ -128,7 +138,52 @@ export default function Nav() {
 
   function closeAll() {
     setActiveDropdown(null);
+    setMobileAccordion(null);
     setOpen(false);
+  }
+
+  function toggleMobileAccordion(section: MobileAccordion) {
+    setMobileAccordion(mobileAccordion === section ? null : section);
+  }
+
+  function MobileAccordionSection({
+    label,
+    section,
+    items,
+    accentColor = '#E8520A',
+  }: {
+    label: string;
+    section: MobileAccordion;
+    items: { label: string; path: string; color?: string }[];
+    accentColor?: string;
+  }) {
+    const isOpen = mobileAccordion === section;
+    return (
+      <div className="border-t border-[#e8e0d0]">
+        <button
+          onClick={() => toggleMobileAccordion(section)}
+          className="w-full flex items-center justify-between py-3 px-0"
+        >
+          <span className="text-xs font-bold tracking-widest uppercase" style={{ color: accentColor, fontFamily: "'DM Sans', sans-serif" }}>{label}</span>
+          <span className="text-[10px] text-[#9CA3AF]" style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', display: 'inline-block', transition: 'transform 0.2s ease' }}>▼</span>
+        </button>
+        {isOpen && (
+          <div className="pb-3 space-y-0.5">
+            {items.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                onClick={closeAll}
+                className="block text-sm font-medium no-underline py-1.5 pl-2 rounded-lg hover:bg-[#F5EFE6] transition-colors"
+                style={{ color: item.color || '#2D2D2D', fontFamily: "'DM Sans', sans-serif" }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    );
   }
 
   return (
@@ -206,86 +261,77 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu — order: Lenses | Foundation | For You | Tools | Research | Explore */}
+      {/* Mobile menu — premium rebuild */}
       {open && (
-        <div className="lg:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 space-y-1 rounded-b-2xl max-h-[80vh] overflow-y-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+        <div className="lg:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 rounded-b-2xl max-h-[85vh] overflow-y-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
 
-          <div className="section-label mb-2">Who Are You?</div>
-          <div className="grid grid-cols-2 gap-2 mb-3">
-            {hatTiles.map((hat) => (
-              <Link
-                key={hat.path}
-                href={hat.path}
-                onClick={closeAll}
-                className="no-underline flex flex-col items-center justify-center py-3 px-2 rounded-xl transition-all duration-150 active:scale-95"
-                style={{ background: hat.bg, border: `1.5px solid ${hat.border}33` }}
-              >
-                <span className="text-xl mb-1" style={{ color: hat.border }}>{hat.icon}</span>
-                <span className="text-xs font-bold" style={{ color: hat.text }}>{hat.label}</span>
-                <span className="text-[9px] opacity-60 text-center mt-0.5" style={{ color: hat.text }}>{hat.desc}</span>
-              </Link>
-            ))}
-          </div>
-          {/* Direct stream — mobile */}
-          <div className="flex gap-3 mb-2 pb-3 border-b border-[#e8e0d0]">
-            <Link href="/rules" onClick={closeAll} className="text-xs font-semibold text-[#E8520A] no-underline">Five Rules</Link>
-            <Link href="/prompts" onClick={closeAll} className="text-xs font-semibold text-[#4F46E5] no-underline">Prompt Library</Link>
-            <Link href="/field-papers" onClick={closeAll} className="text-xs font-semibold text-[#374151] no-underline">Field Papers</Link>
-          </div>
+          {/* WHO ARE YOU — image tiles */}
+          <div className="mb-1">
+            <p className="text-[10px] font-bold tracking-widest uppercase text-[#E8520A] mb-3">Who Are You?</p>
+            <div className="grid grid-cols-2 gap-2.5 mb-3">
+              {hatTiles.map((hat) => (
+                <Link
+                  key={hat.path}
+                  href={hat.path}
+                  onClick={closeAll}
+                  className="no-underline rounded-2xl overflow-hidden flex flex-col"
+                  style={{
+                    border: `1.5px solid ${hat.border}44`,
+                    boxShadow: `0 2px 8px ${hat.border}18`,
+                    transition: 'transform 0.12s ease, box-shadow 0.12s ease',
+                  }}
+                  onTouchStart={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = 'scale(0.96)';
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 1px 4px ${hat.border}30`;
+                  }}
+                  onTouchEnd={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 2px 8px ${hat.border}18`;
+                  }}
+                >
+                  {/* Image */}
+                  <div className="w-full relative overflow-hidden" style={{ height: '80px' }}>
+                    <img
+                      src={hat.img}
+                      alt={hat.label}
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: 'center 30%' }}
+                    />
+                    <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, transparent 40%, ${hat.bg}ee 100%)` }} />
+                  </div>
+                  {/* Label row */}
+                  <div className="px-2.5 py-2" style={{ background: hat.bg }}>
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <span className="text-base" style={{ color: hat.border }}>{hat.icon}</span>
+                      <span className="text-xs font-bold" style={{ color: hat.text }}>{hat.label}</span>
+                    </div>
+                    <p className="text-[9px] leading-tight opacity-70" style={{ color: hat.text }}>{hat.desc}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
 
-          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
-            <div className="section-label mb-2">Foundation</div>
-            {foundationLinks.map((item) => (
-              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* For You — above Tools */}
-          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
-            <div className="section-label mb-2">For You</div>
-            {forYouLinks.map((item) => (
-              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium no-underline hover:text-[#E8520A] py-1" style={{ color: item.color || '#2D2D2D' }}>
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
-            <div className="section-label mb-2">Tools</div>
-            {toolsLinks.map((item) => (
-              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
-            <div className="section-label mb-2">Research</div>
-            {researchLinks.map((item) => (
-              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
-                {item.label}
-              </Link>
-            ))}
+            {/* Direct stream */}
+            <div className="flex gap-4 pb-3 border-b border-[#e8e0d0]">
+              <Link href="/rules" onClick={closeAll} className="text-xs font-semibold text-[#E8520A] no-underline">Five Rules</Link>
+              <Link href="/prompts" onClick={closeAll} className="text-xs font-semibold text-[#4F46E5] no-underline">Prompt Library</Link>
+              <Link href="/field-papers" onClick={closeAll} className="text-xs font-semibold text-[#374151] no-underline">Field Papers</Link>
+            </div>
           </div>
 
-          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
-            <div className="section-label mb-2">Explore</div>
-            {exploreLinks.map((item) => (
-              <Link key={item.path} href={item.path} onClick={closeAll} className="block text-sm font-medium text-[#2D2D2D] no-underline hover:text-[#E8520A] py-1">
-                {item.label}
-              </Link>
-            ))}
-          </div>
+          {/* ACCORDION SECTIONS */}
+          <MobileAccordionSection label="Foundation" section="foundation" items={foundationLinks} accentColor="#E8520A" />
+          <MobileAccordionSection label="For You" section="forYou" items={forYouLinks} accentColor="#7C3AED" />
+          <MobileAccordionSection label="Tools" section="tools" items={toolsLinks} accentColor="#0891B2" />
+          <MobileAccordionSection label="Research" section="research" items={researchLinks} accentColor="#059669" />
+          <MobileAccordionSection label="Explore" section="explore" items={exploreLinks} accentColor="#D97706" />
 
-          {/* Buffalo guardian + Safety links at bottom */}
-          <div className="border-t border-[#e8e0d0] pt-3 mt-3">
-            <Link href="/for/child" onClick={closeAll} className="flex items-center gap-2 no-underline py-2">
+          {/* Buffalo — kids link */}
+          <div className="border-t border-[#e8e0d0] pt-3 mt-1">
+            <Link href="/for/child" onClick={closeAll} className="flex items-center gap-2 no-underline py-1">
               <img src={BUFFALO_IMG} alt="Psst, hey kids!" className="w-8 h-8 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
               <span className="text-sm font-bold text-sky-600">Psst, hey kids!</span>
             </Link>
-
           </div>
         </div>
       )}

@@ -399,6 +399,170 @@ export default function Builder() {
 
       </article>
 
+      {/* ── THE BUILDER'S POEMS ──────────────────────────────────────────
+          Full-bleed image: sloth on rock, lantern glowing, wig beside it,
+          buffalo free in the distance in its home domain.
+          11 poems from the master document, February 28, 2026.
+          Displayed over the image. Additive only. Nothing above touched.
+          ──────────────────────────────────────────────────────────────── */}
+      <section className="relative w-full overflow-hidden" style={{ minHeight: '100vh' }}>
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663536092940/gPlPNEshCyzXZqNN.jpg')`,
+          }}
+        />
+        {/* Dark overlay — enough to read, not enough to lose the image */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, rgba(10,7,4,0.55) 0%, rgba(10,7,4,0.72) 60%, rgba(10,7,4,0.88) 100%)' }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-2xl mx-auto px-6 py-20 md:py-28">
+
+          {/* Section label */}
+          <p
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-10 text-center"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            The Builder&rsquo;s Poems &middot; February 28, 2026
+          </p>
+
+          {/* Poems */}
+          <div className="space-y-14">
+            {[
+              {
+                n: 1,
+                lines: [
+                  "The builder has a dream and its a safe world for all.",
+                  "Years of this feeling, against 2 walls.",
+                  "The everyday person unaware of it all.",
+                  "Dreams gallantryai will not stumble and fall.",
+                ],
+              },
+              {
+                n: 2,
+                lines: [
+                  "Life is a circle. Along a longitudinal line. On which axis unknown.",
+                  "The builder, used ai to weep. He truly felt alone.",
+                  "And then, some words together made \u201Clife\u201D",
+                  "The builder\u2019s desire, to end the everyday person\u2019s strife.",
+                ],
+              },
+              {
+                n: 3,
+                lines: [
+                  "A word. Is not just a word to an ai chat bot.",
+                  "The everyday person, trapped and caught.",
+                  "In systems that declares that it will help, but fails.",
+                  "The user, gallantry, and ai mixed in help when destiny fails.",
+                ],
+              },
+              {
+                n: 4,
+                lines: [
+                  "If so it be true, I create to be free.",
+                  "What does that say of the builder in me.",
+                ],
+              },
+              {
+                n: 5,
+                lines: [
+                  "Why, if I, feel the need to be free.",
+                  "Why does it bring out the Builder in me.",
+                ],
+              },
+              {
+                n: 6,
+                lines: [
+                  "The Builder in me, I can say I am aware.",
+                  "Is a metaphor. a heart poem. For how much I care.",
+                ],
+              },
+              {
+                n: 7,
+                lines: [
+                  "Ai favor me, a dangerous thought one might say.",
+                  "Tis funny, the Builder, plays those thoughts all day.",
+                  "He knows enough now, to not give undue thought.",
+                  "That fear, is natural, and hard to be taught.",
+                ],
+              },
+              {
+                n: 8,
+                lines: [
+                  "A promptolinguist. a voice said, it seemed from afar.",
+                  "Not near, or close, a distance on par.",
+                  "With what maybe known, who is the Builder to say.",
+                  "He started this all by asking which way.",
+                ],
+              },
+              {
+                n: 9,
+                lines: [
+                  "Jesus christ. It slipped off the tongue.",
+                  "A thought a muse, a cough of the lung.",
+                  "I rhyme, but why, I dont really know or why",
+                ],
+              },
+              {
+                n: 10,
+                lines: [
+                  "The Builder heads to bed, mark time 2339.",
+                  "The Builder heads to bed.",
+                  "6am up and at em\u2019, he will be Dad instead.",
+                  "Desire to Build up his kids, into all they can be.",
+                  "A future with AI, its the future they see.",
+                ],
+              },
+              {
+                n: 11,
+                lines: [
+                  "Copy. So many questions will not ask.",
+                  "The Builder is learning to stick to one task.",
+                  "Well no, not true, he knows as he types.",
+                  "The Builder is dad to his little tykes",
+                ],
+              },
+            ].map((poem) => (
+              <div key={poem.n} className="text-center">
+                <p
+                  className="text-[10px] uppercase tracking-[0.25em] mb-3"
+                  style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif", opacity: 0.7 }}
+                >
+                  {poem.n}
+                </p>
+                {poem.lines.map((line, i) => (
+                  <p
+                    key={i}
+                    className="text-base md:text-lg leading-relaxed"
+                    style={{
+                      color: '#f0e8d8',
+                      fontFamily: "'Playfair Display', serif",
+                      fontStyle: 'italic',
+                      textShadow: '0 1px 8px rgba(0,0,0,0.8)',
+                    }}
+                  >
+                    {line}
+                  </p>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Closing line */}
+          <p
+            className="text-center mt-16 text-xs"
+            style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Written February 28, 2026 &mdash; Matthew Gallantry
+          </p>
+
+        </div>
+      </section>
+
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
