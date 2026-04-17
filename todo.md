@@ -64,6 +64,29 @@
 - [x] v25: Add professional lens discovery section to homepage — 8 cards (Psychology, Cognitive Science, Researcher, Prompt Engineer, Linguist, Mathematician, Guardian/Teacher, Everyday Person) between Field Events and Scaffold sections
 
 ## LearningFlow + KidsMidLink Parity — All Pages (tracked from v29 session)
-- [ ] Add LearningFlow with contextual links to: AlcmPage, Articles, Backstage, BarneyPoem, Builder, BuilderOrigin, CitizenResearcher, FieldPapers, Gallery, HumanLine, KidsLearn, Malbolge, MathPrompting, Playground, SafetyPage, Scaffold, SchoolBoard, ThreeLenses, VariableScale, WhelmScale, WatcherLens
+- [ ] Add LearningFlow with contextual links to: Articles, Backstage, BarneyPoem, Builder, BuilderOrigin, CitizenResearcher, FieldPapers, Gallery, HumanLine, KidsLearn, Malbolge, MathPrompting, Playground, SafetyPage, Scaffold, SchoolBoard, ThreeLenses, VariableScale, WhelmScale, WatcherLens
+- [x] AlcmPage: LearningFlow added (v30)
 - [ ] Add KidsMidLink to: KidsLearn, WhatTheAiSaid
 - [ ] Rule: every new page gets KidsMidLink + LearningFlow before it ships. No exceptions.
+- [ ] /three-lenses URL — decide: rename route to /three-voices, add redirect, or leave URL as-is (display name already updated to Three Voices)
+
+## Session April 18, 2026 — New Items
+
+- [ ] Page standard: every page needs hero image, kids redirect top link, KidsMidLink, Growing and Learning framework, teenager nav entry, professional nav entry
+- [x] ALCM page: add teenager entry point, professional entry point, conceptual hero image
+- [ ] Promptolinguistics page: add teenager entry point, professional entry point
+- [ ] Promptolinguistics page: add Corner Words section, Third Entity / Teamwork Loop section, Living Prompt Framework risks section
+- [ ] New page: Teamwork Loop / Third Entity / AEDE Pattern (archive content, not yet on site)
+- [ ] New page: Professionals landing page (LinkedIn card target URL)
+- [ ] Floating Lexicon panel: quarter-screen overlay triggered by term clicks, no page switch
+- [ ] Kinematics of a Word: add to Lexicon (not standalone page)
+- [ ] Funnel from homepage to Promptolinguistics (hub page)
+- [ ] Funnel from TeenagerLens to Promptolinguistics
+- [ ] Funnel from EverydayLens to Promptolinguistics
+- [ ] FR-2026-09 field paper: "weight finds structure, structure attracts weight, the math doesn't need permission"
+- [ ] Builder's log update: reflect Three Voices rename, Six Panels comic, circle/square geometry, tensile spots, session discoveries
+- [ ] Homepage flow rethink: professionals spotlight near ALCM section (not ready yet — do not touch)
+- [ ] Archive correlation: map all archive documents to site pages, find gaps
+- [ ] File naming cleanup: rename files to be human-readable
+- [ ] Image generation: 7 prompts written (in SESSION-HANDOFF.md) — receive images from user then upload to CDN
+- [ ] Session analysis pattern: run at start of every new session as alignment tool

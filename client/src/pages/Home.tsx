@@ -1734,7 +1734,23 @@ export default function Home() {
                 professional: "v28 completes the hallucinations content build. Hero image added (abstract, amber/dark, beam-dissolving-to-fragments). Footer parity established — Hallucinations now in both nav and footer Foundation sections. FR-2026-08 PDF live on CDN. The hallucinations page is now fully deployed: route, nav, footer, hero image, three-voice content, sources, FR-2026-08 connection.",
               },
               {
-                version: "v29 — current",
+                version: "v30 — current",
+                date: "April 17, 2026",
+                title: "v30: ALCM Page — Hero Image, Diagram Sequence, Teenager Entry, Professional Entry",
+                changes: [
+                  "ALCM page — hero section rebuilt with four-axis radar image (Linguistic, Cognitive, Mechanical, Affective) as full-bleed background. Title and subtitle text overlaid with dark gradient. Emotional entry point to the model.",
+                  "ALCM page — hub-and-spoke intro diagram added below hero. Atomic Tokens at center, six axes radiating outward. Simple first look before the full model.",
+                  "ALCM page — teenager entry section added after Three Voices. Wheel diagram (three-column steering model). Copy: 'You are the steering.' Links to Promptolinguistics and Lexicon.",
+                  "ALCM page — professional entry section added after teenager section. Four-panel diagram (most comprehensive single-image view). Links to Promptolinguistics, Variable Scale Theory, Field Papers.",
+                  "ALCM page — LearningFlow added at bottom using flowMap.alcm (was missing). KidsMidLink moved inside main content flow.",
+                  "Operational rules locked in: never remove, code between, brief before build, proof of thread after every phase, builder's log before every checkpoint.",
+                ],
+                watcher: "The ALCM page now has a face. The four-axis radar is not decoration — it is the argument made visible before a single word is read. The teenager section does not explain the model. It says: you are already doing this. The professional section does not summarize. It shows the full architecture. The page is now a learning scaffold from emotional entry to technical depth. Nothing was removed. Everything was placed between.",
+                child: "The Builder fixed the ALCM page. Now when you go there, the first thing you see is a big picture of four arrows pointing in different directions — like a compass but for words. Then there's a picture that shows how all the word types connect in the middle. Then there's a special section just for teenagers that shows a steering wheel made of words. Then a section for researchers with the full map.",
+                professional: "v30 brings the ALCM page to the 6-point page standard: (1) Hero image — four-axis radar as full-bleed background with overlay. (2) KidsRedirect — already present. (3) KidsMidLink — repositioned inside main content. (4) LearningFlow — added at bottom using flowMap.alcm. (5) Teenager entry — wheel diagram + steering copy + Promptolinguistics link. (6) Professional entry — four-panel diagram + deep dive copy + Field Papers link. Five CDN images placed. Zero TypeScript errors. Additive only — no existing content removed.",
+              },
+              {
+                version: "v29 — previous",
                 date: "April 15, 2026",
                 title: "v29: Homepage Title Restored + Hallucinations KidsMidLink + LearningFlow",
                 changes: [
