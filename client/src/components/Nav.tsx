@@ -8,6 +8,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
+import PromptPanel from "@/components/PromptPanel";
 
 const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png";
 
@@ -91,6 +92,7 @@ type NavSection = "lenses" | "foundation" | "forYou" | "tools" | "research" | "e
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<NavSection>(null);
+  const [promptOpen, setPromptOpen] = useState(false);
   const [location] = useLocation();
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -144,12 +146,28 @@ export default function Nav() {
   }
 
   return (
+    <>
     <header className="w-full sticky top-0 z-50 bg-[#FAF6EF] border-b border-[#e8e0d0]">
       <div className="brand-top-bar" />
 
       <div className="container flex items-center justify-between py-3">
-        <Link href="/" className="flex items-center gap-2 no-underline">
-          <div className="mg-avatar text-xs">G</div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setPromptOpen(true)}
+            aria-label="Open prompt library"
+            className="mg-avatar text-xs transition-all duration-200 cursor-pointer select-none"
+            style={{
+              boxShadow: "0 0 0 2px rgba(232,82,10,0.5), 0 0 14px rgba(232,82,10,0.35), 0 3px 8px rgba(0,0,0,0.4)",
+              transform: "translateY(0px)",
+              background: "#1A1A2E",
+              border: "none",
+            }}
+            onMouseDown={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = "translateY(1px) scale(0.95)"; (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 0 2px rgba(232,82,10,0.7), 0 0 8px rgba(232,82,10,0.5), 0 1px 3px rgba(0,0,0,0.4)"; }}
+            onMouseUp={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0px)"; (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 0 2px rgba(232,82,10,0.5), 0 0 14px rgba(232,82,10,0.35), 0 3px 8px rgba(0,0,0,0.4)"; }}
+            onTouchStart={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = "translateY(1px) scale(0.95)"; }}
+            onTouchEnd={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0px)"; }}
+          >G</button>
+        <Link href="/" className="flex items-center gap-0 no-underline">
           <div>
             <div className="font-bold text-sm tracking-tight text-[#1A1A2E]" style={{ fontFamily: "'Playfair Display', serif" }}>
               GallantryAI
@@ -159,6 +177,7 @@ export default function Nav() {
             </div>
           </div>
         </Link>
+        </div>
 
         {/* Desktop Nav — order: Lenses | Foundation | For You | Tools | Research | Explore */}
         <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-[#2D2D2D]" ref={navRef} style={{ fontFamily: "'DM Sans', sans-serif" }}>
@@ -280,5 +299,8 @@ export default function Nav() {
         </div>
       )}
     </header>
+
+    <PromptPanel isOpen={promptOpen} onClose={() => setPromptOpen(false)} />
+    </>
   );
 }
