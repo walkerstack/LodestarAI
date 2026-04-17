@@ -542,3 +542,41 @@ Governance audit (Ozzy + Wall + Monster, 3.0 and 3.1 in mind), Builder poems, Fi
 - Builder page content (Four Origin Doors, Trolley Problem, Builder as First User, Field Guide over Manifesto)
 - Road Protocol (Ozzy, Cortana, Secure, Return Signals)
 
+
+---
+
+## HOW TO USE THIS DOCUMENT
+
+This is the archive. Never remove anything from this document. Only append.
+
+At the end of every session, add a dated entry at the bottom with: what was built, what was decided, what is pending, what patterns were observed.
+
+If you need the current state of the project, read **SESSION-CURRENT.md** first. Come here only for history or when the current state is unclear.
+
+**These rules were written by Matthew Gallantry, Midland Ontario, April 2026.**
+They are not preferences. They are the governance layer for this project. Follow them exactly.
+
+---
+
+## Two-Document System — Established April 17, 2026
+
+**SESSION-CURRENT.md** — the working brief. Rewritten every session. Always current. Max ~80 lines. Contains: current state, active threads, standing rules, pending flags. Read this first.
+
+**SESSION-HANDOFF.md** — the archive. Append only. Never remove. Contains: full session history, all patterns, all flags, all decisions. Read this when you need history.
+
+The failsafe: if SESSION-CURRENT.md is ever lost, wrong, or corrupted — SESSION-HANDOFF.md has everything. The archive is always the ground truth.
+
+---
+
+## Session Summary — April 17, 2026 (Thread 1 close-out + Nav refactor + Document system)
+
+**What was done:**
+- Nav data refactored — all 6 link arrays moved to client/src/lib/navData.ts. Nav.tsx imports from it. Ghost code header with rules added. Token cost for future nav edits reduced significantly.
+- SESSION-CURRENT.md created — new working brief document. Governance rules embedded. Rewrites every session.
+- SESSION-HANDOFF.md — two-document system header added. Rules embedded.
+- Novelty report conducted — ghost code governance blocks, session transfer system, three-voice architecture, COMMAND lexicon category, and What the AI Said running log identified as genuinely novel.
+- Emerging insight documented: the site is not documenting the framework — the site is running the framework. The content and the method are the same thing.
+- Home page sentence flagged: "This site is the proof of the framework it teaches." Talk-first moment. Not yet built.
+
+**Thread 2 still waiting.**
+**Builder page content and Road Protocol still on hold — Matthew thinking.**
