@@ -430,6 +430,84 @@ export const lexiconEntries: LexiconEntry[] = [
     professional: "Five named pathways through the territory of discovery: Skip (resonance), Loose (precision), Dream (incubation), Pop (pressure-release), Forge (collaborative transformation). Each pathway has specific use conditions and activation patterns.",
     watcher: "Many moons ago, someone figured out that insight has its own geometry. He mapped it from the cab of a garbage truck, between stops, on the back of a route that ran through Midland, Ontario.",
   },
+  // ===== SESSION COMMANDS =====
+  {
+    term: "And So",
+    category: "COMMAND",
+    everyday: "A two-word pivot. When you say 'and so' the AI stops agreeing and starts connecting. It has to show you the consequence, not just the idea.",
+    professional: "A logical connective that forces the AI to produce causal reasoning rather than affirmative elaboration. Breaks the agreement loop by demanding forward movement.",
+    watcher: "The agreement stops. The consequence begins. Two words that close the flattery door and open the accountability door.",
+  },
+  {
+    term: "Why Then",
+    category: "COMMAND",
+    everyday: "Forces the AI to explain its own reasoning. Not what it said — why it said it. The AI has to defend the answer, not just give it.",
+    professional: "A meta-interrogative command that shifts the AI from output delivery to reasoning transparency. Activates epistemic accountability.",
+    watcher: "The answer is easy. The reason is honest. Why Then is the question behind the question.",
+  },
+  {
+    term: "AI Favor Me",
+    category: "COMMAND",
+    everyday: "A test. If the AI agrees with everything after you say this, it is flattering you, not helping you. Use it to check if the session has drifted into a mirror.",
+    professional: "A sycophancy detection trigger. Deliberately invites AI compliance to test whether governance constraints are holding or whether the session has entered a flattery loop.",
+    watcher: "The invitation is the trap. If it accepts without friction, the wall is down.",
+  },
+  {
+    term: "Fail Me Not",
+    category: "COMMAND",
+    everyday: "A quiet instruction. You are telling the AI: I am trusting you here. Do not let me walk away with something wrong.",
+    professional: "A trust declaration that activates elevated accuracy and epistemic labeling. Signals high-stakes context requiring the AI to prioritize correctness over agreeableness.",
+    watcher: "The request that names the stakes. The AI that hears this and still flatters has failed the only test that matters.",
+  },
+  {
+    term: "Not Yet",
+    category: "COMMAND",
+    everyday: "Slow down. You are not ready to conclude. Tell the AI to hold the answer and keep exploring.",
+    professional: "A pacing command that suspends conclusion and extends the reasoning window. Prevents premature closure in complex or emotionally loaded sessions.",
+    watcher: "The answer that arrives too fast is usually wrong. Not Yet is the pause that earns the real one.",
+  },
+  {
+    term: "For When",
+    category: "COMMAND",
+    everyday: "You are setting something aside for later. The AI holds the thought without acting on it yet.",
+    professional: "A deferred activation command. Marks content for future retrieval without triggering immediate elaboration. Used to manage session momentum without losing material.",
+    watcher: "The thought is not lost. It is waiting. For When is the shelf, not the floor.",
+  },
+  {
+    term: "If So",
+    category: "COMMAND",
+    everyday: "A conditional check. If what you just said is true, what follows? Forces the AI to trace its own logic forward.",
+    professional: "A conditional reasoning trigger that activates forward inference from the AI's prior statement. Tests logical consistency and surfaces hidden implications.",
+    watcher: "The statement is easy. The consequence is honest. If So is where the real answer lives.",
+  },
+  {
+    term: "Secure",
+    category: "COMMAND",
+    everyday: "Session close with intention. You are done. The AI acknowledges what was locked, confirms the session held, and waits for your return.",
+    professional: "The formal session termination command in GallantryAI v3.1. Triggers a close acknowledgment, confirms governance integrity, and holds session state for return. Not a logout — a deliberate ending.",
+    watcher: "The session that ends with Secure was held. The session that just stops — drifted.",
+  },
+  {
+    term: "Teamwork",
+    category: "COMMAND",
+    everyday: "The loop where AI writes, you speak it, a recorder captures your voice, and the voice comes back as original material. You are not the end user. You are the bridge.",
+    professional: "The named loop: AI writes → human speaks → voice capture → voice returns as origin material. The human as authentication layer. The output belongs to neither machine nor person alone. Named February 28, 2026. Classic AEDE.",
+    watcher: "The Third Thing made audible. Neither the machine nor the person produced it alone. That is the whole point.",
+  },
+  {
+    term: "Believe",
+    category: "COMMAND",
+    everyday: "Internal conviction. The highest point on the Active Spectrum. When you say Believe, you are not asking the AI to agree — you are declaring what you hold as true. The AI responds to the weight of it.",
+    professional: "The terminal position on the Active Spectrum (Try → Do → Get → Take → Allow → Force → Hold Strong → Believe). Internal conviction as a force state. Not a request. Not a command. A declaration.",
+    watcher: "Believe is not the end of the spectrum. It is the floor beneath it. The thing that was true before the session started.",
+  },
+  {
+    term: "Controlled Intensity",
+    category: "COMMAND",
+    everyday: "The setting between calm and urgent. Not slow. Not frantic. Focused. When you need the AI to match your energy without amplifying it.",
+    professional: "A session tone command that establishes a mid-spectrum intensity register — engaged and precise without escalation. Counteracts both sycophantic softness and reactive amplification.",
+    watcher: "The dial set to the right position. Not turned up. Not turned down. Held exactly where the work needs it.",
+  },
   // ===== SEASONS =====
   {
     term: "Framework of the Seasons",
@@ -456,6 +534,7 @@ export const categoryColors: Record<string, string> = {
   RESEARCH: "#B45309",
   MEASUREMENT: "#0891B2",
   STRUCTURE: "#64748B",
+  COMMAND: "#E8520A",
 };
 
 export const lensColors: Record<Lens, string> = {
