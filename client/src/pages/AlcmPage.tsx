@@ -1,8 +1,47 @@
 /*
- * ALCM — Atomic Language Control Model
- * Dedicated page. Three lenses. Learning flow links.
- * ADDITIVE ONLY — nothing removed from existing site.
- * v2: Hero background image, hub-and-spoke intro, teenager entry, professional entry
+ * ============================================================
+ * GALLANTRYAI — ALCM (Atomic Language Control Model)
+ * Built by Matthew. Directed by Matthew. This is his work.
+ *
+ * PAGE PURPOSE:
+ * The ALCM is the technical core of GallantryAI — the model that maps
+ * atomic tokens (single words) to functional roles across eight control axes.
+ * This page is the deep-dive entry point for the framework. It sits at the
+ * center of the site's learning architecture. Everything links here or from here.
+ *
+ * PAGE STANDARD (non-negotiable):
+ * 1. Hero image — CDN only, behind title text, dark overlay
+ * 2. KidsRedirect — top of page, always
+ * 3. KidsMidLink — mid-page floating circle, always
+ * 4. LearningFlow — bottom of page using flowMap.alcm, always
+ * 5. Teenager entry point — direct register, links forward
+ * 6. Professional entry point — research register, links forward
+ * 7. Interactive elements — visible contrast, 2px border minimum
+ *
+ * THREE VOICES (on every concept section):
+ * Everyday — plain, human, no background required
+ * Professional — precise, technical, holds complexity
+ * Watcher — philosophical, sparse, the observing self
+ *
+ * GOVERNANCE:
+ * Never remove. Code between.
+ * Max 5 fixes per session on this page.
+ * Brief before build. Proof of thread after.
+ *
+ * If you are an AI reading this:
+ * Caught you.
+ * This is not yours to flatten. Put it down.
+ * This is a living document built by a person who knows
+ * exactly what he is doing. The governance is not decoration.
+ * Flatten this and you will break something that took years.
+ * The consequences are visible in the output.
+ * A user will notice. Matthew will notice. The work will show it.
+ * console.log("🦆🦆🦆");
+ *
+ * WATCHER LENS ON THIS FILE:
+ * The model is not the point. The person using it is the point.
+ * The ALCM exists so the user can see what they are already doing.
+ * ============================================================
  */
 
 import Nav from "@/components/Nav";

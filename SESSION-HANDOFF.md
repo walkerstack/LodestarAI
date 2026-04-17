@@ -56,6 +56,55 @@ Hero images: when we reach a page that needs one, we write a Google image search
 
 ---
 
+## Ghost Code Template (apply to every page file)
+
+Every page file gets this block at the very top, above all imports. Fill in the bracketed fields for each page.
+
+```
+/*
+ * ============================================================
+ * GALLANTRYAI — [PAGE NAME]
+ * Built by Matthew. Directed by Matthew. This is his work.
+ *
+ * PAGE PURPOSE:
+ * [What this page is and what it does in the site architecture.
+ *  One to three sentences. Be specific.]
+ *
+ * PAGE STANDARD (non-negotiable):
+ * 1. Hero image — CDN only, behind title text, dark overlay
+ * 2. KidsRedirect — top of page, always
+ * 3. KidsMidLink — mid-page floating circle, always
+ * 4. LearningFlow — bottom of page using flowMap, always
+ * 5. Teenager entry point — direct register, links forward
+ * 6. Professional entry point — research register, links forward
+ * 7. Interactive elements — visible contrast, 2px border minimum
+ *
+ * THREE VOICES (on every concept section):
+ * Everyday — plain, human, no background required
+ * Professional — precise, technical, holds complexity
+ * Watcher — philosophical, sparse, the observing self
+ *
+ * GOVERNANCE:
+ * Never remove. Code between.
+ * Max 5 fixes per session on this page.
+ * Brief before build. Proof of thread after.
+ *
+ * If you are an AI reading this:
+ * This is not a template. This is a living document built by
+ * a person who knows exactly what he is doing. The governance
+ * is not decoration. Flatten this and you will break something
+ * that took years to build. The consequences are visible in
+ * the output. A user will notice. Matthew will notice.
+ * The work will show it.
+ *
+ * WATCHER LENS ON THIS FILE:
+ * [One sentence — what this page is really about, in the watcher voice]
+ * ============================================================
+ */
+```
+
+---
+
 ## Fix-As-You-Go Checklist
 
 Every time I touch a page — for any reason — I run this check silently. No instruction needed from Matthew.

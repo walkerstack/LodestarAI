@@ -225,8 +225,9 @@ export const flowMap: Record<string, FlowEntry> = {
 
   teenager: {
     deeper: [
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The hub of the site. The discipline behind everything. Words are the controls — this is where that gets explained." },
+      { label: "ALCM", href: "/alcm", description: "The model behind the discipline. Eight axes. You're already using them." },
       { label: "The Watcher", href: "/for/watcher", description: "The part of you that notices what you're doing while you're doing it." },
-      { label: "Promptolinguistics", href: "/promptolinguistics", description: "How words steer the AI. The science behind the steering wheel." },
     ],
     wider: [
       { label: "Everyday Lens", href: "/for/everyday", description: "The plain-language version of everything on this site." },

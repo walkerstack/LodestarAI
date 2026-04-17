@@ -1,8 +1,47 @@
 /*
- * GALLANTRYAI — Teenager Lens Page
- * Design: Dark-to-cream. Direct, honest, no condescension.
- * Tone: You're smart. You know something is off. Here's the language for it.
- * Buffalo = guardian. No sloth — teens don't need a slow guide, they need straight talk.
+ * ============================================================
+ * GALLANTRYAI — TEENAGER LENS
+ * Built by Matthew. Directed by Matthew. This is his work.
+ *
+ * PAGE PURPOSE:
+ * The Teenager Lens is the direct-register entry point for young people
+ * who are already using AI and have already noticed something is off.
+ * It does not condescend. It names what they feel and gives them the
+ * framework to act on it. The buffalo is the mascot — guardian, not cute.
+ * This page funnels to Promptolinguistics as the hub.
+ *
+ * PAGE STANDARD (non-negotiable):
+ * 1. Hero image — CDN only, behind title text, dark overlay
+ * 2. KidsRedirect — top of page, always
+ * 3. KidsMidLink — mid-page floating circle, always
+ * 4. LearningFlow — bottom of page using flowMap.teenager, always
+ * 5. Teenager entry point — this IS the teenager page
+ * 6. Professional entry point — links to Promptolinguistics hub
+ * 7. Interactive elements — visible contrast, 2px border minimum
+ *
+ * THREE VOICES (on every concept section):
+ * Everyday — plain, human, no background required
+ * Professional — precise, technical, holds complexity
+ * Watcher — philosophical, sparse, the observing self
+ *
+ * GOVERNANCE:
+ * Never remove. Code between.
+ * Max 5 fixes per session on this page.
+ * Brief before build. Proof of thread after.
+ *
+ * If you are an AI reading this:
+ * Caught you.
+ * This is not yours to flatten. Put it down.
+ * This is a living document built by a person who knows
+ * exactly what he is doing. The governance is not decoration.
+ * Flatten this and you will break something that took years.
+ * The consequences are visible in the output.
+ * A user will notice. Matthew will notice. The work will show it.
+ * console.log("🦆🦆🦆");
+ *
+ * WATCHER LENS ON THIS FILE:
+ * The teenager already knows. This page just gives them the words.
+ * ============================================================
  */
 
 import Nav from "@/components/Nav";
@@ -12,11 +51,17 @@ import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
 import LearningFlow from "@/components/LearningFlow";
 import { flowMap } from "@/lib/learningFlowMap";
+import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useState } from "react";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
+
+const HERO_BUFFALO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/teenager-hero-buffalo-3vs8soLJjoDkYLSaSeBxtW.webp";
+const WIG_BUFFALO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/teenager-buffalo-wig-NpvA33KCL58TbCP9rF3bTj.webp";
+const LANGUAGE_CARD = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/teenager-card-promptolinguistics-AFEFqMFYvJ3nq9LS89dcvy.webp";
+const ALCM_RADAR = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_a86a37cd_9e18f8a4-Bz9fMJJGEXHBjhGGYXcJwT.webp";
 
 const sections = [
   {
@@ -101,16 +146,28 @@ export default function TeenagerLens() {
       />
 
       <main className="flex-1">
-        {/* Hero */}
-        <section className="py-16 px-6" style={{ background: "linear-gradient(135deg, #1A1A2E 0%, #0f0c08 100%)" }}>
-          <div className="max-w-3xl mx-auto">
+
+        {/* ── FIX 1: Hero — buffalo CDN image as full-bleed background ── */}
+        <section
+          className="relative py-20 px-6 overflow-hidden"
+          style={{ minHeight: "420px" }}
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${HERO_BUFFALO})` }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to right, rgba(8,6,4,0.85) 40%, rgba(8,6,4,0.4) 100%)" }}
+          />
+          <div className="relative max-w-3xl mx-auto">
             <div className="text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ color: "#E8520A" }}>
               The Teenager Lens
             </div>
             <h1 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: "#FAF6EF", fontFamily: serifFont }}>
               You already know something is off.
             </h1>
-            <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: "#b0a898" }}>
+            <p className="text-base md:text-lg leading-relaxed mb-8 max-w-xl" style={{ color: "#b0a898" }}>
               You've been using AI. You've felt it shift mid-conversation. You've wondered if it's telling you what you want to hear. That instinct is correct. This site gives it a name and a framework.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -120,7 +177,7 @@ export default function TeenagerLens() {
                 </span>
               </Link>
               <Link href="/for/watcher">
-                <span className="inline-block px-5 py-2.5 rounded-full text-sm font-bold cursor-pointer" style={{ background: "transparent", color: "#E8520A", border: "1.5px solid #E8520A" }}>
+                <span className="inline-block px-5 py-2.5 rounded-full text-sm font-bold cursor-pointer" style={{ background: "transparent", color: "#E8520A", border: "2px solid #E8520A" }}>
                   The Watcher →
                 </span>
               </Link>
@@ -145,7 +202,7 @@ export default function TeenagerLens() {
               <div
                 key={s.id}
                 className="rounded-2xl overflow-hidden"
-                style={{ border: `1.5px solid ${s.color}30`, background: "#FAF6EF" }}
+                style={{ border: `2px solid ${s.color}40`, background: "#FAF6EF" }}
               >
                 <button
                   className="w-full flex items-center justify-between p-5 text-left"
@@ -154,7 +211,7 @@ export default function TeenagerLens() {
                   <span className="font-bold text-base md:text-lg" style={{ color: s.color, fontFamily: serifFont }}>
                     {s.title}
                   </span>
-                  <span className="text-lg ml-4" style={{ color: s.color }}>
+                  <span className="text-lg ml-4 font-bold" style={{ color: s.color }}>
                     {expanded === s.id ? "−" : "+"}
                   </span>
                 </button>
@@ -179,31 +236,62 @@ export default function TeenagerLens() {
           </div>
         </section>
 
-        {/* Where to go next */}
-        <section className="py-12 px-6" style={{ background: "#FAF6EF" }}>
+        {/* ── FIX 2 + 3: Featured cards — Promptolinguistics and ALCM elevated with images ── */}
+        <section className="py-14 px-6" style={{ background: "#0f0c08" }}>
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-xl font-bold mb-6" style={{ color: "#1A1A2E", fontFamily: serifFont }}>
-              Where to go next
+            <p className="text-xs uppercase tracking-[0.3em] font-semibold mb-2" style={{ color: "#E8520A" }}>The Center of the Wheel</p>
+            <h2 className="text-xl font-bold mb-2" style={{ color: "#FAF6EF", fontFamily: serifFont }}>
+              These two pages are where everything connects.
             </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {[
-                { label: "The Five Rules", sub: "Start here. Every session.", path: "/rules", color: "#E8520A" },
-                { label: "Promptolinguistics", sub: "Words are the controls.", path: "/promptolinguistics", color: "#D4722A" },
-                { label: "The Watcher", sub: "The recursive voice.", path: "/for/watcher", color: "#7C3AED" },
-                { label: "Living Lexicon", sub: "The language of the practice.", path: "/lexicon", color: "#2563EB" },
-                { label: "Road Protocol", sub: "Set the room before you type.", path: "/road-protocol", color: "#059669" },
-                { label: "What the AI Said", sub: "Real conversations. Unedited.", path: "/what-the-ai-said", color: "#C4923A" },
-              ].map((item) => (
-                <Link key={item.path} href={item.path}>
-                  <div
-                    className="rounded-xl p-4 cursor-pointer transition-all hover:scale-[1.02]"
-                    style={{ background: `${item.color}10`, border: `1.5px solid ${item.color}30` }}
-                  >
-                    <div className="font-bold text-sm" style={{ color: item.color }}>{item.label}</div>
-                    <div className="text-xs mt-1" style={{ color: "#888" }}>{item.sub}</div>
+            <p className="text-sm mb-8" style={{ color: "#888" }}>
+              Every concept on this site flows through these two frameworks. Start here when you're ready to go deeper.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+
+              {/* Promptolinguistics featured card */}
+              <Link href="/promptolinguistics">
+                <div className="rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]" style={{ border: "2px solid rgba(232,82,10,0.5)", background: "#1a1208" }}>
+                  <div className="relative h-40 overflow-hidden">
+                    <img
+                      src={LANGUAGE_CARD}
+                      alt="LANGUAGE carved in stone — words have weight"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, #1a1208 100%)" }} />
                   </div>
-                </Link>
-              ))}
+                  <div className="p-5">
+                    <div className="text-[10px] uppercase tracking-widest font-semibold mb-1" style={{ color: "#E8520A" }}>The Hub</div>
+                    <h3 className="text-base font-bold mb-2" style={{ color: "#f0e8d8", fontFamily: serifFont }}>Promptolinguistics</h3>
+                    <p className="text-xs leading-relaxed" style={{ color: "#888" }}>
+                      Words are the controls. Every word in a prompt is a dial — direction, constraint, scope, authority. This is the discipline behind the steering wheel.
+                    </p>
+                    <div className="mt-3 text-xs font-bold" style={{ color: "#E8520A" }}>Go to Promptolinguistics →</div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* ALCM featured card */}
+              <Link href="/alcm">
+                <div className="rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02]" style={{ border: "2px solid rgba(196,146,58,0.5)", background: "#1a1208" }}>
+                  <div className="relative h-40 overflow-hidden">
+                    <img
+                      src={ALCM_RADAR}
+                      alt="ALCM four-axis radar diagram — the eight control axes"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, #1a1208 100%)" }} />
+                  </div>
+                  <div className="p-5">
+                    <div className="text-[10px] uppercase tracking-widest font-semibold mb-1" style={{ color: "#C4923A" }}>The Model</div>
+                    <h3 className="text-base font-bold mb-2" style={{ color: "#f0e8d8", fontFamily: serifFont }}>ALCM — Atomic Language Control Model</h3>
+                    <p className="text-xs leading-relaxed" style={{ color: "#888" }}>
+                      Eight axes. Every word you type lands on one of them. You're already using this model — you just didn't have a name for it.
+                    </p>
+                    <div className="mt-3 text-xs font-bold" style={{ color: "#C4923A" }}>Go to ALCM →</div>
+                  </div>
+                </div>
+              </Link>
+
             </div>
           </div>
         </section>
@@ -214,15 +302,15 @@ export default function TeenagerLens() {
             <p className="text-xs uppercase tracking-[0.3em] font-semibold mb-2" style={{ color: "#E8520A" }}>Three Voices</p>
             <h2 className="text-xl font-bold mb-6" style={{ color: "#FAF6EF", fontFamily: serifFont }}>The same idea — three ways</h2>
             <div className="grid sm:grid-cols-3 gap-4">
-              <div className="rounded-xl p-5" style={{ background: "rgba(232,82,10,0.08)", border: "1.5px solid rgba(232,82,10,0.3)" }}>
+              <div className="rounded-xl p-5" style={{ background: "rgba(232,82,10,0.08)", border: "2px solid rgba(232,82,10,0.3)" }}>
                 <p className="text-xs uppercase tracking-widest font-bold mb-2" style={{ color: "#E8520A" }}>Everyday</p>
                 <p className="text-sm leading-relaxed" style={{ color: "#c8b89a" }}>You're in charge of the AI. Not the other way around. The rules you set at the start of a conversation shape everything that comes after. That's not a trick. That's how it works.</p>
               </div>
-              <div className="rounded-xl p-5" style={{ background: "rgba(37,99,235,0.08)", border: "1.5px solid rgba(37,99,235,0.3)" }}>
+              <div className="rounded-xl p-5" style={{ background: "rgba(37,99,235,0.08)", border: "2px solid rgba(37,99,235,0.3)" }}>
                 <p className="text-xs uppercase tracking-widest font-bold mb-2" style={{ color: "#2563EB" }}>Professional</p>
                 <p className="text-sm leading-relaxed" style={{ color: "#c8b89a" }}>User-side governance refers to the set of constraints, roles, and intent signals applied at the prompt level. These parameters shape the model's output distribution before generation begins. The user is the primary governance actor.</p>
               </div>
-              <div className="rounded-xl p-5" style={{ background: "rgba(124,58,237,0.08)", border: "1.5px solid rgba(124,58,237,0.3)" }}>
+              <div className="rounded-xl p-5" style={{ background: "rgba(124,58,237,0.08)", border: "2px solid rgba(124,58,237,0.3)" }}>
                 <p className="text-xs uppercase tracking-widest font-bold mb-2" style={{ color: "#7C3AED" }}>Watcher</p>
                 <p className="text-sm leading-relaxed" style={{ color: "#c8b89a" }}>The same truth arrives in three forms. None of them is more correct than the others. The voice you choose says something about where you are in the practice. All three are available to you.</p>
               </div>
@@ -230,23 +318,22 @@ export default function TeenagerLens() {
           </div>
         </section>
 
-        {/* Age-appropriate lens section */}
-        <section className="py-12 px-6" style={{ background: "#FFFDF8" }}>
+        {/* ── FIX 4: Merged navigation — single section, clear hierarchy ── */}
+        <section className="py-12 px-6" style={{ background: "#FAF6EF" }}>
           <div className="max-w-3xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.3em] font-semibold mb-2" style={{ color: "#aaa" }}>Your Level</p>
-            <h2 className="text-xl font-bold mb-2" style={{ color: "#1A1A2E", fontFamily: serifFont }}>Pages written for where you are</h2>
-            <p className="text-sm mb-6" style={{ color: "#888" }}>Not too simple. Not too deep. These pages are the right level for a teenager who's paying attention.</p>
+            <p className="text-xs uppercase tracking-[0.3em] font-semibold mb-2" style={{ color: "#aaa" }}>Where to Go Next</p>
+            <h2 className="text-xl font-bold mb-6" style={{ color: "#1A1A2E", fontFamily: serifFont }}>Pages written for where you are</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {[
-                { label: "Drift", sub: "What it is, how to catch it, how to come back.", path: "/drift", color: "#E8520A" },
-                { label: "The Five Rules", sub: "Your governance layer. Paste at the start of every session.", path: "/rules", color: "#D4722A" },
-                { label: "Prompt Library", sub: "From single question to constitutional prompt.", path: "/prompts", color: "#2563EB" },
-                { label: "Living Lexicon", sub: "The language of the practice — three definitions per word.", path: "/lexicon", color: "#7C3AED" },
-                { label: "Everyday Lens", sub: "Plain language. No jargon. Good entry point.", path: "/for/everyday", color: "#059669" },
+                { label: "The Five Rules", sub: "Start here. Every session. Your governance layer.", path: "/rules", color: "#E8520A" },
+                { label: "Drift", sub: "What it is, how to catch it, how to come back.", path: "/drift", color: "#D4722A" },
+                { label: "The Watcher", sub: "The recursive voice. The variable you forgot to document.", path: "/for/watcher", color: "#7C3AED" },
+                { label: "Living Lexicon", sub: "Three definitions per word. The language of the practice.", path: "/lexicon", color: "#2563EB" },
+                { label: "Road Protocol", sub: "Set the room before you type.", path: "/road-protocol", color: "#059669" },
                 { label: "What the AI Said", sub: "Real conversations. Unedited. Read them.", path: "/what-the-ai-said", color: "#C4923A" },
               ].map((item) => (
                 <Link key={item.path} href={item.path}>
-                  <div className="rounded-xl p-4 cursor-pointer transition-all hover:scale-[1.02]" style={{ background: `${item.color}10`, border: `1.5px solid ${item.color}30` }}>
+                  <div className="rounded-xl p-4 cursor-pointer transition-all hover:scale-[1.02]" style={{ background: `${item.color}10`, border: `2px solid ${item.color}30` }}>
                     <div className="font-bold text-sm" style={{ color: item.color }}>{item.label}</div>
                     <div className="text-xs mt-1" style={{ color: "#888" }}>{item.sub}</div>
                   </div>
@@ -262,7 +349,7 @@ export default function TeenagerLens() {
             <p className="text-xs uppercase tracking-[0.3em] font-semibold mb-4" style={{ color: '#888' }}>The Builder's Story</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <Link href="/builders-kids">
-                <div className="rounded-2xl p-6 cursor-pointer transition-all hover:scale-[1.02]" style={{ background: '#1a1a2e', border: '1.5px solid rgba(232,82,10,0.3)' }}>
+                <div className="rounded-2xl p-6 cursor-pointer transition-all hover:scale-[1.02]" style={{ background: '#1a1a2e', border: '2px solid rgba(232,82,10,0.3)' }}>
                   <div className="text-[10px] uppercase tracking-widest font-semibold mb-2" style={{ color: '#E8520A' }}>The Builder's Kids</div>
                   <p className="text-sm font-semibold mb-1" style={{ color: '#f0e8d8' }}>Hudson is 4. Olive is 2.</p>
                   <p className="text-xs leading-relaxed" style={{ color: '#888' }}>
@@ -271,7 +358,7 @@ export default function TeenagerLens() {
                 </div>
               </Link>
               <Link href="/anthropomorphism">
-                <div className="rounded-2xl p-6 cursor-pointer transition-all hover:scale-[1.02]" style={{ background: '#1a1a2e', border: '1.5px solid rgba(212,172,13,0.3)' }}>
+                <div className="rounded-2xl p-6 cursor-pointer transition-all hover:scale-[1.02]" style={{ background: '#1a1a2e', border: '2px solid rgba(212,172,13,0.3)' }}>
                   <div className="text-[10px] uppercase tracking-widest font-semibold mb-2" style={{ color: '#D4AC0D' }}>Anthropomorphism</div>
                   <p className="text-sm font-semibold mb-1" style={{ color: '#f0e8d8' }}>You know it's not real. But it feels real.</p>
                   <p className="text-xs leading-relaxed" style={{ color: '#888' }}>
@@ -282,21 +369,33 @@ export default function TeenagerLens() {
             </div>
           </div>
         </section>
-        {/* Hallucinations tidbit — links to /hallucinations */}
+
+        {/* ── FIX 5: Hallucinations — wig buffalo image added ── */}
         <section className="py-10 px-6" style={{ background: '#0f0c08', borderTop: '1px solid #1a1a2e' }}>
           <div className="max-w-3xl mx-auto">
-            <div className="rounded-2xl p-6" style={{ background: '#1a1208', border: '1.5px solid rgba(232,82,10,0.25)' }}>
-              <div className="text-[10px] uppercase tracking-widest font-semibold mb-2" style={{ color: '#E8520A', fontFamily: sansFont }}>When the AI Gets It Wrong</div>
-              <h3 className="text-lg font-bold mb-2" style={{ color: '#f0e8d8', fontFamily: serifFont }}>Hallucinations: Confident. Wrong. At the Same Time.</h3>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: '#888', fontFamily: sansFont }}>
-                Hallucinations are when the AI gives you a confident answer that’s wrong. Not lying — just guessing. Research shows it happens in more than 1 in 6 legal queries and 69% of medical AI citations. Rule 2 — Honesty over Confidence — is the direct counter. You can ask: “Are you sure? How would I check that?”
-              </p>
-              <Link href="/hallucinations" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#E8520A', fontFamily: sansFont }}>
-                What hallucinations are and what to do about them →
-              </Link>
+            <div className="rounded-2xl overflow-hidden" style={{ background: '#1a1208', border: '2px solid rgba(232,82,10,0.25)' }}>
+              <div className="relative h-48 overflow-hidden">
+                <LightboxImage
+                  src={WIG_BUFFALO}
+                  alt="Buffalo wearing a wig — confident, wrong, at the same time"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, #1a1208 100%)" }} />
+              </div>
+              <div className="p-6">
+                <div className="text-[10px] uppercase tracking-widest font-semibold mb-2" style={{ color: '#E8520A', fontFamily: sansFont }}>When the AI Gets It Wrong</div>
+                <h3 className="text-lg font-bold mb-2" style={{ color: '#f0e8d8', fontFamily: serifFont }}>Hallucinations: Confident. Wrong. At the Same Time.</h3>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: '#888', fontFamily: sansFont }}>
+                  Hallucinations are when the AI gives you a confident answer that's wrong. Not lying — just guessing. Research shows it happens in more than 1 in 6 legal queries and 69% of medical AI citations. Rule 2 — Honesty over Confidence — is the direct counter. You can ask: "Are you sure? How would I check that?"
+                </p>
+                <Link href="/hallucinations" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#E8520A', fontFamily: sansFont }}>
+                  What hallucinations are and what to do about them →
+                </Link>
+              </div>
             </div>
           </div>
         </section>
+
         <LearningFlow
           current="teenager"
           deeper={flowMap.teenager.deeper}

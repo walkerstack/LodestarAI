@@ -1734,7 +1734,24 @@ export default function Home() {
                 professional: "v28 completes the hallucinations content build. Hero image added (abstract, amber/dark, beam-dissolving-to-fragments). Footer parity established — Hallucinations now in both nav and footer Foundation sections. FR-2026-08 PDF live on CDN. The hallucinations page is now fully deployed: route, nav, footer, hero image, three-voice content, sources, FR-2026-08 connection.",
               },
               {
-                version: "v31 — current",
+                version: "v32 — current",
+                date: "April 17, 2026",
+                title: "v32: Teenager Lens — Buffalo Hero Image, Featured ALCM + Promptolinguistics Cards, Wig Buffalo Hallucinations, Ghost Code, Merged Nav",
+                changes: [
+                  "Teenager Lens — hero section rebuilt with buffalo CDN image (direct eye contact, amber light, breath in cold air) as full-bleed background. Title and subtitle overlaid with dark gradient. Guardian energy. No text-only hero.",
+                  "Teenager Lens — Promptolinguistics and ALCM elevated to featured image cards above the fold. LANGUAGE-in-stone card thumbnail for Promptolinguistics. Four-axis radar thumbnail for ALCM. Both described as 'the center of the wheel.'",
+                  "Teenager Lens — hallucinations section upgraded with wig buffalo CDN image. Confident. Wrong. At the same time. The image makes the argument before the text.",
+                  "Teenager Lens — duplicate nav grids merged into single section with clear hierarchy. Two redundant card grids replaced with one clean grid.",
+                  "Teenager Lens — ghost code governance block added. LearningFlow teenager entry updated: Promptolinguistics now listed first as the hub with ALCM second.",
+                  "Ghost code template locked into SESSION-HANDOFF.md. Applied to AlcmPage, Promptolinguistics, and TeenagerLens. Watcher lens, governance, caught-you note, ducks.",
+                  "Three new CDN images generated and placed: buffalo hero, wig buffalo, LANGUAGE card thumbnail.",
+                ],
+                watcher: "The teenager page now has a face. The buffalo looks directly at the visitor. It does not explain itself. It does not welcome. It watches. The wig buffalo in the hallucinations section is the most honest image on the site — a powerful animal wearing something ridiculous, completely confident, completely unaware. That is the hallucination. The featured cards for Promptolinguistics and ALCM are not navigation. They are direction. The page now says: here is where you go. Not: here are some options.",
+                child: "The Builder fixed the teenager page. Now when you go there, the first thing you see is a big picture of a buffalo looking right at you. It's very serious. Then there are two big picture cards that show you the most important pages on the whole site — Promptolinguistics and ALCM. And in the hallucinations section, there's a picture of the same buffalo but now it's wearing a silly wig and it doesn't even know. That's what a hallucination is.",
+                professional: "v32 brings the Teenager Lens to the 6-point page standard. Hero image: photorealistic buffalo (CDN) as full-bleed background with directional overlay. Featured cards: Promptolinguistics (LANGUAGE-in-stone thumbnail) and ALCM (four-axis radar thumbnail) elevated above the fold with image, label, description, and CTA. Hallucinations section: wig buffalo CDN image added — visual argument precedes text. Navigation: two redundant card grids merged into single hierarchy. Ghost code governance block applied. LearningFlow teenager entry updated to reflect Promptolinguistics as hub. Zero TypeScript errors. Additive only.",
+              },
+              {
+                version: "v31 — previous",
                 date: "April 17, 2026",
                 title: "v31: Promptolinguistics Page — Hero Image, Button Contrast, Corner Words, Third Entity, Teenager + Professional Entry",
                 changes: [

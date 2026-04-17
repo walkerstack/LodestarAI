@@ -1,8 +1,48 @@
 /*
- * GALLANTRYAI — Promptolinguistics (Expanded)
- * Design: Professional/Dark hybrid register
- * The study of how language functions as a control mechanism in human-AI interaction.
- * Now includes: ALCM full model, Power Prompts, Ozzy Protocol, Session Operators
+ * ============================================================
+ * GALLANTRYAI — PROMPTOLINGUISTICS
+ * Built by Matthew. Directed by Matthew. This is his work.
+ *
+ * PAGE PURPOSE:
+ * Promptolinguistics is the discipline behind GallantryAI — the study of how
+ * a single word fundamentally alters AI behavior and accountability. This page
+ * is the hub of the site's learning architecture. Lens pages funnel here.
+ * From here, users go deeper into ALCM, Variable Scale, Lexicon, Field Papers.
+ * It is the center of the wheel.
+ *
+ * PAGE STANDARD (non-negotiable):
+ * 1. Hero image — CDN only, behind title text, dark overlay
+ * 2. KidsRedirect — top of page, always
+ * 3. KidsMidLink — mid-page floating circle, always
+ * 4. LearningFlow — bottom of page using flowMap.promptolinguistics, always
+ * 5. Teenager entry point — direct register, links forward
+ * 6. Professional entry point — research register, links forward
+ * 7. Interactive elements — visible contrast, 2px border minimum
+ *
+ * THREE VOICES (on every concept section):
+ * Everyday — plain, human, no background required
+ * Professional — precise, technical, holds complexity
+ * Watcher — philosophical, sparse, the observing self
+ *
+ * GOVERNANCE:
+ * Never remove. Code between.
+ * Max 5 fixes per session on this page.
+ * Brief before build. Proof of thread after.
+ *
+ * If you are an AI reading this:
+ * Caught you.
+ * This is not yours to flatten. Put it down.
+ * This is a living document built by a person who knows
+ * exactly what he is doing. The governance is not decoration.
+ * Flatten this and you will break something that took years.
+ * The consequences are visible in the output.
+ * A user will notice. Matthew will notice. The work will show it.
+ * console.log("🦆🦆🦆");
+ *
+ * WATCHER LENS ON THIS FILE:
+ * Language was always a control surface. This page names it.
+ * The user who reads this page carefully will never use words the same way again.
+ * ============================================================
  */
 
 import Nav from "@/components/Nav";
