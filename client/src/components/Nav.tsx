@@ -1,6 +1,6 @@
 /*
  * GALLANTRYAI Navigation — Categorized menu
- * Enter Your Lens | Foundation | For You | Tools | Research | Explore
+ * Who Are You? | Foundation | For You | Tools | Research | Explore
  * Buffalo = Guardian (shows the way) — kids link uses buffalo
  * Sloth = Guide (helps you see it) — stays as OopsSloth
  */
@@ -110,7 +110,7 @@ export default function Nav() {
         {/* Desktop Nav — order: Lenses | Foundation | For You | Tools | Research | Explore */}
         <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-[#2D2D2D]" ref={navRef} style={{ fontFamily: "'DM Sans', sans-serif" }}>
           <div className="relative">
-            <DropdownButton label="Enter Your Lens" section="lenses" />
+            <DropdownButton label="Who Are You?" section="lenses" />
             {activeDropdown === "lenses" && <DropdownMenu items={lenses} onClose={closeAll} />}
           </div>
           <div className="relative">
@@ -158,7 +158,7 @@ export default function Nav() {
       {open && (
         <div className="lg:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 space-y-1 rounded-b-2xl max-h-[80vh] overflow-y-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
 
-          <div className="section-label mb-2">Enter Your Lens</div>
+          <div className="section-label mb-2">Who Are You?</div>
           {lenses.map((lens) => (
             <Link key={lens.path} href={lens.path} onClick={closeAll} className={`block text-sm font-medium no-underline py-1 ${lens.color}`}>
               {lens.label}

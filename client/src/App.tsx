@@ -135,6 +135,7 @@ function Router() {
       <Route path="/scaffold" component={Scaffold} />
       <Route path="/kids-learn" component={KidsLearn} />
       <Route path="/three-lenses" component={ThreeLenses} />
+      <Route path="/three-voices" component={ThreeLenses} />
       <Route path="/math-prompting" component={MathPrompting} />
       <Route path="/eu-ai-act" component={EuAiAct} />
       <Route path="/what-claude-admitted" component={WhatClaudeAdmitted} />

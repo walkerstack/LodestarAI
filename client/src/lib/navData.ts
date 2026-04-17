@@ -43,7 +43,7 @@ export const lenses = [
 
 export const foundationLinks = [
   { label: "Gallantry AI", path: "/gallantry-ai" },
-  { label: "The Three Voices", path: "/three-lenses" },
+  { label: "The Three Voices", path: "/three-voices" },
   { label: "The Five Rules", path: "/rules" },
   { label: "Road Protocol", path: "/road-protocol" },
   { label: "Drift", path: "/drift" },
@@ -55,6 +55,7 @@ export const foundationLinks = [
 ];
 
 export const forYouLinks = [
+  { label: "Guardian & Teacher", path: "/for/guardian-teacher", color: "#16a34a" },
   { label: "School Board", path: "/school-board", color: "#0d9488" },
   { label: "Kids Learn", path: "/kids-learn", color: "#7c3aed" },
   { label: "Child Five Rules", path: "/for/child/rules", color: "#e11d48" },
@@ -94,7 +95,6 @@ export const exploreLinks = [
   { label: "Articles", path: "/articles" },
   { label: "The Human Line", path: "/human-line" },
   { label: "Field Papers", path: "/field-papers" },
-  { label: "The Watcher", path: "/for/watcher" },
   { label: "Citizen Researcher", path: "/citizen-researcher" },
   { label: "The Builder", path: "/builder" },
   { label: "Builder Origin", path: "/builder-origin" },
