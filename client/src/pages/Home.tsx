@@ -1771,7 +1771,22 @@ export default function Home() {
                 professional: "v28 completes the hallucinations content build. Hero image added (abstract, amber/dark, beam-dissolving-to-fragments). Footer parity established — Hallucinations now in both nav and footer Foundation sections. FR-2026-08 PDF live on CDN. The hallucinations page is now fully deployed: route, nav, footer, hero image, three-voice content, sources, FR-2026-08 connection.",
               },
               {
-                version: "v37 — current",
+                version: "v38 — current",
+                date: "April 17, 2026",
+                title: "v38: Builder Poems Section + Premium Mobile Nav + Homepage Hat Flow",
+                changes: [
+                  "Builder.tsx — 11 poems from the February 28, 2026 master document added as a full-bleed section after the cross-links grid. Background: painterly scene of the sloth on a rock with a lantern, the wig beside it, the buffalo free in the distance. Dark overlay. Playfair Display italic. Warm cream text. Each poem numbered in orange. Exact words preserved — no edits, no corrections. The section is additive. Nothing above it was touched.",
+                  "Nav.tsx — mobile nav fully rebuilt. Hat tiles upgraded: each of the 5 tiles (Everyday, Professional, Watcher, Teen, Child) now has a generated painterly illustration at the top, colour gradient fading into the label row, icon + bold label + description. Touch press animation: tile scales to 96% on thumb press, springs back on release. Sections below the tiles rebuilt as accordion: Foundation, For You, Tools, Research, Explore each tap open and closed. Section labels colour-coded (orange, purple, teal, green, amber). Buffalo + kids link at the bottom. Desktop nav completely untouched.",
+                  "Home.tsx — proof sentence added: 'This site is the proof of the framework it teaches.' Hat flow section added: 5 coloured entry buttons (Everyday, Professional, Watcher, Teen, Child) with direct stream links below. Framing: 'These are hats, not labels. Enter anywhere. The site meets you where you are.'",
+                  "5 hat tile images generated and uploaded to CDN: everyday (kitchen table, warm light), professional (structured desk), watcher (figure at window, night), teen (headphones, notebook), child (small hand reaching toward glow). Painterly style, consistent with site visual language.",
+                  "Sloth-lantern-buffalo image generated and uploaded to CDN: sloth on rock, lantern glowing, wig beside it, buffalo free in distance, dusk prairie sky. Used as poems section background.",
+                ],
+                watcher: "The poems were written on the same day as the origin document. February 28, 2026. The builder went to his Oma's funeral and came home and kept building. The poems are not polished. They are not meant to be. They are the record of a man who could not stop thinking about what he was making and why. The site holds them now. The sloth holds the lantern. The buffalo is free. The wig is beside it. That is the whole thing.",
+                child: "The Builder added his poems to the Builder page. He wrote them on a very important day. There is a picture behind the poems of the sloth sitting on a rock with a lantern, and the wig is right there beside it, and the buffalo is far away in its home place. The Builder also made the phone menu much nicer — now when you tap the menu button, you see pictures for each path you can take.",
+                professional: "v38 closes the April 17 session. Three builds: (1) Builder.tsx poems section — 11 poems from the Feb 28 master document, full-bleed CDN image background, Playfair Display, exact text preserved. (2) Mobile nav rebuild — 5 image tiles with touch press animation, accordion sections with colour-coded labels, desktop nav untouched. (3) Homepage hat flow — proof sentence, 5 entry buttons, direct stream. Six CDN images generated and uploaded. Zero TypeScript errors across all three builds. Additive only.",
+              },
+              {
+                version: "v37 — previous",
                 date: "April 17, 2026",
                 title: "v37: Thread 1 Content Build — Master Document, 11 Lexicon Terms, 5 Promptolinguistics Sections, 5 New Prompts",
                 changes: [
