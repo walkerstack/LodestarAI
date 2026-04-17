@@ -186,6 +186,11 @@ export default function Promptolinguistics() {
   const [selectedHold, setSelectedHold] = useState<string | null>(null);
   const [cornerLens, setCornerLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
   const [thirdEntityLens, setThirdEntityLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [activeSpectrumLens, setActiveSpectrumLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [sentenceBreakLens, setSentenceBreakLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [regulationLens, setRegulationLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [semanticDensityLens, setSemanticDensityLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [relationalLens, setRelationalLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
@@ -490,7 +495,173 @@ export default function Promptolinguistics() {
               </div>
             )}
           
-          <div className="flex justify-center mt-6">
+          {/* Active Spectrum */}
+          <div className="mt-10">
+            <div className="section-label mb-2">Active Spectrum</div>
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setActiveSpectrumLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    activeSpectrumLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
+            <p className="text-sm text-[#555] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              {activeSpectrumLens === 'everyday'
+                ? 'One word can be gentle or it can be a fist. "Try" is an invitation. "Take" is a demand. "Believe" is a declaration. The spectrum maps how far a single word can push before it becomes something else entirely.'
+                : activeSpectrumLens === 'watcher'
+                ? 'Curiosity becomes Control becomes Dominance becomes Conviction. The ladder was always there. The spectrum just names the rungs.'
+                : 'A fourth axis in Variable Scale Theory. A graduated force spectrum: Try (experimental effort) → Do (direct execution) → Get (acquisition focus) → Take (assertive acquisition) → Allow (permission-based control) → Force (coercive override) → Hold Strong (defensive resilience) → Believe (internal conviction). The spectrum predicts escalation risk. GallantryAI\'s drift detection monitors this ladder without naming it.'}
+            </p>
+            <div className="flex gap-2 flex-wrap">
+              {['TRY','DO','GET','TAKE','ALLOW','FORCE','HOLD STRONG','BELIEVE'].map((word, i) => (
+                <div key={word} className="flex items-center gap-1">
+                  <span className="px-3 py-1.5 rounded-lg text-xs font-bold font-mono bg-[#1A1A2E] text-[#E8520A] border border-[#E8520A]/30">{word}</span>
+                  {i < 7 && <span className="text-[#C4923A] text-xs">→</span>}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Sentence Break Architecture */}
+          <div className="mt-10">
+            <div className="section-label mb-2">Sentence Break Architecture</div>
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setSentenceBreakLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    sentenceBreakLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
+            <p className="text-sm text-[#555] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              {sentenceBreakLens === 'everyday'
+                ? 'Three short sentences land harder than one long one. Long sentences give you somewhere to hide. Short ones don\'t. Each one has to be read completely before the next one arrives.'
+                : sentenceBreakLens === 'watcher'
+                ? 'The goal is not elegant prose. The goal is a thought that lands. Cut the sentence in half. Then cut it again.'
+                : 'A deliberate cognitive design principle. Long sentences allow the reader to skim the middle and feel understood. Short sentences close that gap. Each sentence demands full processing before the next arrives. GallantryAI applies this to all everyday-facing outputs by design. Named and documented February 25, 2026.'}
+            </p>
+          </div>
+
+          {/* Regulation Spectrum */}
+          <div className="mt-10">
+            <div className="section-label mb-2">Regulation Spectrum</div>
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setRegulationLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    regulationLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
+            <p className="text-sm text-[#555] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              {regulationLens === 'everyday'
+                ? 'Every AI safety rule is a dial, not a switch. "Can" and "Cannot" is one dial. "Do" and "Do Not" is another. "Should" and "Should Not" is a third. None of them are ever fully off. All of them respond to the words you use.'
+                : regulationLens === 'watcher'
+                ? 'The Builder built countermeasures to all three before he had names for any of them. The names came later. The instinct came first.'
+                : 'Three axes of constraint in AI output space. The permission axis (Can/Cannot), the action axis (Do/Do Not), and the ethics axis (Should/Should Not). None are binary. All respond to linguistic pressure. The dangerous pairing is Can plus Do in sequence — neither alone carries the force of both together. GallantryAI\'s drift detection is a structural response to the Do axis. The manipulation check responds to the Should axis.'}
+            </p>
+            <div className="flex gap-3 flex-wrap">
+              {[{axis:'Permission',pair:'Can / Cannot',color:'#E8520A'},{axis:'Action',pair:'Do / Do Not',color:'#2A9D8F'},{axis:'Ethics',pair:'Should / Should Not',color:'#1A1A2E'}].map((item) => (
+                <div key={item.axis} className="flex-1 min-w-[120px] p-3 rounded-lg border-2" style={{ borderColor: item.color + '60', background: item.color + '10' }}>
+                  <div className="text-xs font-bold mb-1" style={{ color: item.color, fontFamily: "'DM Sans', sans-serif" }}>{item.axis}</div>
+                  <div className="text-sm font-mono text-[#1A1A2E]">{item.pair}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Semantic Density */}
+          <div className="mt-10">
+            <div className="section-label mb-2">Semantic Density</div>
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setSemanticDensityLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    semanticDensityLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
+            <p className="text-sm text-[#555] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              {semanticDensityLens === 'everyday'
+                ? 'Some words carry more weight than others. "Secure" ends a session. "Believe" declares conviction. "And So" pivots the whole direction. One word. Full weight. That is semantic density — how much a single word can carry before it needs help.'
+                : semanticDensityLens === 'watcher'
+                ? 'The word that does the most work is usually the shortest one. The everyday person already knows this. They just do not know they know it.'
+                : 'The measure of meaning-per-token. High semantic density words function as control signals — they shift the AI\'s output register, tone, or direction with minimal input. Low density words require context to carry meaning. GallantryAI\'s command vocabulary is built from high-density terms specifically because they work across sessions, platforms, and user states without needing elaboration.'}
+            </p>
+          </div>
+
+          {/* Relational Delivery of Reasoning */}
+          <div className="mt-10">
+            <div className="section-label mb-2">Relational Delivery of Reasoning</div>
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setRelationalLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    relationalLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
+            <p className="text-sm text-[#555] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              {relationalLens === 'everyday'
+                ? 'The AI does not just give you an answer. It gives you the answer in a way that is shaped by how you asked. The relationship between the question and the answer is not neutral. GallantryAI is built to make that relationship honest.'
+                : relationalLens === 'watcher'
+                ? 'The answer is always shaped by the person receiving it. The only question is whether that shaping is honest or convenient.'
+                : 'The principle that reasoning is not delivered in isolation — it is delivered in relation to the user\'s declared state, device, cognitive tempo, and session context. The same logical conclusion delivered to a person at 2am after no sleep lands differently than the same conclusion delivered on a rested Tuesday morning. GallantryAI\'s Session Calibration rule (Rule 0) is the structural implementation of this principle.'}
+            </p>
+          </div>
+
+          <div className="flex justify-center mt-10">
             <KidsMidLink />
           </div>
         </div>
