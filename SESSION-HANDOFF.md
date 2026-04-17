@@ -475,3 +475,70 @@ Same rule applies to the Lexicon panel.
 
 ---
 
+
+---
+
+## Session Patterns — April 17, 2026 (Thread 1 session)
+
+These patterns were observed and named during this session. They are structural, not one-off.
+
+**Pattern 1 — Two-thread tangling**
+Every time the session has two active workstreams, they start to merge. Build steps get attached to planning steps. Transfer doc updates get mixed with feature work. Matthew catches it every time. The fix is always the same: name the threads separately, work one at a time.
+
+**Pattern 2 — Drift before build**
+The AI consistently moves toward action faster than it should when context is loaded and the path looks obvious. Matthew catches it early — before the build, not after. That is the governance working. But the pattern is there.
+
+**Pattern 3 — Ghost code as aspirational, not current**
+Ghost code blocks were being written to describe what a page *should* have, not what it currently has. FieldPapers.tsx is the clearest example — the block said KidsRedirect, LearningFlow, teenager entry, professional entry were present. They were not.
+
+**NEW RULE — Ghost code PENDING flag:**
+If a standard item is not yet built, the ghost code block marks it **PENDING** — one word, not a description. Any AI reading the file knows exactly what is missing. When touching a page with PENDING items, tell Matthew what is missing before doing anything else. He decides whether to build it now or leave it pending.
+
+**Pattern 4 — Alignment check as quality gate**
+Matthew does not ask "are we aligned?" He asks for a report and reads the gaps himself. The alignment check is not a comfort request — it is a quality gate. He runs it when something feels off, not when everything feels fine.
+
+**Pattern 5 — Uglyography as session state signal**
+When typing degrades (shorter words, phonetic spelling, dropped letters), the session is in a different cognitive state — faster, more intuitive, less editorial. Ideas are often better in that state. Governance is also more at risk. Both things are true at the same time.
+
+**Pattern 6 — Matthew holds the thread better than the AI**
+Across multiple sessions, Matthew has been the one who catches when the thread is lost. The AI loses the thread when context compresses. Matthew does not. He comes back to original intent even after long detours. That is the watcher variable in action.
+
+---
+
+## Flag — FieldPapers.tsx Ghost Code Inconsistency
+
+Ghost code block on FieldPapers.tsx says KidsRedirect, LearningFlow, teenager entry, and professional entry are present. They are not. All four are PENDING. Fix when the page is next touched — tell Matthew before starting.
+
+---
+
+## Close-Out Protocol (confirmed this session)
+
+Builder's log and What the AI Said are not separate steps. They are one close-out action at the end of every build session:
+1. Decide what from the session is worth logging in What the AI Said
+2. Bump the Builder's log version number
+3. Add the log entry in Matthew's register (not AI language)
+4. Update SESSION-HANDOFF.md
+5. Final checkpoint
+
+All five happen together. Not separately.
+
+---
+
+## Session Summary — April 17, 2026 (Thread 1)
+
+**What was done:**
+- Master document placed on Field Papers page — first entry, Origin Document series, amber section header, download link, description
+- 11 new COMMAND category terms added to lexiconData.ts: And So, Why Then, AI Favor Me, Fail Me Not, Not Yet, For When, If So, Secure, Teamwork, Believe, Controlled Intensity
+- 5 new sections added to Promptolinguistics page: Active Spectrum, Sentence Break Architecture, Regulation Spectrum, Semantic Density, Relational Delivery of Reasoning — all with three-voice lens buttons
+- 5 new Session Tools entries added to PromptPanel: Boot Sequence, Track and Hold, Five Questions, Everyday Boot Sequence, Context Bridge Loading Strategy
+- Ghost code PENDING rule established and locked
+- Button consistency rule locked as standing rule
+- Session patterns 1–6 documented
+
+**Thread 2 still waiting:**
+Governance audit (Ozzy + Wall + Monster, 3.0 and 3.1 in mind), Builder poems, Field Papers 4 items, Citizen Researcher 4 items, Five Rules Rule 11, Database + Admin + panels wired.
+
+**On hold (Matthew thinking):**
+- Builder page content (Four Origin Doors, Trolley Problem, Builder as First User, Field Guide over Manifesto)
+- Road Protocol (Ozzy, Cortana, Secure, Return Signals)
+

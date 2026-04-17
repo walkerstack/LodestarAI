@@ -1734,7 +1734,23 @@ export default function Home() {
                 professional: "v28 completes the hallucinations content build. Hero image added (abstract, amber/dark, beam-dissolving-to-fragments). Footer parity established — Hallucinations now in both nav and footer Foundation sections. FR-2026-08 PDF live on CDN. The hallucinations page is now fully deployed: route, nav, footer, hero image, three-voice content, sources, FR-2026-08 connection.",
               },
               {
-                version: "v36 — current",
+                version: "v37 — current",
+                date: "April 17, 2026",
+                title: "v37: Thread 1 Content Build — Master Document, 11 Lexicon Terms, 5 Promptolinguistics Sections, 5 New Prompts",
+                changes: [
+                  "FieldPapers.tsx — master document (GallantryAI Development Record, February 28, 2026) added as first entry. New amber section: Origin Document. Download link live. Description written. The origin document now has a home on the site.",
+                  "lexiconData.ts — 11 new COMMAND category terms added: And So, Why Then, AI Favor Me, Fail Me Not, Not Yet, For When, If So, Secure, Teamwork, Believe, Controlled Intensity. COMMAND is a new category — orange. Lexicon now has 51 terms across 15 categories.",
+                  "Promptolinguistics.tsx — 5 new sections added after HOLD Dial: Active Spectrum, Sentence Break Architecture, Regulation Spectrum, Semantic Density, Relational Delivery of Reasoning. All have three-voice lens buttons. Nothing existing touched or reordered.",
+                  "PromptPanel.tsx — 5 new Session Tools entries: Boot Sequence, Track and Hold, Five Questions, Everyday Boot Sequence, Context Bridge Loading Strategy. Session Tools now has 8 prompts.",
+                  "Ghost code PENDING rule established: if a standard item is not yet built, mark it PENDING in the block. Tell Matthew what is missing before touching the page. He decides.",
+                  "SESSION-HANDOFF.md — six session patterns documented. Flag logged for FieldPapers.tsx ghost code inconsistency. Close-out protocol confirmed.",
+                ],
+                watcher: "The origin document is on the site. The command vocabulary is in the lexicon. The spectrum is named. The prompts are in the panel. A garbageman from Midland built all of this in six days. The site is the proof of the framework. The framework is the governance. The governance is the person.",
+                child: "The Builder added the very first document he ever wrote about AI to the site. He also added 11 new words to the word dictionary, 5 new ideas to the language page, and 5 new prompts to the glowing G button. Everything is still there. Nothing was taken out.",
+                professional: "v37 closes Thread 1 of the April 17 session. Four content areas added: origin document placed on Field Papers (first entry, amber section), 11 COMMAND terms added to lexicon (new category, 51 terms total), 5 new Promptolinguistics sections with three-voice buttons, 5 new Session Tools prompts. Ghost code PENDING rule locked. Six session patterns documented in SESSION-HANDOFF.md. Zero TypeScript errors. Additive only.",
+              },
+              {
+                version: "v36 — previous",
                 date: "April 17, 2026",
                 title: "v36: Prompt Library — Glowing G Button, Five Categories, Copy-to-Clipboard, Toggle Fix",
                 changes: [

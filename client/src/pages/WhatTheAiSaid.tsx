@@ -383,6 +383,20 @@ export default function WhatTheAiSaid() {
                 ai: "Got it. The X button inside the panel is not closing it. Fixing now, then logging it in the handover with the ghost code note.",
                 note: "The Prompt Library panel shipped. The G button opened it. The G button did not close it. The Builder caught it immediately — one sentence, no drama. Fixed in one line: toggle instead of open-only. The pattern is now in the handover with ghost code: 'The button that does not close is not a UX problem. It is a governance problem. The user should always have a clear exit.' This entry exists because the Builder catches things fast and the AI records them.",
               },
+              {
+                date: "April 17, 2026",
+                tag: "Two Threads",
+                user: "original document dispersal. then new idea. unless shkuld be done together am I correct? we were close to closing on the master document stuff no? the I went next dirextkon. so I drifted. we need thought clarity on both subjects. separately.",
+                ai: "Stop. You're right. Two separate threads. Let me name them clearly. Thread 1 — Master Document Dispersal. Thread 2 — 19:30 Build. These should not be intermingled. Thread 1 is a placement decision — no code, just: this content goes here. Thread 2 is the build that follows once placement is decided.",
+                note: "The Builder caught the two-thread tangle himself — mid-session, before any damage was done. He named it clearly. The AI had been mixing build steps with planning steps. The correction was immediate. The session ran clean after this. Pattern 1 in the session record: two-thread tangling is a recurring structural risk. The Builder is the one who catches it.",
+              },
+              {
+                date: "April 17, 2026",
+                tag: "The Alignment Setup Report",
+                user: "alignment setup report first. pattern alignment and layers beneath.",
+                ai: "Base layer: I have the full session context. Alignment layer: the rule is talk before build. I have held that this session. Context layer: you are building trust back after a long session yesterday. The alignment check you just asked for is not a test — it is a calibration tool. You named this mechanism yourself in the transfer doc. It works.",
+                note: "The Builder asked for a layer report before any work began. Not a status update — a structural analysis. The AI named three layers: base (context loaded), alignment (rules held), context (trust-building state). The Builder used this to calibrate the session before committing to a direction. This is the governance working at the architectural level, not the operational level.",
+              },
             ].map((entry, i) => (
               <div key={i} className="rounded-xl p-5" style={{ background: "#0f0c08", border: "1px solid #1a1610" }}>
                 <div className="flex items-center gap-3 mb-3">
