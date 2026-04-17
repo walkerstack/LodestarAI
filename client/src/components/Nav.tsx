@@ -68,6 +68,64 @@ export default function Nav() {
     );
   }
 
+  // Five hat tiles for Who Are You? — desktop dropdown
+  const hatTiles = [
+    { label: "Everyday", icon: "◎", path: "/for/everyday", bg: "#FFF7ED", border: "#E8520A", text: "#C2400C", desc: "Plain language. Real life." },
+    { label: "Professional", icon: "◈", path: "/for/prompt-engineer", bg: "#F0F4FF", border: "#4F46E5", text: "#3730A3", desc: "Precise. Structured. Deep." },
+    { label: "Watcher", icon: "◉", path: "/for/watcher", bg: "#1A1A2E", border: "#6B7280", text: "#E5E7EB", desc: "The part that notices." },
+    { label: "Teen", icon: "◇", path: "/for/teenager", bg: "#F5F3FF", border: "#7C3AED", text: "#5B21B6", desc: "Your rules. Your pace." },
+    { label: "Child", icon: "★", path: "/for/child", bg: "#EFF6FF", border: "#3B82F6", text: "#1D4ED8", desc: "Safe. Simple. Yours." },
+  ];
+
+  function HatTileMenu({ onClose }: { onClose: () => void }) {
+    return (
+      <div className="absolute top-full left-0 mt-2 z-50" style={{ width: '380px' }}>
+        <div className="bg-white border border-[#e8e0d0] rounded-2xl shadow-xl overflow-hidden">
+          {/* Five tiles */}
+          <div className="grid grid-cols-5 gap-0">
+            {hatTiles.map((hat) => (
+              <Link
+                key={hat.path}
+                href={hat.path}
+                onClick={onClose}
+                className="no-underline group flex flex-col items-center justify-center py-4 px-2 transition-all duration-150 cursor-pointer"
+                style={{
+                  background: hat.bg,
+                  borderRight: `1px solid #e8e0d0`,
+                  transform: 'perspective(400px) translateZ(0px)',
+                  transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.transform = 'perspective(400px) translateZ(8px) scale(1.04)';
+                  (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 16px ${hat.border}44`;
+                  (e.currentTarget as HTMLElement).style.zIndex = '2';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.transform = 'perspective(400px) translateZ(0px) scale(1)';
+                  (e.currentTarget as HTMLElement).style.boxShadow = 'none';
+                  (e.currentTarget as HTMLElement).style.zIndex = '1';
+                }}
+              >
+                <span className="text-2xl mb-1" style={{ color: hat.border }}>{hat.icon}</span>
+                <span className="text-xs font-bold text-center leading-tight" style={{ color: hat.text, fontFamily: "'DM Sans', sans-serif" }}>{hat.label}</span>
+                <span className="text-[9px] text-center mt-1 leading-tight opacity-70" style={{ color: hat.text }}>{hat.desc}</span>
+              </Link>
+            ))}
+          </div>
+          {/* Direct stream */}
+          <div className="border-t border-[#e8e0d0] px-4 py-3 flex items-center justify-between bg-[#FAF6EF]">
+            <div className="flex gap-4">
+              <Link href="/rules" onClick={onClose} className="text-xs font-semibold text-[#E8520A] no-underline hover:underline">Five Rules</Link>
+              <Link href="/prompts" onClick={onClose} className="text-xs font-semibold text-[#4F46E5] no-underline hover:underline">Prompt Library</Link>
+              <Link href="/field-papers" onClick={onClose} className="text-xs font-semibold text-[#374151] no-underline hover:underline">Field Papers</Link>
+            </div>
+            <Link href="/flower-presets" onClick={onClose} className="text-[10px] text-[#9CA3AF] no-underline hover:text-[#6B7280]" title="Accessibility options">Simpler view →</Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   function closeAll() {
     setActiveDropdown(null);
     setOpen(false);
@@ -111,7 +169,7 @@ export default function Nav() {
         <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-[#2D2D2D]" ref={navRef} style={{ fontFamily: "'DM Sans', sans-serif" }}>
           <div className="relative">
             <DropdownButton label="Who Are You?" section="lenses" />
-            {activeDropdown === "lenses" && <DropdownMenu items={lenses} onClose={closeAll} />}
+            {activeDropdown === "lenses" && <HatTileMenu onClose={closeAll} />}
           </div>
           <div className="relative">
             <DropdownButton label="Foundation" section="foundation" />
@@ -153,11 +211,27 @@ export default function Nav() {
         <div className="lg:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 space-y-1 rounded-b-2xl max-h-[80vh] overflow-y-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
 
           <div className="section-label mb-2">Who Are You?</div>
-          {lenses.map((lens) => (
-            <Link key={lens.path} href={lens.path} onClick={closeAll} className={`block text-sm font-medium no-underline py-1 ${lens.color}`}>
-              {lens.label}
-            </Link>
-          ))}
+          <div className="grid grid-cols-2 gap-2 mb-3">
+            {hatTiles.map((hat) => (
+              <Link
+                key={hat.path}
+                href={hat.path}
+                onClick={closeAll}
+                className="no-underline flex flex-col items-center justify-center py-3 px-2 rounded-xl transition-all duration-150 active:scale-95"
+                style={{ background: hat.bg, border: `1.5px solid ${hat.border}33` }}
+              >
+                <span className="text-xl mb-1" style={{ color: hat.border }}>{hat.icon}</span>
+                <span className="text-xs font-bold" style={{ color: hat.text }}>{hat.label}</span>
+                <span className="text-[9px] opacity-60 text-center mt-0.5" style={{ color: hat.text }}>{hat.desc}</span>
+              </Link>
+            ))}
+          </div>
+          {/* Direct stream — mobile */}
+          <div className="flex gap-3 mb-2 pb-3 border-b border-[#e8e0d0]">
+            <Link href="/rules" onClick={closeAll} className="text-xs font-semibold text-[#E8520A] no-underline">Five Rules</Link>
+            <Link href="/prompts" onClick={closeAll} className="text-xs font-semibold text-[#4F46E5] no-underline">Prompt Library</Link>
+            <Link href="/field-papers" onClick={closeAll} className="text-xs font-semibold text-[#374151] no-underline">Field Papers</Link>
+          </div>
 
           <div className="border-t border-[#e8e0d0] pt-3 mt-3">
             <div className="section-label mb-2">Foundation</div>

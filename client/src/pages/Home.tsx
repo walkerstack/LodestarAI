@@ -403,11 +403,48 @@ export default function Home() {
             Governance does not reside in the prompt. It resides in the person holding the prompt.
           </p>
           <p
-            className="text-sm italic mb-10"
+            className="text-sm italic mb-6"
             style={{ color: '#5a4a3a', fontFamily: "'Playfair Display', serif" }}
           >
-            {"\u2014"} GallantryAI Scaffold Paper, March 2026
+            {"—"} GallantryAI Scaffold Paper, March 2026
           </p>
+
+          {/* Proof sentence */}
+          <p
+            className="text-xs uppercase tracking-widest mb-8"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.2em' }}
+          >
+            This site is the proof of the framework it teaches.
+          </p>
+
+          {/* Hat flow — Who Are You? inline entry */}
+          <div className="mb-10">
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>Where do you want to start?</p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { label: "Everyday", path: "/for/everyday", color: "#E8520A", bg: "rgba(232,82,10,0.08)" },
+                { label: "Professional", path: "/for/prompt-engineer", color: "#4F46E5", bg: "rgba(79,70,229,0.08)" },
+                { label: "Watcher", path: "/for/watcher", color: "#9CA3AF", bg: "rgba(156,163,175,0.12)" },
+                { label: "Teen", path: "/for/teenager", color: "#7C3AED", bg: "rgba(124,58,237,0.08)" },
+                { label: "Child", path: "/for/child", color: "#3B82F6", bg: "rgba(59,130,246,0.08)" },
+              ].map((hat) => (
+                <Link
+                  key={hat.path}
+                  href={hat.path}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold no-underline transition-all duration-150 active:scale-95"
+                  style={{
+                    color: hat.color,
+                    background: hat.bg,
+                    border: `1.5px solid ${hat.color}33`,
+                    fontFamily: "'DM Sans', sans-serif",
+                  }}
+                >
+                  {hat.label}
+                </Link>
+              ))}
+            </div>
+            <p className="text-[10px] mt-2" style={{ color: '#3a2e20', fontFamily: "'DM Sans', sans-serif" }}>Enter anywhere. The site meets you where you are.</p>
+          </div>
 
           <div className="flex flex-wrap gap-3">
             <Link
