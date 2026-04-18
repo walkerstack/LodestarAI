@@ -91,6 +91,27 @@ const SITE_PAGES = [
 ];
 
 export const studioRouter = router({
+  // ── PUBLIC — studio password login ──
+  studioLogin: publicProcedure
+    .input(z.object({ password: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      const { ENV } = await import("../_core/env");
+      if (input.password !== ENV.studioPassword) {
+        throw new TRPCError({ code: "UNAUTHORIZED", message: "Wrong password" });
+      }
+      // Set a studio session cookie valid for 7 days
+      const { getSessionCookieOptions } = await import("../_core/cookies");
+      const { SignJWT } = await import("jose");
+      const secret = new TextEncoder().encode(ENV.cookieSecret || "studio-secret");
+      const token = await new SignJWT({ studio: true, role: "admin" })
+        .setProtectedHeader({ alg: "HS256" })
+        .setExpirationTime("7d")
+        .sign(secret);
+      const opts = getSessionCookieOptions(ctx.req);
+      ctx.res.cookie("studio_session", token, { ...opts, maxAge: 7 * 24 * 60 * 60 * 1000 });
+      return { success: true };
+    }),
+
   // ── PUBLIC — live pages fetch their blocks ──
   getPublicBlocks: publicProcedure
     .input(z.object({ pageSlug: z.string() }))

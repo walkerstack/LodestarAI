@@ -15,6 +15,13 @@
       "when": 1776525473536,
       "tag": "0001_gigantic_puff_adder",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1776529782757,
+      "tag": "0002_first_blacklash",
+      "breakpoints": true
     }
   ]
 }

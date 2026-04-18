@@ -9,9 +9,11 @@ import {
   contentBlocks,
   mediaLibrary,
   pageLinks,
+  studioPages,
   InsertContentBlock,
   InsertMediaItem,
   InsertPageLink,
+  InsertStudioPage,
 } from "../drizzle/schema";
 import { getDb } from "./db";
 
@@ -170,4 +172,42 @@ export async function deleteLink(id: number) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   await db.delete(pageLinks).where(eq(pageLinks.id, id));
+}
+
+// ─────────────────────────────────────────────
+// STUDIO PAGES (template builder)
+// ─────────────────────────────────────────────
+
+export async function getAllStudioPages() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(studioPages).orderBy(asc(studioPages.createdAt));
+}
+
+export async function getStudioPageBySlug(slug: string) {
+  const db = await getDb();
+  if (!db) return null;
+  const rows = await db.select().from(studioPages).where(eq(studioPages.slug, slug)).limit(1);
+  return rows[0] ?? null;
+}
+
+export async function createStudioPage(data: InsertStudioPage) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(studioPages).values(data);
+}
+
+export async function updateStudioPage(
+  id: number,
+  data: Partial<Pick<InsertStudioPage, "label" | "isPublished" | "navCategory">>
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(studioPages).set(data).where(eq(studioPages.id, id));
+}
+
+export async function deleteStudioPage(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(studioPages).where(eq(studioPages.id, id));
 }

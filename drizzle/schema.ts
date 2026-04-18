@@ -108,3 +108,29 @@ export const pageLinks = mysqlTable("page_links", {
 
 export type PageLink = typeof pageLinks.$inferSelect;
 export type InsertPageLink = typeof pageLinks.$inferInsert;
+
+/**
+ * studio_pages — stores pages created via the Studio Page Template Builder.
+ * These are owner-created pages that render via DynamicPage.tsx.
+ * Static site pages (hardcoded in SITE_PAGES) are NOT stored here.
+ */
+export const studioPages = mysqlTable("studio_pages", {
+  id: int("id").autoincrement().primaryKey(),
+  /** URL slug, e.g. 'my-new-article' — must be unique */
+  slug: varchar("slug", { length: 128 }).notNull().unique(),
+  /** Human-readable label shown in Studio and nav, e.g. 'My New Article' */
+  label: varchar("label", { length: 255 }).notNull(),
+  /** URL path, e.g. '/my-new-article' */
+  path: varchar("path", { length: 255 }).notNull(),
+  /** Template used: blank | article | lens | card-grid */
+  template: mysqlEnum("template", ["blank", "article", "lens", "card-grid"]).notNull().default("blank"),
+  /** Whether this page is published (visible to visitors) */
+  isPublished: boolean("isPublished").notNull().default(false),
+  /** Optional nav category to appear in */
+  navCategory: varchar("navCategory", { length: 64 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type StudioPage = typeof studioPages.$inferSelect;
+export type InsertStudioPage = typeof studioPages.$inferInsert;
