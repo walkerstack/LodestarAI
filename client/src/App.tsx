@@ -32,7 +32,7 @@ import LivingLexicon from "./pages/LivingLexicon";
 import Gallery from "./pages/Gallery";
 import Articles from "./pages/Articles";
 import SafetyPage from "./pages/SafetyPage";
-import Backstage from "./pages/Backstage";
+// Backstage retired — redirects to /studio
 import HumanLine from "./pages/HumanLine";
 import FieldPapers from "./pages/FieldPapers";
 import Builder from "./pages/Builder";
@@ -75,6 +75,7 @@ import Drift from "./pages/Drift";
 import BuildersKids from "./pages/BuildersKids";
 import Anthropomorphism from "./pages/Anthropomorphism";
 import Hallucinations from "./pages/Hallucinations";
+import Studio from "./pages/Studio";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -113,7 +114,8 @@ function Router() {
       <Route path="/human-line" component={HumanLine} />
       <Route path="/field-papers" component={FieldPapers} />
       {/* Builder & New Sections */}
-      <Route path="/backstage" component={Backstage} />
+      <Route path="/backstage">{() => { window.location.replace("/studio"); return null; }}</Route>
+      <Route path="/studio" component={Studio} />
       <Route path="/builder" component={Builder} />
       <Route path="/frameworks" component={Frameworks} />
       <Route path="/citizen-researcher" component={CitizenResearcher} />

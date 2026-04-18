@@ -12,6 +12,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import PromptPanel from "@/components/PromptPanel";
 import { lenses, foundationLinks, forYouLinks, toolsLinks, researchLinks, exploreLinks } from "@/lib/navData";
+import { useAuth } from "@/_core/hooks/useAuth";
 
 const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png";
 
@@ -79,6 +80,8 @@ export default function Nav() {
   const [hoveredTile, setHoveredTile] = useState<string | null>(null);
   const [location] = useLocation();
   const navRef = useRef<HTMLDivElement>(null);
+  const { user } = useAuth();
+  const isAdmin = user?.role === "admin";
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -486,6 +489,11 @@ export default function Nav() {
           <Link href="/for/child" className="no-underline flex items-center gap-1 hover:scale-110 transition-transform" title="Psst, hey kids!">
             <img src={BUFFALO_IMG} alt="Psst, hey kids!" className="w-7 h-7 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
           </Link>
+          {isAdmin && (
+            <Link href="/studio" className="no-underline" title="Studio">
+              <span style={{ fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#E8520A', fontFamily: "'DM Sans', sans-serif", padding: '0.2rem 0.5rem', border: '1px solid #E8520A44', borderRadius: '4px' }}>Studio</span>
+            </Link>
+          )}
         </nav>
 
         <button
@@ -581,6 +589,13 @@ export default function Nav() {
               <span className="text-sm font-bold text-sky-600">Psst, hey kids!</span>
             </Link>
           </div>
+          {isAdmin && (
+            <div className="border-t border-[#e8e0d0] pt-3 mt-1">
+              <Link href="/studio" onClick={closeAll} className="no-underline flex items-center gap-2 py-1">
+                <span style={{ fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>⚙ Studio</span>
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </header>

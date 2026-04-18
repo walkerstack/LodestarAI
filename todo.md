@@ -133,3 +133,20 @@
 
 - [ ] Professional tile in nav: fix to show all 6 professional lenses — currently goes directly to /for/prompt-engineer which is WRONG. Was promised last session, not delivered.
 - [ ] Desktop nav visual quality: user reports it looks the same as before all the nav work. Assess and make it feel genuinely premium and different.
+
+## April 18, 2026 — Studio (Owner CMS Dashboard)
+
+- [x] Studio: Build database schema — content_blocks table (page_slug, block_type, position, content JSON), media_library table (url, type, filename), page_links table (page_slug, label, destination, position)
+- [x] Studio: Build tRPC procedures — getPageList, getPageBlocks, updateBlock, createBlock, deleteBlock, getMedia, uploadMedia, getPageLinks, updateLink, mirrorBlock
+- [x] Studio: Build /studio route — owner-only (adminProcedure), page list view
+- [x] Studio: Build block editor — click page → see blocks listed → click block → edit text or swap image → save
+- [x] Studio: Build block creator — + Add Block → choose Text / Card / Doc → fill form → save to page
+- [x] Studio: Build upload library — drag/drop photos and docs → saves to S3 → appears in library → assign to page
+- [x] Studio: Build link rerouter — see all links on a page → click to edit destination → save
+- [x] Studio: Build block mirror — find block → Mirror → pick destination page → appears there
+- [x] Studio: Replace /backstage page with Studio redirect (password gallantry2026 retired, Hudson2021! used for owner auth)
+- [x] Studio: Add Studio link to nav — visible only when owner is logged in
+- [x] Studio: Write vitest tests for all Studio procedures — 15 tests passing
+- [x] Studio: Save checkpoint after each confirmed part
+- [x] Studio: Block drag-to-reorder — grab any block, drag up or down, drop to reposition on page
+- [x] Studio: Mobile-first design — all Studio screens must work on phone (large tap targets, readable text, easy forms). Desktop gets more space but nothing breaks.
