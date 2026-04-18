@@ -12,6 +12,8 @@ import { useState, useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 const codeLines = [
   { text: "/* BUILDER SYSTEM LOG */", type: "comment" },
@@ -690,6 +692,7 @@ export default function Malbolge() {
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
+      <LearningFlow current="Malbolge" deeper={flowMap.malbolge.deeper} wider={flowMap.malbolge.wider} simpler={flowMap.malbolge.simpler} dark />
 
         <Footer />
       </div>

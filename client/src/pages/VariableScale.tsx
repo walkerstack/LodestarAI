@@ -11,6 +11,8 @@ import { useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 export default function VariableScale() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -203,6 +205,7 @@ export default function VariableScale() {
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
+      <LearningFlow current="VariableScale" deeper={flowMap.variableScale.deeper} wider={flowMap.variableScale.wider} simpler={flowMap.variableScale.simpler} />
 
       <Footer />
     </div>

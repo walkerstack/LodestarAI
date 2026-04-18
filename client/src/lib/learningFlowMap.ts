@@ -533,4 +533,231 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "How to teach mathematical thinking to children" },
     ],
   },
+
+  builder: {
+    deeper: [
+      { label: "Field Papers", href: "/field-papers", description: "The formal research record behind the framework" },
+      { label: "Citizen Researcher", href: "/citizen-researcher", description: "The methodology the Builder used" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The linguistic discipline the Builder developed" },
+    ],
+    wider: [
+      { label: "Builder Origin", href: "/builder-origin", description: "Where this all started" },
+      { label: "Builder's Kids", href: "/builders-kids", description: "Why this was built" },
+      { label: "GallantryAI", href: "/gallantry-ai", description: "The thesis: AI is a thinking partner, not a shortcut" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "The foundation — start here" },
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "The same ideas without the builder frame" },
+    ],
+  },
+
+  builderOrigin: {
+    deeper: [
+      { label: "The Builder", href: "/builder", description: "The full builder story" },
+      { label: "Field Papers", href: "/field-papers", description: "The research that came from the origin" },
+    ],
+    wider: [
+      { label: "Builder's Kids", href: "/builders-kids", description: "Why it matters personally" },
+      { label: "GallantryAI", href: "/gallantry-ai", description: "What was built" },
+      { label: "Open Door", href: "/open-door", description: "The invitation to others" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "The simplest entry point" },
+    ],
+  },
+
+  citizenResearcher: {
+    deeper: [
+      { label: "Field Papers", href: "/field-papers", description: "The formal research record" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The discipline the methodology supports" },
+      { label: "Framework Families", href: "/frameworks", description: "The tools citizen researchers use" },
+    ],
+    wider: [
+      { label: "The Builder", href: "/builder", description: "The original citizen researcher" },
+      { label: "Research Hub", href: "/research-hub", description: "All the research in one place" },
+      { label: "Living Lexicon", href: "/lexicon", description: "The vocabulary of the field" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "The foundation of every session" },
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "Research without the formal frame" },
+    ],
+  },
+
+  gallery: {
+    deeper: [
+      { label: "Field Papers", href: "/field-papers", description: "The research behind the images" },
+      { label: "Citizen Researcher", href: "/citizen-researcher", description: "The methodology behind the documentation" },
+    ],
+    wider: [
+      { label: "Research Hub", href: "/research-hub", description: "All research in one place" },
+      { label: "Articles", href: "/articles", description: "Written documentation" },
+      { label: "The Builder", href: "/builder", description: "Who made this" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "Start here" },
+    ],
+  },
+
+  humanLine: {
+    deeper: [
+      { label: "Drift", href: "/drift", description: "What happens when the line blurs" },
+      { label: "Anthropomorphism", href: "/anthropomorphism", description: "Why humans draw the line in the wrong place" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "How language moves the line" },
+    ],
+    wider: [
+      { label: "The Five Rules", href: "/rules", description: "The rules that hold the line" },
+      { label: "User Governance", href: "/user-governance", description: "The human side of the line" },
+      { label: "Watcher Lens", href: "/for/watcher", description: "The observer who watches the line" },
+    ],
+    simpler: [
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "The same idea without the technical frame" },
+    ],
+  },
+
+  kidsLearn: {
+    deeper: [
+      { label: "Child Lens", href: "/for/child", description: "The full children's section" },
+      { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "For the adults teaching kids" },
+    ],
+    wider: [
+      { label: "The Five Rules", href: "/rules", description: "The rules kids learn first" },
+      { label: "Prompt Games", href: "/prompt-games", description: "Learning through play" },
+      { label: "Builder's Kids", href: "/builders-kids", description: "Why this was built for kids" },
+    ],
+    simpler: [
+      { label: "Child Lens", href: "/for/child", description: "The simplest entry point for kids" },
+    ],
+  },
+
+  malbolge: {
+    deeper: [
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The word mechanics that create boundaries" },
+      { label: "Framework Families", href: "/frameworks", description: "The governance frameworks that use geofencing" },
+      { label: "Road Protocol", href: "/road-protocol", description: "How to set the geofence before you start" },
+    ],
+    wider: [
+      { label: "Drift", href: "/drift", description: "What happens when the geofence fails" },
+      { label: "AI Family Taxonomy", href: "/taxonomy", description: "Which AIs respond to which boundaries" },
+      { label: "Living Lexicon", href: "/lexicon", description: "The vocabulary of boundary-setting" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "The simplest boundary system" },
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "Boundaries without the technical frame" },
+    ],
+  },
+
+  mathPrompting: {
+    deeper: [
+      { label: "ALCM", href: "/alcm", description: "The control model with mathematical underpinnings" },
+      { label: "Variable Scale", href: "/variable-scale", description: "Formalizing session variables" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The discipline that governs precision" },
+    ],
+    wider: [
+      { label: "Mathematician Lens", href: "/for/mathematician", description: "The full mathematical perspective" },
+      { label: "Framework Families", href: "/frameworks", description: "Mathematical frameworks in practice" },
+      { label: "Whelm Scale", href: "/whelm-scale", description: "Cognitive load as a variable" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "The foundation before the math" },
+      { label: "Prompt Games", href: "/prompt-games", description: "Practice without the formal frame" },
+    ],
+  },
+
+  playground: {
+    deeper: [
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The theory behind what you practice here" },
+      { label: "ALCM", href: "/alcm", description: "The model you are testing" },
+      { label: "Framework Families", href: "/frameworks", description: "The frameworks to experiment with" },
+    ],
+    wider: [
+      { label: "Prompt Games", href: "/prompt-games", description: "Structured play with prompts" },
+      { label: "Flower Presets", href: "/flower-presets", description: "Pre-built configurations to test" },
+      { label: "Living Lexicon", href: "/lexicon", description: "The vocabulary you are practicing" },
+    ],
+    simpler: [
+      { label: "Prompt Games", href: "/prompt-games", description: "Easier entry into practice" },
+      { label: "The Five Rules", href: "/rules", description: "The rules before the play" },
+    ],
+  },
+
+  safety: {
+    deeper: [
+      { label: "The Five Rules", href: "/rules", description: "The full safety framework" },
+      { label: "Road Protocol", href: "/road-protocol", description: "Setting safety before the session" },
+      { label: "Whelm Scale", href: "/whelm-scale", description: "Recognizing when you are overwhelmed" },
+    ],
+    wider: [
+      { label: "Flower Presets", href: "/flower-presets", description: "Pre-built safe configurations" },
+      { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "Keeping others safe" },
+      { label: "Child Lens", href: "/for/child", description: "Safety for young users" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "Start with Rule 1: Safety First" },
+    ],
+  },
+
+  scaffold: {
+    deeper: [
+      { label: "Framework Families", href: "/frameworks", description: "The tools at each level of the scaffold" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The language discipline at the ceiling" },
+      { label: "Citizen Researcher", href: "/citizen-researcher", description: "The ceiling level in practice" },
+    ],
+    wider: [
+      { label: "The Five Rules", href: "/rules", description: "The floor of the scaffold" },
+      { label: "Road Protocol", href: "/road-protocol", description: "Level two: pre-session intention" },
+      { label: "Drift", href: "/drift", description: "Level three: drift recognition" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "Start at the floor" },
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "The scaffold without the structure" },
+    ],
+  },
+
+  schoolBoard: {
+    deeper: [
+      { label: "Guardian & Teacher Lens", href: "/for/guardian-teacher", description: "The full educator perspective" },
+      { label: "EU AI Act", href: "/eu-ai-act", description: "The regulatory context for schools" },
+      { label: "Field Papers", href: "/field-papers", description: "The research behind the recommendations" },
+    ],
+    wider: [
+      { label: "Kids Learn", href: "/kids-learn", description: "What students need to know" },
+      { label: "The Five Rules", href: "/rules", description: "The foundation for any classroom" },
+      { label: "Prompt Games", href: "/prompt-games", description: "Classroom-ready activities" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "Start here for any school context" },
+    ],
+  },
+
+  articles: {
+    deeper: [
+      { label: "Field Papers", href: "/field-papers", description: "The formal research record" },
+      { label: "Citizen Researcher", href: "/citizen-researcher", description: "The methodology behind the writing" },
+    ],
+    wider: [
+      { label: "Research Hub", href: "/research-hub", description: "All research in one place" },
+      { label: "Gallery", href: "/gallery", description: "Visual documentation" },
+      { label: "The Builder", href: "/builder", description: "Who wrote this" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "The simplest starting point" },
+    ],
+  },
+
+  watcher: {
+    deeper: [
+      { label: "Drift", href: "/drift", description: "What the watcher is watching for" },
+      { label: "Anthropomorphism", href: "/anthropomorphism", description: "The trap the watcher guards against" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The discipline the watcher applies" },
+    ],
+    wider: [
+      { label: "The Five Rules", href: "/rules", description: "The rules the watcher enforces" },
+      { label: "Human Line", href: "/human-line", description: "The boundary the watcher holds" },
+      { label: "Cognitive Science Lens", href: "/for/cognitive-science", description: "The science behind the watcher" },
+    ],
+    simpler: [
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "The watcher without the formal frame" },
+      { label: "The Five Rules", href: "/rules", description: "Start here" },
+    ],
+  },
 };

@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect } from "react";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -255,6 +257,7 @@ export default function SchoolBoard() {
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
+      <LearningFlow current="SchoolBoard" deeper={flowMap.schoolBoard.deeper} wider={flowMap.schoolBoard.wider} simpler={flowMap.schoolBoard.simpler} />
 
       <Footer />
     </div>

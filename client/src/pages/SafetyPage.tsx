@@ -8,6 +8,8 @@ import { useState } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 const resources = [
   {
@@ -288,6 +290,7 @@ export default function SafetyPage() {
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
+      <LearningFlow current="Safety" deeper={flowMap.safety.deeper} wider={flowMap.safety.wider} simpler={flowMap.safety.simpler} dark />
 
       <Footer />
     </div>

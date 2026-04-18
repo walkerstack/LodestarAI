@@ -11,6 +11,8 @@ import { useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 export default function WhelmScale() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -201,6 +203,7 @@ export default function WhelmScale() {
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
+      <LearningFlow current="WhelmScale" deeper={flowMap.whelmScale.deeper} wider={flowMap.whelmScale.wider} simpler={flowMap.whelmScale.simpler} />
 
       <Footer />
     </div>

@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 export default function BuilderOrigin() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -378,6 +380,7 @@ export default function BuilderOrigin() {
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
+      <LearningFlow current="Builder Origin" deeper={flowMap.builderOrigin.deeper} wider={flowMap.builderOrigin.wider} simpler={flowMap.builderOrigin.simpler} />
 
         <Footer />
       </div>

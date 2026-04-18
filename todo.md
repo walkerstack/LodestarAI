@@ -202,3 +202,26 @@
 - [x] Studio: Site Map tab — interactive scaffold diagram (Floor → Ceiling + Research layer) with live status dots per page, click node to open block editor
 - [x] Studio: Status Board tab — workplace board view, all pages as cards with green/yellow/grey status dots based on block count and link health
 - [x] Studio: Fix duplicate getLoginUrl TypeScript error in Studio.tsx (was already resolved in prior session)
+
+## Full Content Ownership Build (April 18, 2026 — GO)
+- [ ] Step 1: Fix StudioBlockForm — card block gets color picker, background image URL, full link fields
+- [ ] Step 1: Fix StudioBlockForm — image block gets upload from Media Library or paste URL
+- [ ] Step 1: Fix StudioBlockForm — text block gets color picker for heading and body
+- [ ] Step 1: Fix StudioBlockForm — doc block gets icon picker and description field
+- [ ] Step 2: Migrate all hardcoded pages to database — every section becomes an editable block (structure + content)
+- [ ] Step 2: Nav reads from database — new pages auto-appear in correct nav section
+- [ ] Step 3: Build Page Builder tab — full page preview with click-to-edit overlays
+- [ ] Step 3: Page Builder — create new page from template (lens, rules, scaffold, etc.)
+- [ ] Step 3: Page Builder — assign new page to nav section on creation
+
+## Full Content Migration + Page Builder (April 18, 2026 — ACTIVE)
+- [ ] Phase 2: Run full content migration script — seed all 50+ pages with real blocks (text, card, image, doc)
+- [ ] Phase 3: Build Page Builder tab — full page preview with click-to-edit block overlays
+- [ ] Phase 3: Page Builder — New Page from template (lens, rules, scaffold, card-grid)
+- [ ] Phase 3: Page Builder — assign new page to nav section on creation
+- [ ] Phase 4: Make nav database-driven — new pages auto-appear in nav
+- [ ] Phase 5: Update SESSION-HANDOFF.md with full build state
+
+## LearningFlow Fix + Matrix Tab (April 18, 2026)
+- [x] Add LearningFlow to 16 missing pages: Articles, Builder, BuilderOrigin, CitizenResearcher, Gallery, HumanLine, KidsLearn, Malbolge, MathPrompting, Playground, SafetyPage, Scaffold, SchoolBoard, VariableScale, WhelmScale, WatcherLens
+- [ ] Add Learning & Growing Matrix tab to Studio — full control of deeper/wider/simpler links for every page

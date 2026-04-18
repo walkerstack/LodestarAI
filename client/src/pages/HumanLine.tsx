@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 const cases = [
   {
@@ -365,6 +367,7 @@ export default function HumanLine() {
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
+      <LearningFlow current="HumanLine" deeper={flowMap.humanLine.deeper} wider={flowMap.humanLine.wider} simpler={flowMap.humanLine.simpler} dark />
 
       <Footer />
     </div>

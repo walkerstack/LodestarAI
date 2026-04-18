@@ -10,6 +10,8 @@ import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect } from "react";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 const IMG = {
   governance: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/plaud-governance-framework_f15cccb0.jpg",
@@ -264,6 +266,7 @@ export default function CitizenResearcher() {
           </div>
         </div>
       </section>
+      <LearningFlow current="CitizenResearcher" deeper={flowMap.citizenResearcher.deeper} wider={flowMap.citizenResearcher.wider} simpler={flowMap.citizenResearcher.simpler} />
 
       <Footer />
     </div>

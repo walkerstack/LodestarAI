@@ -9,6 +9,8 @@ import { useState } from "react";
 import { Link } from "wouter";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 const BUFFALO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png";
 
@@ -391,6 +393,7 @@ export default function KidsLearn() {
           </p>
         </div>
       </section>
+      <LearningFlow current="KidsLearn" deeper={flowMap.kidsLearn.deeper} wider={flowMap.kidsLearn.wider} simpler={flowMap.kidsLearn.simpler} />
 
       <Footer />
     </div>

@@ -11,6 +11,8 @@ import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import { useEffect } from "react";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 const IMG = {
   brain: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/brand-brain-poster_a255dafa.png",
@@ -566,6 +568,7 @@ export default function Builder() {
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
+      <LearningFlow current="Builder" deeper={flowMap.builder.deeper} wider={flowMap.builder.wider} simpler={flowMap.builder.simpler} />
 
       <Footer />
     </div>

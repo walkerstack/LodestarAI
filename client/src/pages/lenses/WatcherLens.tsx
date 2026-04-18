@@ -11,6 +11,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/watcher-lens-hero-FxDxdhm4nGhCYBznxJ2MbV.webp";
 const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png";
@@ -500,6 +502,7 @@ export default function WatcherLens() {
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
+      <LearningFlow current="Watcher Lens" deeper={flowMap.watcher.deeper} wider={flowMap.watcher.wider} simpler={flowMap.watcher.simpler} dark />
 
       <Footer />
     </div>

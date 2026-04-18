@@ -11,6 +11,8 @@ import { useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 const audiences = [
   {
@@ -214,6 +216,7 @@ export default function Playground() {
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
+      <LearningFlow current="Playground" deeper={flowMap.playground.deeper} wider={flowMap.playground.wider} simpler={flowMap.playground.simpler} />
 
         <Footer />
       </div>

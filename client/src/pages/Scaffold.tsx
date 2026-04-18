@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import KidsMidLink from "@/components/KidsMidLink";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -253,6 +255,7 @@ export default function Scaffold() {
           </div>
         </section>
       </main>
+      <LearningFlow current="Scaffold" deeper={flowMap.scaffold.deeper} wider={flowMap.scaffold.wider} simpler={flowMap.scaffold.simpler} />
 
       <Footer />
     </div>
