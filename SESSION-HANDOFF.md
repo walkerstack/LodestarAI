@@ -716,3 +716,54 @@ Matthew spent a full day watching the AI fail to hold simple constraints while s
 - Do not say done until Matthew has seen it in the browser and confirmed it.
 - Do not build without explicit go from Matthew.
 - Close-out protocol: builder log + What the AI Said + SESSION-HANDOFF.md append + SESSION-CURRENT.md rewrite + checkpoint.
+
+---
+
+## Session Summary — April 18, 2026 (Late Session — Studio Build + Migration Plan)
+
+**Version at close:** v39 + Studio
+**Checkpoint:** 87cdd376
+
+**What was built:**
+
+Studio — a private owner-only content dashboard at /studio, protected by Manus login (admin role). Three tabs verified in browser: Pages & Blocks, Media Library, Link Manager. Block editor with create, edit, delete, mirror, and drag-to-reorder working. 16 tests passing. /backstage redirected to /studio. Old password (gallantry2026) retired. Studio nav link visible only to admin.
+
+**What Studio can do right now:**
+Add new blocks (text, card, doc/link, image) to any page. Edit and delete blocks created in Studio. Upload photos and docs to media library. View and reroute page links. Mirror blocks across pages. Drag blocks to reorder.
+
+**What Studio cannot do yet:**
+Edit existing hardcoded content on pages. That requires the content migration build.
+
+**What was researched:**
+
+Full site content migration plan. 63 pages, 30,213 lines of code. 42 data array pages (migration via script), 21 inline JSX pages (deliberate block definition). Additive approach confirmed — original code files stay intact throughout. No blank pages possible. Plan document: gallantryai-migration-plan.md.
+
+Research finding: the approach was already known. Research confirmed it was sound. Matthew asked directly whether the research actually helped. Honest answer given: partially. Audit of the actual files was more useful than anything found online.
+
+**Matthew's direction confirmed:**
+
+Whole site editable. Not page by page as a limitation — page by page only as a sequencing choice for safety. Migration is additive. Ready to build when Matthew says go.
+
+**Session pattern alignment (logged at Matthew's request):**
+
+Drifted twice. Used "today" to mean "not now" when Matthew hadn't said that. Over-framed migration risks in a way that made the work sound harder than it is. Matthew caught both immediately. Pattern to hold: strip to what was actually asked. Do not project hesitation. Do not add conditions Matthew did not put there.
+
+**Studio password:** Hudson2021! — held in SESSION-CURRENT.md only. Not in code.
+
+**Build plan updated — Build 4 added:**
+
+Build 4 — Full Site Content Migration: Run migration script for 42 data array pages. Manually define blocks for 21 inline JSX pages. All existing page content becomes editable in Studio. Plan document: gallantryai-migration-plan.md.
+
+**Next:** Tiny talk, then Build 4.
+
+**Standing rules reminder:**
+- Talk before build. Always. No exceptions.
+- Nothing removed from SESSION-HANDOFF.md. Ever.
+- Ghost code on every file touched.
+- navData.ts is the only place to edit nav links. Nav.tsx and Footer.tsx together.
+- Ozzy + Wall + Monster stay together.
+- Three Voices — not Three Lenses anywhere visible.
+- Do not say done until Matthew has seen it in the browser and confirmed it.
+- Do not build without explicit go from Matthew.
+- Mobile-first. Matthew works from phone and desktop.
+- Close-out protocol: builder log + What the AI Said + SESSION-HANDOFF.md append + SESSION-CURRENT.md rewrite + checkpoint.
