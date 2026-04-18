@@ -138,20 +138,30 @@ export type InsertStudioPage = typeof studioPages.$inferInsert;
 /**
  * learning_flow — stores the deeper/wider/simpler connections for each page.
  * Replaces the hardcoded learningFlowMap.ts so the owner can edit from Studio.
- * One row per page slug. Null means no connection set for that direction.
+ */
+/**
+ * One row per page slug.
+ * Each direction stores a JSON array of FlowLink objects:
+ * [{ label: string, href: string, description: string }]
  */
 export const learningFlow = mysqlTable("learning_flow", {
   id: int("id").autoincrement().primaryKey(),
   /** The page slug this row belongs to, e.g. 'rules' */
   pageSlug: varchar("pageSlug", { length: 128 }).notNull().unique(),
-  /** Slug of the "Go Deeper" page — harder/more detailed */
-  deeperSlug: varchar("deeperSlug", { length: 128 }),
-  /** Slug of the "Go Wider" page — related sideways connection */
-  widerSlug: varchar("widerSlug", { length: 128 }),
-  /** Slug of the "Go Simpler" page — easier starting point */
-  simplerSlug: varchar("simplerSlug", { length: 128 }),
+  /** JSON array of Go Deeper links */
+  deeperLinks: text("deeperLinks"),
+  /** JSON array of Go Wider links */
+  widerLinks: text("widerLinks"),
+  /** JSON array of Go Simpler links */
+  simplerLinks: text("simplerLinks"),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });
+
+export interface FlowLink {
+  label: string;
+  href: string;
+  description: string;
+}
 
 export type LearningFlowRow = typeof learningFlow.$inferSelect;
 export type InsertLearningFlowRow = typeof learningFlow.$inferInsert;

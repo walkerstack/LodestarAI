@@ -231,3 +231,10 @@
 - [x] Phase 3: Page Builder — New Page from template, assign to nav section on creation
 - [x] Phase 4: Seed Link Manager — 186 links across 43 pages seeded into page_links table
 - [x] Phase 5: Nav database-driven — new pages auto-appear in correct nav section
+
+## Learning Matrix Multi-Card Fix + Page Builder Copy (April 18, 2026)
+- [x] Fix Learning Matrix — rebuild DB schema to support multiple cards per section (deeperLinks, widerLinks, simplerLinks as JSON arrays)
+- [x] Fix Learning Matrix — re-seed all 57 pages with full multi-card data from original flowMap
+- [x] Fix Learning Matrix — rebuild Studio tab to show/add/remove multiple cards per section
+- [x] Fix Learning Matrix — update tRPC procedures and studioDb helpers for JSON array columns
+- [x] Add copy-existing-page-as-template to Page Builder — searchable list of all 57 pages, copies all blocks to new page

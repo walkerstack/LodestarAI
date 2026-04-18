@@ -21,6 +21,7 @@ import { toast } from "sonner";
 import StudioPageEditor from "./StudioPageEditor";
 
 type Template = "blank" | "article" | "lens" | "card-grid";
+type NewMode = "template" | "copy";
 
 interface StudioPage {
   id: number;
@@ -68,6 +69,67 @@ const TEMPLATES: { id: Template; label: string; desc: string; icon: string }[] =
   },
 ];
 
+// All 57 site pages available as copy sources
+const ALL_PAGES: { slug: string; label: string }[] = [
+  { slug: "home", label: "Home" },
+  { slug: "rules", label: "Five Rules" },
+  { slug: "road-protocol", label: "Road Protocol" },
+  { slug: "promptolinguistics", label: "Promptolinguistics" },
+  { slug: "alcm", label: "ALCM" },
+  { slug: "lexicon", label: "Living Lexicon" },
+  { slug: "field-papers", label: "Field Papers" },
+  { slug: "citizen-researcher", label: "Citizen Researcher" },
+  { slug: "research-hub", label: "Research Hub" },
+  { slug: "builder", label: "Builder" },
+  { slug: "builder-origin", label: "Builder Origin" },
+  { slug: "builders-kids", label: "Builder's Kids" },
+  { slug: "frameworks", label: "Framework Families" },
+  { slug: "taxonomy", label: "AI Family Taxonomy" },
+  { slug: "malbolge", label: "Malbolge Geofence" },
+  { slug: "playground", label: "Promptology Playground" },
+  { slug: "prompt-games", label: "Prompt Games" },
+  { slug: "flower-presets", label: "Flower Presets" },
+  { slug: "human-line", label: "Human Line" },
+  { slug: "drift", label: "Drift" },
+  { slug: "anthropomorphism", label: "Anthropomorphism" },
+  { slug: "hallucinations", label: "Hallucinations" },
+  { slug: "scaffold", label: "Scaffold" },
+  { slug: "three-voices", label: "Three Voices" },
+  { slug: "whelm-scale", label: "Whelm Scale" },
+  { slug: "variable-scale", label: "Variable Scale" },
+  { slug: "math-prompting", label: "Math Prompting" },
+  { slug: "user-governance", label: "User Governance" },
+  { slug: "dual-strategy", label: "Dual Strategy" },
+  { slug: "gallantry-ai", label: "GallantryAI Page" },
+  { slug: "eu-ai-act", label: "EU AI Act" },
+  { slug: "what-claude-admitted", label: "What Claude Admitted" },
+  { slug: "what-the-ai-said", label: "What the AI Said" },
+  { slug: "open-door", label: "Open Door" },
+  { slug: "counter-arguments", label: "Counter Arguments" },
+  { slug: "screenshot-sharing", label: "Screenshot Sharing" },
+  { slug: "field-report-review", label: "Field Report Review" },
+  { slug: "gallery", label: "Gallery" },
+  { slug: "articles", label: "Articles" },
+  { slug: "safety", label: "Safety Page" },
+  { slug: "school-board", label: "School Board" },
+  { slug: "kids-learn", label: "Kids Learn" },
+  { slug: "prompts", label: "Prompt Library" },
+  { slug: "for-child", label: "Child Lens" },
+  { slug: "for-child-rules", label: "Child: Five Rules" },
+  { slug: "for-child-patterns", label: "Child: Patterns" },
+  { slug: "for-child-prompts", label: "Child: Prompts" },
+  { slug: "for-teenager", label: "Teenager Lens" },
+  { slug: "for-everyday", label: "Everyday Person Lens" },
+  { slug: "for-guardian-teacher", label: "Guardian/Teacher Lens" },
+  { slug: "for-prompt-engineer", label: "Prompt Engineer Lens" },
+  { slug: "for-linguist", label: "Linguist Lens" },
+  { slug: "for-mathematician", label: "Mathematician Lens" },
+  { slug: "for-cognitive-science", label: "Cognitive Science Lens" },
+  { slug: "for-psychology", label: "Psychology Lens" },
+  { slug: "for-researcher", label: "Researcher Lens" },
+  { slug: "for-watcher", label: "Watcher Lens" },
+];
+
 const inputStyle: React.CSSProperties = {
   background: "#0d0b08",
   border: "1px solid #2a2218",
@@ -98,6 +160,9 @@ export default function StudioPageBuilder() {
   const [newSlug, setNewSlug] = useState("");
   const [newTemplate, setNewTemplate] = useState<Template>("blank");
   const [newNavCategory, setNewNavCategory] = useState("");
+  const [newMode, setNewMode] = useState<NewMode>("template");
+  const [copySourceSlug, setCopySourceSlug] = useState("");
+  const [copySearch, setCopySearch] = useState("");
 
   const { data: pages, isLoading } = trpc.studio.getStudioPages.useQuery();
 
@@ -113,6 +178,24 @@ export default function StudioPageBuilder() {
       setNewSlug("");
       setNewTemplate("blank");
       setNewNavCategory("");
+    },
+    onError: (e) => toast.error(`Failed: ${e.message}`),
+  });
+
+  const copyMutation = trpc.studio.copyPageAsTemplate.useMutation({
+    onSuccess: () => {
+      utils.studio.getStudioPages.invalidate();
+      toast.success("Page copied");
+      const path = `/${newSlug}`;
+      setEditingPage({ slug: newSlug, label: newLabel, path });
+      setMode("list");
+      setNewLabel("");
+      setNewSlug("");
+      setNewTemplate("blank");
+      setNewNavCategory("");
+      setCopySourceSlug("");
+      setCopySearch("");
+      setNewMode("template");
     },
     onError: (e) => toast.error(`Failed: ${e.message}`),
   });
@@ -150,14 +233,29 @@ export default function StudioPageBuilder() {
       toast.error("Title and URL are required");
       return;
     }
-    createMutation.mutate({
-      slug: newSlug,
-      label: newLabel,
-      path: `/${newSlug}`,
-      template: newTemplate,
-      navCategory: newNavCategory || undefined,
-      isPublished: false,
-    });
+    if (newMode === "copy") {
+      if (!copySourceSlug) {
+        toast.error("Please select a page to copy from");
+        return;
+      }
+      copyMutation.mutate({
+        sourceSlug: copySourceSlug,
+        slug: newSlug,
+        label: newLabel,
+        path: `/${newSlug}`,
+        navCategory: newNavCategory || undefined,
+        isPublished: false,
+      });
+    } else {
+      createMutation.mutate({
+        slug: newSlug,
+        label: newLabel,
+        path: `/${newSlug}`,
+        template: newTemplate,
+        navCategory: newNavCategory || undefined,
+        isPublished: false,
+      });
+    }
   }
 
   // If editing a page, show the block editor
@@ -385,7 +483,46 @@ export default function StudioPageBuilder() {
       {/* ── NEW PAGE ── */}
       {mode === "new" && (
         <form onSubmit={handleCreate}>
+          {/* Mode toggle: Start from scratch vs Copy existing */}
+          <div style={{ display: "flex", gap: "0.5rem", marginBottom: "1.5rem" }}>
+            <button
+              type="button"
+              onClick={() => setNewMode("template")}
+              style={{
+                flex: 1,
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "0.875rem",
+                padding: "0.65rem 1rem",
+                borderRadius: "6px",
+                border: newMode === "template" ? "1px solid #E8520A" : "1px solid #2a2218",
+                background: newMode === "template" ? "#1a0e06" : "transparent",
+                color: newMode === "template" ? "#E8520A" : "#8a7a6a",
+                cursor: "pointer",
+              }}
+            >
+              Start from template
+            </button>
+            <button
+              type="button"
+              onClick={() => setNewMode("copy")}
+              style={{
+                flex: 1,
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "0.875rem",
+                padding: "0.65rem 1rem",
+                borderRadius: "6px",
+                border: newMode === "copy" ? "1px solid #E8520A" : "1px solid #2a2218",
+                background: newMode === "copy" ? "#1a0e06" : "transparent",
+                color: newMode === "copy" ? "#E8520A" : "#8a7a6a",
+                cursor: "pointer",
+              }}
+            >
+              Copy existing page
+            </button>
+          </div>
+
           {/* Template picker */}
+          {newMode === "template" && (
           <div style={{ marginBottom: "1.75rem" }}>
             <label style={{ ...labelStyle, marginBottom: "0.75rem" }}>Choose a template</label>
             <div
@@ -443,6 +580,49 @@ export default function StudioPageBuilder() {
               ))}
             </div>
           </div>
+          )}
+
+          {/* Copy from existing page picker */}
+          {newMode === "copy" && (
+          <div style={{ marginBottom: "1.75rem" }}>
+            <label style={{ ...labelStyle, marginBottom: "0.75rem" }}>Search and pick a page to copy</label>
+            <input
+              type="text"
+              placeholder="Search pages..."
+              value={copySearch}
+              onChange={(e) => setCopySearch(e.target.value)}
+              style={{ ...inputStyle, marginBottom: "0.75rem" }}
+            />
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", maxHeight: "240px", overflowY: "auto" }}>
+              {ALL_PAGES
+                .filter(p => !copySearch.trim() || p.label.toLowerCase().includes(copySearch.toLowerCase()) || p.slug.includes(copySearch.toLowerCase()))
+                .map(p => (
+                  <button
+                    key={p.slug}
+                    type="button"
+                    onClick={() => setCopySourceSlug(p.slug)}
+                    style={{
+                      background: copySourceSlug === p.slug ? "#1a0e06" : "#130f0a",
+                      border: `1px solid ${copySourceSlug === p.slug ? "#E8520A" : "#2a2218"}`,
+                      borderRadius: "6px",
+                      padding: "0.6rem 0.85rem",
+                      textAlign: "left",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", color: copySourceSlug === p.slug ? "#E8520A" : "#c8b89a", fontWeight: 500 }}>{p.label}</div>
+                    <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", color: "#5a4a3a" }}>/{p.slug}</div>
+                  </button>
+                ))
+              }
+            </div>
+            {copySourceSlug && (
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", color: "#E8520A", marginTop: "0.5rem" }}>
+                ✓ Will copy all blocks from: {ALL_PAGES.find(p => p.slug === copySourceSlug)?.label}
+              </p>
+            )}
+          </div>
+          )}
 
           {/* Page title */}
           <div style={{ marginBottom: "1.25rem" }}>

@@ -29,6 +29,20 @@
       "when": 1776545236259,
       "tag": "0003_organic_the_watchers",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1776547537757,
+      "tag": "0004_fluffy_crystal",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1776548676309,
+      "tag": "0005_pale_masque",
+      "breakpoints": true
     }
   ]
 }

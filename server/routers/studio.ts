@@ -30,7 +30,11 @@ import {
   updateStudioPage,
   deleteStudioPage,
   getAllLearningFlow,
+  getLearningFlowBySlug,
   upsertLearningFlow,
+  parseLearningFlowRow,
+  copyBlocksToNewPage,
+  type FlowLinkInput,
 } from "../studioDb";
 import { storagePut } from "../storage";
 
@@ -374,27 +378,68 @@ export const studioRouter = router({
       await deleteStudioPage(input.id);
       return { success: true };
     }),
+  copyPageAsTemplate: adminProcedure
+    .input(
+      z.object({
+        sourceSlug: z.string().min(1).max(128),
+        slug: z.string().min(1).max(128),
+        label: z.string().min(1).max(255),
+        path: z.string().min(1).max(255),
+        navCategory: z.string().max(64).optional(),
+        isPublished: z.boolean().default(false),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const { sourceSlug, ...pageData } = input;
+      await createStudioPage({ ...pageData, template: "blank" });
+      const copied = await copyBlocksToNewPage(sourceSlug, pageData.slug);
+      return { success: true, blocksCopied: copied };
+    }),
 
   // ─────────────────────────────────────────────
   // LEARNING FLOW
   // ─────────────────────────────────────────────
 
   getLearningFlow: adminProcedure.query(async () => {
-    return getAllLearningFlow();
+    const rows = await getAllLearningFlow();
+    return rows.map(row => ({
+      pageSlug: row.pageSlug,
+      ...parseLearningFlowRow(row),
+    }));
   }),
+
+  getLearningFlowForPage: publicProcedure
+    .input(z.object({ pageSlug: z.string().min(1).max(128) }))
+    .query(async ({ input }) => {
+      const row = await getLearningFlowBySlug(input.pageSlug);
+      if (!row) return { deeper: [], wider: [], simpler: [] };
+      return parseLearningFlowRow(row);
+    }),
 
   upsertLearningFlow: adminProcedure
     .input(
       z.object({
         pageSlug: z.string().min(1).max(128),
-        deeperSlug: z.string().max(128).nullable().optional(),
-        widerSlug: z.string().max(128).nullable().optional(),
-        simplerSlug: z.string().max(128).nullable().optional(),
+        deeperLinks: z.array(z.object({
+          label: z.string(),
+          href: z.string(),
+          description: z.string(),
+        })).optional(),
+        widerLinks: z.array(z.object({
+          label: z.string(),
+          href: z.string(),
+          description: z.string(),
+        })).optional(),
+        simplerLinks: z.array(z.object({
+          label: z.string(),
+          href: z.string(),
+          description: z.string(),
+        })).optional(),
       })
     )
     .mutation(async ({ input }) => {
       const { pageSlug, ...data } = input;
-      await upsertLearningFlow(pageSlug, data);
+      await upsertLearningFlow(pageSlug, data as { deeperLinks?: FlowLinkInput[]; widerLinks?: FlowLinkInput[]; simplerLinks?: FlowLinkInput[] });
       return { success: true };
     }),
 });

@@ -213,6 +213,32 @@ export async function deleteStudioPage(id: number) {
   await db.delete(studioPages).where(eq(studioPages.id, id));
 }
 
+/**
+ * Copy all content blocks from a source page slug to a new target page slug.
+ * Preserves block type, content, and position order.
+ * Returns the number of blocks copied.
+ */
+export async function copyBlocksToNewPage(sourceSlug: string, targetSlug: string): Promise<number> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const sourceBlocks = await db
+    .select()
+    .from(contentBlocks)
+    .where(eq(contentBlocks.pageSlug, sourceSlug))
+    .orderBy(asc(contentBlocks.position));
+  if (sourceBlocks.length === 0) return 0;
+  const newBlocks = sourceBlocks.map((b, i) => ({
+    pageSlug: targetSlug,
+    blockType: b.blockType,
+    position: i,
+    content: b.content,
+    isMirror: false,
+    mirrorSourceId: null,
+  }));
+  await db.insert(contentBlocks).values(newBlocks);
+  return newBlocks.length;
+}
+
 // ─────────────────────────────────────────────
 // LEARNING FLOW
 // ─────────────────────────────────────────────
@@ -233,20 +259,38 @@ export async function getLearningFlowBySlug(pageSlug: string) {
   return rows[0] ?? null;
 }
 
+export interface FlowLinkInput {
+  label: string;
+  href: string;
+  description: string;
+}
+
 export async function upsertLearningFlow(
   pageSlug: string,
-  data: { deeperSlug?: string | null; widerSlug?: string | null; simplerSlug?: string | null }
+  data: { deeperLinks?: FlowLinkInput[]; widerLinks?: FlowLinkInput[]; simplerLinks?: FlowLinkInput[] }
 ) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
-  // Try update first, then insert
+  const serialized = {
+    ...(data.deeperLinks !== undefined ? { deeperLinks: JSON.stringify(data.deeperLinks) } : {}),
+    ...(data.widerLinks !== undefined ? { widerLinks: JSON.stringify(data.widerLinks) } : {}),
+    ...(data.simplerLinks !== undefined ? { simplerLinks: JSON.stringify(data.simplerLinks) } : {}),
+  };
   const existing = await getLearningFlowBySlug(pageSlug);
   if (existing) {
     await db
       .update(learningFlow)
-      .set(data)
+      .set(serialized)
       .where(eq(learningFlow.pageSlug, pageSlug));
   } else {
-    await db.insert(learningFlow).values({ pageSlug, ...data });
+    await db.insert(learningFlow).values({ pageSlug, ...serialized });
   }
+}
+
+export function parseLearningFlowRow(row: { deeperLinks: string | null; widerLinks: string | null; simplerLinks: string | null }) {
+  return {
+    deeper: row.deeperLinks ? (JSON.parse(row.deeperLinks) as FlowLinkInput[]) : [],
+    wider: row.widerLinks ? (JSON.parse(row.widerLinks) as FlowLinkInput[]) : [],
+    simpler: row.simplerLinks ? (JSON.parse(row.simplerLinks) as FlowLinkInput[]) : [],
+  };
 }
