@@ -99,6 +99,17 @@ export const studioRouter = router({
       if (input.password !== ENV.studioPassword) {
         throw new TRPCError({ code: "UNAUTHORIZED", message: "Wrong password" });
       }
+      // Ensure owner exists in the users table so authenticateRequest can find them
+      // Without this, the cookie is valid but the DB lookup fails on the next request
+      const { upsertUser } = await import("../db");
+      await upsertUser({
+        openId: ENV.ownerOpenId,
+        name: ENV.ownerName,
+        email: null,
+        loginMethod: "studio_password",
+        lastSignedIn: new Date(),
+        role: "admin",
+      });
       // Use the SDK to create a proper session token for the owner
       // This sets the standard app_session_id cookie the auth system already reads
       const { sdk } = await import("../_core/sdk");
