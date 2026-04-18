@@ -612,13 +612,11 @@ export default function Nav() {
               <span className="text-sm font-bold text-sky-600">Psst, hey kids!</span>
             </Link>
           </div>
-          {isAdmin && (
-            <div className="border-t border-[#e8e0d0] pt-3 mt-1">
-              <Link href="/studio" onClick={closeAll} className="no-underline flex items-center gap-2 py-1">
-                <span style={{ fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>⚙ Studio</span>
-              </Link>
-            </div>
-          )}
+          <div className="border-t border-[#e8e0d0] pt-3 mt-1">
+            <Link href="/studio" onClick={closeAll} className="no-underline flex items-center gap-2 py-1">
+              <span style={{ fontSize: '0.75rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>⚙ Studio</span>
+            </Link>
+          </div>
         </div>
       )}
     </header>
