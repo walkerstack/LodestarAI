@@ -174,3 +174,8 @@
 - [ ] Page Template Builder: UI in Studio to pick a template and create a new page
 - [ ] Page Template Builder: Templates — blank, article, lens, card grid
 - [ ] Page Template Builder: New page appears in site nav and is immediately accessible
+
+## Studio Access Fix (April 18, 2026)
+- [x] Studio: Add password login screen — works on mobile without Manus OAuth (password: Hudson2021!)
+- [ ] Studio: Verify password login works on live site after publish (test on mobile Chrome)
+- [ ] Studio: Add logout button inside Studio so owner can sign out from mobile
