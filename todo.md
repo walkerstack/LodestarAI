@@ -179,3 +179,19 @@
 - [x] Studio: Add password login screen — works on mobile without Manus OAuth (password: Hudson2021!)
 - [ ] Studio: Verify password login works on live site after publish (test on mobile Chrome)
 - [ ] Studio: Add logout button inside Studio so owner can sign out from mobile
+
+## Studio Block Display Fix (April 18, 2026)
+- [ ] Studio: Show ALL block types (text, card, doc, image) in page editor — not just text blocks
+- [ ] Studio: Block list rows show meaningful preview text for each block type (title for cards, filename for images, excerpt for text)
+- [ ] Studio: Define and document the full block schema for all 45+ pages
+
+## Link Manager Fix (April 18, 2026)
+- [ ] Link Manager: Build server-side page link scanner — fetch rendered page HTML, extract all anchor tags with label and destination
+- [ ] Link Manager: Update UI to show scanned links in a list with colour-coded destination categories
+- [ ] Link Manager: Add visual indicator showing which internal pages each link points to
+- [ ] Link Manager: Distinguish editable (DB-stored) links from read-only (hardcoded) links
+
+## Studio New Tabs (April 18, 2026)
+- [x] Studio: Site Map tab — interactive scaffold diagram (Floor → Ceiling + Research layer) with live status dots per page, click node to open block editor
+- [x] Studio: Status Board tab — workplace board view, all pages as cards with green/yellow/grey status dots based on block count and link health
+- [x] Studio: Fix duplicate getLoginUrl TypeScript error in Studio.tsx (was already resolved in prior session)

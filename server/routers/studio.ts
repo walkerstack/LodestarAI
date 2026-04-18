@@ -6,6 +6,9 @@
 import { z } from "zod";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
+import { sql } from "drizzle-orm";
+import { getDb } from "../db";
+import { contentBlocks } from "../../drizzle/schema";
 import {
   getBlocksByPage,
   getAllPageSlugs,
@@ -134,6 +137,23 @@ export const studioRouter = router({
   // ── PAGE LIST ──────────────────────────────
   getPageList: adminProcedure.query(async () => {
     return SITE_PAGES;
+  }),
+
+  // ── PAGE STATUS (block counts for Site Map + Status Board) ────────────────
+  getPageStatus: adminProcedure.query(async () => {
+    const db = await getDb();
+    if (!db) return SITE_PAGES.map(p => ({ ...p, blockCount: 0, status: 'grey' as const }));
+    const rows = await db
+      .select({ pageSlug: contentBlocks.pageSlug, count: sql<number>`count(*)` })
+      .from(contentBlocks)
+      .groupBy(contentBlocks.pageSlug);
+    const countMap = new Map(rows.map(r => [r.pageSlug, Number(r.count)]));
+    return SITE_PAGES.map(p => {
+      const blockCount = countMap.get(p.slug) ?? 0;
+      const status: 'green' | 'yellow' | 'grey' =
+        blockCount >= 3 ? 'green' : blockCount > 0 ? 'yellow' : 'grey';
+      return { ...p, blockCount, status };
+    });
   }),
 
   // ── CONTENT BLOCKS ────────────────────────

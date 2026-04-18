@@ -13,10 +13,10 @@ import Footer from "@/components/Footer";
 import StudioPageEditor from "@/components/studio/StudioPageEditor";
 import StudioMediaLibrary from "@/components/studio/StudioMediaLibrary";
 import StudioLinkManager from "@/components/studio/StudioLinkManager";
+import StudioSiteMap from "@/components/studio/StudioSiteMap";
+import StudioStatusBoard from "@/components/studio/StudioStatusBoard";
 
-type StudioTab = "pages" | "media" | "links";
-
-// Build: 2026-04-18T18:00 — password login fix v2
+type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard";
 
 // ── Password Login Screen ────────────────────────────────────────────────────
 function StudioLoginForm() {
@@ -26,7 +26,7 @@ function StudioLoginForm() {
 
   const loginMutation = trpc.studio.studioLogin.useMutation({
     onSuccess: () => {
-      // Reload the page — the studio_session cookie is now set
+      // Reload the page — the session cookie is now set
       window.location.reload();
     },
     onError: () => {
@@ -185,11 +185,19 @@ export default function Studio() {
     return <StudioLoginForm />;
   }
 
+  // ── Handle page selection from Site Map or Status Board ──────────────────
+  function handleSelectPageFromMap(page: { slug: string; label: string; path: string }) {
+    setSelectedPage(page);
+    setActiveTab("pages");
+  }
+
   // ── Tabs ─────────────────────────────────────────────────────────────────
   const tabs: { id: StudioTab; label: string }[] = [
     { id: "pages", label: "Pages & Blocks" },
     { id: "media", label: "Media Library" },
     { id: "links", label: "Link Manager" },
+    { id: "sitemap", label: "Site Map" },
+    { id: "statusboard", label: "Status Board" },
   ];
 
   return (
@@ -278,6 +286,8 @@ export default function Studio() {
       {/* Content */}
       <div className="flex-1 w-full px-6 py-8">
         <div className="max-w-5xl mx-auto">
+
+          {/* ── Pages & Blocks ── */}
           {activeTab === "pages" && !selectedPage && (
             <div>
               <p
@@ -341,11 +351,48 @@ export default function Studio() {
             />
           )}
 
+          {/* ── Media Library ── */}
           {activeTab === "media" && <StudioMediaLibrary />}
 
+          {/* ── Link Manager ── */}
           {activeTab === "links" && (
             <StudioLinkManager pages={pageList ?? []} />
           )}
+
+          {/* ── Site Map ── */}
+          {activeTab === "sitemap" && (
+            <div>
+              <p
+                style={{
+                  color: "#8a7a6a",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "0.875rem",
+                  marginBottom: "1.5rem",
+                }}
+              >
+                Click any page node to open its block editor.
+              </p>
+              <StudioSiteMap onSelectPage={handleSelectPageFromMap} />
+            </div>
+          )}
+
+          {/* ── Status Board ── */}
+          {activeTab === "statusboard" && (
+            <div>
+              <p
+                style={{
+                  color: "#8a7a6a",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "0.875rem",
+                  marginBottom: "1.5rem",
+                }}
+              >
+                All pages at a glance. Filter by status. Click any card to edit.
+              </p>
+              <StudioStatusBoard onSelectPage={handleSelectPageFromMap} />
+            </div>
+          )}
+
         </div>
       </div>
 
