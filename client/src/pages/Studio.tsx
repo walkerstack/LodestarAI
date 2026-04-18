@@ -16,6 +16,8 @@ import StudioLinkManager from "@/components/studio/StudioLinkManager";
 
 type StudioTab = "pages" | "media" | "links";
 
+// Build: 2026-04-18T18:00 — password login fix v2
+
 // ── Password Login Screen ────────────────────────────────────────────────────
 function StudioLoginForm() {
   const [password, setPassword] = useState("");
