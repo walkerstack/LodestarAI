@@ -635,7 +635,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
+      {/* ── BUILDER'S SCENE — Sloth + Lantern + Buffalo ── */}
+      <section className="w-full py-12 px-6" style={{ background: '#080604' }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            {/* Image — links to Builder page */}
+            <Link
+              href="/builder"
+              className="no-underline block flex-shrink-0 w-full md:w-[55%] rounded-2xl overflow-hidden group"
+              style={{ boxShadow: '0 4px 32px rgba(232,82,10,0.12)' }}
+            >
+              <img
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663536092940/gPlPNEshCyzXZqNN.jpg"
+                alt="The sloth holds the lantern. The buffalo is home."
+                className="w-full object-cover transition-all duration-300 group-hover:brightness-110"
+                style={{ maxHeight: '320px', objectPosition: 'center 40%' }}
+              />
+            </Link>
+            {/* Description */}
+            <div className="flex-1">
+              <p className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>THE BUILDER'S SCENE</p>
+              <h3
+                className="text-xl md:text-2xl font-bold mb-3 italic"
+                style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}
+              >
+                The sloth holds the lantern. The buffalo is home.
+              </h3>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: '#b0a090', fontFamily: "'DM Sans', sans-serif" }}>
+                This image was made on April 17, 2026. The sloth is on the rock. The wig is beside it. The buffalo is free in the distance. The poems behind this image were written on February 28 — the same day as the origin document. The Builder kept building.
+              </p>
+              <Link
+                href="/builder"
+                className="text-sm font-semibold no-underline transition-all hover:opacity-80"
+                style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Read the Builder’s story →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
           CHILDREN'S SECTION — BLACK FADES INTO WHITE, GOLDEN SPOTLIGHT
          ══════════════════════════════════════════════════════════ */}
       {/* Fade: dark → white */}
@@ -773,6 +814,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Fade: light → dark — mirrors the dark→light fade at the top of this section */}
+      <div
+        className="w-full h-32"
+        style={{ background: 'linear-gradient(to bottom, #fffaf0 0%, #080604 100%)' }}
+      />
       {/* ── IF YOU NEED TO STOP + HUMAN LINE — Serious Pages ── */}
       <section className="w-full py-10 px-6" style={{ background: '#FAF6EF', borderTop: '1px solid #e8d8c4' }}>
         <div className="max-w-2xl mx-auto">
