@@ -1,4 +1,3 @@
-# SESSION-CURRENT.md
 ## GallantryAI — Working Brief
 
 ---
@@ -29,70 +28,98 @@ They are not preferences. They are the governance layer for this project. Follow
 8. **SESSION-CURRENT.md is rewritten at session close.** SESSION-HANDOFF.md gets a new dated entry appended.
 9. **Alignment check is a quality gate, not a comfort request.** When Matthew asks for one, give a full layer report: base, alignment, context.
 10. **The site is the proof of the framework. The framework is the governance. The governance is the person.**
+11. **Do not say "done" until Matthew has seen it in the browser and confirmed it.** Not before. Never.
+12. **Do not build without explicit "go" from Matthew.** Reading the file and having a plan is not permission to build.
+13. **Two document rule.** SESSION-CURRENT.md rewritten at session close. SESSION-HANDOFF.md appended. Both always maintained.
 
 ---
 
-## CURRENT STATE — April 17, 2026
+## CURRENT STATE — April 18, 2026
 
 **Version:** v39
-**Dev server:** Running clean. Zero TypeScript errors.
-**Last checkpoint:** a3379ad6 — Builder's Scene + children's fade (poems and mobile nav in 50ba3f53 before that)
+**Dev server:** Running. Nav.tsx has residual radial dial code — Build 1 will fix this.
+**Last good checkpoint:** 77dc433b
 
-**What is live on the site:**
+**What is confirmed working on the site:**
+- FieldPapers: origin document amber section, download link live
+- lexiconData: 51 terms, 11 COMMAND terms added (And So, Why Then, AI Favor Me, Fail Me Not, Not Yet, For When, If So, Secure, Teamwork, Believe, Controlled Intensity)
+- Promptolinguistics: 5 new sections (Active Spectrum, Sentence Break Architecture, Regulation Spectrum, Semantic Density, Relational Delivery of Reasoning)
+- PromptPanel: 8 Session Tools (Boot Sequence, Track and Hold, Five Questions, Everyday Boot Sequence, Context Bridge Loading Strategy + 3 original)
+- Builder.tsx: 11 poems, sloth-lantern-buffalo background
+- Home.tsx: proof sentence, Builder's Scene, children's fade
+- Nav: 9 hatTiles with CDN images, accordion mobile nav
 
-Homepage:
-- 9-role premium image tile entry block (replaced 5-button hat flow) — Everyday, Professional, Watcher, Teen, Child, Parent, Nurse, Student, Teacher — each with CDN background image, expand-on-click lens links
-- Builder's Scene section — sloth-lantern-buffalo image, two-column, links to /builder
-- Children's section: dark→light fade at top, light→dark fade at bottom
-- Proof sentence: "This site is the proof of the framework it teaches."
-- Story arc carousel (6 frames), children's section, performed honesty, pathfinding block (still at line 871 — Matthew to decide if it stays)
-
-Builder page:
-- 11 poems from February 28, 2026 — full-bleed section, painterly background image, Playfair Display, exact words preserved
-
-Nav:
-- Desktop: "Who Are You?" dropdown — 9 roles in 3×3 grid with images, 3D press effect, 480px panel
-- Mobile: 9 role tiles with images + touch press + accordion sections (Foundation, For You, Tools, Research, Explore)
-- navData.ts controls all link arrays
-
-Other pages: 51 lexicon terms, 5 new Promptolinguistics sections, 8 Session Tools prompts, Field Papers with origin document, What the AI Said running log
-
-**Key files:**
-- Nav links: `client/src/lib/navData.ts`
-- Lexicon data: `client/src/lib/lexiconData.ts`
-- Prompt panel: `client/src/components/PromptPanel.tsx`
-- Learning flow: `client/src/lib/learningFlowMap.ts`
-- Session archive: `SESSION-HANDOFF.md`
-- Routes: `client/src/App.tsx`
+**Known broken:**
+- Nav.tsx: residual radial dial code — needs clean rewrite
+- Homepage: duplicate "Who are you?" block at line 871 — needs removal
+- Homepage: 4 fake tiles (Student, Nurse, Teacher, Parent) — no real pages, need removal
+- 16 pages missing LearningFlow
 
 ---
 
-## ACTIVE THREADS
+## CONFIRMED BUILD PLAN — April 18 (ALIGNED WITH MATTHEW — awaiting go)
 
-**Thread 2 — remaining items (in order):**
-1. Governance audit — read UserGovernance.tsx and GallantryAiPage.tsx. Decide where Ozzy + Wall + Monster land. Remember 3.0 and 3.1.
-2. Field Papers — 4 items from master document
-3. Citizen Researcher — 4 items from master document
-4. Five Rules — Rule 11 (The Wall), Hard vs Soft Constraints
-5. **Database + Admin dashboard + panels wired to DB** — most structurally important item remaining
+### Build 1 — Nav.tsx
+- Remove ALL radial dial code
+- Restore clean 3×3 grid of 9 hat tiles with images and 3D press effect
+- Professional tile opens sub-panel with all 6 lenses fully displayed as clickable links
+- Bottom strip stays: Five Rules, Prompt Library, Field Papers, Simpler view
+- Touch nothing else
+
+### Build 2 — Home.tsx
+- Remove duplicate block at line 871
+- Remove fake tiles: Student, Nurse, Teacher, Parent
+- 5 hat tiles in grid: Everyday, Child, Guardian & Teacher, Watcher, Teenager — each a link to its lens page
+  - Everyday → /for/everyday
+  - Child → /for/child
+  - Guardian & Teacher → /for/guardian-teacher
+  - Watcher → /for/watcher
+  - Teenager → /for/teenager
+- Below the grid: 6 professional lens tiles — all visible, all links, no sub-panel, no label above them
+  - Prompt Engineer → /for/prompt-engineer
+  - Linguist → /for/linguist
+  - Researcher → /for/researcher
+  - Cognitive Science → /for/cognitive-science
+  - Mathematician → /for/mathematician
+  - Psychology → /for/psychology
+- Same visual style as existing tiles
+- Touch nothing else on the page
+
+### Build 3 — LearningFlow (16 pages)
+Add LearningFlow component to bottom of:
+BarneyPoem, Builder, BuilderOrigin, CitizenResearcher, Gallery, HumanLine, KidsLearn, Malbolge, MathPrompting, Playground, SafetyPage, Scaffold, SchoolBoard, ThreeLenses, VariableScale, WhelmScale
+- Skip Backstage (private page)
+- Touch nothing else on these pages
+
+**After each build: show Matthew in the browser. He confirms. Nothing is called done until he does.**
+
+---
+
+## AFTER THIS BUILD — Matthew's Direction
+
+- No more new Field Papers. New ideas go to backlog only.
+- Matthew goes through site page by page with a notebook. He finds the fixes. AI does not decide what is broken.
+- AI use limited to: Facebook group, Google Business, Canadian business registration, copyright/trademark protection.
+- Consolidate before adding. Connect before expanding.
+- Matthew wants control of small content updates (photos, text, files) without a build session. This needs to be built when Matthew decides.
 
 ---
 
 ## PENDING FLAGS
 
-- **PARKED — Accessibility nav placement:** Matthew to rethink where Flower Presets surface. Currently "Simpler view →" in grey text at bottom of Who Are You? dropdown. Do not touch until Matthew decides.
-- **Professional tile in nav:** Still links to /for/prompt-engineer. Needs a Professional landing page or sub-panel showing all 6 professional lenses. Flagged. Not yet built.
-- **WHO ARE YOU pathfinding block (Home.tsx line 871):** The old expandable 8-role card block still exists below the new entry tile block. Matthew to decide if it stays, moves, or is removed.
-- **FieldPapers.tsx** — KidsRedirect, LearningFlow, teenager entry, professional entry are PENDING. Tell Matthew before touching this page.
-- **Internal linking** — pages are not yet connected to each other. Sparse cross-linking is a known gap. Page-by-page fix as we go.
+- **PARKED — Accessibility nav placement:** Matthew to rethink where Flower Presets surface. Do not touch.
+- **FieldPapers.tsx** — KidsRedirect, LearningFlow, teenager entry, professional entry are PENDING. Tell Matthew before touching.
+- **Governance audit** — UserGovernance.tsx and GallantryAiPage.tsx. Where do Ozzy + Wall + Monster land. Parked.
+- **Database + Admin dashboard** — not started. Parked.
 
 ---
 
 ## STANDING NOTES
 
-- **Ozzy + Wall + Monster** stay together. One section, one home. Other pages link to it. When governance comes up, remember 3.0 and 3.1.
-- **Three Voices** — not "Three Lenses" anywhere visible. Flag and fix on any page touched.
-- **Hats are entry modes. Voices are reading modes (always 3, always on every page). Lenses are destination pages.** Three distinct things. Three distinct places. Do not conflate them.
-- **No generic buttons.** Only our styled tiles and image buttons. If a button looks generic, it is wrong.
+- **Ozzy + Wall + Monster** stay together. One section, one home.
+- **Three Voices** — not "Three Lenses" anywhere visible.
+- **Hats are entry modes. Voices are reading modes. Lenses are destination pages.** Three distinct things.
+- **No generic buttons.** Only styled tiles and image buttons.
 - **Close-out protocol** — Builder's log bump + What the AI Said entries + SESSION-HANDOFF.md append + SESSION-CURRENT.md rewrite + final checkpoint. All five together.
-- **Two document system** — SESSION-CURRENT.md (rewrite every session) + SESSION-HANDOFF.md (append only, never remove). Both kept. Both matter.
+- **April 18 failure note:** Radial dial built without permission. Rolled back. Rollback was incomplete. Nav.tsx still has dial code. Build 1 fixes this. Pattern of building without permission must not repeat.
+- **MATTHEW-THOUGHTS.md** — Matthew's thought preservation document. AI reads, does not edit without instruction.

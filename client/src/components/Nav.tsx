@@ -3,9 +3,11 @@
  * Who Are You? | Foundation | For You | Tools | Research | Explore
  * Buffalo = Guardian (shows the way) — kids link uses buffalo
  * Sloth = Guide (helps you see it) — stays as OopsSloth
+ * RADIAL DIAL: Who Are You? opens a circular arc of 9 role tiles
+ * Professional tile opens 6-lens sub-panel in the centre of the dial
  */
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import PromptPanel from "@/components/PromptPanel";
@@ -13,17 +15,68 @@ import { lenses, foundationLinks, forYouLinks, toolsLinks, researchLinks, explor
 
 const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png";
 
-// Nav data arrays imported from @/lib/navData.ts — edit there, not here
-
 type NavSection = "lenses" | "foundation" | "forYou" | "tools" | "research" | "explore" | "safety" | null;
 type HatSubPanel = "professional" | null;
 type MobileAccordion = "foundation" | "forYou" | "tools" | "research" | "explore" | null;
+
+const HAT_IMAGES = {
+  everyday: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-everyday-beybTXLC8QnfyMUD766qb2.webp",
+  professional: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-professional-Fg9sYkU5aXzzfwEsbyWxt8.webp",
+  watcher: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-watcher-2z7xaSNcuP9a9S5SHxTje8.webp",
+  teen: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-teen-4Ste3xYAShZ9GirHrM8P9g.webp",
+  child: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-child-mTNyShRSmpgki7dvScCRzn.webp",
+  parent: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-parent-cVBEHf7WdLFfRrw6fKApvV.webp",
+  nurse: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-nurse-Lk4Ji3iMnC2ZQcEoCCvRPP.webp",
+  student: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-student-NQ43cYLVZYLpo2S6gS7mKh.webp",
+  teacher: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-parent-cVBEHf7WdLFfRrw6fKApvV.webp",
+};
+
+const hatTiles = [
+  { label: "Everyday",     icon: "◎", path: "/for/everyday",         border: "#E8520A", text: "#C2400C", desc: "Plain language. Real life.",         img: HAT_IMAGES.everyday },
+  { label: "Professional", icon: "◈", path: "/for/prompt-engineer",  border: "#4F46E5", text: "#3730A3", desc: "Precise. Structured. Deep.",          img: HAT_IMAGES.professional },
+  { label: "Watcher",      icon: "◉", path: "/for/watcher",          border: "#6B7280", text: "#E5E7EB", desc: "The part that notices.",              img: HAT_IMAGES.watcher },
+  { label: "Teen",         icon: "◇", path: "/for/teenager",         border: "#7C3AED", text: "#5B21B6", desc: "Your rules. Your pace.",              img: HAT_IMAGES.teen },
+  { label: "Child",        icon: "★", path: "/for/child",            border: "#3B82F6", text: "#1D4ED8", desc: "Safe. Simple. Yours.",                img: HAT_IMAGES.child },
+  { label: "Parent",       icon: "🏠", path: "/for/guardian-teacher", border: "#D97706", text: "#92400E", desc: "Learning AI with your kids.",         img: HAT_IMAGES.parent },
+  { label: "Nurse",        icon: "🩺", path: "/for/psychology",       border: "#059669", text: "#065F46", desc: "You already triage.",                 img: HAT_IMAGES.nurse },
+  { label: "Student",      icon: "📚", path: "/for/linguist",         border: "#9333EA", text: "#6B21A8", desc: "Thinking partner, not shortcut.",     img: HAT_IMAGES.student },
+  { label: "Teacher",      icon: "🏫", path: "/for/guardian-teacher", border: "#0D9488", text: "#134E4A", desc: "The scaffold is your lesson plan.",   img: HAT_IMAGES.teacher },
+];
+
+const professionalLenses = [
+  { label: "Prompt Engineer",   path: "/for/prompt-engineer",   desc: "Token Zero. Force profiles. Precision.",      color: "#4F46E5" },
+  { label: "Researcher",        path: "/for/researcher",        desc: "Evidence. Methodology. Citizen science.",     color: "#0891B2" },
+  { label: "Linguist",          path: "/for/linguist",          desc: "Words steer. Choose them carefully.",         color: "#7C3AED" },
+  { label: "Mathematician",     path: "/for/mathematician",     desc: "Structure. Proof. Elegant constraint.",       color: "#059669" },
+  { label: "Cognitive Science", path: "/for/cognitive-science", desc: "How your brain drifts. How to notice.",       color: "#D97706" },
+  { label: "Guardian & Teacher",path: "/for/guardian-teacher",  desc: "The scaffold is your lesson plan.",           color: "#DC2626" },
+];
+
+// Radial dial geometry — 9 tiles on a circle, starting from top, clockwise
+// Dial container: 480×480px, centre at (240,240)
+// Tile radius from centre: 170px
+// Tile size: 80×80px (so offset by -40,-40)
+const DIAL_SIZE = 480;
+const DIAL_CENTRE = DIAL_SIZE / 2;
+const TILE_RADIUS = 170;
+const TILE_W = 80;
+const TILE_H = 88;
+
+function getDialPosition(index: number, total: number) {
+  // Spread tiles evenly around the full circle, starting from top (-90deg)
+  const angle = (index / total) * 2 * Math.PI - Math.PI / 2;
+  const x = DIAL_CENTRE + TILE_RADIUS * Math.cos(angle) - TILE_W / 2;
+  const y = DIAL_CENTRE + TILE_RADIUS * Math.sin(angle) - TILE_H / 2;
+  return { x, y };
+}
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<NavSection>(null);
   const [mobileAccordion, setMobileAccordion] = useState<MobileAccordion>(null);
   const [promptOpen, setPromptOpen] = useState(false);
+  const [hatSubPanel, setHatSubPanel] = useState<HatSubPanel>(null);
+  const [hoveredTile, setHoveredTile] = useState<string | null>(null);
   const [location] = useLocation();
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -31,6 +84,7 @@ export default function Nav() {
     function handleClick(e: MouseEvent) {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
         setActiveDropdown(null);
+        setHatSubPanel(null);
       }
     }
     document.addEventListener("mousedown", handleClick);
@@ -39,6 +93,15 @@ export default function Nav() {
 
   function toggleDropdown(section: NavSection) {
     setActiveDropdown(activeDropdown === section ? null : section);
+    if (activeDropdown === section) setHatSubPanel(null);
+  }
+
+  function closeAll() {
+    setActiveDropdown(null);
+    setMobileAccordion(null);
+    setHatSubPanel(null);
+    setOpen(false);
+    setHoveredTile(null);
   }
 
   function DropdownButton({ label, section }: { label: string; section: NavSection }) {
@@ -71,159 +134,221 @@ export default function Nav() {
     );
   }
 
-  const HAT_IMAGES = {
-    everyday: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-everyday-beybTXLC8QnfyMUD766qb2.webp",
-    professional: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-professional-Fg9sYkU5aXzzfwEsbyWxt8.webp",
-    watcher: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-watcher-2z7xaSNcuP9a9S5SHxTje8.webp",
-    teen: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-teen-4Ste3xYAShZ9GirHrM8P9g.webp",
-    child: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-child-mTNyShRSmpgki7dvScCRzn.webp",
-    parent: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-parent-cVBEHf7WdLFfRrw6fKApvV.webp",
-    nurse: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-nurse-Lk4Ji3iMnC2ZQcEoCCvRPP.webp",
-    student: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-student-NQ43cYLVZYLpo2S6gS7mKh.webp",
-    teacher: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-parent-cVBEHf7WdLFfRrw6fKApvV.webp",
-  };
-
-  // Nine role tiles for Who Are You? — desktop dropdown + mobile
-  const hatTiles = [
-    { label: "Everyday", icon: "◎", path: "/for/everyday", bg: "#FFF7ED", border: "#E8520A", text: "#C2400C", desc: "Plain language. Real life.", img: HAT_IMAGES.everyday },
-    { label: "Professional", icon: "◈", path: "/for/prompt-engineer", bg: "#F0F4FF", border: "#4F46E5", text: "#3730A3", desc: "Precise. Structured. Deep.", img: HAT_IMAGES.professional },
-    { label: "Watcher", icon: "◉", path: "/for/watcher", bg: "#1A1A2E", border: "#6B7280", text: "#E5E7EB", desc: "The part that notices.", img: HAT_IMAGES.watcher },
-    { label: "Teen", icon: "◇", path: "/for/teenager", bg: "#F5F3FF", border: "#7C3AED", text: "#5B21B6", desc: "Your rules. Your pace.", img: HAT_IMAGES.teen },
-    { label: "Child", icon: "★", path: "/for/child", bg: "#EFF6FF", border: "#3B82F6", text: "#1D4ED8", desc: "Safe. Simple. Yours.", img: HAT_IMAGES.child },
-    { label: "Parent", icon: "🏠", path: "/for/guardian-teacher", bg: "#FFF8F0", border: "#D97706", text: "#92400E", desc: "Learning AI with your kids.", img: HAT_IMAGES.parent },
-    { label: "Nurse", icon: "🩺", path: "/for/psychology", bg: "#F0FDF4", border: "#059669", text: "#065F46", desc: "You already triage.", img: HAT_IMAGES.nurse },
-    { label: "Student", icon: "📚", path: "/for/linguist", bg: "#FDF4FF", border: "#9333EA", text: "#6B21A8", desc: "Thinking partner, not shortcut.", img: HAT_IMAGES.student },
-    { label: "Teacher", icon: "🏫", path: "/for/guardian-teacher", bg: "#F0FDFA", border: "#0D9488", text: "#134E4A", desc: "The scaffold is your lesson plan.", img: HAT_IMAGES.teacher },
-  ];
-
-  const [hatSubPanel, setHatSubPanel] = useState<HatSubPanel>(null);
-
-  const professionalLenses = [
-    { label: "Prompt Engineer", path: "/for/prompt-engineer", desc: "Token Zero. Force profiles. Precision.", color: "#4F46E5" },
-    { label: "Researcher", path: "/for/researcher", desc: "Evidence. Methodology. Citizen science.", color: "#0891B2" },
-    { label: "Linguist", path: "/for/linguist", desc: "Words steer. Choose them carefully.", color: "#7C3AED" },
-    { label: "Mathematician", path: "/for/mathematician", desc: "Structure. Proof. Elegant constraint.", color: "#059669" },
-    { label: "Cognitive Science", path: "/for/cognitive-science", desc: "How your brain drifts. How to notice.", color: "#D97706" },
-    { label: "Guardian & Teacher", path: "/for/guardian-teacher", desc: "The scaffold is your lesson plan.", color: "#DC2626" },
-  ];
-
-  function HatTileMenu({ onClose }: { onClose: () => void }) {
+  // ── RADIAL DIAL ──────────────────────────────────────────────────────────────
+  function RadialDial({ onClose }: { onClose: () => void }) {
     return (
-      <div className="absolute top-full left-0 mt-2 z-50" style={{ width: '480px' }}>
-        <div className="bg-white border border-[#e8e0d0] rounded-2xl shadow-xl overflow-hidden">
-          {/* Professional sub-panel */}
-          {hatSubPanel === 'professional' && (
-            <div className="p-4" style={{ background: '#F0F4FF' }}>
-              <div className="flex items-center gap-2 mb-3">
-                <button
-                  onClick={() => setHatSubPanel(null)}
-                  className="text-[#4F46E5] text-xs font-bold hover:underline flex items-center gap-1"
-                >
-                  ← Back
-                </button>
-                <span className="text-xs font-bold text-[#3730A3]" style={{ fontFamily: "'DM Sans', sans-serif" }}>PROFESSIONAL LENSES</span>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                {professionalLenses.map((lens) => (
-                  <Link
-                    key={lens.path}
-                    href={lens.path}
-                    onClick={() => { setHatSubPanel(null); onClose(); }}
-                    className="no-underline rounded-xl p-3 flex flex-col gap-1 transition-all duration-150 hover:scale-[1.02] cursor-pointer"
-                    style={{ background: 'white', border: `1.5px solid ${lens.color}33` }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = lens.color; }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = `${lens.color}33`; }}
+      <div
+        className="absolute top-full mt-2 z-50"
+        style={{ left: '50%', transform: 'translateX(-50%)' }}
+      >
+        <div
+          className="rounded-3xl shadow-2xl overflow-hidden"
+          style={{ background: '#FAF6EF', border: '1px solid #e8e0d0', width: `${DIAL_SIZE}px` }}
+        >
+          {/* Dial area */}
+          <div style={{ position: 'relative', width: `${DIAL_SIZE}px`, height: `${DIAL_SIZE}px` }}>
+
+            {/* Subtle ring guide */}
+            <div style={{
+              position: 'absolute',
+              left: DIAL_CENTRE - TILE_RADIUS - TILE_W / 2,
+              top: DIAL_CENTRE - TILE_RADIUS - TILE_H / 2,
+              width: (TILE_RADIUS + TILE_W / 2) * 2,
+              height: (TILE_RADIUS + TILE_H / 2) * 2,
+              borderRadius: '50%',
+              border: '1px dashed rgba(232,82,10,0.12)',
+              pointerEvents: 'none',
+            }} />
+
+            {/* Centre — either GallantryAI mark or Professional sub-panel */}
+            <div style={{
+              position: 'absolute',
+              left: DIAL_CENTRE - 72,
+              top: DIAL_CENTRE - 72,
+              width: 144,
+              height: 144,
+              borderRadius: '50%',
+              background: hatSubPanel === 'professional' ? '#F0F4FF' : 'rgba(232,82,10,0.06)',
+              border: hatSubPanel === 'professional' ? '2px solid #4F46E5' : '1.5px solid rgba(232,82,10,0.18)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 2,
+              transition: 'all 0.2s ease',
+            }}>
+              {hatSubPanel === 'professional' ? (
+                <div style={{ padding: '8px', textAlign: 'center' }}>
+                  <button
+                    onClick={() => setHatSubPanel(null)}
+                    style={{ color: '#4F46E5', fontSize: '9px', fontWeight: 700, fontFamily: "'DM Sans', sans-serif", marginBottom: '4px', background: 'none', border: 'none', cursor: 'pointer' }}
                   >
-                    <span className="text-xs font-bold" style={{ color: lens.color, fontFamily: "'DM Sans', sans-serif" }}>{lens.label}</span>
-                    <span className="text-[9px] leading-tight" style={{ color: '#6B7280' }}>{lens.desc}</span>
-                  </Link>
-                ))}
-              </div>
+                    ← Back
+                  </button>
+                  <div style={{ fontSize: '8px', fontWeight: 700, color: '#3730A3', fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.05em', lineHeight: 1.3 }}>
+                    PROFESSIONAL<br />LENSES
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div style={{ fontSize: '11px', fontWeight: 700, color: '#E8520A', fontFamily: "'Playfair Display', serif", textAlign: 'center', lineHeight: 1.2 }}>
+                    Who<br />Are You?
+                  </div>
+                </>
+              )}
             </div>
-          )}
-          {/* Nine role tiles — 3x3 grid (hidden when sub-panel open) */}
-          {!hatSubPanel && <div className="grid grid-cols-3 gap-0">
-            {hatTiles.map((hat) => {
+
+            {/* Professional sub-panel lenses — arranged around centre when open */}
+            {hatSubPanel === 'professional' && (
+              <div style={{
+                position: 'absolute',
+                left: 0, top: 0,
+                width: DIAL_SIZE, height: DIAL_SIZE,
+                pointerEvents: 'none',
+              }}>
+                {professionalLenses.map((lens, i) => {
+                  const angle = (i / professionalLenses.length) * 2 * Math.PI - Math.PI / 2;
+                  const r = 110;
+                  const lx = DIAL_CENTRE + r * Math.cos(angle) - 44;
+                  const ly = DIAL_CENTRE + r * Math.sin(angle) - 26;
+                  return (
+                    <Link
+                      key={lens.path}
+                      href={lens.path}
+                      onClick={() => { setHatSubPanel(null); onClose(); }}
+                      style={{
+                        position: 'absolute',
+                        left: lx,
+                        top: ly,
+                        width: 88,
+                        height: 52,
+                        background: 'white',
+                        border: `1.5px solid ${lens.color}44`,
+                        borderRadius: '10px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: '4px',
+                        textDecoration: 'none',
+                        pointerEvents: 'all',
+                        transition: 'transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease',
+                        cursor: 'pointer',
+                        zIndex: 3,
+                      }}
+                      onMouseEnter={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.transform = 'scale(1.08)';
+                        el.style.boxShadow = `0 4px 16px ${lens.color}44`;
+                        el.style.borderColor = lens.color;
+                      }}
+                      onMouseLeave={(e) => {
+                        const el = e.currentTarget as HTMLElement;
+                        el.style.transform = 'scale(1)';
+                        el.style.boxShadow = 'none';
+                        el.style.borderColor = `${lens.color}44`;
+                      }}
+                    >
+                      <span style={{ fontSize: '8px', fontWeight: 700, color: lens.color, fontFamily: "'DM Sans', sans-serif", textAlign: 'center', lineHeight: 1.2 }}>{lens.label}</span>
+                      <span style={{ fontSize: '7px', color: '#9CA3AF', textAlign: 'center', lineHeight: 1.2, marginTop: '2px' }}>{lens.desc}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* 9 role tiles on the arc */}
+            {hatTiles.map((hat, i) => {
+              const { x, y } = getDialPosition(i, hatTiles.length);
               const isProfessional = hat.label === 'Professional';
+              const isHovered = hoveredTile === hat.label;
+              const isDimmed = hoveredTile !== null && !isHovered;
+
+              const tileStyle: React.CSSProperties = {
+                position: 'absolute',
+                left: x,
+                top: y,
+                width: TILE_W,
+                height: TILE_H,
+                borderRadius: '12px',
+                overflow: 'hidden',
+                border: `1.5px solid ${hat.border}${isHovered ? 'ff' : '66'}`,
+                cursor: 'pointer',
+                transition: 'transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease',
+                transform: isHovered
+                  ? 'perspective(400px) translateZ(12px) scale(1.12)'
+                  : 'perspective(400px) translateZ(0px) scale(1)',
+                boxShadow: isHovered ? `0 6px 20px ${hat.border}55` : 'none',
+                opacity: isDimmed ? 0.45 : 1,
+                zIndex: isHovered ? 5 : 1,
+                textDecoration: 'none',
+                display: 'flex',
+                flexDirection: 'column',
+                background: '#fff',
+              };
+
+              const inner = (
+                <>
+                  <div style={{ width: '100%', height: 52, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+                    <img
+                      src={hat.img}
+                      alt={hat.label}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%' }}
+                    />
+                    <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.35) 100%)` }} />
+                  </div>
+                  <div style={{ padding: '4px 4px 3px', background: '#fff', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <div style={{ fontSize: '8px', fontWeight: 700, color: hat.text, fontFamily: "'DM Sans', sans-serif", textAlign: 'center', lineHeight: 1.2 }}>{hat.label}</div>
+                    {isProfessional && (
+                      <div style={{ fontSize: '7px', color: hat.border, textAlign: 'center', marginTop: '1px', fontFamily: "'DM Sans', sans-serif" }}>6 lenses ›</div>
+                    )}
+                  </div>
+                </>
+              );
+
               if (isProfessional) {
                 return (
                   <button
                     key={hat.label}
+                    style={{ ...tileStyle, background: '#fff' }}
+                    onMouseEnter={() => setHoveredTile(hat.label)}
+                    onMouseLeave={() => setHoveredTile(null)}
                     onClick={() => setHatSubPanel('professional')}
-                    className="group flex flex-col items-center justify-center py-4 px-2 transition-all duration-150 cursor-pointer border-0 text-left"
-                    style={{
-                      background: hat.bg,
-                      borderRight: `1px solid #e8e0d0`,
-                      transform: 'perspective(400px) translateZ(0px)',
-                      transition: 'transform 0.15s ease, box-shadow 0.15s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.transform = 'perspective(400px) translateZ(8px) scale(1.04)';
-                      (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 16px ${hat.border}44`;
-                      (e.currentTarget as HTMLElement).style.zIndex = '2';
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.transform = 'perspective(400px) translateZ(0px) scale(1)';
-                      (e.currentTarget as HTMLElement).style.boxShadow = 'none';
-                      (e.currentTarget as HTMLElement).style.zIndex = '1';
-                    }}
                   >
-                    <span className="text-2xl mb-1" style={{ color: hat.border }}>{hat.icon}</span>
-                    <span className="text-xs font-bold text-center leading-tight" style={{ color: hat.text, fontFamily: "'DM Sans', sans-serif" }}>{hat.label}</span>
-                    <span className="text-[9px] text-center mt-1 leading-tight opacity-70" style={{ color: hat.text }}>{hat.desc}</span>
-                    <span className="text-[8px] mt-1" style={{ color: hat.border }}>6 lenses ›</span>
+                    {inner}
                   </button>
                 );
               }
+
               return (
-              <Link
-                key={hat.label}
-                href={hat.path}
-                onClick={onClose}
-                className="no-underline group flex flex-col items-center justify-center py-4 px-2 transition-all duration-150 cursor-pointer"
-                style={{
-                  background: hat.bg,
-                  borderRight: `1px solid #e8e0d0`,
-                  transform: 'perspective(400px) translateZ(0px)',
-                  transition: 'transform 0.15s ease, box-shadow 0.15s ease',
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = 'perspective(400px) translateZ(8px) scale(1.04)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 16px ${hat.border}44`;
-                  (e.currentTarget as HTMLElement).style.zIndex = '2';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = 'perspective(400px) translateZ(0px) scale(1)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = 'none';
-                  (e.currentTarget as HTMLElement).style.zIndex = '1';
-                }}
-              >
-                <span className="text-2xl mb-1" style={{ color: hat.border }}>{hat.icon}</span>
-                <span className="text-xs font-bold text-center leading-tight" style={{ color: hat.text, fontFamily: "'DM Sans', sans-serif" }}>{hat.label}</span>
-                <span className="text-[9px] text-center mt-1 leading-tight opacity-70" style={{ color: hat.text }}>{hat.desc}</span>
-              </Link>
+                <Link
+                  key={hat.label}
+                  href={hat.path}
+                  style={tileStyle}
+                  onMouseEnter={() => setHoveredTile(hat.label)}
+                  onMouseLeave={() => setHoveredTile(null)}
+                  onClick={onClose}
+                >
+                  {inner}
+                </Link>
               );
             })}
-          </div>}
-          {/* Direct stream */}
-          <div className="border-t border-[#e8e0d0] px-4 py-3 flex items-center justify-between bg-[#FAF6EF]">
-            <div className="flex gap-4">
-              <Link href="/rules" onClick={onClose} className="text-xs font-semibold text-[#E8520A] no-underline hover:underline">Five Rules</Link>
-              <Link href="/prompts" onClick={onClose} className="text-xs font-semibold text-[#4F46E5] no-underline hover:underline">Prompt Library</Link>
-              <Link href="/field-papers" onClick={onClose} className="text-xs font-semibold text-[#374151] no-underline hover:underline">Field Papers</Link>
+          </div>
+
+          {/* Bottom strip */}
+          <div style={{ borderTop: '1px solid #e8e0d0', padding: '10px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#FAF6EF' }}>
+            <div style={{ display: 'flex', gap: '16px' }}>
+              <Link href="/rules" onClick={onClose} style={{ fontSize: '11px', fontWeight: 700, color: '#E8520A', textDecoration: 'none', fontFamily: "'DM Sans', sans-serif" }}>Five Rules</Link>
+              <Link href="/prompts" onClick={onClose} style={{ fontSize: '11px', fontWeight: 700, color: '#4F46E5', textDecoration: 'none', fontFamily: "'DM Sans', sans-serif" }}>Prompt Library</Link>
+              <Link href="/field-papers" onClick={onClose} style={{ fontSize: '11px', fontWeight: 700, color: '#374151', textDecoration: 'none', fontFamily: "'DM Sans', sans-serif" }}>Field Papers</Link>
             </div>
-            <Link href="/flower-presets" onClick={onClose} className="text-[10px] text-[#9CA3AF] no-underline hover:text-[#6B7280]" title="Accessibility options">Simpler view →</Link>
+            <Link href="/flower-presets" onClick={onClose} style={{ fontSize: '10px', color: '#9CA3AF', textDecoration: 'none', fontFamily: "'DM Sans', sans-serif' " }}>Simpler view →</Link>
           </div>
         </div>
       </div>
     );
   }
-
-  function closeAll() {
-    setActiveDropdown(null);
-    setMobileAccordion(null);
-    setOpen(false);
-  }
+  // ── END RADIAL DIAL ──────────────────────────────────────────────────────────
 
   function toggleMobileAccordion(section: MobileAccordion) {
     setMobileAccordion(mobileAccordion === section ? null : section);
@@ -303,11 +428,11 @@ export default function Nav() {
         </Link>
         </div>
 
-        {/* Desktop Nav — order: Lenses | Foundation | For You | Tools | Research | Explore */}
+        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-5 text-sm font-medium text-[#2D2D2D]" ref={navRef} style={{ fontFamily: "'DM Sans', sans-serif" }}>
           <div className="relative">
             <DropdownButton label="Who Are You?" section="lenses" />
-            {activeDropdown === "lenses" && <HatTileMenu onClose={closeAll} />}
+            {activeDropdown === "lenses" && <RadialDial onClose={closeAll} />}
           </div>
           <div className="relative">
             <DropdownButton label="Foundation" section="foundation" />
@@ -331,7 +456,7 @@ export default function Nav() {
           </div>
 
           {/* Red Cross — Crisis + Human Line */}
-          <div className="relative" ref={null}>
+          <div className="relative">
             <button
               onClick={() => setActiveDropdown(activeDropdown === 'safety' ? null : 'safety')}
               className="flex items-center justify-center w-7 h-7 rounded-full transition-all hover:scale-110"
@@ -372,7 +497,7 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu — premium rebuild */}
+      {/* Mobile menu — unchanged */}
       {open && (
         <div className="lg:hidden border-t border-[#e8e0d0] bg-[#FAF6EF] px-4 py-4 rounded-b-2xl max-h-[85vh] overflow-y-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
 
@@ -400,7 +525,6 @@ export default function Nav() {
                     (e.currentTarget as HTMLElement).style.boxShadow = `0 2px 8px ${hat.border}18`;
                   }}
                 >
-                  {/* Image */}
                   <div className="w-full relative overflow-hidden" style={{ height: '80px' }}>
                     <img
                       src={hat.img}
@@ -408,10 +532,9 @@ export default function Nav() {
                       className="w-full h-full object-cover"
                       style={{ objectPosition: 'center 30%' }}
                     />
-                    <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, transparent 40%, ${hat.bg}ee 100%)` }} />
+                    <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, transparent 40%, rgba(255,255,255,0.9) 100%)` }} />
                   </div>
-                  {/* Label row */}
-                  <div className="px-2.5 py-2" style={{ background: hat.bg }}>
+                  <div className="px-2.5 py-2" style={{ background: '#fff' }}>
                     <div className="flex items-center gap-1.5 mb-0.5">
                       <span className="text-base" style={{ color: hat.border }}>{hat.icon}</span>
                       <span className="text-xs font-bold" style={{ color: hat.text }}>{hat.label}</span>
