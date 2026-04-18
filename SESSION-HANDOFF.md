@@ -789,3 +789,57 @@ Build 4 — Full Site Content Migration: Run migration script for 42 data array 
 - Do not build without explicit go from Matthew.
 - Mobile-first. Matthew works from phone and desktop.
 - Close-out protocol: builder log + What the AI Said + SESSION-HANDOFF.md append + SESSION-CURRENT.md rewrite + checkpoint.
+
+---
+
+## April 18, 2026 — Evening Session (checkpoint 9e225202)
+
+**What was completed this session:**
+
+All 5 steps from the original plan are done:
+- Step 1: Content migration — 307 blocks across 57 pages
+- Step 2: Page Builder tab — structural templates (blank, article, lens, card-grid) + copy any existing page as template
+- Step 3: Learning & Growing Matrix tab — multi-card support per section, all 57 pages seeded with real data from flowMap. Each section (Go Deeper, Go Wider, Go Simpler) can have multiple cards. Add or remove cards from Studio with no code.
+- Step 4: Nav database-driven — new pages created in Page Builder auto-appear in nav when published
+- Step 5: TypeScript 0 errors, 16 tests passing, checkpoint saved
+
+**Two issues caught and fixed this session (Matthew caught both):**
+1. Learning Matrix was built with one dropdown per direction instead of multiple cards. Rebuilt correctly.
+2. Page Builder did not show existing 57 pages as copy sources. Added copy-from-existing-page option.
+
+**Publishing status:** NOT published. Matthew is contacting Manus support tomorrow. Checkpoint 9e225202 is ready to publish when that is resolved.
+
+---
+
+## Security Status (April 18, 2026 — for next session)
+
+**What is secure:**
+- Studio is password-protected (Hudson2021!) — only owner can access
+- Database is not publicly accessible — all access goes through the server
+- API keys and secrets are injected by the platform, not hardcoded
+- No sensitive user data is being collected from visitors
+
+**What is NOT yet hardened for production (address before heavy public traffic):**
+- Studio password is a single shared secret. If someone gets it, they have full edit access. Upgrade path: tie Studio access to Manus OAuth owner check (ctx.user.openId === OWNER_OPEN_ID) instead of a shared password.
+- No rate limiting on API endpoints. Low risk now, needs attention before public launch.
+- No CSRF protection beyond cookie setup. Standard hardening for later.
+
+**Bottom line:** Safe for current state (dev preview, no public traffic). Before full public launch, add rate limiting and tighten Studio auth.
+
+---
+
+## REMINDER FOR NEXT SESSION — If Still Cannot Publish
+
+If Manus support has not resolved the publish issue, open the session with:
+
+"I still cannot publish. Here is what I have tried: [list what support said]. What are our options?"
+
+Options to explore if publish remains blocked:
+1. Ask Manus support directly what is blocking deployment (bundle size, timeout, config issue)
+2. Check if the lazy-loading fix (521KB main bundle) resolved the deployment timeout
+3. Consider whether any static assets are still stored locally in the project directory instead of CDN (this causes deployment timeout)
+4. If all else fails, ask Manus support to manually trigger a deploy from checkpoint 9e225202
+
+Do not start new build work until the publish issue is resolved or explicitly parked.
+
+---
