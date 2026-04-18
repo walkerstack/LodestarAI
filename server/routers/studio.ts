@@ -25,6 +25,10 @@ import {
   createLink,
   updateLink,
   deleteLink,
+  getAllStudioPages,
+  createStudioPage,
+  updateStudioPage,
+  deleteStudioPage,
 } from "../studioDb";
 import { storagePut } from "../storage";
 
@@ -318,6 +322,46 @@ export const studioRouter = router({
     .input(z.object({ id: z.number().int() }))
     .mutation(async ({ input }) => {
       await deleteLink(input.id);
+      return { success: true };
+    }),
+
+  // ── PAGE BUILDER ─────────────────────────
+  getStudioPages: adminProcedure.query(async () => {
+    return getAllStudioPages();
+  }),
+  createStudioPage: adminProcedure
+    .input(
+      z.object({
+        slug: z.string().min(1).max(128),
+        label: z.string().min(1).max(255),
+        path: z.string().min(1).max(255),
+        template: z.enum(["blank", "article", "lens", "card-grid"]).default("blank"),
+        navCategory: z.string().max(64).optional(),
+        isPublished: z.boolean().default(false),
+      })
+    )
+    .mutation(async ({ input }) => {
+      await createStudioPage(input);
+      return { success: true };
+    }),
+  updateStudioPage: adminProcedure
+    .input(
+      z.object({
+        id: z.number().int(),
+        label: z.string().min(1).max(255).optional(),
+        navCategory: z.string().max(64).nullable().optional(),
+        isPublished: z.boolean().optional(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const { id, ...data } = input;
+      await updateStudioPage(id, data);
+      return { success: true };
+    }),
+  deleteStudioPage: adminProcedure
+    .input(z.object({ id: z.number().int() }))
+    .mutation(async ({ input }) => {
+      await deleteStudioPage(input.id);
       return { success: true };
     }),
 });

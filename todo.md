@@ -215,7 +215,7 @@
 - [ ] Step 3: Page Builder — assign new page to nav section on creation
 
 ## Full Content Migration + Page Builder (April 18, 2026 — ACTIVE)
-- [ ] Phase 2: Run full content migration script — seed all 50+ pages with real blocks (text, card, image, doc)
+- [x] Phase 2: Run full content migration script — 307 blocks across 56 pages (text, card, image, doc)
 - [ ] Phase 3: Build Page Builder tab — full page preview with click-to-edit block overlays
 - [ ] Phase 3: Page Builder — New Page from template (lens, rules, scaffold, card-grid)
 - [ ] Phase 3: Page Builder — assign new page to nav section on creation
@@ -225,3 +225,9 @@
 ## LearningFlow Fix + Matrix Tab (April 18, 2026)
 - [x] Add LearningFlow to 16 missing pages: Articles, Builder, BuilderOrigin, CitizenResearcher, Gallery, HumanLine, KidsLearn, Malbolge, MathPrompting, Playground, SafetyPage, Scaffold, SchoolBoard, VariableScale, WhelmScale, WatcherLens
 - [ ] Add Learning & Growing Matrix tab to Studio — full control of deeper/wider/simpler links for every page
+
+## Phase 3 + 4 — Page Builder + Link Manager Seed (April 18, 2026 — ACTIVE)
+- [x] Phase 3: Build Page Builder tab in Studio — My Pages list + New Page from template (blank, article, lens, card-grid)
+- [x] Phase 3: Page Builder — New Page from template, assign to nav section on creation
+- [x] Phase 4: Seed Link Manager — 186 links across 43 pages seeded into page_links table
+- [ ] Phase 5: Nav database-driven — new pages auto-appear in correct nav section

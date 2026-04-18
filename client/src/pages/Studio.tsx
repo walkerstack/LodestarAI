@@ -16,8 +16,9 @@ import StudioMediaLibrary from "@/components/studio/StudioMediaLibrary";
 import StudioLinkManager from "@/components/studio/StudioLinkManager";
 import StudioSiteMap from "@/components/studio/StudioSiteMap";
 import StudioStatusBoard from "@/components/studio/StudioStatusBoard";
+import StudioPageBuilder from "@/components/studio/StudioPageBuilder";
 
-type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard";
+type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard" | "pagebuilder";
 
 // ── Password Login Screen ────────────────────────────────────────────────────
 function StudioLoginForm() {
@@ -199,6 +200,7 @@ export default function Studio() {
     { id: "links", label: "Link Manager" },
     { id: "sitemap", label: "Site Map" },
     { id: "statusboard", label: "Status Board" },
+    { id: "pagebuilder", label: "Page Builder" },
   ];
 
   return (
@@ -391,6 +393,23 @@ export default function Studio() {
                 All pages at a glance. Filter by status. Click any card to edit.
               </p>
               <StudioStatusBoard onSelectPage={handleSelectPageFromMap} />
+            </div>
+          )}
+
+          {/* ── Page Builder ── */}
+          {activeTab === "pagebuilder" && (
+            <div>
+              <p
+                style={{
+                  color: "#8a7a6a",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "0.875rem",
+                  marginBottom: "1.5rem",
+                }}
+              >
+                Create new pages from templates. Manage your custom pages. Assign to nav.
+              </p>
+              <StudioPageBuilder />
             </div>
           )}
 
