@@ -15,7 +15,7 @@ const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6
 
 // Nav data arrays imported from @/lib/navData.ts — edit there, not here
 
-type NavSection = "lenses" | "foundation" | "forYou" | "tools" | "research" | "explore" | null;
+type NavSection = "lenses" | "foundation" | "forYou" | "tools" | "research" | "explore" | "safety" | null;
 type MobileAccordion = "foundation" | "forYou" | "tools" | "research" | "explore" | null;
 
 export default function Nav() {
@@ -255,6 +255,34 @@ export default function Nav() {
             {activeDropdown === "explore" && <DropdownMenu items={exploreLinks} onClose={closeAll} />}
           </div>
 
+          {/* Red Cross — Crisis + Human Line */}
+          <div className="relative" ref={null}>
+            <button
+              onClick={() => setActiveDropdown(activeDropdown === 'safety' ? null : 'safety')}
+              className="flex items-center justify-center w-7 h-7 rounded-full transition-all hover:scale-110"
+              style={{ background: '#DC2626', border: '2px solid #991B1B' }}
+              title="Crisis & Human Line"
+              aria-label="Safety links"
+            >
+              <span className="text-white font-bold text-sm leading-none select-none">+</span>
+            </button>
+            {activeDropdown === 'safety' && (
+              <div className="absolute right-0 top-full mt-2 z-50 bg-white border border-red-200 rounded-xl shadow-xl overflow-hidden" style={{ minWidth: '180px' }}>
+                <div className="px-3 py-2 border-b border-red-100">
+                  <p className="text-[9px] font-bold tracking-widest uppercase text-red-600">Safety Links</p>
+                </div>
+                <Link href="/if-you-need-to-stop" onClick={closeAll} className="no-underline flex items-center gap-2 px-3 py-2.5 hover:bg-red-50 transition-colors">
+                  <span className="text-red-600 font-bold text-xs">✚</span>
+                  <span className="text-sm font-semibold text-red-700">If You Need to Stop</span>
+                </Link>
+                <Link href="/human-line" onClick={closeAll} className="no-underline flex items-center gap-2 px-3 py-2.5 hover:bg-red-50 transition-colors">
+                  <span className="text-red-600 font-bold text-xs">—</span>
+                  <span className="text-sm font-semibold text-red-700">The Human Line</span>
+                </Link>
+              </div>
+            )}
+          </div>
+
           <Link href="/for/child" className="no-underline flex items-center gap-1 hover:scale-110 transition-transform" title="Psst, hey kids!">
             <img src={BUFFALO_IMG} alt="Psst, hey kids!" className="w-7 h-7 rounded-full object-cover" style={{ border: '2px solid rgba(232,82,10,0.5)' }} />
           </Link>
@@ -333,6 +361,20 @@ export default function Nav() {
           <MobileAccordionSection label="Tools" section="tools" items={toolsLinks} accentColor="#0891B2" />
           <MobileAccordionSection label="Research" section="research" items={researchLinks} accentColor="#059669" />
           <MobileAccordionSection label="Explore" section="explore" items={exploreLinks} accentColor="#D97706" />
+
+          {/* Red Cross — Safety links */}
+          <div className="border-t border-[#e8e0d0] pt-3 mt-1 mb-1">
+            <div className="flex gap-3">
+              <Link href="/if-you-need-to-stop" onClick={closeAll} className="no-underline flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{ background: '#FEF2F2', border: '1.5px solid #DC2626' }}>
+                <span className="text-red-600 font-bold text-xs">✚</span>
+                <span className="text-xs font-bold text-red-700">If You Need to Stop</span>
+              </Link>
+              <Link href="/human-line" onClick={closeAll} className="no-underline flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{ background: '#FEF2F2', border: '1.5px solid #DC2626' }}>
+                <span className="text-red-600 font-bold text-xs">—</span>
+                <span className="text-xs font-bold text-red-700">Human Line</span>
+              </Link>
+            </div>
+          </div>
 
           {/* Buffalo — kids link */}
           <div className="border-t border-[#e8e0d0] pt-3 mt-1">

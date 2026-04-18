@@ -106,3 +106,25 @@
 - [ ] Session analysis pattern: run at start of every new session as alignment tool
 - [ ] PARKED — Accessibility nav placement: Matthew to rethink where Flower Presets surface in nav. Currently buried as "Simpler view →" in grey text. Do not touch until Matthew decides.
 - [x] Mobile nav premium upgrade: hat tiles with generated images + touch press animation + accordion sections below — DONE
+
+## April 17, 2026 — Thread 2 Session Items
+
+- [x] Builder poems section — 11 poems from Feb 28 master document, full-bleed section on Builder page, painterly background image, exact words preserved
+- [x] Builder's Scene on homepage — sloth-lantern-buffalo image, two-column, links to /builder, placed after story arc carousel
+- [x] Children's section fade-out — light→dark fade mirrors top fade, section breathes in and out
+- [x] 9-role homepage entry block — replaces 5-button hat flow, all roles with CDN images, expand-on-click lens links, premium tile design
+- [x] Desktop nav expanded to 9 roles — 3×3 grid, 480px panel, images, 3D press preserved
+- [x] Mobile nav updated to 9 roles — shared hatTiles array, images, touch press
+- [x] 3 new CDN images generated — Parent, Nurse, Student (painterly, consistent style)
+- [x] Nav duplicate key error fixed — key={hat.label} instead of key={hat.path}, Parent and Teacher share path but now have unique keys
+- [x] v39 builder log written — all three voices, all builds documented
+- [x] SESSION-HANDOFF.md appended — Thread 2 session summary, alignment observations, open items
+- [x] SESSION-CURRENT.md rewritten — v39 state, active threads, pending flags, standing notes
+- [ ] Professional landing page — /for/professional showing all 6 professional lenses as styled tiles (Prompt Engineer, Researcher, Linguist, Mathematician, Cognitive Science, Guardian/Teacher). Professional tile in nav currently links to /for/prompt-engineer which is wrong.
+- [ ] WHO ARE YOU pathfinding block (Home.tsx line ~871) — old expandable 8-role card block still exists below new entry tile block. Matthew to decide: keep, move, or remove.
+- [ ] Hats → Voice → Lens: Three Voices are reading modes on every page. Hats are entry modes. Lenses are destination pages. Ensure no page conflates these three things.
+- [ ] Database + Admin dashboard + panels wired to DB — most structurally important item remaining, not started
+- [ ] Governance audit — read UserGovernance.tsx and GallantryAiPage.tsx, decide where Ozzy + Wall + Monster land (remember 3.0 and 3.1)
+- [ ] Field Papers — 4 items from master document to add
+- [ ] Citizen Researcher — 4 items from master document to add
+- [ ] Five Rules — Rule 11 (The Wall), Hard vs Soft Constraints
