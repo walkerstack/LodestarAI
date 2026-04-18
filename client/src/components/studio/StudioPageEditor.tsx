@@ -61,10 +61,25 @@ function SortableBlock({
   let contentPreview = "";
   try {
     const parsed = JSON.parse(block.content);
-    if (block.blockType === "text") contentPreview = parsed.body?.slice(0, 80) ?? parsed.heading ?? "";
-    if (block.blockType === "card") contentPreview = parsed.title ?? "";
-    if (block.blockType === "doc") contentPreview = parsed.label ?? "";
-    if (block.blockType === "image") contentPreview = parsed.alt ?? parsed.url?.split("/").pop() ?? "";
+    if (block.blockType === "text") {
+      // Support both heading/body (new) and legacy formats
+      contentPreview = (parsed.heading || parsed.title || "") + (parsed.body ? " — " + parsed.body.slice(0, 60) : "");
+      contentPreview = contentPreview.trim().replace(/^\s*—\s*/, "").slice(0, 90);
+    }
+    if (block.blockType === "card") {
+      // Support both title/description (new) and heading/body (migration)
+      contentPreview = parsed.title ?? parsed.heading ?? parsed.name ?? "";
+      if (!contentPreview && parsed.description) contentPreview = parsed.description.slice(0, 60);
+      if (!contentPreview && parsed.body) contentPreview = parsed.body.slice(0, 60);
+    }
+    if (block.blockType === "doc") {
+      contentPreview = parsed.label ?? parsed.title ?? parsed.name ?? "";
+      if (!contentPreview && parsed.url) contentPreview = parsed.url.split("/").pop() ?? "";
+    }
+    if (block.blockType === "image") {
+      contentPreview = parsed.alt ?? "";
+      if (!contentPreview && parsed.url) contentPreview = parsed.url.split("/").pop()?.split("?")[0] ?? "";
+    }
   } catch {}
 
   const typeColors: Record<string, string> = {

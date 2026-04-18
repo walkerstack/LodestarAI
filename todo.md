@@ -185,6 +185,9 @@
 - [ ] Studio: Block list rows show meaningful preview text for each block type (title for cards, filename for images, excerpt for text)
 - [ ] Studio: Define and document the full block schema for all 45+ pages
 
+## Studio Block Display Fix — Active (April 18, 2026 late)
+- [x] Fix block list in Studio page editor to display card, doc, and image blocks (not just text) — more pages will turn green once all block types are visible
+
 ## Link Manager Fix (April 18, 2026)
 - [ ] Link Manager: Build server-side page link scanner — fetch rendered page HTML, extract all anchor tags with label and destination
 - [ ] Link Manager: Update UI to show scanned links in a list with colour-coded destination categories
