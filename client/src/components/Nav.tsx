@@ -16,6 +16,7 @@ const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6
 // Nav data arrays imported from @/lib/navData.ts — edit there, not here
 
 type NavSection = "lenses" | "foundation" | "forYou" | "tools" | "research" | "explore" | "safety" | null;
+type HatSubPanel = "professional" | null;
 type MobileAccordion = "foundation" | "forYou" | "tools" | "research" | "explore" | null;
 
 export default function Nav() {
@@ -95,13 +96,86 @@ export default function Nav() {
     { label: "Teacher", icon: "🏫", path: "/for/guardian-teacher", bg: "#F0FDFA", border: "#0D9488", text: "#134E4A", desc: "The scaffold is your lesson plan.", img: HAT_IMAGES.teacher },
   ];
 
+  const [hatSubPanel, setHatSubPanel] = useState<HatSubPanel>(null);
+
+  const professionalLenses = [
+    { label: "Prompt Engineer", path: "/for/prompt-engineer", desc: "Token Zero. Force profiles. Precision.", color: "#4F46E5" },
+    { label: "Researcher", path: "/for/researcher", desc: "Evidence. Methodology. Citizen science.", color: "#0891B2" },
+    { label: "Linguist", path: "/for/linguist", desc: "Words steer. Choose them carefully.", color: "#7C3AED" },
+    { label: "Mathematician", path: "/for/mathematician", desc: "Structure. Proof. Elegant constraint.", color: "#059669" },
+    { label: "Cognitive Science", path: "/for/cognitive-science", desc: "How your brain drifts. How to notice.", color: "#D97706" },
+    { label: "Guardian & Teacher", path: "/for/guardian-teacher", desc: "The scaffold is your lesson plan.", color: "#DC2626" },
+  ];
+
   function HatTileMenu({ onClose }: { onClose: () => void }) {
     return (
       <div className="absolute top-full left-0 mt-2 z-50" style={{ width: '480px' }}>
         <div className="bg-white border border-[#e8e0d0] rounded-2xl shadow-xl overflow-hidden">
-          {/* Nine role tiles — 3x3 grid */}
-          <div className="grid grid-cols-3 gap-0">
-            {hatTiles.map((hat) => (
+          {/* Professional sub-panel */}
+          {hatSubPanel === 'professional' && (
+            <div className="p-4" style={{ background: '#F0F4FF' }}>
+              <div className="flex items-center gap-2 mb-3">
+                <button
+                  onClick={() => setHatSubPanel(null)}
+                  className="text-[#4F46E5] text-xs font-bold hover:underline flex items-center gap-1"
+                >
+                  ← Back
+                </button>
+                <span className="text-xs font-bold text-[#3730A3]" style={{ fontFamily: "'DM Sans', sans-serif" }}>PROFESSIONAL LENSES</span>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                {professionalLenses.map((lens) => (
+                  <Link
+                    key={lens.path}
+                    href={lens.path}
+                    onClick={() => { setHatSubPanel(null); onClose(); }}
+                    className="no-underline rounded-xl p-3 flex flex-col gap-1 transition-all duration-150 hover:scale-[1.02] cursor-pointer"
+                    style={{ background: 'white', border: `1.5px solid ${lens.color}33` }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = lens.color; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = `${lens.color}33`; }}
+                  >
+                    <span className="text-xs font-bold" style={{ color: lens.color, fontFamily: "'DM Sans', sans-serif" }}>{lens.label}</span>
+                    <span className="text-[9px] leading-tight" style={{ color: '#6B7280' }}>{lens.desc}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+          {/* Nine role tiles — 3x3 grid (hidden when sub-panel open) */}
+          {!hatSubPanel && <div className="grid grid-cols-3 gap-0">
+            {hatTiles.map((hat) => {
+              const isProfessional = hat.label === 'Professional';
+              if (isProfessional) {
+                return (
+                  <button
+                    key={hat.label}
+                    onClick={() => setHatSubPanel('professional')}
+                    className="group flex flex-col items-center justify-center py-4 px-2 transition-all duration-150 cursor-pointer border-0 text-left"
+                    style={{
+                      background: hat.bg,
+                      borderRight: `1px solid #e8e0d0`,
+                      transform: 'perspective(400px) translateZ(0px)',
+                      transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.transform = 'perspective(400px) translateZ(8px) scale(1.04)';
+                      (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 16px ${hat.border}44`;
+                      (e.currentTarget as HTMLElement).style.zIndex = '2';
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.transform = 'perspective(400px) translateZ(0px) scale(1)';
+                      (e.currentTarget as HTMLElement).style.boxShadow = 'none';
+                      (e.currentTarget as HTMLElement).style.zIndex = '1';
+                    }}
+                  >
+                    <span className="text-2xl mb-1" style={{ color: hat.border }}>{hat.icon}</span>
+                    <span className="text-xs font-bold text-center leading-tight" style={{ color: hat.text, fontFamily: "'DM Sans', sans-serif" }}>{hat.label}</span>
+                    <span className="text-[9px] text-center mt-1 leading-tight opacity-70" style={{ color: hat.text }}>{hat.desc}</span>
+                    <span className="text-[8px] mt-1" style={{ color: hat.border }}>6 lenses ›</span>
+                  </button>
+                );
+              }
+              return (
               <Link
                 key={hat.label}
                 href={hat.path}
@@ -128,8 +202,9 @@ export default function Nav() {
                 <span className="text-xs font-bold text-center leading-tight" style={{ color: hat.text, fontFamily: "'DM Sans', sans-serif" }}>{hat.label}</span>
                 <span className="text-[9px] text-center mt-1 leading-tight opacity-70" style={{ color: hat.text }}>{hat.desc}</span>
               </Link>
-            ))}
-          </div>
+              );
+            })}
+          </div>}
           {/* Direct stream */}
           <div className="border-t border-[#e8e0d0] px-4 py-3 flex items-center justify-between bg-[#FAF6EF]">
             <div className="flex gap-4">

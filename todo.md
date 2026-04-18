@@ -128,3 +128,8 @@
 - [ ] Field Papers — 4 items from master document to add
 - [ ] Citizen Researcher — 4 items from master document to add
 - [ ] Five Rules — Rule 11 (The Wall), Hard vs Soft Constraints
+
+## April 18, 2026 — Nav Fix (URGENT)
+
+- [ ] Professional tile in nav: fix to show all 6 professional lenses — currently goes directly to /for/prompt-engineer which is WRONG. Was promised last session, not delivered.
+- [ ] Desktop nav visual quality: user reports it looks the same as before all the nav work. Assess and make it feel genuinely premium and different.
