@@ -29,13 +29,20 @@ interface TextBlockContent {
 }
 
 interface CardBlockContent {
-  title: string;
-  description: string;
+  // New format fields
+  title?: string;
+  description?: string;
+  // Migration format fields (heading/body used by seed scripts)
+  heading?: string;
+  body?: string;
+  subtitle?: string;
+  cardId?: string;
+  tags?: string[];
   imageUrl?: string;
   linkLabel?: string;
   linkUrl?: string;
-  font: string;
-  size: string;
+  font?: string;
+  size?: string;
 }
 
 interface DocBlockContent {
@@ -90,6 +97,10 @@ function TextBlock({ content }: { content: TextBlockContent }) {
 }
 
 function CardBlock({ content }: { content: CardBlockContent }) {
+  // Support both new format (title/description) and migration format (heading/body)
+  const displayTitle = content.title ?? content.heading ?? "";
+  const displayDesc = content.description ?? content.body ?? "";
+
   const sizes = sizeMap[(content.size as keyof typeof sizeMap)] || sizeMap.medium;
   const fontClass = content.font === "playfair"
     ? "font-['Playfair_Display']"
@@ -105,23 +116,36 @@ function CardBlock({ content }: { content: CardBlockContent }) {
       {content.imageUrl && (
         <img
           src={content.imageUrl}
-          alt={content.title}
+          alt={displayTitle}
           className="w-full h-48 object-cover"
         />
       )}
       <div className="p-6">
+        {content.cardId && (
+          <div className="text-xs mb-2 font-mono" style={{ color: "#5a4a3a" }}>{content.cardId}</div>
+        )}
         <h3
           className={`${sizes.heading} font-bold mb-3`}
           style={{ color: "#e8c98a" }}
         >
-          {content.title}
+          {displayTitle}
         </h3>
+        {content.subtitle && (
+          <div className="text-sm mb-2 italic" style={{ color: "#8a7a6a" }}>{content.subtitle}</div>
+        )}
         <p
           className={`${sizes.body} leading-relaxed mb-4`}
           style={{ color: "#c8b89a" }}
         >
-          {content.description}
+          {displayDesc}
         </p>
+        {content.tags && content.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {content.tags.map((tag) => (
+              <span key={tag} className="text-xs px-2 py-1 rounded" style={{ background: "#1a1410", color: "#E8520A" }}>{tag}</span>
+            ))}
+          </div>
+        )}
         {content.linkUrl && content.linkLabel && (
           isExternal ? (
             <a

@@ -153,11 +153,24 @@
 
 ## Build 4 — Full Site Content Migration (April 18, 2026)
 
-- [ ] Build 4: Add StudioBlocks component — renders database blocks on live pages (additive, fallback to code if no blocks)
-- [ ] Build 4: Write migration script for 42 data array pages — reads JS objects, seeds content_blocks table
-- [ ] Build 4: Run migration script — verify all 42 pages have blocks in database
-- [ ] Build 4: Define and seed blocks for 21 inline JSX pages
-- [ ] Build 4: Update Studio page editor to show actual content text (not just block type labels)
+- [x] Build 4: Add StudioBlocks component — renders database blocks on live pages (additive, fallback to code if no blocks)
+- [x] Build 4: Write migration script for 42 data array pages — reads JS objects, seeds content_blocks table
+- [x] Build 4: Run migration script — verify all 42 pages have blocks in database
+- [x] Build 4: Define and seed blocks for 21 inline JSX pages
+- [x] Build 4: Update Studio page editor to show actual content text (not just block type labels)
 - [ ] Build 4: Verify end-to-end — edit a block in Studio, confirm change appears on live page
 - [ ] Build 4: Write vitest tests for migration integrity
 - [ ] Build 4: Save checkpoint after verification
+- [ ] Build 4: Run DB count query to verify all 42+ pages have blocks (full coverage proof)
+- [ ] Build 4: Studio block list — show content preview text in block list rows (not just 'empty' label)
+- [ ] Media Library: Expand seed to include manuscdn document URLs (field papers, gallery docs)
+
+## Build 4 — Remaining (April 18, 2026)
+- [x] Media Library: Seed all existing site images and doc URLs into media_library table
+- [x] Card Pages: Convert Field Papers cards to editable database blocks
+- [x] Card Pages: Convert Gallery cards to editable database blocks
+- [x] Card Pages: Convert Frameworks cards to editable database blocks
+- [ ] Card Pages: Convert other card-display pages to editable database blocks
+- [ ] Page Template Builder: UI in Studio to pick a template and create a new page
+- [ ] Page Template Builder: Templates — blank, article, lens, card grid
+- [ ] Page Template Builder: New page appears in site nav and is immediately accessible

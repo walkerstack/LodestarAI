@@ -87,8 +87,9 @@ export default function StudioBlockForm({ pageSlug, mode, block, onDone, onCance
   const [textSize, setTextSize] = useState(existing.size ?? "medium");
 
   // Card block fields
-  const [cardTitle, setCardTitle] = useState(existing.title ?? "");
-  const [cardDesc, setCardDesc] = useState(existing.description ?? "");
+  // Support both 'title'/'description' (new format) and 'heading'/'body' (migration format)
+  const [cardTitle, setCardTitle] = useState(existing.title ?? existing.heading ?? "");
+  const [cardDesc, setCardDesc] = useState(existing.description ?? existing.body ?? "");
   const [cardImageUrl, setCardImageUrl] = useState(existing.imageUrl ?? "");
   const [cardLinkLabel, setCardLinkLabel] = useState(existing.linkLabel ?? "");
   const [cardLinkUrl, setCardLinkUrl] = useState(existing.linkUrl ?? "");

@@ -82,6 +82,9 @@ export default function PageStudioBlocks() {
 
   const slug = PATH_TO_SLUG[cleanPath];
 
+  // Don't render on Studio page itself or any admin routes
+  if (cleanPath.startsWith('/studio') || cleanPath.startsWith('/backstage')) return null;
+
   // No slug mapping for this path — don't render anything
   if (!slug) return null;
 
