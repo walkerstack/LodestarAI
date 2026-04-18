@@ -150,3 +150,14 @@
 - [x] Studio: Save checkpoint after each confirmed part
 - [x] Studio: Block drag-to-reorder — grab any block, drag up or down, drop to reposition on page
 - [x] Studio: Mobile-first design — all Studio screens must work on phone (large tap targets, readable text, easy forms). Desktop gets more space but nothing breaks.
+
+## Build 4 — Full Site Content Migration (April 18, 2026)
+
+- [ ] Build 4: Add StudioBlocks component — renders database blocks on live pages (additive, fallback to code if no blocks)
+- [ ] Build 4: Write migration script for 42 data array pages — reads JS objects, seeds content_blocks table
+- [ ] Build 4: Run migration script — verify all 42 pages have blocks in database
+- [ ] Build 4: Define and seed blocks for 21 inline JSX pages
+- [ ] Build 4: Update Studio page editor to show actual content text (not just block type labels)
+- [ ] Build 4: Verify end-to-end — edit a block in Studio, confirm change appears on live page
+- [ ] Build 4: Write vitest tests for migration integrity
+- [ ] Build 4: Save checkpoint after verification

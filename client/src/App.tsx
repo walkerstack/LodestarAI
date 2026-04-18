@@ -76,6 +76,7 @@ import BuildersKids from "./pages/BuildersKids";
 import Anthropomorphism from "./pages/Anthropomorphism";
 import Hallucinations from "./pages/Hallucinations";
 import Studio from "./pages/Studio";
+import PageStudioBlocks from "./components/studio/PageStudioBlocks";
 
 function ScrollToTop() {
   const [location] = useLocation();

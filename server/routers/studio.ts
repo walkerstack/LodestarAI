@@ -4,7 +4,7 @@
  */
 
 import { z } from "zod";
-import { adminProcedure, router } from "../_core/trpc";
+import { adminProcedure, publicProcedure, router } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
 import {
   getBlocksByPage,
@@ -91,6 +91,13 @@ const SITE_PAGES = [
 ];
 
 export const studioRouter = router({
+  // ── PUBLIC — live pages fetch their blocks ──
+  getPublicBlocks: publicProcedure
+    .input(z.object({ pageSlug: z.string() }))
+    .query(async ({ input }) => {
+      return getBlocksByPage(input.pageSlug);
+    }),
+
   // ── PAGE LIST ──────────────────────────────
   getPageList: adminProcedure.query(async () => {
     return SITE_PAGES;

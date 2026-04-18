@@ -5,11 +5,14 @@
  */
 
 import { Link } from "wouter";
+import PageStudioBlocks from "./studio/PageStudioBlocks";
 
 const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png";
 
 export default function Footer() {
   return (
+    <>
+    <PageStudioBlocks />
     <footer className="w-full border-t border-[#e8e0d0] bg-[#FAF6EF] mt-16">
       <div className="brand-top-bar" />
       <div className="container py-8">
@@ -146,5 +149,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }
