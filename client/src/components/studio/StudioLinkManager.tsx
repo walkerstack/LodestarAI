@@ -8,6 +8,8 @@ import { useState } from "react";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 
+type ScanResult = { destination: string; label: string; sources: string[] };
+
 type Page = { slug: string; label: string; path: string };
 type PageLink = {
   id: number;
@@ -43,6 +45,18 @@ export default function StudioLinkManager({ pages }: Props) {
   const [showAddForm, setShowAddForm] = useState(false);
   const [newLabel, setNewLabel] = useState("");
   const [newDest, setNewDest] = useState("");
+  const [scanResults, setScanResults] = useState<ScanResult[] | null>(null);
+  const [showScan, setShowScan] = useState(false);
+  const [scanFilter, setScanFilter] = useState("");
+
+  const scanMutation = trpc.studio.scanLinks.useMutation({
+    onSuccess: (data) => {
+      setScanResults(data);
+      setShowScan(true);
+      toast.success(`Found ${data.length} unique paths`);
+    },
+    onError: (e) => toast.error(`Scan failed: ${e.message}`),
+  });
 
   const { data: links, isLoading } = trpc.studio.getLinksByPage.useQuery(
     { pageSlug: selectedSlug ?? "" },
@@ -98,11 +112,74 @@ export default function StudioLinkManager({ pages }: Props) {
     });
   };
 
+  const filteredScan = scanResults
+    ? scanResults.filter(
+        (r) =>
+          !scanFilter ||
+          r.destination.toLowerCase().includes(scanFilter.toLowerCase()) ||
+          r.label.toLowerCase().includes(scanFilter.toLowerCase())
+      )
+    : [];
+
   return (
     <div>
       <p style={{ color: "#8a7a6a", fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", marginBottom: "1.5rem" }}>
         Select a page to see its links. Click any link to change where it goes.
       </p>
+
+      {/* ── Link Scanner ── */}
+      <div style={{ marginBottom: "2rem", background: "#0d0b08", border: "1px solid #2a2218", borderRadius: "8px", padding: "1rem" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: showScan && scanResults ? "1rem" : "0" }}>
+          <div>
+            <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem", color: "#c8b89a", fontWeight: 600 }}>Link Scanner</div>
+            <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", color: "#5a4a3a", marginTop: "0.15rem" }}>Scan all source files for internal paths</div>
+          </div>
+          <button
+            onClick={() => scanMutation.mutate()}
+            disabled={scanMutation.isPending}
+            style={{ background: "#E8520A", border: "none", borderRadius: "6px", color: "#fff", padding: "0.5rem 1rem", cursor: scanMutation.isPending ? "not-allowed" : "pointer", fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", fontWeight: 600, opacity: scanMutation.isPending ? 0.7 : 1 }}
+          >
+            {scanMutation.isPending ? "Scanning…" : "Scan Now"}
+          </button>
+        </div>
+
+        {showScan && scanResults && (
+          <div>
+            <input
+              value={scanFilter}
+              onChange={(e) => setScanFilter(e.target.value)}
+              placeholder="Filter paths…"
+              style={{ ...inputStyle, marginBottom: "0.75rem" }}
+            />
+            <div style={{ maxHeight: "320px", overflowY: "auto", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+              {filteredScan.map((r) => (
+                <div key={r.destination} style={{ background: "#130f0a", border: "1px solid #2a2218", borderRadius: "6px", padding: "0.6rem 0.75rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.5rem" }}>
+                    <div style={{ flex: 1, overflow: "hidden" }}>
+                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", color: "#E8520A", fontWeight: 500 }}>{r.destination}</div>
+                      <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", color: "#5a4a3a", marginTop: "0.1rem" }}>{r.sources.slice(0, 2).join(", ")}{r.sources.length > 2 ? ` +${r.sources.length - 2} more` : ""}</div>
+                    </div>
+                    <a
+                      href={r.destination}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ background: "transparent", border: "1px solid #2a2218", borderRadius: "4px", color: "#8a7a6a", padding: "0.25rem 0.5rem", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", textDecoration: "none", flexShrink: 0 }}
+                    >
+                      Visit
+                    </a>
+                  </div>
+                </div>
+              ))}
+              {filteredScan.length === 0 && (
+                <p style={{ color: "#5a4a3a", fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", textAlign: "center", padding: "1rem" }}>No paths match.</p>
+              )}
+            </div>
+            <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", color: "#3a2a1a", marginTop: "0.5rem", textAlign: "right" }}>
+              {filteredScan.length} of {scanResults.length} paths shown
+            </div>
+          </div>
+        )}
+      </div>
 
       {/* Page selector */}
       <div style={{ marginBottom: "1.5rem" }}>

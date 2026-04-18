@@ -11,10 +11,16 @@ import {
   pageLinks,
   studioPages,
   learningFlow,
+  lexiconTerms,
+  promptGames,
   InsertContentBlock,
   InsertMediaItem,
   InsertPageLink,
   InsertStudioPage,
+  InsertLexiconTerm,
+  InsertPromptGame,
+  promptPanelItems,
+  InsertPromptPanelItem,
 } from "../drizzle/schema";
 import { getDb } from "./db";
 
@@ -293,4 +299,91 @@ export function parseLearningFlowRow(row: { deeperLinks: string | null; widerLin
     wider: row.widerLinks ? (JSON.parse(row.widerLinks) as FlowLinkInput[]) : [],
     simpler: row.simplerLinks ? (JSON.parse(row.simplerLinks) as FlowLinkInput[]) : [],
   };
+}
+
+// ─────────────────────────────────────────────
+// LEXICON TERMS
+// ─────────────────────────────────────────────
+
+export async function getAllLexiconTerms() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(lexiconTerms).orderBy(asc(lexiconTerms.position), asc(lexiconTerms.term));
+}
+
+export async function createLexiconTerm(data: InsertLexiconTerm) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const [result] = await db.insert(lexiconTerms).values(data);
+  return result;
+}
+
+export async function updateLexiconTerm(id: number, data: Partial<InsertLexiconTerm>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(lexiconTerms).set(data).where(eq(lexiconTerms.id, id));
+}
+
+export async function deleteLexiconTerm(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(lexiconTerms).where(eq(lexiconTerms.id, id));
+}
+
+// ─────────────────────────────────────────────
+// PROMPT GAMES
+// ─────────────────────────────────────────────
+
+export async function getAllPromptGames() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(promptGames).orderBy(asc(promptGames.position), asc(promptGames.title));
+}
+
+export async function createPromptGame(data: InsertPromptGame) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const [result] = await db.insert(promptGames).values(data);
+  return result;
+}
+
+export async function updatePromptGame(id: number, data: Partial<InsertPromptGame>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(promptGames).set(data).where(eq(promptGames.id, id));
+}
+
+export async function deletePromptGame(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(promptGames).where(eq(promptGames.id, id));
+}
+
+// ─────────────────────────────────────────────
+// PROMPT PANEL ITEMS (G Button)
+// ─────────────────────────────────────────────
+
+export async function getAllPromptPanelItems() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(promptPanelItems).orderBy(asc(promptPanelItems.categoryId), asc(promptPanelItems.position));
+}
+
+export async function createPromptPanelItem(data: InsertPromptPanelItem) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const [result] = await db.insert(promptPanelItems).values(data);
+  return result;
+}
+
+export async function updatePromptPanelItem(id: number, data: Partial<InsertPromptPanelItem>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(promptPanelItems).set(data).where(eq(promptPanelItems.id, id));
+}
+
+export async function deletePromptPanelItem(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(promptPanelItems).where(eq(promptPanelItems.id, id));
 }

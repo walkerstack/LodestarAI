@@ -265,7 +265,7 @@ export const flowMap: Record<string, FlowEntry> = {
     wider: [
       { label: "Road Protocol", href: "/road-protocol", description: "Session governance that implements the law's principles" },
       { label: "Dual Strategy", href: "/dual-strategy", description: "Top-down law + bottom-up user governance" },
-      { label: "The Three Voices", href: "/three-lenses", description: "Read the Act through Everyday, Professional, or Watcher" },
+      { label: "The Three Voices", href: "/three-voices", description: "Read the Act through Everyday, Professional, or Watcher" },
     ],
     simpler: [
       { label: "Five Rules", href: "/rules", description: "The simplest version of what the law requires" },
@@ -333,7 +333,7 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "Promptolinguistics", href: "/promptolinguistics", description: "The discipline of prompt language" },
     ],
     simpler: [
-      { label: "Three Voices", href: "/three-lenses", description: "Understand the voice system first" },
+      { label: "Three Voices", href: "/three-voices", description: "Understand the voice system first" },
       { label: "Five Rules", href: "/rules", description: "Start with the basics" },
     ],
   },
@@ -380,7 +380,7 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "Promptolinguistics", href: "/promptolinguistics", description: "The discipline the report documents" },
     ],
     simpler: [
-      { label: "Three Voices", href: "/three-lenses", description: "Understand the voice system" },
+      { label: "Three Voices", href: "/three-voices", description: "Understand the voice system" },
       { label: "Everyday Lens", href: "/for/everyday", description: "The simplest explanation" },
     ],
   },
@@ -741,6 +741,23 @@ export const flowMap: Record<string, FlowEntry> = {
     ],
     simpler: [
       { label: "The Five Rules", href: "/rules", description: "The simplest starting point" },
+    ],
+  },
+
+  threeVoices: {
+    deeper: [
+      { label: "Drift", href: "/drift", description: "What happens when a session loses its voice" },
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The language layer behind every voice" },
+      { label: "ALCM", href: "/alcm", description: "The model the voices describe" },
+    ],
+    wider: [
+      { label: "Living Lexicon", href: "/lexicon", description: "The terms used across all three voices" },
+      { label: "Frameworks", href: "/frameworks", description: "28 tools seen through different voices" },
+      { label: "Scaffold", href: "/scaffold", description: "Where the voices fit in the learning progression" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "The floor — same rules, simplest voice" },
+      { label: "Everyday Person Lens", href: "/for/everyday", description: "The Everyday voice in full" },
     ],
   },
 

@@ -27,8 +27,9 @@
  * ============================================================
  */
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { X, Copy, Check, ChevronDown, ChevronRight } from "lucide-react";
+import { trpc } from "@/lib/trpc";
 
 // ── Types ──────────────────────────────────────────────────
 interface Prompt {
@@ -383,9 +384,39 @@ function CategorySection({ category }: { category: Category }) {
     </div>
   );
 }
-
 // ── PromptPanel ────────────────────────────────────────────
 export default function PromptPanel({ isOpen, onClose }: PromptPanelProps) {
+  const { data: dbItems } = trpc.studio.getPromptPanelItems.useQuery(undefined, {
+    staleTime: 5 * 60 * 1000,
+  });
+
+  // Build categories from DB rows, falling back to hardcoded data if DB is empty
+  const activeCategories = useMemo((): Category[] => {
+    if (!dbItems || dbItems.length === 0) return categories;
+    const catMap = new Map<string, Category>();
+    for (const item of dbItems) {
+      if (!item.isActive) continue;
+      if (!catMap.has(item.categoryId)) {
+        catMap.set(item.categoryId, {
+          id: item.categoryId,
+          label: item.categoryLabel,
+          color: item.categoryColor,
+          bgColor: item.categoryBgColor,
+          prompts: [],
+        });
+      }
+      catMap.get(item.categoryId)!.prompts.push({
+        title: item.title,
+        description: item.description ?? "",
+        text: item.promptText,
+        link: item.link ?? undefined,
+        linkLabel: item.linkLabel ?? undefined,
+      });
+    }
+    return Array.from(catMap.values());
+  }, [dbItems]);
+
+
   return (
     <>
       {/* Backdrop */}
@@ -449,7 +480,7 @@ export default function PromptPanel({ isOpen, onClose }: PromptPanelProps) {
 
         {/* Scrollable content */}
         <div className="flex-1 overflow-y-auto px-4 py-4">
-          {categories.map((cat) => (
+          {activeCategories.map((cat) => (
             <CategorySection key={cat.id} category={cat} />
           ))}
 

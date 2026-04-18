@@ -15,6 +15,7 @@ import { Link } from "wouter";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
+import { trpc } from "@/lib/trpc";
 
 type Lens = "everyday" | "professional" | "watcher";
 
@@ -601,7 +602,20 @@ export default function LivingLexicon() {
     window.scrollTo(0, 0);
   }, []);
 
-  const filtered = entries.filter((t) => {
+  // Read from DB; fall back to hardcoded entries while loading
+  const { data: dbTerms } = trpc.studio.getLexiconTerms.useQuery();
+  const activeEntries: LexiconEntry[] = (dbTerms && dbTerms.length > 0)
+    ? dbTerms.filter((t) => t.isActive).map((t) => ({
+        term: t.term,
+        category: t.category as LexiconEntry["category"],
+        link: t.link ?? undefined,
+        everyday: t.everyday,
+        professional: t.professional,
+        watcher: t.watcher,
+      }))
+    : entries;
+
+  const filtered = activeEntries.filter((t) => {
     const matchesCategory = activeCategory === "ALL" || t.category === activeCategory;
     const matchesSearch =
       search === "" ||
@@ -624,7 +638,7 @@ export default function LivingLexicon() {
       >
         <div className="max-w-3xl mx-auto text-center">
           <div className="text-xs uppercase tracking-[0.25em] mb-3 font-semibold" style={{ color: "#D4AC0D" }}>
-            Word Index · {entries.length} Frameworks
+            Word Index · {activeEntries.length} Frameworks
           </div>
           <h1
             className="text-3xl md:text-4xl font-bold mb-4"
@@ -668,14 +682,14 @@ export default function LivingLexicon() {
                   borderColor: activeCategory === cat ? (categoryColors[cat] || "#E8520A") : "#e8e0d0",
                 }}
               >
-                {cat} {cat !== "ALL" && <span style={{ opacity: 0.6 }}>({entries.filter(e => e.category === cat).length})</span>}
+                {cat} {cat !== "ALL" && <span style={{ opacity: 0.6 }}>({activeEntries.filter(e => e.category === cat).length})</span>}
               </button>
             ))}
           </div>
 
           {/* Count */}
           <div className="text-xs mb-6" style={{ color: "#8a7a6a" }}>
-            Showing {filtered.length} of {entries.length} entries · Each entry has its own lens toggle
+            Showing {filtered.length} of {activeEntries.length} entries · Each entry has its own lens toggle
           </div>
 
           {/* Terms */}
@@ -694,7 +708,7 @@ export default function LivingLexicon() {
           {/* Footer note + links */}
           <div className="mt-12 pt-8" style={{ borderTop: "1px solid #e8e0d0" }}>
             <p className="text-sm italic mb-6" style={{ color: "#8a7a6a", fontFamily: "'Playfair Display', serif" }}>
-              The lexicon grows as the research grows. {entries.length} frameworks and counting.
+              The lexicon grows as the research grows. {activeEntries.length} frameworks and counting.
             </p>
             <div className="flex flex-wrap gap-3">
               {[

@@ -165,3 +165,100 @@ export interface FlowLink {
 
 export type LearningFlowRow = typeof learningFlow.$inferSelect;
 export type InsertLearningFlowRow = typeof learningFlow.$inferInsert;
+
+/**
+ * lexicon_terms — stores all Living Lexicon terms.
+ * Replaces the hardcoded array in LivingLexicon.tsx.
+ * Each term has three voices: everyday, professional, watcher.
+ */
+export const lexiconTerms = mysqlTable("lexicon_terms", {
+  id: int("id").autoincrement().primaryKey(),
+  /** The term name, e.g. 'Token Zero' */
+  term: varchar("term", { length: 255 }).notNull(),
+  /** Category for grouping, e.g. 'CORE', 'CONCEPTS', 'TOOLS' */
+  category: varchar("category", { length: 64 }).notNull().default("CORE"),
+  /** Optional internal link to a related page, e.g. '/rules' */
+  link: varchar("link", { length: 255 }),
+  /** Everyday voice definition */
+  everyday: text("everyday").notNull(),
+  /** Professional voice definition */
+  professional: text("professional").notNull(),
+  /** Watcher voice definition */
+  watcher: text("watcher").notNull(),
+  /** Display order */
+  position: int("position").notNull().default(0),
+  /** Whether this term is visible on the public page */
+  isActive: boolean("isActive").notNull().default(true),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type LexiconTerm = typeof lexiconTerms.$inferSelect;
+export type InsertLexiconTerm = typeof lexiconTerms.$inferInsert;
+
+/**
+ * prompt_games — stores all Prompt Games entries.
+ * Replaces the hardcoded games array in PromptGames.tsx.
+ */
+export const promptGames = mysqlTable("prompt_games", {
+  id: int("id").autoincrement().primaryKey(),
+  /** Game title, e.g. 'The Habergeon Prompt' */
+  title: varchar("title", { length: 255 }).notNull(),
+  /** Category, e.g. 'Power Prompt', 'Language Physics', 'Session Tools' */
+  category: varchar("category", { length: 128 }).notNull(),
+  /** The actual prompt text to copy */
+  prompt: text("prompt").notNull(),
+  /** CDN URL for the poster/cover image */
+  poster: varchar("poster", { length: 512 }),
+  /** What this prompt does — everyday explanation */
+  learningWhat: text("learningWhat"),
+  /** Why it works — the mechanism */
+  learningWhy: text("learningWhy"),
+  /** How to use it */
+  learningHow: text("learningHow"),
+  /** Display order */
+  position: int("position").notNull().default(0),
+  /** Whether this game is visible on the public page */
+  isActive: boolean("isActive").notNull().default(true),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type PromptGame = typeof promptGames.$inferSelect;
+export type InsertPromptGame = typeof promptGames.$inferInsert;
+
+/**
+ * prompt_panel_items — stores all prompts shown in the G button floating panel.
+ * Replaces the hardcoded categories/prompts array in PromptPanel.tsx.
+ * Each row is one prompt inside a named category.
+ */
+export const promptPanelItems = mysqlTable("prompt_panel_items", {
+  id: int("id").autoincrement().primaryKey(),
+  /** Category id, e.g. 'power', 'session', 'flower', 'kids', 'language' */
+  categoryId: varchar("categoryId", { length: 64 }).notNull(),
+  /** Category display label, e.g. 'Power Prompts' */
+  categoryLabel: varchar("categoryLabel", { length: 128 }).notNull(),
+  /** Category accent colour hex, e.g. '#E8520A' */
+  categoryColor: varchar("categoryColor", { length: 32 }).notNull().default("#E8520A"),
+  /** Category background colour hex for the expanded panel */
+  categoryBgColor: varchar("categoryBgColor", { length: 32 }).notNull().default("#1a0e08"),
+  /** Prompt title */
+  title: varchar("title", { length: 255 }).notNull(),
+  /** Short description shown when the prompt is expanded */
+  description: text("description"),
+  /** The actual prompt text to copy */
+  promptText: text("promptText").notNull(),
+  /** Optional internal link, e.g. '/prompt-games' */
+  link: varchar("link", { length: 512 }),
+  /** Label for the link, e.g. 'See Prompt Games →' */
+  linkLabel: varchar("linkLabel", { length: 128 }),
+  /** Display order within the category */
+  position: int("position").notNull().default(0),
+  /** Whether this prompt is visible in the panel */
+  isActive: boolean("isActive").notNull().default(true),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type PromptPanelItem = typeof promptPanelItems.$inferSelect;
+export type InsertPromptPanelItem = typeof promptPanelItems.$inferInsert;

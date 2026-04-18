@@ -13,6 +13,8 @@ import { Link } from "wouter";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
+import LearningFlow from "@/components/LearningFlow";
+import { flowMap } from "@/lib/learningFlowMap";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -469,10 +471,10 @@ export default function ThreeLenses() {
         </section>
       </main>
 
+       <LearningFlow current="threeVoices" deeper={flowMap.threeVoices.deeper} wider={flowMap.threeVoices.wider} simpler={flowMap.threeVoices.simpler} />
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
-
       <Footer />
     </div>
   );

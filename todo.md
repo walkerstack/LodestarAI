@@ -64,11 +64,11 @@
 - [x] v25: Add professional lens discovery section to homepage — 8 cards (Psychology, Cognitive Science, Researcher, Prompt Engineer, Linguist, Mathematician, Guardian/Teacher, Everyday Person) between Field Events and Scaffold sections
 
 ## LearningFlow + KidsMidLink Parity — All Pages (tracked from v29 session)
-- [ ] Add LearningFlow with contextual links to: Articles, Backstage, BarneyPoem, Builder, BuilderOrigin, CitizenResearcher, FieldPapers, Gallery, HumanLine, KidsLearn, Malbolge, MathPrompting, Playground, SafetyPage, Scaffold, SchoolBoard, ThreeLenses, VariableScale, WhelmScale, WatcherLens
+- [x] Add LearningFlow with contextual links to: Articles, Backstage, BarneyPoem, Builder, BuilderOrigin, CitizenResearcher, FieldPapers, Gallery, HumanLine, KidsLearn, Malbolge, MathPrompting, Playground, SafetyPage, Scaffold, SchoolBoard, ThreeLenses, VariableScale, WhelmScale, WatcherLens — VERIFIED IN CODE Apr 18 (57 pages confirmed, ThreeLenses fixed this session)
 - [x] AlcmPage: LearningFlow added (v30)
-- [ ] Add KidsMidLink to: KidsLearn, WhatTheAiSaid
+- [x] Add KidsMidLink to: KidsLearn, WhatTheAiSaid — VERIFIED Apr 18: KidsLearn does not need it (kids page with multiple home paths). WhatTheAiSaid confirmed not needed by Matthew.
 - [ ] Rule: every new page gets KidsMidLink + LearningFlow before it ships. No exceptions.
-- [ ] /three-lenses URL — decide: rename route to /three-voices, add redirect, or leave URL as-is (display name already updated to Three Voices)
+- [x] /three-lenses URL — FIXED Apr 18: both /three-lenses and /three-voices routes active, flowMap hrefs updated to /three-voices, LearningFlow added to ThreeLenses.tsx
 
 ## Session April 18, 2026 — New Items
 
@@ -238,3 +238,9 @@
 - [x] Fix Learning Matrix — rebuild Studio tab to show/add/remove multiple cards per section
 - [x] Fix Learning Matrix — update tRPC procedures and studioDb helpers for JSON array columns
 - [x] Add copy-existing-page-as-template to Page Builder — searchable list of all 57 pages, copies all blocks to new page
+
+### April 18, 2026 — Studio Content Management (Three Panels)
+- [x] Studio: Lexicon Manager tab — DB table for lexicon terms, tRPC read/write procedures, Studio tab UI (add/edit/remove), LivingLexicon public page reads from DB with hardcoded fallback
+- [x] Studio: Prompt Manager tab — DB table for prompt games, tRPC read/write procedures, Studio tab UI (add/edit/remove), PromptGames public page reads from DB with hardcoded fallback
+- [x] Studio: Link Manager scanner — Scan Now button scans all client TSX files for internal paths, returns deduplicated list with filter
+- [x] Studio: G Button Manager — prompt_panel_items DB table, 23 prompts seeded, StudioGButtonManager CRUD tab, PromptPanel reads from DB

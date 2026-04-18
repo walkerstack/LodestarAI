@@ -18,8 +18,11 @@ import StudioSiteMap from "@/components/studio/StudioSiteMap";
 import StudioStatusBoard from "@/components/studio/StudioStatusBoard";
 import StudioPageBuilder from "@/components/studio/StudioPageBuilder";
 import StudioLearningMatrix from "@/components/studio/StudioLearningMatrix";
+import StudioLexiconManager from "@/components/studio/StudioLexiconManager";
+import StudioPromptGamesManager from "@/components/studio/StudioPromptGamesManager";
+import StudioGButtonManager from "@/components/studio/StudioGButtonManager";
 
-type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard" | "pagebuilder" | "learningmatrix";
+type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard" | "pagebuilder" | "learningmatrix" | "lexicon" | "promptgames" | "gbutton";
 
 // ── Password Login Screen ────────────────────────────────────────────────────
 function StudioLoginForm() {
@@ -203,6 +206,9 @@ export default function Studio() {
     { id: "statusboard", label: "Status Board" },
     { id: "pagebuilder", label: "Page Builder" },
     { id: "learningmatrix", label: "Learning Matrix" },
+    { id: "lexicon", label: "Lexicon Manager" },
+    { id: "promptgames", label: "Prompt Games" },
+    { id: "gbutton", label: "G Button" },
   ];
 
   return (
@@ -419,6 +425,15 @@ export default function Studio() {
           {activeTab === "learningmatrix" && (
             <StudioLearningMatrix />
           )}
+
+          {/* ── Lexicon Manager ── */}
+          {activeTab === "lexicon" && <StudioLexiconManager />}
+
+          {/* ── Prompt Games Manager ── */}
+          {activeTab === "promptgames" && <StudioPromptGamesManager />}
+
+          {/* ── G Button Manager ── */}
+          {activeTab === "gbutton" && <StudioGButtonManager />}
 
         </div>
       </div>

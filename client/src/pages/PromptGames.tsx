@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
+import { trpc } from "@/lib/trpc";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -329,8 +330,31 @@ export default function PromptGames() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [filter, setFilter] = useState("all");
 
-  const categories = ["all", ...Array.from(new Set(games.map(g => g.category)))];
-  const filtered = filter === "all" ? games : games.filter(g => g.category === filter);
+  // Read from DB; fall back to hardcoded games while loading or if DB empty
+  const { data: dbGames } = trpc.studio.getPromptGames.useQuery();
+  const activeGames = (dbGames && dbGames.length > 0)
+    ? dbGames.filter(g => g.isActive).sort((a, b) => a.position - b.position).map(g => ({
+        id: g.id.toString(),
+        title: g.title,
+        category: g.category,
+        poster: g.poster ?? games[0]?.poster ?? "",
+        prompt: g.prompt,
+        learning: {
+          what: g.learningWhat ?? "",
+          why: g.learningWhy ?? "",
+          try: g.learningHow ?? "",
+        },
+        teaching: {
+          explain: "",
+          activity: "",
+          watch: "",
+        },
+        metaphor: "",
+      }))
+    : games;
+
+  const categories = ["all", ...Array.from(new Set(activeGames.map(g => g.category)))];
+  const filtered = filter === "all" ? activeGames : activeGames.filter(g => g.category === filter);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">

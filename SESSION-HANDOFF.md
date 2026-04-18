@@ -224,6 +224,31 @@ Search for the old URL string across the whole project before changing anything.
 
 ---
 
+## Last Session Summary (April 18, 2026 — v37 — Studio DB Panels + G Button + Link Scanner)
+
+**What was done:**
+- LivingLexicon.tsx: all 4 raw `entries.` references fixed to `activeEntries.` — now reads from DB
+- PromptGames.tsx: now reads from `prompt_games` DB table with hardcoded fallback
+- G Button Manager: full stack — `prompt_panel_items` DB table, seed (23 prompts, 5 categories), `StudioGButtonManager.tsx` CRUD tab, PromptPanel.tsx reads from DB
+- Link Scanner: `scanLinks` tRPC procedure scans all client TSX files for internal paths; "Scan Now" button + filter added to StudioLinkManager
+- Studio.tsx: Lexicon Manager, Prompt Games, and G Button tabs added (3 new tabs)
+- TypeScript: 0 errors. Vite: clean HMR.
+
+**New files added this session:**
+- `client/src/components/studio/StudioGButtonManager.tsx`
+- `scripts/seed-prompt-panel.mjs`
+
+**New DB table:** `prompt_panel_items` — categoryId, categoryLabel, categoryColor, categoryBgColor, title, description, promptText, link, linkLabel, sortOrder, isActive
+
+**New tRPC procedures:**
+- `studio.getPromptPanelItems` — public, reads all active items
+- `studio.createPromptPanelItem` — admin
+- `studio.updatePromptPanelItem` — admin
+- `studio.deletePromptPanelItem` — admin
+- `studio.scanLinks` — admin, scans source files for internal paths
+
+---
+
 ## Last Session Summary (April 18, 2026 — v36 — 5-Step Plan Complete)
 
 **What was done:**

@@ -34,6 +34,18 @@ import {
   upsertLearningFlow,
   parseLearningFlowRow,
   copyBlocksToNewPage,
+  getAllLexiconTerms,
+  createLexiconTerm,
+  updateLexiconTerm,
+  deleteLexiconTerm,
+  getAllPromptGames,
+  createPromptGame,
+  updatePromptGame,
+  deletePromptGame,
+  getAllPromptPanelItems,
+  createPromptPanelItem,
+  updatePromptPanelItem,
+  deletePromptPanelItem,
   type FlowLinkInput,
 } from "../studioDb";
 import { storagePut } from "../storage";
@@ -442,4 +454,215 @@ export const studioRouter = router({
       await upsertLearningFlow(pageSlug, data as { deeperLinks?: FlowLinkInput[]; widerLinks?: FlowLinkInput[]; simplerLinks?: FlowLinkInput[] });
       return { success: true };
     }),
+
+  // ─────────────────────────────────────────────
+  // LEXICON TERMS
+  // ─────────────────────────────────────────────
+  getLexiconTerms: publicProcedure.query(async () => {
+    return getAllLexiconTerms();
+  }),
+  createLexiconTerm: adminProcedure
+    .input(z.object({
+      term: z.string().min(1).max(255),
+      category: z.string().max(64).default('CORE'),
+      link: z.string().max(255).nullable().optional(),
+      everyday: z.string().min(1),
+      professional: z.string().min(1),
+      watcher: z.string().min(1),
+      position: z.number().int().default(0),
+      isActive: z.boolean().default(true),
+    }))
+    .mutation(async ({ input }) => {
+      await createLexiconTerm(input);
+      return { success: true };
+    }),
+  updateLexiconTerm: adminProcedure
+    .input(z.object({
+      id: z.number().int(),
+      term: z.string().min(1).max(255).optional(),
+      category: z.string().max(64).optional(),
+      link: z.string().max(255).nullable().optional(),
+      everyday: z.string().optional(),
+      professional: z.string().optional(),
+      watcher: z.string().optional(),
+      position: z.number().int().optional(),
+      isActive: z.boolean().optional(),
+    }))
+    .mutation(async ({ input }) => {
+      const { id, ...data } = input;
+      await updateLexiconTerm(id, data);
+      return { success: true };
+    }),
+  deleteLexiconTerm: adminProcedure
+    .input(z.object({ id: z.number().int() }))
+    .mutation(async ({ input }) => {
+      await deleteLexiconTerm(input.id);
+      return { success: true };
+    }),
+
+  // ─────────────────────────────────────────────
+  // PROMPT GAMES
+  // ─────────────────────────────────────────────
+  getPromptGames: publicProcedure.query(async () => {
+    return getAllPromptGames();
+  }),
+  createPromptGame: adminProcedure
+    .input(z.object({
+      title: z.string().min(1).max(255),
+      category: z.string().max(128),
+      prompt: z.string().min(1),
+      poster: z.string().max(512).nullable().optional(),
+      learningWhat: z.string().nullable().optional(),
+      learningWhy: z.string().nullable().optional(),
+      learningHow: z.string().nullable().optional(),
+      position: z.number().int().default(0),
+      isActive: z.boolean().default(true),
+    }))
+    .mutation(async ({ input }) => {
+      await createPromptGame(input);
+      return { success: true };
+    }),
+  updatePromptGame: adminProcedure
+    .input(z.object({
+      id: z.number().int(),
+      title: z.string().min(1).max(255).optional(),
+      category: z.string().max(128).optional(),
+      prompt: z.string().optional(),
+      poster: z.string().max(512).nullable().optional(),
+      learningWhat: z.string().nullable().optional(),
+      learningWhy: z.string().nullable().optional(),
+      learningHow: z.string().nullable().optional(),
+      position: z.number().int().optional(),
+      isActive: z.boolean().optional(),
+    }))
+    .mutation(async ({ input }) => {
+      const { id, ...data } = input;
+      await updatePromptGame(id, data);
+      return { success: true };
+    }),
+  deletePromptGame: adminProcedure
+    .input(z.object({ id: z.number().int() }))
+    .mutation(async ({ input }) => {
+      await deletePromptGame(input.id);
+      return { success: true };
+    }),
+
+  // ─────────────────────────────────────────────
+  // PROMPT PANEL ITEMS (G Button)
+  // ─────────────────────────────────────────────
+  getPromptPanelItems: publicProcedure.query(async () => {
+    return getAllPromptPanelItems();
+  }),
+  createPromptPanelItem: adminProcedure
+    .input(z.object({
+      categoryId: z.string().max(64),
+      categoryLabel: z.string().max(128),
+      categoryColor: z.string().max(32).default("#E8520A"),
+      categoryBgColor: z.string().max(32).default("#1a0e08"),
+      title: z.string().min(1).max(255),
+      description: z.string().nullable().optional(),
+      promptText: z.string().min(1),
+      link: z.string().max(512).nullable().optional(),
+      linkLabel: z.string().max(128).nullable().optional(),
+      position: z.number().int().default(0),
+      isActive: z.boolean().default(true),
+    }))
+    .mutation(async ({ input }) => {
+      await createPromptPanelItem(input);
+      return { success: true };
+    }),
+  updatePromptPanelItem: adminProcedure
+    .input(z.object({
+      id: z.number().int(),
+      categoryId: z.string().max(64).optional(),
+      categoryLabel: z.string().max(128).optional(),
+      categoryColor: z.string().max(32).optional(),
+      categoryBgColor: z.string().max(32).optional(),
+      title: z.string().min(1).max(255).optional(),
+      description: z.string().nullable().optional(),
+      promptText: z.string().optional(),
+      link: z.string().max(512).nullable().optional(),
+      linkLabel: z.string().max(128).nullable().optional(),
+      position: z.number().int().optional(),
+      isActive: z.boolean().optional(),
+    }))
+    .mutation(async ({ input }) => {
+      const { id, ...data } = input;
+      await updatePromptPanelItem(id, data);
+      return { success: true };
+    }),
+  deletePromptPanelItem: adminProcedure
+    .input(z.object({ id: z.number().int() }))
+    .mutation(async ({ input }) => {
+      await deletePromptPanelItem(input.id);
+      return { success: true };
+    }),
+
+  // ─────────────────────────────────────────────
+  // LINK SCANNER
+  // Scans all .tsx source files for href/Link paths and returns a
+  // deduplicated list of { pageSlug, label, destination } tuples.
+  // ─────────────────────────────────────────────
+  scanLinks: adminProcedure.mutation(async () => {
+    const { readdir, readFile } = await import("fs/promises");
+    const { join, resolve } = await import("path");
+
+    const clientSrc = resolve(process.cwd(), "client/src");
+
+    // Recursively collect all .tsx files
+    async function collectTsx(dir: string): Promise<string[]> {
+      const entries = await readdir(dir, { withFileTypes: true });
+      const files: string[] = [];
+      for (const e of entries) {
+        const full = join(dir, e.name);
+        if (e.isDirectory()) files.push(...(await collectTsx(full)));
+        else if (e.name.endsWith(".tsx") || e.name.endsWith(".ts")) files.push(full);
+      }
+      return files;
+    }
+
+    const files = await collectTsx(clientSrc);
+
+    // Patterns to extract internal paths from:
+    //   href="/some/path"  href='/some/path'
+    //   <Link href="/some/path"
+    //   path: "/some/path"
+    //   to="/some/path"
+    const hrefPattern = /(?:href|to)=["'](\/[^"'\s>]+)["']/g;
+    const pathPattern = /path:\s*["'](\/[^"'\s,}]+)["']/g;
+
+    const found = new Map<string, Set<string>>(); // destination -> Set<sourceFile>
+
+    for (const file of files) {
+      const content = await readFile(file, "utf-8");
+      const relFile = file.replace(clientSrc + "/", "");
+
+      for (const pattern of [hrefPattern, pathPattern]) {
+        pattern.lastIndex = 0;
+        let m: RegExpExecArray | null;
+        while ((m = pattern.exec(content)) !== null) {
+          const dest = m[1];
+          // Skip anchors, external, studio-internal, and very short paths
+          if (dest.startsWith("/api") || dest.startsWith("/studio")) continue;
+          if (!found.has(dest)) found.set(dest, new Set());
+          found.get(dest)!.add(relFile);
+        }
+      }
+    }
+
+    // Build result: for each unique destination, derive a label from the path
+    const results: Array<{ destination: string; label: string; sources: string[] }> = [];
+    found.forEach((sources, dest) => {
+      const parts = dest.split("/").filter(Boolean);
+      const label = parts
+        .map((p: string) => p.replace(/-/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase()))
+        .join(" > ");
+      results.push({ destination: dest, label: label || dest, sources: Array.from(sources) });
+    });
+
+    // Sort by destination
+    results.sort((a, b) => a.destination.localeCompare(b.destination));
+
+    return results;
+  }),
 });

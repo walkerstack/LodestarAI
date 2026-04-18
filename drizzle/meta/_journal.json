@@ -43,6 +43,20 @@
       "when": 1776548676309,
       "tag": "0005_pale_masque",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1776553724675,
+      "tag": "0006_slow_ravenous",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1776555086941,
+      "tag": "0007_bizarre_scarecrow",
+      "breakpoints": true
     }
   ]
 }
