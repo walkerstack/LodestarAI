@@ -103,7 +103,7 @@ export default function Nav() {
           <div className="grid grid-cols-3 gap-0">
             {hatTiles.map((hat) => (
               <Link
-                key={hat.path}
+                key={hat.label}
                 href={hat.path}
                 onClick={onClose}
                 className="no-underline group flex flex-col items-center justify-center py-4 px-2 transition-all duration-150 cursor-pointer"
@@ -279,7 +279,7 @@ export default function Nav() {
             <div className="grid grid-cols-2 gap-2.5 mb-3">
               {hatTiles.map((hat) => (
                 <Link
-                  key={hat.path}
+                  key={hat.label}
                   href={hat.path}
                   onClick={closeAll}
                   className="no-underline rounded-2xl overflow-hidden flex flex-col"
