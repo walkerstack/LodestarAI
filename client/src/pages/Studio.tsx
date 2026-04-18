@@ -2,6 +2,7 @@
  * GALLANTRYAI STUDIO
  * Owner-only content management dashboard.
  * Password login works on any device — no Manus OAuth required.
+ * Deploy: 2026-04-18T18:22Z — Site Map + Status Board tabs
  */
 
 import { useState } from "react";
