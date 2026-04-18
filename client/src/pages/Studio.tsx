@@ -17,8 +17,9 @@ import StudioLinkManager from "@/components/studio/StudioLinkManager";
 import StudioSiteMap from "@/components/studio/StudioSiteMap";
 import StudioStatusBoard from "@/components/studio/StudioStatusBoard";
 import StudioPageBuilder from "@/components/studio/StudioPageBuilder";
+import StudioLearningMatrix from "@/components/studio/StudioLearningMatrix";
 
-type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard" | "pagebuilder";
+type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard" | "pagebuilder" | "learningmatrix";
 
 // ── Password Login Screen ────────────────────────────────────────────────────
 function StudioLoginForm() {
@@ -201,6 +202,7 @@ export default function Studio() {
     { id: "sitemap", label: "Site Map" },
     { id: "statusboard", label: "Status Board" },
     { id: "pagebuilder", label: "Page Builder" },
+    { id: "learningmatrix", label: "Learning Matrix" },
   ];
 
   return (
@@ -411,6 +413,11 @@ export default function Studio() {
               </p>
               <StudioPageBuilder />
             </div>
+          )}
+
+          {/* ── Learning Matrix ── */}
+          {activeTab === "learningmatrix" && (
+            <StudioLearningMatrix />
           )}
 
         </div>

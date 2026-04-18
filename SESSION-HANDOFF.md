@@ -224,6 +224,28 @@ Search for the old URL string across the whole project before changing anything.
 
 ---
 
+## Last Session Summary (April 18, 2026 — v36 — 5-Step Plan Complete)
+
+**What was done:**
+- Step 3: Learning & Growing Matrix tab built in Studio. 53 connections seeded into `learning_flow` DB table. Owner can now change Go Deeper / Go Wider / Go Simpler for any page from Studio with a dropdown and Save button. No code needed.
+- Step 4: Nav from database (hybrid). New custom pages created in Page Builder with a nav category assigned + published automatically appear in the correct nav dropdown. Existing 56 pages remain hardcoded (safe).
+- Step 5: TypeScript 0 errors, 16 tests passing, checkpoint saved, ready to publish.
+
+**New files added this session:**
+- `client/src/components/studio/StudioLearningMatrix.tsx` — Learning Matrix Studio tab
+- `scripts/seed-learning-flow.mjs` — seed script for learning_flow table
+
+**New DB table:** `learning_flow` — pageSlug, deeperSlug, widerSlug, simplerSlug
+
+**New tRPC procedures:**
+- `studio.getLearningFlow` — get all flow connections (admin)
+- `studio.upsertLearningFlow` — save one page's connections (admin)
+- `studio.getNavPages` — get published custom pages for nav (public)
+
+**The original 5-step plan is complete.** The site is fully owner-controllable from Studio.
+
+---
+
 ## Last Session Summary (April 17, 2026 — v35)
 
 **What was done:**

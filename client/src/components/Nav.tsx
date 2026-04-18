@@ -13,6 +13,7 @@ import { Menu, X } from "lucide-react";
 import PromptPanel from "@/components/PromptPanel";
 import { lenses, foundationLinks, forYouLinks, toolsLinks, researchLinks, exploreLinks } from "@/lib/navData";
 import { useAuth } from "@/_core/hooks/useAuth";
+import { trpc } from "@/lib/trpc";
 
 const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png";
 
@@ -82,6 +83,28 @@ export default function Nav() {
   const navRef = useRef<HTMLDivElement>(null);
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
+
+  // Fetch published custom pages from DB and merge into nav sections
+  const { data: dbNavPages } = trpc.studio.getNavPages.useQuery(undefined, {
+    staleTime: 5 * 60 * 1000, // cache 5 min — nav doesn't need to refresh constantly
+  });
+
+  function mergeNavItems(
+    base: { label: string; path: string; color?: string }[],
+    category: string
+  ) {
+    if (!dbNavPages) return base;
+    const extra = dbNavPages
+      .filter((p) => p.navCategory === category)
+      .map((p) => ({ label: p.label, path: p.path }));
+    return [...base, ...extra];
+  }
+
+  const mergedFoundation = mergeNavItems(foundationLinks, "foundation");
+  const mergedForYou = mergeNavItems(forYouLinks, "for-you");
+  const mergedTools = mergeNavItems(toolsLinks, "tools");
+  const mergedResearch = mergeNavItems(researchLinks, "research");
+  const mergedExplore = mergeNavItems(exploreLinks, "explore");
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -439,23 +462,23 @@ export default function Nav() {
           </div>
           <div className="relative">
             <DropdownButton label="Foundation" section="foundation" />
-            {activeDropdown === "foundation" && <DropdownMenu items={foundationLinks} onClose={closeAll} />}
+            {activeDropdown === "foundation" && <DropdownMenu items={mergedFoundation} onClose={closeAll} />}
           </div>
           <div className="relative">
             <DropdownButton label="For You" section="forYou" />
-            {activeDropdown === "forYou" && <DropdownMenu items={forYouLinks} onClose={closeAll} />}
+            {activeDropdown === "forYou" && <DropdownMenu items={mergedForYou} onClose={closeAll} />}
           </div>
           <div className="relative">
             <DropdownButton label="Tools" section="tools" />
-            {activeDropdown === "tools" && <DropdownMenu items={toolsLinks} onClose={closeAll} />}
+            {activeDropdown === "tools" && <DropdownMenu items={mergedTools} onClose={closeAll} />}
           </div>
           <div className="relative">
             <DropdownButton label="Research" section="research" />
-            {activeDropdown === "research" && <DropdownMenu items={researchLinks} onClose={closeAll} />}
+            {activeDropdown === "research" && <DropdownMenu items={mergedResearch} onClose={closeAll} />}
           </div>
           <div className="relative">
             <DropdownButton label="Explore" section="explore" />
-            {activeDropdown === "explore" && <DropdownMenu items={exploreLinks} onClose={closeAll} />}
+            {activeDropdown === "explore" && <DropdownMenu items={mergedExplore} onClose={closeAll} />}
           </div>
 
           {/* Red Cross — Crisis + Human Line */}
@@ -562,11 +585,11 @@ export default function Nav() {
           </div>
 
           {/* ACCORDION SECTIONS */}
-          <MobileAccordionSection label="Foundation" section="foundation" items={foundationLinks} accentColor="#E8520A" />
-          <MobileAccordionSection label="For You" section="forYou" items={forYouLinks} accentColor="#7C3AED" />
-          <MobileAccordionSection label="Tools" section="tools" items={toolsLinks} accentColor="#0891B2" />
-          <MobileAccordionSection label="Research" section="research" items={researchLinks} accentColor="#059669" />
-          <MobileAccordionSection label="Explore" section="explore" items={exploreLinks} accentColor="#D97706" />
+          <MobileAccordionSection label="Foundation" section="foundation" items={mergedFoundation} accentColor="#E8520A" />
+          <MobileAccordionSection label="For You" section="forYou" items={mergedForYou} accentColor="#7C3AED" />
+          <MobileAccordionSection label="Tools" section="tools" items={mergedTools} accentColor="#0891B2" />
+          <MobileAccordionSection label="Research" section="research" items={mergedResearch} accentColor="#059669" />
+          <MobileAccordionSection label="Explore" section="explore" items={mergedExplore} accentColor="#D97706" />
 
           {/* Red Cross — Safety links */}
           <div className="border-t border-[#e8e0d0] pt-3 mt-1 mb-1">

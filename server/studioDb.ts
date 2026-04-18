@@ -10,6 +10,7 @@ import {
   mediaLibrary,
   pageLinks,
   studioPages,
+  learningFlow,
   InsertContentBlock,
   InsertMediaItem,
   InsertPageLink,
@@ -210,4 +211,42 @@ export async function deleteStudioPage(id: number) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   await db.delete(studioPages).where(eq(studioPages.id, id));
+}
+
+// ─────────────────────────────────────────────
+// LEARNING FLOW
+// ─────────────────────────────────────────────
+
+export async function getAllLearningFlow() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(learningFlow).orderBy(asc(learningFlow.pageSlug));
+}
+
+export async function getLearningFlowBySlug(pageSlug: string) {
+  const db = await getDb();
+  if (!db) return null;
+  const rows = await db
+    .select()
+    .from(learningFlow)
+    .where(eq(learningFlow.pageSlug, pageSlug));
+  return rows[0] ?? null;
+}
+
+export async function upsertLearningFlow(
+  pageSlug: string,
+  data: { deeperSlug?: string | null; widerSlug?: string | null; simplerSlug?: string | null }
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  // Try update first, then insert
+  const existing = await getLearningFlowBySlug(pageSlug);
+  if (existing) {
+    await db
+      .update(learningFlow)
+      .set(data)
+      .where(eq(learningFlow.pageSlug, pageSlug));
+  } else {
+    await db.insert(learningFlow).values({ pageSlug, ...data });
+  }
 }

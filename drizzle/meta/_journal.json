@@ -22,6 +22,13 @@
       "when": 1776529782757,
       "tag": "0002_first_blacklash",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1776545236259,
+      "tag": "0003_organic_the_watchers",
+      "breakpoints": true
     }
   ]
 }

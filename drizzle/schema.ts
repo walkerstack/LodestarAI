@@ -134,3 +134,24 @@ export const studioPages = mysqlTable("studio_pages", {
 
 export type StudioPage = typeof studioPages.$inferSelect;
 export type InsertStudioPage = typeof studioPages.$inferInsert;
+
+/**
+ * learning_flow — stores the deeper/wider/simpler connections for each page.
+ * Replaces the hardcoded learningFlowMap.ts so the owner can edit from Studio.
+ * One row per page slug. Null means no connection set for that direction.
+ */
+export const learningFlow = mysqlTable("learning_flow", {
+  id: int("id").autoincrement().primaryKey(),
+  /** The page slug this row belongs to, e.g. 'rules' */
+  pageSlug: varchar("pageSlug", { length: 128 }).notNull().unique(),
+  /** Slug of the "Go Deeper" page — harder/more detailed */
+  deeperSlug: varchar("deeperSlug", { length: 128 }),
+  /** Slug of the "Go Wider" page — related sideways connection */
+  widerSlug: varchar("widerSlug", { length: 128 }),
+  /** Slug of the "Go Simpler" page — easier starting point */
+  simplerSlug: varchar("simplerSlug", { length: 128 }),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type LearningFlowRow = typeof learningFlow.$inferSelect;
+export type InsertLearningFlowRow = typeof learningFlow.$inferInsert;

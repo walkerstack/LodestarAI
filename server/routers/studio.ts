@@ -29,6 +29,8 @@ import {
   createStudioPage,
   updateStudioPage,
   deleteStudioPage,
+  getAllLearningFlow,
+  upsertLearningFlow,
 } from "../studioDb";
 import { storagePut } from "../storage";
 
@@ -130,6 +132,14 @@ export const studioRouter = router({
       ctx.res.cookie(COOKIE_NAME, token, { ...opts, maxAge: 7 * 24 * 60 * 60 * 1000 });
       return { success: true };
     }),
+
+  // ── PUBLIC — published custom pages for nav ──
+  getNavPages: publicProcedure.query(async () => {
+    return getAllStudioPages().then(pages =>
+      pages.filter(p => p.isPublished && p.navCategory)
+        .map(p => ({ slug: p.slug, label: p.label, path: p.path, navCategory: p.navCategory! }))
+    );
+  }),
 
   // ── PUBLIC — live pages fetch their blocks ──
   getPublicBlocks: publicProcedure
@@ -362,6 +372,29 @@ export const studioRouter = router({
     .input(z.object({ id: z.number().int() }))
     .mutation(async ({ input }) => {
       await deleteStudioPage(input.id);
+      return { success: true };
+    }),
+
+  // ─────────────────────────────────────────────
+  // LEARNING FLOW
+  // ─────────────────────────────────────────────
+
+  getLearningFlow: adminProcedure.query(async () => {
+    return getAllLearningFlow();
+  }),
+
+  upsertLearningFlow: adminProcedure
+    .input(
+      z.object({
+        pageSlug: z.string().min(1).max(128),
+        deeperSlug: z.string().max(128).nullable().optional(),
+        widerSlug: z.string().max(128).nullable().optional(),
+        simplerSlug: z.string().max(128).nullable().optional(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const { pageSlug, ...data } = input;
+      await upsertLearningFlow(pageSlug, data);
       return { success: true };
     }),
 });
