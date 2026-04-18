@@ -99,16 +99,17 @@ export const studioRouter = router({
       if (input.password !== ENV.studioPassword) {
         throw new TRPCError({ code: "UNAUTHORIZED", message: "Wrong password" });
       }
-      // Set a studio session cookie valid for 7 days
+      // Use the SDK to create a proper session token for the owner
+      // This sets the standard app_session_id cookie the auth system already reads
+      const { sdk } = await import("../_core/sdk");
       const { getSessionCookieOptions } = await import("../_core/cookies");
-      const { SignJWT } = await import("jose");
-      const secret = new TextEncoder().encode(ENV.cookieSecret || "studio-secret");
-      const token = await new SignJWT({ studio: true, role: "admin" })
-        .setProtectedHeader({ alg: "HS256" })
-        .setExpirationTime("7d")
-        .sign(secret);
+      const { COOKIE_NAME } = await import("../../shared/const");
+      const token = await sdk.createSessionToken(ENV.ownerOpenId, {
+        expiresInMs: 7 * 24 * 60 * 60 * 1000,
+        name: ENV.ownerName,
+      });
       const opts = getSessionCookieOptions(ctx.req);
-      ctx.res.cookie("studio_session", token, { ...opts, maxAge: 7 * 24 * 60 * 60 * 1000 });
+      ctx.res.cookie(COOKIE_NAME, token, { ...opts, maxAge: 7 * 24 * 60 * 60 * 1000 });
       return { success: true };
     }),
 
