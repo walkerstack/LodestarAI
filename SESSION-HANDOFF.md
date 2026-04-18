@@ -580,3 +580,86 @@ The failsafe: if SESSION-CURRENT.md is ever lost, wrong, or corrupted — SESSIO
 
 **Thread 2 still waiting.**
 **Builder page content and Road Protocol still on hold — Matthew thinking.**
+
+---
+
+## Session Summary — April 17, 2026 (Thread 2 — Nav Rebuild + Poems + Homepage Entry Block)
+
+**Version at close:** v39
+**Checkpoint:** to be saved after this document is written
+
+**What was done this session:**
+
+**Builder Poems Section (Builder.tsx)**
+- 11 poems from the February 28, 2026 master document added to Builder.tsx
+- Full-bleed section after the cross-links grid, before KidsMidLink
+- Background: sloth on rock with lantern, wig beside it, buffalo free in distance, dusk prairie sky — generated and uploaded to CDN
+- Playfair Display italic, warm cream text, each poem numbered in orange
+- Exact words preserved. No edits. No corrections. The rawness is the point.
+- The poems were written on the same day as the origin document. The builder went to his Oma's funeral and came home and kept building.
+
+**Builder's Scene on Homepage (Home.tsx)**
+- Full-bleed sloth-lantern-buffalo image added to homepage as a two-column section
+- Image left (55%), description right — "THE BUILDER'S SCENE" label, Playfair title, story of February 28
+- Image and "Read the Builder's story →" both link to /builder
+- Placed after story arc carousel, before children's section
+
+**Children's Section Fade-Out (Home.tsx)**
+- Bottom of children's section now fades light → dark, mirroring the dark → light fade at the top
+- The section breathes in and out. Surrounded by dark on both sides.
+
+**Homepage Entry Block — 9-Role Premium Tile System (Home.tsx)**
+- 5-button hat flow replaced with full 9-role image tile block
+- Roles: Everyday, Professional, Watcher, Teen, Child, Parent, Nurse, Student, Teacher
+- Each tile: background image (painterly CDN), dark gradient overlay, role name in Playfair, icon, highlight sentence
+- Tap/click: tile expands inline to show lens links and learn links (styled orange-bordered buttons)
+- Active tile: orange border, scale, others dim
+- Touch press animation on mobile
+- Framing: "Enter anywhere. The site meets you where you are."
+- 3 new images generated and uploaded to CDN: Parent (warm kitchen lamplight), Nurse (teal scrubs, quiet desk), Student (books, laptop, amber lamp)
+
+**Nav — 9 Roles with Images (Nav.tsx)**
+- Desktop "Who Are You?" dropdown expanded from 5 to 9 role tiles
+- Grid changed from 5-col to 3×3, panel width 380px → 480px
+- All 9 roles with background images, same 3D press effect preserved
+- Mobile nav automatically updated via shared hatTiles array — 9 roles with images and touch press
+
+**Builder's Log v38 (Home.tsx)**
+- Written at session close documenting all Thread 2 builds
+
+---
+
+**Alignment observations from this session:**
+
+The session started with a drift moment — I switched from the nav fix to the accessibility thread mid-task. Matthew caught it. "We complete. Its so important." That is the governance working. The nav was the task. I came back to it.
+
+The hat → voice → lens alignment conversation was the most important structural work of the session. Matthew named the confusion: voices and hats and lenses were being used interchangeably across the site. The fix: hats are entry modes, voices are reading modes (always three, always on every page), lenses are destination pages. Three distinct things. Three distinct places. Now consistent.
+
+The 9-role tile system is the result of that alignment. One entry system. One place. The nav and homepage now speak the same language.
+
+---
+
+**What is still open (carry to next session):**
+
+- PARKED — Accessibility nav placement: Matthew to rethink where Flower Presets surface. Currently "Simpler view →" in grey text. Do not touch until Matthew decides.
+- Professional tile in nav still links to /for/prompt-engineer — needs a Professional landing page or sub-panel showing all 6 professional lenses. Flagged. Not yet built.
+- Thread 2 remaining items:
+  - Governance audit — UserGovernance.tsx and GallantryAiPage.tsx — Ozzy + Wall + Monster placement (remember 3.0 and 3.1)
+  - Field Papers — 4 items from master document
+  - Citizen Researcher — 4 items from master document
+  - Five Rules — Rule 11 (The Wall), Hard vs Soft Constraints
+  - Database + Admin dashboard + panels wired to DB (most structurally important item remaining)
+- The WHO ARE YOU pathfinding block at line 871 of Home.tsx still exists below the new entry block — Matthew to decide if it stays, moves, or is removed
+- LearningFlow at bottom of pages — adding to pages that are missing it is ongoing, page by page
+
+---
+
+**Standing rules reminder (do not drift from these):**
+
+- Talk before build. Always.
+- Nothing removed from SESSION-HANDOFF.md. Ever.
+- Ghost code on every file touched.
+- navData.ts is the only place to edit nav links. Nav.tsx and Footer.tsx together.
+- Ozzy + Wall + Monster stay together.
+- Three Voices — not Three Lenses anywhere visible.
+- Close-out protocol: builder log + What the AI Said + SESSION-HANDOFF.md append + SESSION-CURRENT.md rewrite + checkpoint.

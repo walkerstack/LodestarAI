@@ -73,6 +73,18 @@ const IMGS = {
 };
 
 /* ── Pathfinding: Who Are You? ── */
+const ROLE_IMAGES: Record<string, string> = {
+  "Parent or Guardian": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-parent-cVBEHf7WdLFfRrw6fKApvV.webp",
+  "Teacher or Educator": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-parent-cVBEHf7WdLFfRrw6fKApvV.webp",
+  "Nurse or Healthcare Worker": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-nurse-Lk4Ji3iMnC2ZQcEoCCvRPP.webp",
+  "Student": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-student-NQ43cYLVZYLpo2S6gS7mKh.webp",
+  "Researcher or Academic": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-professional-Fg9sYkU5aXzzfwEsbyWxt8.webp",
+  "Prompt Engineer": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-professional-Fg9sYkU5aXzzfwEsbyWxt8.webp",
+  "Everyday Person": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-everyday-beybTXLC8QnfyMUD766qb2.webp",
+  "Kid (Under 13)": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-child-mTNyShRSmpgki7dvScCRzn.webp",
+  "Teenager": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-teen-4Ste3xYAShZ9GirHrM8P9g.webp",
+};
+
 const userPaths = [
   {
     role: "Parent or Guardian",
@@ -417,33 +429,124 @@ export default function Home() {
             This site is the proof of the framework it teaches.
           </p>
 
-          {/* Hat flow — Who Are You? inline entry */}
+          {/* ── WHO ARE YOU? — Premium 8-role image tile entry block ── */}
           <div className="mb-10">
-            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>Where do you want to start?</p>
-            <div className="flex flex-wrap gap-2">
-              {[
-                { label: "Everyday", path: "/for/everyday", color: "#E8520A", bg: "rgba(232,82,10,0.08)" },
-                { label: "Professional", path: "/for/prompt-engineer", color: "#4F46E5", bg: "rgba(79,70,229,0.08)" },
-                { label: "Watcher", path: "/for/watcher", color: "#9CA3AF", bg: "rgba(156,163,175,0.12)" },
-                { label: "Teen", path: "/for/teenager", color: "#7C3AED", bg: "rgba(124,58,237,0.08)" },
-                { label: "Child", path: "/for/child", color: "#3B82F6", bg: "rgba(59,130,246,0.08)" },
-              ].map((hat) => (
-                <Link
-                  key={hat.path}
-                  href={hat.path}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold no-underline transition-all duration-150 active:scale-95"
-                  style={{
-                    color: hat.color,
-                    background: hat.bg,
-                    border: `1.5px solid ${hat.color}33`,
-                    fontFamily: "'DM Sans', sans-serif",
-                  }}
-                >
-                  {hat.label}
-                </Link>
-              ))}
+            <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.18em' }}>Who are you?</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {userPaths.map((up, i) => {
+                const img = ROLE_IMAGES[up.role];
+                const isOpen = selectedRole === i;
+                return (
+                  <div
+                    key={up.role}
+                    className="relative rounded-xl overflow-hidden cursor-pointer select-none transition-all duration-200"
+                    style={{
+                      border: isOpen ? '2px solid #E8520A' : '1.5px solid rgba(232,82,10,0.18)',
+                      transform: isOpen ? 'scale(1.02)' : 'scale(1)',
+                      boxShadow: isOpen ? '0 0 18px rgba(232,82,10,0.22)' : '0 2px 8px rgba(0,0,0,0.4)',
+                      minHeight: '120px',
+                    }}
+                    onClick={() => setSelectedRole(isOpen ? null : i)}
+                  >
+                    {/* Background image */}
+                    {img && (
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          backgroundImage: `url(${img})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          opacity: 0.45,
+                        }}
+                      />
+                    )}
+                    {/* Dark gradient overlay */}
+                    <div
+                      className="absolute inset-0"
+                      style={{ background: 'linear-gradient(to top, rgba(8,6,4,0.92) 40%, rgba(8,6,4,0.5) 100%)' }}
+                    />
+                    {/* Content */}
+                    <div className="relative z-10 p-3 flex flex-col justify-end h-full" style={{ minHeight: '120px' }}>
+                      <span className="text-xl mb-1">{up.icon}</span>
+                      <p className="text-xs font-bold leading-tight mb-0.5" style={{ color: isOpen ? '#E8520A' : '#f5e6d0', fontFamily: "'DM Sans', sans-serif" }}>{up.role}</p>
+                      <p className="text-[10px] leading-snug" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>{up.examples}</p>
+                    </div>
+                    {/* Open indicator */}
+                    {isOpen && (
+                      <div className="absolute top-2 right-2 w-4 h-4 rounded-full flex items-center justify-center" style={{ background: '#E8520A' }}>
+                        <span style={{ color: 'white', fontSize: '9px', fontWeight: 'bold' }}>✕</span>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
-            <p className="text-[10px] mt-2" style={{ color: '#3a2e20', fontFamily: "'DM Sans', sans-serif" }}>Enter anywhere. The site meets you where you are.</p>
+
+            {/* Expanded role detail */}
+            {selectedRole !== null && (
+              <div
+                className="mt-4 rounded-xl p-4"
+                style={{ background: '#0f0c08', border: '1.5px solid rgba(232,82,10,0.25)' }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">{userPaths[selectedRole].icon}</span>
+                  <div>
+                    <p className="text-xs font-bold" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>{userPaths[selectedRole].role}</p>
+                    <p className="text-xs italic" style={{ color: '#c8b89a', fontFamily: "'Playfair Display', serif" }}>{userPaths[selectedRole].highlight}</p>
+                  </div>
+                </div>
+
+                {/* Lens links */}
+                {userPaths[selectedRole].lens.length > 0 && (
+                  <div className="mb-3">
+                    <p className="text-[10px] uppercase tracking-widest mb-2" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>Your lens</p>
+                    <div className="flex flex-wrap gap-2">
+                      {userPaths[selectedRole].lens.map((item: { label: string; path: string }) => (
+                        <Link
+                          key={item.path}
+                          href={item.path}
+                          className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold no-underline transition-all duration-150 active:scale-95"
+                          style={{
+                            color: '#E8520A',
+                            background: 'rgba(232,82,10,0.08)',
+                            border: '1.5px solid rgba(232,82,10,0.3)',
+                            fontFamily: "'DM Sans', sans-serif",
+                          }}
+                        >
+                          {item.label} →
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Learn links */}
+                {userPaths[selectedRole].learn.length > 0 && (
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest mb-2" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>Start learning</p>
+                    <div className="flex flex-wrap gap-2">
+                      {userPaths[selectedRole].learn.map((item: { label: string; path: string }) => (
+                        <Link
+                          key={item.path}
+                          href={item.path}
+                          className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs no-underline transition-all duration-150 active:scale-95"
+                          style={{
+                            color: '#8a7a6a',
+                            background: 'rgba(255,255,255,0.03)',
+                            border: '1px solid rgba(255,255,255,0.08)',
+                            fontFamily: "'DM Sans', sans-serif",
+                          }}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            <p className="text-[10px] mt-3" style={{ color: '#3a2e20', fontFamily: "'DM Sans', sans-serif" }}>Enter anywhere. The site meets you where you are.</p>
           </div>
 
           <div className="flex flex-wrap gap-3">
@@ -1817,7 +1920,24 @@ export default function Home() {
                 professional: "v28 completes the hallucinations content build. Hero image added (abstract, amber/dark, beam-dissolving-to-fragments). Footer parity established — Hallucinations now in both nav and footer Foundation sections. FR-2026-08 PDF live on CDN. The hallucinations page is now fully deployed: route, nav, footer, hero image, three-voice content, sources, FR-2026-08 connection.",
               },
               {
-                version: "v38 — current",
+                version: "v39 — current",
+                date: "April 17, 2026",
+                title: "v39: 9-Role Entry System + Builder's Scene + Children's Fade + Session Documents",
+                changes: [
+                  "Home.tsx — 5-button hat flow replaced with full 9-role premium image tile entry block. Roles: Everyday, Professional, Watcher, Teen, Child, Parent, Nurse, Student, Teacher. Each tile has a painterly CDN background image, dark gradient overlay, role name in Playfair Display, icon, highlight sentence. Tap/click expands inline to show lens links and learn links as styled orange-bordered buttons. Active tile gets orange border and scale, others dim. Touch press animation on mobile. Framing: 'Enter anywhere. The site meets you where you are.'",
+                  "Home.tsx — Builder's Scene section added after story arc carousel, before children's section. Two-column layout: image left (sloth-lantern-buffalo CDN image), description right. 'THE BUILDER'S SCENE' label in orange. Playfair title. Story of February 28 in body text. Image and 'Read the Builder's story →' both link to /builder.",
+                  "Home.tsx — Children's section fade-out added. Bottom of section fades from warm white (#fffaf0) back to dark (#080604), mirroring the dark-to-light fade at the top. The section breathes in and out.",
+                  "Nav.tsx — Desktop 'Who Are You?' dropdown expanded from 5 to 9 role tiles. Grid changed from 5-column to 3×3. Panel width 380px → 480px. All 9 roles with background images. 3D press effect preserved. Mobile nav automatically updated via shared hatTiles array.",
+                  "3 new CDN images generated and uploaded: Parent (warm kitchen lamplight, parent and child with tablet), Nurse (teal scrubs, quiet desk, thoughtful), Student (books, laptop, headphones, amber study lamp). All painterly, consistent with site visual language.",
+                  "SESSION-HANDOFF.md — Thread 2 session summary appended. All builds documented. Alignment observations recorded. Open items carried forward.",
+                  "SESSION-CURRENT.md — Rewritten to reflect v39 state.",
+                ],
+                watcher: "The hat → voice → lens alignment conversation was the most important structural work of this session. Hats are entry modes. Voices are reading modes — always three, always on every page. Lenses are destination pages. Three distinct things. Three distinct places. The site was using them interchangeably. That is now corrected. The 9-role tile system is the result. One entry system. One place. The nav and homepage now speak the same language.",
+                child: "The Builder made the homepage much better today. Now when you visit, you see nine pictures — one for each kind of person who might come to the site. There is one for nurses, one for teachers, one for parents, one for students, one for kids. Each picture has a little description. If you tap it, it shows you where to go. The Builder also added a picture of the sloth with the lantern on the homepage so everyone can see it.",
+                professional: "v39 closes the April 17 Thread 2 session. Four builds: (1) 9-role homepage entry block — replaces 5-button hat flow, all roles represented, images, expand-on-click lens links. (2) Builder's Scene — two-column image+description section linking to /builder. (3) Children's section fade-out — mirrors top fade, section breathes. (4) Nav expanded to 9 roles with images. Three new CDN images generated. Session documents updated. Zero TypeScript errors throughout. Additive only.",
+              },
+              {
+                version: "v38 — previous",
                 date: "April 17, 2026",
                 title: "v38: Builder Poems Section + Premium Mobile Nav + Homepage Hat Flow",
                 changes: [

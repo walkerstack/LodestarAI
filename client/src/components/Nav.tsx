@@ -76,23 +76,31 @@ export default function Nav() {
     watcher: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-watcher-2z7xaSNcuP9a9S5SHxTje8.webp",
     teen: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-teen-4Ste3xYAShZ9GirHrM8P9g.webp",
     child: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-child-mTNyShRSmpgki7dvScCRzn.webp",
+    parent: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-parent-cVBEHf7WdLFfRrw6fKApvV.webp",
+    nurse: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-nurse-Lk4Ji3iMnC2ZQcEoCCvRPP.webp",
+    student: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-student-NQ43cYLVZYLpo2S6gS7mKh.webp",
+    teacher: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-parent-cVBEHf7WdLFfRrw6fKApvV.webp",
   };
 
-  // Five hat tiles for Who Are You? — desktop dropdown
+  // Nine role tiles for Who Are You? — desktop dropdown + mobile
   const hatTiles = [
     { label: "Everyday", icon: "◎", path: "/for/everyday", bg: "#FFF7ED", border: "#E8520A", text: "#C2400C", desc: "Plain language. Real life.", img: HAT_IMAGES.everyday },
     { label: "Professional", icon: "◈", path: "/for/prompt-engineer", bg: "#F0F4FF", border: "#4F46E5", text: "#3730A3", desc: "Precise. Structured. Deep.", img: HAT_IMAGES.professional },
     { label: "Watcher", icon: "◉", path: "/for/watcher", bg: "#1A1A2E", border: "#6B7280", text: "#E5E7EB", desc: "The part that notices.", img: HAT_IMAGES.watcher },
     { label: "Teen", icon: "◇", path: "/for/teenager", bg: "#F5F3FF", border: "#7C3AED", text: "#5B21B6", desc: "Your rules. Your pace.", img: HAT_IMAGES.teen },
     { label: "Child", icon: "★", path: "/for/child", bg: "#EFF6FF", border: "#3B82F6", text: "#1D4ED8", desc: "Safe. Simple. Yours.", img: HAT_IMAGES.child },
+    { label: "Parent", icon: "🏠", path: "/for/guardian-teacher", bg: "#FFF8F0", border: "#D97706", text: "#92400E", desc: "Learning AI with your kids.", img: HAT_IMAGES.parent },
+    { label: "Nurse", icon: "🩺", path: "/for/psychology", bg: "#F0FDF4", border: "#059669", text: "#065F46", desc: "You already triage.", img: HAT_IMAGES.nurse },
+    { label: "Student", icon: "📚", path: "/for/linguist", bg: "#FDF4FF", border: "#9333EA", text: "#6B21A8", desc: "Thinking partner, not shortcut.", img: HAT_IMAGES.student },
+    { label: "Teacher", icon: "🏫", path: "/for/guardian-teacher", bg: "#F0FDFA", border: "#0D9488", text: "#134E4A", desc: "The scaffold is your lesson plan.", img: HAT_IMAGES.teacher },
   ];
 
   function HatTileMenu({ onClose }: { onClose: () => void }) {
     return (
-      <div className="absolute top-full left-0 mt-2 z-50" style={{ width: '380px' }}>
+      <div className="absolute top-full left-0 mt-2 z-50" style={{ width: '480px' }}>
         <div className="bg-white border border-[#e8e0d0] rounded-2xl shadow-xl overflow-hidden">
-          {/* Five tiles */}
-          <div className="grid grid-cols-5 gap-0">
+          {/* Nine role tiles — 3x3 grid */}
+          <div className="grid grid-cols-3 gap-0">
             {hatTiles.map((hat) => (
               <Link
                 key={hat.path}

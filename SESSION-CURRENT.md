@@ -34,22 +34,34 @@ They are not preferences. They are the governance layer for this project. Follow
 
 ## CURRENT STATE — April 17, 2026
 
-**Version:** v37
+**Version:** v39
 **Dev server:** Running clean. Zero TypeScript errors.
-**Last checkpoint:** d3e864e7 — Nav data refactor (navData.ts extracted)
+**Last checkpoint:** a3379ad6 — Builder's Scene + children's fade (poems and mobile nav in 50ba3f53 before that)
 
 **What is live on the site:**
-- 51 lexicon terms across 15 categories (new: COMMAND category with 11 terms)
-- Promptolinguistics — 5 new sections with three-voice buttons (Active Spectrum, Sentence Break Architecture, Regulation Spectrum, Semantic Density, Relational Delivery of Reasoning)
-- Prompt Library — Session Tools now has 8 prompts (5 new: Boot Sequence, Track and Hold, Five Questions, Everyday Boot Sequence, Context Bridge Loading Strategy)
-- Field Papers — master document (Feb 28, 2026) as first entry in new Origin Document section
-- What the AI Said — 2 new running log entries from April 17 session (Two Threads, The Alignment Setup Report)
-- Nav data refactored — all link arrays in client/src/lib/navData.ts
+
+Homepage:
+- 9-role premium image tile entry block (replaced 5-button hat flow) — Everyday, Professional, Watcher, Teen, Child, Parent, Nurse, Student, Teacher — each with CDN background image, expand-on-click lens links
+- Builder's Scene section — sloth-lantern-buffalo image, two-column, links to /builder
+- Children's section: dark→light fade at top, light→dark fade at bottom
+- Proof sentence: "This site is the proof of the framework it teaches."
+- Story arc carousel (6 frames), children's section, performed honesty, pathfinding block (still at line 871 — Matthew to decide if it stays)
+
+Builder page:
+- 11 poems from February 28, 2026 — full-bleed section, painterly background image, Playfair Display, exact words preserved
+
+Nav:
+- Desktop: "Who Are You?" dropdown — 9 roles in 3×3 grid with images, 3D press effect, 480px panel
+- Mobile: 9 role tiles with images + touch press + accordion sections (Foundation, For You, Tools, Research, Explore)
+- navData.ts controls all link arrays
+
+Other pages: 51 lexicon terms, 5 new Promptolinguistics sections, 8 Session Tools prompts, Field Papers with origin document, What the AI Said running log
 
 **Key files:**
 - Nav links: `client/src/lib/navData.ts`
 - Lexicon data: `client/src/lib/lexiconData.ts`
 - Prompt panel: `client/src/components/PromptPanel.tsx`
+- Learning flow: `client/src/lib/learningFlowMap.ts`
 - Session archive: `SESSION-HANDOFF.md`
 - Routes: `client/src/App.tsx`
 
@@ -57,27 +69,22 @@ They are not preferences. They are the governance layer for this project. Follow
 
 ## ACTIVE THREADS
 
-**Thread 1 — Master Document Dispersal:** COMPLETE for this session.
-Remaining items held for future sessions:
-- Builder page content (Four Origin Doors, Trolley Problem, Builder as First User, Field Guide over Manifesto) — Matthew is thinking
-- Road Protocol (Ozzy, Cortana, Secure, Return Signals) — Matthew is thinking
-
-**Thread 2 — 19:30 Build:** WAITING. Not started yet.
-Order when ready:
+**Thread 2 — remaining items (in order):**
 1. Governance audit — read UserGovernance.tsx and GallantryAiPage.tsx. Decide where Ozzy + Wall + Monster land. Remember 3.0 and 3.1.
-2. Builder poems — 11 poems, quiet section near bottom of Builder page, elegant
-3. Field Papers — 4 items from master document
-4. Citizen Researcher — 4 items from master document
-5. Five Rules — Rule 11 (The Wall), Hard vs Soft Constraints
-6. Database + Admin dashboard + panels wired to DB
+2. Field Papers — 4 items from master document
+3. Citizen Researcher — 4 items from master document
+4. Five Rules — Rule 11 (The Wall), Hard vs Soft Constraints
+5. **Database + Admin dashboard + panels wired to DB** — most structurally important item remaining
 
 ---
 
 ## PENDING FLAGS
 
-- **FieldPapers.tsx** — ghost code says KidsRedirect, LearningFlow, teenager entry, professional entry are present. They are NOT. All four are PENDING. Tell Matthew before touching this page.
-- **Home page** — one sentence to add: "This site is the proof of the framework it teaches." Placement and exact wording TBD. Talk-first moment.
-- **Internal linking** — pages are not yet connected to each other. A person on Promptolinguistics cannot easily find the Lexicon. Sparse cross-linking is a known gap.
+- **PARKED — Accessibility nav placement:** Matthew to rethink where Flower Presets surface. Currently "Simpler view →" in grey text at bottom of Who Are You? dropdown. Do not touch until Matthew decides.
+- **Professional tile in nav:** Still links to /for/prompt-engineer. Needs a Professional landing page or sub-panel showing all 6 professional lenses. Flagged. Not yet built.
+- **WHO ARE YOU pathfinding block (Home.tsx line 871):** The old expandable 8-role card block still exists below the new entry tile block. Matthew to decide if it stays, moves, or is removed.
+- **FieldPapers.tsx** — KidsRedirect, LearningFlow, teenager entry, professional entry are PENDING. Tell Matthew before touching this page.
+- **Internal linking** — pages are not yet connected to each other. Sparse cross-linking is a known gap. Page-by-page fix as we go.
 
 ---
 
@@ -85,5 +92,7 @@ Order when ready:
 
 - **Ozzy + Wall + Monster** stay together. One section, one home. Other pages link to it. When governance comes up, remember 3.0 and 3.1.
 - **Three Voices** — not "Three Lenses" anywhere visible. Flag and fix on any page touched.
+- **Hats are entry modes. Voices are reading modes (always 3, always on every page). Lenses are destination pages.** Three distinct things. Three distinct places. Do not conflate them.
+- **No generic buttons.** Only our styled tiles and image buttons. If a button looks generic, it is wrong.
 - **Close-out protocol** — Builder's log bump + What the AI Said entries + SESSION-HANDOFF.md append + SESSION-CURRENT.md rewrite + final checkpoint. All five together.
 - **Two document system** — SESSION-CURRENT.md (rewrite every session) + SESSION-HANDOFF.md (append only, never remove). Both kept. Both matter.
