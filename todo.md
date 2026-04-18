@@ -191,6 +191,10 @@
 - [ ] Link Manager: Add visual indicator showing which internal pages each link points to
 - [ ] Link Manager: Distinguish editable (DB-stored) links from read-only (hardcoded) links
 
+## Performance Fix (April 18, 2026)
+- [x] Lazy-load all 55+ page routes in App.tsx — main JS bundle reduced from 3.3MB to 521KB, resolves deployment timeout
+- [x] Add vite.config.ts manualChunks for vendor/trpc/ui splits
+
 ## Studio New Tabs (April 18, 2026)
 - [x] Studio: Site Map tab — interactive scaffold diagram (Floor → Ceiling + Research layer) with live status dots per page, click node to open block editor
 - [x] Studio: Status Board tab — workplace board view, all pages as cards with green/yellow/grey status dots based on block count and link health
