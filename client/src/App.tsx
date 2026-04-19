@@ -15,6 +15,7 @@ import { LexiconProvider } from "./contexts/LexiconContext";
 import OopsSloth from "./components/OopsSloth";
 import LexiconButton from "./components/LexiconButton";
 import LexiconPanel from "./components/LexiconPanel";
+import PageStudioBlocks from "./components/studio/PageStudioBlocks";
 
 // ── Lazy-loaded pages (code-split per route) ─────────────────────────────────
 const Home = lazy(() => import("./pages/Home"));
@@ -222,6 +223,7 @@ function App() {
 
             {/* IntroCrawl removed from display — file preserved in components/IntroCrawl.tsx */}
             <ScrollToTop />
+            <PageStudioBlocks />
             <Router />
           </TooltipProvider>
         </LexiconProvider>
