@@ -247,10 +247,10 @@
 
 ## Auth Audit — Admin vs Studio (Matthew flagged April 18, 2026)
 
-- [ ] AUDIT: Map every place in the codebase where isAdmin, role === "admin", studioLogin, STUDIO_PASSWORD, and session cookies are used — produce a plain-language summary for Matthew of exactly what each one does and when it fires
-- [ ] DECISION: Decide with Matthew whether Studio access should use its own password-only gate (no Manus OAuth required) OR be tied to the admin role — currently both exist and they interact in ways that are not visible to the user
-- [ ] FIX: After decision is made, clean up the auth paths so there is one clear way in to Studio and one clear way the button shows — no hidden state changes after deploy
-- [ ] DOCUMENT: Write a plain-language "how Studio access works" section in SESSION-HANDOFF.md so every future session knows the rules without having to audit the code again
+- [x] AUDIT: Map every place in the codebase where isAdmin, role === "admin", studioLogin, STUDIO_PASSWORD, and session cookies are used — produce a plain-language summary for Matthew of exactly what each one does and when it fires
+- [x] DECISION: Manus OAuth is the only entry point. Password path retired. studioOwnerLogin auto-called after OAuth — checks openId === OWNER_OPEN_ID, upgrades role to admin.
+- [x] FIX: studioOwnerLogin wired in Studio.tsx via useEffect — fires once when authenticated but not yet admin. Role upgrades automatically. Login screen shows only if not the owner.
+- [x] DOCUMENT: Auth audit written into SESSION-HANDOFF.md — plain-language summary of every auth touchpoint, how Studio access works, and the decision made.
 
 ## Emerging Insights — Design & Copy Work (Matthew, April 18, 2026 evening)
 

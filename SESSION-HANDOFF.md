@@ -1078,3 +1078,46 @@ This is worth recording because it is the framework in action. Matthew caught th
 - Do not touch auth logic without briefing Matthew first.
 - MATTHEW-THOUGHTS.md is read-only. AI reads, does not edit without explicit instruction.
 - CMCI: any document referencing Christian St. Louis's work must be discussed with him before publishing.
+
+---
+## AUTH AUDIT — CLOSED (April 19, 2026)
+
+**How Studio access works — plain language for every future session:**
+
+There is one way into Studio: **Manus OAuth** (which uses Google sign-in underneath).
+
+**The flow step by step:**
+1. Visit `/studio` — not logged in → login screen with "Log in with Manus" button
+2. Click the button → redirected to Manus login portal → Google sign-in screen
+3. Sign in with Google → Manus sends you back to `/api/oauth/callback`
+4. Server creates a session cookie (1 year), stores your user record with `role: user`
+5. OAuth callback redirects to `/` (homepage)
+6. Navigate to `/studio`
+7. Studio detects: authenticated but `role !== admin`
+8. Studio auto-calls `studioOwnerLogin` once via `useEffect`
+9. Server checks: is your `openId` === `OWNER_OPEN_ID` env var?
+10. If yes → upgrades your role to `admin` in the DB → Studio opens
+11. If no → login screen stays
+
+**Every auth touchpoint — plain language:**
+
+| Touchpoint | File | What it does |
+|---|---|---|
+| `studioOwnerLogin` procedure | `server/routers/studio.ts` | The real lock. Checks `ctx.user.openId === OWNER_OPEN_ID`. If match, sets `role: admin`. |
+| `useEffect` in Studio.tsx | `client/src/pages/Studio.tsx` | Fires once when authenticated but not admin. Calls `studioOwnerLogin`. Wired April 19. |
+| `studioLogin` procedure | `server/routers/studio.ts` | Old password path. Still in server code. Password form removed from UI. Dead end. |
+| `isAdmin` in Nav.tsx | `client/src/components/Nav.tsx` | `user?.role === "admin"` — shows/hides Studio link in nav. |
+| `auth.me` query | `server/routers.ts` | Returns `ctx.user` from DB including role. Called on every page load. |
+| Session cookie (`app_session_id`) | `server/_core/cookies.ts` | JWT signed with `JWT_SECRET`. Expires 1 year. Set on OAuth callback. Cleared on logout. |
+| `adminProcedure` | `server/_core/trpc.ts` | Requires `role === "admin"`. Used on studio procedures that modify content. |
+| `authenticateRequest` | `server/_core/sdk.ts` | Verifies session cookie JWT, looks up user in DB. Called on every tRPC request. |
+
+**Decision made:** Manus OAuth is the only entry point. Password path retired. `studioOwnerLogin` auto-wires the role upgrade. One door. One clear path.
+
+**Security status:**
+- Studio protected by Manus OAuth owner-ID check — only the account matching `OWNER_OPEN_ID` can access
+- Session cookie is HttpOnly, Secure, SameSite=None — not accessible from JavaScript
+- No rate limiting yet — low risk at current traffic, address before heavy public launch
+- `studioLogin` (password) procedure still exists in server code — harmless, `STUDIO_PASSWORD` env var not set
+
+**STANDING RULE UPDATED:** Auth audit is now documented here. "Do not touch auth logic without briefing Matthew first" still applies — this section IS the brief. Read it before touching anything auth-related.

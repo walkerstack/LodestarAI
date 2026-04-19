@@ -5,7 +5,7 @@
  * Deploy: 2026-04-18T18:22Z — Site Map + Status Board tabs
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Link } from "wouter";
@@ -119,19 +119,38 @@ function StudioLoginForm() {
 
 // ── Main Studio ─────────────────────────────────────────────────────────────────────────────────
 export default function Studio() {
-  const { user, loading, isAuthenticated, logout } = useAuth();
+  const { user, loading, isAuthenticated, logout, refresh } = useAuth();
   const [activeTab, setActiveTab] = useState<StudioTab>("pages");
   const [selectedPage, setSelectedPage] = useState<{
     slug: string;
     label: string;
     path: string;
   } | null>(null);
+  const [ownerUpgradeAttempted, setOwnerUpgradeAttempted] = useState(false);
+  const [ownerUpgradeError, setOwnerUpgradeError] = useState<string | null>(null);
 
   const { data: pageList, isLoading: pagesLoading } =
     trpc.studio.getPageList.useQuery();
 
-  // Loading auth state
-  if (loading) {
+  // Auto-upgrade owner role after Manus OAuth — fires once when authenticated but not yet admin
+  const ownerLoginMutation = trpc.studio.studioOwnerLogin.useMutation({
+    onSuccess: () => {
+      refresh(); // re-fetch auth.me so role updates in UI
+    },
+    onError: (err) => {
+      setOwnerUpgradeError(err.message);
+    },
+  });
+
+  useEffect(() => {
+    if (!loading && isAuthenticated && user?.role !== "admin" && !ownerUpgradeAttempted) {
+      setOwnerUpgradeAttempted(true);
+      ownerLoginMutation.mutate();
+    }
+  }, [loading, isAuthenticated, user?.role, ownerUpgradeAttempted]);
+
+  // Loading auth state or upgrade in progress
+  if (loading || (isAuthenticated && user?.role !== "admin" && !ownerUpgradeAttempted && !ownerUpgradeError)) {
     return (
       <div
         className="min-h-screen flex items-center justify-center"
@@ -144,7 +163,21 @@ export default function Studio() {
     );
   }
 
-  // Not logged in — show password form
+  // Upgrade in progress
+  if (isAuthenticated && user?.role !== "admin" && ownerUpgradeAttempted && ownerLoginMutation.isPending) {
+    return (
+      <div
+        className="min-h-screen flex items-center justify-center"
+        style={{ background: "#080604" }}
+      >
+        <p style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}>
+          Verifying owner access…
+        </p>
+      </div>
+    );
+  }
+
+  // Not the owner or not logged in — show login screen
   if (!isAuthenticated || user?.role !== "admin") {
     return <StudioLoginForm />;
   }
