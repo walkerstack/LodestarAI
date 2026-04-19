@@ -332,7 +332,7 @@
 
 - [x] SECURITY: Studio login — replace password gate with Manus OAuth owner-ID check. OWNER_OPEN_ID confirmed as cfxnspiLTDKbgEzckoxh8H (matt gallantry). DONE April 19, 2026.
 - [x] SECURITY: Remove plaintext password — removed from all files April 19, 2026.
-- [ ] STUDIO UX: Block edit modal — show live card preview. When editing a block, the modal shows the card styled exactly as it appears on the public page. As you change photo/title/description/colours, the preview updates in real time. What you see is what gets saved.
+- [x] STUDIO UX: Block edit modal — live card preview. DONE April 19, 2026. Zone 1 (live mirror frozen), Zone 2 (tap-to-edit, live update), Zone 3 (form fallback). All 13 control points. Side-by-side desktop, stacked mobile.
 - [ ] FLOATING LENS BUTTON: Persistent floating button on pages that have a full view/lens switch (Rules, For/Everyday, For/Child, For/Teen, For/Guardian-Teacher, For/Watcher, and professional lens pages). Button lets visitor flip between views from anywhere on the page without scrolling to top. DO NOT add to Promptolinguistics or Lexicon — those have three-voice-per-item inline display, leave them exactly as they are.
 - [ ] FOOTER: Research Hub link is broken — find correct destination and fix.
 - [ ] FOOTER: Field Events has colour styling but no link and no defined destination — discuss with Matthew before touching.
@@ -360,3 +360,30 @@
 - [x] CONFIRMED SPEC: Colour controls use site palette presets only (orange, dark, cream, white) — no full colour picker yet
 - [x] CONFIRMED SPEC: Watcher instruction line "Tap anything to edit it" — always visible, small, unobtrusive
 - [ ] FUTURE UPGRADE (DO NOT LOSE): Add full colour picker to Studio card editor — Matthew confirmed he wants this eventually. Site palette presets are the starting point. Full picker is the upgrade. Add when Matthew asks.
+
+## Inline Click-to-Edit Plan (April 19, 2026 — Future Build, Dedicated Session)
+
+**Vision:** Browse the live site. Tap any block (card, title, image). An edit overlay appears on that exact element on that exact page. Make the change. Save. Keep browsing. No separate Studio modal required.
+
+**Dependency:** Item 26 must be done first. Inline editing requires every block to have a database record. Hardcoded content cannot be edited inline until it is migrated to the database.
+
+**Build order:**
+- [ ] INLINE PREREQ: Complete Item 26 — all hardcoded content migrated to database (dedicated session)
+- [ ] INLINE BUILD: Click-to-edit overlay on live pages — tap any block → edit overlay appears → type → save → page updates
+- [ ] INLINE SCOPE: All pages (once Item 26 is done — all content will be in DB)
+- [ ] INLINE FLOW OPTION: Studio → open live page preview → tap block → edit → save → back to preview (alternative to browsing live site directly)
+- [ ] INLINE MOBILE: Full mobile support — tap targets, keyboard-aware, no layout breaking
+- [ ] INLINE NOTE: Build 2A modal (Zone 1/Zone 2/form) stays as fallback — not removed. May be better on laptop. Both editing paths coexist.
+
+## Build 2B — Studio Nav/Footer Manager (April 19, 2026 — COMPLETE)
+
+- [x] nav_items table: added to drizzle/schema.ts, pushed to DB (10 columns: id, section, label, path, colour, position, isPublished, isFooter, createdAt, updatedAt)
+- [x] 57 nav items seeded from navData.ts — all 6 sections, all published, exact copy of live nav
+- [x] DB helpers: getAllNavItems, getPublishedNavItems, updateNavItem, deleteNavItem, publishAllNavItems, getNavItemCount added to server/db.ts
+- [x] tRPC procedures: getNavItems, getPublishedNavItems, updateNavItem, addNavItem, removeNavItem, publishNav, reorderNavItems added to studio router
+- [x] Nav.tsx: DB-driven with navData.ts fallback — live site unchanged, 0 TypeScript errors
+- [x] Footer.tsx: rewritten DB-driven with hardcoded fallback — same visual output, 0 TypeScript errors
+- [x] StudioNavManager.tsx: full Studio tab — 6 section panels, edit/add/remove, draft badges, footer toggle, Publish button
+- [x] Studio.tsx: Nav & Footer tab wired in as 11th tab
+- [x] navManager.test.ts: 10 tests, all passing (26 total across 3 test files)
+- [x] TypeScript: 0 errors throughout build

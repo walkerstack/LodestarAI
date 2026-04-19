@@ -48,6 +48,15 @@ import {
   deletePromptPanelItem,
   type FlowLinkInput,
 } from "../studioDb";
+import {
+  getAllNavItems,
+  getPublishedNavItems,
+  updateNavItem,
+  deleteNavItem,
+  publishAllNavItems,
+  getNavItemCount,
+} from "../db";
+import { navItems } from "../../drizzle/schema";
 import { storagePut } from "../storage";
 
 // ─────────────────────────────────────────────
@@ -692,4 +701,97 @@ export const studioRouter = router({
 
     return results;
   }),
+
+  // ─────────────────────────────────────────────────────────────
+  // NAV / FOOTER MANAGER — Build 2B
+  // Preview-before-publish: changes are draft until publishNav is called.
+  // ─────────────────────────────────────────────────────────────
+
+  /** Returns all nav items (published + draft). Studio use only. */
+  getNavItems: adminProcedure.query(async () => {
+    return await getAllNavItems();
+  }),
+
+  /** Returns published nav items only. Used by live Nav.tsx and Footer.tsx. */
+  getPublishedNavItems: publicProcedure.query(async () => {
+    return await getPublishedNavItems();
+  }),
+
+  /** Update a nav item's label, path, colour, section, position, isFooter. */
+  updateNavItem: adminProcedure
+    .input(
+      z.object({
+        id: z.number(),
+        label: z.string().min(1).max(255).optional(),
+        path: z.string().min(1).max(512).optional(),
+        colour: z.string().max(128).nullable().optional(),
+        section: z.enum(["lenses", "foundation", "for-you", "tools", "research", "explore"]).optional(),
+        position: z.number().int().min(0).optional(),
+        isFooter: z.boolean().optional(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const { id, ...updates } = input;
+      await updateNavItem(id, updates);
+      return { success: true };
+    }),
+
+  /** Add a new nav item as a draft (isPublished = false). */
+  addNavItem: adminProcedure
+    .input(
+      z.object({
+        section: z.enum(["lenses", "foundation", "for-you", "tools", "research", "explore"]),
+        label: z.string().min(1).max(255),
+        path: z.string().min(1).max(512),
+        colour: z.string().max(128).nullable().optional(),
+        isFooter: z.boolean().default(true),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const db = await getDb();
+      if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Database not available" });
+      // Get current max position in this section
+      const existing = await getAllNavItems();
+      const sectionItems = existing.filter((i) => i.section === input.section);
+      const maxPos = sectionItems.length > 0 ? Math.max(...sectionItems.map((i) => i.position)) : -1;
+      await db.insert(navItems).values({
+        section: input.section,
+        label: input.label,
+        path: input.path,
+        colour: input.colour ?? null,
+        position: maxPos + 1,
+        isPublished: false, // draft until published
+        isFooter: input.isFooter ?? true,
+      });
+      return { success: true };
+    }),
+
+  /** Remove a nav item permanently. */
+  removeNavItem: adminProcedure
+    .input(z.object({ id: z.number() }))
+    .mutation(async ({ input }) => {
+      await deleteNavItem(input.id);
+      return { success: true };
+    }),
+
+  /** Publish all nav items — makes all current items live on the site. */
+  publishNav: adminProcedure.mutation(async () => {
+    await publishAllNavItems();
+    return { success: true, message: "Nav published. Changes are now live." };
+  }),
+
+  /** Reorder nav items within a section by providing ordered array of ids. */
+  reorderNavItems: adminProcedure
+    .input(
+      z.object({
+        section: z.enum(["lenses", "foundation", "for-you", "tools", "research", "explore"]),
+        orderedIds: z.array(z.number()),
+      })
+    )
+    .mutation(async ({ input }) => {
+      for (let i = 0; i < input.orderedIds.length; i++) {
+        await updateNavItem(input.orderedIds[i], { position: i });
+      }
+      return { success: true };
+    }),
 });

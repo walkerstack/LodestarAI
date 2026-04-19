@@ -262,3 +262,46 @@ export const promptPanelItems = mysqlTable("prompt_panel_items", {
 
 export type PromptPanelItem = typeof promptPanelItems.$inferSelect;
 export type InsertPromptPanelItem = typeof promptPanelItems.$inferInsert;
+
+/**
+ * nav_items — stores all navigation links for Nav.tsx and Footer.tsx.
+ * Replaces the hardcoded arrays in navData.ts.
+ * Each row is one link in one section of the nav or footer.
+ *
+ * Sections:
+ *   lenses     — Enter Your Lens dropdown
+ *   foundation — Foundation dropdown
+ *   for-you    — For You dropdown
+ *   tools      — Tools dropdown
+ *   research   — Research dropdown
+ *   explore    — Explore dropdown
+ *
+ * Preview-before-publish:
+ *   isPublished = false → visible in Studio preview only
+ *   isPublished = true  → live on the site
+ *
+ * Footer:
+ *   isFooter = true → also appears in the footer
+ */
+export const navItems = mysqlTable("nav_items", {
+  id: int("id").autoincrement().primaryKey(),
+  /** Which nav section this item belongs to */
+  section: mysqlEnum("section", ["lenses", "foundation", "for-you", "tools", "research", "explore"]).notNull(),
+  /** Display label, e.g. 'The Five Rules' */
+  label: varchar("label", { length: 255 }).notNull(),
+  /** URL path, e.g. '/rules' */
+  path: varchar("path", { length: 512 }).notNull(),
+  /** Optional colour — Tailwind class or hex, e.g. 'text-sky-500' or '#E8520A' */
+  colour: varchar("colour", { length: 128 }),
+  /** Display order within the section. Lower = higher in list. */
+  position: int("position").notNull().default(0),
+  /** Whether this item is live on the site. false = draft/preview only. */
+  isPublished: boolean("isPublished").notNull().default(false),
+  /** Whether this item also appears in the footer */
+  isFooter: boolean("isFooter").notNull().default(true),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type NavItem = typeof navItems.$inferSelect;
+export type InsertNavItem = typeof navItems.$inferInsert;

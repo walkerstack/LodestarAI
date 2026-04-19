@@ -81,27 +81,45 @@ export default function Nav() {
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
 
-  // Fetch published custom pages from DB and merge into nav sections
-  const { data: dbNavPages } = trpc.studio.getNavPages.useQuery(undefined, {
+  // Fetch published nav items from DB — DB is source of truth, navData.ts is fallback
+  const { data: dbNavItems } = trpc.studio.getPublishedNavItems.useQuery(undefined, {
     staleTime: 5 * 60 * 1000, // cache 5 min — nav doesn't need to refresh constantly
   });
 
-  function mergeNavItems(
-    base: { label: string; path: string; color?: string }[],
-    category: string
+  // Also fetch custom studio pages for merging into nav sections
+  const { data: dbNavPages } = trpc.studio.getNavPages.useQuery(undefined, {
+    staleTime: 5 * 60 * 1000,
+  });
+
+  /**
+   * Returns nav items for a given section.
+   * If DB has items for this section, use them (sorted by position).
+   * Otherwise fall back to the hardcoded navData.ts array.
+   * Also merges in any custom studio pages for this section.
+   */
+  function getNavSection(
+    section: "lenses" | "foundation" | "for-you" | "tools" | "research" | "explore",
+    fallback: { label: string; path: string; color?: string; colour?: string }[]
   ) {
-    if (!dbNavPages) return base;
+    const fromDb = dbNavItems?.filter((i) => i.section === section);
+    const base = fromDb && fromDb.length > 0
+      ? fromDb
+          .sort((a, b) => a.position - b.position)
+          .map((i) => ({ label: i.label, path: i.path, color: i.colour ?? undefined }))
+      : fallback.map((i) => ({ label: i.label, path: i.path, color: (i as { color?: string; colour?: string }).color ?? (i as { color?: string; colour?: string }).colour ?? undefined }));
+    // Merge in custom studio pages for this section
     const extra = dbNavPages
-      .filter((p) => p.navCategory === category)
-      .map((p) => ({ label: p.label, path: p.path }));
+      ?.filter((p) => p.navCategory === section)
+      .map((p) => ({ label: p.label, path: p.path, color: undefined })) ?? [];
     return [...base, ...extra];
   }
 
-  const mergedFoundation = mergeNavItems(foundationLinks, "foundation");
-  const mergedForYou = mergeNavItems(forYouLinks, "for-you");
-  const mergedTools = mergeNavItems(toolsLinks, "tools");
-  const mergedResearch = mergeNavItems(researchLinks, "research");
-  const mergedExplore = mergeNavItems(exploreLinks, "explore");
+  const mergedLenses = getNavSection("lenses", lenses);
+  const mergedFoundation = getNavSection("foundation", foundationLinks);
+  const mergedForYou = getNavSection("for-you", forYouLinks);
+  const mergedTools = getNavSection("tools", toolsLinks);
+  const mergedResearch = getNavSection("research", researchLinks);
+  const mergedExplore = getNavSection("explore", exploreLinks);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {

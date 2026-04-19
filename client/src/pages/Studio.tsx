@@ -22,8 +22,9 @@ import StudioLearningMatrix from "@/components/studio/StudioLearningMatrix";
 import StudioLexiconManager from "@/components/studio/StudioLexiconManager";
 import StudioPromptGamesManager from "@/components/studio/StudioPromptGamesManager";
 import StudioGButtonManager from "@/components/studio/StudioGButtonManager";
+import StudioNavManager from "@/components/studio/StudioNavManager";
 
-type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard" | "pagebuilder" | "learningmatrix" | "lexicon" | "promptgames" | "gbutton";
+type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard" | "pagebuilder" | "learningmatrix" | "lexicon" | "promptgames" | "gbutton" | "navmanager";
 
 // ── Studio Login Screen ──────────────────────────────────────────────────────
 // Primary: Log in with Manus (owner ID check). Fallback: password form.
@@ -166,6 +167,7 @@ export default function Studio() {
     { id: "lexicon", label: "Lexicon Manager" },
     { id: "promptgames", label: "Prompt Games" },
     { id: "gbutton", label: "G Button" },
+    { id: "navmanager", label: "Nav & Footer" },
   ];
 
   return (
@@ -413,6 +415,9 @@ export default function Studio() {
 
           {/* ── G Button Manager ── */}
           {activeTab === "gbutton" && <StudioGButtonManager />}
+
+          {/* ── Nav & Footer Manager ── */}
+          {activeTab === "navmanager" && <StudioNavManager />}
 
         </div>
       </div>

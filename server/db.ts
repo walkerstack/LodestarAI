@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, users, navItems, InsertNavItem, NavItem } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,122 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// ─────────────────────────────────────────────────────────────
+// NAV ITEMS — DB helpers for Nav.tsx, Footer.tsx, and Studio Nav Manager
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * Returns all published nav items, grouped by section.
+ * Used by Nav.tsx and Footer.tsx on the live site.
+ */
+export async function getPublishedNavItems(): Promise<NavItem[]> {
+  const db = await getDb();
+  if (!db) return [];
+  try {
+    return await db.select().from(navItems).where(eq(navItems.isPublished, true));
+  } catch (error) {
+    console.error("[Database] Failed to get published nav items:", error);
+    return [];
+  }
+}
+
+/**
+ * Returns ALL nav items (published + draft).
+ * Used by Studio Nav Manager to show the full working set.
+ */
+export async function getAllNavItems(): Promise<NavItem[]> {
+  const db = await getDb();
+  if (!db) return [];
+  try {
+    return await db.select().from(navItems);
+  } catch (error) {
+    console.error("[Database] Failed to get all nav items:", error);
+    return [];
+  }
+}
+
+/**
+ * Upserts a single nav item.
+ * Used by Studio to create or update an item.
+ */
+export async function upsertNavItem(item: InsertNavItem): Promise<void> {
+  const db = await getDb();
+  if (!db) return;
+  try {
+    await db.insert(navItems).values(item).onDuplicateKeyUpdate({
+      set: {
+        label: item.label,
+        path: item.path,
+        colour: item.colour ?? null,
+        position: item.position,
+        isPublished: item.isPublished,
+        isFooter: item.isFooter,
+      },
+    });
+  } catch (error) {
+    console.error("[Database] Failed to upsert nav item:", error);
+    throw error;
+  }
+}
+
+/**
+ * Updates a single nav item by id.
+ */
+export async function updateNavItem(
+  id: number,
+  updates: Partial<Pick<NavItem, "label" | "path" | "colour" | "position" | "isPublished" | "isFooter" | "section">>
+): Promise<void> {
+  const db = await getDb();
+  if (!db) return;
+  try {
+    await db.update(navItems).set(updates).where(eq(navItems.id, id));
+  } catch (error) {
+    console.error("[Database] Failed to update nav item:", error);
+    throw error;
+  }
+}
+
+/**
+ * Deletes a nav item by id.
+ */
+export async function deleteNavItem(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) return;
+  try {
+    await db.delete(navItems).where(eq(navItems.id, id));
+  } catch (error) {
+    console.error("[Database] Failed to delete nav item:", error);
+    throw error;
+  }
+}
+
+/**
+ * Publishes all current nav items (sets isPublished = true for all).
+ * Called when Matthew taps Publish in Studio.
+ */
+export async function publishAllNavItems(): Promise<void> {
+  const db = await getDb();
+  if (!db) return;
+  try {
+    await db.update(navItems).set({ isPublished: true });
+  } catch (error) {
+    console.error("[Database] Failed to publish nav items:", error);
+    throw error;
+  }
+}
+
+/**
+ * Returns the count of nav items in the database.
+ * Used to check if seeding is needed.
+ */
+export async function getNavItemCount(): Promise<number> {
+  const db = await getDb();
+  if (!db) return 0;
+  try {
+    const result = await db.select().from(navItems);
+    return result.length;
+  } catch (error) {
+    console.error("[Database] Failed to count nav items:", error);
+    return 0;
+  }
+}
