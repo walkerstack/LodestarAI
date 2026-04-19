@@ -1121,3 +1121,25 @@ There is one way into Studio: **Manus OAuth** (which uses Google sign-in underne
 - `studioLogin` (password) procedure still exists in server code — harmless, `STUDIO_PASSWORD` env var not set
 
 **STANDING RULE UPDATED:** Auth audit is now documented here. "Do not touch auth logic without briefing Matthew first" still applies — this section IS the brief. Read it before touching anything auth-related.
+
+---
+## MESSAGE FORMAT RULE — Added April 19, 2026
+
+**Every message from now on ends with this block. No exceptions.**
+
+```
+---
+LAST STEP:   [what just finished]
+CURRENT:     [what is happening right now]
+NEXT:        [what comes after — waiting for go]
+
+VERTICES:
+- [one plain fact]
+- [one plain fact]
+- [one plain fact]
+(short, plain, like explaining to a child)
+---
+```
+
+This is a navigation anchor. Matthew (or the next session) finds the thread in three seconds.
+If a session drops this block — that session has lost the thread.

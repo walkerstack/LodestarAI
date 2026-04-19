@@ -387,3 +387,23 @@
 - [x] Studio.tsx: Nav & Footer tab wired in as 11th tab
 - [x] navManager.test.ts: 10 tests, all passing (26 total across 3 test files)
 - [x] TypeScript: 0 errors throughout build
+
+## Build 3 — Inline Editor + Live/Draft Lens System (April 19, 2026 — PLANNED)
+
+- [x] Step 1: Add status, draftContent, previousContent columns to content_blocks schema, push migration (migration 0009 applied, 307 blocks default published)
+- [x] Step 2: Server procedures — getDraftBlocks, getPublishedBlocks, saveDraft, publishBlock, publishAllDrafts, undoLastEdit in studioDb.ts + studio router (26 tests passing)
+- [x] Step 3: Build InlineBlockEditor component — bottom sheet (phone) / right panel (desktop), sections: Text, Media, Link Manager, Background, Buttons, Block, Preview mode, contextual help
+- [x] Step 3a: Button controls — label, destination, width+height, size presets, style picker, image-as-button, all standard effects
+- [x] Step 3b: Link Manager — all links on block, add/remove, URL auto-fetch, description + sub-description, framework connection layer (colour-coded by nav section)
+- [x] Step 3c: Block section — visibility toggle (hide without deleting), duplicate on page, copy to another page, delete with confirm
+- [x] Step 3d: Contextual help — ? icons per section, meaningful placeholder text, action confirmation after save/publish/undo/hide
+- [x] Step 3e: Preview mode — one tap to see visitor view, one tap back to editing (reuses CardPreview component)
+- [x] Step 4: Wire InlineBlockEditor into StudioBlocks — tap+hold (phone) / hover+click (desktop), orange glow border, drag-to-reorder handle
+- [x] Step 5: Live/Draft lens toggle in Studio — Live vs Working, Publish All button in header, draft status badge on blocks
+- [x] Step 6: Page Overview in Studio — snapdom thumbnails, grid drag-to-reorder, draft borders, refresh button, add block tile
+- [ ] Step 7: TypeScript check, tests, instruction guide, checkpoint
+- [ ] Studio: Button Design tab — create/name/save button designs, available site-wide as samples in inline panel
+- [ ] Studio: KidsRedirect + KidsMidLink toggle per page — on/off only, position and design fixed
+- [ ] Build 3B: Sections within blocks (title labelling, categories) — separate session
+- [ ] Build 3B: Live Site Map Overlay — interactive framework map, gesture-triggered, grows with site, live draft/publish status
+- [ ] Build 3B: Three Voice infrastructure (Everyday/Professional/Watcher per block) — separate session

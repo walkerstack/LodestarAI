@@ -47,6 +47,12 @@ import {
   updatePromptPanelItem,
   deletePromptPanelItem,
   type FlowLinkInput,
+  getPublishedBlocks,
+  getDraftBlocks,
+  saveDraft,
+  publishBlock,
+  publishAllDrafts,
+  undoLastEdit,
 } from "../studioDb";
 import {
   getAllNavItems,
@@ -793,5 +799,82 @@ export const studioRouter = router({
         await updateNavItem(input.orderedIds[i], { position: i });
       }
       return { success: true };
+    }),
+
+  // ─────────────────────────────────────────────
+  // BUILD 3 — INLINE EDITOR: DRAFT / PUBLISH / UNDO
+  // ─────────────────────────────────────────────
+
+  /**
+   * Returns published blocks for a page.
+   * Public — used by StudioBlocks.tsx in visitor mode.
+   */
+  getPublishedBlocks: publicProcedure
+    .input(z.object({ pageSlug: z.string() }))
+    .query(async ({ input }) => {
+      return getPublishedBlocks(input.pageSlug);
+    }),
+
+  /**
+   * Returns all blocks for a page including draft state.
+   * Admin only — used by StudioBlocks.tsx in edit mode.
+   */
+  getDraftBlocks: adminProcedure
+    .input(z.object({ pageSlug: z.string() }))
+    .query(async ({ input }) => {
+      return getDraftBlocks(input.pageSlug);
+    }),
+
+  /**
+   * Saves a working draft for a block without publishing.
+   * Sets status = "draft". Visitors still see the old version.
+   */
+  saveDraft: adminProcedure
+    .input(z.object({ blockId: z.number(), draftContent: z.string() }))
+    .mutation(async ({ input }) => {
+      await saveDraft(input.blockId, input.draftContent);
+      return { success: true };
+    }),
+
+  /**
+   * Publishes a single block.
+   * Copies draftContent → content, saves old content → previousContent, clears draft.
+   */
+  publishBlock: adminProcedure
+    .input(z.object({ blockId: z.number() }))
+    .mutation(async ({ input }) => {
+      await publishBlock(input.blockId);
+      return { success: true };
+    }),
+
+  /**
+   * Publishes all draft blocks on a page at once.
+   * Called from the Publish All button in the Studio lens header.
+   */
+  publishAllDrafts: adminProcedure
+    .input(z.object({ pageSlug: z.string() }))
+    .mutation(async ({ input }) => {
+      await publishAllDrafts(input.pageSlug);
+      return { success: true };
+    }),
+
+  /**
+   * Undoes the last publish for a block.
+   * Restores previousContent → content. One-tap undo.
+   */
+  undoLastEdit: adminProcedure
+    .input(z.object({ blockId: z.number() }))
+    .mutation(async ({ input }) => {
+      await undoLastEdit(input.blockId);
+      return { success: true };
+    }),
+
+  /**
+   * Returns all page slugs in the system.
+   * Used by InlineBlockEditor to populate the "Copy to page" picker.
+   */
+  getAllPageSlugs: adminProcedure
+    .query(async () => {
+      return getAllPageSlugs();
     }),
 });

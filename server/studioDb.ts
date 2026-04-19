@@ -387,3 +387,134 @@ export async function deletePromptPanelItem(id: number) {
   if (!db) throw new Error("Database not available");
   await db.delete(promptPanelItems).where(eq(promptPanelItems.id, id));
 }
+
+// ─────────────────────────────────────────────
+// BUILD 3 — DRAFT / PUBLISH / UNDO HELPERS
+// ─────────────────────────────────────────────
+
+/**
+ * Returns only published blocks for a page.
+ * Used by StudioBlocks.tsx in visitor (live) mode.
+ */
+export async function getPublishedBlocks(pageSlug: string) {
+  const db = await getDb();
+  if (!db) return [];
+  return db
+    .select()
+    .from(contentBlocks)
+    .where(eq(contentBlocks.pageSlug, pageSlug))
+    .orderBy(asc(contentBlocks.position));
+}
+
+/**
+ * Returns ALL blocks for a page (published + draft).
+ * Used by StudioBlocks.tsx in admin edit mode.
+ * Includes draftContent and previousContent so the editor can show working state.
+ */
+export async function getDraftBlocks(pageSlug: string) {
+  const db = await getDb();
+  if (!db) return [];
+  return db
+    .select()
+    .from(contentBlocks)
+    .where(eq(contentBlocks.pageSlug, pageSlug))
+    .orderBy(asc(contentBlocks.position));
+}
+
+/**
+ * Saves a working draft for a block without publishing.
+ * Sets status = "draft" and stores the new content in draftContent.
+ * The live content column is unchanged — visitors still see the old version.
+ */
+export async function saveDraft(blockId: number, draftContent: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db
+    .update(contentBlocks)
+    .set({ draftContent, status: "draft" })
+    .where(eq(contentBlocks.id, blockId));
+}
+
+/**
+ * Publishes a single block.
+ * - Saves current live content into previousContent (for undo)
+ * - Copies draftContent into content (makes it live)
+ * - Clears draftContent
+ * - Sets status = "published"
+ * If there is no draftContent, does nothing (block is already live).
+ */
+export async function publishBlock(blockId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const rows = await db
+    .select()
+    .from(contentBlocks)
+    .where(eq(contentBlocks.id, blockId))
+    .limit(1);
+  if (!rows.length) throw new Error(`Block ${blockId} not found`);
+  const block = rows[0];
+  if (!block.draftContent) return; // nothing to publish
+  await db
+    .update(contentBlocks)
+    .set({
+      previousContent: block.content,
+      content: block.draftContent,
+      draftContent: null,
+      status: "published",
+    })
+    .where(eq(contentBlocks.id, blockId));
+}
+
+/**
+ * Publishes all draft blocks on a page at once.
+ * Called from the "Publish All" button in the Studio lens header.
+ */
+export async function publishAllDrafts(pageSlug: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const blocks = await db
+    .select()
+    .from(contentBlocks)
+    .where(eq(contentBlocks.pageSlug, pageSlug));
+  for (const block of blocks) {
+    if (block.status === "draft" && block.draftContent) {
+      await db
+        .update(contentBlocks)
+        .set({
+          previousContent: block.content,
+          content: block.draftContent,
+          draftContent: null,
+          status: "published",
+        })
+        .where(eq(contentBlocks.id, block.id));
+    }
+  }
+}
+
+/**
+ * Undoes the last publish for a block.
+ * Restores previousContent back into content.
+ * Clears previousContent after restore.
+ * If there is no previousContent, does nothing.
+ */
+export async function undoLastEdit(blockId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const rows = await db
+    .select()
+    .from(contentBlocks)
+    .where(eq(contentBlocks.id, blockId))
+    .limit(1);
+  if (!rows.length) throw new Error(`Block ${blockId} not found`);
+  const block = rows[0];
+  if (!block.previousContent) return; // nothing to undo
+  await db
+    .update(contentBlocks)
+    .set({
+      content: block.previousContent,
+      previousContent: null,
+      draftContent: null,
+      status: "published",
+    })
+    .where(eq(contentBlocks.id, block.id));
+}

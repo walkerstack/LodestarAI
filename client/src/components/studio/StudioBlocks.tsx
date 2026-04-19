@@ -1,16 +1,25 @@
 /**
  * StudioBlocks — renders database-stored content blocks on any live page.
- * 
+ *
  * Usage: Add <StudioBlocks pageSlug="rules" /> to the bottom of any page.
  * If the page has blocks in the database, they render here.
  * If not, nothing renders — the page looks exactly as before.
- * 
+ *
  * This is additive. It never replaces existing page content.
  * The original hardcoded content stays above this component.
+ *
+ * Admin mode: when the logged-in user has role === "admin":
+ *  - Each block gets an orange glow outline on hover
+ *  - Tap+hold (mobile) or click (desktop) opens InlineBlockEditor
+ *  - Drag handle appears for reordering
  */
 
 import { trpc } from "@/lib/trpc";
 import { Link } from "wouter";
+import { useAuth } from "@/_core/hooks/useAuth";
+import { useState, useRef, useCallback } from "react";
+import InlineBlockEditor from "@/components/InlineBlockEditor";
+import type { ContentBlock } from "../../../../drizzle/schema";
 
 interface StudioBlocksProps {
   pageSlug: string;
@@ -29,10 +38,8 @@ interface TextBlockContent {
 }
 
 interface CardBlockContent {
-  // New format fields
   title?: string;
   description?: string;
-  // Migration format fields (heading/body used by seed scripts)
   heading?: string;
   body?: string;
   subtitle?: string;
@@ -97,7 +104,6 @@ function TextBlock({ content }: { content: TextBlockContent }) {
 }
 
 function CardBlock({ content }: { content: CardBlockContent }) {
-  // Support both new format (title/description) and migration format (heading/body)
   const displayTitle = content.title ?? content.heading ?? "";
   const displayDesc = content.description ?? content.body ?? "";
 
@@ -234,44 +240,225 @@ function ImageBlock({ content }: { content: ImageBlockContent }) {
 }
 
 // ─────────────────────────────────────────────
+// Admin block wrapper — glow border + edit trigger
+// ─────────────────────────────────────────────
+
+interface AdminBlockWrapperProps {
+  block: ContentBlock;
+  onEdit: (block: ContentBlock) => void;
+  children: React.ReactNode;
+}
+
+function AdminBlockWrapper({ block, onEdit, children }: AdminBlockWrapperProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const holdTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isDraggingRef = useRef(false);
+
+  // Tap+hold for mobile (500ms)
+  const handlePointerDown = useCallback(() => {
+    isDraggingRef.current = false;
+    holdTimerRef.current = setTimeout(() => {
+      if (!isDraggingRef.current) {
+        onEdit(block);
+      }
+    }, 500);
+  }, [block, onEdit]);
+
+  const handlePointerMove = useCallback(() => {
+    isDraggingRef.current = true;
+    if (holdTimerRef.current) {
+      clearTimeout(holdTimerRef.current);
+      holdTimerRef.current = null;
+    }
+  }, []);
+
+  const handlePointerUp = useCallback(() => {
+    if (holdTimerRef.current) {
+      clearTimeout(holdTimerRef.current);
+      holdTimerRef.current = null;
+    }
+  }, []);
+
+  // Desktop click
+  const handleClick = useCallback(() => {
+    onEdit(block);
+  }, [block, onEdit]);
+
+  const hasDraft = block.status === "draft" || (block.draftContent && block.draftContent !== block.content);
+
+  return (
+    <div
+      className="relative group"
+      style={{
+        outline: isHovered ? "2px solid #E8520A" : "2px solid transparent",
+        outlineOffset: "4px",
+        borderRadius: "12px",
+        transition: "outline-color 0.15s ease",
+        cursor: "pointer",
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onClick={handleClick}
+    >
+      {/* Draft indicator badge */}
+      {hasDraft && (
+        <div
+          style={{
+            position: "absolute",
+            top: "-8px",
+            right: "8px",
+            background: "#E8520A",
+            color: "#fff",
+            fontSize: "0.6rem",
+            fontWeight: 700,
+            padding: "2px 6px",
+            borderRadius: "4px",
+            zIndex: 10,
+            letterSpacing: "0.05em",
+            textTransform: "uppercase",
+          }}
+        >
+          DRAFT
+        </div>
+      )}
+
+      {/* Edit hint — shows on hover */}
+      {isHovered && (
+        <div
+          style={{
+            position: "absolute",
+            top: "8px",
+            left: "8px",
+            background: "#E8520A",
+            color: "#fff",
+            fontSize: "0.65rem",
+            fontWeight: 600,
+            padding: "3px 8px",
+            borderRadius: "4px",
+            zIndex: 10,
+            pointerEvents: "none",
+            letterSpacing: "0.05em",
+          }}
+        >
+          ✏ EDIT
+        </div>
+      )}
+
+      {/* Drag handle */}
+      {isHovered && (
+        <div
+          style={{
+            position: "absolute",
+            top: "8px",
+            right: "8px",
+            color: "#E8520A",
+            fontSize: "1rem",
+            zIndex: 10,
+            cursor: "grab",
+            padding: "4px",
+            background: "#1a1410",
+            borderRadius: "4px",
+            lineHeight: 1,
+          }}
+          onPointerDown={(e) => e.stopPropagation()} // don't trigger edit on drag handle
+          title="Drag to reorder"
+        >
+          ⠿
+        </div>
+      )}
+
+      {children}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
 // Main component
 // ─────────────────────────────────────────────
 
+type BlockRow = ContentBlock;
+
 export default function StudioBlocks({ pageSlug, className = "" }: StudioBlocksProps) {
+  const { user } = useAuth();
+  const isAdmin = user?.role === "admin";
+
   const { data: blocks, isLoading } = trpc.studio.getPublicBlocks.useQuery(
     { pageSlug },
     { staleTime: 30_000 }
   );
 
+  const [editingBlock, setEditingBlock] = useState<BlockRow | null>(null);
+
+  const handleEdit = useCallback((block: BlockRow) => {
+    setEditingBlock(block);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setEditingBlock(null);
+  }, []);
+
   // Nothing to show — no blocks or still loading
   if (isLoading || !blocks || blocks.length === 0) return null;
 
   return (
-    <section
-      className={`studio-blocks-section w-full max-w-4xl mx-auto px-4 md:px-8 py-8 space-y-6 ${className}`}
-      aria-label="Additional content"
-    >
-      {blocks.map((block) => {
-        let content: unknown;
-        try {
-          content = JSON.parse(block.content);
-        } catch {
-          return null;
-        }
-
-        switch (block.blockType) {
-          case "text":
-            return <TextBlock key={block.id} content={content as TextBlockContent} />;
-          case "card":
-            return <CardBlock key={block.id} content={content as CardBlockContent} />;
-          case "doc":
-            return <DocBlock key={block.id} content={content as DocBlockContent} />;
-          case "image":
-            return <ImageBlock key={block.id} content={content as ImageBlockContent} />;
-          default:
+    <>
+      <section
+        className={`studio-blocks-section w-full max-w-4xl mx-auto px-4 md:px-8 py-8 space-y-6 ${className}`}
+        aria-label="Additional content"
+      >
+        {blocks.map((block) => {
+          let content: unknown;
+          try {
+            content = JSON.parse(block.content);
+          } catch {
             return null;
-        }
-      })}
-    </section>
+          }
+
+          const blockNode = (() => {
+            switch (block.blockType) {
+              case "text":
+                return <TextBlock key={block.id} content={content as TextBlockContent} />;
+              case "card":
+                return <CardBlock key={block.id} content={content as CardBlockContent} />;
+              case "doc":
+                return <DocBlock key={block.id} content={content as DocBlockContent} />;
+              case "image":
+                return <ImageBlock key={block.id} content={content as ImageBlockContent} />;
+              default:
+                return null;
+            }
+          })();
+
+          if (!blockNode) return null;
+
+          // Admin mode: wrap with glow border + edit trigger
+          if (isAdmin) {
+            return (
+              <AdminBlockWrapper
+                key={block.id}
+                block={block as BlockRow}
+                onEdit={handleEdit}
+              >
+                {blockNode}
+              </AdminBlockWrapper>
+            );
+          }
+
+          // Visitor mode: render as-is
+          return blockNode;
+        })}
+      </section>
+
+      {/* Inline editor panel — mounts as portal on document.body */}
+      {isAdmin && editingBlock && (
+        <InlineBlockEditor
+          block={editingBlock}
+          onClose={handleClose}
+        />
+      )}
+    </>
   );
 }

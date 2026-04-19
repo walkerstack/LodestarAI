@@ -54,6 +54,12 @@ export const contentBlocks = mysqlTable("content_blocks", {
   isMirror: boolean("isMirror").notNull().default(false),
   /** If this is a mirror, the id of the source block */
   mirrorSourceId: int("mirrorSourceId"),
+  /** Block status: published (live to visitors) or draft (working copy, not yet live) */
+  status: mysqlEnum("status", ["published", "draft"]).notNull().default("published"),
+  /** Working draft content — JSON string, same shape as content. Null until first edit. */
+  draftContent: text("draftContent"),
+  /** Previous published content — stored on publish for one-tap undo */
+  previousContent: text("previousContent"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });

@@ -64,6 +64,13 @@
       "when": 1776619533023,
       "tag": "0008_nappy_zodiak",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1776626434697,
+      "tag": "0009_careful_polaris",
+      "breakpoints": true
     }
   ]
 }

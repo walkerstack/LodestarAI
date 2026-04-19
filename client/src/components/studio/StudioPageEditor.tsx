@@ -2,6 +2,7 @@
  * StudioPageEditor
  * Shows all content blocks for a page.
  * Supports: view, edit, delete, drag-to-reorder, create new block, mirror.
+ * Build 3: Live/Draft lens toggle, Publish All, draft badges per block.
  */
 
 import { useState, useCallback } from "react";
@@ -25,6 +26,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import StudioBlockForm from "./StudioBlockForm";
+import PageOverview from "./PageOverview";
 
 type Page = { slug: string; label: string; path: string };
 type Block = {
@@ -35,16 +37,23 @@ type Block = {
   content: string;
   isMirror: boolean;
   mirrorSourceId: number | null;
+  status?: string | null;
+  draftContent?: string | null;
+  previousContent?: string | null;
 };
+
+type Lens = "live" | "draft";
 
 // ── Sortable Block Item ──────────────────────────────────────────────────
 function SortableBlock({
   block,
+  lens,
   onEdit,
   onDelete,
   onMirror,
 }: {
   block: Block;
+  lens: Lens;
   onEdit: (block: Block) => void;
   onDelete: (id: number) => void;
   onMirror: (id: number) => void;
@@ -58,16 +67,16 @@ function SortableBlock({
     opacity: isDragging ? 0.5 : 1,
   };
 
+  const isDraft = block.status === "draft" || (block.draftContent && block.draftContent !== block.content);
+
   let contentPreview = "";
   try {
     const parsed = JSON.parse(block.content);
     if (block.blockType === "text") {
-      // Support both heading/body (new) and legacy formats
       contentPreview = (parsed.heading || parsed.title || "") + (parsed.body ? " — " + parsed.body.slice(0, 60) : "");
       contentPreview = contentPreview.trim().replace(/^\s*—\s*/, "").slice(0, 90);
     }
     if (block.blockType === "card") {
-      // Support both title/description (new) and heading/body (migration)
       contentPreview = parsed.title ?? parsed.heading ?? parsed.name ?? "";
       if (!contentPreview && parsed.description) contentPreview = parsed.description.slice(0, 60);
       if (!contentPreview && parsed.body) contentPreview = parsed.body.slice(0, 60);
@@ -95,7 +104,7 @@ function SortableBlock({
       style={{
         ...style,
         background: "#130f0a",
-        border: "1px solid #2a2218",
+        border: isDraft && lens === "draft" ? "1px solid #E8520A55" : "1px solid #2a2218",
         borderRadius: "8px",
         padding: "0.875rem 1rem",
         display: "flex",
@@ -137,6 +146,26 @@ function SortableBlock({
       >
         {block.blockType}
       </span>
+
+      {/* Draft badge — only shown in draft lens */}
+      {isDraft && lens === "draft" && (
+        <span
+          style={{
+            fontSize: "0.6rem",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "#E8520A",
+            fontFamily: "'DM Sans', sans-serif",
+            background: "#E8520A18",
+            border: "1px solid #E8520A44",
+            padding: "0.15rem 0.4rem",
+            borderRadius: "4px",
+            flexShrink: 0,
+          }}
+        >
+          draft
+        </span>
+      )}
 
       {/* Content preview */}
       <span
@@ -192,6 +221,42 @@ function ActionBtn({ onClick, label, color }: { onClick: () => void; label: stri
   );
 }
 
+// ── Lens Toggle ──────────────────────────────────────────────────────────
+function LensToggle({ lens, onChange }: { lens: Lens; onChange: (l: Lens) => void }) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        background: "#0d0b08",
+        border: "1px solid #2a2218",
+        borderRadius: "6px",
+        overflow: "hidden",
+        flexShrink: 0,
+      }}
+    >
+      {(["live", "draft"] as Lens[]).map((l) => (
+        <button
+          key={l}
+          onClick={() => onChange(l)}
+          style={{
+            background: lens === l ? "#E8520A" : "transparent",
+            border: "none",
+            color: lens === l ? "#fff" : "#8a7a6a",
+            fontSize: "0.75rem",
+            fontFamily: "'DM Sans', sans-serif",
+            padding: "0.35rem 0.75rem",
+            cursor: "pointer",
+            textTransform: "capitalize",
+            transition: "background 0.15s, color 0.15s",
+          }}
+        >
+          {l === "live" ? "Live" : "Working Draft"}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 // ── Main Component ───────────────────────────────────────────────────────
 export default function StudioPageEditor({ page, onBack }: { page: Page; onBack: () => void }) {
   const utils = trpc.useUtils();
@@ -199,18 +264,53 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [mirrorTarget, setMirrorTarget] = useState<{ blockId: number } | null>(null);
   const [mirrorPageSlug, setMirrorPageSlug] = useState("");
+  const [lens, setLens] = useState<Lens>("draft");
+  const [showOverview, setShowOverview] = useState(false);
+  const [thumbnailVersion, setThumbnailVersion] = useState(0);
 
-  const { data: blocks, isLoading } = trpc.studio.getBlocks.useQuery({ pageSlug: page.slug });
+  // Live lens: published blocks only
+  const { data: liveBlocks, isLoading: liveLoading } = trpc.studio.getPublishedBlocks.useQuery(
+    { pageSlug: page.slug },
+    { enabled: lens === "live" }
+  );
+
+  // Draft lens: all blocks including drafts
+  const { data: draftBlocks, isLoading: draftLoading } = trpc.studio.getDraftBlocks.useQuery(
+    { pageSlug: page.slug },
+    { enabled: lens === "draft" }
+  );
+
+  const blocks = (lens === "live" ? liveBlocks : draftBlocks) as Block[] | undefined;
+  const isLoading = lens === "live" ? liveLoading : draftLoading;
+
+  const draftCount = (draftBlocks as Block[] | undefined)?.filter(
+    (b) => b.status === "draft" || (b.draftContent && b.draftContent !== b.content)
+  ).length ?? 0;
+
   const { data: pageList } = trpc.studio.getPageList.useQuery();
 
+  const publishAllMutation = trpc.studio.publishAllDrafts.useMutation({
+    onSuccess: () => {
+      utils.studio.getDraftBlocks.invalidate({ pageSlug: page.slug });
+      utils.studio.getPublishedBlocks.invalidate({ pageSlug: page.slug });
+      setThumbnailVersion((v) => v + 1);
+      toast.success(`All drafts published — page is now live`);
+    },
+    onError: () => toast.error("Failed to publish all drafts"),
+  });
+
   const reorderMutation = trpc.studio.reorderBlocks.useMutation({
-    onSuccess: () => utils.studio.getBlocks.invalidate({ pageSlug: page.slug }),
+    onSuccess: () => {
+      utils.studio.getDraftBlocks.invalidate({ pageSlug: page.slug });
+      utils.studio.getPublishedBlocks.invalidate({ pageSlug: page.slug });
+    },
     onError: () => toast.error("Failed to reorder blocks"),
   });
 
   const deleteMutation = trpc.studio.deleteBlock.useMutation({
     onSuccess: () => {
-      utils.studio.getBlocks.invalidate({ pageSlug: page.slug });
+      utils.studio.getDraftBlocks.invalidate({ pageSlug: page.slug });
+      utils.studio.getPublishedBlocks.invalidate({ pageSlug: page.slug });
       toast.success("Block deleted");
     },
     onError: () => toast.error("Failed to delete block"),
@@ -259,10 +359,23 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
     mirrorMutation.mutate({ sourceId: mirrorTarget.blockId, targetPageSlug: mirrorPageSlug });
   };
 
+  const invalidateAll = () => {
+    utils.studio.getDraftBlocks.invalidate({ pageSlug: page.slug });
+    utils.studio.getPublishedBlocks.invalidate({ pageSlug: page.slug });
+  };
+
   return (
     <div>
-      {/* Back + page header */}
-      <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+      {/* Back + page header + lens toggle */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1rem",
+          marginBottom: "1.5rem",
+          flexWrap: "wrap",
+        }}
+      >
         <button
           onClick={onBack}
           style={{
@@ -278,7 +391,7 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
         >
           ← All Pages
         </button>
-        <div>
+        <div style={{ flex: 1 }}>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.4rem", color: "#f0e8d8", margin: 0 }}>
             {page.label}
           </h2>
@@ -291,10 +404,109 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
             {page.path} ↗
           </a>
         </div>
+
+        {/* Page Overview toggle */}
+        <button
+          onClick={() => setShowOverview((v) => !v)}
+          style={{
+            background: showOverview ? "#1a1208" : "transparent",
+            border: showOverview ? "1px solid #E8520A88" : "1px solid #2a2218",
+            borderRadius: "6px",
+            color: showOverview ? "#E8520A" : "#8a7a6a",
+            fontSize: "0.75rem",
+            fontFamily: "'DM Sans', sans-serif",
+            padding: "0.35rem 0.75rem",
+            cursor: "pointer",
+            transition: "all 0.15s",
+            flexShrink: 0,
+          }}
+          title={showOverview ? "Switch to list view" : "Switch to overview (thumbnails)"}
+        >
+          {showOverview ? "☰ List" : "⊞ Overview"}
+        </button>
+
+        {/* Lens toggle */}
+        <LensToggle lens={lens} onChange={setLens} />
+
+        {/* Publish All — only shown in draft lens when there are drafts */}
+        {lens === "draft" && draftCount > 0 && (
+          <button
+            onClick={() => publishAllMutation.mutate({ pageSlug: page.slug })}
+            disabled={publishAllMutation.isPending}
+            style={{
+              background: "#E8520A",
+              border: "none",
+              borderRadius: "6px",
+              color: "#fff",
+              fontSize: "0.8rem",
+              fontFamily: "'DM Sans', sans-serif",
+              padding: "0.4rem 0.875rem",
+              cursor: publishAllMutation.isPending ? "not-allowed" : "pointer",
+              opacity: publishAllMutation.isPending ? 0.7 : 1,
+              transition: "opacity 0.15s",
+              flexShrink: 0,
+            }}
+          >
+            {publishAllMutation.isPending ? "Publishing…" : `Publish All (${draftCount})`}
+          </button>
+        )}
       </div>
 
-      {/* Block list */}
-      {isLoading ? (
+      {/* Lens context hint */}
+      {lens === "live" && (
+        <div
+          style={{
+            background: "#0d1a0d",
+            border: "1px solid #2a4a2a",
+            borderRadius: "6px",
+            padding: "0.5rem 0.875rem",
+            marginBottom: "1rem",
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "0.75rem",
+            color: "#7ecb8f",
+          }}
+        >
+          Live view — this is exactly what visitors see right now.
+        </div>
+      )}
+      {lens === "draft" && draftCount > 0 && (
+        <div
+          style={{
+            background: "#1a0d00",
+            border: "1px solid #4a2a00",
+            borderRadius: "6px",
+            padding: "0.5rem 0.875rem",
+            marginBottom: "1rem",
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "0.75rem",
+            color: "#E8520A",
+          }}
+        >
+          {draftCount} unpublished {draftCount === 1 ? "change" : "changes"} — visitors still see the old version until you publish.
+        </div>
+      )}
+
+      {/* Page Overview — thumbnail grid */}
+      {showOverview && blocks && blocks.length > 0 && (
+        <div style={{ marginBottom: "1.5rem" }}>
+          <PageOverview
+            blocks={blocks as Block[]}
+            pageSlug={page.slug}
+            onEdit={setEditingBlock}
+            onAddBlock={() => {
+              setShowOverview(false);
+              setShowCreateForm(true);
+            }}
+            onReorder={(orderedIds) =>
+              reorderMutation.mutate({ pageSlug: page.slug, orderedIds })
+            }
+            thumbnailVersion={thumbnailVersion}
+          />
+        </div>
+      )}
+
+      {/* Block list — hidden when overview is active */}
+      {!showOverview && (isLoading ? (
         <p style={{ color: "#8a7a6a", fontFamily: "'DM Sans', sans-serif" }}>Loading blocks…</p>
       ) : !blocks || blocks.length === 0 ? (
         <div
@@ -308,7 +520,9 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
           }}
         >
           <p style={{ color: "#5a4a3a", fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem" }}>
-            No Studio blocks on this page yet. Add one below.
+            {lens === "live"
+              ? "No published blocks on this page yet."
+              : "No Studio blocks on this page yet. Add one below."}
           </p>
         </div>
       ) : (
@@ -319,6 +533,7 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
                 <SortableBlock
                   key={block.id}
                   block={block as Block}
+                  lens={lens}
                   onEdit={setEditingBlock}
                   onDelete={handleDelete}
                   onMirror={(id) => setMirrorTarget({ blockId: id })}
@@ -327,10 +542,10 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
             </div>
           </SortableContext>
         </DndContext>
-      )}
+      ))}
 
-      {/* Add block button */}
-      {!showCreateForm && !editingBlock && (
+      {/* Add block button — only in draft lens */}
+      {lens === "draft" && !showCreateForm && !editingBlock && (
         <button
           onClick={() => setShowCreateForm(true)}
           style={{
@@ -359,7 +574,7 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
           mode="create"
           onDone={() => {
             setShowCreateForm(false);
-            utils.studio.getBlocks.invalidate({ pageSlug: page.slug });
+            invalidateAll();
           }}
           onCancel={() => setShowCreateForm(false)}
           nextPosition={blocks ? blocks.length : 0}
@@ -395,7 +610,7 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
               block={editingBlock}
               onDone={() => {
                 setEditingBlock(null);
-                utils.studio.getBlocks.invalidate({ pageSlug: page.slug });
+                invalidateAll();
               }}
               onCancel={() => setEditingBlock(null)}
               nextPosition={0}
@@ -459,16 +674,35 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
             <div style={{ display: "flex", gap: "0.75rem", justifyContent: "flex-end" }}>
               <button
                 onClick={() => { setMirrorTarget(null); setMirrorPageSlug(""); }}
-                style={{ background: "transparent", border: "1px solid #2a2218", borderRadius: "6px", color: "#8a7a6a", padding: "0.5rem 1rem", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem" }}
+                style={{
+                  background: "transparent",
+                  border: "1px solid #2a2218",
+                  borderRadius: "6px",
+                  color: "#8a7a6a",
+                  padding: "0.5rem 1rem",
+                  cursor: "pointer",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "0.875rem",
+                }}
               >
                 Cancel
               </button>
               <button
                 onClick={handleMirrorConfirm}
-                disabled={!mirrorPageSlug || mirrorMutation.isPending}
-                style={{ background: "#E8520A", border: "none", borderRadius: "6px", color: "#fff", padding: "0.5rem 1rem", cursor: mirrorPageSlug ? "pointer" : "not-allowed", fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", opacity: mirrorPageSlug ? 1 : 0.5 }}
+                disabled={!mirrorPageSlug}
+                style={{
+                  background: mirrorPageSlug ? "#7ecb8f" : "#2a2218",
+                  border: "none",
+                  borderRadius: "6px",
+                  color: mirrorPageSlug ? "#0a1a0a" : "#5a4a3a",
+                  padding: "0.5rem 1rem",
+                  cursor: mirrorPageSlug ? "pointer" : "not-allowed",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                }}
               >
-                {mirrorMutation.isPending ? "Mirroring…" : "Mirror Block"}
+                Mirror Block
               </button>
             </div>
           </div>
