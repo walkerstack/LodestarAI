@@ -181,15 +181,6 @@ const papers = [
         url: `${CDN}/gallantryai-teacher-children-guide_05f23c1b.pdf`,
       },
       {
-        id: "EDU-02",
-        title: "Classroom Technical Architecture",
-        subtitle: "GallantryAI Classroom Implementation",
-        date: "2026",
-        description: "The technical and pedagogical architecture for implementing GallantryAI in a classroom setting.",
-        tags: ["Education", "Architecture", "Implementation"],
-        url: `${CDN}/gallantry_classroom_technical_architecture_copy_3aeba83b.pdf`,
-      },
-      {
         id: "EDU-03",
         title: "Little AI Field Guide Carousel",
         subtitle: "Visual Slide Deck for Children",
