@@ -304,3 +304,14 @@
 - [ ] 5-question reflection form (How do I feel? Did I stay in charge? Did I keep secrets? Was AI honest? Grown-up okay?)
 - [ ] Save/Share as PDF via jsPDF (no backend)
 - [ ] Mobile responsive
+
+## UI Polish — Buttons, Shadows, Premium Feel (Priority: High, Next Session)
+**Matthew's direction: buttons need to pop more. More shadow. More premium and professional UI/UX look. Site-wide.**
+
+- [ ] Audit all primary CTA buttons site-wide — increase shadow depth, add subtle glow on hover, ensure they feel tactile and premium
+- [ ] Audit secondary/outline buttons — ensure they have enough contrast and weight to invite a tap
+- [ ] Review card shadows across all pages — increase depth, add layered shadow for premium feel
+- [ ] Check interactive elements (toggles, accordions, nav dropdowns) — ensure they feel responsive and polished
+- [ ] Start with homepage and Nav, then move page by page
+- [ ] Do NOT change color palette or typography — polish only, not redesign
+- [ ] Pass 6-point page standard on every page touched
