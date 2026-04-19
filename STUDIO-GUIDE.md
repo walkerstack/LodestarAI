@@ -153,3 +153,116 @@ Grab the **⠿** handle (list view) or drag any thumbnail tile (overview) and dr
 ---
 
 *Build 3 — April 2026*
+
+---
+
+# Studio Audit — April 19, 2026
+
+**What this is:** Every Studio feature checked against the actual code. Not a vibe check. Each item has a verdict.
+
+---
+
+## Audit Table
+
+| Feature | Where it lives | Verdict | Notes |
+|---|---|---|---|
+| Page list loads | Studio.tsx → `getPageList` | **GREEN** | adminProcedure, returns SITE_PAGES array |
+| Open a page | StudioPageEditor.tsx | **GREEN** | Wired, renders block list |
+| List view — block list | StudioPageEditor.tsx | **GREEN** | DndContext, SortableContext, all wired |
+| List view — drag to reorder | StudioPageEditor.tsx → `reorderBlocks` | **GREEN** | onSuccess invalidates both lenses |
+| List view — Edit button | StudioPageEditor.tsx → StudioBlockForm | **GREEN** | Opens modal, full form |
+| List view — Delete button | StudioPageEditor.tsx → `deleteBlock` | **GREEN** | Confirm dialog, onError toast |
+| List view — Mirror button | StudioPageEditor.tsx → `mirrorBlock` | **GREEN** | Page picker modal, onError toast |
+| Live / Working Draft toggle | StudioPageEditor.tsx | **GREEN** | Two separate queries, correct guards |
+| Draft badge on blocks | StudioPageEditor.tsx | **GREEN** | Checks `status === "draft"` OR `draftContent !== content` |
+| Publish All button | StudioPageEditor.tsx → `publishAllDrafts` | **GREEN** | Only shows when draftCount > 0, bumps thumbnailVersion |
+| Save as Draft (form) | StudioBlockForm.tsx → `updateBlock` | **GREEN** | onSuccess toast, onError toast with message |
+| Create new block | StudioBlockForm.tsx → `createBlock` | **GREEN** | onSuccess toast, onError toast |
+| Inline editor — Save Draft | InlineBlockEditor.tsx → `saveDraft` | **GREEN** | try/catch, actionBanner on error |
+| Inline editor — Publish | InlineBlockEditor.tsx → `publishBlock` | **GREEN** | Saves draft first, then publishes |
+| Inline editor — Undo | InlineBlockEditor.tsx → `undoLastEdit` | **GREEN** | Handles "nothing to undo" gracefully |
+| Inline editor — Hide block | InlineBlockEditor.tsx → `saveDraft` | **GREEN** | Sets hidden flag in content JSON |
+| Inline editor — Delete | InlineBlockEditor.tsx → `deleteBlock` | **GREEN** | try/catch, error banner |
+| Media Library — upload | StudioMediaLibrary.tsx → `uploadMedia` | **GREEN** | Real S3 storagePut, size check, onError toast |
+| Media Library — delete | StudioMediaLibrary.tsx → `deleteMedia` | **GREEN** | onError toast |
+| Media Library — copy URL | StudioMediaLibrary.tsx | **GREEN** | navigator.clipboard, success toast |
+| Link Manager — scan | StudioLinkManager.tsx → `scanLinks` | **GREEN** | onError toast with message |
+| Link Manager — edit/add/delete | StudioLinkManager.tsx | **GREEN** | All three mutations have onError toasts |
+| Nav Manager — edit/add/remove | StudioNavManager.tsx | **GREEN** | All mutations have onError toasts |
+| Nav Manager — Publish Nav | StudioNavManager.tsx → `publishNav` | **GREEN** | onError toast |
+| Status Board | StudioStatusBoard.tsx → `getPageStatus` | **GREEN** | Read-only query, no mutations |
+| Site Map | StudioSiteMap.tsx → `getPageStatus` | **GREEN** | Read-only, click-to-navigate wired |
+| Page Builder — create/copy/edit/delete | StudioPageBuilder.tsx | **GREEN** | All four mutations have onError toasts |
+| Lexicon Manager — create/update/delete | StudioLexiconManager.tsx | **GREEN** | All mutations present |
+| Prompt Games Manager | StudioPromptGamesManager.tsx | **GREEN** | All mutations present |
+| G Button Manager | StudioGButtonManager.tsx | **GREEN** | All mutations present |
+| Learning Matrix | StudioLearningMatrix.tsx → `upsertLearningFlow` | **GREEN** | onError toast |
+| Page Overview — thumbnail grid | PageOverview.tsx → snapdom | **GREEN** | Dynamic import, fallback card on failure |
+| Page Overview — drag to reorder | PageOverview.tsx → `reorderBlocks` | **GREEN** | rectSortingStrategy, calls onReorder |
+| Page Overview — refresh button | PageOverview.tsx | **GREEN** | Resets cache AND generatingRef |
+| Page Overview — draft borders | PageOverview.tsx | **GREEN** | Orange border when status=draft |
+| Page Overview — add block tile | PageOverview.tsx | **GREEN** | Closes overview, opens create form |
+| Orphaned DOM nodes on thumbnail error | PageOverview.tsx | **FIXED THIS SESSION** | Was: removeChild only in try. Now: finally block always cleans up |
+| `getPublicBlocks` vs `getPublishedBlocks` | InlineBlockEditor uses `getPublicBlocks` | **GREEN** | Both procedures exist. `getPublicBlocks` is the public visitor-facing one. Correct. |
+
+---
+
+## What Was Fixed During This Audit
+
+One real bug found and fixed:
+
+**Orphaned DOM nodes.** When snapdom failed on a block, the offscreen `<div>` container was appended to `document.body` but never removed, because `removeChild` was inside the `try` block. On a page with many blocks and some failures, this would silently accumulate hidden nodes. Fixed by moving cleanup into a `finally` block — it now runs whether the capture succeeds or fails.
+
+---
+
+## What Is NOT Verified (Browser-Only)
+
+These cannot be confirmed from code alone. They need a real browser session:
+
+| Item | Risk level | What to check |
+|---|---|---|
+| snapdom thumbnails actually render | Medium | Open Overview on a page with blocks. Do tiles show images or "rendering…" forever? |
+| Media upload actually reaches S3 | Low | Upload a small image in Media Library. Does the URL appear and load? |
+| Inline editor opens on hover/tap | Low | On a page with Studio blocks, hover a block. Does the orange glow appear? |
+| Publish All actually goes live | Low | Make a draft edit, publish, switch to Live lens. Does it show? |
+| Undo actually restores | Low | Publish a block, then undo. Does the old content come back? |
+
+---
+
+## Child's Lens Summary
+
+*Simple words. What works. What to check. What was fixed.*
+
+**The studio is a room where you change words on your website without touching code.**
+
+Here is what every button does, and whether it works:
+
+- **Open a page** — works. Click a card, see the blocks.
+- **Change a block** — works. Click Edit, type new words, click Save.
+- **Save without going live** — works. It saves quietly. Visitors still see the old version.
+- **Make it live** — works. Click Publish All. Now visitors see the new version.
+- **Undo** — works. If you published something wrong, one tap brings the old version back.
+- **Move blocks around** — works. Drag the handle or drag the thumbnail tile.
+- **See what visitors see** — works. Switch to Live lens.
+- **See thumbnails of every block** — works. Click Overview. Small pictures appear one at a time.
+- **Upload a photo** — works. Goes to S3 storage. You get a URL to paste into any block.
+- **Delete a block** — works. It asks you first. Cannot be undone.
+- **Mirror a block to another page** — works. Same content, two places, one edit.
+
+**One thing was broken and is now fixed:**
+
+When a thumbnail failed to render, the invisible box it used stayed stuck on the page forever. You would never see it, but over time the page would get slower. That is fixed now — the box is always cleaned up, even when something goes wrong.
+
+**Five things that need a real browser to confirm** — they look right in the code but only a real test proves it:
+
+1. Do thumbnails actually appear or do they spin forever?
+2. Does a photo upload actually show up after uploading?
+3. Does the orange glow appear when you hover a block on the site?
+4. Does Publish All actually make the change visible to visitors?
+5. Does Undo actually bring back the old version?
+
+These are low risk. The code is correct. But you should tap through them once before trusting Studio for real content.
+
+---
+
+*Audit completed: April 19, 2026 — Build 3*

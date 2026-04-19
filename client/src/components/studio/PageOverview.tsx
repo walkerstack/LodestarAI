@@ -357,7 +357,7 @@ export default function PageOverview({
       const run = async () => {
         try {
           // Build an offscreen container with the block's content rendered
-          const container = document.createElement("div");
+              const container = document.createElement("div");
           container.style.cssText = `
             position: fixed;
             left: -9999px;
@@ -367,31 +367,30 @@ export default function PageOverview({
             overflow: hidden;
             z-index: -1;
           `;
-
           // Render a visual representation of the block
           container.innerHTML = buildBlockHtml(block);
           document.body.appendChild(container);
-
-          // Small delay to allow any images to load
-          await new Promise((r) => setTimeout(r, 150));
-
-          // Dynamic import of snapdom
-          const { snapdom } = await import("@zumer/snapdom");
-
-          const result = await snapdom(container, {
-            scale: 1,
-            embedFonts: false,
-            backgroundColor: "#080604",
-            fallbackURL: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
-          });
-
-          const imgEl = await result.toPng();
-          const dataUrl = imgEl.src;
-          document.body.removeChild(container);
-
-          setThumbnails((prev) => ({ ...prev, [block.id]: dataUrl }));
+          try {
+            // Small delay to allow any images to load
+            await new Promise((r) => setTimeout(r, 150));
+            // Dynamic import of snapdom
+            const { snapdom } = await import("@zumer/snapdom");
+            const result = await snapdom(container, {
+              scale: 1,
+              embedFonts: false,
+              backgroundColor: "#080604",
+              fallbackURL: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+            });
+            const imgEl = await result.toPng();
+            const dataUrl = imgEl.src;
+            setThumbnails((prev) => ({ ...prev, [block.id]: dataUrl }));
+          } catch {
+            setThumbnails((prev) => ({ ...prev, [block.id]: "failed" }));
+          } finally {
+            if (document.body.contains(container)) document.body.removeChild(container);
+          }
         } catch {
-          setThumbnails((prev) => ({ ...prev, [block.id]: "failed" }));
+          // outer catch — should not reach here but safety net
         }
 
         // Yield to browser, then do next
