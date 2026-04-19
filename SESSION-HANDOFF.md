@@ -1216,3 +1216,106 @@ These need a real browser session. Check before building new features.
 ---
 
 *Appended: April 19, 2026 — end of Build 3 session*
+
+---
+
+## THE DIAGRAM FEATURE — What Was Promised (LOCKED April 19, 2026)
+
+**This section is permanent. Do not remove. Do not summarise. Read it fully before planning this feature.**
+
+Matthew was promised an interactive site diagram in the top nav. This is not a Studio tool. This is a public-facing feature. Two diagrams define the vision. Both are saved at:
+
+```
+/home/ubuntu/gallantryai/docs/diagrams/sitemap-scaffold-levels.png
+/home/ubuntu/gallantryai/docs/diagrams/sitemap-radial-home.png
+```
+
+**READ THESE FILES BEFORE PLANNING THIS FEATURE. Every session. No exceptions.**
+
+---
+
+### Diagram 1 — Scaffold Levels (sitemap-scaffold-levels.png)
+
+A vertical learning path. Five levels stacked top to bottom, each in its own colour-coded section. "↓ Deeper" arrows connect levels. Every page on the site is a node.
+
+| Level | Colour | Pages |
+|---|---|---|
+| FLOOR — Entry Level | Orange dot | Everyday /for/everyday, Child /for/child → Five Rules, Teenager, Guardian & Teacher, If You Need to Stop, Prompt Games, Flower Presets |
+| LEVEL 2 — Pre-Session Intention | Yellow dot | Living Lexicon, Road Protocol, Taxonomy, Whelm Scale, Scaffold |
+| LEVEL 3 — Drift Recognition | Green dot | Psychology, Anthropomorphism, Human Line, Drift, Three Voices, Cognitive Science |
+| LEVEL 4 — Word Mechanics | Blue dot | Variable Scale, Promptolinguistics, ALCM, Malbolge, Playground, Math Prompting |
+| CEILING — You Are the Framework | Red dot | Citizen Researcher, Watcher, Prompt Engineer, Mathematician, The Builder, Field Papers, Gallery, Linguist, Researcher |
+| RESEARCH LAYER — Evidence Trail | Grey/white | What Claude Admitted, Research Hub, EU AI Act, What the AI Said, Dual Strategy, Counter Arguments, User Governance |
+
+Arrows connect levels with "↓ Deeper" labels. Some pages connect across levels (e.g. Road Protocol connects back from Level 3).
+
+---
+
+### Diagram 2 — Radial from Home (sitemap-radial-home.png)
+
+Home at the centre. Six branches radiating outward, each a cluster of pages.
+
+| Branch | Colour | Pages |
+|---|---|---|
+| CONCEPTS | Amber/gold | ALCM, Promptolinguistics, Variable Scale, Whelm Scale, Drift, Human Line, Three Voices, Anthropomorphism, Malbolge, Math Prompting, Taxonomy, Living Lexicon, Playground, Prompt Games, Dual Strategy, User Governance, GallantryAI Faq |
+| CHILDREN'S CLUSTER | Orange-red | Child Five Rules, Child Patterns, Child Prompts, Kids Learn, School Board, Hallucinations |
+| HATS — Entry Modes | Dark red | Everyday, Child, Guardian & Teacher, Watcher, Teenager |
+| LENSES — Professional | Dark green | Prompt Engineer, Linguist, Researcher, Cognitive Science, Mathematician, Psychology |
+| FOUNDATION | Dark blue | Five Rules, Road Protocol, Flower Presets, Scaffold, Safety — If You Need to Stop |
+| BUILDER | Dark maroon | The Builder, Builder Origin, Barney Poem, Builder's Kits |
+| RESEARCH | Dark grey | Field Papers, Citizen Researcher, Gallery, Research Hub, Counter Arguments, What Claude Admitted, EU AI Act, Field Report Review, Screenshot Sharing, Open Docs, What the AI Said, Prompt Library, Articles |
+
+---
+
+### What the Feature Is
+
+An interactive diagram accessible from the **top nav** — triggered by a button or dropdown. A visitor clicks it and sees the full structure of the site. Every node is clickable and navigates to that page.
+
+**Two views, one toggle:**
+- Scaffold view (Diagram 1) — shows the learning path, level by level
+- Radial view (Diagram 2) — shows the full site from Home outward
+
+**Behaviour:**
+- Nodes are coloured by their level/cluster (matching the diagrams)
+- Clicking a node navigates to that page
+- The diagram is read-only for visitors
+- In Studio, nodes may show draft/publish status (orange = has drafts)
+- The diagram grows automatically as new pages are added
+
+**Where it lives:**
+- Top nav — triggered by a button (Matthew to confirm exact placement)
+- Possibly also at `/sitemap` as a standalone page
+
+---
+
+### What Is NOT Known Yet
+
+Matthew is finding the original planning screenshots from a previous session. Those screenshots may contain:
+- The exact nav trigger design
+- Interaction details (hover states, zoom, pan)
+- Any additional views or modes
+- The exact name Matthew gave this feature
+
+**Do not finalize the build plan until those screenshots are found and reviewed.**
+
+---
+
+### Build Plan Skeleton (to be completed after screenshots)
+
+**Step 0:** Five browser-only checks first. Fix anything broken.
+
+**Step 1:** Data layer — `getSiteMapData` procedure. Returns all pages with their level, cluster, URL, and draft status. Derives from existing `getPageStatus` + a static level/cluster map.
+
+**Step 2:** Scaffold view component — vertical levels, coloured nodes, "↓ Deeper" arrows, clickable.
+
+**Step 3:** Radial view component — Home at centre, six branches, coloured clusters, clickable.
+
+**Step 4:** Toggle between views. Nav trigger (dropdown or button). Overlay or dedicated page.
+
+**Step 5:** Studio integration — nodes show draft/publish status.
+
+**Step 6:** TypeScript check, tests, checkpoint, update SESSION-HANDOFF.md.
+
+---
+
+*Locked: April 19, 2026. Matthew brought the diagrams. The vision is captured. Read the diagram files before every planning session on this feature.*
