@@ -260,3 +260,11 @@
 - [ ] CONCEPT NOTE: The portager framing — Matthew builds the hard stretch between the water so the next person doesn't start from zero. Consider whether this belongs explicitly on the Builder page or as a framing device somewhere on the site.
 - [ ] CONCEPT NOTE: The AI is the door. GallantryAI is what happens after the AI opens the door by accident. Consider whether this reframes the discovery/marketing problem — not finding people, but being findable when the moment arrives. May affect SEO strategy and homepage copy.
 - [ ] CONCEPT NOTE: Co-development attribution — the site and its documents are co-developed, not AI-assisted. Consider whether this should be stated explicitly somewhere and what the implications are for how the work is presented.
+
+## Ghost Code Audit (Matthew flagged April 18, 2026)
+
+- [ ] AUDIT: Go through every public-facing page file in client/src/pages/ and verify each one has a ghost code header comment — the block that names the file, its purpose, what Matthew wanted it to do, and any rules that apply to it
+- [ ] AUDIT: Go through every component in client/src/components/ and verify ghost code headers exist and are accurate
+- [ ] AUDIT: Go through server/routers/ files and verify each procedure block has a comment explaining what it does and why
+- [ ] STANDARD: Any file missing a ghost code header gets one added before any other work is done on that file — this becomes the first action, not an afterthought
+- [ ] CONSIDER: Ghost code audit may be a good first session task — read the files, understand what's there, brief Matthew before building anything new
