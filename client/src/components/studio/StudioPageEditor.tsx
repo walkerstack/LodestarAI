@@ -384,7 +384,7 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
         >
           <div
             style={{
-              width: "min(600px, 100%)",
+              width: "min(900px, 100%)",
               marginTop: "2rem",
               marginBottom: "2rem",
             }}

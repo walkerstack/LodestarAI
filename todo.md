@@ -337,3 +337,26 @@
 - [ ] FOOTER: Research Hub link is broken — find correct destination and fix.
 - [ ] FOOTER: Field Events has colour styling but no link and no defined destination — discuss with Matthew before touching.
 - [ ] HIDDEN STUDIO TRIGGER: Replace nav link to Studio with a hidden gesture on the Builder page (long-press buffalo image, triple-tap specific element, etc.) so Studio is not discoverable via nav.
+
+## April 19, 2026 — Standby Items (added while kids outside)
+
+- [ ] PROFESSIONAL CARDS: Add Citizen Researcher and Promptolinguist to the professional cards section on the homepage
+- [ ] PROFESSIONAL CARDS: Add Citizen Researcher and Promptolinguist to the professional section in nav
+- [ ] STUDIO NAV/FOOTER EDITOR: Matthew wants to be able to change nav and footer layout, list order, categories, and letter colouring directly from Studio — without touching code. Build a Nav/Footer Manager tab in Studio with full control over: sections, items, order, destination URLs, and text colour per item.
+
+## Future Feature Ideas (April 19, 2026 — for later, not now)
+
+- [ ] FUTURE: Live announcement banner — wraps around the GallantryAI title on homepage. Owner can set a live message from Studio (e.g. "Official launch day", "New field report"). Appears and disappears on demand. No code required.
+- [ ] FUTURE: Freeform image placement — ability to place images on any page in non-grid positions (random/intentional spots). Optional: slight animation (float, drift). Optional: animated components like arrows or question marks that can be placed anywhere on a page.
+
+## Launch Considerations (April 19, 2026)
+
+- [ ] FORMS: Add feedback form and professional input/contact form — target for launch or shortly before. Two purposes: (1) visitor feedback on the site/content, (2) channel for professionals (researchers, educators, clinicians) to reach Matthew directly.
+
+## Studio Card Editor — Confirmed Spec (April 19, 2026)
+
+- [x] CONFIRMED SPEC: Studio block edit modal — three-zone layout: (1) Live view top read-only mirror, (2) Edit view below — tap element → input box appears → type → live update, (3) Save button at bottom
+- [x] CONFIRMED SPEC: Visual samples for button styles and card sizes — styled in GallantryAI aesthetic, tap to select
+- [x] CONFIRMED SPEC: Colour controls use site palette presets only (orange, dark, cream, white) — no full colour picker yet
+- [x] CONFIRMED SPEC: Watcher instruction line "Tap anything to edit it" — always visible, small, unobtrusive
+- [ ] FUTURE UPGRADE (DO NOT LOSE): Add full colour picker to Studio card editor — Matthew confirmed he wants this eventually. Site palette presets are the starting point. Full picker is the upgrade. Add when Matthew asks.
