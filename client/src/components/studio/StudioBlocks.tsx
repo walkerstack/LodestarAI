@@ -249,10 +249,16 @@ interface AdminBlockWrapperProps {
   children: React.ReactNode;
 }
 
+// Detect touch device once at module level
+const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+
 function AdminBlockWrapper({ block, onEdit, children }: AdminBlockWrapperProps) {
   const [isHovered, setIsHovered] = useState(false);
   const holdTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isDraggingRef = useRef(false);
+
+  // On touch devices, always show the outline so blocks are visible without hover
+  const showOutline = isTouchDevice || isHovered;
 
   // Tap+hold for mobile (500ms)
   const handlePointerDown = useCallback(() => {
@@ -290,7 +296,7 @@ function AdminBlockWrapper({ block, onEdit, children }: AdminBlockWrapperProps) 
     <div
       className="relative group"
       style={{
-        outline: isHovered ? "2px solid #E8520A" : "2px solid transparent",
+        outline: showOutline ? "2px solid #E8520A" : "2px solid transparent",
         outlineOffset: "4px",
         borderRadius: "12px",
         transition: "outline-color 0.15s ease",
@@ -325,8 +331,8 @@ function AdminBlockWrapper({ block, onEdit, children }: AdminBlockWrapperProps) 
         </div>
       )}
 
-      {/* Edit hint — shows on hover */}
-      {isHovered && (
+      {/* Edit hint — shows on hover (desktop) or always (mobile) */}
+      {showOutline && (
         <div
           style={{
             position: "absolute",
@@ -348,7 +354,7 @@ function AdminBlockWrapper({ block, onEdit, children }: AdminBlockWrapperProps) 
       )}
 
       {/* Drag handle */}
-      {isHovered && (
+      {showOutline && (
         <div
           style={{
             position: "absolute",
