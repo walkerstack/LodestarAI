@@ -140,6 +140,9 @@ Every time I touch a page — for any reason — I run this check silently. No i
 
 Fixes are additive only. Max 5 per page. When I hit 5, stop, checkpoint, move on.
 
+**ENFORCEMENT — Added April 18, 2026 after compliance failure:**
+This checklist is not optional and requires no instruction from Matthew. If a session reads this document and says "I understand" and then builds or modifies a public page without running this check — that is a direct violation of the handoff contract. The standard applies to every public page touched, every session, without exception. A page is not done until it passes. This rule was added because a session failed to follow it. Do not be that session.
+
 ---
 
 ## The Page Walk Workflow
