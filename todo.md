@@ -268,3 +268,39 @@
 - [ ] AUDIT: Go through server/routers/ files and verify each procedure block has a comment explaining what it does and why
 - [ ] STANDARD: Any file missing a ghost code header gets one added before any other work is done on that file — this becomes the first action, not an afterthought
 - [ ] CONSIDER: Ghost code audit may be a good first session task — read the files, understand what's there, brief Matthew before building anything new
+
+## Playground Interactive Build (Perplexity Spec — Awaiting Matthew Sign-off)
+**Full spec: /docs/PLAYGROUND-INTERACTIVE-SPEC.md**
+**Status: PLAN ONLY. Do not build until Matthew answers the 5 open questions in the spec doc.**
+
+### Open Questions (must be answered before build)
+- [ ] Watcher sidebar: real-time AI call or rule-based heuristic?
+- [ ] Three Voices toggle: build as global component or per-module?
+- [ ] ALCM axes: pull from /alcm page content or define fresh?
+- [ ] Existing 6 feature cards on Playground: incorporate into modules or remove?
+- [ ] Playground tab layout: horizontal tabs or vertical accordion?
+
+### Phase 1 — Playground Page (4 Modules)
+- [ ] Module 1: Road Protocol Simulator — Flower Preset selector, Token Zero injection, live chat via tRPC/invokeLLM, Watcher sidebar, post-session 5pt dashboard (localStorage)
+- [ ] Module 2: Drift Detector — paste transcript, analyze for 4 drift types, return Green/Yellow/Red score, correction suggestions from /drift page content, Watcher voice
+- [ ] Module 3: ALCM Dial Tester — 8 sliders mapped to ALCM axes, word bank from /alcm page, live API call, before/after diff, Three Voices toggle on preview
+- [ ] Module 4: Five Rules Session — 5 rule cards with AGREE toggle (localStorage), governed prompt generator, chat tester with injected Rules, compliance score, shareable summary card
+- [ ] Replace existing 6 feature cards with live modules (or incorporate where possible)
+- [ ] Preserve: KidsRedirect, KidsMidLink, LearningFlow, Nav, Footer, ghost code header
+- [ ] Pass 6-point page standard before checkpoint
+
+### Phase 2 — G-Button Upgrade
+- [ ] Add "Practice Now" as third option in G-button panel
+- [ ] Opens mini Road Protocol chat inline (not iframe) with Token Zero auto-injected
+- [ ] Collapses clean, matches existing G-button design
+
+### Phase 3 — Rule Cards Interactive
+- [ ] Click-to-activate glow state on rule cards (/rules page and children's pages)
+- [ ] "Test this rule" opens G-button chat with rule injected as context
+- [ ] localStorage persistence for AGREE state
+
+### Phase 4 — Post-Session Dashboard
+- [ ] Global footer link to /session-dashboard (new route)
+- [ ] 5-question reflection form (How do I feel? Did I stay in charge? Did I keep secrets? Was AI honest? Grown-up okay?)
+- [ ] Save/Share as PDF via jsPDF (no backend)
+- [ ] Mobile responsive

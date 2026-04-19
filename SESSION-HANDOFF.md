@@ -898,3 +898,24 @@ Options to explore if publish remains blocked:
 Do not start new build work until the publish issue is resolved or explicitly parked.
 
 ---
+
+---
+
+## April 18, 2026 — Late Evening: Playground Interactive Spec (checkpoint pending)
+
+Matthew received a Perplexity-generated spec for making the Playground page interactive. Full reconciliation report saved at `/docs/PLAYGROUND-INTERACTIVE-SPEC.md`.
+
+**Current Playground status:** Placeholder "Coming Soon" page at `/playground`. Correct design, correct structure, no interactive functionality.
+
+**Spec summary:** 4 interactive modules (Road Protocol Simulator, Drift Detector, ALCM Dial Tester, Five Rules Session) + G-Button upgrade + Rule Cards interactive + Post-Session Dashboard.
+
+**HARD STOP — DO NOT BUILD until Matthew answers these 5 questions:**
+1. Watcher sidebar: real-time AI call or rule-based heuristic?
+2. Three Voices toggle: global component or per-module?
+3. ALCM axes: pull from /alcm page or define fresh?
+4. Existing 6 feature cards: incorporate or remove?
+5. Tab layout: horizontal tabs or vertical accordion?
+
+**Everything is in todo.md under "Playground Interactive Build."**
+
+The Vite error in browser console logs (PromptPanel.tsx line 419) is a stale log from 7:37 PM. TypeScript reports 0 errors. Vite recompiled clean after the fix. Do not chase this error — it is not active.
