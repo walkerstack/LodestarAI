@@ -4,7 +4,7 @@
  */
 
 import { z } from "zod";
-import { adminProcedure, publicProcedure, router } from "../_core/trpc";
+import { adminProcedure, protectedProcedure, publicProcedure, router } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { sql } from "drizzle-orm";
 import { getDb } from "../db";
@@ -149,6 +149,30 @@ export const studioRouter = router({
       });
       const opts = getSessionCookieOptions(ctx.req);
       ctx.res.cookie(COOKIE_NAME, token, { ...opts, maxAge: 7 * 24 * 60 * 60 * 1000 });
+      return { success: true };
+    }),
+
+  // ── PROTECTED — Manus OAuth owner login (the secure path) ──
+  // This is the real lock. Requires Manus OAuth session. Checks openId === OWNER_OPEN_ID.
+  // Password login (studioLogin above) stays active until owner confirms this works.
+  studioOwnerLogin: protectedProcedure
+    .mutation(async ({ ctx }) => {
+      const { ENV } = await import("../_core/env");
+      const ownerOpenId = ENV.ownerOpenId || "gallantryai-studio-owner";
+      // Check: is this person actually the owner?
+      if (ctx.user.openId !== ownerOpenId) {
+        throw new TRPCError({ code: "FORBIDDEN", message: "Access denied. This Studio belongs to its owner only." });
+      }
+      // They are the owner — promote to admin role and refresh session
+      const { upsertUser } = await import("../db");
+      await upsertUser({
+        openId: ctx.user.openId,
+        name: ctx.user.name,
+        email: ctx.user.email ?? null,
+        loginMethod: "manus_oauth",
+        lastSignedIn: new Date(),
+        role: "admin",
+      });
       return { success: true };
     }),
 

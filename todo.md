@@ -327,3 +327,13 @@
 - [x] Builder's Log v39 appended to SESSION-HANDOFF.md
 - [x] SESSION-CURRENT.md rewritten with v39 state
 - [ ] Final checkpoint saved (pending)
+
+## April 19, 2026 — Morning Session Items
+
+- [ ] SECURITY: Studio login — replace password gate with Manus OAuth owner-ID check. OWNER_OPEN_ID confirmed as cfxnspiLTDKbgEzckoxh8H (matt gallantry). Plan: OAuth login → server checks openId === OWNER_OPEN_ID → grant Studio session. Password removed entirely. Login screen stays public but has no password field to brute-force.
+- [ ] SECURITY: Remove plaintext password (Hudson2021!) from SESSION-HANDOFF.md lines 828 and 872.
+- [ ] STUDIO UX: Block edit modal — show live card preview. When editing a block, the modal shows the card styled exactly as it appears on the public page. As you change photo/title/description/colours, the preview updates in real time. What you see is what gets saved.
+- [ ] FLOATING LENS BUTTON: Persistent floating button on pages that have a full view/lens switch (Rules, For/Everyday, For/Child, For/Teen, For/Guardian-Teacher, For/Watcher, and professional lens pages). Button lets visitor flip between views from anywhere on the page without scrolling to top. DO NOT add to Promptolinguistics or Lexicon — those have three-voice-per-item inline display, leave them exactly as they are.
+- [ ] FOOTER: Research Hub link is broken — find correct destination and fix.
+- [ ] FOOTER: Field Events has colour styling but no link and no defined destination — discuss with Matthew before touching.
+- [ ] HIDDEN STUDIO TRIGGER: Replace nav link to Studio with a hidden gesture on the Builder page (long-press buffalo image, triple-tap specific element, etc.) so Studio is not discoverable via nav.
