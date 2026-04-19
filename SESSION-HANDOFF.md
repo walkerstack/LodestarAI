@@ -292,6 +292,33 @@ Matthew named a slight alignment drift mid-session. The AI had started reading a
 
 ---
 
+## AUTH AUDIT FLAG — Matthew flagged April 18, 2026
+
+Matthew does not know what is happening with admin vs Studio auth. This needs to be explained and cleaned up before the next session touches anything auth-related.
+
+**What currently exists (as-built, not as-designed):**
+
+| Mechanism | What it does | When it fires |
+|---|---|---|
+| Studio password login | Enters password → server upserts user with role=admin → creates JWT session cookie | When Matthew types the Studio password |
+| isAdmin in Nav.tsx | user?.role === "admin" — shows/hides Studio button in nav | Every page load, reads from auth.me query |
+| auth.me query | Returns ctx.user from DB including role field | Every page load |
+| Session cookie | JWT signed with JWT_SECRET, expires in 7 days | Set on Studio login, cleared on logout |
+| protectedProcedure | Requires any valid session (any role) | Studio tRPC procedures |
+| adminProcedure | Not currently used — exists in template only | Not wired |
+
+**The problem Matthew saw:** After a new deploy, the Studio button disappeared from mobile nav. Root cause: button was gated on isAdmin which requires a live session. Fixed in v37b by making the Studio link always visible in mobile nav regardless of login state. But the underlying question of why the session appeared to expire needs investigation.
+
+**What needs to happen next dedicated session:**
+1. Audit every auth touchpoint — map it in plain language for Matthew
+2. Decide: one auth path (Studio password only) or two (Studio password + Manus OAuth both valid)
+3. Make Studio button visibility logic match reality — if you can get into Studio, the button should be there
+4. Document the final decision here
+
+**DO NOT change auth logic without briefing Matthew first.**
+
+---
+
 ## How to Start a New Session
 
 1. Read this file first

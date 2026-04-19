@@ -244,3 +244,19 @@
 - [x] Studio: Prompt Manager tab — DB table for prompt games, tRPC read/write procedures, Studio tab UI (add/edit/remove), PromptGames public page reads from DB with hardcoded fallback
 - [x] Studio: Link Manager scanner — Scan Now button scans all client TSX files for internal paths, returns deduplicated list with filter
 - [x] Studio: G Button Manager — prompt_panel_items DB table, 23 prompts seeded, StudioGButtonManager CRUD tab, PromptPanel reads from DB
+
+## Auth Audit — Admin vs Studio (Matthew flagged April 18, 2026)
+
+- [ ] AUDIT: Map every place in the codebase where isAdmin, role === "admin", studioLogin, STUDIO_PASSWORD, and session cookies are used — produce a plain-language summary for Matthew of exactly what each one does and when it fires
+- [ ] DECISION: Decide with Matthew whether Studio access should use its own password-only gate (no Manus OAuth required) OR be tied to the admin role — currently both exist and they interact in ways that are not visible to the user
+- [ ] FIX: After decision is made, clean up the auth paths so there is one clear way in to Studio and one clear way the button shows — no hidden state changes after deploy
+- [ ] DOCUMENT: Write a plain-language "how Studio access works" section in SESSION-HANDOFF.md so every future session knows the rules without having to audit the code again
+
+## Emerging Insights — Design & Copy Work (Matthew, April 18, 2026 evening)
+
+- [ ] HOMEPAGE COPY: Write one recognition sentence for the homepage — the line that lands for the person who just had the "wait, something is off" moment with an AI. Not a tagline. A mirror. They need to see themselves in the first 5 seconds.
+- [ ] HOMEPAGE GEOMETRY: The site currently shows more ceiling than floor. Review the homepage through the eyes of someone who has never thought about how they use AI and is slightly afraid of it. Identify the first foot placement — the single obvious first step before the Five Rules.
+- [ ] COPY AUDIT: The living prompt thesis — "you have to be a good person" — may not be stated in its simplest form anywhere on the site yet. Find where it belongs and put it there plainly.
+- [ ] CONCEPT NOTE: The portager framing — Matthew builds the hard stretch between the water so the next person doesn't start from zero. Consider whether this belongs explicitly on the Builder page or as a framing device somewhere on the site.
+- [ ] CONCEPT NOTE: The AI is the door. GallantryAI is what happens after the AI opens the door by accident. Consider whether this reframes the discovery/marketing problem — not finding people, but being findable when the moment arrives. May affect SEO strategy and homepage copy.
+- [ ] CONCEPT NOTE: Co-development attribution — the site and its documents are co-developed, not AI-assisted. Consider whether this should be stated explicitly somewhere and what the implications are for how the work is presented.
