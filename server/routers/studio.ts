@@ -126,10 +126,13 @@ export const studioRouter = router({
       }
       // Ensure owner exists in the users table so authenticateRequest can find them
       // Without this, the cookie is valid but the DB lookup fails on the next request
+      // Use stable fallback values if env vars are not set on the deployed server
+      const ownerOpenId = ENV.ownerOpenId || "gallantryai-studio-owner";
+      const ownerName = ENV.ownerName || "Owner";
       const { upsertUser } = await import("../db");
       await upsertUser({
-        openId: ENV.ownerOpenId,
-        name: ENV.ownerName,
+        openId: ownerOpenId,
+        name: ownerName,
         email: null,
         loginMethod: "studio_password",
         lastSignedIn: new Date(),
@@ -140,9 +143,9 @@ export const studioRouter = router({
       const { sdk } = await import("../_core/sdk");
       const { getSessionCookieOptions } = await import("../_core/cookies");
       const { COOKIE_NAME } = await import("../../shared/const");
-      const token = await sdk.createSessionToken(ENV.ownerOpenId, {
+      const token = await sdk.createSessionToken(ownerOpenId, {
         expiresInMs: 7 * 24 * 60 * 60 * 1000,
-        name: ENV.ownerName,
+        name: ownerName,
       });
       const opts = getSessionCookieOptions(ctx.req);
       ctx.res.cookie(COOKIE_NAME, token, { ...opts, maxAge: 7 * 24 * 60 * 60 * 1000 });
