@@ -401,7 +401,7 @@
 - [x] Step 4: Wire InlineBlockEditor into StudioBlocks — tap+hold (phone) / hover+click (desktop), orange glow border, drag-to-reorder handle
 - [x] Step 5: Live/Draft lens toggle in Studio — Live vs Working, Publish All button in header, draft status badge on blocks
 - [x] Step 6: Page Overview in Studio — snapdom thumbnails, grid drag-to-reorder, draft borders, refresh button, add block tile
-- [ ] Step 7: TypeScript check, tests, instruction guide, checkpoint
+- [x] Step 7: TypeScript check (0 errors), tests (26/26 passing), instruction guide (STUDIO-GUIDE.md), checkpoint
 - [ ] Studio: Button Design tab — create/name/save button designs, available site-wide as samples in inline panel
 - [ ] Studio: KidsRedirect + KidsMidLink toggle per page — on/off only, position and design fixed
 - [ ] Build 3B: Sections within blocks (title labelling, categories) — separate session
