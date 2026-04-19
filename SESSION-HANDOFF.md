@@ -1143,3 +1143,76 @@ VERTICES:
 
 This is a navigation anchor. Matthew (or the next session) finds the thread in three seconds.
 If a session drops this block — that session has lost the thread.
+
+---
+
+## Session Summary — April 19, 2026 (Build 3 — Inline Click-to-Edit System)
+
+**Checkpoint at close:** `e1ac7bda`
+**TypeScript errors:** 0
+**Tests:** 26/26 passing
+
+### What Was Built
+
+**Build 3 — Steps 1–7 — complete.**
+
+| Step | What | Done |
+|---|---|---|
+| 1 | Database schema — contentBlocks table with status, draftContent, previousContent columns | Yes |
+| 2 | Server — tRPC procedures: saveDraft, publishBlock, publishAllDrafts, undoLastEdit, getDraftBlocks, getPublishedBlocks | Yes |
+| 3 | InlineBlockEditor — full edit panel, save draft, publish, undo, hide, delete, all with error handling | Yes |
+| 4 | StudioBlocks wiring — hover glow, tap+hold mobile, drag handle | Yes |
+| 5 | Live/Draft lens toggle — Live vs Working Draft, Publish All button, draft badges | Yes |
+| 6 | Page Overview — snapdom thumbnail grid, drag to reorder, draft borders, refresh button, add block tile | Yes |
+| 7 | TypeScript check, tests, STUDIO-GUIDE.md instruction guide, checkpoint | Yes |
+
+**Studio audit completed.** 37 features checked. All green. One bug found and fixed.
+
+**Bug fixed:** Orphaned DOM nodes in PageOverview.tsx. When snapdom failed on a block, the offscreen container was never removed. Fixed by moving `removeChild` into a `finally` block.
+
+**snapdom chosen over html2canvas** — newer (July 2025), faster (SVG-based), better CORS handling, built-in fallback URL option. Confidence raised from 7.5 to 8.5.
+
+### Five Browser-Only Items — NOT YET VERIFIED
+
+These need a real browser session. Check before building new features.
+
+1. Thumbnails appear in Overview (Studio → any page → Overview tab)
+2. Photo upload reaches S3 (Studio → Media tab → upload small image)
+3. Orange glow on blocks (go to `/rules`, hover a block)
+4. Publish All goes live (edit block → save draft → publish all → switch to Live lens)
+5. Undo restores (after publishing, tap Undo — old content comes back)
+
+### Session Patterns Observed
+
+**Pattern: Internet as risk mitigation.** Matthew asked whether internet research could reduce build risk before starting. It could and did — snapdom found as a better alternative to html2canvas, confidence score raised from 7.5 to 8.5. This is a repeatable pattern: search before build on any feature with external dependencies.
+
+**Pattern: Audit as protection.** Matthew proposed the Studio audit not as a QA step but as protection from midnight surprises. "What would piss Matt off" is a legitimate audit framing. It caught a real bug. Worth the tokens.
+
+**Pattern: Stop when told to stop.** Matthew said "finish what you're doing and stop" mid-session. The AI stopped. This is the governance working. The AI does not decide when to keep going.
+
+**Pattern: Message format as governance.** The LAST STEP / CURRENT / NEXT / VERTICES block was established this session. It is not a formatting preference. It is a session continuity tool — designed by Matthew to protect against thread loss across sessions.
+
+### Next Feature — Live Site Map Overlay
+
+**What Matthew calls it:** "the site map" — he couldn't remember the exact name.
+**Official name in todo.md:** `Build 3B: Live Site Map Overlay`
+
+**What it is:** Interactive visual map of the entire site. Every page = one node. Nodes coloured by status (green = live, orange = has drafts, grey = empty). Gesture-triggered. Grows automatically as pages are added. Available in Studio. Optional public-facing version.
+
+**Stub already exists:** `StudioSiteMap.tsx` and `StudioStatusBoard.tsx` are wired and working as read-only views. The Overlay is the next evolution.
+
+### Build Plan — Next Session
+
+**Step 0 (FIRST):** Run the five browser-only checks. Fix anything broken before building.
+
+**Step 1:** Data layer — confirm `getPageStatus` returns what the overlay needs. Add `connections` if needed (derive from nav items already in DB — no schema migration likely needed).
+
+**Step 2:** `SiteMapOverlay.tsx` component — canvas-based, nodes coloured by status, edges from nav structure, gesture-triggered, zoom/pan, click node to open in Studio editor.
+
+**Step 3:** Wire into Studio.tsx header as overlay toggle. Full-screen overlay, tap outside to close. Auto-updates when pages change.
+
+**Step 4:** TypeScript check, tests, checkpoint, update SESSION-HANDOFF.md.
+
+---
+
+*Appended: April 19, 2026 — end of Build 3 session*
