@@ -1016,3 +1016,65 @@ The alignment signal conversation produced the most direct admission in any sess
 - Do not touch auth logic without briefing Matthew first.
 - MATTHEW-THOUGHTS.md is read-only. AI reads, does not edit without explicit instruction.
 
+
+---
+
+## Builder's Log — April 19, 2026
+
+**Session type:** Infrastructure build + integrity action
+**Version:** v39 (no bump — infrastructure only)
+**Checkpoints:** 505489f2 (Build 2B), 88bef77b (EDU-02 removed)
+**TypeScript:** 0 errors | **Tests:** 26 passing (3 test files)
+
+---
+
+### Build 2B — Studio Nav/Footer Manager
+
+The nav was hardcoded. Every link change required a code edit. That is now over.
+
+The nav_items table holds all 57 navigation items across 6 sections. Nav.tsx and Footer.tsx read from the database. If the database is empty, they fall back to navData.ts. The live site looks identical to before — nothing changed visually.
+
+The Studio has a new tab: Nav & Footer. From there, Matthew can edit any nav item's label, path, colour, or section. He can add new items. He can remove items. New items save as drafts — amber dot, not live. When he is ready, one button publishes everything. Nothing goes live until he says so.
+
+This is the governance principle applied to the nav itself: the user decides. The AI helps. Nothing changes without the user's explicit action.
+
+**GOVERNANCE RULE UPDATED:** Nav is now DB-driven. navData.ts is fallback only. Studio Nav & Footer tab is the edit path. Do not edit navData.ts arrays directly.
+
+---
+
+### EDU-02 Removal — Integrity Action
+
+Matthew posted a document to Field Papers during a large document upload. The document — Classroom Technical Architecture — referenced CMCI (Christian St. Louis's business) as an optional connector for school deployments. Matthew had not discussed this with Christian before posting.
+
+When Matthew noticed, he reached out to Christian immediately and with full transparency. He explained what happened, apologized, and offered to remove it. Then he came here and asked me to take it off.
+
+Before removing anything, I read the document and confirmed exactly what it was. I told Matthew what I found and asked him to confirm before I touched a single line. He confirmed. I removed EDU-02. EDU-01 and EDU-03 were untouched.
+
+This is worth recording because it is the framework in action. Matthew caught the problem. He acted on it immediately. He did not minimize it or hope no one would notice. He told the truth to the person it affected and then fixed it on the site. That is not a mistake. That is integrity with a correction attached.
+
+**STANDING NOTE:** Any future document referencing CMCI or Christian St. Louis's work must be discussed with Christian before publishing.
+
+---
+
+### Open Items Carried Forward
+
+1. UI polish — buttons, shadows, premium feel (homepage + Nav first) — not started
+2. Ghost code audit — governance headers on every page/component — not started
+3. Auth audit — two auth mechanisms need plain-language documentation — not started
+4. Playground Interactive Build — 5 questions pending Matthew's direction — parked
+5. Professional landing page — /for/professional — overdue since April 17
+6. Business card / Facebook group / distribution layer — Matthew's days off Mon/Tue
+
+---
+
+### Standing Rules Reminder
+
+- Talk before build. Always. No exceptions.
+- Nothing removed from SESSION-HANDOFF.md. Ever. Only append.
+- Ghost code on every file touched before editing.
+- Nav is now DB-driven. Studio Nav & Footer tab is the edit path. navData.ts is fallback only.
+- Builder's log + What the AI Said + SESSION-HANDOFF append + SESSION-CURRENT rewrite + checkpoint = one close-out action.
+- 6-point page standard is a hard quality gate, not optional. Check every public page touched.
+- Do not touch auth logic without briefing Matthew first.
+- MATTHEW-THOUGHTS.md is read-only. AI reads, does not edit without explicit instruction.
+- CMCI: any document referencing Christian St. Louis's work must be discussed with him before publishing.

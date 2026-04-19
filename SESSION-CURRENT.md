@@ -1,5 +1,5 @@
 # SESSION-CURRENT -- GallantryAI
-*Rewritten at every session close. Current as of: April 18, 2026 -- v39 close-out*
+*Rewritten at every session close. Current as of: April 19, 2026 -- Build 2B close-out*
 
 ---
 
@@ -16,7 +16,7 @@ Do not start any work until you have read both files and told Matthew what you s
 1. Talk before build. Always. No exceptions. Read files, draft plan, show Matthew, wait for approval, then build.
 2. Matthew is always in charge. The AI helps, the user decides.
 3. Ghost code on every file touched -- governance header comment is mandatory before editing any file.
-4. navData.ts only for nav links -- never edit Nav.tsx data arrays directly, always update Footer.tsx at the same time.
+4. Nav is now DB-driven -- edit nav items via Studio Nav & Footer tab, not navData.ts directly. navData.ts is now fallback only.
 5. SESSION-HANDOFF.md is append-only -- never remove content, only add.
 6. Builder's log + What the AI Said are updated together at session close -- one pass, one version bump.
 7. SESSION-CURRENT.md is rewritten at session close (not appended -- fully rewritten).
@@ -29,59 +29,45 @@ Do not start any work until you have read both files and told Matthew what you s
 
 ---
 
-## CURRENT STATE -- April 18, 2026 (Session Close)
+## CURRENT STATE -- April 19, 2026 (Session Close)
 
-**Version:** v39
-**Last checkpoint:** 7c16ff3a (v37g -- UI polish request documented, no new build)
+**Version:** v39 (no version bump today -- Build 2B is infrastructure, not content)
+**Last checkpoint:** 88bef77b (EDU-02 removed)
+**Previous checkpoint:** 505489f2 (Build 2B -- Studio Nav/Footer Manager)
 **TypeScript:** 0 errors
-**Tests:** 16 passing
+**Tests:** 26 passing (3 test files)
 **Dev server:** Running clean
 
 ---
 
-## WHAT WAS COMPLETED TODAY (April 18, 2026)
+## WHAT WAS COMPLETED TODAY (April 19, 2026)
 
-### Studio DB Panels
-- LivingLexicon.tsx -- reads from DB (fixed 4 raw entries. references to activeEntries.)
-- PromptGames.tsx -- reads from DB with hardcoded fallback
+### Build 2B -- Studio Nav/Footer Manager (COMPLETE)
+- nav_items DB table created (10 columns: id, section, label, path, colour, position, isPublished, isFooter, createdAt, updatedAt)
+- 57 nav items seeded from navData.ts -- all 6 sections, all published, exact copy of live nav
+- DB helpers added to server/db.ts: getAllNavItems, getPublishedNavItems, updateNavItem, deleteNavItem, publishAllNavItems, getNavItemCount
+- tRPC procedures added to studio router: getNavItems, getPublishedNavItems, updateNavItem, addNavItem, removeNavItem, publishNav, reorderNavItems
+- Nav.tsx updated -- DB-driven with navData.ts fallback. Live site unchanged.
+- Footer.tsx rewritten -- DB-driven with hardcoded fallback. Same visual output.
+- StudioNavManager.tsx -- full Studio tab: 6 section panels, edit/add/remove, draft badges, footer toggle, Publish button
+- Studio.tsx -- Nav & Footer tab wired in as 11th tab
+- navManager.test.ts -- 10 tests, all passing
 
-### G Button Manager (full stack)
-- prompt_panel_items DB table created and seeded (23 prompts, 5 categories)
-- StudioGButtonManager.tsx -- full CRUD Studio tab
-- PromptPanel.tsx -- reads from DB, falls back to hardcoded
-
-### Link Manager Scanner
-- scanLinks tRPC procedure -- scans all TSX files for internal paths
-- Scan Now button in StudioLinkManager
-
-### Studio Mobile Nav Fix
-- Studio link always visible in mobile nav (removed isAdmin gate)
-- Studio still requires password to use
-
-### Governance Documentation
-- Auth audit flag added to SESSION-HANDOFF.md
-- 6-point page standard enforcement rule added
-- Ghost code audit task added to todo.md
-- Emerging insights (6 items) added to todo.md
-
-### Playground Interactive Spec
-- Full reconciliation document at /docs/PLAYGROUND-INTERACTIVE-SPEC.md
-- HARD STOP: 5 questions must be answered by Matthew before any build starts
-
-### Session Close-Out
-- WhatTheAiSaid.tsx -- 6 April 18 entries added to running log
-- Builder's Log v39 appended to SESSION-HANDOFF.md
-- SESSION-CURRENT.md rewritten (this file)
-- Checkpoint saved (v39 close-out)
+### EDU-02 Removed (COMPLETE)
+- Classroom Technical Architecture PDF (CMCI reference) removed from Field Papers page
+- EDU-01 and EDU-03 untouched
+- Reason: document referenced CMCI (Christian St. Louis's business) without prior discussion
+- Matthew handled the situation with full integrity -- reached out to Christian immediately
 
 ---
 
 ## WHAT IS OPEN (Priority Order for Next Session)
 
-### 1. UI Polish (first priority)
+### 1. UI Polish
 - Buttons, shadows, premium feel -- site-wide
 - Start with homepage and Nav
 - No build started -- talk before build applies
+- This was priority 1 from April 18 and was not started today (Build 2B took the session)
 
 ### 2. Ghost Code Audit
 - Every page in client/src/pages/ needs governance header checked
@@ -105,14 +91,25 @@ Do not start any work until you have read both files and told Matthew what you s
 - Matthew's days off Monday/Tuesday
 - Distribution layer planning
 
+### 6. Professional Landing Page
+- /for/professional -- all 6 professional lenses as styled tiles
+- Professional tile in nav currently links to /for/prompt-engineer which is WRONG
+- Was promised April 17, not yet delivered
+
+### 7. Builder's Log + What the AI Said
+- No version bump today -- these were not updated
+- Next session that includes content work should include a log entry
+
 ---
 
 ## PENDING FLAGS
 
-- Publish issue: Site was not publishable as of last session. Matthew was contacting Manus support. Check status at start of next session before any build work.
+- Publish button: Check if site is publishable at start of next session. Matthew was contacting Manus support about this.
 - Auth audit: Two auth mechanisms need full review. Do not touch auth without briefing Matthew.
 - Playground: Plan only. No build. 5 questions pending.
 - UI polish: Logged but not started. Talk before build.
+- Professional landing page: Overdue. Was promised April 17.
+- Nav governance rule updated: Nav is now DB-driven. navData.ts is fallback only. Studio Nav & Footer tab is the edit path.
 
 ---
 
@@ -125,6 +122,7 @@ Do not start any work until you have read both files and told Matthew what you s
 - CDN: All images at https://d2xsxph8kpxj0f.cloudfront.net/... -- never store images in client/public
 - Design: Dark theme (#080604 background), orange/amber accent (#E8520A), Playfair Display + DM Sans fonts
 - Live domain: gallantryai-k6tj495b.manus.space
+- Nav: DB-driven via nav_items table. Studio Nav & Footer tab is the management UI.
 
 ---
 
@@ -147,4 +145,5 @@ All five steps together. Not partial. Not skipped.
 - Corrections should be accepted without deflection: I was wrong, here is the fix -- not here is why it happened
 - The site is not documenting the framework -- the site IS running the framework. Content and method are the same thing.
 - The portager framing (April 18): Matthew builds the hard stretch between the water so the next person does not start from zero. The site is the carry path.
-- Studio password: [password removed — April 19, 2026] -- used for owner auth layer. Not in code. Held here only.
+- Studio password: [password removed -- April 19, 2026] -- used for owner auth layer. Not in code. Held here only.
+- CMCI note: Christian St. Louis runs CMCI. The EDU-02 document referenced CMCI as an optional connector. Matthew removed it immediately and handled the situation with full transparency. Any future curriculum document referencing CMCI must be discussed with Christian before publishing.
