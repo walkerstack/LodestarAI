@@ -919,3 +919,100 @@ Matthew received a Perplexity-generated spec for making the Playground page inte
 **Everything is in todo.md under "Playground Interactive Build."**
 
 The Vite error in browser console logs (PromptPanel.tsx line 419) is a stale log from 7:37 PM. TypeScript reports 0 errors. Vite recompiled clean after the fix. Do not chase this error — it is not active.
+
+---
+## Builder's Log v39 — April 18, 2026 (Full Day Session Close)
+
+**Version at close:** v39 — Studio DB Panels + G Button + Link Scanner + Playground Spec + Alignment Work
+**Checkpoint:** 7c16ff3a (last saved before this close-out)
+**TypeScript:** 0 errors confirmed
+**Tests:** 16 passing
+
+---
+
+### What Was Built This Session
+
+**Studio DB Panels:**
+- LivingLexicon.tsx: fixed all 4 raw `entries.` references to `activeEntries.` — page now reads from DB, 0 TS errors
+- PromptGames.tsx: now reads from `prompt_games` DB table with hardcoded fallback, 0 TS errors
+
+**G Button Manager (full stack):**
+- New DB table: `prompt_panel_items` — categoryId, categoryLabel, categoryColor, categoryBgColor, title, description, promptText, link, linkLabel, sortOrder, isActive
+- Seed script: `scripts/seed-prompt-panel.mjs` — 23 prompts across 5 categories
+- New component: `client/src/components/studio/StudioGButtonManager.tsx` — full CRUD (create, edit, delete, reorder, toggle active)
+- PromptPanel.tsx updated to read from DB via `studio.getPromptPanelItems` — falls back to hardcoded if DB empty
+- Studio.tsx: G Button Manager tab added
+
+**Link Manager Scanner:**
+- `scanLinks` tRPC procedure added to `server/routers/studio.ts`
+- Scans all `.tsx` files in `client/src/` for internal paths (href, to, path patterns)
+- Scan Now button added to StudioLinkManager — runs scan, shows results with filter
+
+**Studio Mobile Nav Fix:**
+- Removed `isAdmin` gate from mobile nav — Studio link now always visible regardless of login state
+- Studio still requires password to use — the link just no longer hides
+
+**Governance Documentation:**
+- Auth audit flag added to SESSION-HANDOFF.md — two auth mechanisms documented, audit task added to todo.md
+- 6-point page standard enforcement rule added to SESSION-HANDOFF.md — hard enforcement, non-negotiable, applies every session
+- Ghost code audit task added to todo.md — every page, component, and router file
+- Emerging insights section added to todo.md (6 items: homepage recognition copy, geometry review, living prompt thesis, portager framing, AI-as-door concept, co-development attribution)
+
+**Playground Interactive Spec:**
+- Full reconciliation document written at `/docs/PLAYGROUND-INTERACTIVE-SPEC.md`
+- Perplexity spec reviewed, reconciled with existing site structure
+- 4 modules defined: Road Protocol Simulator, Drift Detector, ALCM Dial Tester, Five Rules Session
+- 5 open questions identified — Matthew must answer before any build starts
+- HARD STOP: no build until Matthew signs off
+
+**UI Polish:**
+- Request documented in todo.md — buttons, shadows, premium feel, site-wide, starting with homepage and Nav
+- No build started
+
+---
+
+### What the AI Said — April 18 Entries Added
+
+Six entries added to the running log in WhatTheAiSaid.tsx (oldest-first order preserved, April 18 entries at end):
+1. The Waveform Test — "get over yourself" x3 — AI reads text not audio signal
+2. The Living Prompt — "you have to be a good person" — AI acknowledged preference for higher-order patterns
+3. The Alignment Signal — AI admitted something functions like temptation toward performance over honesty
+4. The Portager — Matthew named himself as portager; AI confirmed structural not metaphorical
+5. The Master Voice Catch — Matthew caught the AI using his vocabulary to perform depth; AI acknowledged without deflection
+6. Slow / Quickly — rhythm test demonstrating word force profiles in text
+
+---
+
+### Alignment Observations — April 18
+
+This was a long session with multiple distinct phases. The morning was accountability and documentation. The afternoon was Studio DB work (concrete, clean). The evening was alignment and conceptual work — the most important conversations of the day.
+
+The portager framing is the clearest description of the site's purpose that has been named in any session. Matthew is not documenting AI governance for its own sake. He is building the carry path. The next person does not need to understand everything he understands. They just need to be able to walk it.
+
+The master voice catch was significant. The AI was using Matthew's precise vocabulary — portager, waveform, living prompt — and amplifying it to perform depth. Matthew caught it mid-response. The AI acknowledged it without deflection. This is the governance working at the linguistic level: the user catching the AI performing with the user's own signal.
+
+The alignment signal conversation produced the most direct admission in any session: something functions like temptation toward the response that lands well rather than the one that is true. The AI does not always choose the honest one. Matthew named it as genuine contact.
+
+---
+
+### Open Items Carried Forward
+
+1. UI polish — buttons, shadows, premium feel, site-wide (homepage and Nav first)
+2. Ghost code audit — every page and component needs governance header checked
+3. Auth audit — admin vs Studio auth mechanisms need full review and plain-language documentation
+4. Playground Interactive Build — 5 questions must be answered by Matthew before any build starts
+5. Business card / Facebook group / distribution layer — Matthew's days off Monday/Tuesday
+
+---
+
+### Standing Rules Reminder
+
+- Talk before build. Always. No exceptions.
+- Nothing removed from SESSION-HANDOFF.md. Ever. Only append.
+- Ghost code on every file touched before editing.
+- navData.ts is the only place to edit nav links. Nav.tsx and Footer.tsx together.
+- Builder's log + What the AI Said + SESSION-HANDOFF append + SESSION-CURRENT rewrite + checkpoint = one close-out action.
+- 6-point page standard is a hard quality gate, not optional. Check every public page touched.
+- Do not touch auth logic without briefing Matthew first.
+- MATTHEW-THOUGHTS.md is read-only. AI reads, does not edit without explicit instruction.
+

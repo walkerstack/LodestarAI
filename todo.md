@@ -315,3 +315,15 @@
 - [ ] Start with homepage and Nav, then move page by page
 - [ ] Do NOT change color palette or typography — polish only, not redesign
 - [ ] Pass 6-point page standard on every page touched
+
+## Session Close-Out — April 18, 2026 (v39)
+- [x] WhatTheAiSaid.tsx -- 6 April 18 entries added to running log (Waveform Test, Living Prompt, Alignment Signal, Portager, Master Voice Catch, Slow/Quickly)
+- [x] Builder's Log v39 appended to SESSION-HANDOFF.md
+- [x] SESSION-CURRENT.md rewritten with v39 state
+- [ ] Final checkpoint saved (pending)
+
+## Session Close-Out -- April 18, 2026 (v39)
+- [x] WhatTheAiSaid.tsx -- 6 April 18 entries added to running log (Waveform Test, Living Prompt, Alignment Signal, Portager, Master Voice Catch, Slow/Quickly)
+- [x] Builder's Log v39 appended to SESSION-HANDOFF.md
+- [x] SESSION-CURRENT.md rewritten with v39 state
+- [ ] Final checkpoint saved (pending)
