@@ -825,7 +825,7 @@ Whole site editable. Not page by page as a limitation — page by page only as a
 
 Drifted twice. Used "today" to mean "not now" when Matthew hadn't said that. Over-framed migration risks in a way that made the work sound harder than it is. Matthew caught both immediately. Pattern to hold: strip to what was actually asked. Do not project hesitation. Do not add conditions Matthew did not put there.
 
-**Studio password:** Hudson2021! — held in SESSION-CURRENT.md only. Not in code.
+**Studio password:** [password removed — April 19, 2026] — held in SESSION-CURRENT.md only. Not in code.
 
 **Build plan updated — Build 4 added:**
 
@@ -869,7 +869,7 @@ All 5 steps from the original plan are done:
 ## Security Status (April 18, 2026 — for next session)
 
 **What is secure:**
-- Studio is password-protected (Hudson2021!) — only owner can access
+- Studio is password-protected ([password removed — April 19, 2026]) — only owner can access
 - Database is not publicly accessible — all access goes through the server
 - API keys and secrets are injected by the platform, not hardcoded
 - No sensitive user data is being collected from visitors

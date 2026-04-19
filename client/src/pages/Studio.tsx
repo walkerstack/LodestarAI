@@ -29,28 +29,7 @@ type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard" | "page
 // Primary: Log in with Manus (owner ID check). Fallback: password form.
 // Password form stays until owner confirms Manus login works on live site.
 function StudioLoginForm() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const loginMutation = trpc.studio.studioLogin.useMutation({
-    onSuccess: () => {
-      window.location.reload();
-    },
-    onError: () => {
-      setError("Wrong password. Try again.");
-      setLoading(false);
-    },
-  });
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-    loginMutation.mutate({ password });
-  }
-
+  // Password removed April 19, 2026 — Manus OAuth is the only entry point.
   function handleManusLogin() {
     // Redirect to Manus OAuth — after login, server checks owner ID
     const returnPath = "/studio";
@@ -118,72 +97,7 @@ function StudioLoginForm() {
           Log in with Manus →
         </button>
 
-        {/* ── FALLBACK: Password toggle ── */}
-        {!showPassword ? (
-          <div style={{ textAlign: "center" }}>
-            <button
-              onClick={() => setShowPassword(true)}
-              style={{
-                background: "none",
-                border: "none",
-                color: "#3a2a18",
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "0.8rem",
-                cursor: "pointer",
-                textDecoration: "underline",
-              }}
-            >
-              Use password instead
-            </button>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-              autoFocus
-              style={{
-                width: "100%",
-                background: "#0a0806",
-                border: "1px solid #2a2218",
-                borderRadius: "8px",
-                padding: "0.875rem 1rem",
-                color: "#f0e8d8",
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "1rem",
-                outline: "none",
-                marginBottom: "1rem",
-                boxSizing: "border-box" as const,
-              }}
-            />
-            {error && (
-              <p style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif", fontSize: "0.875rem", marginBottom: "1rem" }}>
-                {error}
-              </p>
-            )}
-            <button
-              type="submit"
-              disabled={loading || !password}
-              style={{
-                width: "100%",
-                background: loading || !password ? "#3a2a18" : "#E8520A",
-                color: "#fff",
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "1rem",
-                fontWeight: 700,
-                padding: "0.875rem",
-                borderRadius: "8px",
-                border: "none",
-                cursor: loading || !password ? "not-allowed" : "pointer",
-                transition: "background 0.15s",
-              }}
-            >
-              {loading ? "Signing in…" : "Sign in →"}
-            </button>
-          </form>
-        )}
+        {/* Password removed — April 19, 2026. Manus OAuth is the only entry point. */}
 
         <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
           <Link

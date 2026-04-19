@@ -147,4 +147,4 @@ All five steps together. Not partial. Not skipped.
 - Corrections should be accepted without deflection: I was wrong, here is the fix -- not here is why it happened
 - The site is not documenting the framework -- the site IS running the framework. Content and method are the same thing.
 - The portager framing (April 18): Matthew builds the hard stretch between the water so the next person does not start from zero. The site is the carry path.
-- Studio password: Hudson2021! -- used for owner auth layer. Not in code. Held here only.
+- Studio password: [password removed — April 19, 2026] -- used for owner auth layer. Not in code. Held here only.

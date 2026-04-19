@@ -8,5 +8,5 @@ export const ENV = {
   isProduction: process.env.NODE_ENV === "production",
   forgeApiUrl: process.env.BUILT_IN_FORGE_API_URL ?? "",
   forgeApiKey: process.env.BUILT_IN_FORGE_API_KEY ?? "",
-  studioPassword: process.env.STUDIO_PASSWORD ?? "Hudson2021!",
+  studioPassword: process.env.STUDIO_PASSWORD ?? "[password removed — April 19, 2026]",
 };
