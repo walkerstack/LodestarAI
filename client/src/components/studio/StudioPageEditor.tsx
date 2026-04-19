@@ -366,19 +366,42 @@ export default function StudioPageEditor({ page, onBack }: { page: Page; onBack:
         />
       )}
 
-      {/* Edit form */}
+      {/* Edit form — full-screen modal */}
       {editingBlock && (
-        <StudioBlockForm
-          pageSlug={page.slug}
-          mode="edit"
-          block={editingBlock}
-          onDone={() => {
-            setEditingBlock(null);
-            utils.studio.getBlocks.invalidate({ pageSlug: page.slug });
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "#000000cc",
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            zIndex: 200,
+            overflowY: "auto",
+            padding: "1rem",
           }}
-          onCancel={() => setEditingBlock(null)}
-          nextPosition={0}
-        />
+          onClick={(e) => { if (e.target === e.currentTarget) setEditingBlock(null); }}
+        >
+          <div
+            style={{
+              width: "min(600px, 100%)",
+              marginTop: "2rem",
+              marginBottom: "2rem",
+            }}
+          >
+            <StudioBlockForm
+              pageSlug={page.slug}
+              mode="edit"
+              block={editingBlock}
+              onDone={() => {
+                setEditingBlock(null);
+                utils.studio.getBlocks.invalidate({ pageSlug: page.slug });
+              }}
+              onCancel={() => setEditingBlock(null)}
+              nextPosition={0}
+            />
+          </div>
+        </div>
       )}
 
       {/* Mirror modal */}
