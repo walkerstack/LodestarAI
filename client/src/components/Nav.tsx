@@ -19,7 +19,7 @@ const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6
 
 type NavSection = "lenses" | "foundation" | "forYou" | "tools" | "research" | "explore" | "safety" | null;
 type HatSubPanel = "professional" | null;
-type MobileAccordion = "foundation" | "forYou" | "tools" | "research" | "explore" | null;
+type MobileAccordion = "foundation" | "forYou" | "tools" | "research" | "explore" | "professional" | null;
 
 const HAT_IMAGES = {
   everyday: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-everyday-beybTXLC8QnfyMUD766qb2.webp",
@@ -34,15 +34,12 @@ const HAT_IMAGES = {
 };
 
 const hatTiles = [
-  { label: "Everyday",     icon: "◎", path: "/for/everyday",         border: "#E8520A", text: "#C2400C", desc: "Plain language. Real life.",         img: HAT_IMAGES.everyday },
-  { label: "Professional", icon: "◈", path: "/for/prompt-engineer",  border: "#4F46E5", text: "#3730A3", desc: "Precise. Structured. Deep.",          img: HAT_IMAGES.professional },
-  { label: "Watcher",      icon: "◉", path: "/for/watcher",          border: "#6B7280", text: "#E5E7EB", desc: "The part that notices.",              img: HAT_IMAGES.watcher },
-  { label: "Teen",         icon: "◇", path: "/for/teenager",         border: "#7C3AED", text: "#5B21B6", desc: "Your rules. Your pace.",              img: HAT_IMAGES.teen },
-  { label: "Child",        icon: "★", path: "/for/child",            border: "#3B82F6", text: "#1D4ED8", desc: "Safe. Simple. Yours.",                img: HAT_IMAGES.child },
-  { label: "Parent",       icon: "🏠", path: "/for/guardian-teacher", border: "#D97706", text: "#92400E", desc: "Learning AI with your kids.",         img: HAT_IMAGES.parent },
-  { label: "Nurse",        icon: "🩺", path: "/for/psychology",       border: "#059669", text: "#065F46", desc: "You already triage.",                 img: HAT_IMAGES.nurse },
-  { label: "Student",      icon: "📚", path: "/for/linguist",         border: "#9333EA", text: "#6B21A8", desc: "Thinking partner, not shortcut.",     img: HAT_IMAGES.student },
-  { label: "Teacher",      icon: "🏫", path: "/for/guardian-teacher", border: "#0D9488", text: "#134E4A", desc: "The scaffold is your lesson plan.",   img: HAT_IMAGES.teacher },
+  { label: "Everyday",          icon: "◎", path: "/for/everyday",         border: "#E8520A", text: "#C2400C", desc: "Plain language. Real life.",              img: HAT_IMAGES.everyday },
+  { label: "Child",              icon: "★", path: "/for/child",            border: "#3B82F6", text: "#1D4ED8", desc: "Safe. Simple. Yours.",                   img: HAT_IMAGES.child },
+  { label: "Teen",               icon: "◇", path: "/for/teenager",         border: "#7C3AED", text: "#5B21B6", desc: "Your rules. Your pace.",                 img: HAT_IMAGES.teen },
+  { label: "Guardian / Teacher", icon: "🏠", path: "/for/guardian-teacher", border: "#D97706", text: "#92400E", desc: "Learning AI alongside your kids.",      img: HAT_IMAGES.parent },
+  { label: "Watcher",            icon: "◉", path: "/for/watcher",          border: "#6B7280", text: "#9CA3AF", desc: "The part that notices.",                 img: HAT_IMAGES.watcher },
+  { label: "Professional",       icon: "◈", path: "",                       border: "#4F46E5", text: "#3730A3", desc: "Precise. Structured. Deep.",             img: HAT_IMAGES.professional },
 ];
 
 const professionalLenses = [
@@ -536,45 +533,84 @@ export default function Nav() {
           <div className="mb-1">
             <p className="text-[10px] font-bold tracking-widest uppercase text-[#E8520A] mb-3">Who Are You?</p>
             <div className="grid grid-cols-2 gap-2.5 mb-3">
-              {hatTiles.map((hat) => (
-                <Link
-                  key={hat.label}
-                  href={hat.path}
-                  onClick={closeAll}
-                  className="no-underline rounded-2xl overflow-hidden flex flex-col"
-                  style={{
-                    border: `1.5px solid ${hat.border}44`,
-                    boxShadow: `0 2px 8px ${hat.border}18`,
-                    transition: 'transform 0.12s ease, box-shadow 0.12s ease',
-                  }}
-                  onTouchStart={(e) => {
-                    (e.currentTarget as HTMLElement).style.transform = 'scale(0.96)';
-                    (e.currentTarget as HTMLElement).style.boxShadow = `0 1px 4px ${hat.border}30`;
-                  }}
-                  onTouchEnd={(e) => {
-                    (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-                    (e.currentTarget as HTMLElement).style.boxShadow = `0 2px 8px ${hat.border}18`;
-                  }}
-                >
-                  <div className="w-full relative overflow-hidden" style={{ height: '80px' }}>
-                    <img
-                      src={hat.img}
-                      alt={hat.label}
-                      className="w-full h-full object-cover"
-                      style={{ objectPosition: 'center 30%' }}
-                    />
-                    <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, transparent 40%, rgba(255,255,255,0.9) 100%)` }} />
-                  </div>
-                  <div className="px-2.5 py-2" style={{ background: '#fff' }}>
-                    <div className="flex items-center gap-1.5 mb-0.5">
-                      <span className="text-base" style={{ color: hat.border }}>{hat.icon}</span>
-                      <span className="text-xs font-bold" style={{ color: hat.text }}>{hat.label}</span>
+              {hatTiles.map((hat) => {
+                const isPro = hat.label === 'Professional';
+                const tileContent = (
+                  <>
+                    <div className="w-full relative overflow-hidden" style={{ height: '80px' }}>
+                      <img src={hat.img} alt={hat.label} className="w-full h-full object-cover" style={{ objectPosition: 'center 30%' }} />
+                      <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, transparent 40%, rgba(255,255,255,0.9) 100%)` }} />
                     </div>
-                    <p className="text-[9px] leading-tight opacity-70" style={{ color: hat.text }}>{hat.desc}</p>
-                  </div>
-                </Link>
-              ))}
+                    <div className="px-2.5 py-2" style={{ background: '#fff' }}>
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className="text-base" style={{ color: hat.border }}>{hat.icon}</span>
+                        <span className="text-xs font-bold" style={{ color: hat.text }}>{hat.label}</span>
+                      </div>
+                      <p className="text-[9px] leading-tight opacity-70" style={{ color: hat.text }}>{isPro ? '6 lenses ›' : hat.desc}</p>
+                    </div>
+                  </>
+                );
+                if (isPro) {
+                  return (
+                    <button
+                      key={hat.label}
+                      onClick={() => setMobileAccordion(mobileAccordion === 'professional' ? null : 'professional' as MobileAccordion)}
+                      className="no-underline rounded-2xl overflow-hidden flex flex-col text-left w-full"
+                      style={{
+                        border: `1.5px solid ${hat.border}44`,
+                        boxShadow: `0 2px 8px ${hat.border}18`,
+                        transition: 'transform 0.12s ease, box-shadow 0.12s ease',
+                        background: 'transparent',
+                        padding: 0,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {tileContent}
+                    </button>
+                  );
+                }
+                return (
+                  <Link
+                    key={hat.label}
+                    href={hat.path}
+                    onClick={closeAll}
+                    className="no-underline rounded-2xl overflow-hidden flex flex-col"
+                    style={{
+                      border: `1.5px solid ${hat.border}44`,
+                      boxShadow: `0 2px 8px ${hat.border}18`,
+                      transition: 'transform 0.12s ease, box-shadow 0.12s ease',
+                    }}
+                    onTouchStart={(e) => {
+                      (e.currentTarget as HTMLElement).style.transform = 'scale(0.96)';
+                      (e.currentTarget as HTMLElement).style.boxShadow = `0 1px 4px ${hat.border}30`;
+                    }}
+                    onTouchEnd={(e) => {
+                      (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
+                      (e.currentTarget as HTMLElement).style.boxShadow = `0 2px 8px ${hat.border}18`;
+                    }}
+                  >
+                    {tileContent}
+                  </Link>
+                );
+              })}
             </div>
+            {/* Professional lenses sub-list — mobile */}
+            {mobileAccordion === 'professional' && (
+              <div className="mb-3 rounded-xl overflow-hidden" style={{ border: '1.5px solid #4F46E544', background: '#F5F3FF' }}>
+                <p className="text-[9px] font-bold tracking-widest uppercase text-[#4F46E5] px-3 pt-2.5 pb-1">Professional Lenses</p>
+                {professionalLenses.map((lens) => (
+                  <Link
+                    key={lens.label}
+                    href={lens.path}
+                    onClick={closeAll}
+                    className="no-underline flex items-start gap-2 px-3 py-2 border-t border-[#4F46E522]"
+                  >
+                    <span className="text-xs font-bold" style={{ color: lens.color, minWidth: 110 }}>{lens.label}</span>
+                    <span className="text-[9px] leading-tight opacity-60" style={{ color: '#374151' }}>{lens.desc}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
 
             {/* Direct stream */}
             <div className="flex gap-4 pb-3 border-b border-[#e8e0d0]">

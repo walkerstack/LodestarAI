@@ -429,122 +429,96 @@ export default function Home() {
             This site is the proof of the framework it teaches.
           </p>
 
-          {/* ── WHO ARE YOU? — Premium 8-role image tile entry block ── */}
+          {/* ── WHO ARE YOU? — 5 hats + Professional lenses ── */}
           <div className="mb-10">
-            <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.18em' }}>Who are you?</p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              {userPaths.map((up, i) => {
-                const img = ROLE_IMAGES[up.role];
-                const isOpen = selectedRole === i;
-                return (
-                  <div
-                    key={up.role}
-                    className="relative rounded-xl overflow-hidden cursor-pointer select-none transition-all duration-200"
-                    style={{
-                      border: isOpen ? '2px solid #E8520A' : '1.5px solid rgba(232,82,10,0.18)',
-                      transform: isOpen ? 'scale(1.02)' : 'scale(1)',
-                      boxShadow: isOpen ? '0 0 18px rgba(232,82,10,0.22)' : '0 2px 8px rgba(0,0,0,0.4)',
-                      minHeight: '120px',
-                    }}
-                    onClick={() => setSelectedRole(isOpen ? null : i)}
-                  >
-                    {/* Background image */}
-                    {img && (
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          backgroundImage: `url(${img})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          opacity: 0.45,
-                        }}
-                      />
-                    )}
-                    {/* Dark gradient overlay */}
-                    <div
-                      className="absolute inset-0"
-                      style={{ background: 'linear-gradient(to top, rgba(8,6,4,0.92) 40%, rgba(8,6,4,0.5) 100%)' }}
-                    />
-                    {/* Content */}
-                    <div className="relative z-10 p-3 flex flex-col justify-end h-full" style={{ minHeight: '120px' }}>
-                      <span className="text-xl mb-1">{up.icon}</span>
-                      <p className="text-xs font-bold leading-tight mb-0.5" style={{ color: isOpen ? '#E8520A' : '#f5e6d0', fontFamily: "'DM Sans', sans-serif" }}>{up.role}</p>
-                      <p className="text-[10px] leading-snug" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>{up.examples}</p>
-                    </div>
-                    {/* Open indicator */}
-                    {isOpen && (
-                      <div className="absolute top-2 right-2 w-4 h-4 rounded-full flex items-center justify-center" style={{ background: '#E8520A' }}>
-                        <span style={{ color: 'white', fontSize: '9px', fontWeight: 'bold' }}>✕</span>
-                      </div>
-                    )}
+            <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.18em' }}>Who are you?</p>
+            <p className="text-sm mb-1 max-w-xl" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+              Everyone comes to AI differently. Where you start shapes what you notice, what you miss, and how fast you drift. These are not labels. They are entry points. Pick the one that fits today.
+            </p>
+            <p className="text-xs italic mb-6" style={{ color: '#4a3a2a', fontFamily: "'Playfair Display', serif" }}>
+              You can wear more than one hat. The site is built so you can move between them.
+            </p>
+
+            {/* 5 primary hats — image tiles with 3D shadow */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-4">
+              {[
+                { label: 'Everyday', path: '/for/everyday',         img: ROLE_IMAGES['Everyday Person'],         desc: 'Plain language. Real life.',          border: '#E8520A' },
+                { label: 'Child',    path: '/for/child',            img: ROLE_IMAGES['Kid (Under 13)'],          desc: 'Safe. Simple. Yours.',                border: '#3B82F6' },
+                { label: 'Teen',     path: '/for/teenager',         img: ROLE_IMAGES['Teenager'],                desc: 'Your rules. Your pace.',              border: '#7C3AED' },
+                { label: 'Guardian / Teacher', path: '/for/guardian-teacher', img: ROLE_IMAGES['Parent or Guardian'], desc: 'Learning AI alongside your kids.', border: '#D97706' },
+                { label: 'Watcher',  path: '/for/watcher',          img: ROLE_IMAGES['Researcher or Academic'],  desc: 'The part that notices.',              border: '#6B7280' },
+              ].map((hat) => (
+                <Link
+                  key={hat.label}
+                  href={hat.path}
+                  className="no-underline relative rounded-2xl overflow-hidden flex flex-col cursor-pointer select-none"
+                  style={{
+                    border: `1.5px solid ${hat.border}44`,
+                    boxShadow: `0 4px 0 ${hat.border}55, 0 6px 16px rgba(0,0,0,0.5)`,
+                    minHeight: '130px',
+                    transition: 'transform 0.12s ease, box-shadow 0.12s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 6px 0 ${hat.border}66, 0 10px 24px rgba(0,0,0,0.6)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 0 ${hat.border}55, 0 6px 16px rgba(0,0,0,0.5)`;
+                  }}
+                  onTouchStart={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = 'translateY(2px)';
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 2px 0 ${hat.border}55, 0 3px 8px rgba(0,0,0,0.4)`;
+                  }}
+                  onTouchEnd={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 0 ${hat.border}55, 0 6px 16px rgba(0,0,0,0.5)`;
+                  }}
+                >
+                  {/* Background image */}
+                  <div className="absolute inset-0" style={{ backgroundImage: `url(${hat.img})`, backgroundSize: 'cover', backgroundPosition: 'center 30%', opacity: 0.5 }} />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(8,6,4,0.95) 35%, rgba(8,6,4,0.45) 100%)' }} />
+                  {/* Text */}
+                  <div className="relative z-10 p-3 flex flex-col justify-end h-full" style={{ minHeight: '130px' }}>
+                    <p className="text-xs font-bold leading-tight mb-0.5" style={{ color: '#f5e6d0', fontFamily: "'DM Sans', sans-serif" }}>{hat.label}</p>
+                    <p className="text-[10px] leading-snug" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>{hat.desc}</p>
                   </div>
-                );
-              })}
+                </Link>
+              ))}
             </div>
 
-            {/* Expanded role detail */}
-            {selectedRole !== null && (
-              <div
-                className="mt-4 rounded-xl p-4"
-                style={{ background: '#0f0c08', border: '1.5px solid rgba(232,82,10,0.25)' }}
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-2xl">{userPaths[selectedRole].icon}</span>
-                  <div>
-                    <p className="text-xs font-bold" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>{userPaths[selectedRole].role}</p>
-                    <p className="text-xs italic" style={{ color: '#c8b89a', fontFamily: "'Playfair Display', serif" }}>{userPaths[selectedRole].highlight}</p>
-                  </div>
-                </div>
-
-                {/* Lens links */}
-                {userPaths[selectedRole].lens.length > 0 && (
-                  <div className="mb-3">
-                    <p className="text-[10px] uppercase tracking-widest mb-2" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>Your lens</p>
-                    <div className="flex flex-wrap gap-2">
-                      {userPaths[selectedRole].lens.map((item: { label: string; path: string }) => (
-                        <Link
-                          key={item.path}
-                          href={item.path}
-                          className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold no-underline transition-all duration-150 active:scale-95"
-                          style={{
-                            color: '#E8520A',
-                            background: 'rgba(232,82,10,0.08)',
-                            border: '1.5px solid rgba(232,82,10,0.3)',
-                            fontFamily: "'DM Sans', sans-serif",
-                          }}
-                        >
-                          {item.label} →
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Learn links */}
-                {userPaths[selectedRole].learn.length > 0 && (
-                  <div>
-                    <p className="text-[10px] uppercase tracking-widest mb-2" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>Start learning</p>
-                    <div className="flex flex-wrap gap-2">
-                      {userPaths[selectedRole].learn.map((item: { label: string; path: string }) => (
-                        <Link
-                          key={item.path}
-                          href={item.path}
-                          className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs no-underline transition-all duration-150 active:scale-95"
-                          style={{
-                            color: '#8a7a6a',
-                            background: 'rgba(255,255,255,0.03)',
-                            border: '1px solid rgba(255,255,255,0.08)',
-                            fontFamily: "'DM Sans', sans-serif",
-                          }}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
+            {/* Professional lenses — horizontal strip */}
+            <div className="rounded-2xl overflow-hidden" style={{ border: '1.5px solid #4F46E522', background: '#0a0808' }}>
+              <div className="px-4 pt-3 pb-2 border-b border-[#1a1610]">
+                <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#4F46E5', fontFamily: "'DM Sans', sans-serif" }}>Professional Lenses</p>
+                <p className="text-[10px] mt-0.5" style={{ color: '#4a3a2a', fontFamily: "'DM Sans', sans-serif" }}>If you come to AI with a discipline, there is a lens built for how you think.</p>
               </div>
-            )}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-0">
+                {[
+                  { label: 'Prompt Engineer',  path: '/for/prompt-engineer',  desc: 'Token Zero. Force profiles.',      color: '#4F46E5' },
+                  { label: 'Researcher',        path: '/for/researcher',        desc: 'Evidence. Citizen science.',       color: '#0891B2' },
+                  { label: 'Linguist',          path: '/for/linguist',          desc: 'Words steer. Choose them.',        color: '#059669' },
+                  { label: 'Cognitive Science', path: '/for/cognitive-science', desc: 'How your brain drifts.',           color: '#D97706' },
+                  { label: 'Mathematician',     path: '/for/mathematician',     desc: 'Structure beneath the surface.',   color: '#DC2626' },
+                  { label: 'Psychology',        path: '/for/psychology',        desc: 'The session as a clinical space.', color: '#7C3AED' },
+                ].map((lens, i, arr) => (
+                  <Link
+                    key={lens.label}
+                    href={lens.path}
+                    className="no-underline flex flex-col px-3 py-3 transition-all"
+                    style={{
+                      borderRight: i < arr.length - 1 ? '1px solid #1a1610' : 'none',
+                      borderBottom: '1px solid #1a1610',
+                    }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#0f0c08'; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+                  >
+                    <span className="text-xs font-bold mb-0.5" style={{ color: lens.color, fontFamily: "'DM Sans', sans-serif" }}>{lens.label}</span>
+                    <span className="text-[9px] leading-tight" style={{ color: '#4a3a2a', fontFamily: "'DM Sans', sans-serif" }}>{lens.desc}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
 
             <p className="text-[10px] mt-3" style={{ color: '#3a2e20', fontFamily: "'DM Sans', sans-serif" }}>Enter anywhere. The site meets you where you are.</p>
           </div>
@@ -962,156 +936,6 @@ export default function Home() {
               Read What the AI Said →
             </span>
           </Link>
-        </div>
-      </section>
-
-      {/* Fade: dark → dark */}
-      <div
-        className="w-full h-32"
-        style={{ background: 'linear-gradient(to bottom, #0f0c08 0%, #080604 100%)' }}
-      />
-
-      {/* ── WHO ARE YOU? — Pathfinding Entry ── */}
-      <section className="w-full py-12 px-6">
-        <div className="container">
-          <div
-            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
-            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
-          >
-            Find Your Path
-          </div>
-          <h2
-            className="text-2xl md:text-3xl font-bold mb-2"
-            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
-          >
-            Who are you?
-          </h2>
-          <p className="text-sm mb-2 max-w-lg" style={{ color: '#6b5a3e', fontFamily: "'DM Sans', sans-serif" }}>
-            This site is a system of learning. Tell us where you{"\u2019"}re starting from, and we{"\u2019"}ll show you the path.
-          </p>
-          <p className="text-xs mb-8 max-w-lg italic" style={{ color: '#4a3a2a', fontFamily: "'DM Sans', sans-serif" }}>
-            These are hats, not labels. You might wear more than one. The hat you pick today is just a starting point — a way in. The site is built so you can move between them as you grow.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-            {userPaths.map((up, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  const next = selectedRole === i ? null : i;
-                  setSelectedRole(next);
-                  if (next !== null) {
-                    setTimeout(() => {
-                      document.getElementById('role-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 80);
-                  }
-                }}
-                className="text-left p-4 rounded-2xl border transition-all hover:scale-[1.02]"
-                style={{
-                  background: selectedRole === i ? '#1a1610' : '#0f0c08',
-                  borderColor: selectedRole === i ? '#E8520A' : '#2a2018',
-                  borderWidth: selectedRole === i ? '2px' : '1px',
-                }}
-              >
-                <div className="text-2xl mb-2">{up.icon}</div>
-                <div
-                  className="font-bold text-sm mb-1"
-                  style={{
-                    color: selectedRole === i ? '#E8520A' : '#c8b89a',
-                    fontFamily: "'DM Sans', sans-serif",
-                  }}
-                >
-                  {up.role}
-                </div>
-                <div className="text-[11px] leading-snug" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
-                  {up.examples}
-                </div>
-              </button>
-            ))}
-          </div>
-
-          {/* Expanded path recommendation */}
-          {selectedRole !== null && (
-            <div
-              id="role-detail"
-              className="rounded-2xl p-6"
-              style={{
-                background: '#0f0c08',
-                border: '2px solid #E8520A',
-                animation: 'fadeUp 0.3s ease-out',
-                scrollMarginTop: '80px',
-              }}
-            >
-              <div className="flex items-start gap-3 mb-4">
-                <span className="text-3xl">{userPaths[selectedRole].icon}</span>
-                <div>
-                  <h3
-                    className="font-bold text-lg mb-1"
-                    style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}
-                  >
-                    Welcome, {userPaths[selectedRole].role}.
-                  </h3>
-                  <p
-                    className="text-sm italic"
-                    style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {userPaths[selectedRole].highlight}
-                  </p>
-                </div>
-              </div>
-
-              {/* ── Enter Your Lens ── */}
-              <div
-                className="text-[10px] uppercase tracking-[0.2em] font-bold mb-3"
-                style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
-              >
-                Enter Your Lens
-              </div>
-              <div className="flex flex-wrap gap-2 mb-5">
-                {userPaths[selectedRole].lens.map((item: { label: string; path: string }, j: number) => (
-                  <Link
-                    key={`lens-${j}`}
-                    href={item.path}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm no-underline transition-all hover:scale-[1.03]"
-                    style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      background: '#E8520A',
-                      color: '#fff',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-
-              {/* ── Learn ── */}
-              <div
-                className="text-[10px] uppercase tracking-[0.2em] font-bold mb-3"
-                style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}
-              >
-                Learn
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {userPaths[selectedRole].learn.map((item: { label: string; path: string }, j: number) => (
-                  <Link
-                    key={`learn-${j}`}
-                    href={item.path}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm no-underline transition-all hover:scale-[1.03]"
-                    style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      background: '#1a1610',
-                      color: '#c8b89a',
-                      border: '1px solid #2a2018',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </section>
 
