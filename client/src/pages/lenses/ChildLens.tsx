@@ -15,6 +15,12 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 
+const STICKER_SLOTH_WAVE = "/manus-storage/sticker-sloth-wave_63481593.png";
+const STICKER_SLOTH_THINK = "/manus-storage/sticker-sloth-think_486d1955.png";
+const STICKER_SLOTH_STOP = "/manus-storage/sticker-sloth-stop_36aac332.png";
+const STICKER_BUFFALO_GUARD = "/manus-storage/sticker-buffalo-guard_f1a7f490.png";
+const STICKER_BUFFALO_THUMBSUP = "/manus-storage/sticker-buffalo-thumbsup_dd150b12.png";
+
 const FIELD_GUIDE_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008840_5b1a6230.png";
 
@@ -190,6 +196,15 @@ export default function ChildLens() {
         </div>
       )}
 
+      {/* ── SLOTH WELCOME STICKER ── */}
+      <div className="w-full flex justify-center pt-8 pb-2" style={{ background: "#FFFDF8" }}>
+        <img
+          src={STICKER_SLOTH_WAVE}
+          alt="The sloth waves hello"
+          style={{ width: "120px", height: "120px", objectFit: "contain" }}
+        />
+      </div>
+
       {/* Hero — warm white with orange accent + background image */}
       <section
         className="relative w-full py-16 px-6 text-center overflow-hidden"
@@ -220,6 +235,15 @@ export default function ChildLens() {
             This page was made for young people — and for the grown-ups who care about them.
             AI is a tool. You are the one in charge of it.
           </p>
+
+          {/* Sloth Think sticker — beside the thinking intro */}
+          <div className="flex justify-center mb-4">
+            <img
+              src={STICKER_SLOTH_THINK}
+              alt="The sloth thinks carefully"
+              style={{ width: "80px", height: "80px", objectFit: "contain" }}
+            />
+          </div>
 
           {/* Sloth + Field Guide */}
           <div className="flex justify-center">
@@ -444,6 +468,15 @@ export default function ChildLens() {
               favourite cartoon character. Did it keep the facts right? Did it follow your rules?
               That's how you know it's paying attention to <strong>you</strong>.
             </p>
+          </div>
+
+          {/* Buffalo thumbs up — beside Try It Yourself */}
+          <div className="flex justify-center mb-2">
+            <img
+              src={STICKER_BUFFALO_THUMBSUP}
+              alt="The buffalo gives a thumbs up — you did it right"
+              style={{ width: "72px", height: "72px", objectFit: "contain" }}
+            />
           </div>
 
           {/* Try it yourself prompt */}
@@ -810,6 +843,15 @@ export default function ChildLens() {
       {/* Three Rules */}
       <section className="py-14 px-6" style={{ background: "#FFFDF8" }}>
         <div className="max-w-3xl mx-auto">
+          {/* Sloth STOP sticker — beside the Three Rules */}
+          <div className="flex justify-center mb-4">
+            <img
+              src={STICKER_SLOTH_STOP}
+              alt="The sloth holds a stop sign — slow down, think first"
+              style={{ width: "80px", height: "80px", objectFit: "contain" }}
+            />
+          </div>
+
           <div
             className="text-xs uppercase tracking-widest text-center mb-2 font-semibold"
             style={{ color: "#E8520A" }}
@@ -1438,6 +1480,16 @@ export default function ChildLens() {
           </div>
         </div>
       </section>
+      {/* ── BUFFALO GUARDIAN STICKER — bottom of page, always watching ── */}
+      <div className="w-full flex justify-center py-8" style={{ background: "#FFFDF8" }}>
+        <img
+          src={STICKER_BUFFALO_GUARD}
+          alt="The buffalo stands guard at the bottom of the page"
+          style={{ width: "100px", height: "100px", objectFit: "contain", opacity: 0.85 }}
+        />
+        <p className="sr-only">The buffalo was here the whole time.</p>
+      </div>
+
       <LearningFlow current="Child Lens" deeper={flowMap.child.deeper} wider={flowMap.child.wider} simpler={flowMap.child.simpler} />
       <Footer />
     </div>
