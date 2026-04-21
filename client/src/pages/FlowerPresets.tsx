@@ -16,6 +16,7 @@ import { Link } from "wouter";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
+import StudioBlocks from "@/components/studio/StudioBlocks";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
@@ -508,6 +509,7 @@ export default function FlowerPresets() {
       </div>
 
       <LearningFlow current="Flower Presets" deeper={flowMap.flowerPresets.deeper} wider={flowMap.flowerPresets.wider} simpler={flowMap.flowerPresets.simpler} />
+      <StudioBlocks pageSlug="flower-presets" />
       <Footer />
     </div>
   );

@@ -15,6 +15,7 @@ import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
 import LearningFlow from "@/components/LearningFlow";
 import { flowMap } from "@/lib/learningFlowMap";
+import StudioBlocks from "@/components/studio/StudioBlocks";
 
 const serifFont = "'Playfair Display', serif";
 const sansFont = "'DM Sans', sans-serif";
@@ -475,6 +476,7 @@ export default function ThreeLenses() {
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
+      <StudioBlocks pageSlug="three-voices" />
       <Footer />
     </div>
   );

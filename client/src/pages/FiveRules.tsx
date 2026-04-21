@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
+import StudioBlocks from "@/components/studio/StudioBlocks";
 
 const SLOTH_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000008840_5b1a6230.png";
@@ -392,7 +393,8 @@ export default function FiveRules() {
 
       <LearningFlow current="Five Rules" deeper={flowMap.fiveRules.deeper} wider={flowMap.fiveRules.wider} simpler={flowMap.fiveRules.simpler} dark />
       <div style={{ background: '#080604' }}>
-        <Footer />
+        <StudioBlocks pageSlug="rules" />
+      <Footer />
       </div>
     </div>
   );

@@ -127,10 +127,47 @@ Every page with DB blocks. Orange boxes = editable on live page when admin logge
 
 ### Tests and TypeScript
 
-- 26/26 tests passing (navManager, studio, auth.logout)
 - 0 TypeScript errors
 - Dev server running
-- Last checkpoint: `7d55f78a`
+- Last checkpoint: `891591df`
+
+---
+
+## ⚠️ CRITICAL — CURRENT STATE (April 21, session 5 end)
+
+A previous session GUTTED the following pages — stripped all hardcoded JSX and replaced with empty StudioBlocks calls. Content disappeared from those pages. This session RESTORED them to April 18 exact versions.
+
+**BUT:** StudioBlocks still needs to be re-added to these pages (additive only — import + render before Footer, DO NOT remove any content):
+
+| Page | File | pageSlug | DB blocks |
+|------|------|----------|-----------|
+| /rules | client/src/pages/FiveRules.tsx | "rules" | 7 |
+| /for/child/rules | client/src/pages/ChildFiveRules.tsx | "for-child-rules" | 14 |
+| /three-voices | client/src/pages/ThreeLenses.tsx | "three-voices" | 5 |
+| /flower-presets | client/src/pages/FlowerPresets.tsx | "flower-presets" | 13 |
+| /if-you-need-to-stop | client/src/pages/SafetyPage.tsx | "safety" | 0 |
+| /field-papers | client/src/pages/FieldPapers.tsx | "field-papers" | 10 |
+| /promptolinguistics | client/src/pages/Promptolinguistics.tsx | "promptolinguistics" | 4 |
+
+**How to add StudioBlocks (additive only):**
+```tsx
+// Add import at top:
+import StudioBlocks from "@/components/studio/StudioBlocks";
+
+// Add just before <Footer /> at bottom of return:
+<StudioBlocks pageSlug="the-slug" />
+```
+
+**Also fixed this session:**
+- sizeMap crash in StudioBlocks.tsx (falls back to "medium" for unknown sizes)
+- Two wrong children images removed from road-protocol DB blocks
+- RoadProtocol.tsx restored to April 18
+- ChildLens.tsx restored to April 18
+
+**Git baseline:** April 18 = commit `9d825d2`. If any page looks wrong, restore with:
+```bash
+git show 9d825d2:client/src/pages/PageName.tsx > client/src/pages/PageName.tsx
+```
 
 ---
 

@@ -14,6 +14,7 @@ import { flowMap } from "@/lib/learningFlowMap";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link } from "wouter";
 import KidsMidLink from "@/components/KidsMidLink";
+import StudioBlocks from "@/components/studio/StudioBlocks";
 
 const baseFont = "'Nunito', 'DM Sans', sans-serif";
 const serifFont = "'Playfair Display', serif";
@@ -421,7 +422,8 @@ export default function ChildFiveRules() {
       </section>
 
       <div style={{ background: "#FFFDF8" }}>
-        <Footer />
+        <StudioBlocks pageSlug="for-child-rules" />
+      <Footer />
       </div>
     </div>
   );

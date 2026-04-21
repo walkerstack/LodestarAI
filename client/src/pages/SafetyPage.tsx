@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import KidsMidLink from "@/components/KidsMidLink";
 import LearningFlow from "@/components/LearningFlow";
 import { flowMap } from "@/lib/learningFlowMap";
+import StudioBlocks from "@/components/studio/StudioBlocks";
 
 const resources = [
   {
@@ -292,6 +293,7 @@ export default function SafetyPage() {
       </div>
       <LearningFlow current="Safety" deeper={flowMap.safety.deeper} wider={flowMap.safety.wider} simpler={flowMap.safety.simpler} dark />
 
+      <StudioBlocks pageSlug="safety" />
       <Footer />
     </div>
   );
