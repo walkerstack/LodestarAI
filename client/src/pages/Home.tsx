@@ -996,29 +996,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── IF YOU NEED TO STOP + HUMAN LINE — Serious Pages ── */}
-      <section className="w-full py-10 px-6" style={{ background: '#FAF6EF', borderTop: '1px solid #e8d8c4' }}>
-        <div className="max-w-2xl mx-auto">
-          <p className="text-xs uppercase tracking-widest font-semibold text-center mb-6" style={{ color: '#aaa' }}>Two Pages That Stand Apart</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Link href="/if-you-need-to-stop" className="block no-underline group">
-              <div className="rounded-2xl p-5 h-full transition-all group-hover:scale-[1.02]" style={{ background: '#fff', border: '2px solid #DC262630' }}>
-                <div className="text-2xl mb-2">🛑</div>
-                <h3 className="font-bold text-base mb-1" style={{ color: '#DC2626', fontFamily: "'Playfair Display', serif" }}>If You Need to Stop</h3>
-                <p className="text-xs leading-relaxed" style={{ color: '#5a4a3a' }}>Crisis resources and grounding. If something in your AI session has gone wrong — or if you just need to stop — this page is here.</p>
-              </div>
-            </Link>
-            <Link href="/human-line" className="block no-underline group">
-              <div className="rounded-2xl p-5 h-full transition-all group-hover:scale-[1.02]" style={{ background: '#fff', border: '2px solid #D9770630' }}>
-                <div className="text-2xl mb-2">⚖️</div>
-                <h3 className="font-bold text-base mb-1" style={{ color: '#D97706', fontFamily: "'Playfair Display', serif" }}>The Human Line</h3>
-                <p className="text-xs leading-relaxed" style={{ color: '#5a4a3a' }}>The boundary between you and the machine. Where the AI ends and you begin. This is the most important line on the site.</p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* ── PERFORMED HONESTY? ── */}
       <section className="w-full py-12 px-6" style={{ background: '#0f0c08', borderTop: '1px solid #1a1410' }}>
         <div className="max-w-2xl mx-auto text-center">
@@ -1358,6 +1335,62 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── THE FRAMEWORK REVEAL ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/three-paths-converge_eb134838.png"
+              alt="Three paths converge — the sloth, the buffalo, and the child meet at the same point of light."
+              className="w-full max-w-2xl mx-auto rounded-2xl mb-8"
+              style={{ border: '1px solid #1a1610' }}
+            />
+            <p
+              className="text-sm md:text-base leading-relaxed mb-4"
+              style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              You just read three voices saying the same thing differently. That was not an accident.
+            </p>
+            <p
+              className="text-sm md:text-base leading-relaxed mb-4"
+              style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              In 1994, psychologist George Loewenstein found that curiosity fires when you perceive a gap between what you know and what you want to know. The hook doesn’t give you the answer. It shows you the gap. <strong style={{ color: '#f5e6d0' }}>That’s what makes you move.</strong>
+            </p>
+            <p
+              className="text-sm md:text-base leading-relaxed mb-4"
+              style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              This site is built as a framework of learning and growing. The structure teaches you while you read it. Three paths — the guide, the guardian, and the learner — all arriving at the same place.
+            </p>
+            <p
+              className="text-sm md:text-base leading-relaxed mb-8"
+              style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              <strong style={{ color: '#f5e6d0' }}>You have already been inside the framework.</strong> Now you can choose your next step.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/three-lenses">
+                <span
+                  className="inline-block px-6 py-3 rounded-lg text-sm font-semibold cursor-pointer transition-opacity hover:opacity-80"
+                  style={{ background: '#E8520A', color: '#fff', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Understand the Three Voices
+                </span>
+              </Link>
+              <Link href="/rules">
+                <span
+                  className="inline-block px-6 py-3 rounded-lg text-sm font-semibold cursor-pointer transition-opacity hover:opacity-80"
+                  style={{ background: 'transparent', color: '#E8520A', border: '1px solid #E8520A', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Start with the Five Rules
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── WHO BUILT THIS ── */}
       <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">
@@ -1502,64 +1535,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
-      {/* ── THE FRAMEWORK REVEAL ── */}
-      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/three-paths-converge_eb134838.png"
-              alt="Three paths converge — the sloth, the buffalo, and the child meet at the same point of light."
-              className="w-full max-w-2xl mx-auto rounded-2xl mb-8"
-              style={{ border: '1px solid #1a1610' }}
-            />
-            <p
-              className="text-sm md:text-base leading-relaxed mb-4"
-              style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
-            >
-              You just read three voices saying the same thing differently. That was not an accident.
-            </p>
-            <p
-              className="text-sm md:text-base leading-relaxed mb-4"
-              style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}
-            >
-              In 1994, psychologist George Loewenstein found that curiosity fires when you perceive a gap between what you know and what you want to know. The hook doesn’t give you the answer. It shows you the gap. <strong style={{ color: '#f5e6d0' }}>That’s what makes you move.</strong>
-            </p>
-            <p
-              className="text-sm md:text-base leading-relaxed mb-4"
-              style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}
-            >
-              This site is built as a framework of learning and growing. The structure teaches you while you read it. Three paths — the guide, the guardian, and the learner — all arriving at the same place.
-            </p>
-            <p
-              className="text-sm md:text-base leading-relaxed mb-8"
-              style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
-            >
-              <strong style={{ color: '#f5e6d0' }}>You have already been inside the framework.</strong> Now you can choose your next step.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/three-lenses">
-                <span
-                  className="inline-block px-6 py-3 rounded-lg text-sm font-semibold cursor-pointer transition-opacity hover:opacity-80"
-                  style={{ background: '#E8520A', color: '#fff', fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  Understand the Three Voices
-                </span>
-              </Link>
-              <Link href="/rules">
-                <span
-                  className="inline-block px-6 py-3 rounded-lg text-sm font-semibold cursor-pointer transition-opacity hover:opacity-80"
-                  style={{ background: 'transparent', color: '#E8520A', border: '1px solid #E8520A', fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  Start with the Five Rules
-                </span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
 
       {/* ── TAXONOMY ENTRY ── */}
       <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
@@ -1709,70 +1684,6 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* ── PROFESSIONAL LENSES ── */}
-      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
-        <div className="container">
-          <div
-            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
-            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
-          >
-            Professional Lenses
-          </div>
-          <h2
-            className="text-2xl md:text-3xl font-bold mb-2"
-            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
-          >
-            If You Work in One of These Fields
-          </h2>
-          <p className="text-sm leading-relaxed mb-8" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
-            There&rsquo;s a page built for you.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {[
-              { label: 'Psychology', sub: 'Sycophancy, attachment, the AI that never argues back.', path: '/for/psychology' },
-              { label: 'Cognitive Science', sub: 'How your brain drifts — and how to notice it.', path: '/for/cognitive-science' },
-              { label: 'Researcher', sub: 'The watcher variable is the dataset you forgot to log.', path: '/for/researcher' },
-              { label: 'Prompt Engineer', sub: 'Token Zero is the pre-output force profile.', path: '/for/prompt-engineer' },
-              { label: 'Linguist', sub: 'Words steer. Choose them.', path: '/for/linguist' },
-              { label: 'Mathematician', sub: 'Probability, entropy, and the geometry of drift.', path: '/for/mathematician' },
-              { label: 'Guardian / Teacher', sub: 'Understand it yourself. Then teach it.', path: '/for/guardian-teacher' },
-              { label: 'Everyday Person', sub: "You don\u2019t need to understand how it works.", path: '/for/everyday' },
-            ].map((lens) => (
-              <Link
-                key={lens.path}
-                href={lens.path}
-                className="block rounded-xl p-4 no-underline group transition-all duration-200"
-                style={{
-                  background: '#0f0c08',
-                  border: '1px solid #1a1610',
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.border = '1px solid #E8520A';
-                  (e.currentTarget as HTMLElement).style.background = '#120e09';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.border = '1px solid #1a1610';
-                  (e.currentTarget as HTMLElement).style.background = '#0f0c08';
-                }}
-              >
-                <div
-                  className="font-bold text-sm mb-1"
-                  style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}
-                >
-                  {lens.label}
-                </div>
-                <div
-                  className="text-xs leading-relaxed"
-                  style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  {lens.sub}
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
       {/* ── RESEARCH STATUS ── */}
       <section className="w-full py-8 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">
