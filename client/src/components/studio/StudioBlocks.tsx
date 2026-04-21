@@ -143,51 +143,63 @@ function TextBlock({ content }: { content: TextBlockContent }) {
   const titleColor = content.titleColor || "#e8c98a";
   const descColor = content.descColor || "#c8b89a";
   const bgColor = content.bgColor;
+  const bgImage = (content as any).bgImage as string | undefined;
+  const bgOverlay = (content as any).bgOverlay as number | undefined;
+
+  const innerContent = (
+    <div className={`max-w-3xl mx-auto px-6 md:px-8 ${bgImage ? 'py-16' : 'py-8'} ${alignClass}`} style={bgImage ? { position: 'relative', zIndex: 2 } : undefined}>
+      {content.eyebrow && (
+        <div className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "#E8520A" }}>
+          {content.eyebrow}
+        </div>
+      )}
+      {content.heading && (
+        <h2 className={`${sizes.heading} font-bold mb-4`} style={{ color: titleColor }}>
+          {content.heading}
+        </h2>
+      )}
+      <p className={`${sizes.body} leading-relaxed whitespace-pre-line`} style={{ color: descColor }}>
+        {content.body}
+      </p>
+      {content.links && content.links.length > 0 && (
+        <div className="mt-6 flex flex-col gap-3">
+          {content.links.map((link, i) => {
+            const href = link.url ?? link.path ?? "";
+            if (!href) return null;
+            const isExt = href.startsWith("http");
+            const btnClass = "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold no-underline transition-colors hover:opacity-90";
+            const btnStyle = { background: "#E8520A", color: "#fff", fontFamily: "'DM Sans', sans-serif" };
+            return isExt ? (
+              <a key={i} href={href} target="_blank" rel="noopener noreferrer" className={btnClass} style={btnStyle}>
+                {link.label}
+              </a>
+            ) : (
+              <Link key={i} href={href} className={btnClass} style={btnStyle}>
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+
+  if (bgImage) {
+    return (
+      <div className={`studio-block studio-text-block w-full relative overflow-hidden ${fontClass}`} style={{ minHeight: '320px' }}>
+        <img src={bgImage} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" style={{ zIndex: 0 }} />
+        <div className="absolute inset-0" style={{ background: `rgba(8,6,4,${bgOverlay ?? 0.6})`, zIndex: 1 }} />
+        {innerContent}
+      </div>
+    );
+  }
 
   return (
     <div
       className={`studio-block studio-text-block w-full ${fontClass}`}
       style={bgColor ? { background: bgColor } : undefined}
     >
-      <div className={`max-w-3xl mx-auto px-6 md:px-8 py-8 ${alignClass}`}>
-        {content.eyebrow && (
-          <div className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "#E8520A" }}>
-            {content.eyebrow}
-          </div>
-        )}
-        {content.heading && (
-          <h2 className={`${sizes.heading} font-bold mb-4`} style={{ color: titleColor }}>
-            {content.heading}
-          </h2>
-        )}
-        <p className={`${sizes.body} leading-relaxed whitespace-pre-line`} style={{ color: descColor }}>
-          {content.body}
-        </p>
-        {content.links && content.links.length > 0 && (
-          <div className="mt-6 flex flex-col gap-3">
-            {content.links.map((link, i) => {
-              const href = link.url ?? link.path ?? "";
-              if (!href) return null;
-              const isExt = href.startsWith("http");
-              const btnClass = "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold no-underline transition-colors hover:opacity-90";
-              const btnStyle = { background: "#E8520A", color: "#fff", fontFamily: "'DM Sans', sans-serif" };
-              return isExt ? (
-                <a key={i} href={href} target="_blank" rel="noopener noreferrer"
-                  className={btnClass}
-                  style={btnStyle}>
-                  {link.label}
-                </a>
-              ) : (
-                <Link key={i} href={href}
-                  className={btnClass}
-                  style={btnStyle}>
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
-        )}
-      </div>
+      {innerContent}
     </div>
   );
 }
