@@ -134,7 +134,8 @@ interface StickerBlockContent {
 // Size map
 // ─────────────────────────────────────────────
 
-const sizeMap = {
+const sizeMap: Record<string, { heading: string; body: string }> = {
+  xl: { heading: "text-4xl md:text-5xl", body: "text-xl md:text-2xl" },
   large: { heading: "text-3xl md:text-4xl", body: "text-lg md:text-xl" },
   medium: { heading: "text-2xl md:text-3xl", body: "text-base md:text-lg" },
   small: { heading: "text-xl md:text-2xl", body: "text-sm md:text-base" },
@@ -145,7 +146,8 @@ const sizeMap = {
 // ─────────────────────────────────────────────
 
 function TextBlock({ content }: { content: TextBlockContent }) {
-  const sizes = sizeMap[content.size || "medium"];
+  if (!content) return null;
+  const sizes = sizeMap[content.size || "medium"] ?? sizeMap["medium"];
   const fontClass = content.font === "playfair"
     ? "font-['Playfair_Display']"
     : "font-['DM_Sans']";
@@ -168,9 +170,11 @@ function TextBlock({ content }: { content: TextBlockContent }) {
           {content.heading}
         </h2>
       )}
-      <p className={`${sizes.body} leading-relaxed whitespace-pre-line`} style={{ color: descColor }}>
-        {content.body}
-      </p>
+      {content.body && (
+        <p className={`${sizes.body} leading-relaxed whitespace-pre-line`} style={{ color: descColor }}>
+          {content.body}
+        </p>
+      )}
       {content.links && content.links.length > 0 && (
         <div className="mt-6 flex flex-col gap-3">
           {content.links.map((link, i) => {
