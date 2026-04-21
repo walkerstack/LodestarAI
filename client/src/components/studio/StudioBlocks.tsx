@@ -167,18 +167,19 @@ function TextBlock({ content }: { content: TextBlockContent }) {
           <div className="mt-6 flex flex-col gap-3">
             {content.links.map((link, i) => {
               const href = link.url ?? link.path ?? "";
+              if (!href) return null;
               const isExt = href.startsWith("http");
               return isExt ? (
                 <a key={i} href={href} target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-medium underline"
                   style={{ color: "#E8520A" }}>
-                  {link.label} →
+                  {link.label}
                 </a>
               ) : (
                 <Link key={i} href={href}
                   className="inline-flex items-center gap-2 text-sm font-medium underline"
                   style={{ color: "#E8520A" }}>
-                  {link.label} →
+                  {link.label}
                 </Link>
               );
             })}
