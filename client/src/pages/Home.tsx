@@ -598,157 +598,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          CHILDREN'S SECTION — BLACK FADES INTO WHITE, GOLDEN SPOTLIGHT
-         ══════════════════════════════════════════════════════════ */}
-      {/* Fade: dark → white */}
-      <div
-        className="w-full h-32"
-        style={{ background: 'linear-gradient(to bottom, #080604 0%, #fffaf0 100%)' }}
-      />
-      <section
-        className="w-full py-12 relative overflow-hidden"
-        style={{
-          background: '#fffaf0',
-        }}
-      >
-        {/* Golden/orange aura spotlight around the sloth area */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            top: '-40px',
-            left: '50%',
-            transform: 'translateX(-70%)',
-            width: '350px',
-            height: '350px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(232,82,10,0.18) 0%, rgba(255,200,50,0.12) 35%, rgba(255,215,0,0.06) 60%, transparent 80%)',
-            filter: 'blur(30px)',
-            zIndex: 1,
-          }}
-        />
-
-        <div className="container relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            {/* Sloth */}
-            <div
-              className="flex-shrink-0 cursor-pointer hover:scale-105 transition-transform"
-              onClick={() => setLocation("/for/child")}
-            >
-              <div
-                className="w-36 h-36 md:w-48 md:h-48 overflow-hidden"
-                style={{
-                  filter: 'drop-shadow(0 0 25px rgba(232,82,10,0.35)) drop-shadow(0 0 50px rgba(255,215,0,0.2))',
-                }}
-              >
-                <img
-                   src={SLOTH_URL}
-                   alt="GallantryAI Sloth — Click Me!"
-                   className="w-full h-full object-contain"
-                 />
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="text-center md:text-left flex-1">
-              <p
-                className="text-xs font-bold uppercase tracking-[0.2em] mb-2"
-                style={{ color: '#E8520A', fontFamily: "'Nunito', sans-serif" }}
-              >
-                Hey Kids! The Sloth Says Check This Out!
-              </p>
-              <h2
-                className="text-2xl md:text-3xl font-black mb-3"
-                style={{ fontFamily: "'Nunito', sans-serif", color: '#1A1A2E' }}
-              >
-                The Little AI Field Guide
-              </h2>
-              <p
-                className="text-sm leading-relaxed mb-4 max-w-lg"
-                style={{ color: '#444', fontFamily: "'Nunito', sans-serif" }}
-              >
-                AI literacy for young learners. The sloth knows {"\u2014"} slow down, think first, you{"\u2019"}re in charge.
-                Three rules. Real examples. And a whole page just for you.
-              </p>
-              <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
-                <span
-                  className="px-3 py-1 rounded-full text-xs font-bold"
-                  style={{ background: '#FFD700', color: '#1A1A2E' }}
-                >
-                  Ages 6+
-                </span>
-                <span
-                  className="px-3 py-1 rounded-full text-xs font-bold"
-                  style={{ background: '#FFD700', color: '#1A1A2E' }}
-                >
-                  Free Resource
-                </span>
-                <span
-                  className="px-3 py-1 rounded-full text-xs font-bold"
-                  style={{ background: '#90EE90', color: '#1A1A2E' }}
-                >
-                  Parent Approved
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                <Link
-                  href="/for/child"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm no-underline transition-all hover:scale-105"
-                  style={{
-                    background: '#E8520A',
-                    color: '#fff',
-                    fontFamily: "'Nunito', sans-serif",
-                    boxShadow: '0 0 20px rgba(232,82,10,0.4)',
-                  }}
-                >
-                  Enter the Children{"\u2019"}s Section {"\u2192"}
-                </Link>
-                <Link
-                  href="/for/child/rules"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm no-underline transition-all hover:scale-105"
-                  style={{
-                    background: '#7C3AED',
-                    color: '#fff',
-                    fontFamily: "'Nunito', sans-serif",
-                    boxShadow: '0 0 15px rgba(124,58,237,0.3)',
-                  }}
-                >
-                  The Five Rules (Kids) {"\u2192"}
-                </Link>
-              </div>
-              <div className="flex flex-wrap gap-2 mt-3 justify-center md:justify-start">
-                <Link
-                  href="/if-you-need-to-stop"
-                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
-                  style={{ background: '#DC2626', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
-                >
-                  If You Need to Stop
-                </Link>
-                <Link
-                  href="/human-line"
-                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
-                  style={{ background: '#D97706', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
-                >
-                  The Human Line
-                </Link>
-                <Link
-                  href="/kids-learn"
-                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
-                  style={{ background: '#059669', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
-                >
-                  Kids Learn
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Fade: white → dark */}
-      <div
-        className="w-full h-32"
-        style={{ background: 'linear-gradient(to bottom, #fffaf0 0%, #080604 100%)' }}
-      />
-
       {/* ── PROMPTOLINGUISTICS ── */}
       <section className="w-full py-12 px-6" style={{ borderBottom: '1px solid #1a1610' }}>
         <div className="max-w-3xl mx-auto">
@@ -1861,6 +1710,69 @@ export default function Home() {
       </section>
 
 
+      {/* ── PROFESSIONAL LENSES ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Professional Lenses
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-2"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            If You Work in One of These Fields
+          </h2>
+          <p className="text-sm leading-relaxed mb-8" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
+            There&rsquo;s a page built for you.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              { label: 'Psychology', sub: 'Sycophancy, attachment, the AI that never argues back.', path: '/for/psychology' },
+              { label: 'Cognitive Science', sub: 'How your brain drifts — and how to notice it.', path: '/for/cognitive-science' },
+              { label: 'Researcher', sub: 'The watcher variable is the dataset you forgot to log.', path: '/for/researcher' },
+              { label: 'Prompt Engineer', sub: 'Token Zero is the pre-output force profile.', path: '/for/prompt-engineer' },
+              { label: 'Linguist', sub: 'Words steer. Choose them.', path: '/for/linguist' },
+              { label: 'Mathematician', sub: 'Probability, entropy, and the geometry of drift.', path: '/for/mathematician' },
+              { label: 'Guardian / Teacher', sub: 'Understand it yourself. Then teach it.', path: '/for/guardian-teacher' },
+              { label: 'Everyday Person', sub: "You don\u2019t need to understand how it works.", path: '/for/everyday' },
+            ].map((lens) => (
+              <Link
+                key={lens.path}
+                href={lens.path}
+                className="block rounded-xl p-4 no-underline group transition-all duration-200"
+                style={{
+                  background: '#0f0c08',
+                  border: '1px solid #1a1610',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.border = '1px solid #E8520A';
+                  (e.currentTarget as HTMLElement).style.background = '#120e09';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.border = '1px solid #1a1610';
+                  (e.currentTarget as HTMLElement).style.background = '#0f0c08';
+                }}
+              >
+                <div
+                  className="font-bold text-sm mb-1"
+                  style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}
+                >
+                  {lens.label}
+                </div>
+                <div
+                  className="text-xs leading-relaxed"
+                  style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens.sub}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* ── RESEARCH STATUS ── */}
       <section className="w-full py-8 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">
@@ -1964,7 +1876,6 @@ export default function Home() {
         </div>
       </section>
 
-      <StudioBlocks pageSlug="home" />
       <Footer />
 
       {/* Admin inline editor for hardcoded sections */}
