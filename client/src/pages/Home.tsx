@@ -14,6 +14,7 @@ import { LightboxImage } from "@/components/Lightbox";
 import { Link, useLocation } from "wouter";
 import { useState, useMemo } from "react";
 import { trpc } from "@/lib/trpc";
+import StudioBlocks from "@/components/studio/StudioBlocks";
 import {
   Carousel,
   CarouselContent,
@@ -1510,9 +1511,8 @@ export default function Home() {
         </div>
       </section>
 
-      <div style={{ background: '#080604' }}>
-        <Footer />
-      </div>
+      <StudioBlocks pageSlug="home" />
+      <Footer />
     </div>
   );
 }
