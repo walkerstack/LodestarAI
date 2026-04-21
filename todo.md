@@ -521,3 +521,13 @@
 - [x] Tests: 26/26 passing
 - [x] Site-wide announcement banner — Studio-editable, toggle on/off, responsive font shrinks to fit borders, standard color, standard font, words editable, big enough to see
 - [ ] Professional lens migrations deferred to next session (TeenagerLens, EverydayLens, GuardianTeacherLens, WatcherLens, 6 professional lenses)
+
+## April 21, 2026 — Session 2 (Build Log + Homepage Admin Wiring)
+
+- [x] /build-log page: replace text-only hero with full-bleed hero image (buffalo/sloth CDN, dark overlay, title text on top)
+- [x] /build-log page: add "For Teenagers" entry section (orange eyebrow, serif h2, DM Sans body, orange button to /for/teenager)
+- [x] /build-log page: add "For Researchers & Professionals" entry section (orange eyebrow, serif h2, DM Sans body, buttons to /field-papers and /citizen-researcher)
+- [x] Homepage: wire Watcher quote (DB position 2) to admin-clickable InlineBlockEditor wrapper (orange outline + EDIT label for admin only)
+- [x] Homepage: wire hero h1 (DB position 3) to admin-clickable InlineBlockEditor wrapper
+- [x] Homepage: wire hero subtext (DB position 4) to admin-clickable InlineBlockEditor wrapper
+- [x] Homepage: add InlineBlockEditor render at bottom of Home component (admin-only)

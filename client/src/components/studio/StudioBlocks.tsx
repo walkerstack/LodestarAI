@@ -169,16 +169,18 @@ function TextBlock({ content }: { content: TextBlockContent }) {
               const href = link.url ?? link.path ?? "";
               if (!href) return null;
               const isExt = href.startsWith("http");
+              const btnClass = "inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold no-underline transition-colors hover:opacity-90";
+              const btnStyle = { background: "#E8520A", color: "#fff", fontFamily: "'DM Sans', sans-serif" };
               return isExt ? (
                 <a key={i} href={href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium underline"
-                  style={{ color: "#E8520A" }}>
+                  className={btnClass}
+                  style={btnStyle}>
                   {link.label}
                 </a>
               ) : (
                 <Link key={i} href={href}
-                  className="inline-flex items-center gap-2 text-sm font-medium underline"
-                  style={{ color: "#E8520A" }}>
+                  className={btnClass}
+                  style={btnStyle}>
                   {link.label}
                 </Link>
               );

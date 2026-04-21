@@ -253,36 +253,48 @@ export default function BuildLog() {
       />
       <Nav />
 
-      {/* ── HERO ── */}
-      <section className="w-full py-16 px-6" style={{ borderBottom: "1px solid #1a1610" }}>
-        <div className="container max-w-3xl">
-          <div
-            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-3"
-            style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}
-          >
-            Living Build Log
+      {/* ── HERO IMAGE ── */}
+      <section className="relative w-full overflow-hidden" style={{ minHeight: '340px' }}>
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/og-hero-buffalo-sloth-UYXnMKJjCqLZjEqnYaQKzQ.webp"
+          alt="The buffalo stands guard. The sloth sits beside it. Guardian and guide."
+          className="w-full object-cover"
+          style={{ minHeight: '340px', maxHeight: '420px', objectPosition: 'center 35%' }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, rgba(8,6,4,0.55) 0%, rgba(8,6,4,0.75) 60%, #080604 100%)' }}
+        />
+        <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6">
+          <div className="container max-w-3xl">
+            <div
+              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-3"
+              style={{ color: "#E8520A", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Living Build Log
+            </div>
+            <h1
+              className="text-3xl md:text-5xl font-bold mb-4"
+              style={{ fontFamily: "'Playfair Display', serif", color: "#f5e6d0" }}
+            >
+              The Watcher Is Watching
+            </h1>
+            <p
+              className="text-base leading-relaxed mb-6"
+              style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Every publish. Every change. Every decision. Documented honestly.
+              Three voices narrate each version: the Watcher who notices, the child who asks,
+              and the professional who validates.
+            </p>
+            <Link
+              href="/"
+              className="text-sm no-underline transition-opacity hover:opacity-70"
+              style={{ color: "#5a4a3a", fontFamily: "'DM Sans', sans-serif" }}
+            >
+              ← Back to GallantryAI
+            </Link>
           </div>
-          <h1
-            className="text-3xl md:text-5xl font-bold mb-4"
-            style={{ fontFamily: "'Playfair Display', serif", color: "#f5e6d0" }}
-          >
-            The Watcher Is Watching
-          </h1>
-          <p
-            className="text-base leading-relaxed mb-6"
-            style={{ color: "#c8b89a", fontFamily: "'DM Sans', sans-serif" }}
-          >
-            Every publish. Every change. Every decision. Documented honestly.
-            Three voices narrate each version: the Watcher who notices, the child who asks,
-            and the professional who validates.
-          </p>
-          <Link
-            href="/"
-            className="text-sm no-underline transition-opacity hover:opacity-70"
-            style={{ color: "#5a4a3a", fontFamily: "'DM Sans', sans-serif" }}
-          >
-            ← Back to GallantryAI
-          </Link>
         </div>
       </section>
 
@@ -310,6 +322,68 @@ export default function BuildLog() {
           {entries.map((entry) => (
             <BuildLogCard key={entry.id} entry={entry} />
           ))}
+        </div>
+      </section>
+
+      {/* ── TEENAGER ENTRY ── */}
+      <section className="py-12" style={{ background: 'rgba(232,82,10,0.04)', borderTop: '1px solid rgba(232,82,10,0.12)', borderBottom: '1px solid rgba(232,82,10,0.12)' }}>
+        <div className="container max-w-3xl mx-auto px-6">
+          <p className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            For Teenagers
+          </p>
+          <h2 className="text-2xl font-bold text-[#FAF6EF] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+            This Is What Building Looks Like
+          </h2>
+          <p className="text-sm text-[#c8bfb0] leading-relaxed mb-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            Every version. Every mistake. Every decision to keep going. This log is not a highlight reel — it is the actual work. If you are learning to build things, or learning to use AI, this is what honest progress looks like.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/for/teenager"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold no-underline transition-all"
+              style={{ background: 'rgba(232,82,10,0.15)', color: '#E8520A', border: '1px solid rgba(232,82,10,0.3)' }}
+            >
+              Teenager Lens →
+            </Link>
+            <Link
+              href="/rules"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold no-underline transition-all"
+              style={{ background: 'rgba(255,255,255,0.04)', color: '#c8bfb0', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
+              The Five Rules →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROFESSIONAL ENTRY ── */}
+      <section className="py-12">
+        <div className="container max-w-3xl mx-auto px-6">
+          <p className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            For Researchers & Professionals
+          </p>
+          <h2 className="text-2xl font-bold text-[#FAF6EF] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+            The Build Log as Research Documentation
+          </h2>
+          <p className="text-sm text-[#c8bfb0] leading-relaxed mb-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            This is a citizen research project. The build log is the methodology section — every architectural decision, every content migration, every governance choice, documented in sequence. The three-voice format (Watcher, Child, Professional) is itself a research instrument.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/field-papers"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold no-underline transition-all"
+              style={{ background: 'rgba(232,82,10,0.15)', color: '#E8520A', border: '1px solid rgba(232,82,10,0.3)' }}
+            >
+              Field Papers →
+            </Link>
+            <Link
+              href="/citizen-researcher"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold no-underline transition-all"
+              style={{ background: 'rgba(255,255,255,0.04)', color: '#c8bfb0', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
+              Citizen Researcher →
+            </Link>
+          </div>
         </div>
       </section>
 

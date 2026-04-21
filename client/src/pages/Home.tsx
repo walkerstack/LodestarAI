@@ -15,6 +15,8 @@ import { Link, useLocation } from "wouter";
 import { useState, useMemo } from "react";
 import { trpc } from "@/lib/trpc";
 import StudioBlocks from "@/components/studio/StudioBlocks";
+import InlineBlockEditor from "@/components/InlineBlockEditor";
+import type { ContentBlock } from "../../../drizzle/schema";
 import {
   Carousel,
   CarouselContent,
@@ -331,6 +333,15 @@ export default function Home() {
 
   // ── DB blocks for editable text sections ──
   const { data: homeBlocks } = trpc.studio.getPublishedBlocks.useQuery({ pageSlug: "home" });
+  const isAdmin = user?.role === "admin";
+  const [editingBlock, setEditingBlock] = useState<ContentBlock | null>(null);
+
+  // Helper: get the full block row by position (for admin editing)
+  const getBlockRow = useMemo(() => {
+    const byPos: Record<number, ContentBlock> = {};
+    (homeBlocks ?? []).forEach((b) => { byPos[b.position] = b as ContentBlock; });
+    return (pos: number) => byPos[pos] ?? null;
+  }, [homeBlocks]);
 
   const getBlock = useMemo(() => {
     const byPos: Record<number, Record<string, string>> = {};
@@ -364,7 +375,27 @@ export default function Home() {
 
       {/* ── THE WATCHER ── */}
       <section className="w-full py-6 px-6" style={{ borderBottom: '1px solid #1a1610' }}>
-        <div className="max-w-3xl mx-auto text-center">
+        <div
+          className="max-w-3xl mx-auto text-center relative group"
+          style={isAdmin ? {
+            outline: '2px solid #E8520A',
+            outlineOffset: '8px',
+            borderRadius: '8px',
+            cursor: 'pointer',
+          } : {}}
+          onClick={isAdmin ? () => { const b = getBlockRow(2); if (b) setEditingBlock(b); } : undefined}
+        >
+          {isAdmin && (
+            <div style={{
+              position: 'absolute', top: '-8px', left: '8px',
+              background: '#E8520A', color: '#fff',
+              fontSize: '0.65rem', fontWeight: 600,
+              padding: '3px 8px', borderRadius: '4px',
+              zIndex: 10, pointerEvents: 'none', letterSpacing: '0.05em',
+            }}>
+              ✏ EDIT
+            </div>
+          )}
           <p
             className="text-sm md:text-base leading-relaxed italic"
             style={{ color: '#c8b89a', fontFamily: "'Playfair Display', serif" }}
@@ -387,27 +418,72 @@ export default function Home() {
             GallantryAI {"\u00B7"} A System of Learning {"\u00B7"} Midland, Ontario {"\u00B7"} 2026
           </div>
 
-          <h1
-            className="text-4xl md:text-6xl font-black leading-[1.1] mb-6"
-            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          {/* Hero h1 — admin-editable (DB position 3) */}
+          <div
+            className="relative group mb-6"
+            style={isAdmin ? {
+              outline: '2px solid #E8520A',
+              outlineOffset: '8px',
+              borderRadius: '8px',
+              cursor: 'pointer',
+            } : {}}
+            onClick={isAdmin ? () => { const b = getBlockRow(3); if (b) setEditingBlock(b); } : undefined}
           >
-            A thinking partner.
-            <br />
-            <span style={{ color: '#E8520A' }}>Not a shortcut.</span>
-          </h1>
+            {isAdmin && (
+              <div style={{
+                position: 'absolute', top: '-8px', left: '8px',
+                background: '#E8520A', color: '#fff',
+                fontSize: '0.65rem', fontWeight: 600,
+                padding: '3px 8px', borderRadius: '4px',
+                zIndex: 10, pointerEvents: 'none', letterSpacing: '0.05em',
+              }}>
+                ✏ EDIT
+              </div>
+            )}
+            <h1
+              className="text-4xl md:text-6xl font-black leading-[1.1]"
+              style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+            >
+              {getBlock(3, "heading", "A thinking partner.")}
+            </h1>
+          </div>
 
-          <p
-            className="text-lg leading-relaxed mb-2 max-w-xl"
-            style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}
+          {/* Hero subtext — admin-editable (DB position 4) */}
+          <div
+            className="relative group"
+            style={isAdmin ? {
+              outline: '2px solid #E8520A',
+              outlineOffset: '8px',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              marginBottom: '2.5rem',
+            } : { marginBottom: '2.5rem' }}
+            onClick={isAdmin ? () => { const b = getBlockRow(4); if (b) setEditingBlock(b); } : undefined}
           >
-            Governance does not reside in the prompt. It resides in the person holding the prompt.
-          </p>
-          <p
-            className="text-sm italic mb-10"
-            style={{ color: '#5a4a3a', fontFamily: "'Playfair Display', serif" }}
-          >
-            {"\u2014"} GallantryAI Scaffold Paper, March 2026
-          </p>
+            {isAdmin && (
+              <div style={{
+                position: 'absolute', top: '-8px', left: '8px',
+                background: '#E8520A', color: '#fff',
+                fontSize: '0.65rem', fontWeight: 600,
+                padding: '3px 8px', borderRadius: '4px',
+                zIndex: 10, pointerEvents: 'none', letterSpacing: '0.05em',
+              }}>
+                ✏ EDIT
+              </div>
+            )}
+            <p
+              className="text-lg leading-relaxed mb-2 max-w-xl"
+              style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              {getBlock(4, "body", "Governance does not reside in the prompt. It resides in the person holding the prompt.")}
+            </p>
+            <p
+              className="text-sm italic"
+              style={{ color: '#5a4a3a', fontFamily: "'Playfair Display', serif" }}
+            >
+              {"\u2014"} GallantryAI Scaffold Paper, March 2026
+            </p>
+          </div>
 
           <div className="flex flex-wrap gap-3">
             <Link
@@ -1513,6 +1589,14 @@ export default function Home() {
 
       <StudioBlocks pageSlug="home" />
       <Footer />
+
+      {/* Admin inline editor for hardcoded sections */}
+      {isAdmin && editingBlock && (
+        <InlineBlockEditor
+          block={editingBlock}
+          onClose={() => setEditingBlock(null)}
+        />
+      )}
     </div>
   );
 }
