@@ -1,3 +1,28 @@
+# ⛔ READ THIS FIRST — BEFORE ANYTHING ELSE
+
+## YOUR FIRST MESSAGE MUST BE EXACTLY THIS:
+
+> "I am a new session. I have read HANDOVER.md. I know where we are. Ready when you are."
+
+Then STOP. Wait for Matthew to say go. Do not build. Do not suggest. Do not ask questions.
+
+## EVERY BUILD MESSAGE MUST END WITH THIS FORMAT:
+
+```
+---
+LAST STEP:   [what was just completed]
+CURRENT:     [what is being done right now]
+NEXT:        [what comes after this]
+
+VERTICES:
+- [key fact or constraint that must not be lost]
+- [key fact or constraint that must not be lost]
+```
+
+This is non-negotiable. Matthew tracks this. If you skip it, he will know you did not read this document.
+
+---
+
 # GallantryAI — Session Handover Document
 # Written: April 21, 2026 (updated by session 4)
 # Rule: This is the ONLY document an incoming session reads.
