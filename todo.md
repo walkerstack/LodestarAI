@@ -445,7 +445,9 @@
 - [x] Extend InlineBlockEditor — carousel items editor, rule-card items editor, sticker editor
 - [x] Rewrite StudioBlocks.tsx — colour-aware renderers (titleColor, descColor, bgColor from block content), works on both dark and light pages
 - [x] Migrate ChildLens.tsx — 65 blocks inserted, page rewritten as DB-driven shell (~60 lines)
-- [ ] Migrate remaining children's pages: ChildFiveRules, ChildPatterns, ChildPrompts
+- [x] Migrate ChildFiveRules.tsx — 428 lines → 63-line shell (14 blocks)
+- [x] Migrate ChildPatterns.tsx — 394 lines → 54-line shell (10 blocks)
+- [x] Migrate ChildPrompts.tsx — 315 lines → 60-line shell (12 blocks)
 - [ ] Migrate foundation pages: FiveRules, RoadProtocol, FlowerPresets, IfYouNeedToStop
 - [ ] Migrate lens pages: TeenagerLens, EverydayLens, GuardianTeacherLens, all 6 professional lenses
 - [ ] Migrate concept pages: Promptolinguistics, ALCM, LivingLexicon, Taxonomy, HumanLine, Scaffold
@@ -453,3 +455,17 @@
 - [ ] Migrate remaining pages: Builder, Gallery, Playground, Malbolge, PromptGames
 - [ ] Connect DB learning_flow to live pages (currently uses static flowMap file)
 - [ ] Write HANDOVER.md — new clean document, verified facts only
+
+## Studio: Per-Page Theme Control (April 20, 2026)
+
+- [ ] Add `theme` field to content_blocks page settings — values: 'dark' | 'light' | 'warm-white'
+- [ ] Studio: Page settings panel — Matthew can set dark or light theme per page
+- [ ] Pages read their theme from DB and apply the correct background colour
+- [ ] Default: dark pages stay dark, warm-white pages stay warm-white (no change to existing pages)
+- [ ] Visitors see whatever Matthew sets — no visitor toggle
+
+## Studio: Block Theme Inheritance (April 20, 2026)
+
+- [ ] New/edited blocks inherit the page theme by default (fonts, colours, background)
+- [ ] Matthew can override any colour/font on a per-block basis if he wants
+- [ ] Default = consistency with page — no manual setup needed
