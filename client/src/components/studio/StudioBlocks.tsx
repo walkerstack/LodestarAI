@@ -112,6 +112,16 @@ interface RuleCardBlockContent {
   cardBorder?: string;
 }
 
+interface VideoBlockContent {
+  url: string;
+  alt?: string;
+  autoPlay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+  playsInline?: boolean;
+  caption?: string;
+}
+
 interface StickerBlockContent {
   url: string;
   alt: string;
@@ -435,6 +445,28 @@ function RuleCardBlock({ content }: { content: RuleCardBlockContent }) {
   );
 }
 
+function VideoBlock({ content }: { content: VideoBlockContent }) {
+  return (
+    <div className="studio-block studio-video-block w-full">
+      <div className="rounded-3xl overflow-hidden shadow-2xl" style={{ border: "3px solid #F5D9B0" }}>
+        <video
+          src={content.url}
+          autoPlay={content.autoPlay !== false}
+          loop={content.loop !== false}
+          muted={content.muted !== false}
+          playsInline={content.playsInline !== false}
+          className="w-full"
+        />
+      </div>
+      {content.caption && (
+        <p className="text-center text-sm mt-2 px-4" style={{ color: "#8a7a6a" }}>
+          {content.caption}
+        </p>
+      )}
+    </div>
+  );
+}
+
 function StickerBlock({ content }: { content: StickerBlockContent }) {
   const stickerSizeMap = { small: "w-16 h-16", medium: "w-28 h-28", large: "w-44 h-44" };
   const alignMap = { left: "justify-start", center: "justify-center", right: "justify-end" };
@@ -617,6 +649,8 @@ export default function StudioBlocks({ pageSlug, className = "" }: StudioBlocksP
                 return <CarouselBlock key={block.id} content={content as CarouselBlockContent} />;
               case "rule-card":
                 return <RuleCardBlock key={block.id} content={content as RuleCardBlockContent} />;
+              case "video":
+                return <VideoBlock key={block.id} content={content as VideoBlockContent} />;
               case "sticker":
                 return <StickerBlock key={block.id} content={content as StickerBlockContent} />;
               default:

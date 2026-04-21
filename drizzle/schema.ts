@@ -47,8 +47,8 @@ export const contentBlocks = mysqlTable("content_blocks", {
   id: int("id").autoincrement().primaryKey(),
   /** The page slug this block belongs to, e.g. 'rules', 'field-papers', 'home' */
   pageSlug: varchar("pageSlug", { length: 128 }).notNull(),
-  /** Block type: text | card | doc | image | carousel | rule-card | sticker */
-  blockType: mysqlEnum("blockType", ["text", "card", "doc", "image", "carousel", "rule-card", "sticker"]).notNull(),
+  /** Block type: text | card | doc | image | video | carousel | rule-card | sticker */
+  blockType: mysqlEnum("blockType", ["text", "card", "doc", "image", "video", "carousel", "rule-card", "sticker"]).notNull(),
   /** Display order on the page. Lower = higher on page. */
   position: int("position").notNull().default(0),
   /** JSON-encoded content specific to the block type */

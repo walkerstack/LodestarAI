@@ -531,3 +531,14 @@
 - [x] Homepage: wire hero h1 (DB position 3) to admin-clickable InlineBlockEditor wrapper
 - [x] Homepage: wire hero subtext (DB position 4) to admin-clickable InlineBlockEditor wrapper
 - [x] Homepage: add InlineBlockEditor render at bottom of Home component (admin-only)
+
+## April 21, 2026 — Session 4 (Lens Restores + Sticker Fix)
+
+- [x] Restore all 10 lens pages to April 18 (WatcherLens, GuardianTeacherLens, TeenagerLens, EverydayLens, 6 professional lenses)
+- [x] Remove wrong buffalo image block from road-protocol DB (position 1)
+- [x] Fix banner DB keys: snake_case → camelCase (bannerEnabled, bannerText, bannerColor, bannerLink, bannerLinkLabel)
+- [x] Add 4 hero banner keys to site_settings (heroBannerEnabled, heroBannerText, heroBannerColor, heroBannerSpeed)
+- [x] Add hero banner Studio controls to StudioSiteBannerManager.tsx
+- [x] Fix StudioBlocks.tsx TextBlock to support bgImage and bgOverlay (child page hero was invisible)
+- [ ] Remove broken sticker blocks from for-child DB (5 sticker blocks with /manus-storage/ paths not rendering)
+- [ ] Add delete block button to Studio Pages & Blocks tab — Matthew has no way to delete blocks himself
