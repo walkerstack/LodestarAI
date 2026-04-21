@@ -11,6 +11,31 @@
 import { useLocation } from "wouter";
 import StudioBlocks from "./StudioBlocks";
 
+// Pages that manually render their own StudioBlocks — skip auto-injection
+const SELF_RENDERED = new Set([
+  "/promptolinguistics",
+  "/rules",
+  "/road-protocol",
+  "/if-you-need-to-stop",
+  "/flower-presets",
+  "/three-voices",
+  "/three-lenses",
+  "/for/child",
+  "/for/child/rules",
+  "/for/child/patterns",
+  "/for/child/prompts",
+  "/for/teenager",
+  "/for/everyday",
+  "/for/guardian-teacher",
+  "/for/prompt-engineer",
+  "/for/linguist",
+  "/for/mathematician",
+  "/for/cognitive-science",
+  "/for/psychology",
+  "/for/researcher",
+  "/for/watcher",
+]);
+
 // Maps URL paths to page slugs used in the database
 const PATH_TO_SLUG: Record<string, string> = {
   "/": "home",
@@ -84,6 +109,9 @@ export default function PageStudioBlocks() {
 
   // Don't render on Studio page itself or any admin routes
   if (cleanPath.startsWith('/studio') || cleanPath.startsWith('/backstage')) return null;
+
+  // Skip pages that manually render their own StudioBlocks
+  if (SELF_RENDERED.has(cleanPath)) return null;
 
   // No slug mapping for this path — don't render anything
   if (!slug) return null;

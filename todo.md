@@ -452,10 +452,13 @@
 - [x] Migrate SafetyPage.tsx — 298 lines → 70-line shell (10 blocks, LocalResourceSearch stays React)
 - [x] Migrate RoadProtocol.tsx — 714 lines → 250-line shell (22 blocks, WigCheckQuiz + GhostProtocol stay React)
 - [x] Migrate FlowerPresets.tsx — 515 lines → 60-line shell (13 blocks)
+- [x] Migrate ThreeLenses.tsx — DB-driven shell (already done earlier)
 - [ ] Migrate lens pages: TeenagerLens, EverydayLens, GuardianTeacherLens, all 6 professional lenses
-- [ ] Migrate concept pages: Promptolinguistics, ALCM, LivingLexicon, Taxonomy, HumanLine, Scaffold
+- [ ] Migrate concept pages: ALCM, LivingLexicon, Taxonomy, HumanLine, Scaffold
 - [ ] Migrate research pages: ResearchHub, CitizenResearcher, FieldPapers
 - [ ] Migrate remaining pages: Builder, Gallery, Playground, Malbolge, PromptGames
+- [x] Migrate Promptolinguistics.tsx — 700-line shell (35 blocks across 2 slugs: promptolinguistics + promptolinguistics-bottom, all 14 lens toggles + word/verb/hold/power interactive sections stay React)
+- [x] Fix PageStudioBlocks duplication bug — pages that manually render StudioBlocks were getting blocks injected TWICE (once by the page, once by Footer's PageStudioBlocks). Added SELF_RENDERED exclusion set for all 21 migrated pages.
 - [ ] Connect DB learning_flow to live pages (currently uses static flowMap file)
 - [ ] Write HANDOVER.md — new clean document, verified facts only
 

@@ -40,7 +40,7 @@ Matthew built this on his phone between shifts. He is not a developer. He is the
 
 | Table | Rows | Notes |
 |---|---|---|
-| content_blocks | 373 | 57 pages seeded + 65 new ChildLens blocks from April 20 |
+| content_blocks | ~410 | 57 pages seeded + 65 ChildLens + ~35 Promptolinguistics (2 slugs) + child/foundation page migrations |
 | nav_items | 57 | All 6 nav sections, DB-driven |
 | learning_flow | 52 | All slugs now in correct format — FIXED April 20 |
 | lexicon_terms | 53 | Populated |
@@ -131,18 +131,46 @@ Fully supports editing carousel items, rule-card items, and sticker configuratio
 
 ChildLens.tsx was 1497 lines of hardcoded React. It is now ~60 lines — a thin DB-driven shell.
 
-65 blocks inserted for pageSlug `for-child`:
-- Text blocks (headings, body, poems, explanations, stories)
-- Image blocks (hero images, field guide pages)
-- Sticker blocks (sloth wave, sloth with binoculars)
-- Carousel block (field guide pages — swipeable)
-- Rule-card block (5 sloth rule images)
-- Card blocks (brain dashboard, self-reflection prompts, three rules)
+65 blocks inserted for pageSlug `for-child`.
+
+### 6. Promptolinguistics.tsx migrated — MOST COMPLEX PAGE DONE
+
+Promptolinguistics.tsx was 1026 lines. It is now ~700 lines — a hybrid DB + React shell.
+
+35 blocks across TWO slugs:
+- `promptolinguistics` (positions 1–4): Hero, Four Effects infographic, ALCM heading, ALCM diagram
+- `promptolinguistics-bottom` (positions 1–12): Ozzy Protocol, Token Efficiency, RLHF vs GallantryAI, Playground CTA, Teenager entry, Professional entry, Cross-links
+
+**Why two slugs:** The page interleaves DB content with React interactive sections. Top DB blocks render first, then 14 interactive ALCM sections (lens toggles, word buttons, verb escalation, HOLD dial, power prompts, corner words, third entity), then bottom DB blocks.
+
+**The page shell keeps (non-editable from Studio):**
+- All 14 lens toggle states (Everyday / Professional / Watcher per section)
+- Word click-to-expand (28 words, 6 verbs, 7 HOLD positions, 20 power words)
+- Power prompt tab switching (4 categories)
+- Corner Words collision pairs
+- Third Entity AEDE steps
+
+### 7. PageStudioBlocks duplication fix
+
+Bug: Pages that manually render `<StudioBlocks>` were getting blocks rendered TWICE — once by the page, once by Footer’s `<PageStudioBlocks>` auto-injection.
+
+Fix: Added `SELF_RENDERED` exclusion set in `PageStudioBlocks.tsx` for all 21 pages that manually render their own StudioBlocks. These pages are skipped by the auto-injector.
+
+### 8. All other children’s + foundation pages migrated
+
+- ChildFiveRules (428 → 63 lines, 14 blocks)
+- ChildPatterns (394 → 54 lines, 10 blocks)
+- ChildPrompts (315 → 60 lines, 12 blocks)
+- FiveRules (399 → 55 lines, 10 blocks)
+- SafetyPage (298 → 70 lines, 10 blocks, LocalResourceSearch stays React)
+- RoadProtocol (714 → 250 lines, 22 blocks, WigCheckQuiz + GhostProtocol stay React)
+- FlowerPresets (515 → 60 lines, 13 blocks)
+- ThreeLenses (DB-driven shell)
 
 **The page shell keeps (non-editable from Studio):**
 - Nav (always)
 - Watcher peek bar + popup (JavaScript interaction logic)
-- `<StudioBlocks pageSlug="for-child" />` — ALL content from DB
+- `<StudioBlocks pageSlug="..." />` — ALL content from DB
 - LearningFlow (reads from static flowMap — DB connection pending)
 - Footer (always)
 
@@ -181,26 +209,29 @@ ChildLens.tsx was 1497 lines of hardcoded React. It is now ~60 lines — a thin 
 
 ### Migration order
 
-**1. Children's pages — CURRENT (ChildLens done, 3 remaining)**
-- `/for/child` — DONE (April 20)
-- `/for/child/rules` — NEXT
-- `/for/child/patterns`
-- `/for/child/prompts`
+**DONE:**
+- `/for/child` (ChildLens) — 65 blocks
+- `/for/child/rules` (ChildFiveRules) — 14 blocks
+- `/for/child/patterns` (ChildPatterns) — 10 blocks
+- `/for/child/prompts` (ChildPrompts) — 12 blocks
+- `/rules` (FiveRules) — 10 blocks
+- `/road-protocol` (RoadProtocol) — 22 blocks
+- `/flower-presets` (FlowerPresets) — 13 blocks
+- `/if-you-need-to-stop` (SafetyPage) — 10 blocks
+- `/three-voices` (ThreeLenses) — DB-driven
+- `/promptolinguistics` (Promptolinguistics) — 35 blocks across 2 slugs
 
-**2. Foundation pages**
-- `/rules`, `/road-protocol`, `/flower-presets`, `/if-you-need-to-stop`
-
-**3. Lens pages**
+**NEXT — Lens pages:**
 - `/for/teenager`, `/for/everyday`, `/for/guardian-teacher`, `/for/watcher`
 - All 6 professional lenses
 
-**4. Concept pages**
-- Promptolinguistics, ALCM, LivingLexicon, Taxonomy, HumanLine, Scaffold, Drift
+**THEN — Concept pages:**
+- ALCM, LivingLexicon, Taxonomy, HumanLine, Scaffold, Drift
 
-**5. Research pages**
+**THEN — Research pages:**
 - ResearchHub, CitizenResearcher, FieldPapers
 
-**6. Remaining pages**
+**THEN — Remaining pages:**
 - Builder, Gallery, Playground, Malbolge, PromptGames, all others
 
 ### How to migrate each page
@@ -324,7 +355,7 @@ pnpm db:push      # Push schema changes to DB (drizzle-kit generate + migrate)
 2. Say to Matthew: "I am a new session. I have read HANDOVER.md. I know where we are. Ready when you are."
 3. Wait for Matthew to say go.
 4. Check the April 20 section in `todo.md` for current state.
-5. Continue the migration — next page is ChildFiveRules (`/for/child/rules`).
+5. Continue the migration — next pages are the lens pages (TeenagerLens, EverydayLens, etc.).
 
 ---
 
