@@ -1,7 +1,28 @@
 /*
+ * ============================================================
  * GALLANTRYAI — If You Need to Stop
- * Design: Dark/Research register — this page is serious, calm, and safe
- * Safety is the first value. This page is always here.
+ * DB-driven shell — content from content_blocks for pageSlug "if-you-need-to-stop".
+ * DARK THEME PAGE (#1A1A2E).
+ *
+ * SPECIAL PAGE — Safety is the first value.
+ *
+ * PAGE STANDARD:
+ * 1. KidsMidLink — bottom before footer              [DONE]
+ * 2. LearningFlow — bottom of page                   [DONE]
+ * (No KidsRedirect on this page — by design. Children
+ *  should see this page too if they need it.)
+ *
+ * NON-EDITABLE FROM STUDIO:
+ * - LocalResourceSearch interaction (Google search form)
+ * - LearningFlow links — edit via Studio Learning Matrix tab
+ * - KidsMidLink position (locked)
+ *
+ * EDITABLE FROM STUDIO:
+ * - All text headings and body content
+ * - Crisis resource phone numbers and URLs (via card blocks)
+ * - Welcome banner text and images
+ * - Watcher observation text
+ * ============================================================
  */
 
 import { useState } from "react";
@@ -10,45 +31,11 @@ import Footer from "@/components/Footer";
 import KidsMidLink from "@/components/KidsMidLink";
 import LearningFlow from "@/components/LearningFlow";
 import { flowMap } from "@/lib/learningFlowMap";
+import StudioBlocks from "@/components/studio/StudioBlocks";
 
-const resources = [
-  {
-    name: "Crisis Services Canada",
-    phone: "1-833-456-4566",
-    text: "Text 45645",
-    url: "https://www.crisisservicescanada.ca",
-    country: "Canada",
-  },
-  {
-    name: "Kids Help Phone",
-    phone: "1-800-668-6868",
-    text: "Text HELLO to 686868",
-    url: "https://kidshelpphone.ca",
-    country: "Canada · Under 20",
-  },
-  {
-    name: "988 Suicide & Crisis Lifeline",
-    phone: "Call or text 988",
-    text: "Chat at 988lifeline.org",
-    url: "https://988lifeline.org",
-    country: "United States",
-  },
-  {
-    name: "Samaritans",
-    phone: "116 123",
-    text: "jo@samaritans.org",
-    url: "https://www.samaritans.org",
-    country: "UK & Ireland",
-  },
-  {
-    name: "Beyond Blue",
-    phone: "1300 22 4636",
-    text: "Chat at beyondblue.org.au",
-    url: "https://www.beyondblue.org.au",
-    country: "Australia",
-  },
-];
+const PAGE_SLUG = "if-you-need-to-stop";
 
+/* ── Interactive local resource search — stays React ── */
 const searchCategories = [
   { label: "Free mental health clinic", query: "free mental health clinic near" },
   { label: "Crisis mental health hospital", query: "crisis mental health hospital near" },
@@ -75,10 +62,8 @@ function LocalResourceSearch() {
   return (
     <div className="rounded-xl border border-[#E8520A]/30 bg-[#E8520A]/5 p-5 md:p-6 mb-2">
       <p className="text-xs text-[#888] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-        Choose what you're looking for, type your area, and hit search. This opens Google with the right terms.
+        Choose what you{"\u2019"}re looking for, type your area, and hit search. This opens Google with the right terms.
       </p>
-
-      {/* Category pills */}
       <div className="flex flex-wrap gap-2 mb-4">
         {searchCategories.map((cat) => (
           <button
@@ -95,8 +80,6 @@ function LocalResourceSearch() {
           </button>
         ))}
       </div>
-
-      {/* Search input + button */}
       <div className="flex gap-3">
         <input
           type="text"
@@ -116,7 +99,6 @@ function LocalResourceSearch() {
           Search
         </button>
       </div>
-
       <p className="text-[10px] text-[#555] mt-3 italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
         This opens a Google search in a new tab. GallantryAI does not collect or store your location.
       </p>
@@ -125,173 +107,36 @@ function LocalResourceSearch() {
 }
 
 export default function SafetyPage() {
+  const safetyFlow = flowMap["if-you-need-to-stop"] ?? flowMap.safety;
+
   return (
     <div className="min-h-screen flex flex-col bg-[#1A1A2E] text-[#FAF6EF]">
       <Nav />
 
-      <main className="flex-1 container py-16 max-w-2xl">
-        {/* ── WELCOME BANNER — You're exploring, not in crisis ── */}
-        <div
-          className="rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center gap-5"
-          style={{ background: '#12121e', border: '1px solid #2a2a3e' }}
-        >
-          {/* Buffalo — guardian */}
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/kids-mid-link-sticker-Nmh6s3hknwKR5FNbsvDCHx.webp"
-            alt="Buffalo guardian"
-            className="w-16 h-16 md:w-20 md:h-20 object-contain flex-shrink-0"
-          />
-          <div className="flex-1 text-center md:text-left">
-            <p
-              className="text-base md:text-lg font-bold mb-2"
-              style={{ color: '#FAF6EF', fontFamily: "'DM Sans', sans-serif" }}
-            >
-              You{"\u2019"}re not in trouble. You clicked a button.
-            </p>
-            <p
-              className="text-sm leading-relaxed mb-3"
-              style={{ color: '#c8c0b0', fontFamily: "'DM Sans', sans-serif" }}
-            >
-              This is one of the first links people see on the site, so most visitors land here just by exploring {"\u2014"} not because something is wrong.
-              If you{"\u2019"}re just looking around, welcome. Here{"\u2019"}s where to start learning and growing:
-            </p>
-            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-              <a
-                href="/rules"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm no-underline transition-colors"
-                style={{ background: '#E8520A', color: '#fff', fontFamily: "'DM Sans', sans-serif" }}
-              >
-                Start with the Five Rules
-              </a>
-              <a
-                href="/for/child"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm no-underline transition-colors"
-                style={{ background: '#1a1a2e', color: '#c8c0b0', border: '1px solid #2a2a3e', fontFamily: "'DM Sans', sans-serif" }}
-              >
-                Children{"\u2019"}s Section
-              </a>
-              <a
-                href="/"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm no-underline transition-colors"
-                style={{ background: '#1a1a2e', color: '#c8c0b0', border: '1px solid #2a2a3e', fontFamily: "'DM Sans', sans-serif" }}
-              >
-                Guide me
-              </a>
-            </div>
-          </div>
-          {/* Sloth — guide */}
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/oops-sloth-dpBa4VaDRVEQQogvEc76jm.webp"
-            alt="Sloth guide"
-            className="w-14 h-14 md:w-16 md:h-16 object-contain flex-shrink-0 hidden md:block"
-          />
-        </div>
-        {/* Watcher observation */}
-        <div
-          className="rounded-xl px-5 py-3 mb-8"
-          style={{ background: '#0e0e1a', border: '1px solid #1a1a2e' }}
-        >
-          <div className="flex items-start gap-2">
-            <span className="text-[9px] font-bold uppercase tracking-widest mt-0.5 flex-shrink-0" style={{ color: '#7C3AED' }}>Watcher</span>
-            <p
-              className="text-xs italic leading-relaxed"
-              style={{ color: '#8a8090', fontFamily: "'Playfair Display', serif" }}
-            >
-              This page exists because safety is the first value. But you arrived here because it was the first colored link you saw. That is not a coincidence {"\u2014"} it is the design working. The system put safety where your eyes would go first. If you need this page, it is here. If you don{"\u2019"}t, the buttons above will take you where the learning begins.
-            </p>
-          </div>
-        </div>
+      {/* DB-driven content blocks */}
+      <StudioBlocks pageSlug={PAGE_SLUG} />
 
-        <div className="brand-top-bar mb-8" />
-
-        <div className="section-label mb-4" style={{ color: '#E8520A' }}>Safety First</div>
-
-        <h1
-          className="text-3xl md:text-4xl font-bold mb-6 text-[#FAF6EF]"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          If you need to stop — stop.
-        </h1>
-
-        <p className="text-base text-[#e8e0d0] mb-6 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          This page is here because GallantryAI is built on three values: <strong>Safety. Honesty. Trust.</strong> Safety is first. Always.
-        </p>
-
-        <p className="text-base text-[#e8e0d0] mb-8 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          If you are in a hard place right now — whether from something on this site, something in your life, or something you cannot name — you are allowed to stop. You do not owe this website anything. You do not owe the AI anything. You do not owe anyone your suffering.
-        </p>
-
-        <div className="border border-[#E8520A]/40 rounded-lg p-6 mb-8 bg-[#E8520A]/5">
-          <p className="text-[#E8520A] font-bold mb-2 text-sm uppercase tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            The most important thing on this page:
-          </p>
-          <p className="text-[#FAF6EF] text-xl italic" style={{ fontFamily: "'Playfair Display', serif" }}>
-            "You are the variable that matters most. Not the AI. Not the prompt. You."
-          </p>
-        </div>
-
-        {/* === FIND LOCAL RESOURCES — Google Search Bar === */}
+      {/* Interactive local resource search — stays React */}
+      <div className="container max-w-2xl py-4">
         <div className="section-label mb-4" style={{ color: '#E8520A' }}>Find Local Resources</div>
         <p className="text-sm text-[#aaa] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Type your city or area below. We'll open a Google search with the right terms to help you find real, local help.
+          Type your city or area below. We{"\u2019"}ll open a Google search with the right terms to help you find real, local help.
         </p>
-
         <LocalResourceSearch />
-
-        <div className="section-label mb-4 mt-12" style={{ color: '#E8520A' }}>Crisis Resources</div>
-        <p className="text-sm text-[#aaa] mb-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          If you or someone you know is in crisis, please reach out. These are real people. Real lines. Real help.
-        </p>
-
-        <div className="space-y-4">
-          {resources.map((r) => (
-            <div key={r.name} className="border border-[#e8e0d0]/20 rounded-lg p-4 bg-[#FAF6EF]/5">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                <div>
-                  <div className="font-bold text-[#FAF6EF] text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                    {r.name}
-                  </div>
-                  <div className="text-xs text-[#888] mt-0.5" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                    {r.country}
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-[#E8520A] font-bold text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                    {r.phone}
-                  </div>
-                  <div className="text-xs text-[#aaa]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                    {r.text}
-                  </div>
-                </div>
-              </div>
-              <a
-                href={r.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-[#2A9D8F] mt-2 inline-block hover:underline"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                {r.url} →
-              </a>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 border-t border-[#e8e0d0]/20 pt-8">
-          <p className="text-sm text-[#888] italic" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Built for the people no one was watching for.
-          </p>
-          <p className="text-xs text-[#666] mt-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            GallantryAI · Safety · Honesty · Trust
-          </p>
-        </div>
-      </main>
+      </div>
 
       <div className="flex justify-center py-4">
         <KidsMidLink />
       </div>
-      <LearningFlow current="Safety" deeper={flowMap.safety.deeper} wider={flowMap.safety.wider} simpler={flowMap.safety.simpler} dark />
-
+      {safetyFlow && (
+        <LearningFlow
+          current="Safety"
+          deeper={safetyFlow.deeper ?? []}
+          wider={safetyFlow.wider ?? []}
+          simpler={safetyFlow.simpler ?? []}
+          dark
+        />
+      )}
       <Footer />
     </div>
   );

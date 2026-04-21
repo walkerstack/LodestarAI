@@ -448,7 +448,10 @@
 - [x] Migrate ChildFiveRules.tsx — 428 lines → 63-line shell (14 blocks)
 - [x] Migrate ChildPatterns.tsx — 394 lines → 54-line shell (10 blocks)
 - [x] Migrate ChildPrompts.tsx — 315 lines → 60-line shell (12 blocks)
-- [ ] Migrate foundation pages: FiveRules, RoadProtocol, FlowerPresets, IfYouNeedToStop
+- [x] Migrate FiveRules.tsx — 399 lines → 55-line shell (10 blocks)
+- [x] Migrate SafetyPage.tsx — 298 lines → 70-line shell (10 blocks, LocalResourceSearch stays React)
+- [x] Migrate RoadProtocol.tsx — 714 lines → 250-line shell (22 blocks, WigCheckQuiz + GhostProtocol stay React)
+- [x] Migrate FlowerPresets.tsx — 515 lines → 60-line shell (13 blocks)
 - [ ] Migrate lens pages: TeenagerLens, EverydayLens, GuardianTeacherLens, all 6 professional lenses
 - [ ] Migrate concept pages: Promptolinguistics, ALCM, LivingLexicon, Taxonomy, HumanLine, Scaffold
 - [ ] Migrate research pages: ResearchHub, CitizenResearcher, FieldPapers
