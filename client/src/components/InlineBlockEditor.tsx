@@ -834,13 +834,28 @@ export default function InlineBlockEditor({ block, onClose, onSaved }: InlineBlo
               </span>
             )}
           </div>
-          <div style={{ display: "flex", gap: "0.5rem" }}>
+          <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
             <button
               onClick={() => setPreviewMode(true)}
               style={{ background: "transparent", border: "1px solid #2a2218", borderRadius: "6px", color: "#8a7a6a", padding: "0.3rem 0.6rem", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem" }}
             >
               Preview
             </button>
+            {!showDeleteConfirm ? (
+              <button
+                onClick={() => setShowDeleteConfirm(true)}
+                style={{ background: "transparent", border: "1px solid #E8520A88", borderRadius: "6px", color: "#E8520A", padding: "0.3rem 0.6rem", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", fontWeight: 600 }}
+                title="Delete this block"
+              >
+                🗑 Delete
+              </button>
+            ) : (
+              <div style={{ display: "flex", gap: "0.35rem", alignItems: "center" }}>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", color: "#E8520A" }}>Sure?</span>
+                <button onClick={() => setShowDeleteConfirm(false)} style={{ background: "transparent", border: "1px solid #2a2218", borderRadius: "6px", color: "#8a7a6a", padding: "0.25rem 0.5rem", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem" }}>No</button>
+                <button onClick={handleDelete} style={{ background: "#E8520A", border: "none", borderRadius: "6px", color: "#fff", padding: "0.25rem 0.5rem", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontSize: "0.7rem", fontWeight: 700 }}>Yes, Delete</button>
+              </div>
+            )}
             <button
               onClick={onClose}
               style={{ background: "transparent", border: "none", color: "#5a4a3a", cursor: "pointer", fontSize: "1.1rem", padding: "0.25rem" }}
