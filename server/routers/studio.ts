@@ -61,6 +61,9 @@ import {
   deleteNavItem,
   publishAllNavItems,
   getNavItemCount,
+  getAllSiteSettings,
+  setSiteSetting,
+  getAllSiteSettingRows,
 } from "../db";
 import { navItems } from "../../drizzle/schema";
 import { storagePut } from "../storage";
@@ -128,6 +131,7 @@ const SITE_PAGES = [
   { slug: "for-psychology", label: "Psychology Lens", path: "/for/psychology" },
   { slug: "for-researcher", label: "Researcher Lens", path: "/for/researcher" },
   { slug: "for-watcher", label: "Watcher Lens", path: "/for/watcher" },
+  { slug: "build-log", label: "Living Build Log", path: "/build-log" },
 ];
 
 export const studioRouter = router({
@@ -876,5 +880,46 @@ export const studioRouter = router({
   getAllPageSlugs: adminProcedure
     .query(async () => {
       return getAllPageSlugs();
+    }),
+
+  // ─────────────────────────────────────────────────────────────
+  // SITE SETTINGS — announcement banner and global config
+  // ─────────────────────────────────────────────────────────────
+
+  /**
+   * Returns all site settings as a key/value map.
+   * Public so the banner can be shown to all visitors.
+   */
+  getSiteSettings: publicProcedure
+    .query(async () => {
+      return getAllSiteSettings();
+    }),
+
+  /**
+   * Returns all site settings rows (for Studio display).
+   * Admin only.
+   */
+  getSiteSettingRows: adminProcedure
+    .query(async () => {
+      return getAllSiteSettingRows();
+    }),
+
+  /**
+   * Sets a single site setting by key.
+   * Admin only.
+   */
+  setSiteSetting: adminProcedure
+    .input(z.object({ key: z.string(), value: z.string() }))
+    .mutation(async ({ input }) => {
+      await setSiteSetting(input.key, input.value);
+      return { success: true };
+    }),
+
+  /**
+   * Also add build-log to the SITE_PAGES list.
+   */
+  getBuildLogPageSlug: publicProcedure
+    .query(async () => {
+      return { slug: 'build-log', label: 'Living Build Log', path: '/build-log' };
     }),
 });

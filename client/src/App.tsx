@@ -58,6 +58,7 @@ const BuilderOrigin = lazy(() => import("./pages/BuilderOrigin"));
 const BuildersKids = lazy(() => import("./pages/BuildersKids"));
 const CitizenResearcher = lazy(() => import("./pages/CitizenResearcher"));
 const FieldPapers = lazy(() => import("./pages/FieldPapers"));
+const BuildLog = lazy(() => import("./pages/BuildLog"));
 const Frameworks = lazy(() => import("./pages/Frameworks"));
 const ResearchHub = lazy(() => import("./pages/ResearchHub"));
 const LivingLexicon = lazy(() => import("./pages/LivingLexicon"));
@@ -165,6 +166,7 @@ function Router() {
         <Route path="/builder" component={Builder} />
         <Route path="/frameworks" component={Frameworks} />
         <Route path="/citizen-researcher" component={CitizenResearcher} />
+        <Route path="/build-log" component={BuildLog} />
         <Route path="/road-protocol" component={RoadProtocol} />
         <Route path="/rules" component={FiveRules} />
         <Route path="/flower-presets" component={FlowerPresets} />

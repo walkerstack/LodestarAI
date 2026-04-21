@@ -153,4 +153,14 @@ export const kidsBlurbs: Record<string, { story: string; quote: string; attribut
     quote: "When someone tells you who they are, listen.",
     attribution: "What the AI Said",
   },
+  "/": {
+    story: "This is the front page of the whole site. It shows you everything — the rules, the people, the ideas, and the stories. It's like the cover of a really big book. Your page is simpler and has the sloth to guide you.",
+    quote: "Every journey starts at the front door.",
+    attribution: "The Front Page",
+  },
+  "/build-log": {
+    story: "This page is like a diary of everything the Builder has done on this site. Every time he adds something new, he writes it down — what he changed, why he changed it, and what the Watcher thought about it. It's honest and it's long.",
+    quote: "Writing it down is how you remember what matters.",
+    attribution: "The Builder's Diary",
+  },
 };

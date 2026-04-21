@@ -92,8 +92,11 @@ function Tooltip({ text }: { text: string }) {
   const [open, setOpen] = useState(false);
   return (
     <span style={{ position: "relative", display: "inline-flex", alignItems: "center" }}>
-      <button
-        onClick={() => setOpen((v) => !v)}
+      <span
+        role="button"
+        tabIndex={0}
+        onClick={(e) => { e.stopPropagation(); setOpen((v) => !v); }}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.stopPropagation(); setOpen((v) => !v); } }}
         style={{
           background: "transparent",
           border: "none",
@@ -106,7 +109,7 @@ function Tooltip({ text }: { text: string }) {
         aria-label="Help"
       >
         ?
-      </button>
+      </span>
       {open && (
         <span
           style={{
@@ -126,12 +129,15 @@ function Tooltip({ text }: { text: string }) {
           }}
         >
           {text}
-          <button
-            onClick={() => setOpen(false)}
+          <span
+            role="button"
+            tabIndex={0}
+            onClick={(e) => { e.stopPropagation(); setOpen(false); }}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.stopPropagation(); setOpen(false); } }}
             style={{ background: "transparent", border: "none", color: "#E8520A", cursor: "pointer", marginLeft: "0.5rem", fontSize: "0.75rem" }}
           >
             ✕
-          </button>
+          </span>
         </span>
       )}
     </span>

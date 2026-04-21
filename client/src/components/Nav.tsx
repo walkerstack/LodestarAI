@@ -14,6 +14,7 @@ import PromptPanel from "@/components/PromptPanel";
 import { lenses, foundationLinks, forYouLinks, toolsLinks, researchLinks, exploreLinks } from "@/lib/navData";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
+import AnnouncementBanner from "@/components/AnnouncementBanner";
 
 const BUFFALO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/image_4d1de092_7c0aebcb.png";
 
@@ -437,6 +438,7 @@ export default function Nav() {
 
   return (
     <>
+    <AnnouncementBanner />
     <header className="w-full sticky top-0 z-50 bg-[#FAF6EF] border-b border-[#e8e0d0]">
       <div className="brand-top-bar" />
 

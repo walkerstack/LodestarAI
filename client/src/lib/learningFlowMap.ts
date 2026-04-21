@@ -777,4 +777,38 @@ export const flowMap: Record<string, FlowEntry> = {
       { label: "The Five Rules", href: "/rules", description: "Start here" },
     ],
   },
+
+  // === HOMEPAGE & BUILD LOG ===
+  home: {
+    deeper: [
+      { label: "Promptolinguistics", href: "/promptolinguistics", description: "The discipline at the center of the site" },
+      { label: "ALCM", href: "/alcm", description: "The full control model" },
+      { label: "Road Protocol", href: "/road-protocol", description: "The governance layer" },
+    ],
+    wider: [
+      { label: "The Five Rules", href: "/rules", description: "The foundation of every session" },
+      { label: "Living Lexicon", href: "/lexicon", description: "Every term defined" },
+      { label: "Frameworks", href: "/frameworks", description: "28 tools earned through use" },
+    ],
+    simpler: [
+      { label: "Child Lens", href: "/for/child", description: "The site for young people" },
+      { label: "Everyday Lens", href: "/for/everyday", description: "Start here if you're new" },
+    ],
+  },
+
+  buildLog: {
+    deeper: [
+      { label: "Field Papers", href: "/field-papers", description: "The research behind the builds" },
+      { label: "What the AI Said", href: "/what-the-ai-said", description: "The governance record" },
+    ],
+    wider: [
+      { label: "The Builder", href: "/builder", description: "Who built this and why" },
+      { label: "Gallery", href: "/gallery", description: "The full body of work" },
+      { label: "Counter Arguments", href: "/counter-arguments", description: "Honest criticisms" },
+    ],
+    simpler: [
+      { label: "The Five Rules", href: "/rules", description: "Start with the foundation" },
+      { label: "Homepage", href: "/", description: "Back to the front door" },
+    ],
+  },
 };

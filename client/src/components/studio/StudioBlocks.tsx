@@ -41,7 +41,7 @@ interface TextBlockContent {
   descColor?: string;
   bgColor?: string;
   bgImage?: string;
-  links?: Array<{ label: string; url: string; description?: string }>;
+  links?: Array<{ label: string; url?: string; path?: string; description?: string }>;
 }
 
 interface CardBlockContent {
@@ -166,15 +166,16 @@ function TextBlock({ content }: { content: TextBlockContent }) {
         {content.links && content.links.length > 0 && (
           <div className="mt-6 flex flex-col gap-3">
             {content.links.map((link, i) => {
-              const isExt = link.url.startsWith("http");
+              const href = link.url ?? link.path ?? "";
+              const isExt = href.startsWith("http");
               return isExt ? (
-                <a key={i} href={link.url} target="_blank" rel="noopener noreferrer"
+                <a key={i} href={href} target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-medium underline"
                   style={{ color: "#E8520A" }}>
                   {link.label} →
                 </a>
               ) : (
-                <Link key={i} href={link.url}
+                <Link key={i} href={href}
                   className="inline-flex items-center gap-2 text-sm font-medium underline"
                   style={{ color: "#E8520A" }}>
                   {link.label} →

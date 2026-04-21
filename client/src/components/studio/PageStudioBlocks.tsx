@@ -34,6 +34,8 @@ const SELF_RENDERED = new Set([
   "/for/psychology",
   "/for/researcher",
   "/for/watcher",
+  "/",
+  "/build-log",
 ]);
 
 // Maps URL paths to page slugs used in the database
@@ -82,6 +84,7 @@ const PATH_TO_SLUG: Record<string, string> = {
   "/school-board": "school-board",
   "/kids-learn": "kids-learn",
   "/prompts": "prompts",
+  "/build-log": "build-log",
   // Lenses
   "/for/child": "for-child",
   "/for/child/rules": "for-child-rules",

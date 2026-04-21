@@ -1,5 +1,5 @@
 # GallantryAI — Session Handover Document
-# Written: April 20, 2026
+# Written: April 21, 2026 (updated from April 20 session)
 # Rule: This is the ONLY document an incoming session reads.
 # Old documents (SESSION-HANDOFF.md, SESSION-CURRENT.md) are FORBIDDEN.
 # Do not read them. Do not reference them. They contain mutated history.
@@ -34,28 +34,23 @@ Matthew built this on his phone between shifts. He is not a developer. He is the
 
 ---
 
-## VERIFIED STATE — APRIL 20, 2026
+## VERIFIED STATE — APRIL 21, 2026
 
 ### Database
 
 | Table | Rows | Notes |
 |---|---|---|
-| content_blocks | ~410 | 57 pages seeded + 65 ChildLens + ~35 Promptolinguistics (2 slugs) + child/foundation page migrations |
+| content_blocks | ~462 | 57 pages seeded + 65 ChildLens + 35 Promptolinguistics + child/foundation migrations + 22 homepage blocks + 30 build-log entries |
 | nav_items | 57 | All 6 nav sections, DB-driven |
-| learning_flow | 52 | All slugs now in correct format — FIXED April 20 |
+| learning_flow | 54 | All slugs correct — `home` and `buildLog` entries added April 21 |
 | lexicon_terms | 53 | Populated |
 | prompt_games | 9 | Populated |
 | prompt_panel_items | 20 | Populated |
 | media_library | 126 | Populated |
 | page_links | 186 | Populated |
 | studio_pages | 0 | Correct — Page Builder creates entries here |
+| site_settings | 3 | bannerEnabled, bannerText, bannerColor — added April 21 |
 | users | 2 | Owner + one other |
-
-### Slug fixes applied April 20
-
-- `learning_flow`: 11 rows fixed from `for/child` format to `for-child` format
-- `content_blocks`: 6 rows renamed from `safety` to `if-you-need-to-stop`
-- Zero slug mismatches remain anywhere in the database
 
 ### Tests and TypeScript
 
@@ -71,7 +66,7 @@ Matthew built this on his phone between shifts. He is not a developer. He is the
 
 All 57 pages exist and route correctly. Before April 20, all content was hardcoded React JSX. Every page has Nav, Footer, LearningFlow, KidsRedirect (on pages that need it), KidsMidLink (on pages that need it).
 
-### Studio CMS (11 tabs, all working)
+### Studio CMS (before April 20 — 11 tabs)
 
 Studio at `/studio`. Owner access only via Manus OAuth.
 
@@ -89,20 +84,9 @@ Studio at `/studio`. Owner access only via Manus OAuth.
 | G Button | Edit G button content |
 | Nav & Footer | Edit nav items and footer links |
 
-### InlineBlockEditor (Build 3 — before April 20)
-
-The InlineBlockEditor slides up from the bottom on phone, slides in from the right on desktop. Admin taps any DB block on a live page → orange glow → tap opens editor → save as draft → publish.
-
-**How it was wired before April 20:**
-```
-Footer.tsx → PageStudioBlocks → StudioBlocks → AdminBlockWrapper → InlineBlockEditor
-```
-
-**The gap:** Only worked on DB blocks above the footer. Main hardcoded content of every page was not editable. That is what April 20 fixes.
-
 ---
 
-## WHAT WAS BUILT APRIL 20 — THE CHANGE
+## WHAT WAS BUILT APRIL 20
 
 ### 1. Slug fixes (database)
 
@@ -110,8 +94,6 @@ Footer.tsx → PageStudioBlocks → StudioBlocks → AdminBlockWrapper → Inlin
 - 6 content_blocks rows: `safety` → `if-you-need-to-stop`
 
 ### 2. Three new block types (schema + DB)
-
-Added to `drizzle/schema.ts`, pushed to database:
 
 | Type | What it renders |
 |---|---|
@@ -121,27 +103,21 @@ Added to `drizzle/schema.ts`, pushed to database:
 
 ### 3. StudioBlocks.tsx rewritten
 
-Now colour-aware. Renderers read `titleColor`, `descColor`, `bgColor` from block content JSON when provided, falling back to dark-theme defaults. Works on both dark pages (footer area) and light pages (warm white ChildLens).
+Now colour-aware. Renderers read `titleColor`, `descColor`, `bgColor` from block content JSON when provided, falling back to dark-theme defaults.
 
 ### 4. InlineBlockEditor extended
 
-Fully supports editing carousel items, rule-card items, and sticker configuration. All 3 new block types editable on phone and desktop.
+Fully supports editing carousel items, rule-card items, and sticker configuration.
 
-### 5. ChildLens.tsx migrated — FIRST PAGE DONE
+### 5. ChildLens.tsx migrated
 
-ChildLens.tsx was 1497 lines of hardcoded React. It is now ~60 lines — a thin DB-driven shell.
+ChildLens.tsx was 1497 lines → now ~60 lines. 65 blocks for pageSlug `for-child`.
 
-65 blocks inserted for pageSlug `for-child`.
+### 6. Promptolinguistics.tsx migrated
 
-### 6. Promptolinguistics.tsx migrated — MOST COMPLEX PAGE DONE
-
-Promptolinguistics.tsx was 1026 lines. It is now ~700 lines — a hybrid DB + React shell.
-
-35 blocks across TWO slugs:
-- `promptolinguistics` (positions 1–4): Hero, Four Effects infographic, ALCM heading, ALCM diagram
+1026 lines → ~700 lines hybrid DB + React shell. 35 blocks across 2 slugs:
+- `promptolinguistics` (positions 1–4): Hero, Four Effects, ALCM heading, ALCM diagram
 - `promptolinguistics-bottom` (positions 1–12): Ozzy Protocol, Token Efficiency, RLHF vs GallantryAI, Playground CTA, Teenager entry, Professional entry, Cross-links
-
-**Why two slugs:** The page interleaves DB content with React interactive sections. Top DB blocks render first, then 14 interactive ALCM sections (lens toggles, word buttons, verb escalation, HOLD dial, power prompts, corner words, third entity), then bottom DB blocks.
 
 **The page shell keeps (non-editable from Studio):**
 - All 14 lens toggle states (Everyday / Professional / Watcher per section)
@@ -152,36 +128,93 @@ Promptolinguistics.tsx was 1026 lines. It is now ~700 lines — a hybrid DB + Re
 
 ### 7. PageStudioBlocks duplication fix
 
-Bug: Pages that manually render `<StudioBlocks>` were getting blocks rendered TWICE — once by the page, once by Footer’s `<PageStudioBlocks>` auto-injection.
+Bug: Pages that manually render `<StudioBlocks>` were getting blocks rendered TWICE.
+Fix: Added `SELF_RENDERED` exclusion set in `PageStudioBlocks.tsx` for all 21 pages that manually render their own StudioBlocks.
 
-Fix: Added `SELF_RENDERED` exclusion set in `PageStudioBlocks.tsx` for all 21 pages that manually render their own StudioBlocks. These pages are skipped by the auto-injector.
-
-### 8. All other children’s + foundation pages migrated
+### 8. All other children's + foundation pages migrated
 
 - ChildFiveRules (428 → 63 lines, 14 blocks)
 - ChildPatterns (394 → 54 lines, 10 blocks)
 - ChildPrompts (315 → 60 lines, 12 blocks)
 - FiveRules (399 → 55 lines, 10 blocks)
-- SafetyPage (298 → 70 lines, 10 blocks, LocalResourceSearch stays React)
-- RoadProtocol (714 → 250 lines, 22 blocks, WigCheckQuiz + GhostProtocol stay React)
+- SafetyPage (298 → 70 lines, 10 blocks)
+- RoadProtocol (714 → 250 lines, 22 blocks)
 - FlowerPresets (515 → 60 lines, 13 blocks)
 - ThreeLenses (DB-driven shell)
 
-**The page shell keeps (non-editable from Studio):**
-- Nav (always)
-- Watcher peek bar + popup (JavaScript interaction logic)
-- `<StudioBlocks pageSlug="..." />` — ALL content from DB
-- LearningFlow (reads from static flowMap — DB connection pending)
-- Footer (always)
+---
 
-**What cannot be edited from Studio on any page:**
-- Watcher popup behaviour (JavaScript interaction logic)
-- Carousel swipe/arrow interaction logic (JavaScript behaviour)
-- LearningFlow links — edit via Studio Learning Matrix tab
-- KidsRedirect position (locked, on/off toggle pending)
-- KidsMidLink position (locked, on/off toggle pending)
-- Page URLs (changing URLs breaks links — requires code change)
-- Font loading (infrastructure)
+## WHAT WAS BUILT APRIL 21
+
+### 1. Homepage migration (slug: `home`)
+
+Home.tsx was 2268 lines of hardcoded React. It is now ~1242 lines — a hybrid DB + React shell.
+
+22 static blocks inserted into DB (slug: `home`):
+- Hero image, tagline, origin story, ALCM intro, research note, site purpose, etc.
+- All static text and image content is now editable from Studio
+
+**The page shell keeps (non-editable from Studio):**
+- Story arc carousel (6 slides with sloth rule images)
+- Pathfinding tiles (9 role tiles: Parent, Teacher, Nurse, Student, Researcher, Prompt Engineer, Everyday, Kid, Watcher)
+- Ethos navigation (4 values with expandable link groups)
+- Scaffold levels (5 levels: Floor through Ceiling)
+- Build log replaced with link to /build-log
+
+### 2. /build-log page (new page)
+
+New page at `/build-log`. Route registered in `App.tsx`.
+
+30 build log entries inserted into DB (slug: `build-log`):
+- v1-v7 through v39 — all 30 entries with all three voices
+- Each entry is a `card` block with content JSON containing: title (version string), description (subtitle), items array with label/value pairs for version, date, changes, Watcher voice, Child voice, Professional voice
+
+`BuildLog.tsx` parses the content JSON and renders an accordion-style three-voice layout.
+
+### 3. Site-wide announcement banner
+
+**Backend (all complete):**
+- `site_settings` table added to `drizzle/schema.ts` — key/value store
+- Default values seeded: `bannerEnabled=false`, `bannerText=Welcome to GallantryAI`, `bannerColor=#E8520A`
+- DB helpers added to `server/db.ts`: `getAllSiteSettings`, `getSiteSetting`, `setSiteSetting`, `getAllSiteSettingRows`
+- tRPC procedures added to `server/routers/studio.ts`:
+  - `getSiteSettings` (public — all visitors can fetch)
+  - `getSiteSettingRows` (admin only)
+  - `setSiteSetting` (admin only)
+
+**Frontend (all complete):**
+- `AnnouncementBanner.tsx` component created (`client/src/components/AnnouncementBanner.tsx`)
+  - Fetches settings via `trpc.studio.getSiteSettings.useQuery()`
+  - Only renders if `bannerEnabled === 'true'`
+  - Displays `bannerText` in `bannerColor` background
+  - Font uses CSS `clamp()` for responsive sizing
+  - Has a dismiss/close button
+  - Sits above the nav bar
+- Injected into `Nav.tsx` — renders above the `<header>` element on every page
+- `StudioSiteBannerManager.tsx` created (`client/src/components/studio/StudioSiteBannerManager.tsx`)
+  - Toggle on/off (immediate save)
+  - Edit banner text (save button)
+  - Change banner color (color picker + hex input + reset to orange)
+  - Live preview of the banner in the editor
+- Studio tab added: "Site Banner" (12th tab in Studio)
+- `/build-log` added to `SITE_PAGES` list in `studio.ts`
+
+### 4. InlineBlockEditor nested button fix
+
+Fixed: button inside button DOM error in InlineBlockEditor. Changed inner `<button>` to `<span role="button">` to avoid nested interactive elements.
+
+### 5. TextBlockContent links fix
+
+Fixed: StudioBlocks.tsx `TextBlockContent` links now accept both `url` and `path` fields (was only accepting `url`).
+
+### 6. kidsBlurbs and learningFlowMap entries
+
+- `kidsBlurbs.ts`: entries added for `/` (home) and `/build-log`
+- `learningFlowMap.ts`: entries added for `home` and `buildLog`
+
+### 7. SELF_RENDERED exclusion set updated
+
+`PageStudioBlocks.tsx` SELF_RENDERED set updated to include `/` and `/build-log`.
 
 ---
 
@@ -191,25 +224,9 @@ Fix: Added `SELF_RENDERED` exclusion set in `PageStudioBlocks.tsx` for all 21 pa
 
 **What Option B means:** Migrate every page's hardcoded content to the database. Every page becomes a thin shell. Content lives in content_blocks.
 
-### Before migration (every page looked like this)
-```
-<Nav />
-<h1>The Five Rules</h1>        ← hardcoded, NOT editable
-<p>Rule 1: Safety...</p>       ← hardcoded, NOT editable
-<Footer />
-  └── <PageStudioBlocks />     ← DB blocks, editable
-```
-
-### After migration (every page looks like this)
-```
-<Nav />
-<StudioBlocks pageSlug="rules" />   ← ALL content from DB, ALL editable
-<Footer />
-```
-
 ### Migration order
 
-**DONE:**
+**DONE (as of April 21):**
 - `/for/child` (ChildLens) — 65 blocks
 - `/for/child/rules` (ChildFiveRules) — 14 blocks
 - `/for/child/patterns` (ChildPatterns) — 10 blocks
@@ -220,10 +237,15 @@ Fix: Added `SELF_RENDERED` exclusion set in `PageStudioBlocks.tsx` for all 21 pa
 - `/if-you-need-to-stop` (SafetyPage) — 10 blocks
 - `/three-voices` (ThreeLenses) — DB-driven
 - `/promptolinguistics` (Promptolinguistics) — 35 blocks across 2 slugs
+- `/` (Home) — 22 blocks
+- `/build-log` (BuildLog) — 30 blocks (new page)
 
-**NEXT — Lens pages:**
-- `/for/teenager`, `/for/everyday`, `/for/guardian-teacher`, `/for/watcher`
-- All 6 professional lenses
+**NEXT — Lens pages (deferred to next session):**
+- `/for/teenager` (TeenagerLens)
+- `/for/everyday` (EverydayLens)
+- `/for/guardian-teacher` (GuardianTeacherLens)
+- `/for/watcher` (WatcherLens)
+- All 6 professional lenses: `/for/prompt-engineer`, `/for/linguist`, `/for/mathematician`, `/for/cognitive-science`, `/for/psychology`, `/for/researcher`
 
 **THEN — Concept pages:**
 - ALCM, LivingLexicon, Taxonomy, HumanLine, Scaffold, Drift
@@ -276,9 +298,9 @@ Hudson (buffalo) and Olive (sloth) are Matthew's kids. The children's section is
 
 Children's pages:
 - `/for/child` — main children's landing — **MIGRATED April 20**
-- `/for/child/rules` — Five Rules for kids
-- `/for/child/patterns` — Patterns for kids
-- `/for/child/prompts` — Prompts for kids
+- `/for/child/rules` — Five Rules for kids — **MIGRATED April 20**
+- `/for/child/patterns` — Patterns for kids — **MIGRATED April 20**
+- `/for/child/prompts` — Prompts for kids — **MIGRATED April 20**
 - `/kids-learn`
 - `/school-board`
 - `/builders-kids`
@@ -303,23 +325,48 @@ Children's pages are bright, warm, light backgrounds. Never dark. Sloth is the g
 
 ---
 
+## STUDIO CMS — 12 TABS (as of April 21)
+
+| Tab | What it does |
+|---|---|
+| Pages & Blocks | Edit DB content blocks on any page |
+| Media Library | Upload and manage images |
+| Link Manager | Manage page links |
+| Site Map | Visual page status overview |
+| Status Board | All pages at a glance |
+| Page Builder | Create new pages from templates |
+| Learning Matrix | Edit Go Deeper / Go Wider / Go Simpler connections |
+| Lexicon Manager | Edit lexicon terms |
+| Prompt Games | Edit prompt game content |
+| G Button | Edit G button content |
+| Nav & Footer | Edit nav items and footer links |
+| **Site Banner** | **Toggle banner on/off, edit text, change color — NEW April 21** |
+
+---
+
 ## KEY FILES
 
 | File | What it is |
 |---|---|
 | `client/src/App.tsx` | All routes |
-| `client/src/pages/Studio.tsx` | Studio CMS, 11 tabs |
+| `client/src/pages/Studio.tsx` | Studio CMS, 12 tabs (added Site Banner tab April 21) |
 | `client/src/components/InlineBlockEditor.tsx` | The inline editor panel |
 | `client/src/components/studio/StudioBlocks.tsx` | Renders DB blocks on live pages — REWRITTEN April 20 |
 | `client/src/components/studio/PageStudioBlocks.tsx` | Maps URL to slug, mounts StudioBlocks |
 | `client/src/components/Footer.tsx` | Footer — PageStudioBlocks mounts here |
+| `client/src/components/AnnouncementBanner.tsx` | Site-wide banner — NEW April 21 |
+| `client/src/components/studio/StudioSiteBannerManager.tsx` | Studio UI for banner — NEW April 21 |
+| `client/src/components/Nav.tsx` | Nav — AnnouncementBanner injected above header April 21 |
+| `client/src/pages/Home.tsx` | MIGRATED April 21 — hybrid DB + React shell |
+| `client/src/pages/BuildLog.tsx` | NEW April 21 — /build-log page, three-voice accordion |
 | `client/src/pages/lenses/ChildLens.tsx` | MIGRATED April 20 — thin DB shell |
 | `server/routers/studio.ts` | All Studio tRPC procedures |
 | `server/studioDb.ts` | All Studio DB query helpers |
-| `drizzle/schema.ts` | Database schema |
+| `server/db.ts` | General DB helpers — site_settings helpers added April 21 |
+| `drizzle/schema.ts` | Database schema — site_settings table added April 21 |
 | `client/src/lib/learningFlowMap.ts` | Static learning flow (used by all pages currently) |
 | `client/src/lib/navData.ts` | Static nav data (Nav/Footer fallback) |
-| `todo.md` | Task list — see April 20 break line |
+| `todo.md` | Task list — see April 21 break line |
 | `HANDOVER.md` | THIS FILE — only document to read |
 
 ---
@@ -354,8 +401,8 @@ pnpm db:push      # Push schema changes to DB (drizzle-kit generate + migrate)
 1. Read this file. Only this file.
 2. Say to Matthew: "I am a new session. I have read HANDOVER.md. I know where we are. Ready when you are."
 3. Wait for Matthew to say go.
-4. Check the April 20 section in `todo.md` for current state.
-5. Continue the migration — next pages are the lens pages (TeenagerLens, EverydayLens, etc.).
+4. Check `todo.md` for current state.
+5. Continue the migration — next pages are the lens pages (TeenagerLens, EverydayLens, GuardianTeacherLens, WatcherLens, then the 6 professional lenses).
 
 ---
 

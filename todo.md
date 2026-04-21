@@ -475,3 +475,49 @@
 - [ ] New/edited blocks inherit the page theme by default (fonts, colours, background)
 - [ ] Matthew can override any colour/font on a per-block basis if he wants
 - [ ] Default = consistency with page — no manual setup needed
+
+## April 20, 2026 — Evening Session
+
+- [x] Fix Promptolinguistics Studio preview error (1 error shown in screenshot) — nested button inside button in InlineBlockEditor Tooltip, changed to span role=button
+- [ ] Migrate Homepage (Home.tsx) to DB-driven shell — full Studio control for Matthew
+- [ ] Migrate PromptEngineerLens to DB
+- [ ] Migrate ResearcherLens to DB
+- [ ] Migrate LinguistLens to DB
+- [ ] Migrate MathematicianLens to DB
+- [ ] Migrate CogSciLens to DB
+- [ ] Migrate PsychologyLens to DB
+- [ ] Move build log from homepage to new /build-log page with full page standard
+- [ ] Migrate all build log entries (v1-v39) to DB blocks — all three voices preserved
+- [ ] Homepage: replace build log section with clean link to /build-log
+- [ ] Register /build-log route in App.tsx
+- [ ] Update HANDOVER.md after all migrations
+
+## April 20, 2026 — Evening Session (Updated Scope)
+
+- [ ] Site-wide announcement banner — Studio-editable, toggle on/off, responsive font shrinks to fit borders, standard color, standard font, words editable, big enough to see
+- [ ] Professional lens migrations deferred to tomorrow morning
+
+## April 21, 2026 — Session Completion
+
+- [x] Migrate Homepage (Home.tsx) to DB-driven shell — 22 static blocks inserted (slug: home), story arc carousel + pathfinding tiles + ethos + scaffold stay React
+- [x] Create /build-log page (BuildLog.tsx) — 30 build log entries migrated to DB (slug: build-log), three-voice accordion renderer
+- [x] Register /build-log route in App.tsx
+- [x] Add /build-log to SITE_PAGES list in studio.ts
+- [x] Add kidsBlurbs entries for / and /build-log
+- [x] Add learningFlowMap entries for home and buildLog
+- [x] Update PageStudioBlocks SELF_RENDERED set to include / and /build-log
+- [x] Add site_settings table to drizzle/schema.ts — key/value store for banner and global config
+- [x] Seed default banner settings (bannerEnabled=false, bannerText, bannerColor=#E8520A)
+- [x] Add DB helpers to server/db.ts: getAllSiteSettings, getSiteSetting, setSiteSetting, getAllSiteSettingRows
+- [x] Add tRPC procedures to studio.ts: getSiteSettings (public), getSiteSettingRows (admin), setSiteSetting (admin)
+- [x] Build AnnouncementBanner.tsx component — fetches settings, only renders if enabled, dismiss button, clamp() font
+- [x] Inject AnnouncementBanner into Nav.tsx — renders above <header> on every page
+- [x] Build StudioSiteBannerManager.tsx — toggle, text editor, color picker, live preview, save button
+- [x] Add Site Banner tab (12th tab) to Studio.tsx
+- [x] Fix InlineBlockEditor nested button error — changed inner button to span role=button
+- [x] Fix TextBlockContent links in StudioBlocks.tsx — now accepts both url and path fields
+- [x] Update HANDOVER.md — full April 21 state documented
+- [x] TypeScript check: 0 errors
+- [x] Tests: 26/26 passing
+- [x] Site-wide announcement banner — Studio-editable, toggle on/off, responsive font shrinks to fit borders, standard color, standard font, words editable, big enough to see
+- [ ] Professional lens migrations deferred to next session (TeenagerLens, EverydayLens, GuardianTeacherLens, WatcherLens, 6 professional lenses)

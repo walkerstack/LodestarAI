@@ -23,8 +23,9 @@ import StudioLexiconManager from "@/components/studio/StudioLexiconManager";
 import StudioPromptGamesManager from "@/components/studio/StudioPromptGamesManager";
 import StudioGButtonManager from "@/components/studio/StudioGButtonManager";
 import StudioNavManager from "@/components/studio/StudioNavManager";
+import StudioSiteBannerManager from "@/components/studio/StudioSiteBannerManager";
 
-type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard" | "pagebuilder" | "learningmatrix" | "lexicon" | "promptgames" | "gbutton" | "navmanager";
+type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard" | "pagebuilder" | "learningmatrix" | "lexicon" | "promptgames" | "gbutton" | "navmanager" | "banner";
 
 // ── Studio Login Screen ──────────────────────────────────────────────────────
 // Primary: Log in with Manus (owner ID check). Fallback: password form.
@@ -201,6 +202,7 @@ export default function Studio() {
     { id: "promptgames", label: "Prompt Games" },
     { id: "gbutton", label: "G Button" },
     { id: "navmanager", label: "Nav & Footer" },
+    { id: "banner", label: "Site Banner" },
   ];
 
   return (
@@ -451,6 +453,9 @@ export default function Studio() {
 
           {/* ── Nav & Footer Manager ── */}
           {activeTab === "navmanager" && <StudioNavManager />}
+
+          {/* ── Site Banner Manager ── */}
+          {activeTab === "banner" && <StudioSiteBannerManager />}
 
         </div>
       </div>

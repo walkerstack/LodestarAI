@@ -314,3 +314,27 @@ export const navItems = mysqlTable("nav_items", {
 
 export type NavItem = typeof navItems.$inferSelect;
 export type InsertNavItem = typeof navItems.$inferInsert;
+
+/**
+ * site_settings — key/value store for site-wide configuration.
+ * Used for the announcement banner, maintenance mode, and other global settings.
+ *
+ * Known keys:
+ *   banner_enabled  — "true" | "false"
+ *   banner_text     — string, the announcement text
+ *   banner_color    — optional hex color override, defaults to site orange
+ *   banner_link     — optional URL the banner links to
+ *   banner_link_label — optional label for the banner link
+ */
+export const siteSettings = mysqlTable("site_settings", {
+  id: int("id").autoincrement().primaryKey(),
+  /** Setting key, e.g. 'banner_enabled', 'banner_text' */
+  key: varchar("key", { length: 128 }).notNull().unique(),
+  /** Setting value — always stored as a string */
+  value: text("value").notNull(),
+  /** Optional description for Studio display */
+  description: text("description"),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+export type SiteSetting = typeof siteSettings.$inferSelect;
+export type InsertSiteSetting = typeof siteSettings.$inferInsert;

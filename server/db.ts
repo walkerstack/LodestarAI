@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, navItems, InsertNavItem, NavItem } from "../drizzle/schema";
+import { InsertUser, users, navItems, InsertNavItem, NavItem, siteSettings, SiteSetting } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -206,5 +206,67 @@ export async function getNavItemCount(): Promise<number> {
   } catch (error) {
     console.error("[Database] Failed to count nav items:", error);
     return 0;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// SITE SETTINGS — DB helpers for site-wide configuration
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * Returns all site settings as a key/value map.
+ */
+export async function getAllSiteSettings(): Promise<Record<string, string>> {
+  const db = await getDb();
+  if (!db) return {};
+  try {
+    const rows = await db.select().from(siteSettings);
+    return Object.fromEntries(rows.map(r => [r.key, r.value]));
+  } catch (error) {
+    console.error("[Database] Failed to get site settings:", error);
+    return {};
+  }
+}
+
+/**
+ * Returns a single site setting by key.
+ */
+export async function getSiteSetting(key: string): Promise<string | null> {
+  const db = await getDb();
+  if (!db) return null;
+  try {
+    const rows = await db.select().from(siteSettings).where(eq(siteSettings.key, key)).limit(1);
+    return rows.length > 0 ? rows[0].value : null;
+  } catch (error) {
+    console.error("[Database] Failed to get site setting:", error);
+    return null;
+  }
+}
+
+/**
+ * Sets a site setting by key.
+ */
+export async function setSiteSetting(key: string, value: string): Promise<void> {
+  const db = await getDb();
+  if (!db) return;
+  try {
+    await db.insert(siteSettings).values({ key, value }).onDuplicateKeyUpdate({ set: { value } });
+  } catch (error) {
+    console.error("[Database] Failed to set site setting:", error);
+    throw error;
+  }
+}
+
+/**
+ * Returns all site settings rows (for Studio display).
+ */
+export async function getAllSiteSettingRows(): Promise<SiteSetting[]> {
+  const db = await getDb();
+  if (!db) return [];
+  try {
+    return await db.select().from(siteSettings);
+  } catch (error) {
+    console.error("[Database] Failed to get all site settings:", error);
+    return [];
   }
 }
