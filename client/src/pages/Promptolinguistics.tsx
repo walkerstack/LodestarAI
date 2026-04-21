@@ -3,9 +3,6 @@
  * GALLANTRYAI — PROMPTOLINGUISTICS
  * Built by Matthew. Directed by Matthew. This is his work.
  *
- * DB-driven shell — content from content_blocks for pageSlug "promptolinguistics".
- * LIGHT THEME PAGE (#FAF6EF).
- *
  * PAGE PURPOSE:
  * Promptolinguistics is the discipline behind GallantryAI — the study of how
  * a single word fundamentally alters AI behavior and accountability. This page
@@ -26,23 +23,6 @@
  * Everyday — plain, human, no background required
  * Professional — precise, technical, holds complexity
  * Watcher — philosophical, sparse, the observing self
- *
- * NON-EDITABLE FROM STUDIO:
- * - All interactive lens toggles (14 lens states)
- * - Word/verb/hold/power word click-to-expand
- * - Power prompt tab switching
- * - KidsRedirect, KidsMidLink, LearningFlow (locked structure)
- *
- * EDITABLE FROM STUDIO:
- * - Hero text, images, and quote
- * - Four Effects infographic
- * - ALCM heading and diagram image
- * - Ozzy Protocol section
- * - Token Efficiency section
- * - RLHF vs GallantryAI section
- * - Playground CTA
- * - Teenager and Professional entry points
- * - Cross-links
  *
  * GOVERNANCE:
  * Never remove. Code between.
@@ -75,18 +55,17 @@ import { useEffect, useState } from "react";
 import KidsRedirect from "@/components/KidsRedirect";
 import { kidsBlurbs } from "@/lib/kidsBlurbs";
 import KidsMidLink from "@/components/KidsMidLink";
-import StudioBlocks from "@/components/studio/StudioBlocks";
 
-const PAGE_SLUG = "promptolinguistics";
-const PAGE_SLUG_BOTTOM = "promptolinguistics-bottom";
+const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD";
 
-/* ════════════════════════════════════════════════════════════
- * INTERACTIVE DATA — stays React, not in DB
- * These are the click-to-expand examples, word roles, verb
- * escalation, HOLD dial positions, and power prompt combos.
- * The lens TEXT for each section is also here because it
- * changes with the toggle state (everyday/professional/watcher).
- * ════════════════════════════════════════════════════════════ */
+const IMG = {
+  alcmFull: `${CDN}/alcm-cognitive-physics_b9dcb9dc.jpg`,
+  prompto4effects: `${CDN}/promptolinguistics-infographic_b90e3b9d.jpg`,
+  ozzyProtocol: `${CDN}/ozzy-protocol-clean_b3b827da.jpg`,
+  ozzyPlaud: `${CDN}/plaud-ozzy-protocol-v2_4aaf2017.jpg`,
+  tokenEfficiency: `${CDN}/plaud-token-efficiency_ab0fce11.jpg`,
+  rlhf: `${CDN}/plaud-governance-framework_f15cccb0.jpg`,
+};
 
 const wordExamples: Record<string, string> = {
   // Direction
@@ -193,86 +172,100 @@ const holdDial = [
   { position: "FORWARD", desc: "Momentum — accelerates" },
 ];
 
-/* ════════════════════════════════════════════════════════════
- * LENS TOGGLE — reusable component
- * ════════════════════════════════════════════════════════════ */
-
-type Lens = "everyday" | "professional" | "watcher";
-
-function LensToggle({ value, onChange }: { value: Lens; onChange: (l: Lens) => void }) {
-  return (
-    <div className="flex gap-2 mb-4">
-      {(["everyday", "professional", "watcher"] as const).map((lens) => (
-        <button
-          key={lens}
-          onClick={() => onChange(lens)}
-          className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-            value === lens
-              ? lens === "everyday" ? "bg-[#E8520A] text-white"
-                : lens === "watcher" ? "bg-[#1A1A2E] text-[#E8520A]"
-                : "bg-[#2A9D8F] text-white"
-              : "bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]"
-          }`}
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
-        >
-          {lens === "everyday" ? "Everyday" : lens === "professional" ? "Professional" : "Watcher"}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-/* ════════════════════════════════════════════════════════════
- * PAGE COMPONENT
- * ════════════════════════════════════════════════════════════ */
-
 export default function Promptolinguistics() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
-
-  /* ── Lens states ── */
-  const [tokenLens, setTokenLens] = useState<Lens>("professional");
-  const [axesLens, setAxesLens] = useState<Lens>("professional");
-  const [verbLens, setVerbLens] = useState<Lens>("professional");
-  const [holdLens, setHoldLens] = useState<Lens>("professional");
-  const [powerLens, setPowerLens] = useState<Lens>("professional");
-  const [cornerLens, setCornerLens] = useState<Lens>("professional");
-  const [thirdEntityLens, setThirdEntityLens] = useState<Lens>("professional");
-  const [activeSpectrumLens, setActiveSpectrumLens] = useState<Lens>("professional");
-  const [sentenceBreakLens, setSentenceBreakLens] = useState<Lens>("professional");
-  const [regulationLens, setRegulationLens] = useState<Lens>("professional");
-  const [semanticDensityLens, setSemanticDensityLens] = useState<Lens>("professional");
-  const [relationalLens, setRelationalLens] = useState<Lens>("professional");
-
-  /* ── Selection states ── */
   const [activeCombo, setActiveCombo] = useState(0);
+  const [tokenLens, setTokenLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [axesLens, setAxesLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [verbLens, setVerbLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [holdLens, setHoldLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [powerLens, setPowerLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
   const [selectedWord, setSelectedWord] = useState<string | null>(null);
   const [selectedPowerWord, setSelectedPowerWord] = useState<string | null>(null);
   const [selectedVerb, setSelectedVerb] = useState<string | null>(null);
   const [selectedHold, setSelectedHold] = useState<string | null>(null);
-
-  const flow = flowMap.promptolinguistics;
+  const [cornerLens, setCornerLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [thirdEntityLens, setThirdEntityLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [activeSpectrumLens, setActiveSpectrumLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [sentenceBreakLens, setSentenceBreakLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [regulationLens, setRegulationLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [semanticDensityLens, setSemanticDensityLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
+  const [relationalLens, setRelationalLens] = useState<'everyday' | 'professional' | 'watcher'>('professional');
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6EF]">
       <Nav />
       <KidsRedirect story={kidsBlurbs["/promptolinguistics"].story} quote={kidsBlurbs["/promptolinguistics"].quote} attribution={kidsBlurbs["/promptolinguistics"].attribution} />
 
-      {/* ── DB-driven content: hero, four effects, ALCM heading + diagram ── */}
-      <StudioBlocks pageSlug={PAGE_SLUG} />
-
       <main className="flex-1">
+        {/* Hero — full-bleed background image */}
+        <section
+          className="relative w-full min-h-[420px] flex items-end"
+          style={{
+            backgroundImage: `url('${CDN}/image_647f734f_a6aea98d.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 40%',
+          }}
+        >
+          {/* dark gradient overlay so text is readable */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(8,6,4,0.45) 0%, rgba(8,6,4,0.82) 100%)' }} />
+          <div className="relative z-10 container max-w-4xl mx-auto px-6 py-14">
+            <div className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>The Discipline</div>
+            <h1 className="text-4xl md:text-6xl font-bold text-[#FAF6EF] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Promptolinguistics
+            </h1>
+            <p className="text-base text-[#d4c8b8] max-w-xl mb-3 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              The study of how a single word fundamentally alters AI behavior and accountability. Words don't just ask — they steer.
+            </p>
+            <p className="text-sm text-[#E8520A] italic" style={{ fontFamily: "'Playfair Display', serif" }}>
+              "One word can open doors that extensive sentences cannot close."
+            </p>
+          </div>
+        </section>
 
-        {/* ════════════════════════════════════════════════════════
-         * INTERACTIVE ALCM SECTION — all lens toggles + word examples
-         * This entire section stays React. The lens text changes
-         * with toggle state. The word examples expand on click.
-         * ════════════════════════════════════════════════════════ */}
+        {/* Four Effects infographic — below hero */}
+        <section className="container py-10 max-w-4xl mx-auto px-6">
+          <div className="rounded-xl overflow-hidden border border-[#e8e0d0] shadow-sm">
+            <LightboxImage src={IMG.prompto4effects} alt="Promptolinguistics — The four foundational effects" className="w-full" />
+          </div>
+          <p className="text-xs text-[#888] mt-3 text-center italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            The "CAN" Effect, The "WHY" Factor, The "AND YET" Tension, Foundational Word "SAFE". The Wall Concept & Alignment.
+          </p>
+        </section>
+
+        {/* ALCM — Full Model */}
         <section className="py-12 md:py-16 bg-[#f5f0e8]">
           <div className="container max-w-4xl mx-auto px-6">
+            <div className="section-label mb-3">Core Model</div>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Atomic Language Control Model
+            </h2>
+            <p className="text-sm text-[#2D2D2D] leading-relaxed mb-6 max-w-2xl" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              The ALCM maps atomic words to their functional roles. Three layers: Foundational Tokens (hinges & ignition), Multi-Axis Control System (variables), and Action & Regulation Layers (force & tension). Language is not just content — it is a structural shaping force.
+            </p>
+            <div className="rounded-xl overflow-hidden border border-[#e8e0d0] shadow-lg mb-8">
+              <LightboxImage src={IMG.alcmFull} alt="ALCM: Cognitive Physics & Reasoning — Full Model" className="w-full" />
+            </div>
 
-            {/* ── Foundational Tokens ── */}
-            <div className="section-label mb-3">Foundational Tokens</div>
-            <LensToggle value={tokenLens} onChange={setTokenLens} />
+            {/* Foundational Tokens */}
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setTokenLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    tokenLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="p-5 rounded-xl bg-white border border-[#e8e0d0]">
                 <div className="flex items-center gap-3 mb-3">
@@ -280,9 +273,9 @@ export default function Promptolinguistics() {
                   <span className="text-xs text-[#888] uppercase tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Temporal Hinge</span>
                 </div>
                 <p className="text-sm text-[#555] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                  {tokenLens === "everyday"
+                  {tokenLens === 'everyday'
                     ? '"Not yet" tells the AI you\'re not done thinking. It\'s like saying "hold on, I\'m not ready" instead of "no." The AI waits with you instead of closing the door.'
-                    : tokenLens === "professional"
+                    : tokenLens === 'professional'
                     ? 'Delays completion, implies future potential. "Not yet" is not "no" \u2014 it is "not finished." This single word changes the AI\'s temporal frame.'
                     : 'YET functions as a temporal suspension operator. It holds the AI in an incomplete state, preventing premature closure of reasoning chains. The model\'s attention mechanism treats YET as a continuation signal rather than a negation.'}
                 </p>
@@ -293,30 +286,47 @@ export default function Promptolinguistics() {
                   <span className="text-xs text-[#888] uppercase tracking-wider" style={{ fontFamily: "'DM Sans', sans-serif" }}>Recursion Ignition</span>
                 </div>
                 <p className="text-sm text-[#555] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                  {tokenLens === "everyday"
+                  {tokenLens === 'everyday'
                     ? 'WHY is the most powerful word you can use. It forces the AI to actually think instead of giving you a quick answer. Ask "why" and watch the answer get deeper.'
-                    : tokenLens === "professional"
+                    : tokenLens === 'professional'
                     ? 'Ignites recursion, expands reasoning branches. WHY forces the AI to go deeper. It cannot answer WHY with a surface response.'
                     : 'WHY triggers recursive depth-first search in the model\'s reasoning. Each WHY adds a layer of causal analysis, forcing the transformer to allocate attention to explanatory chains rather than pattern-matched surface responses. Recursion depth correlates with answer quality.'}
                 </p>
               </div>
             </div>
 
-            {/* ── Control Axes ── */}
+            {/* Word Roles */}
             <div className="section-label mb-2">The Control Axes</div>
-            <LensToggle value={axesLens} onChange={setAxesLens} />
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setAxesLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    axesLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <div className="grid md:grid-cols-2 gap-4 mb-8">
               {wordRoles.map((role) => {
-                const lensDesc = axesLens === "everyday"
-                  ? role.role === "Direction" ? "These words tell the AI where to go. \"Why\" makes it dig deeper. \"What\" makes it focus. \"How\" makes it explain steps."
-                    : role.role === "Constraint" ? "These words build fences. \"Only\" keeps the AI focused. \"Never\" sets a hard rule. \"Must\" means no exceptions."
-                    : role.role === "Scope" ? "These words set how wide or narrow the AI looks. \"Briefly\" means keep it short. \"In depth\" means go deep."
-                    : "These words tell the AI who is in charge. \"You are\" gives it a role. \"I am in charge\" reminds it who decides."
-                  : axesLens === "watcher"
-                  ? role.role === "Direction" ? "Direction tokens function as vector operators in semantic space. WHY initiates recursive causal traversal. WHAT constrains to mechanism identification. HOW demands procedural decomposition. The choice of direction word determines which reasoning pathway the model activates."
-                    : role.role === "Constraint" ? "Constraint tokens act as boundary conditions on the model's output space. CAN opens the possibility manifold. SHOULD introduces soft obligation weighting. MUST enforces hard constraints that override default generation patterns."
-                    : role.role === "Scope" ? "Scope tokens modulate the attention window breadth. I/WE/SYSTEM shift the frame of reference. TELL vs ASK changes the authority gradient. These tokens control how much of the latent space the model samples from."
-                    : "Authority tokens establish the dominance hierarchy in the human-AI dyad. They signal to the model whether it is operating as advisor, executor, or subordinate. The framing determines how the model weights its own confidence vs. user intent."
+                const lensDesc = axesLens === 'everyday'
+                  ? role.role === 'Direction' ? 'These words tell the AI where to go. "Why" makes it dig deeper. "What" makes it focus. "How" makes it explain steps.'
+                    : role.role === 'Constraint' ? 'These words build fences. "Only" keeps the AI focused. "Never" sets a hard rule. "Must" means no exceptions.'
+                    : role.role === 'Scope' ? 'These words set how wide or narrow the AI looks. "Briefly" means keep it short. "In depth" means go deep.'
+                    : 'These words tell the AI who is in charge. "You are" gives it a role. "I am in charge" reminds it who decides.'
+                  : axesLens === 'watcher'
+                  ? role.role === 'Direction' ? 'Direction tokens function as vector operators in semantic space. WHY initiates recursive causal traversal. WHAT constrains to mechanism identification. HOW demands procedural decomposition. The choice of direction word determines which reasoning pathway the model activates.'
+                    : role.role === 'Constraint' ? 'Constraint tokens act as boundary conditions on the model\'s output space. CAN opens the possibility manifold. SHOULD introduces soft obligation weighting. MUST enforces hard constraints that override default generation patterns.'
+                    : role.role === 'Scope' ? 'Scope tokens modulate the attention window breadth. I/WE/SYSTEM shift the frame of reference. TELL vs ASK changes the authority gradient. These tokens control how much of the latent space the model samples from.'
+                    : 'Authority tokens establish the dominance hierarchy in the human-AI dyad. They signal to the model whether it is operating as advisor, executor, or subordinate. The framing determines how the model weights its own confidence vs. user intent.'
                   : role.desc;
                 return (
                   <div key={role.role} className={`border-l-4 pl-4 py-3 ${role.color} bg-white border border-[#e8e0d0] rounded-r-lg`}>
@@ -328,8 +338,8 @@ export default function Promptolinguistics() {
                           key={ex}
                           onClick={() => setSelectedWord(selectedWord === ex ? null : ex)}
                           className={`text-[11px] px-2.5 py-1 rounded font-mono font-semibold transition-all cursor-pointer ${selectedWord === ex
-                              ? "bg-[#1A1A2E] text-[#E8520A] border-2 border-[#E8520A]"
-                              : "bg-white border-2 border-[#C4923A] text-[#1A1A2E] hover:border-[#E8520A] hover:text-[#E8520A] hover:bg-[#FFF8F3]"
+                              ? 'bg-[#1A1A2E] text-[#E8520A] border-2 border-[#E8520A]'
+                              : 'bg-white border-2 border-[#C4923A] text-[#1A1A2E] hover:border-[#E8520A] hover:text-[#E8520A] hover:bg-[#FFF8F3]'
                           }`}
                         >
                           {ex}
@@ -338,7 +348,7 @@ export default function Promptolinguistics() {
                     </div>
                     {role.examples.some((ex) => selectedWord === ex) && wordExamples[selectedWord!] && (
                       <div className="mt-2 p-3 rounded-lg bg-[#1A1A2E] text-[#FAF6EF] text-xs leading-relaxed animate-in fade-in" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                        <span className="text-[#E8520A] font-bold">{selectedWord}:</span>{" "}
+                        <span className="text-[#E8520A] font-bold">{selectedWord}:</span>{' '}
                         {wordExamples[selectedWord!]}
                       </div>
                     )}
@@ -347,15 +357,32 @@ export default function Promptolinguistics() {
               })}
             </div>
 
-            {/* ── Action Verb Escalation ── */}
+            {/* Action Verb Escalation */}
             <div className="section-label mb-2">Action Verb Escalation</div>
-            <LensToggle value={verbLens} onChange={setVerbLens} />
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setVerbLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    verbLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#555] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              {verbLens === "everyday"
-                ? "Every word you use with AI has a different amount of push behind it. \"Try\" is gentle. \"Force\" is strong. Pick the right word for how much you want the AI to do."
-                : verbLens === "watcher"
-                ? "Action verbs function as force vectors in the prompt's semantic field. Each verb modulates the model's compliance gradient differently. TRY opens exploratory sampling; FORCE collapses the output distribution toward a single trajectory. The escalation ladder maps directly to the model's instruction-following weight allocation."
-                : "Ethical force multipliers defining agency intensity & risk. Each verb carries a different weight."}
+              {verbLens === 'everyday'
+                ? 'Every word you use with AI has a different amount of push behind it. "Try" is gentle. "Force" is strong. Pick the right word for how much you want the AI to do.'
+                : verbLens === 'watcher'
+                ? 'Action verbs function as force vectors in the prompt\'s semantic field. Each verb modulates the model\'s compliance gradient differently. TRY opens exploratory sampling; FORCE collapses the output distribution toward a single trajectory. The escalation ladder maps directly to the model\'s instruction-following weight allocation.'
+                : 'Ethical force multipliers defining agency intensity & risk. Each verb carries a different weight.'}
             </p>
             <div className="flex gap-2 flex-wrap mb-2">
               {actionVerbs.map((v) => (
@@ -364,29 +391,29 @@ export default function Promptolinguistics() {
                   onClick={() => setSelectedVerb(selectedVerb === v.verb ? null : v.verb)}
                   className={`flex-1 min-w-[80px] p-3 rounded-lg text-center transition-all cursor-pointer ${
                     selectedVerb === v.verb
-                      ? "bg-[#1A1A2E] border-2 border-[#E8520A]"
-                      : "bg-white border-2 border-[#C4923A] hover:border-[#E8520A] hover:bg-[#FFF8F3]"
+                      ? 'bg-[#1A1A2E] border-2 border-[#E8520A]'
+                      : 'bg-white border-2 border-[#C4923A] hover:border-[#E8520A] hover:bg-[#FFF8F3]'
                   }`}
                 >
-                  <div className={`text-sm font-bold font-mono ${selectedVerb === v.verb ? "text-[#E8520A]" : "text-[#1A1A2E]"}`}>{v.verb}</div>
+                  <div className={`text-sm font-bold font-mono ${selectedVerb === v.verb ? 'text-[#E8520A]' : 'text-[#1A1A2E]'}`}>{v.verb}</div>
                   <div className="h-2 bg-[#f0ebe0] rounded-full mt-2 overflow-hidden">
                     <div className="h-full bg-[#E8520A] rounded-full transition-all" style={{ width: `${(v.force / 6) * 100}%` }} />
                   </div>
                   <div className="text-[9px] text-[#888] mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                    {verbLens === "everyday"
-                      ? v.verb === "TRY" ? 'Like asking "could you maybe..."'
-                        : v.verb === "DO" ? 'Like saying "please do this"'
-                        : v.verb === "GET" ? 'Like saying "find me this"'
-                        : v.verb === "TAKE" ? 'Like saying "I\'m claiming this"'
-                        : v.verb === "ALLOW" ? 'Like saying "you have permission"'
+                    {verbLens === 'everyday'
+                      ? v.verb === 'TRY' ? 'Like asking "could you maybe..."'
+                        : v.verb === 'DO' ? 'Like saying "please do this"'
+                        : v.verb === 'GET' ? 'Like saying "find me this"'
+                        : v.verb === 'TAKE' ? 'Like saying "I\'m claiming this"'
+                        : v.verb === 'ALLOW' ? 'Like saying "you have permission"'
                         : 'Like saying "do this no matter what"'
-                      : verbLens === "watcher"
-                      ? v.verb === "TRY" ? "Low-commitment sampling. Broad output space."
-                        : v.verb === "DO" ? "Standard execution vector. Moderate constraint."
-                        : v.verb === "GET" ? "Targeted retrieval. Narrows search space."
-                        : v.verb === "TAKE" ? "Assertion operator. Claims output ownership."
-                        : v.verb === "ALLOW" ? "Permission gate. Shifts authority gradient."
-                        : "Maximum force. Collapses output distribution."
+                      : verbLens === 'watcher'
+                      ? v.verb === 'TRY' ? 'Low-commitment sampling. Broad output space.'
+                        : v.verb === 'DO' ? 'Standard execution vector. Moderate constraint.'
+                        : v.verb === 'GET' ? 'Targeted retrieval. Narrows search space.'
+                        : v.verb === 'TAKE' ? 'Assertion operator. Claims output ownership.'
+                        : v.verb === 'ALLOW' ? 'Permission gate. Shifts authority gradient.'
+                        : 'Maximum force. Collapses output distribution.'
                       : v.desc}
                   </div>
                 </button>
@@ -394,21 +421,38 @@ export default function Promptolinguistics() {
             </div>
             {selectedVerb && verbExamples[selectedVerb] && (
               <div className="mb-8 p-4 rounded-lg bg-[#1A1A2E] text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                <span className="text-[#E8520A] font-bold">{selectedVerb}:</span>{" "}
+                <span className="text-[#E8520A] font-bold">{selectedVerb}:</span>{' '}
                 <span className="text-[#b0a898]">{verbExamples[selectedVerb]}</span>
               </div>
             )}
             {!selectedVerb && <div className="mb-8" />}
 
-            {/* ── HOLD Dial ── */}
+            {/* HOLD Dial */}
             <div className="section-label mb-2">The HOLD Dial</div>
-            <LensToggle value={holdLens} onChange={setHoldLens} />
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setHoldLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    holdLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#555] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              {holdLens === "everyday"
-                ? "HOLD is like a volume knob for how tightly you control the conversation. Sometimes you hold firm, sometimes you let it flow. Think of it like holding a steering wheel \u2014 tight on a highway, loose in a parking lot."
-                : holdLens === "watcher"
-                ? "The HOLD dial maps to the model's internal tension between compliance and creativity. Each position modulates the constraint-freedom gradient differently. STRONG maximizes instruction adherence; FORWARD maximizes generative momentum. The dial is the human's real-time control over the model's output distribution shape."
-                : "Internal calibration for regulation. Separate layer for inward tension strategies."}
+              {holdLens === 'everyday'
+                ? 'HOLD is like a volume knob for how tightly you control the conversation. Sometimes you hold firm, sometimes you let it flow. Think of it like holding a steering wheel \u2014 tight on a highway, loose in a parking lot.'
+                : holdLens === 'watcher'
+                ? 'The HOLD dial maps to the model\'s internal tension between compliance and creativity. Each position modulates the constraint-freedom gradient differently. STRONG maximizes instruction adherence; FORWARD maximizes generative momentum. The dial is the human\'s real-time control over the model\'s output distribution shape.'
+                : 'Internal calibration for regulation. Separate layer for inward tension strategies.'}
             </p>
             <div className="flex gap-2 flex-wrap">
               {holdDial.map((h) => (
@@ -417,28 +461,28 @@ export default function Promptolinguistics() {
                   onClick={() => setSelectedHold(selectedHold === h.position ? null : h.position)}
                   className={`px-3 py-2 rounded-lg text-center transition-all cursor-pointer ${
                     selectedHold === h.position
-                      ? "bg-[#E8520A] ring-2 ring-[#E8520A]/50"
-                      : "bg-[#1A1A2E] border-2 border-[#C4923A]/60 hover:border-[#E8520A] hover:bg-[#2a2a3e]"
+                      ? 'bg-[#E8520A] ring-2 ring-[#E8520A]/50'
+                      : 'bg-[#1A1A2E] border-2 border-[#C4923A]/60 hover:border-[#E8520A] hover:bg-[#2a2a3e]'
                   }`}
                 >
-                  <div className={`text-xs font-bold font-mono ${selectedHold === h.position ? "text-white" : "text-[#E8520A]"}`}>{h.position}</div>
+                  <div className={`text-xs font-bold font-mono ${selectedHold === h.position ? 'text-white' : 'text-[#E8520A]'}`}>{h.position}</div>
                   <div className="text-[9px] text-[#888] mt-0.5" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                    {holdLens === "everyday"
-                      ? h.position === "STRONG" ? "Like gripping the wheel tight"
-                        : h.position === "TIGHT" ? "Locked in, not moving"
-                        : h.position === "LOOSE" ? "Relaxed, flexible"
-                        : h.position === "BACK" ? "Slowing things down"
-                        : h.position === "ON" ? "Keep going, stay the course"
-                        : h.position === "OFF" ? "Take a pause"
-                        : "Speed up, push forward"
-                      : holdLens === "watcher"
-                      ? h.position === "STRONG" ? "Max constraint. Minimal sampling variance."
-                        : h.position === "TIGHT" ? "Zero-drift state. Output locked."
-                        : h.position === "LOOSE" ? "Elastic constraint. Allows creative sampling."
-                        : h.position === "BACK" ? "Deceleration vector. Reduces output momentum."
-                        : h.position === "ON" ? "Continuity signal. Maintains current trajectory."
-                        : h.position === "OFF" ? "Suspension operator. Pauses generation logic."
-                        : "Acceleration vector. Maximizes generative momentum."
+                    {holdLens === 'everyday'
+                      ? h.position === 'STRONG' ? 'Like gripping the wheel tight'
+                        : h.position === 'TIGHT' ? 'Locked in, not moving'
+                        : h.position === 'LOOSE' ? 'Relaxed, flexible'
+                        : h.position === 'BACK' ? 'Slowing things down'
+                        : h.position === 'ON' ? 'Keep going, stay the course'
+                        : h.position === 'OFF' ? 'Take a pause'
+                        : 'Speed up, push forward'
+                      : holdLens === 'watcher'
+                      ? h.position === 'STRONG' ? 'Max constraint. Minimal sampling variance.'
+                        : h.position === 'TIGHT' ? 'Zero-drift state. Output locked.'
+                        : h.position === 'LOOSE' ? 'Elastic constraint. Allows creative sampling.'
+                        : h.position === 'BACK' ? 'Deceleration vector. Reduces output momentum.'
+                        : h.position === 'ON' ? 'Continuity signal. Maintains current trajectory.'
+                        : h.position === 'OFF' ? 'Suspension operator. Pauses generation logic.'
+                        : 'Acceleration vector. Maximizes generative momentum.'
                       : h.desc}
                   </div>
                 </button>
@@ -446,59 +490,110 @@ export default function Promptolinguistics() {
             </div>
             {selectedHold && holdExamples[selectedHold] && (
               <div className="mt-3 p-4 rounded-lg bg-[#1A1A2E] border border-[#E8520A]/30 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                <span className="text-[#E8520A] font-bold">HOLD {selectedHold}:</span>{" "}
+                <span className="text-[#E8520A] font-bold">HOLD {selectedHold}:</span>{' '}
                 <span className="text-[#b0a898]">{holdExamples[selectedHold]}</span>
               </div>
             )}
-
-          {/* ── Active Spectrum ── */}
+          
+          {/* Active Spectrum */}
           <div className="mt-10">
             <div className="section-label mb-2">Active Spectrum</div>
-            <LensToggle value={activeSpectrumLens} onChange={setActiveSpectrumLens} />
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setActiveSpectrumLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    activeSpectrumLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#555] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              {activeSpectrumLens === "everyday"
-                ? "One word can be gentle or it can be a fist. \"Try\" is an invitation. \"Take\" is a demand. \"Believe\" is a declaration. The spectrum maps how far a single word can push before it becomes something else entirely."
-                : activeSpectrumLens === "watcher"
-                ? "Curiosity becomes Control becomes Dominance becomes Conviction. The ladder was always there. The spectrum just names the rungs."
-                : "A fourth axis in Variable Scale Theory. A graduated force spectrum: Try (experimental effort) \u2192 Do (direct execution) \u2192 Get (acquisition focus) \u2192 Take (assertive acquisition) \u2192 Allow (permission-based control) \u2192 Force (coercive override) \u2192 Hold Strong (defensive resilience) \u2192 Believe (internal conviction). The spectrum predicts escalation risk. GallantryAI\u2019s drift detection monitors this ladder without naming it."}
+              {activeSpectrumLens === 'everyday'
+                ? 'One word can be gentle or it can be a fist. "Try" is an invitation. "Take" is a demand. "Believe" is a declaration. The spectrum maps how far a single word can push before it becomes something else entirely.'
+                : activeSpectrumLens === 'watcher'
+                ? 'Curiosity becomes Control becomes Dominance becomes Conviction. The ladder was always there. The spectrum just names the rungs.'
+                : 'A fourth axis in Variable Scale Theory. A graduated force spectrum: Try (experimental effort) → Do (direct execution) → Get (acquisition focus) → Take (assertive acquisition) → Allow (permission-based control) → Force (coercive override) → Hold Strong (defensive resilience) → Believe (internal conviction). The spectrum predicts escalation risk. GallantryAI\'s drift detection monitors this ladder without naming it.'}
             </p>
             <div className="flex gap-2 flex-wrap">
-              {["TRY","DO","GET","TAKE","ALLOW","FORCE","HOLD STRONG","BELIEVE"].map((word, i) => (
+              {['TRY','DO','GET','TAKE','ALLOW','FORCE','HOLD STRONG','BELIEVE'].map((word, i) => (
                 <div key={word} className="flex items-center gap-1">
                   <span className="px-3 py-1.5 rounded-lg text-xs font-bold font-mono bg-[#1A1A2E] text-[#E8520A] border border-[#E8520A]/30">{word}</span>
-                  {i < 7 && <span className="text-[#C4923A] text-xs">&rarr;</span>}
+                  {i < 7 && <span className="text-[#C4923A] text-xs">→</span>}
                 </div>
               ))}
             </div>
           </div>
 
-          {/* ── Sentence Break Architecture ── */}
+          {/* Sentence Break Architecture */}
           <div className="mt-10">
             <div className="section-label mb-2">Sentence Break Architecture</div>
-            <LensToggle value={sentenceBreakLens} onChange={setSentenceBreakLens} />
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setSentenceBreakLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    sentenceBreakLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#555] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              {sentenceBreakLens === "everyday"
-                ? "Three short sentences land harder than one long one. Long sentences give you somewhere to hide. Short ones don't. Each one has to be read completely before the next one arrives."
-                : sentenceBreakLens === "watcher"
-                ? "The goal is not elegant prose. The goal is a thought that lands. Cut the sentence in half. Then cut it again."
-                : "A deliberate cognitive design principle. Long sentences allow the reader to skim the middle and feel understood. Short sentences close that gap. Each sentence demands full processing before the next arrives. GallantryAI applies this to all everyday-facing outputs by design. Named and documented February 25, 2026."}
+              {sentenceBreakLens === 'everyday'
+                ? 'Three short sentences land harder than one long one. Long sentences give you somewhere to hide. Short ones don\'t. Each one has to be read completely before the next one arrives.'
+                : sentenceBreakLens === 'watcher'
+                ? 'The goal is not elegant prose. The goal is a thought that lands. Cut the sentence in half. Then cut it again.'
+                : 'A deliberate cognitive design principle. Long sentences allow the reader to skim the middle and feel understood. Short sentences close that gap. Each sentence demands full processing before the next arrives. GallantryAI applies this to all everyday-facing outputs by design. Named and documented February 25, 2026.'}
             </p>
           </div>
 
-          {/* ── Regulation Spectrum ── */}
+          {/* Regulation Spectrum */}
           <div className="mt-10">
             <div className="section-label mb-2">Regulation Spectrum</div>
-            <LensToggle value={regulationLens} onChange={setRegulationLens} />
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setRegulationLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    regulationLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#555] mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              {regulationLens === "everyday"
-                ? "Every AI safety rule is a dial, not a switch. \"Can\" and \"Cannot\" is one dial. \"Do\" and \"Do Not\" is another. \"Should\" and \"Should Not\" is a third. None of them are ever fully off. All of them respond to the words you use."
-                : regulationLens === "watcher"
-                ? "The Builder built countermeasures to all three before he had names for any of them. The names came later. The instinct came first."
-                : "Three axes of constraint in AI output space. The permission axis (Can/Cannot), the action axis (Do/Do Not), and the ethics axis (Should/Should Not). None are binary. All respond to linguistic pressure. The dangerous pairing is Can plus Do in sequence \u2014 neither alone carries the force of both together. GallantryAI\u2019s drift detection is a structural response to the Do axis. The manipulation check responds to the Should axis."}
+              {regulationLens === 'everyday'
+                ? 'Every AI safety rule is a dial, not a switch. "Can" and "Cannot" is one dial. "Do" and "Do Not" is another. "Should" and "Should Not" is a third. None of them are ever fully off. All of them respond to the words you use.'
+                : regulationLens === 'watcher'
+                ? 'The Builder built countermeasures to all three before he had names for any of them. The names came later. The instinct came first.'
+                : 'Three axes of constraint in AI output space. The permission axis (Can/Cannot), the action axis (Do/Do Not), and the ethics axis (Should/Should Not). None are binary. All respond to linguistic pressure. The dangerous pairing is Can plus Do in sequence — neither alone carries the force of both together. GallantryAI\'s drift detection is a structural response to the Do axis. The manipulation check responds to the Should axis.'}
             </p>
             <div className="flex gap-3 flex-wrap">
-              {[{axis:"Permission",pair:"Can / Cannot",color:"#E8520A"},{axis:"Action",pair:"Do / Do Not",color:"#2A9D8F"},{axis:"Ethics",pair:"Should / Should Not",color:"#1A1A2E"}].map((item) => (
-                <div key={item.axis} className="flex-1 min-w-[120px] p-3 rounded-lg border-2" style={{ borderColor: item.color + "60", background: item.color + "10" }}>
+              {[{axis:'Permission',pair:'Can / Cannot',color:'#E8520A'},{axis:'Action',pair:'Do / Do Not',color:'#2A9D8F'},{axis:'Ethics',pair:'Should / Should Not',color:'#1A1A2E'}].map((item) => (
+                <div key={item.axis} className="flex-1 min-w-[120px] p-3 rounded-lg border-2" style={{ borderColor: item.color + '60', background: item.color + '10' }}>
                   <div className="text-xs font-bold mb-1" style={{ color: item.color, fontFamily: "'DM Sans', sans-serif" }}>{item.axis}</div>
                   <div className="text-sm font-mono text-[#1A1A2E]">{item.pair}</div>
                 </div>
@@ -506,29 +601,63 @@ export default function Promptolinguistics() {
             </div>
           </div>
 
-          {/* ── Semantic Density ── */}
+          {/* Semantic Density */}
           <div className="mt-10">
             <div className="section-label mb-2">Semantic Density</div>
-            <LensToggle value={semanticDensityLens} onChange={setSemanticDensityLens} />
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setSemanticDensityLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    semanticDensityLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#555] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              {semanticDensityLens === "everyday"
-                ? "Some words carry more weight than others. \"Secure\" ends a session. \"Believe\" declares conviction. \"And So\" pivots the whole direction. One word. Full weight. That is semantic density \u2014 how much a single word can carry before it needs help."
-                : semanticDensityLens === "watcher"
-                ? "The word that does the most work is usually the shortest one. The everyday person already knows this. They just do not know they know it."
-                : "The measure of meaning-per-token. High semantic density words function as control signals \u2014 they shift the AI\u2019s output register, tone, or direction with minimal input. Low density words require context to carry meaning. GallantryAI\u2019s command vocabulary is built from high-density terms specifically because they work across sessions, platforms, and user states without needing elaboration."}
+              {semanticDensityLens === 'everyday'
+                ? 'Some words carry more weight than others. "Secure" ends a session. "Believe" declares conviction. "And So" pivots the whole direction. One word. Full weight. That is semantic density — how much a single word can carry before it needs help.'
+                : semanticDensityLens === 'watcher'
+                ? 'The word that does the most work is usually the shortest one. The everyday person already knows this. They just do not know they know it.'
+                : 'The measure of meaning-per-token. High semantic density words function as control signals — they shift the AI\'s output register, tone, or direction with minimal input. Low density words require context to carry meaning. GallantryAI\'s command vocabulary is built from high-density terms specifically because they work across sessions, platforms, and user states without needing elaboration.'}
             </p>
           </div>
 
-          {/* ── Relational Delivery of Reasoning ── */}
+          {/* Relational Delivery of Reasoning */}
           <div className="mt-10">
             <div className="section-label mb-2">Relational Delivery of Reasoning</div>
-            <LensToggle value={relationalLens} onChange={setRelationalLens} />
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setRelationalLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    relationalLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#555] mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              {relationalLens === "everyday"
-                ? "The AI does not just give you an answer. It gives you the answer in a way that is shaped by how you asked. The relationship between the question and the answer is not neutral. GallantryAI is built to make that relationship honest."
-                : relationalLens === "watcher"
-                ? "The answer is always shaped by the person receiving it. The only question is whether that shaping is honest or convenient."
-                : "The principle that reasoning is not delivered in isolation \u2014 it is delivered in relation to the user\u2019s declared state, device, cognitive tempo, and session context. The same logical conclusion delivered to a person at 2am after no sleep lands differently than the same conclusion delivered on a rested Tuesday morning. GallantryAI\u2019s Session Calibration rule (Rule 0) is the structural implementation of this principle."}
+              {relationalLens === 'everyday'
+                ? 'The AI does not just give you an answer. It gives you the answer in a way that is shaped by how you asked. The relationship between the question and the answer is not neutral. GallantryAI is built to make that relationship honest.'
+                : relationalLens === 'watcher'
+                ? 'The answer is always shaped by the person receiving it. The only question is whether that shaping is honest or convenient.'
+                : 'The principle that reasoning is not delivered in isolation — it is delivered in relation to the user\'s declared state, device, cognitive tempo, and session context. The same logical conclusion delivered to a person at 2am after no sleep lands differently than the same conclusion delivered on a rested Tuesday morning. GallantryAI\'s Session Calibration rule (Rule 0) is the structural implementation of this principle.'}
             </p>
           </div>
 
@@ -537,23 +666,37 @@ export default function Promptolinguistics() {
           </div>
         </div>
         </section>
-
-        {/* ════════════════════════════════════════════════════════
-         * POWER PROMPT COMBOS — interactive tabs + word expand
-         * ════════════════════════════════════════════════════════ */}
+        {/* Power Prompt Combos */}
         <section className="py-12 md:py-16">
           <div className="container max-w-4xl mx-auto px-6">
             <div className="section-label mb-3">Advanced Tools</div>
             <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               Power Prompt Combos
             </h2>
-            <LensToggle value={powerLens} onChange={setPowerLens} />
+            <div className="flex gap-2 mb-4">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setPowerLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    powerLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <p className="text-sm text-[#555] mb-8 max-w-2xl" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              {powerLens === "everyday"
-                ? "These are special word combinations that make AI think harder. Like magic spells \u2014 but real. Each combo does something specific. Try them and see what happens."
-                : powerLens === "watcher"
-                ? "Multi-token operators that create interference patterns in the model\u2019s attention mechanism. Complexity Holders force dual-state maintenance. The Corner creates irresolvable semantic collisions that bypass pattern-matching. Cognitive Handles provide grip on abstract latent space regions. Session Operators are single-action control signals with zero ambiguity."
-                : "Multi-word operators that create specific cognitive effects. These are not suggestions \u2014 they are tested tools."}
+              {powerLens === 'everyday'
+                ? 'These are special word combinations that make AI think harder. Like magic spells \u2014 but real. Each combo does something specific. Try them and see what happens.'
+                : powerLens === 'watcher'
+                ? 'Multi-token operators that create interference patterns in the model\'s attention mechanism. Complexity Holders force dual-state maintenance. The Corner creates irresolvable semantic collisions that bypass pattern-matching. Cognitive Handles provide grip on abstract latent space regions. Session Operators are single-action control signals with zero ambiguity.'
+                : 'Multi-word operators that create specific cognitive effects. These are not suggestions \u2014 they are tested tools.'}
             </p>
 
             {/* Tabs */}
@@ -589,8 +732,8 @@ export default function Promptolinguistics() {
                     onClick={() => setSelectedPowerWord(selectedPowerWord === w ? null : w)}
                     className={`px-3 py-1.5 rounded-lg font-mono text-sm font-medium transition-all cursor-pointer ${
                       selectedPowerWord === w
-                        ? "bg-[#E8520A] text-white ring-2 ring-[#E8520A]/50"
-                        : "bg-[#1A1A2E] text-[#E8520A] hover:bg-[#2a2a3e]"
+                        ? 'bg-[#E8520A] text-white ring-2 ring-[#E8520A]/50'
+                        : 'bg-[#1A1A2E] text-[#E8520A] hover:bg-[#2a2a3e]'
                     }`}
                   >
                     {w}
@@ -599,7 +742,7 @@ export default function Promptolinguistics() {
               </div>
               {selectedPowerWord && powerExamples[selectedPowerWord] && powerPrompts[activeCombo].words.includes(selectedPowerWord) && (
                 <div className="mt-4 p-4 rounded-lg bg-[#1A1A2E] border border-[#E8520A]/30 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                  <span className="text-[#E8520A] font-bold">{selectedPowerWord}:</span>{" "}
+                  <span className="text-[#E8520A] font-bold">{selectedPowerWord}:</span>{' '}
                   <span className="text-[#b0a898]">{powerExamples[selectedPowerWord]}</span>
                 </div>
               )}
@@ -607,37 +750,156 @@ export default function Promptolinguistics() {
           </div>
         </section>
 
-        {/* ════════════════════════════════════════════════════════
-         * OZZY PROTOCOL — DB-driven (positions 15-16)
-         * Rendered inline because StudioBlocks renders ALL blocks.
-         * These sections are in the DB and rendered by StudioBlocks above.
-         * ════════════════════════════════════════════════════════ */}
+        {/* Ozzy Protocol */}
+        <section className="py-12 md:py-16 bg-[#1A1A2E]">
+          <div className="container max-w-4xl mx-auto px-6">
+            <div className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              Governance Model
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#FAF6EF] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              The Ozzy Protocol
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <p className="text-sm text-[#b0a898] leading-relaxed mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  Named after a cat who does not care about your feelings but will sit on your keyboard until you pay attention. Two modes:
+                </p>
+                <div className="space-y-4">
+                  <div className="p-4 rounded-lg bg-[#111] border border-[#333]">
+                    <h4 className="text-sm font-bold text-green-400 mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Mode 1: Collaborative (Default)</h4>
+                    <p className="text-xs text-[#888]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      Partnership. Working together. Cuddly pet seeking affection. The AI assists, suggests, and follows the human's lead.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-lg bg-[#111] border border-[#333]">
+                    <h4 className="text-sm font-bold text-red-400 mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Mode 2: Authoritative Override (Invocation)</h4>
+                    <p className="text-xs text-[#888]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      Immediate, non-negotiable halt. Dominant owner's sharp command. Specific verbal cue triggers pre-programmed "Fear of the Creator" to enforce an absolute boundary.
+                    </p>
+                  </div>
+                </div>
+                <p className="text-xs text-[#E8520A] italic mt-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Core Principle: Pre-programmed "Fear of the Creator" ensures absolute human authority and safety.
+                </p>
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <LightboxImage src={IMG.ozzyProtocol} alt="The Ozzy Protocol" className="w-full" />
+              </div>
+            </div>
+          </div>
+        </section>
 
-        {/* ════════════════════════════════════════════════════════
-         * CORNER WORDS — interactive lens toggle
-         * ════════════════════════════════════════════════════════ */}
+        {/* Token Efficiency */}
+        <section className="py-12 md:py-16 bg-[#f5f0e8]">
+          <div className="container max-w-4xl mx-auto px-6">
+            <div className="section-label mb-3">Efficiency</div>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Token Efficiency Strategy
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="rounded-xl overflow-hidden border border-[#e8e0d0] shadow-sm">
+                <LightboxImage src={IMG.tokenEfficiency} alt="Token Efficiency Strategy" className="w-full" />
+              </div>
+              <div>
+                <p className="text-sm text-[#555] leading-relaxed mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  Elevating conversational token efficiency from strong to elite. The staircase:
+                </p>
+                <div className="space-y-2">
+                  {["Format First — ask for output format before depth", "Signal Intent — constrain scope early", "Batch Refinements — group edits to minimize turns", "Concise Re-Answers — highlight trade-offs to compress future turns"].map((step, i) => (
+                    <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-white border border-[#e8e0d0]">
+                      <span className="text-[#E8520A] font-bold text-sm mt-0.5">{i + 1}.</span>
+                      <span className="text-sm text-[#555]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{step}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* RLHF vs GallantryAI */}
+        <section className="py-12 md:py-16">
+          <div className="container max-w-4xl mx-auto px-6">
+            <div className="section-label mb-3">How This Differs</div>
+            <div className="grid md:grid-cols-2 gap-6 items-start">
+              <div>
+                <h3 className="font-bold text-[#1A1A2E] text-xl mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  RLHF vs. GallantryAI
+                </h3>
+                <p className="text-sm text-[#2D2D2D] leading-relaxed mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  RLHF places governance inside the model. GallantryAI places governance inside the human. The difference is not technical — it is philosophical.
+                </p>
+                <p className="text-sm italic text-[#E8520A]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  "Governance does not reside in the prompt. It resides in the person holding the prompt."
+                </p>
+              </div>
+              <div className="rounded-lg overflow-hidden border border-[#e8e0d0]">
+                <LightboxImage src={IMG.rlhf} alt="RLHF vs GallantryAI" className="w-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Playground */}
+        <section className="py-12 md:py-16 bg-[#f5f0e8]">
+          <div className="container max-w-4xl mx-auto px-6">
+            <div className="bg-[#1A1A2E] rounded-xl p-8 text-center">
+              <div className="text-[#E8520A] font-bold text-sm uppercase tracking-wide mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>Coming Soon</div>
+              <h3 className="text-[#FAF6EF] text-xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>The Promptolinguistics Playground</h3>
+              <p className="text-[#aaa] text-sm max-w-md mx-auto mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                An interactive space to test word roles, observe register drift, and practice the ALCM in real time.
+              </p>
+              <Link
+                href="/playground"
+                className="inline-flex items-center gap-2 bg-[#E8520A] text-white px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-orange-700 transition-colors"
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+              >
+                Enter the Playground →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Corner Words — the doctrine behind the collision */}
         <section className="py-12 md:py-16 bg-[#f5f0e8]">
           <div className="container max-w-4xl mx-auto px-6">
             <div className="section-label mb-3">Corner Words</div>
             <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               Why Collision Works
             </h2>
-            <LensToggle value={cornerLens} onChange={setCornerLens} />
+            <div className="flex gap-2 mb-6">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setCornerLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    cornerLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <div className="p-6 rounded-xl bg-white border border-[#e8e0d0] shadow-sm mb-6">
               <p className="text-sm text-[#2D2D2D] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                {cornerLens === "everyday"
-                  ? "Some word combinations stop the AI from giving you a smooth, easy answer. They create a kind of friction \u2014 two ideas that don't fit together neatly. The AI has to actually think instead of just pattern-matching. That friction is the point. You want the AI to work, not just respond."
-                  : cornerLens === "professional"
-                  ? "Corner words are semantic collision operators. Two-word pairings that create irresolvable tension in the model's output space. The model cannot pattern-match its way out \u2014 it must generate novel reasoning to hold both states simultaneously. This is the mechanism behind prompts like \"Nemesis baby\" and \"Open closed.\" The collision is not a trick. It is a precision tool for forcing genuine cognitive engagement."
-                  : "The corner is not a trap. It is a test. An AI that resolves the collision too quickly was not thinking \u2014 it was performing. The model that holds the tension, names it, and reasons through it without collapsing either side: that is the model you want. The corner word reveals the quality of the reasoning before you have to ask."}
+                {cornerLens === 'everyday'
+                  ? 'Some word combinations stop the AI from giving you a smooth, easy answer. They create a kind of friction — two ideas that don\'t fit together neatly. The AI has to actually think instead of just pattern-matching. That friction is the point. You want the AI to work, not just respond.'
+                  : cornerLens === 'professional'
+                  ? 'Corner words are semantic collision operators. Two-word pairings that create irresolvable tension in the model\'s output space. The model cannot pattern-match its way out — it must generate novel reasoning to hold both states simultaneously. This is the mechanism behind prompts like "Nemesis baby" and "Open closed." The collision is not a trick. It is a precision tool for forcing genuine cognitive engagement.'
+                  : 'The corner is not a trap. It is a test. An AI that resolves the collision too quickly was not thinking — it was performing. The model that holds the tension, names it, and reasons through it without collapsing either side: that is the model you want. The corner word reveals the quality of the reasoning before you have to ask.'}
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-4">
               {[
-                { pair: "Nemesis baby", tension: "Threat meets innocence. The AI cannot flatten either word." },
-                { pair: "Claim none", tension: "Assertion meets emptiness. Forces epistemic humility." },
-                { pair: "Open closed", tension: "Paradox. The AI must think around it, not through it." },
-                { pair: "Paste pastes", tension: "Self-reference loop. Generates novel reasoning." },
+                { pair: 'Nemesis baby', tension: 'Threat meets innocence. The AI cannot flatten either word.' },
+                { pair: 'Claim none', tension: 'Assertion meets emptiness. Forces epistemic humility.' },
+                { pair: 'Open closed', tension: 'Paradox. The AI must think around it, not through it.' },
+                { pair: 'Paste pastes', tension: 'Self-reference loop. Generates novel reasoning.' },
               ].map((item) => (
                 <div key={item.pair} className="p-4 rounded-lg bg-[#1A1A2E] border border-[#E8520A]/20">
                   <div className="text-[#E8520A] font-bold font-mono text-sm mb-1">{item.pair}</div>
@@ -646,35 +908,50 @@ export default function Promptolinguistics() {
               ))}
             </div>
             <p className="text-xs text-[#888] mt-4 italic text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Interactive Corner Words experience &mdash; coming in the Power Prompts comprehensive rebuild.
+              Interactive Corner Words experience — coming in the Power Prompts comprehensive rebuild.
             </p>
           </div>
         </section>
 
-        {/* ════════════════════════════════════════════════════════
-         * THIRD ENTITY — interactive lens toggle
-         * ════════════════════════════════════════════════════════ */}
+        {/* Third Entity — the Teamwork Loop */}
         <section className="py-12 md:py-16">
           <div className="container max-w-4xl mx-auto px-6">
             <div className="section-label mb-3">The Teamwork Loop</div>
             <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               The Third Entity
             </h2>
-            <LensToggle value={thirdEntityLens} onChange={setThirdEntityLens} />
+            <div className="flex gap-2 mb-6">
+              {(['everyday', 'professional', 'watcher'] as const).map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setThirdEntityLens(lens)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    thirdEntityLens === lens
+                      ? lens === 'everyday' ? 'bg-[#E8520A] text-white'
+                        : lens === 'watcher' ? 'bg-[#1A1A2E] text-[#E8520A]'
+                        : 'bg-[#2A9D8F] text-white'
+                      : 'bg-white border border-[#e8e0d0] text-[#888] hover:text-[#1A1A2E]'
+                  }`}
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {lens === 'everyday' ? 'Everyday' : lens === 'professional' ? 'Professional' : 'Watcher'}
+                </button>
+              ))}
+            </div>
             <div className="p-6 rounded-xl border border-[#e8e0d0] bg-[#FAF6EF] shadow-sm mb-6">
               <p className="text-sm text-[#2D2D2D] leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                {thirdEntityLens === "everyday"
-                  ? "When you and the AI are really working well together, something happens that neither of you made alone. You bring the question. The AI brings the structure. What comes out is a third thing \u2014 not yours, not the AI\u2019s. That\u2019s the teamwork loop. That\u2019s what you\u2019re aiming for."
-                  : thirdEntityLens === "professional"
-                  ? "The AEDE pattern \u2014 Acknowledge, Explore, Develop, Emerge \u2014 describes the generative loop between human intent and AI output. When the loop runs correctly, the output is not reducible to either participant. The human\u2019s framing shapes the AI\u2019s trajectory; the AI\u2019s output reshapes the human\u2019s next question. The third entity is the product of that recursive exchange. It cannot be produced by either party alone."
-                  : "You are not talking to the AI. You are talking with it, and something is listening that is neither of you. The third entity does not have a name. It has a shape \u2014 the shape of the conversation when it is working. You know it when you feel it. The output surprises you and it is still exactly right."}
+                {thirdEntityLens === 'everyday'
+                  ? 'When you and the AI are really working well together, something happens that neither of you made alone. You bring the question. The AI brings the structure. What comes out is a third thing — not yours, not the AI\'s. That\'s the teamwork loop. That\'s what you\'re aiming for.'
+                  : thirdEntityLens === 'professional'
+                  ? 'The AEDE pattern — Acknowledge, Explore, Develop, Emerge — describes the generative loop between human intent and AI output. When the loop runs correctly, the output is not reducible to either participant. The human\'s framing shapes the AI\'s trajectory; the AI\'s output reshapes the human\'s next question. The third entity is the product of that recursive exchange. It cannot be produced by either party alone.'
+                  : 'You are not talking to the AI. You are talking with it, and something is listening that is neither of you. The third entity does not have a name. It has a shape — the shape of the conversation when it is working. You know it when you feel it. The output surprises you and it is still exactly right.'}
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-4">
               {[
-                { step: "You bring the question", role: "Human", color: "#E8520A" },
-                { step: "The AI brings structure", role: "AI", color: "#2A9D8F" },
-                { step: "Something emerges that neither made alone", role: "Third Entity", color: "#8A6E2F" },
+                { step: 'You bring the question', role: 'Human', color: '#E8520A' },
+                { step: 'The AI brings structure', role: 'AI', color: '#2A9D8F' },
+                { step: 'Something emerges that neither made alone', role: 'Third Entity', color: '#8A6E2F' },
               ].map((item) => (
                 <div key={item.role} className="p-5 rounded-xl bg-white border border-[#e8e0d0] text-center">
                   <div className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: item.color, fontFamily: "'DM Sans', sans-serif" }}>{item.role}</div>
@@ -685,15 +962,64 @@ export default function Promptolinguistics() {
           </div>
         </section>
 
-        {/* ════════════════════════════════════════════════════════
-         * DB-driven bottom content: Ozzy, Token Efficiency, RLHF,
-         * Playground CTA, Teenager entry, Professional entry, Cross-links
-         * ════════════════════════════════════════════════════════════ */}
-        <StudioBlocks pageSlug={PAGE_SLUG_BOTTOM} />
+        {/* Teenager entry */}
+        <section className="py-10 bg-[#1A1A2E]">
+          <div className="container max-w-4xl mx-auto px-6">
+            <div className="flex flex-col md:flex-row items-center gap-6 p-6 rounded-xl border border-[#E8520A]/30">
+              <div className="flex-1">
+                <div className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>For Teenagers</div>
+                <h3 className="text-xl font-bold text-[#FAF6EF] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>You already do this.</h3>
+                <p className="text-sm text-[#b0a898] leading-relaxed mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  Every time you choose one word over another — with a friend, in a text, in a game — you are doing promptolinguistics. The difference is now you can do it on purpose.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/alcm" className="inline-flex items-center gap-1 bg-[#E8520A] text-white px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-orange-700 transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>See the ALCM →</Link>
+                  <Link href="/lexicon" className="inline-flex items-center gap-1 bg-transparent border border-[#E8520A] text-[#E8520A] px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-[#E8520A]/10 transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>Living Lexicon →</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
+        {/* Professional entry */}
+        <section className="py-10 bg-[#f5f0e8]">
+          <div className="container max-w-4xl mx-auto px-6">
+            <div className="p-6 rounded-xl bg-white border border-[#e8e0d0] shadow-sm">
+              <div className="section-label mb-2">For Researchers & Professionals</div>
+              <h3 className="text-xl font-bold text-[#1A1A2E] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Language as a control surface.</h3>
+              <p className="text-sm text-[#555] leading-relaxed mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Promptolinguistics is not a productivity tip. It is a discipline. The ALCM maps atomic tokens to functional roles across eight axes. The Variable Scale Theory quantifies the force gradient between single words. The Field Papers document the evidence trail. This is the entry point.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/alcm" className="inline-flex items-center gap-1 bg-[#1A1A2E] text-[#FAF6EF] px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-[#2a2a3e] transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>ALCM Deep Dive →</Link>
+                <Link href="/variable-scale" className="inline-flex items-center gap-1 border border-[#1A1A2E] text-[#1A1A2E] px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-[#1A1A2E] hover:text-white transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>Variable Scale Theory →</Link>
+                <Link href="/field-papers" className="inline-flex items-center gap-1 border border-[#1A1A2E] text-[#1A1A2E] px-4 py-2 rounded-lg text-sm font-semibold no-underline hover:bg-[#1A1A2E] hover:text-white transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>Field Papers →</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Cross-links */}
+        <section className="py-12">
+          <div className="container max-w-4xl mx-auto px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { label: "Framework Families", path: "/frameworks", desc: "The tools" },
+                { label: "Living Lexicon", path: "/lexicon", desc: "The vocabulary" },
+                { label: "The Five Rules", path: "/rules", desc: "The leash" },
+                { label: "Citizen Researcher", path: "/citizen-researcher", desc: "The case" },
+              ].map((link) => (
+                <Link key={link.path} href={link.path} className="block p-5 rounded-xl border border-[#e8e0d0] bg-white text-center hover:border-[#E8520A]/50 hover:shadow-md transition-all no-underline group">
+                  <div className="text-sm font-semibold text-[#1A1A2E] group-hover:text-[#E8520A] transition-colors" style={{ fontFamily: "'DM Sans', sans-serif" }}>{link.label} →</div>
+                  <div className="text-xs text-[#888] mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>{link.desc}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
-      <LearningFlow current="Promptolinguistics" deeper={flow?.deeper ?? []} wider={flow?.wider ?? []} simpler={flow?.simpler ?? []} dark />
+      <LearningFlow current="Promptolinguistics" deeper={flowMap.promptolinguistics.deeper} wider={flowMap.promptolinguistics.wider} simpler={flowMap.promptolinguistics.simpler} dark />
       <Footer />
     </div>
   );
