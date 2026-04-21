@@ -622,6 +622,7 @@ export default function InlineBlockEditor({ block, onClose, onSaved }: InlineBlo
       await publishMutation.mutateAsync({ blockId: block.id });
       utils.studio.getDraftBlocks.invalidate();
       utils.studio.getPublicBlocks.invalidate();
+      utils.studio.getPublishedBlocks.invalidate();
       setActionBanner({ message: "Published. Visitors can see this now.", type: "published" });
       onSaved?.();
     } catch {
@@ -635,6 +636,7 @@ export default function InlineBlockEditor({ block, onClose, onSaved }: InlineBlo
       await undoMutation.mutateAsync({ blockId: block.id });
       utils.studio.getDraftBlocks.invalidate();
       utils.studio.getPublicBlocks.invalidate();
+      utils.studio.getPublishedBlocks.invalidate();
       setActionBanner({ message: "Restored to your last published version.", type: "undo" });
       onSaved?.();
     } catch {
@@ -660,6 +662,7 @@ export default function InlineBlockEditor({ block, onClose, onSaved }: InlineBlo
       await deleteBlockMutation.mutateAsync({ id: block.id });
       utils.studio.getDraftBlocks.invalidate();
       utils.studio.getPublicBlocks.invalidate();
+      utils.studio.getPublishedBlocks.invalidate();
       onClose();
     } catch {
       setActionBanner({ message: "Could not delete block. Try again.", type: "error" });

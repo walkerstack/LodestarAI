@@ -100,4 +100,5 @@ export const exploreLinks = [
   { label: "Builder Origin", path: "/builder-origin" },
   { label: "The Builder's Kids", path: "/builders-kids" },
   { label: "The Open Door", path: "/open-door" },
+  { label: "Builder's Log", path: "/build-log" },
 ];

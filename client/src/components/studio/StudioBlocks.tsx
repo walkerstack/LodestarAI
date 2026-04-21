@@ -257,7 +257,7 @@ function CardBlock({ content }: { content: CardBlockContent }) {
 }
 
 function DocBlock({ content }: { content: DocBlockContent }) {
-  const isExternal = content.url.startsWith("http");
+  const isExternal = (content.url ?? "").startsWith("http");
   return (
     <div
       className="studio-block studio-doc-block flex items-start gap-4 p-5 rounded-xl border"

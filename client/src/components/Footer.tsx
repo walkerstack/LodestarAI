@@ -91,10 +91,10 @@ export default function Footer() {
             {footerSections.map(({ section, label, items }) => (
               <div key={section} className="space-y-1.5">
                 <div className="text-[10px] uppercase tracking-widest text-[#aaa] font-semibold mb-2">{label}</div>
-                {items.map((item) => (
+                {items.filter((item) => item.path).map((item) => (
                   <Link
                     key={item.path}
-                    href={item.path}
+                    href={item.path ?? '/'}
                     className="block hover:text-[#E8520A] no-underline transition-colors"
                     style={item.colour ? { color: item.colour } : undefined}
                   >

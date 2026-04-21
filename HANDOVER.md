@@ -34,14 +34,14 @@ Matthew built this on his phone between shifts. He is not a developer. He is the
 
 ---
 
-## VERIFIED STATE — APRIL 21, 2026
+## VERIFIED STATE — APRIL 21, 2026 (updated by session 3)
 
 ### Database
 
 | Table | Rows | Notes |
 |---|---|---|
-| content_blocks | ~462 | 57 pages seeded + 65 ChildLens + 35 Promptolinguistics + child/foundation migrations + 22 homepage blocks + 30 build-log entries |
-| nav_items | 57 | All 6 nav sections, DB-driven |
+| content_blocks | 500+ | Full inventory below |
+| nav_items | 58 | All 6 nav sections, DB-driven. /build-log added to Explore section April 21 session 3 |
 | learning_flow | 54 | All slugs correct — `home` and `buildLog` entries added April 21 |
 | lexicon_terms | 53 | Populated |
 | prompt_games | 9 | Populated |
@@ -51,6 +51,80 @@ Matthew built this on his phone between shifts. He is not a developer. He is the
 | studio_pages | 0 | Correct — Page Builder creates entries here |
 | site_settings | 3 | bannerEnabled, bannerText, bannerColor — added April 21 |
 | users | 2 | Owner + one other |
+
+### FULL CONTENT_BLOCKS INVENTORY (verified April 21 session 3)
+
+Every page with DB blocks. Orange boxes = editable on live page when admin logged in.
+
+**ORANGE BOX WIRING STATUS (CORRECTED April 21 session 3):**
+- Orange boxes ARE rendered automatically by `StudioBlocks` / `AdminBlockWrapper` when admin is logged in
+- The system works on ALL pages that use StudioBlocks — confirmed working on Promptolinguistics in browser
+- Home.tsx has 3 ADDITIONAL manually-wired getBlock() spots for Watcher quote, hero h1, hero subtext
+- The orange boxes are the WHOLE editing system — they show on every DB block when admin is on the page
+- If orange boxes are NOT showing on a page: check if the user is logged in as admin on the DEV server (not the broken live site)
+
+| Page slug | Blocks | Page file | Orange boxes wired? |
+|---|---|---|---|
+| home | 22 | Home.tsx | YES — StudioBlocks auto + 3 manual getBlock() spots |
+| build-log | 30 | BuildLog.tsx | YES — StudioBlocks auto |
+| for-child | 65 | lenses/ChildLens.tsx | YES — StudioBlocks auto |
+| for-child-rules | 14 | lenses/ChildFiveRules.tsx | NO |
+| for-child-patterns | 10 | lenses/ChildPatterns.tsx | NO |
+| for-child-prompts | 12 | lenses/ChildPrompts.tsx | NO |
+| rules | 7 | FiveRules.tsx | NO |
+| road-protocol | 22 | RoadProtocol.tsx | NO |
+| flower-presets | 13 | FlowerPresets.tsx | NO |
+| if-you-need-to-stop | 6 | SafetyPage.tsx | NO |
+| promptolinguistics | 4 | Promptolinguistics.tsx | NO |
+| promptolinguistics-bottom | 10 | Promptolinguistics.tsx | NO |
+| three-voices | 5 | ThreeLenses.tsx | NO |
+| teenager | 12 | lenses/TeenagerLens.tsx | NO |
+| everyday | 7 | lenses/EverydayLens.tsx | NO |
+| guardian-teacher | 15 | lenses/GuardianTeacherLens.tsx | NO |
+| watcher | 7 | lenses/WatcherLens.tsx | NO |
+| prompt-engineer | 25 | lenses/PromptEngineerLens.tsx | NO |
+| linguist | 9 | lenses/LinguistLens.tsx | NO |
+| mathematician | 12 | lenses/MathematicianLens.tsx | NO |
+| cognitive-science | 8 | lenses/CognitiveScienceLens.tsx | NO |
+| psychology | 12 | lenses/PsychologyLens.tsx | NO |
+| researcher | 22 | lenses/ResearcherLens.tsx | NO |
+| alcm | 6 | ALCM.tsx | NO |
+| anthropomorphism | 6 | Anthropomorphism.tsx | NO |
+| articles | 4 | Articles.tsx | NO |
+| builder | 6 | Builder.tsx | NO |
+| builder-origin | 3 | BuilderOrigin.tsx | NO |
+| builders-kids | 2 | BuildersKids.tsx | NO |
+| citizen-researcher | 6 | CitizenResearcher.tsx | NO |
+| counter-arguments | 5 | CounterArguments.tsx | NO |
+| drift | 7 | Drift.tsx | NO |
+| dual-strategy | 5 | DualStrategy.tsx | NO |
+| eu-ai-act | 5 | EUAIAct.tsx | NO |
+| field-papers | 10 | FieldPapers.tsx | NO |
+| field-report-review | 4 | FieldReportReview.tsx | NO |
+| frameworks | 10 | Frameworks.tsx | NO |
+| gallantry-ai | 5 | GallantryAIPage.tsx | NO |
+| gallery | 21 | Gallery.tsx | NO |
+| hallucinations | 6 | Hallucinations.tsx | NO |
+| human-line | 6 | HumanLine.tsx | NO |
+| kids-learn | 4 | KidsLearn.tsx | NO |
+| lexicon | 5 | LivingLexicon.tsx | NO |
+| malbolge | 6 | Malbolge.tsx | NO |
+| math-prompting | 6 | MathPrompting.tsx | NO |
+| open-door | 4 | OpenDoor.tsx | NO |
+| playground | 4 | Playground.tsx | NO |
+| prompt-games | 5 | PromptGames.tsx | NO |
+| prompts | 5 | PromptLibrary.tsx | NO |
+| research-hub | 1 | ResearchHub.tsx | NO |
+| scaffold | 7 | Scaffold.tsx | NO |
+| school-board | 5 | SchoolBoard.tsx | NO |
+| screenshot-sharing | 4 | ScreenshotSharing.tsx | NO |
+| taxonomy | 5 | Taxonomy.tsx | NO |
+| three-lenses | 12 | ThreeLenses.tsx | NO |
+| user-governance | 6 | UserGovernance.tsx | NO |
+| variable-scale | 6 | VariableScale.tsx | NO |
+| what-claude-admitted | 3 | WhatClaudeAdmitted.tsx | NO |
+| what-the-ai-said | 4 | WhatTheAISaid.tsx | NO |
+| whelm-scale | 5 | WhelmScale.tsx | NO |
 
 ### Tests and TypeScript
 

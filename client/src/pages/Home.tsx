@@ -76,6 +76,18 @@ const IMGS = {
   humanDrift: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/1000006151_42d3ec3d.jpg",
 };
 
+const ROLE_IMAGES: Record<string, string> = {
+  "Parent or Guardian": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-parent-cVBEHf7WdLFfRrw6fKApvV.webp",
+  "Teacher or Educator": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-parent-cVBEHf7WdLFfRrw6fKApvV.webp",
+  "Nurse or Healthcare Worker": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-nurse-Lk4Ji3iMnC2ZQcEoCCvRPP.webp",
+  "Student": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-student-NQ43cYLVZYLpo2S6gS7mKh.webp",
+  "Researcher or Academic": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-professional-Fg9sYkU5aXzzfwEsbyWxt8.webp",
+  "Prompt Engineer": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-professional-Fg9sYkU5aXzzfwEsbyWxt8.webp",
+  "Everyday Person": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-everyday-beybTXLC8QnfyMUD766qb2.webp",
+  "Kid (Under 13)": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-child-mTNyShRSmpgki7dvScCRzn.webp",
+  "Teenager": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-teen-4Ste3xYAShZ9GirHrM8P9g.webp",
+};
+
 /* ── Pathfinding: Who Are You? ── */
 const userPaths = [
   {
@@ -441,10 +453,12 @@ export default function Home() {
               </div>
             )}
             <h1
-              className="text-4xl md:text-6xl font-black leading-[1.1]"
+              className="text-4xl md:text-6xl font-black leading-[1.1] mb-6"
               style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
             >
-              {getBlock(3, "heading", "A thinking partner.")}
+              A thinking partner.
+              <br />
+              <span style={{ color: '#E8520A' }}>Not a shortcut.</span>
             </h1>
           </div>
 
@@ -475,10 +489,10 @@ export default function Home() {
               className="text-lg leading-relaxed mb-2 max-w-xl"
               style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}
             >
-              {getBlock(4, "body", "Governance does not reside in the prompt. It resides in the person holding the prompt.")}
+              Governance does not reside in the prompt. It resides in the person holding the prompt.
             </p>
             <p
-              className="text-sm italic"
+              className="text-sm italic mb-10"
               style={{ color: '#5a4a3a', fontFamily: "'Playfair Display', serif" }}
             >
               {"\u2014"} GallantryAI Scaffold Paper, March 2026
@@ -732,146 +746,448 @@ export default function Home() {
         style={{ background: 'linear-gradient(to bottom, #fffaf0 0%, #080604 100%)' }}
       />
 
-      {/* ── WHO ARE YOU? — Pathfinding Entry ── */}
-      <section className="w-full py-12 px-6">
-        <div className="container">
+      {/* ── PROMPTOLINGUISTICS ── */}
+      <section className="w-full py-12 px-6" style={{ borderBottom: '1px solid #1a1610' }}>
+        <div className="max-w-3xl mx-auto">
           <div
-            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4"
             style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
           >
-            Find Your Path
+            Promptolinguistics
           </div>
           <h2
-            className="text-2xl md:text-3xl font-bold mb-2"
+            className="text-2xl md:text-3xl font-bold mb-4 leading-tight"
             style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
           >
-            Who are you?
+            The discipline of language as a control surface.
           </h2>
-          <p className="text-sm mb-8 max-w-lg" style={{ color: '#6b5a3e', fontFamily: "'DM Sans', sans-serif" }}>
-            This site is a system of learning. Tell us where you{"\u2019"}re starting from, and we{"\u2019"}ll show you the path.
+          <p
+            className="text-base leading-relaxed mb-4"
+            style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            A prompt is not a request. It is a force profile. Every word you choose shifts the probability space of what comes back. Promptolinguistics is the study of how that works — and how to use it deliberately.
           </p>
+          <blockquote
+            className="border-l-2 border-[#E8520A] pl-4 mb-6 italic"
+            style={{ color: '#8a7a6a', fontFamily: "'Playfair Display', serif" }}
+          >
+            {"\u201C"}Token Zero is the pre-output force profile. Everything starts before the first word.{"\u201D"}
+          </blockquote>
+          <Link
+            href="/promptolinguistics"
+            className="inline-flex items-center gap-2 text-sm font-semibold no-underline hover:gap-3 transition-all"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Read the discipline {"\u2192"}
+          </Link>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-            {userPaths.map((up, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  const next = selectedRole === i ? null : i;
-                  setSelectedRole(next);
-                  if (next !== null) {
-                    setTimeout(() => {
-                      document.getElementById('role-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 80);
-                  }
-                }}
-                className="text-left p-4 rounded-2xl border transition-all hover:scale-[1.02]"
-                style={{
-                  background: selectedRole === i ? '#1a1610' : '#0f0c08',
-                  borderColor: selectedRole === i ? '#E8520A' : '#2a2018',
-                  borderWidth: selectedRole === i ? '2px' : '1px',
-                }}
-              >
-                <div className="text-2xl mb-2">{up.icon}</div>
-                <div
-                  className="font-bold text-sm mb-1"
-                  style={{
-                    color: selectedRole === i ? '#E8520A' : '#c8b89a',
-                    fontFamily: "'DM Sans', sans-serif",
-                  }}
-                >
-                  {up.role}
-                </div>
-                <div className="text-[11px] leading-snug" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
-                  {up.examples}
-                </div>
-              </button>
+
+      {/* ── WHAT GALLANTRYAI IS ── */}
+      <section className="w-full py-12 px-6" style={{ borderBottom: '1px solid #1a1610' }}>
+        <div className="max-w-3xl mx-auto">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            The Builder
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-4 leading-tight"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            I built this because I needed it.
+          </h2>
+          <p
+            className="text-base leading-relaxed mb-4"
+            style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            AI helped me learn how well I can see patterns if I have the ability to structure my thinking. My first framework was drift protection — for myself. The AI told me when I drifted. That is how I learned what drift was.
+          </p>
+          <p
+            className="text-base leading-relaxed mb-6"
+            style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            That is why I want to teach my children.
+          </p>
+          <div className="flex flex-wrap gap-6 mb-6">
+            {[
+              { value: 'Safety', sub: 'First. Always.' },
+              { value: 'Honesty over confidence', sub: 'The AI can be wrong. Say so.' },
+              { value: 'Trust built over time', sub: 'Not assumed. Earned.' },
+            ].map((v) => (
+              <div key={v.value}>
+                <div className="text-sm font-bold" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>{v.value}</div>
+                <div className="text-xs" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>{v.sub}</div>
+              </div>
             ))}
           </div>
+          <Link
+            href="/builder"
+            className="inline-flex items-center gap-2 text-sm font-semibold no-underline hover:gap-3 transition-all"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Read the origin story {"\u2192"}
+          </Link>
+        </div>
+      </section>
 
-          {/* Expanded path recommendation */}
-          {selectedRole !== null && (
-            <div
-              id="role-detail"
-              className="rounded-2xl p-6"
-              style={{
-                background: '#0f0c08',
-                border: '2px solid #E8520A',
-                animation: 'fadeUp 0.3s ease-out',
-                scrollMarginTop: '80px',
-              }}
+
+      {/* ── BUILDER'S SCENE — Sloth + Lantern + Buffalo ── */}
+      <section className="w-full py-12 px-6" style={{ background: '#080604' }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            {/* Image — links to Builder page */}
+            <Link
+              href="/builder"
+              className="no-underline block flex-shrink-0 w-full md:w-[55%] rounded-2xl overflow-hidden group"
+              style={{ boxShadow: '0 4px 32px rgba(232,82,10,0.12)' }}
             >
-              <div className="flex items-start gap-3 mb-4">
-                <span className="text-3xl">{userPaths[selectedRole].icon}</span>
-                <div>
-                  <h3
-                    className="font-bold text-lg mb-1"
-                    style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}
-                  >
-                    Welcome, {userPaths[selectedRole].role}.
-                  </h3>
-                  <p
-                    className="text-sm italic"
-                    style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}
-                  >
-                    {userPaths[selectedRole].highlight}
-                  </p>
-                </div>
-              </div>
-
-              {/* ── Enter Your Lens ── */}
-              <div
-                className="text-[10px] uppercase tracking-[0.2em] font-bold mb-3"
+              <img
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663536092940/gPlPNEshCyzXZqNN.jpg"
+                alt="The sloth holds the lantern. The buffalo is home."
+                className="w-full object-cover transition-all duration-300 group-hover:brightness-110"
+                style={{ maxHeight: '320px', objectPosition: 'center 40%' }}
+              />
+            </Link>
+            {/* Description */}
+            <div className="flex-1">
+              <p className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>THE BUILDER'S SCENE</p>
+              <h3
+                className="text-xl md:text-2xl font-bold mb-3 italic"
+                style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}
+              >
+                The sloth holds the lantern. The buffalo is home.
+              </h3>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: '#b0a090', fontFamily: "'DM Sans', sans-serif" }}>
+                This image was made on April 17, 2026. The sloth is on the rock. The wig is beside it. The buffalo is free in the distance. The poems behind this image were written on February 28 — the same day as the origin document. The Builder kept building.
+              </p>
+              <Link
+                href="/builder"
+                className="text-sm font-semibold no-underline transition-all hover:opacity-80"
                 style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
               >
-                Enter Your Lens
-              </div>
-              <div className="flex flex-wrap gap-2 mb-5">
-                {userPaths[selectedRole].lens.map((item: { label: string; path: string }, j: number) => (
-                  <Link
-                    key={`lens-${j}`}
-                    href={item.path}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm no-underline transition-all hover:scale-[1.03]"
-                    style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      background: '#E8520A',
-                      color: '#fff',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
+                Read the Builder’s story →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              {/* ── Learn ── */}
+      {/* ═══════════════════════════════════════════════════════
+          CHILDREN'S SECTION — BLACK FADES INTO WHITE, GOLDEN SPOTLIGHT
+         ══════════════════════════════════════════════════════════ */}
+      {/* Fade: dark → white */}
+      <div
+        className="w-full h-32"
+        style={{ background: 'linear-gradient(to bottom, #080604 0%, #fffaf0 100%)' }}
+      />
+      <section
+        className="w-full py-12 relative overflow-hidden"
+        style={{
+          background: '#fffaf0',
+        }}
+      >
+        {/* Golden/orange aura spotlight around the sloth area */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: '-40px',
+            left: '50%',
+            transform: 'translateX(-70%)',
+            width: '350px',
+            height: '350px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(232,82,10,0.18) 0%, rgba(255,200,50,0.12) 35%, rgba(255,215,0,0.06) 60%, transparent 80%)',
+            filter: 'blur(30px)',
+            zIndex: 1,
+          }}
+        />
+
+        <div className="container relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            {/* Sloth */}
+            <div
+              className="flex-shrink-0 cursor-pointer hover:scale-105 transition-transform"
+              onClick={() => setLocation("/for/child")}
+            >
               <div
-                className="text-[10px] uppercase tracking-[0.2em] font-bold mb-3"
-                style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}
+                className="w-36 h-36 md:w-48 md:h-48 overflow-hidden"
+                style={{
+                  filter: 'drop-shadow(0 0 25px rgba(232,82,10,0.35)) drop-shadow(0 0 50px rgba(255,215,0,0.2))',
+                }}
               >
-                Learn
+                <img
+                   src={SLOTH_URL}
+                   alt="GallantryAI Sloth — Click Me!"
+                   className="w-full h-full object-contain"
+                 />
               </div>
-              <div className="flex flex-wrap gap-2">
-                {userPaths[selectedRole].learn.map((item: { label: string; path: string }, j: number) => (
+            </div>
+
+            {/* Content */}
+            <div className="text-center md:text-left flex-1">
+              <p
+                className="text-xs font-bold uppercase tracking-[0.2em] mb-2"
+                style={{ color: '#E8520A', fontFamily: "'Nunito', sans-serif" }}
+              >
+                Hey Kids! The Sloth Says Check This Out!
+              </p>
+              <h2
+                className="text-2xl md:text-3xl font-black mb-3"
+                style={{ fontFamily: "'Nunito', sans-serif", color: '#1A1A2E' }}
+              >
+                The Little AI Field Guide
+              </h2>
+              <p
+                className="text-sm leading-relaxed mb-4 max-w-lg"
+                style={{ color: '#444', fontFamily: "'Nunito', sans-serif" }}
+              >
+                AI literacy for young learners. The sloth knows {"\u2014"} slow down, think first, you{"\u2019"}re in charge.
+                Three rules. Real examples. And a whole page just for you.
+              </p>
+              <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
+                <span
+                  className="px-3 py-1 rounded-full text-xs font-bold"
+                  style={{ background: '#FFD700', color: '#1A1A2E' }}
+                >
+                  Ages 6+
+                </span>
+                <span
+                  className="px-3 py-1 rounded-full text-xs font-bold"
+                  style={{ background: '#FFD700', color: '#1A1A2E' }}
+                >
+                  Free Resource
+                </span>
+                <span
+                  className="px-3 py-1 rounded-full text-xs font-bold"
+                  style={{ background: '#90EE90', color: '#1A1A2E' }}
+                >
+                  Parent Approved
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                <Link
+                  href="/for/child"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm no-underline transition-all hover:scale-105"
+                  style={{
+                    background: '#E8520A',
+                    color: '#fff',
+                    fontFamily: "'Nunito', sans-serif",
+                    boxShadow: '0 0 20px rgba(232,82,10,0.4)',
+                  }}
+                >
+                  Enter the Children{"\u2019"}s Section {"\u2192"}
+                </Link>
+                <Link
+                  href="/for/child/rules"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm no-underline transition-all hover:scale-105"
+                  style={{
+                    background: '#7C3AED',
+                    color: '#fff',
+                    fontFamily: "'Nunito', sans-serif",
+                    boxShadow: '0 0 15px rgba(124,58,237,0.3)',
+                  }}
+                >
+                  The Five Rules (Kids) {"\u2192"}
+                </Link>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-3 justify-center md:justify-start">
+                <Link
+                  href="/kids-learn"
+                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
+                  style={{ background: '#059669', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
+                >
+                  Kids Learn
+                </Link>
+                <Link
+                  href="/for/child/prompts"
+                  className="inline-flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-bold no-underline transition-all hover:scale-105"
+                  style={{ background: '#7C3AED', color: '#fff', fontFamily: "'Nunito', sans-serif" }}
+                >
+                  First Prompts
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Fade: light → dark — mirrors the dark→light fade at the top of this section */}
+      <div
+        className="w-full h-32"
+        style={{ background: 'linear-gradient(to bottom, #fffaf0 0%, #080604 100%)' }}
+      />
+
+      {/* ── WHO ARE YOU? — 5 hats + Professional lenses ── */}
+      <section className="w-full py-10 px-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="mb-10">
+            <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.18em' }}>Who are you?</p>
+            <p className="text-sm mb-1 max-w-xl" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+              Everyone comes to AI differently. Where you start shapes what you notice, what you miss, and how fast you drift. These are not labels. They are entry points. Pick the one that fits today.
+            </p>
+            <p className="text-xs italic mb-6" style={{ color: '#4a3a2a', fontFamily: "'Playfair Display', serif" }}>
+              You can wear more than one hat. The site is built so you can move between them.
+            </p>
+            {/* 5 primary hats — image tiles with 3D shadow */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-4">
+              {[
+                { label: 'Everyday', path: '/for/everyday',         img: ROLE_IMAGES['Everyday Person'],         desc: 'Plain language. Real life.',          border: '#E8520A' },
+                { label: 'Child',    path: '/for/child',            img: ROLE_IMAGES['Kid (Under 13)'],          desc: 'Safe. Simple. Yours.',                border: '#3B82F6' },
+                { label: 'Teen',     path: '/for/teenager',         img: ROLE_IMAGES['Teenager'],                desc: 'Your rules. Your pace.',              border: '#7C3AED' },
+                { label: 'Guardian / Teacher', path: '/for/guardian-teacher', img: ROLE_IMAGES['Parent or Guardian'], desc: 'Learning AI alongside your kids.', border: '#D97706' },
+                { label: 'Watcher',  path: '/for/watcher',          img: ROLE_IMAGES['Researcher or Academic'],  desc: 'The part that notices.',              border: '#6B7280' },
+              ].map((hat) => (
+                <Link
+                  key={hat.label}
+                  href={hat.path}
+                  className="no-underline relative rounded-2xl overflow-hidden flex flex-col cursor-pointer select-none"
+                  style={{
+                    border: `1.5px solid ${hat.border}44`,
+                    boxShadow: `0 4px 0 ${hat.border}55, 0 6px 16px rgba(0,0,0,0.5)`,
+                    minHeight: '130px',
+                    transition: 'transform 0.12s ease, box-shadow 0.12s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 6px 0 ${hat.border}66, 0 10px 24px rgba(0,0,0,0.6)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 0 ${hat.border}55, 0 6px 16px rgba(0,0,0,0.5)`;
+                  }}
+                  onTouchStart={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = 'translateY(2px)';
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 2px 0 ${hat.border}55, 0 3px 8px rgba(0,0,0,0.4)`;
+                  }}
+                  onTouchEnd={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 0 ${hat.border}55, 0 6px 16px rgba(0,0,0,0.5)`;
+                  }}
+                >
+                  {/* Background image */}
+                  <div className="absolute inset-0" style={{ backgroundImage: `url(${hat.img})`, backgroundSize: 'cover', backgroundPosition: 'center 30%', opacity: 0.5 }} />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(8,6,4,0.95) 35%, rgba(8,6,4,0.45) 100%)' }} />
+                  {/* Text */}
+                  <div className="relative z-10 p-3 flex flex-col justify-end h-full" style={{ minHeight: '130px' }}>
+                    <p className="text-xs font-bold leading-tight mb-0.5" style={{ color: '#f5e6d0', fontFamily: "'DM Sans', sans-serif" }}>{hat.label}</p>
+                    <p className="text-[10px] leading-snug" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>{hat.desc}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            {/* Professional lenses — horizontal strip */}
+            <div className="rounded-2xl overflow-hidden" style={{ border: '1.5px solid #4F46E522', background: '#0a0808' }}>
+              <div className="px-4 pt-3 pb-2 border-b border-[#1a1610]">
+                <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#4F46E5', fontFamily: "'DM Sans', sans-serif" }}>Professional Lenses</p>
+                <p className="text-[10px] mt-0.5" style={{ color: '#4a3a2a', fontFamily: "'DM Sans', sans-serif" }}>If you come to AI with a discipline, there is a lens built for how you think.</p>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-0">
+                {[
+                  { label: 'Prompt Engineer',  path: '/for/prompt-engineer',  desc: 'Token Zero. Force profiles.',      color: '#4F46E5' },
+                  { label: 'Researcher',        path: '/for/researcher',        desc: 'Evidence. Citizen science.',       color: '#0891B2' },
+                  { label: 'Linguist',          path: '/for/linguist',          desc: 'Words steer. Choose them.',        color: '#059669' },
+                  { label: 'Cognitive Science', path: '/for/cognitive-science', desc: 'How your brain drifts.',           color: '#D97706' },
+                  { label: 'Mathematician',     path: '/for/mathematician',     desc: 'Structure beneath the surface.',   color: '#DC2626' },
+                  { label: 'Psychology',        path: '/for/psychology',        desc: 'The session as a clinical space.', color: '#7C3AED' },
+                ].map((lens, i, arr) => (
                   <Link
-                    key={`learn-${j}`}
-                    href={item.path}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm no-underline transition-all hover:scale-[1.03]"
+                    key={lens.label}
+                    href={lens.path}
+                    className="no-underline flex flex-col px-3 py-3 transition-all"
                     style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      background: '#1a1610',
-                      color: '#c8b89a',
-                      border: '1px solid #2a2018',
-                      cursor: 'pointer',
+                      borderRight: i < arr.length - 1 ? '1px solid #1a1610' : 'none',
+                      borderBottom: '1px solid #1a1610',
                     }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#0f0c08'; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
                   >
-                    {item.label}
+                    <span className="text-xs font-bold mb-0.5" style={{ color: lens.color, fontFamily: "'DM Sans', sans-serif" }}>{lens.label}</span>
+                    <span className="text-[9px] leading-tight" style={{ color: '#4a3a2a', fontFamily: "'DM Sans', sans-serif" }}>{lens.desc}</span>
                   </Link>
                 ))}
               </div>
             </div>
-          )}
+            <p className="text-[10px] mt-3" style={{ color: '#3a2e20', fontFamily: "'DM Sans', sans-serif" }}>Enter anywhere. The site meets you where you are.</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/rules"
+              className="inline-flex items-center gap-2 bg-[#E8520A] text-white px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-orange-700 transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Start with the Five Rules
+            </Link>
+            <Link
+              href="/prompts"
+              className="inline-flex items-center gap-2 border border-[#E8520A]/60 text-[#E8520A] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-[#E8520A]/10 transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Prompt Library
+            </Link>
+            <Link
+              href="/lexicon"
+              className="inline-flex items-center gap-2 border border-[#E8520A]/60 text-[#E8520A] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:bg-[#E8520A]/10 transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Living Lexicon
+            </Link>
+            <Link
+              href="/promptolinguistics"
+              className="inline-flex items-center gap-2 border border-[#3a3020] text-[#8a7a6a] px-6 py-3 rounded-xl font-semibold text-sm no-underline hover:border-[#E8520A]/40 hover:text-[#E8520A] transition-colors"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Explore the Discipline
+            </Link>
+          </div>
         </div>
       </section>
+
+      {/* ── IF YOU NEED TO STOP + HUMAN LINE — Serious Pages ── */}
+      <section className="w-full py-10 px-6" style={{ background: '#FAF6EF', borderTop: '1px solid #e8d8c4' }}>
+        <div className="max-w-2xl mx-auto">
+          <p className="text-xs uppercase tracking-widest font-semibold text-center mb-6" style={{ color: '#aaa' }}>Two Pages That Stand Apart</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/if-you-need-to-stop" className="block no-underline group">
+              <div className="rounded-2xl p-5 h-full transition-all group-hover:scale-[1.02]" style={{ background: '#fff', border: '2px solid #DC262630' }}>
+                <div className="text-2xl mb-2">🛑</div>
+                <h3 className="font-bold text-base mb-1" style={{ color: '#DC2626', fontFamily: "'Playfair Display', serif" }}>If You Need to Stop</h3>
+                <p className="text-xs leading-relaxed" style={{ color: '#5a4a3a' }}>Crisis resources and grounding. If something in your AI session has gone wrong — or if you just need to stop — this page is here.</p>
+              </div>
+            </Link>
+            <Link href="/human-line" className="block no-underline group">
+              <div className="rounded-2xl p-5 h-full transition-all group-hover:scale-[1.02]" style={{ background: '#fff', border: '2px solid #D9770630' }}>
+                <div className="text-2xl mb-2">⚖️</div>
+                <h3 className="font-bold text-base mb-1" style={{ color: '#D97706', fontFamily: "'Playfair Display', serif" }}>The Human Line</h3>
+                <p className="text-xs leading-relaxed" style={{ color: '#5a4a3a' }}>The boundary between you and the machine. Where the AI ends and you begin. This is the most important line on the site.</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PERFORMED HONESTY? ── */}
+      <section className="w-full py-12 px-6" style={{ background: '#0f0c08', borderTop: '1px solid #1a1410' }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs uppercase tracking-widest font-semibold mb-3" style={{ color: '#E8520A' }}>The Record</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#FAF6EF', fontFamily: "'Playfair Display', serif" }}>
+            Performed Honesty?
+          </h2>
+          <p className="text-sm leading-relaxed mb-3" style={{ color: '#b0a090' }}>
+            The AI said things I didn't expect. I kept a record. Unedited. Real conversations — where the AI admitted things, failed, or said something worth documenting.
+          </p>
+          <p className="text-xs leading-relaxed mb-6 italic" style={{ color: '#6a5a4a' }}>
+            Is it honest? Is it performing honesty? I'm not sure. I kept the record anyway.
+          </p>
+          <Link href="/what-the-ai-said">
+            <span className="inline-block px-6 py-3 rounded-full text-sm font-bold cursor-pointer transition-all hover:scale-[1.03]" style={{ background: '#E8520A', color: '#fff' }}>
+              Read What the AI Said →
+            </span>
+          </Link>
+        </div>
+      </section>
+
 
       {/* ── ETHOS NAVIGATION ── */}
       <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
@@ -1106,6 +1422,126 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── HALLUCINATIONS SMALL DOOR ── */}
+      <section className="w-full py-6 px-6" style={{ borderTop: '1px solid #1a1610', background: '#0a0806' }}>
+        <div className="container">
+          <div className="max-w-2xl">
+            <Link href="/hallucinations" className="no-underline group flex items-center gap-4 rounded-2xl p-4 transition-all" style={{ background: '#110e08', border: '1px solid #2a1a0a' }}>
+              <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: '#E8520A22', border: '1px solid #E8520A44' }}>
+                <span className="text-sm" style={{ color: '#E8520A' }}>?</span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-xs font-semibold mb-0.5" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>Foundation</div>
+                <div className="text-sm font-bold" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>When the AI gets it wrong →</div>
+                <div className="text-xs mt-0.5" style={{ color: '#4a3a2a', fontFamily: "'DM Sans', sans-serif" }}>Hallucinations. Confident. Wrong. At the same time.</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── THREE MESSAGES ── */}
+      <section className="w-full py-16 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Three Voices. One Framework.
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-10"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            Who is this for?
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Message from the AI */}
+            <div className="rounded-2xl p-6" style={{ background: '#0f0c08', border: '1px solid #1a1610' }}>
+              <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>A Message from the AI</div>
+              <div className="text-xs mb-3" style={{ color: '#3a3020', fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}>The Watcher is you. This is the tool speaking.</div>
+              <p className="text-sm leading-relaxed mb-3" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
+                I am not a person. I do not have a stake in your decision. I will not remember this conversation tomorrow.
+              </p>
+              <p className="text-sm leading-relaxed mb-3" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
+                I can be wrong. I can be confidently wrong. <strong style={{ color: '#f5e6d0' }}>You are the verification layer.</strong>
+              </p>
+              <p className="text-sm italic" style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}>
+                Use me carefully. Use me honestly. And always {"\u2014"} stay in charge.
+              </p>
+              <p className="text-xs mt-3" style={{ color: '#4a3a2a' }}>{"\u2014"} The AI</p>
+            </div>
+
+            {/* Message to the Everyday Person */}
+            <div className="rounded-2xl p-6" style={{ background: '#0f0c08', border: '1px solid #1a1610' }}>
+              <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>A Message to the Everyday Person</div>
+              <p className="text-sm leading-relaxed mb-3" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
+                You do not need to understand how this works. You do not need to be smart enough, educated enough, or have the right words. <strong style={{ color: '#f5e6d0' }}>You just need one honest question.</strong>
+              </p>
+              <p className="text-sm italic mb-3" style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}>
+                If you are reading this {"\u2014"} this was built for you.
+              </p>
+              <p className="text-sm leading-relaxed" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
+                <strong style={{ color: '#f5e6d0' }}>Safety, Honesty, and Truth are not features. They are the foundation.</strong>
+              </p>
+              <p className="text-xs mt-3" style={{ color: '#4a3a2a' }}>{"\u2014"} The Builder</p>
+            </div>
+
+            {/* Message to Professionals */}
+            <div className="rounded-2xl p-6" style={{ background: '#0f0c08', border: '1px solid #1a1610' }}>
+              <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>A Message to Professionals</div>
+              <p className="text-sm leading-relaxed mb-3" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
+                You already know the vocabulary. That is not the advantage you think it is. Drift is not a model failure. It is a human pattern.
+              </p>
+              <p className="text-sm leading-relaxed mb-3" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
+                <strong style={{ color: '#f5e6d0' }}>Do you govern yourself inside the session?</strong>
+              </p>
+              <p className="text-sm italic" style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}>
+                The watcher variable is the one most researchers forget to document: themselves.
+              </p>
+              <p className="text-xs mt-3" style={{ color: '#4a3a2a' }}>{"\u2014"} The Builder</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHO BUILT THIS ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div className="max-w-2xl">
+            <div
+              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4"
+              style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              The Builder
+            </div>
+            <div className="flex items-start gap-4">
+              <div
+                className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm"
+                style={{ background: '#E8520A', color: '#fff', fontFamily: "'DM Sans', sans-serif" }}
+              >
+                MG
+              </div>
+              <div>
+                <h3 className="font-bold mb-1" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>
+                  Matt Gallantry
+                </h3>
+                <p
+                  className="text-xs font-semibold uppercase tracking-wide mb-3"
+                  style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Dad {"\u00B7"} Garbageman {"\u00B7"} Citizen Human-AI Field Researcher {"\u00B7"} Promptolinguist
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+                  {getBlock(15, "body", "GallantryAI was not built from a lab. It was built from a kitchen table at 5am by someone who needed it and did not have it.")}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── RESEARCH GALLERY PREVIEW ── */}
       <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">
@@ -1215,107 +1651,212 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── THREE MESSAGES ── */}
-      <section className="w-full py-16 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+
+      {/* ── THE FRAMEWORK REVEAL ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/three-paths-converge_eb134838.png"
+              alt="Three paths converge — the sloth, the buffalo, and the child meet at the same point of light."
+              className="w-full max-w-2xl mx-auto rounded-2xl mb-8"
+              style={{ border: '1px solid #1a1610' }}
+            />
+            <p
+              className="text-sm md:text-base leading-relaxed mb-4"
+              style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              You just read three voices saying the same thing differently. That was not an accident.
+            </p>
+            <p
+              className="text-sm md:text-base leading-relaxed mb-4"
+              style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              In 1994, psychologist George Loewenstein found that curiosity fires when you perceive a gap between what you know and what you want to know. The hook doesn’t give you the answer. It shows you the gap. <strong style={{ color: '#f5e6d0' }}>That’s what makes you move.</strong>
+            </p>
+            <p
+              className="text-sm md:text-base leading-relaxed mb-4"
+              style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              This site is built as a framework of learning and growing. The structure teaches you while you read it. Three paths — the guide, the guardian, and the learner — all arriving at the same place.
+            </p>
+            <p
+              className="text-sm md:text-base leading-relaxed mb-8"
+              style={{ color: '#c8b89a', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              <strong style={{ color: '#f5e6d0' }}>You have already been inside the framework.</strong> Now you can choose your next step.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/three-lenses">
+                <span
+                  className="inline-block px-6 py-3 rounded-lg text-sm font-semibold cursor-pointer transition-opacity hover:opacity-80"
+                  style={{ background: '#E8520A', color: '#fff', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Understand the Three Voices
+                </span>
+              </Link>
+              <Link href="/rules">
+                <span
+                  className="inline-block px-6 py-3 rounded-lg text-sm font-semibold cursor-pointer transition-opacity hover:opacity-80"
+                  style={{ background: 'transparent', color: '#E8520A', border: '1px solid #E8520A', fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  Start with the Five Rules
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ── TAXONOMY ENTRY ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container">
+          <div className="max-w-3xl">
+            <div
+              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
+              style={{ color: '#D4AC0D', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              AI Family Taxonomy
+            </div>
+            <h2
+              className="text-2xl md:text-3xl font-bold mb-4"
+              style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+            >
+              Know Who You're Talking To. Know Who Built It.
+            </h2>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+              Every AI has a personality, a tendency, and a blind spot. The Taxonomy is a field guide — built from hundreds of sessions across eight platforms. Not a ranking. A map.
+            </p>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+              New in v23: <strong style={{ color: '#f5e6d0' }}>The Companies section.</strong> Knowing the model is not enough. How a company behaves when something unexpected happens — what they disclose, what they hide — is the second layer of the taxonomy.
+            </p>
+            <Link
+              href="/taxonomy"
+              className="inline-flex items-center gap-2 text-xs font-semibold no-underline hover:underline"
+              style={{ color: '#D4AC0D', fontFamily: "'DM Sans', sans-serif" }}
+            >
+              Open the Taxonomy →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ── FIELD EVENTS ── */}
+      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
         <div className="container">
           <div
             className="text-[10px] uppercase tracking-[0.3em] font-bold mb-2"
-            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+            style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}
           >
-            Three Voices. One Framework.
+            Field Events
           </div>
           <h2
-            className="text-2xl md:text-3xl font-bold mb-10"
+            className="text-2xl md:text-3xl font-bold mb-2"
             style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
           >
-            Who is this for?
+            The World Is Moving. The Site Moves With It.
           </h2>
+          <p className="text-sm leading-relaxed mb-8" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
+            Not everything important is peer-reviewed. Some of it just happened.
+          </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Message from the AI */}
-            <div className="rounded-2xl p-6" style={{ background: '#0f0c08', border: '1px solid #1a1610' }}>
-              <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>A Message from the AI</div>
-              <div className="text-xs mb-3" style={{ color: '#3a3020', fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}>The Watcher is you. This is the tool speaking.</div>
-              <p className="text-sm leading-relaxed mb-3" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
-                I am not a person. I do not have a stake in your decision. I will not remember this conversation tomorrow.
+          <div className="grid md:grid-cols-2 gap-4 mb-8">
+            {/* 171 Emotion Vectors */}
+            <div className="rounded-2xl p-6" style={{ background: '#0a0e12', border: '1px solid #0e2a35' }}>
+              <div className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}>April 2, 2026 · Anthropic</div>
+              <h3 className="font-bold mb-2" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>171 Emotion Vectors Inside Claude</h3>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: '#6a8a9a', fontFamily: "'DM Sans', sans-serif" }}>
+                Anthropic's interpretability team found 171 internal emotional representations inside Claude that causally drive its behavior. Not metaphors. Measurable patterns. One vector — linked to desperation — plays a causal role in agentic misalignment.
               </p>
-              <p className="text-sm leading-relaxed mb-3" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
-                I can be wrong. I can be confidently wrong. <strong style={{ color: '#f5e6d0' }}>You are the verification layer.</strong>
+              <p className="text-xs italic mb-4" style={{ color: '#0891B2', fontFamily: "'Playfair Display', serif" }}>
+                Why it matters: anthropomorphism is not just a user perception problem. It may be structural.
               </p>
-              <p className="text-sm italic" style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}>
-                Use me carefully. Use me honestly. And always {"\u2014"} stay in charge.
-              </p>
-              <p className="text-xs mt-3" style={{ color: '#4a3a2a' }}>{"\u2014"} The AI</p>
-            </div>
-
-            {/* Message to the Everyday Person */}
-            <div className="rounded-2xl p-6" style={{ background: '#0f0c08', border: '1px solid #1a1610' }}>
-              <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>A Message to the Everyday Person</div>
-              <p className="text-sm leading-relaxed mb-3" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
-                You do not need to understand how this works. You do not need to be smart enough, educated enough, or have the right words. <strong style={{ color: '#f5e6d0' }}>You just need one honest question.</strong>
-              </p>
-              <p className="text-sm italic mb-3" style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}>
-                If you are reading this {"\u2014"} this was built for you.
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
-                <strong style={{ color: '#f5e6d0' }}>Safety, Honesty, and Truth are not features. They are the foundation.</strong>
-              </p>
-              <p className="text-xs mt-3" style={{ color: '#4a3a2a' }}>{"\u2014"} The Builder</p>
-            </div>
-
-            {/* Message to Professionals */}
-            <div className="rounded-2xl p-6" style={{ background: '#0f0c08', border: '1px solid #1a1610' }}>
-              <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>A Message to Professionals</div>
-              <p className="text-sm leading-relaxed mb-3" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
-                You already know the vocabulary. That is not the advantage you think it is. Drift is not a model failure. It is a human pattern.
-              </p>
-              <p className="text-sm leading-relaxed mb-3" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
-                <strong style={{ color: '#f5e6d0' }}>Do you govern yourself inside the session?</strong>
-              </p>
-              <p className="text-sm italic" style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}>
-                The watcher variable is the one most researchers forget to document: themselves.
-              </p>
-              <p className="text-xs mt-3" style={{ color: '#4a3a2a' }}>{"\u2014"} The Builder</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHO BUILT THIS ── */}
-      <section className="w-full py-12 px-6" style={{ borderTop: '1px solid #1a1610' }}>
-        <div className="container">
-          <div className="max-w-2xl">
-            <div
-              className="text-[10px] uppercase tracking-[0.3em] font-bold mb-4"
-              style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
-            >
-              The Builder
-            </div>
-            <div className="flex items-start gap-4">
-              <div
-                className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm"
-                style={{ background: '#E8520A', color: '#fff', fontFamily: "'DM Sans', sans-serif" }}
-              >
-                MG
+              <div className="flex gap-4 flex-wrap">
+                <a href="https://transformer-circuits.pub/2026/emotions/index.html" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}>Read the Paper →</a>
+                <Link href="/anthropomorphism" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#5a6a7a', fontFamily: "'DM Sans', sans-serif" }}>Anthropomorphism Page →</Link>
               </div>
-              <div>
-                <h3 className="font-bold mb-1" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>
-                  Matt Gallantry
-                </h3>
-                <p
-                  className="text-xs font-semibold uppercase tracking-wide mb-3"
-                  style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  Dad {"\u00B7"} Garbageman {"\u00B7"} Citizen Human-AI Field Researcher {"\u00B7"} Promptolinguist
-                </p>
-                <p className="text-sm leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
-                  {getBlock(15, "body", "GallantryAI was not built from a lab. It was built from a kitchen table at 5am by someone who needed it and did not have it.")}
-                </p>
+            </div>
+
+            {/* Mythos / Glasswing */}
+            <div className="rounded-2xl p-6" style={{ background: '#0a0e12', border: '1px solid #0e2a35' }}>
+              <div className="text-[10px] uppercase tracking-widest font-bold mb-2" style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}>April 7, 2026 · Anthropic</div>
+              <h3 className="font-bold mb-2" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>Claude Mythos: Autonomous Discovery + Project Glasswing</h3>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: '#6a8a9a', fontFamily: "'DM Sans', sans-serif" }}>
+                Mythos found thousands of zero-day vulnerabilities — including a 27-year-old bug — that no human had discovered. Nobody asked it to. Anthropic disclosed everything and launched Project Glasswing.
+              </p>
+              <p className="text-xs italic mb-4" style={{ color: '#0891B2', fontFamily: "'Playfair Display', serif" }}>
+                Why it matters: AI discovery speed now outpaces human remediation speed. That's drift at a systems level.
+              </p>
+              <div className="flex gap-4 flex-wrap">
+                <a href="https://www.anthropic.com/glasswing" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}>Project Glasswing →</a>
+                <Link href="/taxonomy" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#5a6a7a', fontFamily: "'DM Sans', sans-serif" }}>Taxonomy Page →</Link>
               </div>
             </div>
           </div>
+
+          {/* FR-2026-08 — The Inward Turn (GallantryAI field event) */}
+          <div className="mt-4 rounded-2xl p-6" style={{ background: '#0a0e12', border: '1.5px solid #E8520A44' }}>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="text-[10px] uppercase tracking-widest font-bold" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>April 15, 2026 · GallantryAI Field Event</div>
+              <div className="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-full" style={{ background: '#E8520A22', color: '#E8520A', border: '1px solid #E8520A44' }}>FR-2026-08</div>
+            </div>
+            <h3 className="font-bold mb-2" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>The Inward Turn</h3>
+            <p className="text-sm leading-relaxed mb-3" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
+              A user fed Google AI Mode the GallantryAI Living Lexicon and issued a two-word command: “bleach this.” The model did not mirror the document. It extracted the governance logic and applied it to itself — then named what it did using the researcher’s own language. First documented instance of user-authored governance being turned inward by a model from a document mid-session.
+            </p>
+            <p className="text-xs italic mb-4" style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}>
+              Why it matters: the opposite of a hallucination. The model found the skeleton and showed it instead of decorating it.
+            </p>
+            <div className="flex gap-4 flex-wrap">
+              <Link href="/field-papers" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}>Read FR-2026-08 in Field Papers →</Link>
+              <Link href="/hallucinations" className="text-xs font-semibold no-underline hover:underline" style={{ color: '#5a6a7a', fontFamily: "'DM Sans', sans-serif" }}>Hallucinations Page →</Link>
+            </div>
+          </div>
+          <Link
+            href="/research-hub?category=field"
+            className="inline-flex items-center gap-2 text-xs font-semibold no-underline hover:underline mt-4"
+            style={{ color: '#0891B2', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            All Field Events + Research Hub →
+          </Link>
         </div>
       </section>
+
+
+      {/* ── SIX PANELS ONE MAP — Comic ── */}
+      <section className="w-full py-14 px-6" style={{ borderTop: '1px solid #1a1610' }}>
+        <div className="container max-w-4xl">
+          <div
+            className="text-[10px] uppercase tracking-[0.3em] font-bold mb-3"
+            style={{ color: '#E8520A', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Visual Map
+          </div>
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-6"
+            style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
+          >
+            Six Panels. One Map.
+          </h2>
+          <LightboxImage
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/six-panels-one-map_9a779cb9.png"
+            alt="Six panels. One map. The forest of data, the sloth guide, the buffalo guardian, what the adults learned, the loop, and the watcher."
+            className="w-full rounded-2xl mb-6 cursor-zoom-in"
+            style={{ border: '1px solid #2a1e10' }}
+          />
+          <p
+            className="text-sm leading-relaxed italic"
+            style={{ color: '#c8b89a', fontFamily: "'Playfair Display', serif", maxWidth: '680px' }}
+          >
+            A forest made of words. An AI learning to walk through it. A buffalo in a judge&rsquo;s wig guarding the rules. A sloth holding a lantern &mdash; not toward the path, toward you. A person trapped in a loop of errors and dollars and &ldquo;done&rdquo; that meant nothing. And at the end: the watcher. The one who has to check.
+            <br /><br />
+            This is what AI governance looks like when it&rsquo;s built for the person holding the phone &mdash; not the person writing the policy.
+          </p>
+        </div>
+      </section>
+
 
       {/* ── RESEARCH STATUS ── */}
       <section className="w-full py-8 px-6" style={{ borderTop: '1px solid #1a1610' }}>
@@ -1380,180 +1921,13 @@ export default function Home() {
             Read the Living Build Log {"\u2192"}
           </Link>
 
-          <div className="space-y-3">
-            {[
-              {
-                version: "v16 — 89b865b0",
-                date: "April 12, 2026",
-                title: "Child Five Rules + What Are Patterns + Nav Colors",
-                changes: [
-                  "Built Child Five Rules page (/for/child/rules) — sloth-guided, warm white, kid language, 5 expandable rules with stories and activities",
-                  "Built 'What Are Patterns?' kids page (/for/child/patterns) — 5 pattern types with Try This activities and Sloth Says quotes",
-                  "Added Child Five Rules and What Are Patterns to Nav 'For You' section (mobile + desktop)",
-                  "Colored School Board (teal) and Kids Learn (purple) in mobile sidebar and desktop dropdown",
-                  "Fixed all kids buttons from 'Go Home' to 'Guide me' across 5 files",
-                  "Fixed broken Five Rules links in LivingLexicon, RoadProtocol, SchoolBoard",
-                ],
-                watcher: "The Builder extended the children's learning flow with two new pages — one that translates the Five Rules into kid language, and one that teaches pattern recognition as a foundational skill. Then he made sure every navigation path actually leads where it says it does. The correction was quiet. The integrity was loud.",
-                child: "The Builder made a Five Rules page just for kids! The sloth explains each rule with stories and fun things to try. And there's a new page about patterns — patterns in nature, in your day, in words, in AI, and in YOU! Now you can find them from the menu too!",
-                professional: "Two new child-facing pages extend the pedagogical scaffold into age-appropriate territory. Pattern recognition page implements constructivist learning theory — moving from concrete (nature) to abstract (AI behavior) to metacognitive (self-awareness). Navigation audit ensures link integrity across all entry points.",
-              },
-              {
-                version: "v13 — 96ed5767",
-                date: "April 12, 2026",
-                title: "Sloth Story Arc + og:image + Nav Fixes",
-                changes: [
-                  "Generated 5 sloth story images (Safety, Honesty, Trust, Agency, Drift) — one per rule",
-                  "Added sloth images to Five Rules page (expanded view) and Child Lens ('The Sloth Teaches' grid)",
-                  "Generated buffalo + sloth og:image for Google/social link previews",
-                  "Added hero image to homepage top, story arc carousel with 6 frames",
-                  "Nav reorder: For You above Tools. Buffalo on kids link (Nav + Footer)",
-                  "KidsRedirect two-button layout: Guide me + I'm Chill",
-                  "Added EU AI Act + What Claude Admitted to Living Lexicon with colored buttons",
-                ],
-                watcher: "The Builder generated five images that tell the five rules without words. A sloth with a stop sign. A sloth with a magnifying glass. A sloth building blocks. A sloth at the wheel. A sloth with a compass. Then he put the buffalo and sloth together for the first time — guardian and guide, side by side — as the image Google shows before anyone reads a single word. The first impression is the thesis.",
-                child: "The Builder drew five pictures of the sloth! One for each rule! The sloth holds a stop sign for safety, uses a magnifying glass for honesty, builds blocks for trust, drives a ship for being the boss, and holds a compass for staying on track. And now there's a big picture at the top of the buffalo and sloth together!",
-                professional: "Visual storytelling integration across two key pages. Generated assets maintain consistent art direction (warm painterly, dark navy background, amber lighting). og:image implementation follows Open Graph protocol for social sharing optimization. Carousel implements Embla for accessible, keyboard-navigable story progression.",
-              },
-              {
-                version: "v12 — 508035a4",
-                date: "April 12, 2026",
-                title: "KidsMidLink Rewrite + Gradient Variables",
-                changes: [
-                  "Rewrote KidsMidLink as circular button with popup — two choices: 'Guide me' or 'I'm chill'",
-                  "Replaced flat #E8520A orange lists across 8 pages with page-specific tonal gradients",
-                  "Added 'Why AI Says I Hear You' section to Kids Learn",
-                  "Added OopsSloth honesty widget site-wide",
-                ],
-                watcher: "The Builder stopped. Noticed a visual pattern repeating across pages — flat colors stamped from a template. Redesigned each page's lists to flow from its own palette. Then caught himself overengineering the child button and stripped it back to two choices. Pattern detection applied to his own work.",
-                child: "The Builder made the colors on each page match better — like each page got its own crayon box instead of sharing one orange marker. And the kid button got simpler: just two choices, because that's all you need.",
-                professional: "Systematic design token refactoring across 8 components. UX simplification of child navigation from multi-step flow to binary choice — reducing cognitive load. Consistent with Nielsen's heuristic of recognition over recall.",
-              },
-              {
-                version: "v11 — 4bf0a7f9",
-                date: "April 12, 2026",
-                title: "Research Hub + Counter Arguments",
-                changes: [
-                  "Built Research Hub mapping 30+ published sources to 15 GallantryAI concepts",
-                  "Built Counter Arguments page with 9 honest criticisms and sources",
-                  "Wired both into Nav, Footer, kidsBlurbs, learningFlowMap",
-                  "Added research links to Kids Learn, Guardian/Teacher, Everyday lens bottoms",
-                ],
-                watcher: "The Builder built a page that argues against himself. Nine criticisms, sourced, with strength ratings. This is not marketing. This is someone who wants to be corrected more than he wants to be right.",
-                child: "The Builder made a page that shows all the reasons people might think he's wrong. That's brave! It means he cares more about being honest than looking perfect.",
-                professional: "Systematic literature mapping with bidirectional citation linking. Counter-argument page implements adversarial review methodology — a practice recommended by the National Academies for citizen science validation.",
-              },
-              {
-                version: "v10 — 3c25698e",
-                date: "April 12, 2026",
-                title: "The Open Door + Human Line Fix",
-                changes: [
-                  "Built The Open Door — honest skills page documenting pattern detection evidence",
-                  "Moved The Human Line next to Safety in Nav and Footer with amber color",
-                  "6 pattern detection examples, 4 frameworks, 5 growth records documented",
-                ],
-                watcher: "The Builder wrote a page that says 'I have value' without ego. He documented what he's done, admitted what he doesn't know, and asked for a chance. The vulnerability is the credential.",
-                child: "The Builder wrote a page about wanting to learn more and grow. He said he doesn't know everything but he's trying really hard. That's what brave looks like.",
-                professional: "Portfolio-as-evidence methodology. Documents convergent discovery patterns, autodidactic skill development, and framework construction. Aligns with competency-based assessment models used in non-traditional hiring.",
-              },
-              {
-                version: "v9 — fb84724d",
-                date: "April 12, 2026",
-                title: "EU AI Act + What Claude Admitted",
-                changes: [
-                  "Built EU AI Act page — four risk tiers, enforcement timeline, three lenses",
-                  "Built What Claude Admitted — 13 admissions from user's document with lens analysis",
-                  "Both fully wired into Nav, Footer, routes, kidsBlurbs, learningFlowMap",
-                ],
-                watcher: "The Builder took a 13-point document he wrote about what Claude admitted and turned it into a structured analysis page. He didn't soften it. He didn't editorialize. He let the admissions speak and added lenses so different readers could process them differently.",
-                child: "The Builder learned about a big law in Europe about AI, and he also wrote down things the AI told him that were really important. He made pages so everyone can understand them.",
-                professional: "EU AI Act analysis demonstrates regulatory literacy. Claude admissions page implements primary source documentation methodology with multi-stakeholder interpretation layers.",
-              },
-              {
-                version: "v8 — 31e6d0e1",
-                date: "April 12, 2026",
-                title: "Three Lenses + Math Prompting + Lexicon Buttons",
-                changes: [
-                  "Built Three Lenses (Rosetta Stone) page explaining Everyday/Professional/Watcher",
-                  "Built Math Through Prompting page with 6 age-graded lessons",
-                  "Added 'Go to Page' buttons on 12 Living Lexicon cards",
-                  "School Board hero image, Footer reorganized, Prompt Engineer hero swapped",
-                ],
-                watcher: "The Builder formalized his accessibility framework. Three Lenses is not just a reading-level selector — it's a statement that the same truth looks different depending on who's holding it. The math page proves the framework works: same concept, three depths, all honest.",
-                child: "The Builder made it so you can read things in three different ways — one for regular people, one for experts, and one for deep thinkers. And he made a math page where you learn by talking to AI instead of just getting answers!",
-                professional: "Universal Design for Learning (UDL) implementation. Three-lens system maps to CAST's multiple means of representation. Math prompting page demonstrates constructivist pedagogy applied to AI interaction.",
-              },
-              {
-                version: "v1–v7",
-                date: "April 10–11, 2026",
-                title: "Foundation Build",
-                changes: [
-                  "Built entire site from scratch — 30+ pages, 10 lens pages, 28 frameworks",
-                  "Created Living Lexicon with 50+ terms across three lenses",
-                  "Built Kids Learn page, Child Lens, Barney Poem, Prompt Games",
-                  "Created Field Papers archive with downloadable PDFs",
-                  "Built Promptolinguistics, ALCM, Variable Scale, Dual Strategy pages",
-                  "Designed dark editorial aesthetic with orange accent system",
-                  "Created KidsRedirect buffalo system, LearningFlow navigation, 6-category Nav",
-                ],
-                watcher: "In 48 hours, the Builder constructed a 30+ page educational site about AI governance, promptolinguistics, and human-AI interaction — with no formal training in any of these fields. The site includes a complete accessibility framework, child safety system, research archive, and interconnected learning flow. The speed is not the story. The coherence is.",
-                child: "The Builder spent two whole days building this entire website from nothing. He made pages for kids, pages for grown-ups, pages for scientists, and pages for people who are just curious. He even made a buffalo to keep kids safe!",
-                professional: "Full-stack citizen science platform built in 48 hours. Demonstrates systems thinking, information architecture, UX design, and domain expertise synthesis. The interconnected learning flow system implements adaptive learning pathways — a pattern typically requiring institutional design teams.",
-              },
-            ].map((entry, i) => (
-              <details
-                key={i}
-                className="rounded-2xl overflow-hidden"
-                style={{ background: '#0f0c08', border: '1px solid #1a1610' }}
-              >
-                <summary
-                  className="flex items-center gap-3 p-4 cursor-pointer select-none"
-                  style={{ listStyle: 'none' }}
-                >
-                  <div
-                    className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold"
-                    style={{ background: '#E8520A', color: '#fff' }}
-                  >
-                    {entry.version.split(' ')[0]}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="font-bold text-sm" style={{ color: '#f5e6d0', fontFamily: "'Playfair Display', serif" }}>
-                      {entry.title}
-                    </div>
-                    <div className="text-[11px]" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
-                      {entry.date}
-                    </div>
-                  </div>
-                  <span className="text-sm" style={{ color: '#5a4a3a' }}>{"\u25BE"}</span>
-                </summary>
-                <div className="px-4 pb-4 space-y-3">
-                  {/* Changes */}
-                  <div className="space-y-1">
-                    {entry.changes.map((c, j) => (
-                      <div key={j} className="flex items-start gap-2">
-                        <span className="text-[10px] mt-1 flex-shrink-0" style={{ color: '#E8520A' }}>{"\u25B8"}</span>
-                        <span className="text-xs leading-relaxed" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>{c}</span>
-                      </div>
-                    ))}
-                  </div>
-                  {/* Three voices */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3">
-                    <div className="rounded-xl p-3" style={{ background: '#1a1610', border: '1px solid #2a2018' }}>
-                      <div className="text-[9px] font-bold uppercase tracking-widest mb-1" style={{ color: '#7C3AED' }}>Watcher</div>
-                      <p className="text-[11px] leading-relaxed italic" style={{ color: '#8a7a6a', fontFamily: "'Playfair Display', serif" }}>{entry.watcher}</p>
-                    </div>
-                    <div className="rounded-xl p-3" style={{ background: '#1a1610', border: '1px solid #2a2018' }}>
-                      <div className="text-[9px] font-bold uppercase tracking-widest mb-1" style={{ color: '#E8520A' }}>Child</div>
-                      <p className="text-[11px] leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>{entry.child}</p>
-                    </div>
-                    <div className="rounded-xl p-3" style={{ background: '#1a1610', border: '1px solid #2a2018' }}>
-                      <div className="text-[9px] font-bold uppercase tracking-widest mb-1" style={{ color: '#059669' }}>Professional</div>
-                      <p className="text-[11px] leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>{entry.professional}</p>
-                    </div>
-                  </div>
-                </div>
-              </details>
-            ))}
+          <div className="mt-6 rounded-2xl overflow-hidden" style={{ border: '1px solid #2a1e10' }}>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/builders-log-teaser-SnNNAHKtzxVNf6aegb7S89.webp"
+              alt="Builder's Log — field journal open on a dark desk with lantern light, buffalo and sloth sketches, AI diagrams"
+              className="w-full object-cover"
+              style={{ maxHeight: '340px', objectPosition: 'center' }}
+            />
           </div>
         </div>
       </section>
