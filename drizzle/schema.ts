@@ -35,17 +35,20 @@ export type InsertUser = typeof users.$inferInsert;
  * and a JSON content field that holds the block's data.
  *
  * Block types:
- *   text  — { heading?: string, body: string, font: 'playfair'|'dmsans', size: 'large'|'medium'|'small' }
- *   card  — { title: string, description: string, imageUrl?: string, linkLabel?: string, linkUrl?: string, font: string, size: string }
- *   doc   — { label: string, url: string, description?: string }
- *   image — { url: string, alt: string }
+ *   text      — { heading?: string, body: string, font: 'playfair'|'dmsans', size: 'large'|'medium'|'small' }
+ *   card      — { title: string, description: string, imageUrl?: string, linkLabel?: string, linkUrl?: string, font: string, size: string }
+ *   doc       — { label: string, url: string, description?: string }
+ *   image     — { url: string, alt: string, caption?: string }
+ *   carousel  — { items: Array<{ url: string, alt: string, label?: string, caption?: string, linkUrl?: string }> }
+ *   rule-card — { items: Array<{ imageUrl: string, rule: string, caption: string, linkUrl?: string }> }
+ *   sticker   — { url: string, alt: string, position?: 'left'|'center'|'right', size?: 'small'|'medium'|'large' }
  */
 export const contentBlocks = mysqlTable("content_blocks", {
   id: int("id").autoincrement().primaryKey(),
   /** The page slug this block belongs to, e.g. 'rules', 'field-papers', 'home' */
   pageSlug: varchar("pageSlug", { length: 128 }).notNull(),
-  /** Block type: text | card | doc | image */
-  blockType: mysqlEnum("blockType", ["text", "card", "doc", "image"]).notNull(),
+  /** Block type: text | card | doc | image | carousel | rule-card | sticker */
+  blockType: mysqlEnum("blockType", ["text", "card", "doc", "image", "carousel", "rule-card", "sticker"]).notNull(),
   /** Display order on the page. Lower = higher on page. */
   position: int("position").notNull().default(0),
   /** JSON-encoded content specific to the block type */

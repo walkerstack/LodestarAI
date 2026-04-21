@@ -1,0 +1,1 @@
+ALTER TABLE `content_blocks` MODIFY COLUMN `blockType` enum('text','card','doc','image','carousel','rule-card','sticker') NOT NULL;

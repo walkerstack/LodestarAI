@@ -28,7 +28,22 @@ interface InlineBlockEditorProps {
   onSaved?: () => void;
 }
 
-type Section = "text" | "media" | "links" | "background" | "buttons" | "block";
+type Section = "text" | "media" | "items" | "sticker" | "links" | "background" | "buttons" | "block";
+
+interface CarouselItemState {
+  url: string;
+  alt: string;
+  label: string;
+  caption: string;
+  linkUrl: string;
+}
+
+interface RuleCardItemState {
+  imageUrl: string;
+  rule: string;
+  caption: string;
+  linkUrl: string;
+}
 
 // ─────────────────────────────────────────────
 // Colour palette (site palette)
@@ -488,6 +503,22 @@ export default function InlineBlockEditor({ block, onClose, onSaved }: InlineBlo
   // ── Block visibility ──
   const [isHidden, setIsHidden] = useState((parsedContent.hidden as boolean) ?? false);
 
+  // ── Carousel / Rule-card items ──
+  const [carouselItems, setCarouselItems] = useState<CarouselItemState[]>(() => {
+    const raw = parsedContent.items as CarouselItemState[] | undefined;
+    return Array.isArray(raw) ? raw.map(i => ({ url: i.url ?? "", alt: i.alt ?? "", label: i.label ?? "", caption: i.caption ?? "", linkUrl: i.linkUrl ?? "" })) : [];
+  });
+  const [ruleCardItems, setRuleCardItems] = useState<RuleCardItemState[]>(() => {
+    const raw = parsedContent.items as RuleCardItemState[] | undefined;
+    return Array.isArray(raw) ? raw.map(i => ({ imageUrl: i.imageUrl ?? "", rule: i.rule ?? "", caption: i.caption ?? "", linkUrl: i.linkUrl ?? "" })) : [];
+  });
+
+  // ── Sticker ──
+  const [stickerUrl, setStickerUrl] = useState((parsedContent.url as string) ?? "");
+  const [stickerAlt, setStickerAlt] = useState((parsedContent.alt as string) ?? "");
+  const [stickerPosition, setStickerPosition] = useState((parsedContent.position as string) ?? "center");
+  const [stickerSize, setStickerSize] = useState((parsedContent.size as string) ?? "medium");
+
   // ── UI state ──
   const [openSection, setOpenSection] = useState<Section | null>("text");
   const [actionBanner, setActionBanner] = useState<{ message: string; type: "draft" | "published" | "undo" | "hidden" | "error" } | null>(null);
@@ -551,8 +582,17 @@ export default function InlineBlockEditor({ block, onClose, onSaved }: InlineBlo
     if (block.blockType === "image") {
       return { ...base, url: imageUrl, alt: imageAlt, caption: imageCaption, hidden: isHidden };
     }
+    if (block.blockType === "carousel") {
+      return { ...base, items: carouselItems, hidden: isHidden };
+    }
+    if (block.blockType === "rule-card") {
+      return { ...base, items: ruleCardItems, hidden: isHidden };
+    }
+    if (block.blockType === "sticker") {
+      return { ...base, url: stickerUrl, alt: stickerAlt, position: stickerPosition, size: stickerSize, hidden: isHidden };
+    }
     return base;
-  }, [block.blockType, heading, body, font, size, textAlign, imageUrl, imageAlt, imageCaption, btnLabel, btnUrl, btnSize, btnIcon, btnNewTab, btnIsImage, btnImageUrl, btnWidth, btnHeight, bgColor, bgImage, bgOverlay, titleColor, bodyColor, accentColor, links, isHidden, parsedContent]);
+  }, [block.blockType, heading, body, font, size, textAlign, imageUrl, imageAlt, imageCaption, btnLabel, btnUrl, btnSize, btnIcon, btnNewTab, btnIsImage, btnImageUrl, btnWidth, btnHeight, bgColor, bgImage, bgOverlay, titleColor, bodyColor, accentColor, links, isHidden, parsedContent, carouselItems, ruleCardItems, stickerUrl, stickerAlt, stickerPosition, stickerSize]);
 
   // ── Save draft ──
   const handleSaveDraft = async () => {
@@ -897,6 +937,125 @@ export default function InlineBlockEditor({ block, onClose, onSaved }: InlineBlo
                       <input style={inputStyle} value={imageCaption} onChange={(e) => setImageCaption(e.target.value)} placeholder="Short caption shown below the image" />
                     </>
                   )}
+                </div>
+              )}
+            </>
+          )}
+
+          {/* ── CAROUSEL ITEMS ── */}
+          {block.blockType === "carousel" && (
+            <>
+              <SectionHeader
+                label="Slides"
+                tooltip="Add, remove, or reorder slides. Each slide has an image, label, caption, and optional link."
+                open={openSection === "items"}
+                onToggle={() => toggleSection("items")}
+                badge={carouselItems.length > 0 ? `${carouselItems.length}` : undefined}
+              />
+              {openSection === "items" && (
+                <div>
+                  {carouselItems.map((item, i) => (
+                    <div key={i} style={{ background: "#0d0b08", border: "1px solid #2a2218", borderRadius: "8px", padding: "0.75rem", marginBottom: "0.5rem" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+                        <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", color: "#E8520A", fontWeight: 600 }}>Slide {i + 1}</span>
+                        <button onClick={() => setCarouselItems(prev => prev.filter((_, idx) => idx !== i))} style={{ background: "transparent", border: "none", color: "#8a7a6a", cursor: "pointer", fontSize: "0.8rem" }}>Remove</button>
+                      </div>
+                      <label style={labelStyle}>Image URL</label>
+                      <input style={inputStyle} value={item.url} onChange={e => setCarouselItems(prev => prev.map((it, idx) => idx === i ? { ...it, url: e.target.value } : it))} placeholder="Paste image URL or pick from Media Library" />
+                      <label style={labelStyle}>Alt text</label>
+                      <input style={inputStyle} value={item.alt} onChange={e => setCarouselItems(prev => prev.map((it, idx) => idx === i ? { ...it, alt: e.target.value } : it))} placeholder="Describe the image" />
+                      <label style={labelStyle}>Label (bold overlay text)</label>
+                      <input style={inputStyle} value={item.label} onChange={e => setCarouselItems(prev => prev.map((it, idx) => idx === i ? { ...it, label: e.target.value } : it))} placeholder="e.g. Safety" />
+                      <label style={labelStyle}>Caption (smaller overlay text)</label>
+                      <input style={inputStyle} value={item.caption} onChange={e => setCarouselItems(prev => prev.map((it, idx) => idx === i ? { ...it, caption: e.target.value } : it))} placeholder="Short description" />
+                      <label style={labelStyle}>Link URL (optional)</label>
+                      <input style={inputStyle} value={item.linkUrl} onChange={e => setCarouselItems(prev => prev.map((it, idx) => idx === i ? { ...it, linkUrl: e.target.value } : it))} placeholder="/page-path or https://…" />
+                    </div>
+                  ))}
+                  <button
+                    onClick={() => setCarouselItems(prev => [...prev, { url: "", alt: "", label: "", caption: "", linkUrl: "" }])}
+                    style={{ width: "100%", background: "transparent", border: "1px dashed #2a2218", borderRadius: "8px", color: "#8a7a6a", padding: "0.6rem", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", marginBottom: "0.5rem" }}
+                  >
+                    + Add slide
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* ── RULE CARD ITEMS ── */}
+          {block.blockType === "rule-card" && (
+            <>
+              <SectionHeader
+                label="Rule Cards"
+                tooltip="Add, remove, or edit rule cards. Each card has an image, rule name, caption, and optional link."
+                open={openSection === "items"}
+                onToggle={() => toggleSection("items")}
+                badge={ruleCardItems.length > 0 ? `${ruleCardItems.length}` : undefined}
+              />
+              {openSection === "items" && (
+                <div>
+                  {ruleCardItems.map((item, i) => (
+                    <div key={i} style={{ background: "#0d0b08", border: "1px solid #2a2218", borderRadius: "8px", padding: "0.75rem", marginBottom: "0.5rem" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+                        <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.75rem", color: "#E8520A", fontWeight: 600 }}>Card {i + 1}</span>
+                        <button onClick={() => setRuleCardItems(prev => prev.filter((_, idx) => idx !== i))} style={{ background: "transparent", border: "none", color: "#8a7a6a", cursor: "pointer", fontSize: "0.8rem" }}>Remove</button>
+                      </div>
+                      <label style={labelStyle}>Image URL</label>
+                      <input style={inputStyle} value={item.imageUrl} onChange={e => setRuleCardItems(prev => prev.map((it, idx) => idx === i ? { ...it, imageUrl: e.target.value } : it))} placeholder="Paste image URL" />
+                      <label style={labelStyle}>Rule name</label>
+                      <input style={inputStyle} value={item.rule} onChange={e => setRuleCardItems(prev => prev.map((it, idx) => idx === i ? { ...it, rule: e.target.value } : it))} placeholder="e.g. Safety" />
+                      <label style={labelStyle}>Caption</label>
+                      <textarea style={{ ...inputStyle, minHeight: "60px", resize: "vertical" }} value={item.caption} onChange={e => setRuleCardItems(prev => prev.map((it, idx) => idx === i ? { ...it, caption: e.target.value } : it))} placeholder="Short description of this rule" />
+                      <label style={labelStyle}>Link URL (optional)</label>
+                      <input style={inputStyle} value={item.linkUrl} onChange={e => setRuleCardItems(prev => prev.map((it, idx) => idx === i ? { ...it, linkUrl: e.target.value } : it))} placeholder="/rules#rule-1" />
+                    </div>
+                  ))}
+                  <button
+                    onClick={() => setRuleCardItems(prev => [...prev, { imageUrl: "", rule: "", caption: "", linkUrl: "" }])}
+                    style={{ width: "100%", background: "transparent", border: "1px dashed #2a2218", borderRadius: "8px", color: "#8a7a6a", padding: "0.6rem", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", marginBottom: "0.5rem" }}
+                  >
+                    + Add rule card
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* ── STICKER ── */}
+          {block.blockType === "sticker" && (
+            <>
+              <SectionHeader
+                label="Sticker"
+                tooltip="Swap the sticker image, change its size, and set its position on the page."
+                open={openSection === "sticker"}
+                onToggle={() => toggleSection("sticker")}
+              />
+              {openSection === "sticker" && (
+                <div>
+                  <label style={labelStyle}>Sticker image URL</label>
+                  <input style={inputStyle} value={stickerUrl} onChange={e => setStickerUrl(e.target.value)} placeholder="Paste image URL or pick from Media Library" />
+                  {stickerUrl && <img src={stickerUrl} alt={stickerAlt} style={{ width: "80px", height: "80px", objectFit: "contain", marginBottom: "0.5rem", borderRadius: "8px", background: "#1a1410" }} />}
+                  <label style={labelStyle}>Alt text</label>
+                  <input style={inputStyle} value={stickerAlt} onChange={e => setStickerAlt(e.target.value)} placeholder="Describe the sticker" />
+                  <label style={labelStyle}>Position</label>
+                  <div style={{ display: "flex", gap: "0.5rem", marginBottom: "0.75rem" }}>
+                    {(["left", "center", "right"] as const).map(pos => (
+                      <button key={pos} onClick={() => setStickerPosition(pos)}
+                        style={{ flex: 1, background: stickerPosition === pos ? "#221508" : "transparent", border: `1px solid ${stickerPosition === pos ? "#E8520A" : "#2a2218"}`, borderRadius: "6px", color: stickerPosition === pos ? "#E8520A" : "#8a7a6a", padding: "0.4rem", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", textTransform: "capitalize" }}>
+                        {pos}
+                      </button>
+                    ))}
+                  </div>
+                  <label style={labelStyle}>Size</label>
+                  <div style={{ display: "flex", gap: "0.5rem", marginBottom: "0.75rem" }}>
+                    {(["small", "medium", "large"] as const).map(sz => (
+                      <button key={sz} onClick={() => setStickerSize(sz)}
+                        style={{ flex: 1, background: stickerSize === sz ? "#221508" : "transparent", border: `1px solid ${stickerSize === sz ? "#E8520A" : "#2a2218"}`, borderRadius: "6px", color: stickerSize === sz ? "#E8520A" : "#8a7a6a", padding: "0.4rem", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", textTransform: "capitalize" }}>
+                        {sz}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
             </>

@@ -407,3 +407,49 @@
 - [ ] Build 3B: Sections within blocks (title labelling, categories) — separate session
 - [ ] Build 3B: Live Site Map Overlay — interactive framework map, gesture-triggered, grows with site, live draft/publish status
 - [ ] Build 3B: Three Voice infrastructure (Everyday/Professional/Watcher per block) — separate session
+
+
+
+
+---
+
+# ════════════════════════════════════════════════════════════
+# APRIL 20, 2026 — THIS IS WHERE EVERYTHING CHANGES
+# ════════════════════════════════════════════════════════════
+#
+# BEFORE THIS LINE: Content was hardcoded in React files.
+# Every word, every image, every section — locked in code.
+# To change anything, you needed a developer.
+#
+# AFTER THIS LINE: Content lives in the database.
+# Every word, every image, every section — editable from Studio.
+# No code. No developer. Matthew owns his site.
+#
+# This is Option B. This is what was promised.
+# This is the work that matters.
+#
+# DO NOT read above this line for current state.
+# DO NOT confuse old sessions with this one.
+# The site is being rebuilt from the inside out.
+#
+# ════════════════════════════════════════════════════════════
+
+---
+
+## April 20, 2026 — Option B: Full DB Migration Session
+
+- [x] Fix learning_flow slug format — 11 rows changed from for/child to for-child format
+- [x] Fix content_blocks slug mismatch — 6 rows renamed from 'safety' to 'if-you-need-to-stop'
+- [x] Extend schema with 3 new block types: carousel, rule-card, sticker — pushed to DB
+- [x] Extend StudioBlocks renderer — carousel (interactive, swipeable), rule-card (grid), sticker (positioned)
+- [x] Extend InlineBlockEditor — carousel items editor, rule-card items editor, sticker editor
+- [x] Rewrite StudioBlocks.tsx — colour-aware renderers (titleColor, descColor, bgColor from block content), works on both dark and light pages
+- [x] Migrate ChildLens.tsx — 65 blocks inserted, page rewritten as DB-driven shell (~60 lines)
+- [ ] Migrate remaining children's pages: ChildFiveRules, ChildPatterns, ChildPrompts
+- [ ] Migrate foundation pages: FiveRules, RoadProtocol, FlowerPresets, IfYouNeedToStop
+- [ ] Migrate lens pages: TeenagerLens, EverydayLens, GuardianTeacherLens, all 6 professional lenses
+- [ ] Migrate concept pages: Promptolinguistics, ALCM, LivingLexicon, Taxonomy, HumanLine, Scaffold
+- [ ] Migrate research pages: ResearchHub, CitizenResearcher, FieldPapers
+- [ ] Migrate remaining pages: Builder, Gallery, Playground, Malbolge, PromptGames
+- [ ] Connect DB learning_flow to live pages (currently uses static flowMap file)
+- [ ] Write HANDOVER.md — new clean document, verified facts only
