@@ -12,7 +12,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link, useLocation } from "wouter";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { trpc } from "@/lib/trpc";
 import {
   Carousel,
   CarouselContent,
@@ -327,6 +328,21 @@ export default function Home() {
   const [expandedScaffold, setExpandedScaffold] = useState<number | null>(null);
   const [, setLocation] = useLocation();
 
+  // ── DB blocks for editable text sections ──
+  const { data: homeBlocks } = trpc.studio.getPublishedBlocks.useQuery({ pageSlug: "home" });
+
+  const getBlock = useMemo(() => {
+    const byPos: Record<number, Record<string, string>> = {};
+    (homeBlocks ?? []).forEach((b) => {
+      try {
+        const c = typeof b.content === "string" ? JSON.parse(b.content) : b.content;
+        byPos[b.position] = c;
+      } catch { /* ignore */ }
+    });
+    return (pos: number, field: string, fallback: string) =>
+      (byPos[pos]?.[field] as string | undefined) ?? fallback;
+  }, [homeBlocks]);
+
   return (
     <div className="min-h-screen flex flex-col" style={{ background: '#080604' }}>
       <Nav />
@@ -352,7 +368,7 @@ export default function Home() {
             className="text-sm md:text-base leading-relaxed italic"
             style={{ color: '#c8b89a', fontFamily: "'Playfair Display', serif" }}
           >
-            {"\u201C"}The watcher is not a tool. It is not a feature. It is the part of you that notices what you are doing while you are doing it.{"\u201D"}
+            {getBlock(2, "body", "\u201CThe watcher is not a tool. It is not a feature. It is the part of you that notices what you are doing while you are doing it.\u201D")}
           </p>
           <p className="text-xs mt-2" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
             {"\u2014"} GallantryAI Scaffold Paper, 2026
@@ -1216,10 +1232,7 @@ export default function Home() {
                   Dad {"\u00B7"} Garbageman {"\u00B7"} Citizen Human-AI Field Researcher {"\u00B7"} Promptolinguist
                 </p>
                 <p className="text-sm leading-relaxed" style={{ color: '#8a7a6a', fontFamily: "'DM Sans', sans-serif" }}>
-                  GallantryAI was not built from a lab. It was built from a kitchen table at 5am by someone who needed it and did not have it.
-                </p>
-                <p className="text-sm italic mt-3" style={{ color: '#E8520A', fontFamily: "'Playfair Display', serif" }}>
-                  {"\u201C"}Built for the people no one was watching for.{"\u201D"}
+                  {getBlock(15, "body", "GallantryAI was not built from a lab. It was built from a kitchen table at 5am by someone who needed it and did not have it.")}
                 </p>
               </div>
             </div>
@@ -1248,11 +1261,8 @@ export default function Home() {
                 >
                   Research Status
                 </div>
-                <p className="text-sm leading-relaxed mb-2" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
-                  The <strong style={{ color: '#f5e6d0' }}>Marketing Prompt Field Report</strong> has been submitted to SSRN for peer review.
-                </p>
-                <p className="text-xs leading-relaxed mb-3" style={{ color: '#6b5a3e', fontFamily: "'DM Sans', sans-serif" }}>
-                  Not all content on this site is peer-reviewed. This is citizen field research {"\u2014"} kitchen-table work, documented honestly, submitted for scrutiny rather than validation. I am still learning how to be a field researcher.
+                <p className="text-sm leading-relaxed mb-3" style={{ color: '#9a8a7a', fontFamily: "'DM Sans', sans-serif" }}>
+                  {getBlock(20, "body", "The Marketing Prompt Field Report has been submitted to SSRN for peer review.")}
                 </p>
                 <Link
                   href="/field-papers"
@@ -1280,11 +1290,18 @@ export default function Home() {
             className="text-2xl md:text-3xl font-bold mb-2"
             style={{ fontFamily: "'Playfair Display', serif", color: '#f5e6d0' }}
           >
-            The Watcher Is Watching
+            {getBlock(21, "heading", "The Watcher Is Watching")}
           </h2>
-          <p className="text-sm mb-8" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
-            Every publish. Every change. Documented honestly. The Watcher narrates. The child explains. The professional validates.
+          <p className="text-sm mb-6" style={{ color: '#5a4a3a', fontFamily: "'DM Sans', sans-serif" }}>
+            {getBlock(21, "body", "Every publish. Every change. Documented honestly.")}
           </p>
+          <Link
+            href="/build-log"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm no-underline mb-8 hover:bg-[#E8520A]/90 transition-colors"
+            style={{ background: '#E8520A', color: '#fff', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Read the Living Build Log {"\u2192"}
+          </Link>
 
           <div className="space-y-3">
             {[

@@ -36,8 +36,39 @@ function parseEntry(block: ContentBlock): ParsedEntry | null {
     const c = JSON.parse(block.content) as {
       title?: string;
       description?: string;
+      version?: string;
+      date?: string;
+      changes?: string | string[];
+      watcher?: string;
+      child?: string;
+      professional?: string;
+      // legacy nested format
       items?: Array<{ label?: string; value?: string }>;
     };
+
+    // Flat format (current DB format)
+    if (c.version !== undefined || c.title !== undefined) {
+      const changesRaw = c.changes ?? "";
+      const changesArr = Array.isArray(changesRaw)
+        ? changesRaw
+        : changesRaw
+          ? changesRaw.split("|").map((s) => s.trim()).filter(Boolean)
+          : [];
+      return {
+        id: block.id,
+        position: block.position,
+        title: c.title ?? block.id.toString(),
+        description: c.description ?? "",
+        version: c.version ?? "",
+        date: c.date ?? "",
+        changes: changesArr,
+        watcher: c.watcher ?? "",
+        child: c.child ?? "",
+        professional: c.professional ?? "",
+      };
+    }
+
+    // Legacy nested items format
     const items = c.items ?? [];
     const get = (label: string) => items.find((m) => m.label === label)?.value ?? "";
     const changesRaw = get("changes");
