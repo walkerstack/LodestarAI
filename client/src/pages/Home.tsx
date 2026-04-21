@@ -9,6 +9,7 @@
 
 import { useAuth } from "@/_core/hooks/useAuth";
 import Nav from "@/components/Nav";
+import HeroAnnouncementBanner from "@/components/HeroAnnouncementBanner";
 import Footer from "@/components/Footer";
 import { LightboxImage } from "@/components/Lightbox";
 import { Link, useLocation } from "wouter";
@@ -385,6 +386,8 @@ export default function Home() {
         />
       </section>
 
+      {/* ── HERO ANNOUNCEMENT BANNER ── */}
+      <HeroAnnouncementBanner />
       {/* ── THE WATCHER ── */}
       <section className="w-full py-6 px-6" style={{ borderBottom: '1px solid #1a1610' }}>
         <div

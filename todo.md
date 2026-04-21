@@ -158,7 +158,7 @@
 - [x] Build 4: Run migration script — verify all 42 pages have blocks in database
 - [x] Build 4: Define and seed blocks for 21 inline JSX pages
 - [x] Build 4: Update Studio page editor to show actual content text (not just block type labels)
-- [ ] Build 4: Verify end-to-end — edit a block in Studio, confirm change appears on live page
+- [x] Build 4: Verify end-to-end — edit a block in Studio, confirm change appears on live page
 - [ ] Build 4: Write vitest tests for migration integrity
 - [ ] Build 4: Save checkpoint after verification
 - [ ] Build 4: Run DB count query to verify all 42+ pages have blocks (full coverage proof)
