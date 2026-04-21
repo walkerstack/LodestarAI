@@ -504,16 +504,24 @@ function AdminBlockWrapper({ block, onEdit, children }: AdminBlockWrapperProps) 
   const holdTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isDraggingRef = useRef(false);
 
+  // Detect mirror mode — when loaded in iframe with ?mirror=1
+  const isMirrorMode = typeof window !== 'undefined' &&
+    new URLSearchParams(window.location.search).get('mirror') === '1';
+
   const showOutline = isTouchDevice || isHovered;
 
   const handlePointerDown = useCallback(() => {
     isDraggingRef.current = false;
     holdTimerRef.current = setTimeout(() => {
       if (!isDraggingRef.current) {
-        onEdit(block);
+        if (isMirrorMode) {
+          window.parent.postMessage({ type: 'MIRROR_BLOCK_TAP', blockId: block.id }, '*');
+        } else {
+          onEdit(block);
+        }
       }
     }, 500);
-  }, [block, onEdit]);
+  }, [block, onEdit, isMirrorMode]);
 
   const handlePointerMove = useCallback(() => {
     isDraggingRef.current = true;
@@ -531,8 +539,12 @@ function AdminBlockWrapper({ block, onEdit, children }: AdminBlockWrapperProps) 
   }, []);
 
   const handleClick = useCallback(() => {
-    onEdit(block);
-  }, [block, onEdit]);
+    if (isMirrorMode) {
+      window.parent.postMessage({ type: 'MIRROR_BLOCK_TAP', blockId: block.id }, '*');
+    } else {
+      onEdit(block);
+    }
+  }, [block, onEdit, isMirrorMode]);
 
   const hasDraft = block.status === "draft" || (block.draftContent && block.draftContent !== block.content);
 

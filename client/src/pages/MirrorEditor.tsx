@@ -24,6 +24,8 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import { useParams, useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
+import StudioSiteBannerManager from "@/components/studio/StudioSiteBannerManager";
+import StudioLearningMatrix from "@/components/studio/StudioLearningMatrix";
 import {
   DndContext,
   closestCenter,
@@ -445,6 +447,7 @@ export default function MirrorEditor() {
   const [selectedBlock, setSelectedBlock] = useState<Block | null>(null);
   const [showAddBlock, setShowAddBlock] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [activeTab, setActiveTab] = useState<"page" | "banner" | "matrix">("page");
 
   // Resizable split — phone: top panel height as % of viewport
   const [splitPct, setSplitPct] = useState(50);
@@ -525,6 +528,7 @@ export default function MirrorEditor() {
   useEffect(() => {
     const onTouchMove = (e: TouchEvent) => {
       if (!isDraggingHandle.current || !containerRef.current) return;
+      e.preventDefault();
       const rect = containerRef.current.getBoundingClientRect();
       const touch = e.touches[0];
       const pct = ((touch.clientY - rect.top) / rect.height) * 100;
@@ -537,7 +541,7 @@ export default function MirrorEditor() {
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("touchend", onTouchEnd);
     };
-  }, []);
+  }, [])
 
   // Auth guard
   if (!me || me.role !== "admin") {
@@ -593,6 +597,28 @@ export default function MirrorEditor() {
           ← Studio
         </button>
 
+        {/* Tabs */}
+        {(["page", "banner", "matrix"] as const).map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            style={{
+              background: activeTab === tab ? "#E8520A" : "transparent",
+              border: `1px solid ${activeTab === tab ? "#E8520A" : "#2a2218"}`,
+              borderRadius: "6px",
+              color: activeTab === tab ? "#fff" : "#8a7a6a",
+              padding: "0.35rem 0.7rem",
+              cursor: "pointer",
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.75rem",
+              fontWeight: activeTab === tab ? 700 : 400,
+              textTransform: "capitalize",
+            }}
+          >
+            {tab === "page" ? "Page" : tab === "banner" ? "Banner" : "Matrix"}
+          </button>
+        ))}
+
         <div style={{ flex: 1 }}>
           <span
             style={{
@@ -641,8 +667,22 @@ export default function MirrorEditor() {
         </button>
       </div>
 
-      {/* ── Main split area ── */}
-      <div
+      {/* ── Banner tab ── */}
+      {activeTab === "banner" && (
+        <div style={{ flex: 1, overflowY: "auto", padding: "1.5rem", background: "#080604" }}>
+          <StudioSiteBannerManager />
+        </div>
+      )}
+
+      {/* ── Learning Matrix tab ── */}
+      {activeTab === "matrix" && (
+        <div style={{ flex: 1, overflowY: "auto", padding: "1.5rem", background: "#080604" }}>
+          <StudioLearningMatrix />
+        </div>
+      )}
+
+      {/* ── Main split area (Page tab) ── */}
+      {activeTab === "page" && (<div
         ref={containerRef}
         className="mirror-editor-body"
         style={{
@@ -670,7 +710,7 @@ export default function MirrorEditor() {
         {/* Drag handle */}
         <div
           onMouseDown={handleHandleMouseDown}
-          onTouchStart={() => { isDraggingHandle.current = true; }}
+          onTouchStart={(e) => { e.preventDefault(); isDraggingHandle.current = true; }}
           style={{
             height: "10px",
             background: "#0d0a07",
@@ -784,21 +824,20 @@ export default function MirrorEditor() {
             )}
           </div>
         </div>
-      </div>
 
-      {/* ── Inline editor (slides up over everything when a block is selected) ── */}
-      {selectedBlock && (
-        <InlineBlockEditor
-          block={selectedBlock}
-          onClose={() => setSelectedBlock(null)}
-          onSaved={() => {
-            utils.studio.getDraftBlocks.invalidate({ pageSlug });
-            setRefreshKey((k) => k + 1);
-            // Re-select the updated block from fresh data
-            setSelectedBlock(null);
-          }}
-        />
-      )}
+        {/* ── Inline editor (slides up over everything when a block is selected) ── */}
+        {selectedBlock && (
+          <InlineBlockEditor
+            block={selectedBlock}
+            onClose={() => setSelectedBlock(null)}
+            onSaved={() => {
+              utils.studio.getDraftBlocks.invalidate({ pageSlug });
+              setRefreshKey((k) => k + 1);
+              setSelectedBlock(null);
+            }}
+          />
+        )}
+      </div>)}
 
       {/* Desktop layout overrides */}
       <style>{`
