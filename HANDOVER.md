@@ -237,6 +237,58 @@ Entries added for `/` (home) and `/build-log`.
 
 ---
 
+## WHAT WAS BUILT APRIL 21 (session 5)
+
+### 1. Animated buffalo video restored to child page
+
+- The animated buffalo-with-wig MP4 video was missing from the child page (for-child)
+- `video` blockType added to schema enum and StudioBlocks.tsx renderer
+- Video block restored at position 13 (before the Buffalo in the Forest of Data story text)
+- Video URL: `AQM8wS_...mp4` on CloudFront CDN — confirmed playing in browser
+- Checkpoint: `e1ae550e`
+
+### 2. Delete button added to InlineBlockEditor header
+
+- Delete button is now visible at the top of every inline editor panel
+- Shows "🗑 Delete" → confirm "Yes, Delete" → block removed
+- No more digging through sections to find it
+- Checkpoint: `f90b6cd1`
+
+### 3. Mirror Editor — IN PROGRESS (not yet complete)
+
+**What was agreed with Matthew:**
+- New page at `/studio/mirror/:pageSlug`
+- Phone: top half = full live page preview (scrollable), bottom half = block list + controls
+- Desktop: left = full live page preview, right = block list + inline editor
+- Resizable split panel (drag handle between top/bottom or left/right)
+- From one screen: tap to edit, drag to reorder, delete, add block, publish
+- Banner tab: live preview of banner in context (above nav)
+- Learning Matrix tab: live preview while editing
+- Nothing removed. Existing Studio, inline editor, live pages all stay.
+
+**Status:** Build started this session. Not yet complete. Next session must finish this.
+
+**Files to create:**
+- `client/src/pages/MirrorEditor.tsx` — the new mirror editor page
+
+**Files to modify:**
+- `client/src/App.tsx` — add route `/studio/mirror/:pageSlug`
+- `client/src/components/studio/StudioSiteBannerManager.tsx` — add live banner preview in context
+- `client/src/pages/Studio.tsx` — add "Mirror Edit" button/link from Pages tab
+
+**Backend:** All needed tRPC procedures already exist:
+- `studio.getDraftBlocks` — get all blocks for a page
+- `studio.reorderBlocks` — reorder
+- `studio.deleteBlock` — delete
+- `studio.publishAllDrafts` — publish
+- `studio.getPageList` — get page metadata (slug, label, path)
+
+**DnD:** `@dnd-kit` already installed and used in `StudioPageEditor.tsx` — reuse same pattern
+
+**InlineBlockEditor:** Already built. Already has delete button. Just mount it in the mirror editor when a block is tapped.
+
+---
+
 ## WHAT WAS BUILT APRIL 21 (session 4)
 
 ### 1. Banner DB key fix

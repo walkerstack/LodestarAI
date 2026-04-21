@@ -8,7 +8,7 @@
 import { useState, useEffect } from "react";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { getLoginUrl } from "@/const";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -26,6 +26,93 @@ import StudioNavManager from "@/components/studio/StudioNavManager";
 import StudioSiteBannerManager from "@/components/studio/StudioSiteBannerManager";
 
 type StudioTab = "pages" | "media" | "links" | "sitemap" | "statusboard" | "pagebuilder" | "learningmatrix" | "lexicon" | "promptgames" | "gbutton" | "navmanager" | "banner";
+
+// ── Page list with Mirror Edit buttons ─────────────────────────────────────
+type PageMeta = { slug: string; label: string; path: string };
+
+function StudioPageListWithMirror({
+  pageList,
+  onSelectPage,
+}: {
+  pageList: PageMeta[];
+  onSelectPage: (page: PageMeta) => void;
+}) {
+  const [, setLocation] = useLocation();
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {pageList.map((page) => (
+        <div
+          key={page.slug}
+          style={{
+            background: "#130f0a",
+            border: "1px solid #2a2218",
+            borderRadius: "8px",
+            padding: "1rem 1.25rem",
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.5rem",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.9rem",
+              color: "#e8ddd0",
+              fontWeight: 500,
+            }}
+          >
+            {page.label}
+          </div>
+          <div
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.75rem",
+              color: "#5a4a3a",
+            }}
+          >
+            {page.path}
+          </div>
+          <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.25rem" }}>
+            <button
+              onClick={() => onSelectPage(page)}
+              style={{
+                flex: 1,
+                background: "transparent",
+                border: "1px solid #2a2218",
+                borderRadius: "6px",
+                color: "#8a7a6a",
+                fontSize: "0.75rem",
+                fontFamily: "'DM Sans', sans-serif",
+                padding: "0.35rem 0.5rem",
+                cursor: "pointer",
+              }}
+            >
+              Block List
+            </button>
+            <button
+              onClick={() => setLocation(`/studio/mirror/${page.slug}`)}
+              style={{
+                flex: 1,
+                background: "#E8520A",
+                border: "none",
+                borderRadius: "6px",
+                color: "#fff",
+                fontSize: "0.75rem",
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 700,
+                padding: "0.35rem 0.5rem",
+                cursor: "pointer",
+              }}
+            >
+              Mirror Edit
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 // ── Studio Login Screen ──────────────────────────────────────────────────────
 // Primary: Log in with Manus (owner ID check). Fallback: password form.
@@ -330,43 +417,7 @@ export default function Studio() {
               {pagesLoading ? (
                 <p style={{ color: "#8a7a6a" }}>Loading pages…</p>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {(pageList ?? []).map((page) => (
-                    <button
-                      key={page.slug}
-                      onClick={() => setSelectedPage(page)}
-                      style={{
-                        background: "#130f0a",
-                        border: "1px solid #2a2218",
-                        borderRadius: "8px",
-                        padding: "1rem 1.25rem",
-                        textAlign: "left",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <div
-                        style={{
-                          fontFamily: "'DM Sans', sans-serif",
-                          fontSize: "0.9rem",
-                          color: "#e8ddd0",
-                          fontWeight: 500,
-                        }}
-                      >
-                        {page.label}
-                      </div>
-                      <div
-                        style={{
-                          fontFamily: "'DM Sans', sans-serif",
-                          fontSize: "0.75rem",
-                          color: "#5a4a3a",
-                          marginTop: "0.25rem",
-                        }}
-                      >
-                        {page.path}
-                      </div>
-                    </button>
-                  ))}
-                </div>
+<StudioPageListWithMirror pageList={pageList ?? []} onSelectPage={setSelectedPage} />
               )}
             </div>
           )}

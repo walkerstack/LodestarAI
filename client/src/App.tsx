@@ -94,6 +94,7 @@ const GallantryAiPage = lazy(() => import("./pages/GallantryAiPage"));
 
 // Studio (owner-only)
 const Studio = lazy(() => import("./pages/Studio"));
+const MirrorEditor = lazy(() => import("./pages/MirrorEditor"));
 
 // ── Page loading fallback ────────────────────────────────────────────────────
 function PageLoader() {
@@ -163,6 +164,7 @@ function Router() {
         {/* Builder & New Sections */}
         <Route path="/backstage">{() => { window.location.replace("/studio"); return null; }}</Route>
         <Route path="/studio" component={Studio} />
+        <Route path="/studio/mirror/:pageSlug" component={MirrorEditor} />
         <Route path="/builder" component={Builder} />
         <Route path="/frameworks" component={Frameworks} />
         <Route path="/citizen-researcher" component={CitizenResearcher} />
@@ -207,6 +209,25 @@ function Router() {
   );
 }
 
+function AppShell() {
+  // Hide floating overlays on mirror editor routes so they don't cover the editor UI
+  const [location] = useLocation();
+  const isMirror = location.startsWith("/studio/mirror");
+
+  return (
+    <>
+      <Toaster />
+      {!isMirror && <OopsSloth />}
+      {/* Lexicon panel + button — bottom-right corner, z-45/z-40 */}
+      {/* KidsMidLink is z-60 and always floats above — do not change */}
+      {!isMirror && <LexiconButton />}
+      {!isMirror && <LexiconPanel />}
+      <ScrollToTop />
+      <Router />
+    </>
+  );
+}
+
 function App() {
   // IntroCrawl splash screen disabled — file preserved in components/IntroCrawl.tsx
 
@@ -215,16 +236,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <LexiconProvider>
           <TooltipProvider>
-            <Toaster />
-            <OopsSloth />
-            {/* Lexicon panel + button — bottom-right corner, z-45/z-40 */}
-            {/* KidsMidLink is z-60 and always floats above — do not change */}
-            <LexiconButton />
-            <LexiconPanel />
-
-            {/* IntroCrawl removed from display — file preserved in components/IntroCrawl.tsx */}
-            <ScrollToTop />
-            <Router />
+            <AppShell />
           </TooltipProvider>
         </LexiconProvider>
       </ThemeProvider>
