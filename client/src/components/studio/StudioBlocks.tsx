@@ -200,10 +200,19 @@ function TextBlock({ content }: { content: TextBlockContent }) {
 
   if (bgImage) {
     return (
-      <div className={`studio-block studio-text-block w-full relative overflow-hidden ${fontClass}`} style={{ minHeight: '320px' }}>
-        <img src={bgImage} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" style={{ zIndex: 0 }} />
-        <div className="absolute inset-0" style={{ background: `rgba(8,6,4,${bgOverlay ?? 0.6})`, zIndex: 1 }} />
-        {innerContent}
+      <div
+        className={`studio-block studio-text-block w-full relative overflow-hidden ${fontClass}`}
+        style={{
+          minHeight: '320px',
+          background: 'linear-gradient(to bottom, #1A1A2E 0%, #E8520A 35%, #FFF8EE 100%)',
+        }}
+      >
+        <div className="absolute inset-0" style={{ opacity: bgOverlay != null ? (1 - bgOverlay) : 0.15 }}>
+          <img src={bgImage} alt="" className="w-full h-full object-cover" />
+        </div>
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          {innerContent}
+        </div>
       </div>
     );
   }
