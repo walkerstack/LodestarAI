@@ -87,6 +87,7 @@ const ROLE_IMAGES: Record<string, string> = {
   "Everyday Person": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-everyday-beybTXLC8QnfyMUD766qb2.webp",
   "Kid (Under 13)": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-child-mTNyShRSmpgki7dvScCRzn.webp",
   "Teenager": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-teen-4Ste3xYAShZ9GirHrM8P9g.webp",
+  "Citizen Researcher": "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/nav-tile-citizen-researcher-n7CypWrdgrYSizU8Cg3Amw.webp",
 };
 
 /* ── Pathfinding: Who Are You? ── */
@@ -883,13 +884,14 @@ export default function Home() {
               You can wear more than one hat. The site is built so you can move between them.
             </p>
             {/* 5 primary hats — image tiles with 3D shadow */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mb-4">
               {[
                 { label: 'Everyday', path: '/for/everyday',         img: ROLE_IMAGES['Everyday Person'],         desc: 'Plain language. Real life.',          border: '#E8520A' },
                 { label: 'Child',    path: '/for/child',            img: ROLE_IMAGES['Kid (Under 13)'],          desc: 'Safe. Simple. Yours.',                border: '#3B82F6' },
                 { label: 'Teen',     path: '/for/teenager',         img: ROLE_IMAGES['Teenager'],                desc: 'Your rules. Your pace.',              border: '#7C3AED' },
                 { label: 'Guardian / Teacher', path: '/for/guardian-teacher', img: ROLE_IMAGES['Parent or Guardian'], desc: 'Learning AI alongside your kids.', border: '#D97706' },
                 { label: 'Watcher',  path: '/for/watcher',          img: ROLE_IMAGES['Researcher or Academic'],  desc: 'The part that notices.',              border: '#6B7280' },
+                { label: 'Citizen Researcher', path: '/citizen-researcher', img: ROLE_IMAGES['Citizen Researcher'], desc: 'Field notes. Real findings.', border: '#16A34A' },
               ].map((hat) => (
                 <Link
                   key={hat.label}
