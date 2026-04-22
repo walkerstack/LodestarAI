@@ -16,7 +16,7 @@ import { flowMap } from "@/lib/learningFlowMap";
 const IMG = {
   governance: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/plaud-governance-framework_f15cccb0.jpg",
   alcm: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/alcm-cognitive-physics_b9dcb9dc.jpg",
-  crossroads: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/11-figure-crossroads_d75932a1.png",
+  crossroads: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/citizen-researcher-hero-78Z73tehy9eW52iMTUEBZp.webp",
   tree: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/14-tree-neural_fb1c8ab4.jpg",
   bridge: "https://d2xsxph8kpxj0f.cloudfront.net/310519663536092940/k6tj495B6E7cV6HReyNZzD/17-bridge-worlds_288e5936.jpg",
 };
@@ -89,8 +89,8 @@ export default function CitizenResearcher() {
       {/* Hero */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={IMG.crossroads} alt="" className="w-full h-full object-cover opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6EF]/90 via-[#FAF6EF]/95 to-[#FAF6EF]" />
+          <img src={IMG.crossroads} alt="" className="w-full h-full object-cover opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6EF]/20 via-[#FAF6EF]/40 to-[#FAF6EF]" />
         </div>
         <div className="container relative z-10 max-w-3xl mx-auto px-6">
           <p className="text-[#E8520A] text-xs font-semibold tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
